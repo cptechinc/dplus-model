@@ -1860,180 +1860,180 @@
     </vendor>
   </table>
   <table name="in_config" idMethod="native" phpName="ConfigIn">
-    <column name="IntbConfKey" phpName="Intbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
-    <column name="IntbConfGlIfac" phpName="Intbconfglifac" type="VARCHAR" size="1"/>
-    <column name="IntbConfUseIw" phpName="Intbconfuseiw" type="VARCHAR" size="1"/>
-    <column name="IntbConfLifoFifo" phpName="Intbconflifofifo" type="VARCHAR" size="1"/>
-    <column name="IntbConfGoNeg" phpName="Intbconfgoneg" type="VARCHAR" size="1"/>
-    <column name="IntbConfUseLots" phpName="Intbconfuselots" type="VARCHAR" size="1"/>
-    <column name="IntbConfNbrUppr" phpName="Intbconfnbruppr" type="VARCHAR" size="1"/>
-    <column name="IntbConfDescUppr" phpName="Intbconfdescuppr" type="VARCHAR" size="1"/>
-    <column name="IntbConfUseDesc2" phpName="Intbconfusedesc2" type="VARCHAR" size="1"/>
-    <column name="IntbConfUseUpcCode" phpName="Intbconfuseupccode" type="VARCHAR" size="1"/>
-    <column name="IntbConfUpcEanCntrl" phpName="Intbconfupceancntrl" type="VARCHAR" size="1"/>
-    <column name="IntbConfUpcGenNbr" phpName="Intbconfupcgennbr" type="INTEGER" size="6"/>
-    <column name="IntbCon2AllowDupUpc" phpName="Intbcon2allowdupupc" type="VARCHAR" size="1"/>
-    <column name="IntbConfXrefNoSpace" phpName="Intbconfxrefnospace" type="VARCHAR" size="1"/>
-    <column name="IntbConfUsePricGrup" phpName="Intbconfusepricgrup" type="VARCHAR" size="1"/>
-    <column name="IntbConfUseCommGrup" phpName="Intbconfusecommgrup" type="VARCHAR" size="1"/>
-    <column name="IntbConfUseWarrDays" phpName="Intbconfusewarrdays" type="VARCHAR" size="1"/>
-    <column name="IntbConfStanBaseDef" phpName="Intbconfstanbasedef" type="VARCHAR" size="1"/>
-    <column name="IntbConfGrupDef" phpName="Intbconfgrupdef" type="VARCHAR" size="4"/>
-    <column name="IntbConfPricGrupDef" phpName="Intbconfpricgrupdef" type="VARCHAR" size="8"/>
-    <column name="IntbConfCommGrupDef" phpName="Intbconfcommgrupdef" type="VARCHAR" size="8"/>
-    <column name="IntbConfTypeDef" phpName="Intbconftypedef" type="VARCHAR" size="1"/>
-    <column name="IntbConfPricUseItem" phpName="Intbconfpricuseitem" type="VARCHAR" size="1"/>
-    <column name="IntbConfCommUseItem" phpName="Intbconfcommuseitem" type="VARCHAR" size="1"/>
-    <column name="IntbConfUomSaleDef" phpName="Intbconfuomsaledef" type="VARCHAR" size="4"/>
-    <column name="IntbConfUomPurDef" phpName="Intbconfuompurdef" type="VARCHAR" size="4"/>
-    <column name="IntbConfSviaDef" phpName="Intbconfsviadef" type="VARCHAR" size="4"/>
-    <column name="IntbConfCustxrefOrUse" phpName="Intbconfcustxreforuse" type="VARCHAR" size="1"/>
-    <column name="IntbConfHeadGetDef" phpName="Intbconfheadgetdef" type="INTEGER" size="1"/>
-    <column name="IntbConfItemGetDef" phpName="Intbconfitemgetdef" type="INTEGER" size="1"/>
-    <column name="IntbConfGetDispOhAval" phpName="Intbconfgetdispohaval" type="VARCHAR" size="1"/>
-    <column name="IntbConfUserCode1Labl" phpName="Intbconfusercode1labl" type="VARCHAR" size="8"/>
-    <column name="IntbConfUserCode1Ver" phpName="Intbconfusercode1ver" type="VARCHAR" size="1"/>
-    <column name="IntbConfUserCode2Labl" phpName="Intbconfusercode2labl" type="VARCHAR" size="8"/>
-    <column name="IntbConfUserCode2Ver" phpName="Intbconfusercode2ver" type="VARCHAR" size="1"/>
-    <column name="IntbConfItemLine" phpName="Intbconfitemline" type="INTEGER" size="2"/>
-    <column name="IntbConfItemCols" phpName="Intbconfitemcols" type="INTEGER" size="2"/>
-    <column name="IntbConfHeadLine" phpName="Intbconfheadline" type="INTEGER" size="2"/>
-    <column name="IntbConfHeadCols" phpName="Intbconfheadcols" type="INTEGER" size="2"/>
-    <column name="IntbConfDetLine" phpName="Intbconfdetline" type="INTEGER" size="2"/>
-    <column name="IntbConfDetCols" phpName="Intbconfdetcols" type="INTEGER" size="2"/>
-    <column name="IntbConfMinMaxZero" phpName="Intbconfminmaxzero" type="VARCHAR" size="1"/>
-    <column name="IntbConfMinRec" phpName="Intbconfminrec" type="VARCHAR" size="1"/>
-    <column name="IntbConfAtBelowMin" phpName="Intbconfatbelowmin" type="VARCHAR" size="1"/>
-    <column name="IntbConfOneWhse" phpName="Intbconfonewhse" type="VARCHAR" size="1"/>
-    <column name="IntbConfYtdMth" phpName="Intbconfytdmth" type="INTEGER" size="2"/>
-    <column name="IntbConfUseGramsLtr" phpName="Intbconfusegramsltr" type="VARCHAR" size="1"/>
-    <column name="IntbConfAbcByWhse" phpName="Intbconfabcbywhse" type="VARCHAR" size="1"/>
-    <column name="IntbConfAbcNbrMths" phpName="Intbconfabcnbrmths" type="INTEGER" size="2"/>
-    <column name="IntbConfAbcBaseCode" phpName="Intbconfabcbasecode" type="VARCHAR" size="1"/>
-    <column name="IntbConfAbcLevlA" phpName="Intbconfabclevla" type="DECIMAL" size="20" scale="2"/>
-    <column name="IntbConfAbcLevlB" phpName="Intbconfabclevlb" type="DECIMAL" size="20" scale="2"/>
-    <column name="IntbConfAbcLevlC" phpName="Intbconfabclevlc" type="DECIMAL" size="20" scale="2"/>
-    <column name="IntbConfAbcLevlD" phpName="Intbconfabclevld" type="DECIMAL" size="20" scale="2"/>
-    <column name="IntbConfAbcLevlE" phpName="Intbconfabclevle" type="DECIMAL" size="20" scale="2"/>
-    <column name="IntbConfAbcLevlF" phpName="Intbconfabclevlf" type="DECIMAL" size="20" scale="2"/>
-    <column name="IntbConfAbcLevlG" phpName="Intbconfabclevlg" type="DECIMAL" size="20" scale="2"/>
-    <column name="IntbConfAbcLevlH" phpName="Intbconfabclevlh" type="DECIMAL" size="20" scale="2"/>
-    <column name="IntbConfAbcLevlI" phpName="Intbconfabclevli" type="DECIMAL" size="20" scale="2"/>
-    <column name="IntbConfAbcLevlJ" phpName="Intbconfabclevlj" type="DECIMAL" size="20" scale="2"/>
-    <column name="IntbConfUseForeignX" phpName="Intbconfuseforeignx" type="VARCHAR" size="1"/>
-    <column name="IntbConfUseNafta" phpName="Intbconfusenafta" type="VARCHAR" size="1"/>
-    <column name="IntbConfNaftaPrefCode" phpName="Intbconfnaftaprefcode" type="VARCHAR" size="1"/>
-    <column name="IntbConfNaftaProducer" phpName="Intbconfnaftaproducer" type="VARCHAR" size="1"/>
-    <column name="IntbConfNaftaDocCode" phpName="Intbconfnaftadoccode" type="VARCHAR" size="1"/>
-    <column name="IntbConfPhysCurrWksh" phpName="Intbconfphyscurrwksh" type="VARCHAR" size="1"/>
-    <column name="IntbConf20Or30" phpName="Intbconf20or30" type="INTEGER" size="2"/>
-    <column name="IntbConfDispOrigCnt" phpName="Intbconfdisporigcnt" type="VARCHAR" size="1"/>
-    <column name="IntbConfDispGl" phpName="Intbconfdispgl" type="VARCHAR" size="1"/>
-    <column name="IntbConfDispRef" phpName="Intbconfdispref" type="VARCHAR" size="1"/>
-    <column name="IntbConfDispCost" phpName="Intbconfdispcost" type="VARCHAR" size="1"/>
-    <column name="IntbConfPrtVal" phpName="Intbconfprtval" type="VARCHAR" size="1"/>
-    <column name="IntbConfPrtGl" phpName="Intbconfprtgl" type="VARCHAR" size="1"/>
-    <column name="IntbConfGlAcct" phpName="Intbconfglacct" type="VARCHAR" size="9"/>
-    <column name="IntbConfRef" phpName="Intbconfref" type="VARCHAR" size="20"/>
-    <column name="IntbConfCostType" phpName="Intbconfcosttype" type="VARCHAR" size="1"/>
-    <column name="IntbConfNormalOnly" phpName="Intbconfnormalonly" type="VARCHAR" size="1"/>
-    <column name="IntbConfUseWhseDef" phpName="Intbconfusewhsedef" type="VARCHAR" size="1"/>
-    <column name="IntbCon2DfltWhse01" phpName="Intbcon2dfltwhse01" type="VARCHAR" size="2"/>
-    <column name="IntbCon2DfltWhse02" phpName="Intbcon2dfltwhse02" type="VARCHAR" size="2"/>
-    <column name="IntbCon2DfltWhse03" phpName="Intbcon2dfltwhse03" type="VARCHAR" size="2"/>
-    <column name="IntbCon2DfltWhse04" phpName="Intbcon2dfltwhse04" type="VARCHAR" size="2"/>
-    <column name="IntbCon2DfltWhse05" phpName="Intbcon2dfltwhse05" type="VARCHAR" size="2"/>
-    <column name="IntbCon2DfltWhse06" phpName="Intbcon2dfltwhse06" type="VARCHAR" size="2"/>
-    <column name="IntbCon2DfltWhse07" phpName="Intbcon2dfltwhse07" type="VARCHAR" size="2"/>
-    <column name="IntbCon2DfltWhse08" phpName="Intbcon2dfltwhse08" type="VARCHAR" size="2"/>
-    <column name="IntbCon2DfltWhse09" phpName="Intbcon2dfltwhse09" type="VARCHAR" size="2"/>
-    <column name="IntbCon2DfltWhse10" phpName="Intbcon2dfltwhse10" type="VARCHAR" size="2"/>
-    <column name="IntbConfBinDef" phpName="Intbconfbindef" type="VARCHAR" size="8"/>
-    <column name="IntbConfCyclDef" phpName="Intbconfcycldef" type="VARCHAR" size="2"/>
-    <column name="IntbConfStatDef" phpName="Intbconfstatdef" type="VARCHAR" size="1"/>
-    <column name="IntbConfAbcDef" phpName="Intbconfabcdef" type="VARCHAR" size="1"/>
-    <column name="IntbConfSpecOrdrDef" phpName="Intbconfspecordrdef" type="VARCHAR" size="1"/>
-    <column name="IntbConfOrdrPntDef" phpName="Intbconfordrpntdef" type="DECIMAL" size="20" scale="4"/>
-    <column name="IntbConfMaxDef" phpName="Intbconfmaxdef" type="DECIMAL" size="20" scale="4"/>
-    <column name="IntbConfOrdrQtyDef" phpName="Intbconfordrqtydef" type="DECIMAL" size="20" scale="4"/>
-    <column name="IntbConfTrcptAllowCmpl" phpName="Intbconftrcptallowcmpl" type="VARCHAR" size="1"/>
-    <column name="IntbConfTreCmmtStock" phpName="Intbconftrecmmtstock" type="VARCHAR" size="1"/>
-    <column name="IntbConfUseFrtIn" phpName="Intbconfusefrtin" type="VARCHAR" size="1"/>
-    <column name="IntbConfEachOrUom" phpName="Intbconfeachoruom" type="VARCHAR" size="1"/>
-    <column name="IntbConfNegLotCorr" phpName="Intbconfneglotcorr" type="VARCHAR" size="1"/>
-    <column name="IntbConfTrnsGlAcct" phpName="Intbconftrnsglacct" type="VARCHAR" size="9"/>
-    <column name="IntbConfTrnsProtStock" phpName="Intbconftrnsprotstock" type="DECIMAL" size="20" scale="2"/>
-    <column name="IntbConfNumericItem" phpName="Intbconfnumericitem" type="VARCHAR" size="1"/>
-    <column name="IntbConfItemDigits" phpName="Intbconfitemdigits" type="INTEGER" size="2"/>
-    <column name="IntbConfSingleWhse" phpName="Intbconfsinglewhse" type="VARCHAR" size="1"/>
-    <column name="IntbConfUpdUsePct" phpName="Intbconfupdusepct" type="VARCHAR" size="1"/>
-    <column name="IntbConfUpdPric" phpName="Intbconfupdpric" type="VARCHAR" size="1"/>
-    <column name="IntbConfUpdStdCost" phpName="Intbconfupdstdcost" type="VARCHAR" size="1"/>
-    <column name="IntbConfUpdXrefCost" phpName="Intbconfupdxrefcost" type="VARCHAR" size="1"/>
-    <column name="IntbConfIqpaUpdDate" phpName="Intbconfiqpaupddate" type="VARCHAR" size="1"/>
-    <column name="IntbConfUpcXrefOptn" phpName="Intbconfupcxrefoptn" type="VARCHAR" size="1"/>
-    <column name="IntbConfResqYN" phpName="Intbconfresqyn" type="VARCHAR" size="1"/>
-    <column name="IntbConfResqItemBin" phpName="Intbconfresqitembin" type="VARCHAR" size="1"/>
-    <column name="IntbConfResvCost" phpName="Intbconfresvcost" type="VARCHAR" size="1"/>
-    <column name="IntbCon2TranZeroRqst" phpName="Intbcon2tranzerorqst" type="VARCHAR" size="1"/>
-    <column name="IntbConfMonEndAdjDate" phpName="Intbconfmonendadjdate" type="VARCHAR" size="8"/>
-    <column name="IntbConfMonEndTrnDate" phpName="Intbconfmonendtrndate" type="VARCHAR" size="8"/>
-    <column name="IntbConfMonEndLogDate" phpName="Intbconfmonendlogdate" type="VARCHAR" size="8"/>
-    <column name="IntbConfDStatProc" phpName="Intbconfdstatproc" type="VARCHAR" size="1"/>
-    <column name="IntbConfStanCostUpd" phpName="Intbconfstancostupd" type="VARCHAR" size="1"/>
-    <column name="IntbConfLastCost" phpName="Intbconflastcost" type="VARCHAR" size="1"/>
-    <column name="IntbConfUseSOrGPct" phpName="Intbconfusesorgpct" type="VARCHAR" size="1"/>
-    <column name="IntbConfAddOnStan" phpName="Intbconfaddonstan" type="DECIMAL" size="20" scale="2"/>
-    <column name="IntbConfStdCostError" phpName="Intbconfstdcosterror" type="VARCHAR" size="1"/>
-    <column name="IntbConfAvgCurrFive" phpName="Intbconfavgcurrfive" type="VARCHAR" size="1"/>
-    <column name="IntbConfUseCntrlBin" phpName="Intbconfusecntrlbin" type="VARCHAR" size="1"/>
-    <column name="IntbConfNbrBinAreas" phpName="Intbconfnbrbinareas" type="INTEGER" size="1"/>
-    <column name="IntbConfUseMultBin" phpName="Intbconfusemultbin" type="VARCHAR" size="1"/>
-    <column name="IntbConfDfltWhseBin" phpName="Intbconfdfltwhsebin" type="VARCHAR" size="1"/>
-    <column name="IntbConfDfltBin" phpName="Intbconfdfltbin" type="VARCHAR" size="8"/>
-    <column name="IntbConfCtryItemLot" phpName="Intbconfctryitemlot" type="VARCHAR" size="1"/>
-    <column name="IntbConfUseShipBin" phpName="Intbconfuseshipbin" type="VARCHAR" size="1"/>
-    <column name="IntbCon2PrtBinrLabel" phpName="Intbcon2prtbinrlabel" type="VARCHAR" size="1"/>
-    <column name="IntbCon2ItemLookup" phpName="Intbcon2itemlookup" type="VARCHAR" size="1"/>
-    <column name="IntbConfIncldCti" phpName="Intbconfincldcti" type="VARCHAR" size="1"/>
-    <column name="IntbConfCertImage" phpName="Intbconfcertimage" type="VARCHAR" size="1"/>
-    <column name="IntbConfDrawImage" phpName="Intbconfdrawimage" type="VARCHAR" size="1"/>
-    <column name="IntbConfConfirmImage" phpName="Intbconfconfirmimage" type="VARCHAR" size="1"/>
-    <column name="IntbCon2ProductImage" phpName="Intbcon2productimage" type="VARCHAR" size="1"/>
-    <column name="IntbConfDefPick" phpName="Intbconfdefpick" type="VARCHAR" size="1"/>
-    <column name="IntbConfDefPack" phpName="Intbconfdefpack" type="VARCHAR" size="1"/>
-    <column name="IntbConfDefInvc" phpName="Intbconfdefinvc" type="VARCHAR" size="1"/>
-    <column name="IntbConfDefAck" phpName="Intbconfdefack" type="VARCHAR" size="1"/>
-    <column name="IntbConfDefQuot" phpName="Intbconfdefquot" type="VARCHAR" size="1"/>
-    <column name="IntbConfDefPo" phpName="Intbconfdefpo" type="VARCHAR" size="1"/>
-    <column name="IntbConfDefTrans" phpName="Intbconfdeftrans" type="VARCHAR" size="1"/>
-    <column name="IntbConfAdjGlCogs" phpName="Intbconfadjglcogs" type="VARCHAR" size="1"/>
-    <column name="IntbCon2DfltAdjGlAcct" phpName="Intbcon2dfltadjglacct" type="VARCHAR" size="9"/>
-    <column name="IntbConfAdjCostBase" phpName="Intbconfadjcostbase" type="VARCHAR" size="1"/>
-    <column name="IntbConfDfltAdjtBin" phpName="Intbconfdfltadjtbin" type="VARCHAR" size="1"/>
-    <column name="IntbConfAdjtBin" phpName="Intbconfadjtbin" type="VARCHAR" size="8"/>
-    <column name="IntbConfCStockSeq" phpName="Intbconfcstockseq" type="VARCHAR" size="1"/>
-    <column name="IntbConfCStockHistDay" phpName="Intbconfcstockhistday" type="INTEGER" size="6"/>
-    <column name="IntbConfCStockFormat" phpName="Intbconfcstockformat" type="VARCHAR" size="8"/>
-    <column name="IntbConfCstkExportItem" phpName="Intbconfcstkexportitem" type="VARCHAR" size="1"/>
-    <column name="IntbConfCstkPdmContract" phpName="Intbconfcstkpdmcontract" type="VARCHAR" size="1"/>
-    <column name="IntbCon2ImportSeq" phpName="Intbcon2importseq" type="VARCHAR" size="1"/>
-    <column name="IntbConfStopItemChg" phpName="Intbconfstopitemchg" type="INTEGER" size="4"/>
-    <column name="IntbConfAddToMxrfe" phpName="Intbconfaddtomxrfe" type="VARCHAR" size="1"/>
-    <column name="IntbConfMxrfeVendId" phpName="Intbconfmxrfevendid" type="VARCHAR" size="6"/>
-    <column name="IntbCon2NewIdLabelList" phpName="Intbcon2newidlabellist" type="VARCHAR" size="1"/>
-    <column name="IntbConfUseFormat" phpName="Intbconfuseformat" type="VARCHAR" size="1"/>
-    <column name="IntbConfDefFormat" phpName="Intbconfdefformat" type="VARCHAR" size="2"/>
-    <column name="IntbConfSeqShortItem" phpName="Intbconfseqshortitem" type="VARCHAR" size="1"/>
-    <column name="IntbConfShortItemLen" phpName="Intbconfshortitemlen" type="INTEGER" size="2"/>
-    <column name="IntbConfUseScale" phpName="Intbconfusescale" type="VARCHAR" size="1"/>
-    <column name="IntbConfStoreWght" phpName="Intbconfstorewght" type="VARCHAR" size="1"/>
-    <column name="IntbConfValidAsstCode" phpName="Intbconfvalidasstcode" type="VARCHAR" size="1"/>
-    <column name="IntbConfWhiteGoods" phpName="Intbconfwhitegoods" type="VARCHAR" size="1"/>
-    <column name="IntbCon2TransCustId" phpName="Intbcon2transcustid" type="VARCHAR" size="6"/>
-    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
-    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
-    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <column name="IntbConfKey" phpName="Intbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="1"/>
+    <column name="IntbConfGlIfac" phpName="Intbconfglifac" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfUseIw" phpName="Intbconfuseiw" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfLifoFifo" phpName="Intbconflifofifo" type="VARCHAR" size="1" required="true" defaultValue="L"/>
+    <column name="IntbConfGoNeg" phpName="Intbconfgoneg" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfUseLots" phpName="Intbconfuselots" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfNbrUppr" phpName="Intbconfnbruppr" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfDescUppr" phpName="Intbconfdescuppr" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfUseDesc2" phpName="Intbconfusedesc2" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfUseUpcCode" phpName="Intbconfuseupccode" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfUpcEanCntrl" phpName="Intbconfupceancntrl" type="VARCHAR" size="1" required="true" defaultValue="U"/>
+    <column name="IntbConfUpcGenNbr" phpName="Intbconfupcgennbr" type="INTEGER" size="6" required="true" defaultValue="0"/>
+    <column name="IntbCon2AllowDupUpc" phpName="Intbcon2allowdupupc" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfXrefNoSpace" phpName="Intbconfxrefnospace" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfUsePricGrup" phpName="Intbconfusepricgrup" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfUseCommGrup" phpName="Intbconfusecommgrup" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfUseWarrDays" phpName="Intbconfusewarrdays" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfStanBaseDef" phpName="Intbconfstanbasedef" type="VARCHAR" size="1" required="true" defaultValue="A"/>
+    <column name="IntbConfGrupDef" phpName="Intbconfgrupdef" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="IntbConfPricGrupDef" phpName="Intbconfpricgrupdef" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbConfCommGrupDef" phpName="Intbconfcommgrupdef" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbConfTypeDef" phpName="Intbconftypedef" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfPricUseItem" phpName="Intbconfpricuseitem" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfCommUseItem" phpName="Intbconfcommuseitem" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfUomSaleDef" phpName="Intbconfuomsaledef" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="IntbConfUomPurDef" phpName="Intbconfuompurdef" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="IntbConfSviaDef" phpName="Intbconfsviadef" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="IntbConfCustxrefOrUse" phpName="Intbconfcustxreforuse" type="VARCHAR" size="1" required="true" defaultValue="C"/>
+    <column name="IntbConfHeadGetDef" phpName="Intbconfheadgetdef" type="INTEGER" size="1" required="true" defaultValue="1"/>
+    <column name="IntbConfItemGetDef" phpName="Intbconfitemgetdef" type="INTEGER" size="1" required="true" defaultValue="1"/>
+    <column name="IntbConfGetDispOhAval" phpName="Intbconfgetdispohaval" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfUserCode1Labl" phpName="Intbconfusercode1labl" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbConfUserCode1Ver" phpName="Intbconfusercode1ver" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfUserCode2Labl" phpName="Intbconfusercode2labl" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbConfUserCode2Ver" phpName="Intbconfusercode2ver" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfItemLine" phpName="Intbconfitemline" type="INTEGER" size="2" required="true" defaultValue="20"/>
+    <column name="IntbConfItemCols" phpName="Intbconfitemcols" type="INTEGER" size="2" required="true" defaultValue="30"/>
+    <column name="IntbConfHeadLine" phpName="Intbconfheadline" type="INTEGER" size="2" required="true" defaultValue="20"/>
+    <column name="IntbConfHeadCols" phpName="Intbconfheadcols" type="INTEGER" size="2" required="true" defaultValue="35"/>
+    <column name="IntbConfDetLine" phpName="Intbconfdetline" type="INTEGER" size="2" required="true" defaultValue="20"/>
+    <column name="IntbConfDetCols" phpName="Intbconfdetcols" type="INTEGER" size="2" required="true" defaultValue="35"/>
+    <column name="IntbConfMinMaxZero" phpName="Intbconfminmaxzero" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfMinRec" phpName="Intbconfminrec" type="VARCHAR" size="1" required="true" defaultValue="X"/>
+    <column name="IntbConfAtBelowMin" phpName="Intbconfatbelowmin" type="VARCHAR" size="1" required="true" defaultValue="B"/>
+    <column name="IntbConfOneWhse" phpName="Intbconfonewhse" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfYtdMth" phpName="Intbconfytdmth" type="INTEGER" size="2" required="true" defaultValue="1"/>
+    <column name="IntbConfUseGramsLtr" phpName="Intbconfusegramsltr" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfAbcByWhse" phpName="Intbconfabcbywhse" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfAbcNbrMths" phpName="Intbconfabcnbrmths" type="INTEGER" size="2" required="true" defaultValue="12"/>
+    <column name="IntbConfAbcBaseCode" phpName="Intbconfabcbasecode" type="VARCHAR" size="1" required="true" defaultValue="M"/>
+    <column name="IntbConfAbcLevlA" phpName="Intbconfabclevla" type="DECIMAL" size="20" scale="2" required="true" defaultValue="10.00"/>
+    <column name="IntbConfAbcLevlB" phpName="Intbconfabclevlb" type="DECIMAL" size="20" scale="2" required="true" defaultValue="10.00"/>
+    <column name="IntbConfAbcLevlC" phpName="Intbconfabclevlc" type="DECIMAL" size="20" scale="2" required="true" defaultValue="10.00"/>
+    <column name="IntbConfAbcLevlD" phpName="Intbconfabclevld" type="DECIMAL" size="20" scale="2" required="true" defaultValue="10.00"/>
+    <column name="IntbConfAbcLevlE" phpName="Intbconfabclevle" type="DECIMAL" size="20" scale="2" required="true" defaultValue="10.00"/>
+    <column name="IntbConfAbcLevlF" phpName="Intbconfabclevlf" type="DECIMAL" size="20" scale="2" required="true" defaultValue="10.00"/>
+    <column name="IntbConfAbcLevlG" phpName="Intbconfabclevlg" type="DECIMAL" size="20" scale="2" required="true" defaultValue="10.00"/>
+    <column name="IntbConfAbcLevlH" phpName="Intbconfabclevlh" type="DECIMAL" size="20" scale="2" required="true" defaultValue="10.00"/>
+    <column name="IntbConfAbcLevlI" phpName="Intbconfabclevli" type="DECIMAL" size="20" scale="2" required="true" defaultValue="10.00"/>
+    <column name="IntbConfAbcLevlJ" phpName="Intbconfabclevlj" type="DECIMAL" size="20" scale="2" required="true" defaultValue="10.00"/>
+    <column name="IntbConfUseForeignX" phpName="Intbconfuseforeignx" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfUseNafta" phpName="Intbconfusenafta" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfNaftaPrefCode" phpName="Intbconfnaftaprefcode" type="VARCHAR" size="1" required="true" defaultValue="A"/>
+    <column name="IntbConfNaftaProducer" phpName="Intbconfnaftaproducer" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfNaftaDocCode" phpName="Intbconfnaftadoccode" type="VARCHAR" size="1" required="true" defaultValue="1"/>
+    <column name="IntbConfPhysCurrWksh" phpName="Intbconfphyscurrwksh" type="VARCHAR" size="1" required="true" defaultValue="C"/>
+    <column name="IntbConf20Or30" phpName="Intbconf20or30" type="INTEGER" size="2" required="true" defaultValue="20"/>
+    <column name="IntbConfDispOrigCnt" phpName="Intbconfdisporigcnt" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfDispGl" phpName="Intbconfdispgl" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfDispRef" phpName="Intbconfdispref" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfDispCost" phpName="Intbconfdispcost" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfPrtVal" phpName="Intbconfprtval" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfPrtGl" phpName="Intbconfprtgl" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfGlAcct" phpName="Intbconfglacct" type="VARCHAR" size="9" required="true" defaultValue=""/>
+    <column name="IntbConfRef" phpName="Intbconfref" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="IntbConfCostType" phpName="Intbconfcosttype" type="VARCHAR" size="1" required="true" defaultValue="A"/>
+    <column name="IntbConfNormalOnly" phpName="Intbconfnormalonly" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfUseWhseDef" phpName="Intbconfusewhsedef" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="IntbCon2DfltWhse01" phpName="Intbcon2dfltwhse01" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbCon2DfltWhse02" phpName="Intbcon2dfltwhse02" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbCon2DfltWhse03" phpName="Intbcon2dfltwhse03" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbCon2DfltWhse04" phpName="Intbcon2dfltwhse04" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbCon2DfltWhse05" phpName="Intbcon2dfltwhse05" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbCon2DfltWhse06" phpName="Intbcon2dfltwhse06" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbCon2DfltWhse07" phpName="Intbcon2dfltwhse07" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbCon2DfltWhse08" phpName="Intbcon2dfltwhse08" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbCon2DfltWhse09" phpName="Intbcon2dfltwhse09" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbCon2DfltWhse10" phpName="Intbcon2dfltwhse10" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbConfBinDef" phpName="Intbconfbindef" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbConfCyclDef" phpName="Intbconfcycldef" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbConfStatDef" phpName="Intbconfstatdef" type="VARCHAR" size="1" required="true" defaultValue="A"/>
+    <column name="IntbConfAbcDef" phpName="Intbconfabcdef" type="VARCHAR" size="1" required="true" defaultValue="J"/>
+    <column name="IntbConfSpecOrdrDef" phpName="Intbconfspecordrdef" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfOrdrPntDef" phpName="Intbconfordrpntdef" type="DECIMAL" size="20" scale="4" required="true" defaultValue="0.0000"/>
+    <column name="IntbConfMaxDef" phpName="Intbconfmaxdef" type="DECIMAL" size="20" scale="4" required="true" defaultValue="0.0000"/>
+    <column name="IntbConfOrdrQtyDef" phpName="Intbconfordrqtydef" type="DECIMAL" size="20" scale="4" required="true" defaultValue="0.0000"/>
+    <column name="IntbConfTrcptAllowCmpl" phpName="Intbconftrcptallowcmpl" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfTreCmmtStock" phpName="Intbconftrecmmtstock" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfUseFrtIn" phpName="Intbconfusefrtin" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfEachOrUom" phpName="Intbconfeachoruom" type="VARCHAR" size="1" required="true" defaultValue="E"/>
+    <column name="IntbConfNegLotCorr" phpName="Intbconfneglotcorr" type="VARCHAR" size="1" required="true" defaultValue="A"/>
+    <column name="IntbConfTrnsGlAcct" phpName="Intbconftrnsglacct" type="VARCHAR" size="9" required="true" defaultValue=""/>
+    <column name="IntbConfTrnsProtStock" phpName="Intbconftrnsprotstock" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="IntbConfNumericItem" phpName="Intbconfnumericitem" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfItemDigits" phpName="Intbconfitemdigits" type="INTEGER" size="2" required="true" defaultValue="0"/>
+    <column name="IntbConfSingleWhse" phpName="Intbconfsinglewhse" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfUpdUsePct" phpName="Intbconfupdusepct" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfUpdPric" phpName="Intbconfupdpric" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfUpdStdCost" phpName="Intbconfupdstdcost" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfUpdXrefCost" phpName="Intbconfupdxrefcost" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfIqpaUpdDate" phpName="Intbconfiqpaupddate" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfUpcXrefOptn" phpName="Intbconfupcxrefoptn" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfResqYN" phpName="Intbconfresqyn" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="IntbConfTranViewLIB" phpName="Intbconftranviewlib" type="VARCHAR" size="1" required="true" defaultValue="L"/>
+    <column name="IntbConfResvCost" phpName="Intbconfresvcost" type="VARCHAR" size="1" required="true" defaultValue="I"/>
+    <column name="IntbCon2TranZeroRqst" phpName="Intbcon2tranzerorqst" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfMonEndAdjDate" phpName="Intbconfmonendadjdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbConfMonEndTrnDate" phpName="Intbconfmonendtrndate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbConfMonEndLogDate" phpName="Intbconfmonendlogdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbConfDStatProc" phpName="Intbconfdstatproc" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfStanCostUpd" phpName="Intbconfstancostupd" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="IntbConfLastCost" phpName="Intbconflastcost" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfUseSOrGPct" phpName="Intbconfusesorgpct" type="VARCHAR" size="1" required="true" defaultValue="S"/>
+    <column name="IntbConfAddOnStan" phpName="Intbconfaddonstan" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="IntbConfStdCostError" phpName="Intbconfstdcosterror" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfAvgCurrFive" phpName="Intbconfavgcurrfive" type="VARCHAR" size="1" required="true" defaultValue="S"/>
+    <column name="IntbConfUseCntrlBin" phpName="Intbconfusecntrlbin" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfNbrBinAreas" phpName="Intbconfnbrbinareas" type="INTEGER" size="1" required="true" defaultValue="0"/>
+    <column name="IntbConfUseMultBin" phpName="Intbconfusemultbin" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfDfltWhseBin" phpName="Intbconfdfltwhsebin" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfDfltBin" phpName="Intbconfdfltbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbConfCtryItemLot" phpName="Intbconfctryitemlot" type="VARCHAR" size="1" required="true" defaultValue="I"/>
+    <column name="IntbConfUseShipBin" phpName="Intbconfuseshipbin" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbCon2PrtBinrLabel" phpName="Intbcon2prtbinrlabel" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbCon2ItemLookup" phpName="Intbcon2itemlookup" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfIncldCti" phpName="Intbconfincldcti" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfCertImage" phpName="Intbconfcertimage" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfDrawImage" phpName="Intbconfdrawimage" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfConfirmImage" phpName="Intbconfconfirmimage" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbCon2ProductImage" phpName="Intbcon2productimage" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfDefPick" phpName="Intbconfdefpick" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfDefPack" phpName="Intbconfdefpack" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfDefInvc" phpName="Intbconfdefinvc" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfDefAck" phpName="Intbconfdefack" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfDefQuot" phpName="Intbconfdefquot" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfDefPo" phpName="Intbconfdefpo" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfDefTrans" phpName="Intbconfdeftrans" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfAdjGlCogs" phpName="Intbconfadjglcogs" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbCon2DfltAdjGlAcct" phpName="Intbcon2dfltadjglacct" type="VARCHAR" size="9" required="true" defaultValue=""/>
+    <column name="IntbConfAdjCostBase" phpName="Intbconfadjcostbase" type="VARCHAR" size="1" required="true" defaultValue="B"/>
+    <column name="IntbConfDfltAdjtBin" phpName="Intbconfdfltadjtbin" type="VARCHAR" size="1" required="true" defaultValue="S"/>
+    <column name="IntbConfAdjtBin" phpName="Intbconfadjtbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbConfCStockSeq" phpName="Intbconfcstockseq" type="VARCHAR" size="1" required="true" defaultValue="L"/>
+    <column name="IntbConfCStockHistDay" phpName="Intbconfcstockhistday" type="INTEGER" size="6" required="true" defaultValue="0"/>
+    <column name="IntbConfCStockFormat" phpName="Intbconfcstockformat" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbConfCstkExportItem" phpName="Intbconfcstkexportitem" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfCstkPdmContract" phpName="Intbconfcstkpdmcontract" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbCon2ImportSeq" phpName="Intbcon2importseq" type="VARCHAR" size="1" required="true" defaultValue="I"/>
+    <column name="IntbConfStopItemChg" phpName="Intbconfstopitemchg" type="INTEGER" size="4" required="true" defaultValue="0"/>
+    <column name="IntbConfAddToMxrfe" phpName="Intbconfaddtomxrfe" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfMxrfeVendId" phpName="Intbconfmxrfevendid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="IntbCon2NewIdLabelList" phpName="Intbcon2newidlabellist" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfUseFormat" phpName="Intbconfuseformat" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfDefFormat" phpName="Intbconfdefformat" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbConfSeqShortItem" phpName="Intbconfseqshortitem" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfShortItemLen" phpName="Intbconfshortitemlen" type="INTEGER" size="2" required="true" defaultValue="0"/>
+    <column name="IntbConfUseScale" phpName="Intbconfusescale" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfStoreWght" phpName="Intbconfstorewght" type="VARCHAR" size="1" required="true" defaultValue="I"/>
+    <column name="IntbConfValidAsstCode" phpName="Intbconfvalidasstcode" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbConfWhiteGoods" phpName="Intbconfwhitegoods" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbCon2TransCustId" phpName="Intbcon2transcustid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" required="true" defaultValue="P"/>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>

@@ -62,7 +62,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfkey field.
      *
-     * Note: this column has a database default value of: 0
+     * Note: this column has a database default value of: 1
      * @var        int
      */
     protected $intbconfkey;
@@ -70,6 +70,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfglifac field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfglifac;
@@ -77,6 +78,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfuseiw field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfuseiw;
@@ -84,6 +86,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconflifofifo field.
      *
+     * Note: this column has a database default value of: 'L'
      * @var        string
      */
     protected $intbconflifofifo;
@@ -91,6 +94,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfgoneg field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfgoneg;
@@ -98,6 +102,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfuselots field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfuselots;
@@ -105,6 +110,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfnbruppr field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfnbruppr;
@@ -112,6 +118,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdescuppr field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfdescuppr;
@@ -119,6 +126,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfusedesc2 field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfusedesc2;
@@ -126,6 +134,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfuseupccode field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfuseupccode;
@@ -133,6 +142,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfupceancntrl field.
      *
+     * Note: this column has a database default value of: 'U'
      * @var        string
      */
     protected $intbconfupceancntrl;
@@ -140,6 +150,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfupcgennbr field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $intbconfupcgennbr;
@@ -147,6 +158,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2allowdupupc field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbcon2allowdupupc;
@@ -154,6 +166,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfxrefnospace field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfxrefnospace;
@@ -161,6 +174,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfusepricgrup field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfusepricgrup;
@@ -168,6 +182,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfusecommgrup field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfusecommgrup;
@@ -175,6 +190,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfusewarrdays field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfusewarrdays;
@@ -182,6 +198,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfstanbasedef field.
      *
+     * Note: this column has a database default value of: 'A'
      * @var        string
      */
     protected $intbconfstanbasedef;
@@ -189,6 +206,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfgrupdef field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfgrupdef;
@@ -196,6 +214,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfpricgrupdef field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfpricgrupdef;
@@ -203,6 +222,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfcommgrupdef field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfcommgrupdef;
@@ -210,6 +230,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconftypedef field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconftypedef;
@@ -217,6 +238,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfpricuseitem field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfpricuseitem;
@@ -224,6 +246,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfcommuseitem field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfcommuseitem;
@@ -231,6 +254,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfuomsaledef field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfuomsaledef;
@@ -238,6 +262,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfuompurdef field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfuompurdef;
@@ -245,6 +270,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfsviadef field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfsviadef;
@@ -252,6 +278,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfcustxreforuse field.
      *
+     * Note: this column has a database default value of: 'C'
      * @var        string
      */
     protected $intbconfcustxreforuse;
@@ -259,6 +286,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfheadgetdef field.
      *
+     * Note: this column has a database default value of: 1
      * @var        int
      */
     protected $intbconfheadgetdef;
@@ -266,6 +294,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfitemgetdef field.
      *
+     * Note: this column has a database default value of: 1
      * @var        int
      */
     protected $intbconfitemgetdef;
@@ -273,6 +302,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfgetdispohaval field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfgetdispohaval;
@@ -280,6 +310,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfusercode1labl field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfusercode1labl;
@@ -287,6 +318,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfusercode1ver field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfusercode1ver;
@@ -294,6 +326,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfusercode2labl field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfusercode2labl;
@@ -301,6 +334,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfusercode2ver field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfusercode2ver;
@@ -308,6 +342,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfitemline field.
      *
+     * Note: this column has a database default value of: 20
      * @var        int
      */
     protected $intbconfitemline;
@@ -315,6 +350,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfitemcols field.
      *
+     * Note: this column has a database default value of: 30
      * @var        int
      */
     protected $intbconfitemcols;
@@ -322,6 +358,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfheadline field.
      *
+     * Note: this column has a database default value of: 20
      * @var        int
      */
     protected $intbconfheadline;
@@ -329,6 +366,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfheadcols field.
      *
+     * Note: this column has a database default value of: 35
      * @var        int
      */
     protected $intbconfheadcols;
@@ -336,6 +374,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdetline field.
      *
+     * Note: this column has a database default value of: 20
      * @var        int
      */
     protected $intbconfdetline;
@@ -343,6 +382,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdetcols field.
      *
+     * Note: this column has a database default value of: 35
      * @var        int
      */
     protected $intbconfdetcols;
@@ -350,6 +390,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfminmaxzero field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfminmaxzero;
@@ -357,6 +398,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfminrec field.
      *
+     * Note: this column has a database default value of: 'X'
      * @var        string
      */
     protected $intbconfminrec;
@@ -364,6 +406,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfatbelowmin field.
      *
+     * Note: this column has a database default value of: 'B'
      * @var        string
      */
     protected $intbconfatbelowmin;
@@ -371,6 +414,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfonewhse field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfonewhse;
@@ -378,6 +422,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfytdmth field.
      *
+     * Note: this column has a database default value of: 1
      * @var        int
      */
     protected $intbconfytdmth;
@@ -385,6 +430,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfusegramsltr field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfusegramsltr;
@@ -392,6 +438,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfabcbywhse field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfabcbywhse;
@@ -399,6 +446,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfabcnbrmths field.
      *
+     * Note: this column has a database default value of: 12
      * @var        int
      */
     protected $intbconfabcnbrmths;
@@ -406,6 +454,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfabcbasecode field.
      *
+     * Note: this column has a database default value of: 'M'
      * @var        string
      */
     protected $intbconfabcbasecode;
@@ -413,6 +462,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfabclevla field.
      *
+     * Note: this column has a database default value of: '10.00'
      * @var        string
      */
     protected $intbconfabclevla;
@@ -420,6 +470,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfabclevlb field.
      *
+     * Note: this column has a database default value of: '10.00'
      * @var        string
      */
     protected $intbconfabclevlb;
@@ -427,6 +478,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfabclevlc field.
      *
+     * Note: this column has a database default value of: '10.00'
      * @var        string
      */
     protected $intbconfabclevlc;
@@ -434,6 +486,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfabclevld field.
      *
+     * Note: this column has a database default value of: '10.00'
      * @var        string
      */
     protected $intbconfabclevld;
@@ -441,6 +494,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfabclevle field.
      *
+     * Note: this column has a database default value of: '10.00'
      * @var        string
      */
     protected $intbconfabclevle;
@@ -448,6 +502,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfabclevlf field.
      *
+     * Note: this column has a database default value of: '10.00'
      * @var        string
      */
     protected $intbconfabclevlf;
@@ -455,6 +510,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfabclevlg field.
      *
+     * Note: this column has a database default value of: '10.00'
      * @var        string
      */
     protected $intbconfabclevlg;
@@ -462,6 +518,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfabclevlh field.
      *
+     * Note: this column has a database default value of: '10.00'
      * @var        string
      */
     protected $intbconfabclevlh;
@@ -469,6 +526,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfabclevli field.
      *
+     * Note: this column has a database default value of: '10.00'
      * @var        string
      */
     protected $intbconfabclevli;
@@ -476,6 +534,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfabclevlj field.
      *
+     * Note: this column has a database default value of: '10.00'
      * @var        string
      */
     protected $intbconfabclevlj;
@@ -483,6 +542,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfuseforeignx field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfuseforeignx;
@@ -490,6 +550,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfusenafta field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfusenafta;
@@ -497,6 +558,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfnaftaprefcode field.
      *
+     * Note: this column has a database default value of: 'A'
      * @var        string
      */
     protected $intbconfnaftaprefcode;
@@ -504,6 +566,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfnaftaproducer field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfnaftaproducer;
@@ -511,6 +574,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfnaftadoccode field.
      *
+     * Note: this column has a database default value of: '1'
      * @var        string
      */
     protected $intbconfnaftadoccode;
@@ -518,6 +582,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfphyscurrwksh field.
      *
+     * Note: this column has a database default value of: 'C'
      * @var        string
      */
     protected $intbconfphyscurrwksh;
@@ -525,6 +590,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconf20or30 field.
      *
+     * Note: this column has a database default value of: 20
      * @var        int
      */
     protected $intbconf20or30;
@@ -532,6 +598,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdisporigcnt field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfdisporigcnt;
@@ -539,6 +606,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdispgl field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfdispgl;
@@ -546,6 +614,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdispref field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfdispref;
@@ -553,6 +622,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdispcost field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfdispcost;
@@ -560,6 +630,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfprtval field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfprtval;
@@ -567,6 +638,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfprtgl field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfprtgl;
@@ -574,6 +646,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfglacct field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfglacct;
@@ -581,6 +654,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfref field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfref;
@@ -588,6 +662,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfcosttype field.
      *
+     * Note: this column has a database default value of: 'A'
      * @var        string
      */
     protected $intbconfcosttype;
@@ -595,6 +670,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfnormalonly field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfnormalonly;
@@ -602,6 +678,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfusewhsedef field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfusewhsedef;
@@ -609,6 +686,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2dfltwhse01 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbcon2dfltwhse01;
@@ -616,6 +694,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2dfltwhse02 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbcon2dfltwhse02;
@@ -623,6 +702,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2dfltwhse03 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbcon2dfltwhse03;
@@ -630,6 +710,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2dfltwhse04 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbcon2dfltwhse04;
@@ -637,6 +718,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2dfltwhse05 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbcon2dfltwhse05;
@@ -644,6 +726,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2dfltwhse06 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbcon2dfltwhse06;
@@ -651,6 +734,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2dfltwhse07 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbcon2dfltwhse07;
@@ -658,6 +742,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2dfltwhse08 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbcon2dfltwhse08;
@@ -665,6 +750,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2dfltwhse09 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbcon2dfltwhse09;
@@ -672,6 +758,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2dfltwhse10 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbcon2dfltwhse10;
@@ -679,6 +766,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfbindef field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfbindef;
@@ -686,6 +774,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfcycldef field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfcycldef;
@@ -693,6 +782,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfstatdef field.
      *
+     * Note: this column has a database default value of: 'A'
      * @var        string
      */
     protected $intbconfstatdef;
@@ -700,6 +790,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfabcdef field.
      *
+     * Note: this column has a database default value of: 'J'
      * @var        string
      */
     protected $intbconfabcdef;
@@ -707,6 +798,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfspecordrdef field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfspecordrdef;
@@ -714,6 +806,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfordrpntdef field.
      *
+     * Note: this column has a database default value of: '0.0000'
      * @var        string
      */
     protected $intbconfordrpntdef;
@@ -721,6 +814,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfmaxdef field.
      *
+     * Note: this column has a database default value of: '0.0000'
      * @var        string
      */
     protected $intbconfmaxdef;
@@ -728,6 +822,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfordrqtydef field.
      *
+     * Note: this column has a database default value of: '0.0000'
      * @var        string
      */
     protected $intbconfordrqtydef;
@@ -735,6 +830,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconftrcptallowcmpl field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconftrcptallowcmpl;
@@ -742,6 +838,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconftrecmmtstock field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconftrecmmtstock;
@@ -749,6 +846,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfusefrtin field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfusefrtin;
@@ -756,6 +854,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfeachoruom field.
      *
+     * Note: this column has a database default value of: 'E'
      * @var        string
      */
     protected $intbconfeachoruom;
@@ -763,6 +862,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfneglotcorr field.
      *
+     * Note: this column has a database default value of: 'A'
      * @var        string
      */
     protected $intbconfneglotcorr;
@@ -770,6 +870,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconftrnsglacct field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconftrnsglacct;
@@ -777,6 +878,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconftrnsprotstock field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $intbconftrnsprotstock;
@@ -784,6 +886,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfnumericitem field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfnumericitem;
@@ -791,6 +894,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfitemdigits field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $intbconfitemdigits;
@@ -798,6 +902,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfsinglewhse field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfsinglewhse;
@@ -805,6 +910,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfupdusepct field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfupdusepct;
@@ -812,6 +918,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfupdpric field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfupdpric;
@@ -819,6 +926,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfupdstdcost field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfupdstdcost;
@@ -826,6 +934,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfupdxrefcost field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfupdxrefcost;
@@ -833,6 +942,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfiqpaupddate field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfiqpaupddate;
@@ -840,6 +950,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfupcxrefoptn field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfupcxrefoptn;
@@ -847,20 +958,23 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfresqyn field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfresqyn;
 
     /**
-     * The value for the intbconfresqitembin field.
+     * The value for the intbconftranviewlib field.
      *
+     * Note: this column has a database default value of: 'L'
      * @var        string
      */
-    protected $intbconfresqitembin;
+    protected $intbconftranviewlib;
 
     /**
      * The value for the intbconfresvcost field.
      *
+     * Note: this column has a database default value of: 'I'
      * @var        string
      */
     protected $intbconfresvcost;
@@ -868,6 +982,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2tranzerorqst field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbcon2tranzerorqst;
@@ -875,6 +990,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfmonendadjdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfmonendadjdate;
@@ -882,6 +998,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfmonendtrndate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfmonendtrndate;
@@ -889,6 +1006,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfmonendlogdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfmonendlogdate;
@@ -896,6 +1014,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdstatproc field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfdstatproc;
@@ -903,6 +1022,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfstancostupd field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $intbconfstancostupd;
@@ -910,6 +1030,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconflastcost field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconflastcost;
@@ -917,6 +1038,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfusesorgpct field.
      *
+     * Note: this column has a database default value of: 'S'
      * @var        string
      */
     protected $intbconfusesorgpct;
@@ -924,6 +1046,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfaddonstan field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $intbconfaddonstan;
@@ -931,6 +1054,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfstdcosterror field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfstdcosterror;
@@ -938,6 +1062,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfavgcurrfive field.
      *
+     * Note: this column has a database default value of: 'S'
      * @var        string
      */
     protected $intbconfavgcurrfive;
@@ -945,6 +1070,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfusecntrlbin field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfusecntrlbin;
@@ -952,6 +1078,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfnbrbinareas field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $intbconfnbrbinareas;
@@ -959,6 +1086,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfusemultbin field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfusemultbin;
@@ -966,6 +1094,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdfltwhsebin field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfdfltwhsebin;
@@ -973,6 +1102,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdfltbin field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfdfltbin;
@@ -980,6 +1110,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfctryitemlot field.
      *
+     * Note: this column has a database default value of: 'I'
      * @var        string
      */
     protected $intbconfctryitemlot;
@@ -987,6 +1118,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfuseshipbin field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfuseshipbin;
@@ -994,6 +1126,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2prtbinrlabel field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbcon2prtbinrlabel;
@@ -1001,6 +1134,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2itemlookup field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbcon2itemlookup;
@@ -1008,6 +1142,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfincldcti field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfincldcti;
@@ -1015,6 +1150,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfcertimage field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfcertimage;
@@ -1022,6 +1158,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdrawimage field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfdrawimage;
@@ -1029,6 +1166,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfconfirmimage field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfconfirmimage;
@@ -1036,6 +1174,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2productimage field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbcon2productimage;
@@ -1043,6 +1182,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdefpick field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfdefpick;
@@ -1050,6 +1190,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdefpack field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfdefpack;
@@ -1057,6 +1198,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdefinvc field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfdefinvc;
@@ -1064,6 +1206,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdefack field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfdefack;
@@ -1071,6 +1214,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdefquot field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfdefquot;
@@ -1078,6 +1222,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdefpo field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfdefpo;
@@ -1085,6 +1230,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdeftrans field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfdeftrans;
@@ -1092,6 +1238,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfadjglcogs field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfadjglcogs;
@@ -1099,6 +1246,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2dfltadjglacct field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbcon2dfltadjglacct;
@@ -1106,6 +1254,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfadjcostbase field.
      *
+     * Note: this column has a database default value of: 'B'
      * @var        string
      */
     protected $intbconfadjcostbase;
@@ -1113,6 +1262,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdfltadjtbin field.
      *
+     * Note: this column has a database default value of: 'S'
      * @var        string
      */
     protected $intbconfdfltadjtbin;
@@ -1120,6 +1270,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfadjtbin field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfadjtbin;
@@ -1127,6 +1278,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfcstockseq field.
      *
+     * Note: this column has a database default value of: 'L'
      * @var        string
      */
     protected $intbconfcstockseq;
@@ -1134,6 +1286,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfcstockhistday field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $intbconfcstockhistday;
@@ -1141,6 +1294,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfcstockformat field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfcstockformat;
@@ -1148,6 +1302,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfcstkexportitem field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfcstkexportitem;
@@ -1155,6 +1310,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfcstkpdmcontract field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfcstkpdmcontract;
@@ -1162,6 +1318,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2importseq field.
      *
+     * Note: this column has a database default value of: 'I'
      * @var        string
      */
     protected $intbcon2importseq;
@@ -1169,6 +1326,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfstopitemchg field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $intbconfstopitemchg;
@@ -1176,6 +1334,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfaddtomxrfe field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfaddtomxrfe;
@@ -1183,6 +1342,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfmxrfevendid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfmxrfevendid;
@@ -1190,6 +1350,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2newidlabellist field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbcon2newidlabellist;
@@ -1197,6 +1358,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfuseformat field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfuseformat;
@@ -1204,6 +1366,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfdefformat field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbconfdefformat;
@@ -1211,6 +1374,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfseqshortitem field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfseqshortitem;
@@ -1218,6 +1382,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfshortitemlen field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $intbconfshortitemlen;
@@ -1225,6 +1390,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfusescale field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfusescale;
@@ -1232,6 +1398,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfstorewght field.
      *
+     * Note: this column has a database default value of: 'I'
      * @var        string
      */
     protected $intbconfstorewght;
@@ -1239,6 +1406,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfvalidasstcode field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfvalidasstcode;
@@ -1246,6 +1414,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbconfwhitegoods field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbconfwhitegoods;
@@ -1253,6 +1422,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the intbcon2transcustid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbcon2transcustid;
@@ -1260,6 +1430,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -1267,6 +1438,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -1274,6 +1446,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -1294,7 +1467,180 @@ abstract class ConfigIn implements ActiveRecordInterface
      */
     public function applyDefaultValues()
     {
-        $this->intbconfkey = 0;
+        $this->intbconfkey = 1;
+        $this->intbconfglifac = 'Y';
+        $this->intbconfuseiw = 'N';
+        $this->intbconflifofifo = 'L';
+        $this->intbconfgoneg = 'Y';
+        $this->intbconfuselots = 'Y';
+        $this->intbconfnbruppr = 'N';
+        $this->intbconfdescuppr = 'N';
+        $this->intbconfusedesc2 = 'Y';
+        $this->intbconfuseupccode = 'Y';
+        $this->intbconfupceancntrl = 'U';
+        $this->intbconfupcgennbr = 0;
+        $this->intbcon2allowdupupc = 'Y';
+        $this->intbconfxrefnospace = 'N';
+        $this->intbconfusepricgrup = 'Y';
+        $this->intbconfusecommgrup = 'Y';
+        $this->intbconfusewarrdays = 'Y';
+        $this->intbconfstanbasedef = 'A';
+        $this->intbconfgrupdef = '';
+        $this->intbconfpricgrupdef = '';
+        $this->intbconfcommgrupdef = '';
+        $this->intbconftypedef = 'N';
+        $this->intbconfpricuseitem = 'N';
+        $this->intbconfcommuseitem = 'N';
+        $this->intbconfuomsaledef = '';
+        $this->intbconfuompurdef = '';
+        $this->intbconfsviadef = '';
+        $this->intbconfcustxreforuse = 'C';
+        $this->intbconfheadgetdef = 1;
+        $this->intbconfitemgetdef = 1;
+        $this->intbconfgetdispohaval = 'N';
+        $this->intbconfusercode1labl = '';
+        $this->intbconfusercode1ver = 'N';
+        $this->intbconfusercode2labl = '';
+        $this->intbconfusercode2ver = 'N';
+        $this->intbconfitemline = 20;
+        $this->intbconfitemcols = 30;
+        $this->intbconfheadline = 20;
+        $this->intbconfheadcols = 35;
+        $this->intbconfdetline = 20;
+        $this->intbconfdetcols = 35;
+        $this->intbconfminmaxzero = 'N';
+        $this->intbconfminrec = 'X';
+        $this->intbconfatbelowmin = 'B';
+        $this->intbconfonewhse = 'N';
+        $this->intbconfytdmth = 1;
+        $this->intbconfusegramsltr = 'N';
+        $this->intbconfabcbywhse = 'Y';
+        $this->intbconfabcnbrmths = 12;
+        $this->intbconfabcbasecode = 'M';
+        $this->intbconfabclevla = '10.00';
+        $this->intbconfabclevlb = '10.00';
+        $this->intbconfabclevlc = '10.00';
+        $this->intbconfabclevld = '10.00';
+        $this->intbconfabclevle = '10.00';
+        $this->intbconfabclevlf = '10.00';
+        $this->intbconfabclevlg = '10.00';
+        $this->intbconfabclevlh = '10.00';
+        $this->intbconfabclevli = '10.00';
+        $this->intbconfabclevlj = '10.00';
+        $this->intbconfuseforeignx = 'N';
+        $this->intbconfusenafta = 'N';
+        $this->intbconfnaftaprefcode = 'A';
+        $this->intbconfnaftaproducer = 'N';
+        $this->intbconfnaftadoccode = '1';
+        $this->intbconfphyscurrwksh = 'C';
+        $this->intbconf20or30 = 20;
+        $this->intbconfdisporigcnt = 'Y';
+        $this->intbconfdispgl = 'Y';
+        $this->intbconfdispref = 'Y';
+        $this->intbconfdispcost = 'Y';
+        $this->intbconfprtval = 'Y';
+        $this->intbconfprtgl = 'Y';
+        $this->intbconfglacct = '';
+        $this->intbconfref = '';
+        $this->intbconfcosttype = 'A';
+        $this->intbconfnormalonly = 'N';
+        $this->intbconfusewhsedef = '';
+        $this->intbcon2dfltwhse01 = '';
+        $this->intbcon2dfltwhse02 = '';
+        $this->intbcon2dfltwhse03 = '';
+        $this->intbcon2dfltwhse04 = '';
+        $this->intbcon2dfltwhse05 = '';
+        $this->intbcon2dfltwhse06 = '';
+        $this->intbcon2dfltwhse07 = '';
+        $this->intbcon2dfltwhse08 = '';
+        $this->intbcon2dfltwhse09 = '';
+        $this->intbcon2dfltwhse10 = '';
+        $this->intbconfbindef = '';
+        $this->intbconfcycldef = '';
+        $this->intbconfstatdef = 'A';
+        $this->intbconfabcdef = 'J';
+        $this->intbconfspecordrdef = 'N';
+        $this->intbconfordrpntdef = '0.0000';
+        $this->intbconfmaxdef = '0.0000';
+        $this->intbconfordrqtydef = '0.0000';
+        $this->intbconftrcptallowcmpl = 'N';
+        $this->intbconftrecmmtstock = 'N';
+        $this->intbconfusefrtin = 'N';
+        $this->intbconfeachoruom = 'E';
+        $this->intbconfneglotcorr = 'A';
+        $this->intbconftrnsglacct = '';
+        $this->intbconftrnsprotstock = '0.00';
+        $this->intbconfnumericitem = 'N';
+        $this->intbconfitemdigits = 0;
+        $this->intbconfsinglewhse = 'Y';
+        $this->intbconfupdusepct = 'N';
+        $this->intbconfupdpric = 'N';
+        $this->intbconfupdstdcost = 'N';
+        $this->intbconfupdxrefcost = 'N';
+        $this->intbconfiqpaupddate = 'N';
+        $this->intbconfupcxrefoptn = 'N';
+        $this->intbconfresqyn = '';
+        $this->intbconftranviewlib = 'L';
+        $this->intbconfresvcost = 'I';
+        $this->intbcon2tranzerorqst = 'N';
+        $this->intbconfmonendadjdate = '';
+        $this->intbconfmonendtrndate = '';
+        $this->intbconfmonendlogdate = '';
+        $this->intbconfdstatproc = 'N';
+        $this->intbconfstancostupd = 'Y';
+        $this->intbconflastcost = 'N';
+        $this->intbconfusesorgpct = 'S';
+        $this->intbconfaddonstan = '0.00';
+        $this->intbconfstdcosterror = 'N';
+        $this->intbconfavgcurrfive = 'S';
+        $this->intbconfusecntrlbin = 'N';
+        $this->intbconfnbrbinareas = 0;
+        $this->intbconfusemultbin = 'N';
+        $this->intbconfdfltwhsebin = 'N';
+        $this->intbconfdfltbin = '';
+        $this->intbconfctryitemlot = 'I';
+        $this->intbconfuseshipbin = 'N';
+        $this->intbcon2prtbinrlabel = 'N';
+        $this->intbcon2itemlookup = 'N';
+        $this->intbconfincldcti = 'N';
+        $this->intbconfcertimage = 'N';
+        $this->intbconfdrawimage = 'N';
+        $this->intbconfconfirmimage = 'N';
+        $this->intbcon2productimage = 'N';
+        $this->intbconfdefpick = 'N';
+        $this->intbconfdefpack = 'N';
+        $this->intbconfdefinvc = 'N';
+        $this->intbconfdefack = 'N';
+        $this->intbconfdefquot = 'N';
+        $this->intbconfdefpo = 'N';
+        $this->intbconfdeftrans = 'N';
+        $this->intbconfadjglcogs = 'N';
+        $this->intbcon2dfltadjglacct = '';
+        $this->intbconfadjcostbase = 'B';
+        $this->intbconfdfltadjtbin = 'S';
+        $this->intbconfadjtbin = '';
+        $this->intbconfcstockseq = 'L';
+        $this->intbconfcstockhistday = 0;
+        $this->intbconfcstockformat = '';
+        $this->intbconfcstkexportitem = 'N';
+        $this->intbconfcstkpdmcontract = 'N';
+        $this->intbcon2importseq = 'I';
+        $this->intbconfstopitemchg = 0;
+        $this->intbconfaddtomxrfe = 'N';
+        $this->intbconfmxrfevendid = '';
+        $this->intbcon2newidlabellist = 'N';
+        $this->intbconfuseformat = 'N';
+        $this->intbconfdefformat = '';
+        $this->intbconfseqshortitem = 'N';
+        $this->intbconfshortitemlen = 0;
+        $this->intbconfusescale = 'N';
+        $this->intbconfstorewght = 'I';
+        $this->intbconfvalidasstcode = 'N';
+        $this->intbconfwhitegoods = 'N';
+        $this->intbcon2transcustid = '';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
@@ -2655,13 +3001,13 @@ abstract class ConfigIn implements ActiveRecordInterface
     }
 
     /**
-     * Get the [intbconfresqitembin] column value.
+     * Get the [intbconftranviewlib] column value.
      *
      * @return string
      */
-    public function getIntbconfresqitembin()
+    public function getIntbconftranviewlib()
     {
-        return $this->intbconfresqitembin;
+        return $this->intbconftranviewlib;
     }
 
     /**
@@ -5525,24 +5871,24 @@ abstract class ConfigIn implements ActiveRecordInterface
     } // setIntbconfresqyn()
 
     /**
-     * Set the value of [intbconfresqitembin] column.
+     * Set the value of [intbconftranviewlib] column.
      *
      * @param string $v new value
      * @return $this|\ConfigIn The current object (for fluent API support)
      */
-    public function setIntbconfresqitembin($v)
+    public function setIntbconftranviewlib($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->intbconfresqitembin !== $v) {
-            $this->intbconfresqitembin = $v;
-            $this->modifiedColumns[ConfigInTableMap::COL_INTBCONFRESQITEMBIN] = true;
+        if ($this->intbconftranviewlib !== $v) {
+            $this->intbconftranviewlib = $v;
+            $this->modifiedColumns[ConfigInTableMap::COL_INTBCONFTRANVIEWLIB] = true;
         }
 
         return $this;
-    } // setIntbconfresqitembin()
+    } // setIntbconftranviewlib()
 
     /**
      * Set the value of [intbconfresvcost] column.
@@ -6754,7 +7100,699 @@ abstract class ConfigIn implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
-            if ($this->intbconfkey !== 0) {
+            if ($this->intbconfkey !== 1) {
+                return false;
+            }
+
+            if ($this->intbconfglifac !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfuseiw !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconflifofifo !== 'L') {
+                return false;
+            }
+
+            if ($this->intbconfgoneg !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfuselots !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfnbruppr !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfdescuppr !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfusedesc2 !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfuseupccode !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfupceancntrl !== 'U') {
+                return false;
+            }
+
+            if ($this->intbconfupcgennbr !== 0) {
+                return false;
+            }
+
+            if ($this->intbcon2allowdupupc !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfxrefnospace !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfusepricgrup !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfusecommgrup !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfusewarrdays !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfstanbasedef !== 'A') {
+                return false;
+            }
+
+            if ($this->intbconfgrupdef !== '') {
+                return false;
+            }
+
+            if ($this->intbconfpricgrupdef !== '') {
+                return false;
+            }
+
+            if ($this->intbconfcommgrupdef !== '') {
+                return false;
+            }
+
+            if ($this->intbconftypedef !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfpricuseitem !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfcommuseitem !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfuomsaledef !== '') {
+                return false;
+            }
+
+            if ($this->intbconfuompurdef !== '') {
+                return false;
+            }
+
+            if ($this->intbconfsviadef !== '') {
+                return false;
+            }
+
+            if ($this->intbconfcustxreforuse !== 'C') {
+                return false;
+            }
+
+            if ($this->intbconfheadgetdef !== 1) {
+                return false;
+            }
+
+            if ($this->intbconfitemgetdef !== 1) {
+                return false;
+            }
+
+            if ($this->intbconfgetdispohaval !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfusercode1labl !== '') {
+                return false;
+            }
+
+            if ($this->intbconfusercode1ver !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfusercode2labl !== '') {
+                return false;
+            }
+
+            if ($this->intbconfusercode2ver !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfitemline !== 20) {
+                return false;
+            }
+
+            if ($this->intbconfitemcols !== 30) {
+                return false;
+            }
+
+            if ($this->intbconfheadline !== 20) {
+                return false;
+            }
+
+            if ($this->intbconfheadcols !== 35) {
+                return false;
+            }
+
+            if ($this->intbconfdetline !== 20) {
+                return false;
+            }
+
+            if ($this->intbconfdetcols !== 35) {
+                return false;
+            }
+
+            if ($this->intbconfminmaxzero !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfminrec !== 'X') {
+                return false;
+            }
+
+            if ($this->intbconfatbelowmin !== 'B') {
+                return false;
+            }
+
+            if ($this->intbconfonewhse !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfytdmth !== 1) {
+                return false;
+            }
+
+            if ($this->intbconfusegramsltr !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfabcbywhse !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfabcnbrmths !== 12) {
+                return false;
+            }
+
+            if ($this->intbconfabcbasecode !== 'M') {
+                return false;
+            }
+
+            if ($this->intbconfabclevla !== '10.00') {
+                return false;
+            }
+
+            if ($this->intbconfabclevlb !== '10.00') {
+                return false;
+            }
+
+            if ($this->intbconfabclevlc !== '10.00') {
+                return false;
+            }
+
+            if ($this->intbconfabclevld !== '10.00') {
+                return false;
+            }
+
+            if ($this->intbconfabclevle !== '10.00') {
+                return false;
+            }
+
+            if ($this->intbconfabclevlf !== '10.00') {
+                return false;
+            }
+
+            if ($this->intbconfabclevlg !== '10.00') {
+                return false;
+            }
+
+            if ($this->intbconfabclevlh !== '10.00') {
+                return false;
+            }
+
+            if ($this->intbconfabclevli !== '10.00') {
+                return false;
+            }
+
+            if ($this->intbconfabclevlj !== '10.00') {
+                return false;
+            }
+
+            if ($this->intbconfuseforeignx !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfusenafta !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfnaftaprefcode !== 'A') {
+                return false;
+            }
+
+            if ($this->intbconfnaftaproducer !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfnaftadoccode !== '1') {
+                return false;
+            }
+
+            if ($this->intbconfphyscurrwksh !== 'C') {
+                return false;
+            }
+
+            if ($this->intbconf20or30 !== 20) {
+                return false;
+            }
+
+            if ($this->intbconfdisporigcnt !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfdispgl !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfdispref !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfdispcost !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfprtval !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfprtgl !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfglacct !== '') {
+                return false;
+            }
+
+            if ($this->intbconfref !== '') {
+                return false;
+            }
+
+            if ($this->intbconfcosttype !== 'A') {
+                return false;
+            }
+
+            if ($this->intbconfnormalonly !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfusewhsedef !== '') {
+                return false;
+            }
+
+            if ($this->intbcon2dfltwhse01 !== '') {
+                return false;
+            }
+
+            if ($this->intbcon2dfltwhse02 !== '') {
+                return false;
+            }
+
+            if ($this->intbcon2dfltwhse03 !== '') {
+                return false;
+            }
+
+            if ($this->intbcon2dfltwhse04 !== '') {
+                return false;
+            }
+
+            if ($this->intbcon2dfltwhse05 !== '') {
+                return false;
+            }
+
+            if ($this->intbcon2dfltwhse06 !== '') {
+                return false;
+            }
+
+            if ($this->intbcon2dfltwhse07 !== '') {
+                return false;
+            }
+
+            if ($this->intbcon2dfltwhse08 !== '') {
+                return false;
+            }
+
+            if ($this->intbcon2dfltwhse09 !== '') {
+                return false;
+            }
+
+            if ($this->intbcon2dfltwhse10 !== '') {
+                return false;
+            }
+
+            if ($this->intbconfbindef !== '') {
+                return false;
+            }
+
+            if ($this->intbconfcycldef !== '') {
+                return false;
+            }
+
+            if ($this->intbconfstatdef !== 'A') {
+                return false;
+            }
+
+            if ($this->intbconfabcdef !== 'J') {
+                return false;
+            }
+
+            if ($this->intbconfspecordrdef !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfordrpntdef !== '0.0000') {
+                return false;
+            }
+
+            if ($this->intbconfmaxdef !== '0.0000') {
+                return false;
+            }
+
+            if ($this->intbconfordrqtydef !== '0.0000') {
+                return false;
+            }
+
+            if ($this->intbconftrcptallowcmpl !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconftrecmmtstock !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfusefrtin !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfeachoruom !== 'E') {
+                return false;
+            }
+
+            if ($this->intbconfneglotcorr !== 'A') {
+                return false;
+            }
+
+            if ($this->intbconftrnsglacct !== '') {
+                return false;
+            }
+
+            if ($this->intbconftrnsprotstock !== '0.00') {
+                return false;
+            }
+
+            if ($this->intbconfnumericitem !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfitemdigits !== 0) {
+                return false;
+            }
+
+            if ($this->intbconfsinglewhse !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconfupdusepct !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfupdpric !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfupdstdcost !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfupdxrefcost !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfiqpaupddate !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfupcxrefoptn !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfresqyn !== '') {
+                return false;
+            }
+
+            if ($this->intbconftranviewlib !== 'L') {
+                return false;
+            }
+
+            if ($this->intbconfresvcost !== 'I') {
+                return false;
+            }
+
+            if ($this->intbcon2tranzerorqst !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfmonendadjdate !== '') {
+                return false;
+            }
+
+            if ($this->intbconfmonendtrndate !== '') {
+                return false;
+            }
+
+            if ($this->intbconfmonendlogdate !== '') {
+                return false;
+            }
+
+            if ($this->intbconfdstatproc !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfstancostupd !== 'Y') {
+                return false;
+            }
+
+            if ($this->intbconflastcost !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfusesorgpct !== 'S') {
+                return false;
+            }
+
+            if ($this->intbconfaddonstan !== '0.00') {
+                return false;
+            }
+
+            if ($this->intbconfstdcosterror !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfavgcurrfive !== 'S') {
+                return false;
+            }
+
+            if ($this->intbconfusecntrlbin !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfnbrbinareas !== 0) {
+                return false;
+            }
+
+            if ($this->intbconfusemultbin !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfdfltwhsebin !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfdfltbin !== '') {
+                return false;
+            }
+
+            if ($this->intbconfctryitemlot !== 'I') {
+                return false;
+            }
+
+            if ($this->intbconfuseshipbin !== 'N') {
+                return false;
+            }
+
+            if ($this->intbcon2prtbinrlabel !== 'N') {
+                return false;
+            }
+
+            if ($this->intbcon2itemlookup !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfincldcti !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfcertimage !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfdrawimage !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfconfirmimage !== 'N') {
+                return false;
+            }
+
+            if ($this->intbcon2productimage !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfdefpick !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfdefpack !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfdefinvc !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfdefack !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfdefquot !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfdefpo !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfdeftrans !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfadjglcogs !== 'N') {
+                return false;
+            }
+
+            if ($this->intbcon2dfltadjglacct !== '') {
+                return false;
+            }
+
+            if ($this->intbconfadjcostbase !== 'B') {
+                return false;
+            }
+
+            if ($this->intbconfdfltadjtbin !== 'S') {
+                return false;
+            }
+
+            if ($this->intbconfadjtbin !== '') {
+                return false;
+            }
+
+            if ($this->intbconfcstockseq !== 'L') {
+                return false;
+            }
+
+            if ($this->intbconfcstockhistday !== 0) {
+                return false;
+            }
+
+            if ($this->intbconfcstockformat !== '') {
+                return false;
+            }
+
+            if ($this->intbconfcstkexportitem !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfcstkpdmcontract !== 'N') {
+                return false;
+            }
+
+            if ($this->intbcon2importseq !== 'I') {
+                return false;
+            }
+
+            if ($this->intbconfstopitemchg !== 0) {
+                return false;
+            }
+
+            if ($this->intbconfaddtomxrfe !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfmxrfevendid !== '') {
+                return false;
+            }
+
+            if ($this->intbcon2newidlabellist !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfuseformat !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfdefformat !== '') {
+                return false;
+            }
+
+            if ($this->intbconfseqshortitem !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfshortitemlen !== 0) {
+                return false;
+            }
+
+            if ($this->intbconfusescale !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfstorewght !== 'I') {
+                return false;
+            }
+
+            if ($this->intbconfvalidasstcode !== 'N') {
+                return false;
+            }
+
+            if ($this->intbconfwhitegoods !== 'N') {
+                return false;
+            }
+
+            if ($this->intbcon2transcustid !== '') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
                 return false;
             }
 
@@ -7123,8 +8161,8 @@ abstract class ConfigIn implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : ConfigInTableMap::translateFieldName('Intbconfresqyn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfresqyn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : ConfigInTableMap::translateFieldName('Intbconfresqitembin', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->intbconfresqitembin = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : ConfigInTableMap::translateFieldName('Intbconftranviewlib', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->intbconftranviewlib = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : ConfigInTableMap::translateFieldName('Intbconfresvcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfresvcost = (null !== $col) ? (string) $col : null;
@@ -7849,8 +8887,8 @@ abstract class ConfigIn implements ActiveRecordInterface
         if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFRESQYN)) {
             $modifiedColumns[':p' . $index++]  = 'IntbConfResqYN';
         }
-        if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFRESQITEMBIN)) {
-            $modifiedColumns[':p' . $index++]  = 'IntbConfResqItemBin';
+        if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFTRANVIEWLIB)) {
+            $modifiedColumns[':p' . $index++]  = 'IntbConfTranViewLIB';
         }
         if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFRESVCOST)) {
             $modifiedColumns[':p' . $index++]  = 'IntbConfResvCost';
@@ -8382,8 +9420,8 @@ abstract class ConfigIn implements ActiveRecordInterface
                     case 'IntbConfResqYN':
                         $stmt->bindValue($identifier, $this->intbconfresqyn, PDO::PARAM_STR);
                         break;
-                    case 'IntbConfResqItemBin':
-                        $stmt->bindValue($identifier, $this->intbconfresqitembin, PDO::PARAM_STR);
+                    case 'IntbConfTranViewLIB':
+                        $stmt->bindValue($identifier, $this->intbconftranviewlib, PDO::PARAM_STR);
                         break;
                     case 'IntbConfResvCost':
                         $stmt->bindValue($identifier, $this->intbconfresvcost, PDO::PARAM_STR);
@@ -8960,7 +9998,7 @@ abstract class ConfigIn implements ActiveRecordInterface
                 return $this->getIntbconfresqyn();
                 break;
             case 113:
-                return $this->getIntbconfresqitembin();
+                return $this->getIntbconftranviewlib();
                 break;
             case 114:
                 return $this->getIntbconfresvcost();
@@ -9284,7 +10322,7 @@ abstract class ConfigIn implements ActiveRecordInterface
             $keys[110] => $this->getIntbconfiqpaupddate(),
             $keys[111] => $this->getIntbconfupcxrefoptn(),
             $keys[112] => $this->getIntbconfresqyn(),
-            $keys[113] => $this->getIntbconfresqitembin(),
+            $keys[113] => $this->getIntbconftranviewlib(),
             $keys[114] => $this->getIntbconfresvcost(),
             $keys[115] => $this->getIntbcon2tranzerorqst(),
             $keys[116] => $this->getIntbconfmonendadjdate(),
@@ -9724,7 +10762,7 @@ abstract class ConfigIn implements ActiveRecordInterface
                 $this->setIntbconfresqyn($value);
                 break;
             case 113:
-                $this->setIntbconfresqitembin($value);
+                $this->setIntbconftranviewlib($value);
                 break;
             case 114:
                 $this->setIntbconfresvcost($value);
@@ -10272,7 +11310,7 @@ abstract class ConfigIn implements ActiveRecordInterface
             $this->setIntbconfresqyn($arr[$keys[112]]);
         }
         if (array_key_exists($keys[113], $arr)) {
-            $this->setIntbconfresqitembin($arr[$keys[113]]);
+            $this->setIntbconftranviewlib($arr[$keys[113]]);
         }
         if (array_key_exists($keys[114], $arr)) {
             $this->setIntbconfresvcost($arr[$keys[114]]);
@@ -10834,8 +11872,8 @@ abstract class ConfigIn implements ActiveRecordInterface
         if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFRESQYN)) {
             $criteria->add(ConfigInTableMap::COL_INTBCONFRESQYN, $this->intbconfresqyn);
         }
-        if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFRESQITEMBIN)) {
-            $criteria->add(ConfigInTableMap::COL_INTBCONFRESQITEMBIN, $this->intbconfresqitembin);
+        if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFTRANVIEWLIB)) {
+            $criteria->add(ConfigInTableMap::COL_INTBCONFTRANVIEWLIB, $this->intbconftranviewlib);
         }
         if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFRESVCOST)) {
             $criteria->add(ConfigInTableMap::COL_INTBCONFRESVCOST, $this->intbconfresvcost);
@@ -11216,7 +12254,7 @@ abstract class ConfigIn implements ActiveRecordInterface
         $copyObj->setIntbconfiqpaupddate($this->getIntbconfiqpaupddate());
         $copyObj->setIntbconfupcxrefoptn($this->getIntbconfupcxrefoptn());
         $copyObj->setIntbconfresqyn($this->getIntbconfresqyn());
-        $copyObj->setIntbconfresqitembin($this->getIntbconfresqitembin());
+        $copyObj->setIntbconftranviewlib($this->getIntbconftranviewlib());
         $copyObj->setIntbconfresvcost($this->getIntbconfresvcost());
         $copyObj->setIntbcon2tranzerorqst($this->getIntbcon2tranzerorqst());
         $copyObj->setIntbconfmonendadjdate($this->getIntbconfmonendadjdate());
@@ -11424,7 +12462,7 @@ abstract class ConfigIn implements ActiveRecordInterface
         $this->intbconfiqpaupddate = null;
         $this->intbconfupcxrefoptn = null;
         $this->intbconfresqyn = null;
-        $this->intbconfresqitembin = null;
+        $this->intbconftranviewlib = null;
         $this->intbconfresvcost = null;
         $this->intbcon2tranzerorqst = null;
         $this->intbconfmonendadjdate = null;
@@ -11526,7 +12564,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
+            return parent::preSave($con);
         }
         return true;
     }
@@ -11538,7 +12576,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function postSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
+            parent::postSave($con);
         }
     }
 
@@ -11550,7 +12588,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
+            return parent::preInsert($con);
         }
         return true;
     }
@@ -11562,7 +12600,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function postInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
+            parent::postInsert($con);
         }
     }
 
@@ -11574,7 +12612,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
+            return parent::preUpdate($con);
         }
         return true;
     }
@@ -11586,7 +12624,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function postUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
+            parent::postUpdate($con);
         }
     }
 
@@ -11598,7 +12636,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
+            return parent::preDelete($con);
         }
         return true;
     }
@@ -11610,7 +12648,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function postDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
+            parent::postDelete($con);
         }
     }
 
