@@ -194,7 +194,6 @@ class PurchaseOrder extends BasePurchaseOrder {
 
 	/**
 	 * Return PurchaseOrderDetailReceiving objects for this PO Number
-	 *
 	 * @return PurchaseOrderDetailReceiving[]|ObjectCollection
 	 */
 	public function get_receivingitems() {
@@ -203,7 +202,6 @@ class PurchaseOrder extends BasePurchaseOrder {
 
 	/**
 	 * Return the number of PurchaseOrderDetailReceiving records
-	 *
 	 * @return int
 	 */
 	public function count_receivingitems() {
@@ -212,7 +210,6 @@ class PurchaseOrder extends BasePurchaseOrder {
 
 	/**
 	 * Return PurchaseOrderDetailReceiving objects for this PO Number & Line Number
-	 *
 	 * @param  int                          $linenbr Line Number
 	 * @return PurchaseOrderDetailReceiving
 	 */
@@ -222,7 +219,6 @@ class PurchaseOrder extends BasePurchaseOrder {
 
 	/**
 	 * Return Vendor Name
-	 *
 	 * @return string
 	 */
 	public function get_vendorname() {
@@ -230,8 +226,7 @@ class PurchaseOrder extends BasePurchaseOrder {
 	}
 
 	/**
-	 *Returns The total for the Purchase Order based off the detail lines
-	 *
+	 * Returns The total for the Purchase Order based off the detail lines
 	 * @return float
 	 */
 	public function get_total() {

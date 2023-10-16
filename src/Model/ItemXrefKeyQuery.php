@@ -2,17 +2,21 @@
 
 use Base\ItemXrefKeyQuery as BaseItemXrefKeyQuery;
 
-/**
- * Skeleton subclass for performing query and update operations on the 'item_xref_key' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
- */
-class ItemXrefKeyQuery extends BaseItemXrefKeyQuery
-{
+use Dplus\Model\QueryTraits;
 
+/**
+ * Class for performing query and update operations on the 'item_xref_key' table.
+ */
+class ItemXrefKeyQuery extends BaseItemXrefKeyQuery {
+	use QueryTraits;
+
+	/**
+	 * Filter query by Source
+	 * @param  mixed $source
+	 * @param  mixed|null $comparison
+	 * @return self
+	 */
+	public function filterBySource($source, $comparison = null) {
+		return $this->filterByRkeysource($source, $comparison);
+	}
 }

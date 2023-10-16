@@ -49,7 +49,7 @@ class Quote extends BaseQuote {
 		'date_expire'     => 'qthdexpdate',
 		'date_expires'    => 'qthdexpdate',
 		'pricecode'       => 'artbpriccode',
-		'taxcode'         => 'artbctaxcode',
+		'taxcode'         => 'artbmtaxcode',
 		'termscode'       => 'artmtermcd',
 		'shipvia'         => 'artbshipvia',
 		'salesperson_1'   => 'arspsaleper1',
