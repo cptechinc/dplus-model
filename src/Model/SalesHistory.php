@@ -71,9 +71,15 @@ class SalesHistory extends BaseSalesHistory {
 		'I' => 'invoiced'
 	);
 
+	const NBR_OF_FRT_TAXES = 9;
+
+	const BASECOL_FRT_TAX = 'oehdfrttax';
+
+/* =============================================================
+	Setters / Getters
+============================================================= */
 	/**
 	 * Return Status Description for Sales History Order
-	 *
 	 * @return string
 	 */
 	public function status() {
@@ -99,7 +105,6 @@ class SalesHistory extends BaseSalesHistory {
 
 	/**
 	 * Returns if Order is Editable
-	 *
 	 * @return bool
 	 */
 	public function is_editable() {
@@ -108,7 +113,6 @@ class SalesHistory extends BaseSalesHistory {
 
 	/**
 	 * Dummy functon
-	 *
 	 * @return string
 	 */
 	public function getHeldby() {
@@ -116,8 +120,36 @@ class SalesHistory extends BaseSalesHistory {
 	}
 
 	/**
+	 * Return Tax Code value at index
+	 * @param  int $index
+	 * @return string
+	 */
+	public function frtTaxcodeCdX($index = 1) {
+		if ($index < 1 || $index > self::NBR_OF_FRT_TAXES) {
+			return '';
+		}
+		$col = self::BASECOL_FRT_TAX . 'code' . $index;
+		return $this->$col;
+	}
+
+	/**
+	 * Return Tax Code vAmount at index
+	 * @param  int $index
+	 * @return string
+	 */
+	public function frtTaxcodeAmtX($index = 1) {
+		if ($index < 1 || $index > self::NBR_OF_FRT_TAXES) {
+			return '';
+		}
+		$col = self::BASECOL_FRT_TAX . 'amt' . $index;
+		return $this->$col;
+	}
+
+/* =============================================================
+	Foreign Key Relationship Methods
+============================================================= */
+	/**
 	 * Returns the Number of Details Lines this Sales Order has
-	 *
 	 * @return bool
 	 */
 	public function count_items() {

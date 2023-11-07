@@ -1083,86 +1083,6 @@ abstract class SalesHistory implements ActiveRecordInterface
     protected $oehhrouteseq;
 
     /**
-     * The value for the oehhfrttaxcode1 field.
-     *
-     * Note: this column has a database default value of: ''
-     * @var        string
-     */
-    protected $oehhfrttaxcode1;
-
-    /**
-     * The value for the oehhfrttaxamt1 field.
-     *
-     * Note: this column has a database default value of: '0.00'
-     * @var        string
-     */
-    protected $oehhfrttaxamt1;
-
-    /**
-     * The value for the oehhfrttaxcode2 field.
-     *
-     * Note: this column has a database default value of: ''
-     * @var        string
-     */
-    protected $oehhfrttaxcode2;
-
-    /**
-     * The value for the oehhfrttaxamt2 field.
-     *
-     * Note: this column has a database default value of: '0.00'
-     * @var        string
-     */
-    protected $oehhfrttaxamt2;
-
-    /**
-     * The value for the oehhfrttaxcode3 field.
-     *
-     * Note: this column has a database default value of: ''
-     * @var        string
-     */
-    protected $oehhfrttaxcode3;
-
-    /**
-     * The value for the oehhfrttaxamt3 field.
-     *
-     * Note: this column has a database default value of: '0.00'
-     * @var        string
-     */
-    protected $oehhfrttaxamt3;
-
-    /**
-     * The value for the oehhfrttaxcode4 field.
-     *
-     * Note: this column has a database default value of: ''
-     * @var        string
-     */
-    protected $oehhfrttaxcode4;
-
-    /**
-     * The value for the oehhfrttaxamt4 field.
-     *
-     * Note: this column has a database default value of: '0.00'
-     * @var        string
-     */
-    protected $oehhfrttaxamt4;
-
-    /**
-     * The value for the oehhfrttaxcode5 field.
-     *
-     * Note: this column has a database default value of: ''
-     * @var        string
-     */
-    protected $oehhfrttaxcode5;
-
-    /**
-     * The value for the oehhfrttaxamt5 field.
-     *
-     * Note: this column has a database default value of: '0.00'
-     * @var        string
-     */
-    protected $oehhfrttaxamt5;
-
-    /**
      * The value for the oehhedi855sent field.
      *
      * Note: this column has a database default value of: ''
@@ -1555,6 +1475,150 @@ abstract class SalesHistory implements ActiveRecordInterface
     protected $oehhrefnbr;
 
     /**
+     * The value for the oehhfrttaxcode1 field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oehhfrttaxcode1;
+
+    /**
+     * The value for the oehhfrttaxamt1 field.
+     *
+     * Note: this column has a database default value of: '0.00'
+     * @var        string
+     */
+    protected $oehhfrttaxamt1;
+
+    /**
+     * The value for the oehhfrttaxcode2 field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oehhfrttaxcode2;
+
+    /**
+     * The value for the oehhfrttaxamt2 field.
+     *
+     * Note: this column has a database default value of: '0.00'
+     * @var        string
+     */
+    protected $oehhfrttaxamt2;
+
+    /**
+     * The value for the oehhfrttaxcode3 field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oehhfrttaxcode3;
+
+    /**
+     * The value for the oehhfrttaxamt3 field.
+     *
+     * Note: this column has a database default value of: '0.00'
+     * @var        string
+     */
+    protected $oehhfrttaxamt3;
+
+    /**
+     * The value for the oehhfrttaxcode4 field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oehhfrttaxcode4;
+
+    /**
+     * The value for the oehhfrttaxamt4 field.
+     *
+     * Note: this column has a database default value of: '0.00'
+     * @var        string
+     */
+    protected $oehhfrttaxamt4;
+
+    /**
+     * The value for the oehhfrttaxcode5 field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oehhfrttaxcode5;
+
+    /**
+     * The value for the oehhfrttaxamt5 field.
+     *
+     * Note: this column has a database default value of: '0.00'
+     * @var        string
+     */
+    protected $oehhfrttaxamt5;
+
+    /**
+     * The value for the oehhfrttaxcode6 field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oehhfrttaxcode6;
+
+    /**
+     * The value for the oehhfrttaxamt6 field.
+     *
+     * Note: this column has a database default value of: '0.00'
+     * @var        string
+     */
+    protected $oehhfrttaxamt6;
+
+    /**
+     * The value for the oehhfrttaxcode7 field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oehhfrttaxcode7;
+
+    /**
+     * The value for the oehhfrttaxamt7 field.
+     *
+     * Note: this column has a database default value of: '0.00'
+     * @var        string
+     */
+    protected $oehhfrttaxamt7;
+
+    /**
+     * The value for the oehhfrttaxcode8 field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oehhfrttaxcode8;
+
+    /**
+     * The value for the oehhfrttaxamt8 field.
+     *
+     * Note: this column has a database default value of: '0.00'
+     * @var        string
+     */
+    protected $oehhfrttaxamt8;
+
+    /**
+     * The value for the oehhfrttaxcode9 field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oehhfrttaxcode9;
+
+    /**
+     * The value for the oehhfrttaxamt9 field.
+     *
+     * Note: this column has a database default value of: '0.00'
+     * @var        string
+     */
+    protected $oehhfrttaxamt9;
+
+    /**
      * The value for the oehhacprognbr field.
      *
      * Note: this column has a database default value of: ''
@@ -1782,16 +1846,6 @@ abstract class SalesHistory implements ActiveRecordInterface
         $this->oehhfrtcost = '0.00';
         $this->oehhroute = '';
         $this->oehhrouteseq = 0;
-        $this->oehhfrttaxcode1 = '';
-        $this->oehhfrttaxamt1 = '0.00';
-        $this->oehhfrttaxcode2 = '';
-        $this->oehhfrttaxamt2 = '0.00';
-        $this->oehhfrttaxcode3 = '';
-        $this->oehhfrttaxamt3 = '0.00';
-        $this->oehhfrttaxcode4 = '';
-        $this->oehhfrttaxamt4 = '0.00';
-        $this->oehhfrttaxcode5 = '';
-        $this->oehhfrttaxamt5 = '0.00';
         $this->oehhedi855sent = '';
         $this->oehhfrt3rdparty = '0.00';
         $this->oehhfob = '';
@@ -1841,6 +1895,24 @@ abstract class SalesHistory implements ActiveRecordInterface
         $this->oehhdueamt6 = '0.00';
         $this->oehhduepct6 = '0.0000000';
         $this->oehhrefnbr = '';
+        $this->oehhfrttaxcode1 = '';
+        $this->oehhfrttaxamt1 = '0.00';
+        $this->oehhfrttaxcode2 = '';
+        $this->oehhfrttaxamt2 = '0.00';
+        $this->oehhfrttaxcode3 = '';
+        $this->oehhfrttaxamt3 = '0.00';
+        $this->oehhfrttaxcode4 = '';
+        $this->oehhfrttaxamt4 = '0.00';
+        $this->oehhfrttaxcode5 = '';
+        $this->oehhfrttaxamt5 = '0.00';
+        $this->oehhfrttaxcode6 = '';
+        $this->oehhfrttaxamt6 = '0.00';
+        $this->oehhfrttaxcode7 = '';
+        $this->oehhfrttaxamt7 = '0.00';
+        $this->oehhfrttaxcode8 = '';
+        $this->oehhfrttaxamt8 = '0.00';
+        $this->oehhfrttaxcode9 = '';
+        $this->oehhfrttaxamt9 = '0.00';
         $this->oehhacprognbr = '';
         $this->oehhacprogexpdate = '';
         $this->dateupdtd = '';
@@ -3336,106 +3408,6 @@ abstract class SalesHistory implements ActiveRecordInterface
     }
 
     /**
-     * Get the [oehhfrttaxcode1] column value.
-     *
-     * @return string
-     */
-    public function getOehhfrttaxcode1()
-    {
-        return $this->oehhfrttaxcode1;
-    }
-
-    /**
-     * Get the [oehhfrttaxamt1] column value.
-     *
-     * @return string
-     */
-    public function getOehhfrttaxamt1()
-    {
-        return $this->oehhfrttaxamt1;
-    }
-
-    /**
-     * Get the [oehhfrttaxcode2] column value.
-     *
-     * @return string
-     */
-    public function getOehhfrttaxcode2()
-    {
-        return $this->oehhfrttaxcode2;
-    }
-
-    /**
-     * Get the [oehhfrttaxamt2] column value.
-     *
-     * @return string
-     */
-    public function getOehhfrttaxamt2()
-    {
-        return $this->oehhfrttaxamt2;
-    }
-
-    /**
-     * Get the [oehhfrttaxcode3] column value.
-     *
-     * @return string
-     */
-    public function getOehhfrttaxcode3()
-    {
-        return $this->oehhfrttaxcode3;
-    }
-
-    /**
-     * Get the [oehhfrttaxamt3] column value.
-     *
-     * @return string
-     */
-    public function getOehhfrttaxamt3()
-    {
-        return $this->oehhfrttaxamt3;
-    }
-
-    /**
-     * Get the [oehhfrttaxcode4] column value.
-     *
-     * @return string
-     */
-    public function getOehhfrttaxcode4()
-    {
-        return $this->oehhfrttaxcode4;
-    }
-
-    /**
-     * Get the [oehhfrttaxamt4] column value.
-     *
-     * @return string
-     */
-    public function getOehhfrttaxamt4()
-    {
-        return $this->oehhfrttaxamt4;
-    }
-
-    /**
-     * Get the [oehhfrttaxcode5] column value.
-     *
-     * @return string
-     */
-    public function getOehhfrttaxcode5()
-    {
-        return $this->oehhfrttaxcode5;
-    }
-
-    /**
-     * Get the [oehhfrttaxamt5] column value.
-     *
-     * @return string
-     */
-    public function getOehhfrttaxamt5()
-    {
-        return $this->oehhfrttaxamt5;
-    }
-
-    /**
      * Get the [oehhedi855sent] column value.
      *
      * @return string
@@ -3923,6 +3895,186 @@ abstract class SalesHistory implements ActiveRecordInterface
     public function getOehhrefnbr()
     {
         return $this->oehhrefnbr;
+    }
+
+    /**
+     * Get the [oehhfrttaxcode1] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxcode1()
+    {
+        return $this->oehhfrttaxcode1;
+    }
+
+    /**
+     * Get the [oehhfrttaxamt1] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxamt1()
+    {
+        return $this->oehhfrttaxamt1;
+    }
+
+    /**
+     * Get the [oehhfrttaxcode2] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxcode2()
+    {
+        return $this->oehhfrttaxcode2;
+    }
+
+    /**
+     * Get the [oehhfrttaxamt2] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxamt2()
+    {
+        return $this->oehhfrttaxamt2;
+    }
+
+    /**
+     * Get the [oehhfrttaxcode3] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxcode3()
+    {
+        return $this->oehhfrttaxcode3;
+    }
+
+    /**
+     * Get the [oehhfrttaxamt3] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxamt3()
+    {
+        return $this->oehhfrttaxamt3;
+    }
+
+    /**
+     * Get the [oehhfrttaxcode4] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxcode4()
+    {
+        return $this->oehhfrttaxcode4;
+    }
+
+    /**
+     * Get the [oehhfrttaxamt4] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxamt4()
+    {
+        return $this->oehhfrttaxamt4;
+    }
+
+    /**
+     * Get the [oehhfrttaxcode5] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxcode5()
+    {
+        return $this->oehhfrttaxcode5;
+    }
+
+    /**
+     * Get the [oehhfrttaxamt5] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxamt5()
+    {
+        return $this->oehhfrttaxamt5;
+    }
+
+    /**
+     * Get the [oehhfrttaxcode6] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxcode6()
+    {
+        return $this->oehhfrttaxcode6;
+    }
+
+    /**
+     * Get the [oehhfrttaxamt6] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxamt6()
+    {
+        return $this->oehhfrttaxamt6;
+    }
+
+    /**
+     * Get the [oehhfrttaxcode7] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxcode7()
+    {
+        return $this->oehhfrttaxcode7;
+    }
+
+    /**
+     * Get the [oehhfrttaxamt7] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxamt7()
+    {
+        return $this->oehhfrttaxamt7;
+    }
+
+    /**
+     * Get the [oehhfrttaxcode8] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxcode8()
+    {
+        return $this->oehhfrttaxcode8;
+    }
+
+    /**
+     * Get the [oehhfrttaxamt8] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxamt8()
+    {
+        return $this->oehhfrttaxamt8;
+    }
+
+    /**
+     * Get the [oehhfrttaxcode9] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxcode9()
+    {
+        return $this->oehhfrttaxcode9;
+    }
+
+    /**
+     * Get the [oehhfrttaxamt9] column value.
+     *
+     * @return string
+     */
+    public function getOehhfrttaxamt9()
+    {
+        return $this->oehhfrttaxamt9;
     }
 
     /**
@@ -6508,206 +6660,6 @@ abstract class SalesHistory implements ActiveRecordInterface
     } // setOehhrouteseq()
 
     /**
-     * Set the value of [oehhfrttaxcode1] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
-     */
-    public function setOehhfrttaxcode1($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oehhfrttaxcode1 !== $v) {
-            $this->oehhfrttaxcode1 = $v;
-            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXCODE1] = true;
-        }
-
-        return $this;
-    } // setOehhfrttaxcode1()
-
-    /**
-     * Set the value of [oehhfrttaxamt1] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
-     */
-    public function setOehhfrttaxamt1($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oehhfrttaxamt1 !== $v) {
-            $this->oehhfrttaxamt1 = $v;
-            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXAMT1] = true;
-        }
-
-        return $this;
-    } // setOehhfrttaxamt1()
-
-    /**
-     * Set the value of [oehhfrttaxcode2] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
-     */
-    public function setOehhfrttaxcode2($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oehhfrttaxcode2 !== $v) {
-            $this->oehhfrttaxcode2 = $v;
-            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXCODE2] = true;
-        }
-
-        return $this;
-    } // setOehhfrttaxcode2()
-
-    /**
-     * Set the value of [oehhfrttaxamt2] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
-     */
-    public function setOehhfrttaxamt2($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oehhfrttaxamt2 !== $v) {
-            $this->oehhfrttaxamt2 = $v;
-            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXAMT2] = true;
-        }
-
-        return $this;
-    } // setOehhfrttaxamt2()
-
-    /**
-     * Set the value of [oehhfrttaxcode3] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
-     */
-    public function setOehhfrttaxcode3($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oehhfrttaxcode3 !== $v) {
-            $this->oehhfrttaxcode3 = $v;
-            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXCODE3] = true;
-        }
-
-        return $this;
-    } // setOehhfrttaxcode3()
-
-    /**
-     * Set the value of [oehhfrttaxamt3] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
-     */
-    public function setOehhfrttaxamt3($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oehhfrttaxamt3 !== $v) {
-            $this->oehhfrttaxamt3 = $v;
-            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXAMT3] = true;
-        }
-
-        return $this;
-    } // setOehhfrttaxamt3()
-
-    /**
-     * Set the value of [oehhfrttaxcode4] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
-     */
-    public function setOehhfrttaxcode4($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oehhfrttaxcode4 !== $v) {
-            $this->oehhfrttaxcode4 = $v;
-            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXCODE4] = true;
-        }
-
-        return $this;
-    } // setOehhfrttaxcode4()
-
-    /**
-     * Set the value of [oehhfrttaxamt4] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
-     */
-    public function setOehhfrttaxamt4($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oehhfrttaxamt4 !== $v) {
-            $this->oehhfrttaxamt4 = $v;
-            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXAMT4] = true;
-        }
-
-        return $this;
-    } // setOehhfrttaxamt4()
-
-    /**
-     * Set the value of [oehhfrttaxcode5] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
-     */
-    public function setOehhfrttaxcode5($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oehhfrttaxcode5 !== $v) {
-            $this->oehhfrttaxcode5 = $v;
-            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXCODE5] = true;
-        }
-
-        return $this;
-    } // setOehhfrttaxcode5()
-
-    /**
-     * Set the value of [oehhfrttaxamt5] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
-     */
-    public function setOehhfrttaxamt5($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oehhfrttaxamt5 !== $v) {
-            $this->oehhfrttaxamt5 = $v;
-            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXAMT5] = true;
-        }
-
-        return $this;
-    } // setOehhfrttaxamt5()
-
-    /**
      * Set the value of [oehhedi855sent] column.
      *
      * @param string $v new value
@@ -7688,6 +7640,366 @@ abstract class SalesHistory implements ActiveRecordInterface
     } // setOehhrefnbr()
 
     /**
+     * Set the value of [oehhfrttaxcode1] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxcode1($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxcode1 !== $v) {
+            $this->oehhfrttaxcode1 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXCODE1] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxcode1()
+
+    /**
+     * Set the value of [oehhfrttaxamt1] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxamt1($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxamt1 !== $v) {
+            $this->oehhfrttaxamt1 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXAMT1] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxamt1()
+
+    /**
+     * Set the value of [oehhfrttaxcode2] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxcode2($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxcode2 !== $v) {
+            $this->oehhfrttaxcode2 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXCODE2] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxcode2()
+
+    /**
+     * Set the value of [oehhfrttaxamt2] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxamt2($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxamt2 !== $v) {
+            $this->oehhfrttaxamt2 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXAMT2] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxamt2()
+
+    /**
+     * Set the value of [oehhfrttaxcode3] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxcode3($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxcode3 !== $v) {
+            $this->oehhfrttaxcode3 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXCODE3] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxcode3()
+
+    /**
+     * Set the value of [oehhfrttaxamt3] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxamt3($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxamt3 !== $v) {
+            $this->oehhfrttaxamt3 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXAMT3] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxamt3()
+
+    /**
+     * Set the value of [oehhfrttaxcode4] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxcode4($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxcode4 !== $v) {
+            $this->oehhfrttaxcode4 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXCODE4] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxcode4()
+
+    /**
+     * Set the value of [oehhfrttaxamt4] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxamt4($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxamt4 !== $v) {
+            $this->oehhfrttaxamt4 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXAMT4] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxamt4()
+
+    /**
+     * Set the value of [oehhfrttaxcode5] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxcode5($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxcode5 !== $v) {
+            $this->oehhfrttaxcode5 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXCODE5] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxcode5()
+
+    /**
+     * Set the value of [oehhfrttaxamt5] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxamt5($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxamt5 !== $v) {
+            $this->oehhfrttaxamt5 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXAMT5] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxamt5()
+
+    /**
+     * Set the value of [oehhfrttaxcode6] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxcode6($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxcode6 !== $v) {
+            $this->oehhfrttaxcode6 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXCODE6] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxcode6()
+
+    /**
+     * Set the value of [oehhfrttaxamt6] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxamt6($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxamt6 !== $v) {
+            $this->oehhfrttaxamt6 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXAMT6] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxamt6()
+
+    /**
+     * Set the value of [oehhfrttaxcode7] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxcode7($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxcode7 !== $v) {
+            $this->oehhfrttaxcode7 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXCODE7] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxcode7()
+
+    /**
+     * Set the value of [oehhfrttaxamt7] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxamt7($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxamt7 !== $v) {
+            $this->oehhfrttaxamt7 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXAMT7] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxamt7()
+
+    /**
+     * Set the value of [oehhfrttaxcode8] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxcode8($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxcode8 !== $v) {
+            $this->oehhfrttaxcode8 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXCODE8] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxcode8()
+
+    /**
+     * Set the value of [oehhfrttaxamt8] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxamt8($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxamt8 !== $v) {
+            $this->oehhfrttaxamt8 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXAMT8] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxamt8()
+
+    /**
+     * Set the value of [oehhfrttaxcode9] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxcode9($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxcode9 !== $v) {
+            $this->oehhfrttaxcode9 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXCODE9] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxcode9()
+
+    /**
+     * Set the value of [oehhfrttaxamt9] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhfrttaxamt9($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhfrttaxamt9 !== $v) {
+            $this->oehhfrttaxamt9 = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHFRTTAXAMT9] = true;
+        }
+
+        return $this;
+    } // setOehhfrttaxamt9()
+
+    /**
      * Set the value of [oehhacprognbr] column.
      *
      * @param string $v new value
@@ -8301,46 +8613,6 @@ abstract class SalesHistory implements ActiveRecordInterface
                 return false;
             }
 
-            if ($this->oehhfrttaxcode1 !== '') {
-                return false;
-            }
-
-            if ($this->oehhfrttaxamt1 !== '0.00') {
-                return false;
-            }
-
-            if ($this->oehhfrttaxcode2 !== '') {
-                return false;
-            }
-
-            if ($this->oehhfrttaxamt2 !== '0.00') {
-                return false;
-            }
-
-            if ($this->oehhfrttaxcode3 !== '') {
-                return false;
-            }
-
-            if ($this->oehhfrttaxamt3 !== '0.00') {
-                return false;
-            }
-
-            if ($this->oehhfrttaxcode4 !== '') {
-                return false;
-            }
-
-            if ($this->oehhfrttaxamt4 !== '0.00') {
-                return false;
-            }
-
-            if ($this->oehhfrttaxcode5 !== '') {
-                return false;
-            }
-
-            if ($this->oehhfrttaxamt5 !== '0.00') {
-                return false;
-            }
-
             if ($this->oehhedi855sent !== '') {
                 return false;
             }
@@ -8534,6 +8806,78 @@ abstract class SalesHistory implements ActiveRecordInterface
             }
 
             if ($this->oehhrefnbr !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxcode1 !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxamt1 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxcode2 !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxamt2 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxcode3 !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxamt3 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxcode4 !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxamt4 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxcode5 !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxamt5 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxcode6 !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxamt6 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxcode7 !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxamt7 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxcode8 !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxamt8 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxcode9 !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxamt9 !== '0.00') {
                 return false;
             }
 
@@ -8961,196 +9305,220 @@ abstract class SalesHistory implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 125 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhrouteseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhrouteseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxcode1', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehhfrttaxcode1 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxamt1', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehhfrttaxamt1 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxcode2', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehhfrttaxcode2 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxamt2', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehhfrttaxamt2 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxcode3', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehhfrttaxcode3 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxamt3', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehhfrttaxamt3 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxcode4', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehhfrttaxcode4 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 133 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxamt4', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehhfrttaxamt4 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 134 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxcode5', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehhfrttaxcode5 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 135 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxamt5', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehhfrttaxamt5 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 136 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhedi855sent', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhedi855sent', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhedi855sent = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 137 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrt3rdparty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrt3rdparty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhfrt3rdparty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfob', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfob', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhfob = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhconfirmimagyn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhconfirmimagyn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhconfirmimagyn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhindustconform', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhindustconform', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhindustconform = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 141 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhcstkconsign', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhcstkconsign', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhcstkconsign = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 142 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhlmdelaycapsent', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhlmdelaycapsent', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhlmdelaycapsent = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 143 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhmfgid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 133 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhmfgid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhmfgid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 144 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhstoreid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 134 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhstoreid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhstoreid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 145 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhpickqueue', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 135 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhpickqueue', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhpickqueue = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 146 + $startcol : SalesHistoryTableMap::translateFieldName('Oehharrvdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 136 + $startcol : SalesHistoryTableMap::translateFieldName('Oehharrvdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehharrvdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 147 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhsurchgstat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 137 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhsurchgstat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhsurchgstat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 148 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrtgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrtgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhfrtgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 149 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhcommoride', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhcommoride', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhcommoride = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 150 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhchrgsplt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhchrgsplt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhchrgsplt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 151 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhacccaprv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 141 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhacccaprv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhacccaprv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 152 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhorigordrnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 142 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhorigordrnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhorigordrnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 153 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhpostdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 143 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhpostdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhpostdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 154 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscdate1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 144 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscdate1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdiscdate1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 155 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscpct1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 145 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscpct1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdiscpct1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 156 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduedate1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 146 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduedate1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhduedate1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 157 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdueamt1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 147 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdueamt1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdueamt1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 158 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduepct1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 148 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduepct1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhduepct1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 159 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscdate2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 149 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscdate2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdiscdate2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 160 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscpct2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 150 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscpct2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdiscpct2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 161 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduedate2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 151 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduedate2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhduedate2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 162 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdueamt2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 152 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdueamt2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdueamt2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 163 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduepct2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 153 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduepct2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhduepct2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 164 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscdate3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 154 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscdate3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdiscdate3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 165 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscpct3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 155 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscpct3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdiscpct3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 166 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduedate3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 156 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduedate3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhduedate3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 167 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdueamt3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 157 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdueamt3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdueamt3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 168 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduepct3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 158 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduepct3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhduepct3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 169 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscdate4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 159 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscdate4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdiscdate4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 170 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscpct4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 160 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscpct4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdiscpct4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 171 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduedate4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 161 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduedate4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhduedate4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 172 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdueamt4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 162 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdueamt4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdueamt4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 173 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduepct4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 163 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduepct4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhduepct4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 174 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscdate5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 164 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscdate5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdiscdate5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 175 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscpct5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 165 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscpct5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdiscpct5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 176 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduedate5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 166 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduedate5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhduedate5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 177 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdueamt5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 167 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdueamt5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdueamt5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 178 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduepct5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 168 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduepct5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhduepct5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 179 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscdate6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 169 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscdate6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdiscdate6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 180 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscpct6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 170 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdiscpct6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdiscpct6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 181 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduedate6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 171 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduedate6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhduedate6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 182 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdueamt6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 172 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhdueamt6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhdueamt6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 183 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduepct6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 173 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduepct6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhduepct6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 184 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhrefnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 174 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhrefnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhrefnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 185 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhacprognbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 175 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxcode1', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxcode1 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 176 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxamt1', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxamt1 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 177 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxcode2', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxcode2 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 178 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxamt2', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxamt2 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 179 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxcode3', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxcode3 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 180 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxamt3', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxamt3 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 181 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxcode4', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxcode4 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 182 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxamt4', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxamt4 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 183 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxcode5', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxcode5 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 184 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxamt5', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxamt5 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 185 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxcode6', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxcode6 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 186 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxamt6', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxamt6 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 187 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxcode7', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxcode7 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 188 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxamt7', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxamt7 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 189 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxcode8', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxcode8 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 190 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxamt8', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxamt8 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 191 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxcode9', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxcode9 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 192 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhfrttaxamt9', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhfrttaxamt9 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 193 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhacprognbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhacprognbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 186 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhacprogexpdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 194 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhacprogexpdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhacprogexpdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 187 + $startcol : SalesHistoryTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 195 + $startcol : SalesHistoryTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 188 + $startcol : SalesHistoryTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 196 + $startcol : SalesHistoryTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 189 + $startcol : SalesHistoryTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 197 + $startcol : SalesHistoryTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -9160,7 +9528,7 @@ abstract class SalesHistory implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 190; // 190 = SalesHistoryTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 198; // 198 = SalesHistoryTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\SalesHistory'), 0, $e);
@@ -9822,36 +10190,6 @@ abstract class SalesHistory implements ActiveRecordInterface
         if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHROUTESEQ)) {
             $modifiedColumns[':p' . $index++]  = 'OehhRouteSeq';
         }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE1)) {
-            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxCode1';
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT1)) {
-            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxAmt1';
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE2)) {
-            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxCode2';
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT2)) {
-            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxAmt2';
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE3)) {
-            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxCode3';
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT3)) {
-            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxAmt3';
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE4)) {
-            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxCode4';
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT4)) {
-            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxAmt4';
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE5)) {
-            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxCode5';
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT5)) {
-            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxAmt5';
-        }
         if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHEDI855SENT)) {
             $modifiedColumns[':p' . $index++]  = 'OehhEdi855Sent';
         }
@@ -9998,6 +10336,60 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
         if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHREFNBR)) {
             $modifiedColumns[':p' . $index++]  = 'OehhRefNbr';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE1)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxCode1';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT1)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxAmt1';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE2)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxCode2';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT2)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxAmt2';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE3)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxCode3';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT3)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxAmt3';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE4)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxCode4';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT4)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxAmt4';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE5)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxCode5';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT5)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxAmt5';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE6)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxCode6';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT6)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxAmt6';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE7)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxCode7';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT7)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxAmt7';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE8)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxCode8';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT8)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxAmt8';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE9)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxCode9';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT9)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhFrtTaxAmt9';
         }
         if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHACPROGNBR)) {
             $modifiedColumns[':p' . $index++]  = 'OehhAcProgNbr';
@@ -10403,36 +10795,6 @@ abstract class SalesHistory implements ActiveRecordInterface
                     case 'OehhRouteSeq':
                         $stmt->bindValue($identifier, $this->oehhrouteseq, PDO::PARAM_INT);
                         break;
-                    case 'OehhFrtTaxCode1':
-                        $stmt->bindValue($identifier, $this->oehhfrttaxcode1, PDO::PARAM_STR);
-                        break;
-                    case 'OehhFrtTaxAmt1':
-                        $stmt->bindValue($identifier, $this->oehhfrttaxamt1, PDO::PARAM_STR);
-                        break;
-                    case 'OehhFrtTaxCode2':
-                        $stmt->bindValue($identifier, $this->oehhfrttaxcode2, PDO::PARAM_STR);
-                        break;
-                    case 'OehhFrtTaxAmt2':
-                        $stmt->bindValue($identifier, $this->oehhfrttaxamt2, PDO::PARAM_STR);
-                        break;
-                    case 'OehhFrtTaxCode3':
-                        $stmt->bindValue($identifier, $this->oehhfrttaxcode3, PDO::PARAM_STR);
-                        break;
-                    case 'OehhFrtTaxAmt3':
-                        $stmt->bindValue($identifier, $this->oehhfrttaxamt3, PDO::PARAM_STR);
-                        break;
-                    case 'OehhFrtTaxCode4':
-                        $stmt->bindValue($identifier, $this->oehhfrttaxcode4, PDO::PARAM_STR);
-                        break;
-                    case 'OehhFrtTaxAmt4':
-                        $stmt->bindValue($identifier, $this->oehhfrttaxamt4, PDO::PARAM_STR);
-                        break;
-                    case 'OehhFrtTaxCode5':
-                        $stmt->bindValue($identifier, $this->oehhfrttaxcode5, PDO::PARAM_STR);
-                        break;
-                    case 'OehhFrtTaxAmt5':
-                        $stmt->bindValue($identifier, $this->oehhfrttaxamt5, PDO::PARAM_STR);
-                        break;
                     case 'OehhEdi855Sent':
                         $stmt->bindValue($identifier, $this->oehhedi855sent, PDO::PARAM_STR);
                         break;
@@ -10579,6 +10941,60 @@ abstract class SalesHistory implements ActiveRecordInterface
                         break;
                     case 'OehhRefNbr':
                         $stmt->bindValue($identifier, $this->oehhrefnbr, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxCode1':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxcode1, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxAmt1':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxamt1, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxCode2':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxcode2, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxAmt2':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxamt2, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxCode3':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxcode3, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxAmt3':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxamt3, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxCode4':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxcode4, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxAmt4':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxamt4, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxCode5':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxcode5, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxAmt5':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxamt5, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxCode6':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxcode6, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxAmt6':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxamt6, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxCode7':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxcode7, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxAmt7':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxamt7, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxCode8':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxcode8, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxAmt8':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxamt8, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxCode9':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxcode9, PDO::PARAM_STR);
+                        break;
+                    case 'OehhFrtTaxAmt9':
+                        $stmt->bindValue($identifier, $this->oehhfrttaxamt9, PDO::PARAM_STR);
                         break;
                     case 'OehhAcProgNbr':
                         $stmt->bindValue($identifier, $this->oehhacprognbr, PDO::PARAM_STR);
@@ -11029,195 +11445,219 @@ abstract class SalesHistory implements ActiveRecordInterface
                 return $this->getOehhrouteseq();
                 break;
             case 126:
-                return $this->getOehhfrttaxcode1();
-                break;
-            case 127:
-                return $this->getOehhfrttaxamt1();
-                break;
-            case 128:
-                return $this->getOehhfrttaxcode2();
-                break;
-            case 129:
-                return $this->getOehhfrttaxamt2();
-                break;
-            case 130:
-                return $this->getOehhfrttaxcode3();
-                break;
-            case 131:
-                return $this->getOehhfrttaxamt3();
-                break;
-            case 132:
-                return $this->getOehhfrttaxcode4();
-                break;
-            case 133:
-                return $this->getOehhfrttaxamt4();
-                break;
-            case 134:
-                return $this->getOehhfrttaxcode5();
-                break;
-            case 135:
-                return $this->getOehhfrttaxamt5();
-                break;
-            case 136:
                 return $this->getOehhedi855sent();
                 break;
-            case 137:
+            case 127:
                 return $this->getOehhfrt3rdparty();
                 break;
-            case 138:
+            case 128:
                 return $this->getOehhfob();
                 break;
-            case 139:
+            case 129:
                 return $this->getOehhconfirmimagyn();
                 break;
-            case 140:
+            case 130:
                 return $this->getOehhindustconform();
                 break;
-            case 141:
+            case 131:
                 return $this->getOehhcstkconsign();
                 break;
-            case 142:
+            case 132:
                 return $this->getOehhlmdelaycapsent();
                 break;
-            case 143:
+            case 133:
                 return $this->getOehhmfgid();
                 break;
-            case 144:
+            case 134:
                 return $this->getOehhstoreid();
                 break;
-            case 145:
+            case 135:
                 return $this->getOehhpickqueue();
                 break;
-            case 146:
+            case 136:
                 return $this->getOehharrvdate();
                 break;
-            case 147:
+            case 137:
                 return $this->getOehhsurchgstat();
                 break;
-            case 148:
+            case 138:
                 return $this->getOehhfrtgrup();
                 break;
-            case 149:
+            case 139:
                 return $this->getOehhcommoride();
                 break;
-            case 150:
+            case 140:
                 return $this->getOehhchrgsplt();
                 break;
-            case 151:
+            case 141:
                 return $this->getOehhacccaprv();
                 break;
-            case 152:
+            case 142:
                 return $this->getOehhorigordrnbr();
                 break;
-            case 153:
+            case 143:
                 return $this->getOehhpostdate();
                 break;
-            case 154:
+            case 144:
                 return $this->getOehhdiscdate1();
                 break;
-            case 155:
+            case 145:
                 return $this->getOehhdiscpct1();
                 break;
-            case 156:
+            case 146:
                 return $this->getOehhduedate1();
                 break;
-            case 157:
+            case 147:
                 return $this->getOehhdueamt1();
                 break;
-            case 158:
+            case 148:
                 return $this->getOehhduepct1();
                 break;
-            case 159:
+            case 149:
                 return $this->getOehhdiscdate2();
                 break;
-            case 160:
+            case 150:
                 return $this->getOehhdiscpct2();
                 break;
-            case 161:
+            case 151:
                 return $this->getOehhduedate2();
                 break;
-            case 162:
+            case 152:
                 return $this->getOehhdueamt2();
                 break;
-            case 163:
+            case 153:
                 return $this->getOehhduepct2();
                 break;
-            case 164:
+            case 154:
                 return $this->getOehhdiscdate3();
                 break;
-            case 165:
+            case 155:
                 return $this->getOehhdiscpct3();
                 break;
-            case 166:
+            case 156:
                 return $this->getOehhduedate3();
                 break;
-            case 167:
+            case 157:
                 return $this->getOehhdueamt3();
                 break;
-            case 168:
+            case 158:
                 return $this->getOehhduepct3();
                 break;
-            case 169:
+            case 159:
                 return $this->getOehhdiscdate4();
                 break;
-            case 170:
+            case 160:
                 return $this->getOehhdiscpct4();
                 break;
-            case 171:
+            case 161:
                 return $this->getOehhduedate4();
                 break;
-            case 172:
+            case 162:
                 return $this->getOehhdueamt4();
                 break;
-            case 173:
+            case 163:
                 return $this->getOehhduepct4();
                 break;
-            case 174:
+            case 164:
                 return $this->getOehhdiscdate5();
                 break;
-            case 175:
+            case 165:
                 return $this->getOehhdiscpct5();
                 break;
-            case 176:
+            case 166:
                 return $this->getOehhduedate5();
                 break;
-            case 177:
+            case 167:
                 return $this->getOehhdueamt5();
                 break;
-            case 178:
+            case 168:
                 return $this->getOehhduepct5();
                 break;
-            case 179:
+            case 169:
                 return $this->getOehhdiscdate6();
                 break;
-            case 180:
+            case 170:
                 return $this->getOehhdiscpct6();
                 break;
-            case 181:
+            case 171:
                 return $this->getOehhduedate6();
                 break;
-            case 182:
+            case 172:
                 return $this->getOehhdueamt6();
                 break;
-            case 183:
+            case 173:
                 return $this->getOehhduepct6();
                 break;
-            case 184:
+            case 174:
                 return $this->getOehhrefnbr();
                 break;
+            case 175:
+                return $this->getOehhfrttaxcode1();
+                break;
+            case 176:
+                return $this->getOehhfrttaxamt1();
+                break;
+            case 177:
+                return $this->getOehhfrttaxcode2();
+                break;
+            case 178:
+                return $this->getOehhfrttaxamt2();
+                break;
+            case 179:
+                return $this->getOehhfrttaxcode3();
+                break;
+            case 180:
+                return $this->getOehhfrttaxamt3();
+                break;
+            case 181:
+                return $this->getOehhfrttaxcode4();
+                break;
+            case 182:
+                return $this->getOehhfrttaxamt4();
+                break;
+            case 183:
+                return $this->getOehhfrttaxcode5();
+                break;
+            case 184:
+                return $this->getOehhfrttaxamt5();
+                break;
             case 185:
-                return $this->getOehhacprognbr();
+                return $this->getOehhfrttaxcode6();
                 break;
             case 186:
-                return $this->getOehhacprogexpdate();
+                return $this->getOehhfrttaxamt6();
                 break;
             case 187:
-                return $this->getDateupdtd();
+                return $this->getOehhfrttaxcode7();
                 break;
             case 188:
-                return $this->getTimeupdtd();
+                return $this->getOehhfrttaxamt7();
                 break;
             case 189:
+                return $this->getOehhfrttaxcode8();
+                break;
+            case 190:
+                return $this->getOehhfrttaxamt8();
+                break;
+            case 191:
+                return $this->getOehhfrttaxcode9();
+                break;
+            case 192:
+                return $this->getOehhfrttaxamt9();
+                break;
+            case 193:
+                return $this->getOehhacprognbr();
+                break;
+            case 194:
+                return $this->getOehhacprogexpdate();
+                break;
+            case 195:
+                return $this->getDateupdtd();
+                break;
+            case 196:
+                return $this->getTimeupdtd();
+                break;
+            case 197:
                 return $this->getDummy();
                 break;
             default:
@@ -11376,70 +11816,78 @@ abstract class SalesHistory implements ActiveRecordInterface
             $keys[123] => $this->getOehhfrtcost(),
             $keys[124] => $this->getOehhroute(),
             $keys[125] => $this->getOehhrouteseq(),
-            $keys[126] => $this->getOehhfrttaxcode1(),
-            $keys[127] => $this->getOehhfrttaxamt1(),
-            $keys[128] => $this->getOehhfrttaxcode2(),
-            $keys[129] => $this->getOehhfrttaxamt2(),
-            $keys[130] => $this->getOehhfrttaxcode3(),
-            $keys[131] => $this->getOehhfrttaxamt3(),
-            $keys[132] => $this->getOehhfrttaxcode4(),
-            $keys[133] => $this->getOehhfrttaxamt4(),
-            $keys[134] => $this->getOehhfrttaxcode5(),
-            $keys[135] => $this->getOehhfrttaxamt5(),
-            $keys[136] => $this->getOehhedi855sent(),
-            $keys[137] => $this->getOehhfrt3rdparty(),
-            $keys[138] => $this->getOehhfob(),
-            $keys[139] => $this->getOehhconfirmimagyn(),
-            $keys[140] => $this->getOehhindustconform(),
-            $keys[141] => $this->getOehhcstkconsign(),
-            $keys[142] => $this->getOehhlmdelaycapsent(),
-            $keys[143] => $this->getOehhmfgid(),
-            $keys[144] => $this->getOehhstoreid(),
-            $keys[145] => $this->getOehhpickqueue(),
-            $keys[146] => $this->getOehharrvdate(),
-            $keys[147] => $this->getOehhsurchgstat(),
-            $keys[148] => $this->getOehhfrtgrup(),
-            $keys[149] => $this->getOehhcommoride(),
-            $keys[150] => $this->getOehhchrgsplt(),
-            $keys[151] => $this->getOehhacccaprv(),
-            $keys[152] => $this->getOehhorigordrnbr(),
-            $keys[153] => $this->getOehhpostdate(),
-            $keys[154] => $this->getOehhdiscdate1(),
-            $keys[155] => $this->getOehhdiscpct1(),
-            $keys[156] => $this->getOehhduedate1(),
-            $keys[157] => $this->getOehhdueamt1(),
-            $keys[158] => $this->getOehhduepct1(),
-            $keys[159] => $this->getOehhdiscdate2(),
-            $keys[160] => $this->getOehhdiscpct2(),
-            $keys[161] => $this->getOehhduedate2(),
-            $keys[162] => $this->getOehhdueamt2(),
-            $keys[163] => $this->getOehhduepct2(),
-            $keys[164] => $this->getOehhdiscdate3(),
-            $keys[165] => $this->getOehhdiscpct3(),
-            $keys[166] => $this->getOehhduedate3(),
-            $keys[167] => $this->getOehhdueamt3(),
-            $keys[168] => $this->getOehhduepct3(),
-            $keys[169] => $this->getOehhdiscdate4(),
-            $keys[170] => $this->getOehhdiscpct4(),
-            $keys[171] => $this->getOehhduedate4(),
-            $keys[172] => $this->getOehhdueamt4(),
-            $keys[173] => $this->getOehhduepct4(),
-            $keys[174] => $this->getOehhdiscdate5(),
-            $keys[175] => $this->getOehhdiscpct5(),
-            $keys[176] => $this->getOehhduedate5(),
-            $keys[177] => $this->getOehhdueamt5(),
-            $keys[178] => $this->getOehhduepct5(),
-            $keys[179] => $this->getOehhdiscdate6(),
-            $keys[180] => $this->getOehhdiscpct6(),
-            $keys[181] => $this->getOehhduedate6(),
-            $keys[182] => $this->getOehhdueamt6(),
-            $keys[183] => $this->getOehhduepct6(),
-            $keys[184] => $this->getOehhrefnbr(),
-            $keys[185] => $this->getOehhacprognbr(),
-            $keys[186] => $this->getOehhacprogexpdate(),
-            $keys[187] => $this->getDateupdtd(),
-            $keys[188] => $this->getTimeupdtd(),
-            $keys[189] => $this->getDummy(),
+            $keys[126] => $this->getOehhedi855sent(),
+            $keys[127] => $this->getOehhfrt3rdparty(),
+            $keys[128] => $this->getOehhfob(),
+            $keys[129] => $this->getOehhconfirmimagyn(),
+            $keys[130] => $this->getOehhindustconform(),
+            $keys[131] => $this->getOehhcstkconsign(),
+            $keys[132] => $this->getOehhlmdelaycapsent(),
+            $keys[133] => $this->getOehhmfgid(),
+            $keys[134] => $this->getOehhstoreid(),
+            $keys[135] => $this->getOehhpickqueue(),
+            $keys[136] => $this->getOehharrvdate(),
+            $keys[137] => $this->getOehhsurchgstat(),
+            $keys[138] => $this->getOehhfrtgrup(),
+            $keys[139] => $this->getOehhcommoride(),
+            $keys[140] => $this->getOehhchrgsplt(),
+            $keys[141] => $this->getOehhacccaprv(),
+            $keys[142] => $this->getOehhorigordrnbr(),
+            $keys[143] => $this->getOehhpostdate(),
+            $keys[144] => $this->getOehhdiscdate1(),
+            $keys[145] => $this->getOehhdiscpct1(),
+            $keys[146] => $this->getOehhduedate1(),
+            $keys[147] => $this->getOehhdueamt1(),
+            $keys[148] => $this->getOehhduepct1(),
+            $keys[149] => $this->getOehhdiscdate2(),
+            $keys[150] => $this->getOehhdiscpct2(),
+            $keys[151] => $this->getOehhduedate2(),
+            $keys[152] => $this->getOehhdueamt2(),
+            $keys[153] => $this->getOehhduepct2(),
+            $keys[154] => $this->getOehhdiscdate3(),
+            $keys[155] => $this->getOehhdiscpct3(),
+            $keys[156] => $this->getOehhduedate3(),
+            $keys[157] => $this->getOehhdueamt3(),
+            $keys[158] => $this->getOehhduepct3(),
+            $keys[159] => $this->getOehhdiscdate4(),
+            $keys[160] => $this->getOehhdiscpct4(),
+            $keys[161] => $this->getOehhduedate4(),
+            $keys[162] => $this->getOehhdueamt4(),
+            $keys[163] => $this->getOehhduepct4(),
+            $keys[164] => $this->getOehhdiscdate5(),
+            $keys[165] => $this->getOehhdiscpct5(),
+            $keys[166] => $this->getOehhduedate5(),
+            $keys[167] => $this->getOehhdueamt5(),
+            $keys[168] => $this->getOehhduepct5(),
+            $keys[169] => $this->getOehhdiscdate6(),
+            $keys[170] => $this->getOehhdiscpct6(),
+            $keys[171] => $this->getOehhduedate6(),
+            $keys[172] => $this->getOehhdueamt6(),
+            $keys[173] => $this->getOehhduepct6(),
+            $keys[174] => $this->getOehhrefnbr(),
+            $keys[175] => $this->getOehhfrttaxcode1(),
+            $keys[176] => $this->getOehhfrttaxamt1(),
+            $keys[177] => $this->getOehhfrttaxcode2(),
+            $keys[178] => $this->getOehhfrttaxamt2(),
+            $keys[179] => $this->getOehhfrttaxcode3(),
+            $keys[180] => $this->getOehhfrttaxamt3(),
+            $keys[181] => $this->getOehhfrttaxcode4(),
+            $keys[182] => $this->getOehhfrttaxamt4(),
+            $keys[183] => $this->getOehhfrttaxcode5(),
+            $keys[184] => $this->getOehhfrttaxamt5(),
+            $keys[185] => $this->getOehhfrttaxcode6(),
+            $keys[186] => $this->getOehhfrttaxamt6(),
+            $keys[187] => $this->getOehhfrttaxcode7(),
+            $keys[188] => $this->getOehhfrttaxamt7(),
+            $keys[189] => $this->getOehhfrttaxcode8(),
+            $keys[190] => $this->getOehhfrttaxamt8(),
+            $keys[191] => $this->getOehhfrttaxcode9(),
+            $keys[192] => $this->getOehhfrttaxamt9(),
+            $keys[193] => $this->getOehhacprognbr(),
+            $keys[194] => $this->getOehhacprogexpdate(),
+            $keys[195] => $this->getDateupdtd(),
+            $keys[196] => $this->getTimeupdtd(),
+            $keys[197] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -11935,195 +12383,219 @@ abstract class SalesHistory implements ActiveRecordInterface
                 $this->setOehhrouteseq($value);
                 break;
             case 126:
-                $this->setOehhfrttaxcode1($value);
-                break;
-            case 127:
-                $this->setOehhfrttaxamt1($value);
-                break;
-            case 128:
-                $this->setOehhfrttaxcode2($value);
-                break;
-            case 129:
-                $this->setOehhfrttaxamt2($value);
-                break;
-            case 130:
-                $this->setOehhfrttaxcode3($value);
-                break;
-            case 131:
-                $this->setOehhfrttaxamt3($value);
-                break;
-            case 132:
-                $this->setOehhfrttaxcode4($value);
-                break;
-            case 133:
-                $this->setOehhfrttaxamt4($value);
-                break;
-            case 134:
-                $this->setOehhfrttaxcode5($value);
-                break;
-            case 135:
-                $this->setOehhfrttaxamt5($value);
-                break;
-            case 136:
                 $this->setOehhedi855sent($value);
                 break;
-            case 137:
+            case 127:
                 $this->setOehhfrt3rdparty($value);
                 break;
-            case 138:
+            case 128:
                 $this->setOehhfob($value);
                 break;
-            case 139:
+            case 129:
                 $this->setOehhconfirmimagyn($value);
                 break;
-            case 140:
+            case 130:
                 $this->setOehhindustconform($value);
                 break;
-            case 141:
+            case 131:
                 $this->setOehhcstkconsign($value);
                 break;
-            case 142:
+            case 132:
                 $this->setOehhlmdelaycapsent($value);
                 break;
-            case 143:
+            case 133:
                 $this->setOehhmfgid($value);
                 break;
-            case 144:
+            case 134:
                 $this->setOehhstoreid($value);
                 break;
-            case 145:
+            case 135:
                 $this->setOehhpickqueue($value);
                 break;
-            case 146:
+            case 136:
                 $this->setOehharrvdate($value);
                 break;
-            case 147:
+            case 137:
                 $this->setOehhsurchgstat($value);
                 break;
-            case 148:
+            case 138:
                 $this->setOehhfrtgrup($value);
                 break;
-            case 149:
+            case 139:
                 $this->setOehhcommoride($value);
                 break;
-            case 150:
+            case 140:
                 $this->setOehhchrgsplt($value);
                 break;
-            case 151:
+            case 141:
                 $this->setOehhacccaprv($value);
                 break;
-            case 152:
+            case 142:
                 $this->setOehhorigordrnbr($value);
                 break;
-            case 153:
+            case 143:
                 $this->setOehhpostdate($value);
                 break;
-            case 154:
+            case 144:
                 $this->setOehhdiscdate1($value);
                 break;
-            case 155:
+            case 145:
                 $this->setOehhdiscpct1($value);
                 break;
-            case 156:
+            case 146:
                 $this->setOehhduedate1($value);
                 break;
-            case 157:
+            case 147:
                 $this->setOehhdueamt1($value);
                 break;
-            case 158:
+            case 148:
                 $this->setOehhduepct1($value);
                 break;
-            case 159:
+            case 149:
                 $this->setOehhdiscdate2($value);
                 break;
-            case 160:
+            case 150:
                 $this->setOehhdiscpct2($value);
                 break;
-            case 161:
+            case 151:
                 $this->setOehhduedate2($value);
                 break;
-            case 162:
+            case 152:
                 $this->setOehhdueamt2($value);
                 break;
-            case 163:
+            case 153:
                 $this->setOehhduepct2($value);
                 break;
-            case 164:
+            case 154:
                 $this->setOehhdiscdate3($value);
                 break;
-            case 165:
+            case 155:
                 $this->setOehhdiscpct3($value);
                 break;
-            case 166:
+            case 156:
                 $this->setOehhduedate3($value);
                 break;
-            case 167:
+            case 157:
                 $this->setOehhdueamt3($value);
                 break;
-            case 168:
+            case 158:
                 $this->setOehhduepct3($value);
                 break;
-            case 169:
+            case 159:
                 $this->setOehhdiscdate4($value);
                 break;
-            case 170:
+            case 160:
                 $this->setOehhdiscpct4($value);
                 break;
-            case 171:
+            case 161:
                 $this->setOehhduedate4($value);
                 break;
-            case 172:
+            case 162:
                 $this->setOehhdueamt4($value);
                 break;
-            case 173:
+            case 163:
                 $this->setOehhduepct4($value);
                 break;
-            case 174:
+            case 164:
                 $this->setOehhdiscdate5($value);
                 break;
-            case 175:
+            case 165:
                 $this->setOehhdiscpct5($value);
                 break;
-            case 176:
+            case 166:
                 $this->setOehhduedate5($value);
                 break;
-            case 177:
+            case 167:
                 $this->setOehhdueamt5($value);
                 break;
-            case 178:
+            case 168:
                 $this->setOehhduepct5($value);
                 break;
-            case 179:
+            case 169:
                 $this->setOehhdiscdate6($value);
                 break;
-            case 180:
+            case 170:
                 $this->setOehhdiscpct6($value);
                 break;
-            case 181:
+            case 171:
                 $this->setOehhduedate6($value);
                 break;
-            case 182:
+            case 172:
                 $this->setOehhdueamt6($value);
                 break;
-            case 183:
+            case 173:
                 $this->setOehhduepct6($value);
                 break;
-            case 184:
+            case 174:
                 $this->setOehhrefnbr($value);
                 break;
+            case 175:
+                $this->setOehhfrttaxcode1($value);
+                break;
+            case 176:
+                $this->setOehhfrttaxamt1($value);
+                break;
+            case 177:
+                $this->setOehhfrttaxcode2($value);
+                break;
+            case 178:
+                $this->setOehhfrttaxamt2($value);
+                break;
+            case 179:
+                $this->setOehhfrttaxcode3($value);
+                break;
+            case 180:
+                $this->setOehhfrttaxamt3($value);
+                break;
+            case 181:
+                $this->setOehhfrttaxcode4($value);
+                break;
+            case 182:
+                $this->setOehhfrttaxamt4($value);
+                break;
+            case 183:
+                $this->setOehhfrttaxcode5($value);
+                break;
+            case 184:
+                $this->setOehhfrttaxamt5($value);
+                break;
             case 185:
-                $this->setOehhacprognbr($value);
+                $this->setOehhfrttaxcode6($value);
                 break;
             case 186:
-                $this->setOehhacprogexpdate($value);
+                $this->setOehhfrttaxamt6($value);
                 break;
             case 187:
-                $this->setDateupdtd($value);
+                $this->setOehhfrttaxcode7($value);
                 break;
             case 188:
-                $this->setTimeupdtd($value);
+                $this->setOehhfrttaxamt7($value);
                 break;
             case 189:
+                $this->setOehhfrttaxcode8($value);
+                break;
+            case 190:
+                $this->setOehhfrttaxamt8($value);
+                break;
+            case 191:
+                $this->setOehhfrttaxcode9($value);
+                break;
+            case 192:
+                $this->setOehhfrttaxamt9($value);
+                break;
+            case 193:
+                $this->setOehhacprognbr($value);
+                break;
+            case 194:
+                $this->setOehhacprogexpdate($value);
+                break;
+            case 195:
+                $this->setDateupdtd($value);
+                break;
+            case 196:
+                $this->setTimeupdtd($value);
+                break;
+            case 197:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -12531,196 +13003,220 @@ abstract class SalesHistory implements ActiveRecordInterface
             $this->setOehhrouteseq($arr[$keys[125]]);
         }
         if (array_key_exists($keys[126], $arr)) {
-            $this->setOehhfrttaxcode1($arr[$keys[126]]);
+            $this->setOehhedi855sent($arr[$keys[126]]);
         }
         if (array_key_exists($keys[127], $arr)) {
-            $this->setOehhfrttaxamt1($arr[$keys[127]]);
+            $this->setOehhfrt3rdparty($arr[$keys[127]]);
         }
         if (array_key_exists($keys[128], $arr)) {
-            $this->setOehhfrttaxcode2($arr[$keys[128]]);
+            $this->setOehhfob($arr[$keys[128]]);
         }
         if (array_key_exists($keys[129], $arr)) {
-            $this->setOehhfrttaxamt2($arr[$keys[129]]);
+            $this->setOehhconfirmimagyn($arr[$keys[129]]);
         }
         if (array_key_exists($keys[130], $arr)) {
-            $this->setOehhfrttaxcode3($arr[$keys[130]]);
+            $this->setOehhindustconform($arr[$keys[130]]);
         }
         if (array_key_exists($keys[131], $arr)) {
-            $this->setOehhfrttaxamt3($arr[$keys[131]]);
+            $this->setOehhcstkconsign($arr[$keys[131]]);
         }
         if (array_key_exists($keys[132], $arr)) {
-            $this->setOehhfrttaxcode4($arr[$keys[132]]);
+            $this->setOehhlmdelaycapsent($arr[$keys[132]]);
         }
         if (array_key_exists($keys[133], $arr)) {
-            $this->setOehhfrttaxamt4($arr[$keys[133]]);
+            $this->setOehhmfgid($arr[$keys[133]]);
         }
         if (array_key_exists($keys[134], $arr)) {
-            $this->setOehhfrttaxcode5($arr[$keys[134]]);
+            $this->setOehhstoreid($arr[$keys[134]]);
         }
         if (array_key_exists($keys[135], $arr)) {
-            $this->setOehhfrttaxamt5($arr[$keys[135]]);
+            $this->setOehhpickqueue($arr[$keys[135]]);
         }
         if (array_key_exists($keys[136], $arr)) {
-            $this->setOehhedi855sent($arr[$keys[136]]);
+            $this->setOehharrvdate($arr[$keys[136]]);
         }
         if (array_key_exists($keys[137], $arr)) {
-            $this->setOehhfrt3rdparty($arr[$keys[137]]);
+            $this->setOehhsurchgstat($arr[$keys[137]]);
         }
         if (array_key_exists($keys[138], $arr)) {
-            $this->setOehhfob($arr[$keys[138]]);
+            $this->setOehhfrtgrup($arr[$keys[138]]);
         }
         if (array_key_exists($keys[139], $arr)) {
-            $this->setOehhconfirmimagyn($arr[$keys[139]]);
+            $this->setOehhcommoride($arr[$keys[139]]);
         }
         if (array_key_exists($keys[140], $arr)) {
-            $this->setOehhindustconform($arr[$keys[140]]);
+            $this->setOehhchrgsplt($arr[$keys[140]]);
         }
         if (array_key_exists($keys[141], $arr)) {
-            $this->setOehhcstkconsign($arr[$keys[141]]);
+            $this->setOehhacccaprv($arr[$keys[141]]);
         }
         if (array_key_exists($keys[142], $arr)) {
-            $this->setOehhlmdelaycapsent($arr[$keys[142]]);
+            $this->setOehhorigordrnbr($arr[$keys[142]]);
         }
         if (array_key_exists($keys[143], $arr)) {
-            $this->setOehhmfgid($arr[$keys[143]]);
+            $this->setOehhpostdate($arr[$keys[143]]);
         }
         if (array_key_exists($keys[144], $arr)) {
-            $this->setOehhstoreid($arr[$keys[144]]);
+            $this->setOehhdiscdate1($arr[$keys[144]]);
         }
         if (array_key_exists($keys[145], $arr)) {
-            $this->setOehhpickqueue($arr[$keys[145]]);
+            $this->setOehhdiscpct1($arr[$keys[145]]);
         }
         if (array_key_exists($keys[146], $arr)) {
-            $this->setOehharrvdate($arr[$keys[146]]);
+            $this->setOehhduedate1($arr[$keys[146]]);
         }
         if (array_key_exists($keys[147], $arr)) {
-            $this->setOehhsurchgstat($arr[$keys[147]]);
+            $this->setOehhdueamt1($arr[$keys[147]]);
         }
         if (array_key_exists($keys[148], $arr)) {
-            $this->setOehhfrtgrup($arr[$keys[148]]);
+            $this->setOehhduepct1($arr[$keys[148]]);
         }
         if (array_key_exists($keys[149], $arr)) {
-            $this->setOehhcommoride($arr[$keys[149]]);
+            $this->setOehhdiscdate2($arr[$keys[149]]);
         }
         if (array_key_exists($keys[150], $arr)) {
-            $this->setOehhchrgsplt($arr[$keys[150]]);
+            $this->setOehhdiscpct2($arr[$keys[150]]);
         }
         if (array_key_exists($keys[151], $arr)) {
-            $this->setOehhacccaprv($arr[$keys[151]]);
+            $this->setOehhduedate2($arr[$keys[151]]);
         }
         if (array_key_exists($keys[152], $arr)) {
-            $this->setOehhorigordrnbr($arr[$keys[152]]);
+            $this->setOehhdueamt2($arr[$keys[152]]);
         }
         if (array_key_exists($keys[153], $arr)) {
-            $this->setOehhpostdate($arr[$keys[153]]);
+            $this->setOehhduepct2($arr[$keys[153]]);
         }
         if (array_key_exists($keys[154], $arr)) {
-            $this->setOehhdiscdate1($arr[$keys[154]]);
+            $this->setOehhdiscdate3($arr[$keys[154]]);
         }
         if (array_key_exists($keys[155], $arr)) {
-            $this->setOehhdiscpct1($arr[$keys[155]]);
+            $this->setOehhdiscpct3($arr[$keys[155]]);
         }
         if (array_key_exists($keys[156], $arr)) {
-            $this->setOehhduedate1($arr[$keys[156]]);
+            $this->setOehhduedate3($arr[$keys[156]]);
         }
         if (array_key_exists($keys[157], $arr)) {
-            $this->setOehhdueamt1($arr[$keys[157]]);
+            $this->setOehhdueamt3($arr[$keys[157]]);
         }
         if (array_key_exists($keys[158], $arr)) {
-            $this->setOehhduepct1($arr[$keys[158]]);
+            $this->setOehhduepct3($arr[$keys[158]]);
         }
         if (array_key_exists($keys[159], $arr)) {
-            $this->setOehhdiscdate2($arr[$keys[159]]);
+            $this->setOehhdiscdate4($arr[$keys[159]]);
         }
         if (array_key_exists($keys[160], $arr)) {
-            $this->setOehhdiscpct2($arr[$keys[160]]);
+            $this->setOehhdiscpct4($arr[$keys[160]]);
         }
         if (array_key_exists($keys[161], $arr)) {
-            $this->setOehhduedate2($arr[$keys[161]]);
+            $this->setOehhduedate4($arr[$keys[161]]);
         }
         if (array_key_exists($keys[162], $arr)) {
-            $this->setOehhdueamt2($arr[$keys[162]]);
+            $this->setOehhdueamt4($arr[$keys[162]]);
         }
         if (array_key_exists($keys[163], $arr)) {
-            $this->setOehhduepct2($arr[$keys[163]]);
+            $this->setOehhduepct4($arr[$keys[163]]);
         }
         if (array_key_exists($keys[164], $arr)) {
-            $this->setOehhdiscdate3($arr[$keys[164]]);
+            $this->setOehhdiscdate5($arr[$keys[164]]);
         }
         if (array_key_exists($keys[165], $arr)) {
-            $this->setOehhdiscpct3($arr[$keys[165]]);
+            $this->setOehhdiscpct5($arr[$keys[165]]);
         }
         if (array_key_exists($keys[166], $arr)) {
-            $this->setOehhduedate3($arr[$keys[166]]);
+            $this->setOehhduedate5($arr[$keys[166]]);
         }
         if (array_key_exists($keys[167], $arr)) {
-            $this->setOehhdueamt3($arr[$keys[167]]);
+            $this->setOehhdueamt5($arr[$keys[167]]);
         }
         if (array_key_exists($keys[168], $arr)) {
-            $this->setOehhduepct3($arr[$keys[168]]);
+            $this->setOehhduepct5($arr[$keys[168]]);
         }
         if (array_key_exists($keys[169], $arr)) {
-            $this->setOehhdiscdate4($arr[$keys[169]]);
+            $this->setOehhdiscdate6($arr[$keys[169]]);
         }
         if (array_key_exists($keys[170], $arr)) {
-            $this->setOehhdiscpct4($arr[$keys[170]]);
+            $this->setOehhdiscpct6($arr[$keys[170]]);
         }
         if (array_key_exists($keys[171], $arr)) {
-            $this->setOehhduedate4($arr[$keys[171]]);
+            $this->setOehhduedate6($arr[$keys[171]]);
         }
         if (array_key_exists($keys[172], $arr)) {
-            $this->setOehhdueamt4($arr[$keys[172]]);
+            $this->setOehhdueamt6($arr[$keys[172]]);
         }
         if (array_key_exists($keys[173], $arr)) {
-            $this->setOehhduepct4($arr[$keys[173]]);
+            $this->setOehhduepct6($arr[$keys[173]]);
         }
         if (array_key_exists($keys[174], $arr)) {
-            $this->setOehhdiscdate5($arr[$keys[174]]);
+            $this->setOehhrefnbr($arr[$keys[174]]);
         }
         if (array_key_exists($keys[175], $arr)) {
-            $this->setOehhdiscpct5($arr[$keys[175]]);
+            $this->setOehhfrttaxcode1($arr[$keys[175]]);
         }
         if (array_key_exists($keys[176], $arr)) {
-            $this->setOehhduedate5($arr[$keys[176]]);
+            $this->setOehhfrttaxamt1($arr[$keys[176]]);
         }
         if (array_key_exists($keys[177], $arr)) {
-            $this->setOehhdueamt5($arr[$keys[177]]);
+            $this->setOehhfrttaxcode2($arr[$keys[177]]);
         }
         if (array_key_exists($keys[178], $arr)) {
-            $this->setOehhduepct5($arr[$keys[178]]);
+            $this->setOehhfrttaxamt2($arr[$keys[178]]);
         }
         if (array_key_exists($keys[179], $arr)) {
-            $this->setOehhdiscdate6($arr[$keys[179]]);
+            $this->setOehhfrttaxcode3($arr[$keys[179]]);
         }
         if (array_key_exists($keys[180], $arr)) {
-            $this->setOehhdiscpct6($arr[$keys[180]]);
+            $this->setOehhfrttaxamt3($arr[$keys[180]]);
         }
         if (array_key_exists($keys[181], $arr)) {
-            $this->setOehhduedate6($arr[$keys[181]]);
+            $this->setOehhfrttaxcode4($arr[$keys[181]]);
         }
         if (array_key_exists($keys[182], $arr)) {
-            $this->setOehhdueamt6($arr[$keys[182]]);
+            $this->setOehhfrttaxamt4($arr[$keys[182]]);
         }
         if (array_key_exists($keys[183], $arr)) {
-            $this->setOehhduepct6($arr[$keys[183]]);
+            $this->setOehhfrttaxcode5($arr[$keys[183]]);
         }
         if (array_key_exists($keys[184], $arr)) {
-            $this->setOehhrefnbr($arr[$keys[184]]);
+            $this->setOehhfrttaxamt5($arr[$keys[184]]);
         }
         if (array_key_exists($keys[185], $arr)) {
-            $this->setOehhacprognbr($arr[$keys[185]]);
+            $this->setOehhfrttaxcode6($arr[$keys[185]]);
         }
         if (array_key_exists($keys[186], $arr)) {
-            $this->setOehhacprogexpdate($arr[$keys[186]]);
+            $this->setOehhfrttaxamt6($arr[$keys[186]]);
         }
         if (array_key_exists($keys[187], $arr)) {
-            $this->setDateupdtd($arr[$keys[187]]);
+            $this->setOehhfrttaxcode7($arr[$keys[187]]);
         }
         if (array_key_exists($keys[188], $arr)) {
-            $this->setTimeupdtd($arr[$keys[188]]);
+            $this->setOehhfrttaxamt7($arr[$keys[188]]);
         }
         if (array_key_exists($keys[189], $arr)) {
-            $this->setDummy($arr[$keys[189]]);
+            $this->setOehhfrttaxcode8($arr[$keys[189]]);
+        }
+        if (array_key_exists($keys[190], $arr)) {
+            $this->setOehhfrttaxamt8($arr[$keys[190]]);
+        }
+        if (array_key_exists($keys[191], $arr)) {
+            $this->setOehhfrttaxcode9($arr[$keys[191]]);
+        }
+        if (array_key_exists($keys[192], $arr)) {
+            $this->setOehhfrttaxamt9($arr[$keys[192]]);
+        }
+        if (array_key_exists($keys[193], $arr)) {
+            $this->setOehhacprognbr($arr[$keys[193]]);
+        }
+        if (array_key_exists($keys[194], $arr)) {
+            $this->setOehhacprogexpdate($arr[$keys[194]]);
+        }
+        if (array_key_exists($keys[195], $arr)) {
+            $this->setDateupdtd($arr[$keys[195]]);
+        }
+        if (array_key_exists($keys[196], $arr)) {
+            $this->setTimeupdtd($arr[$keys[196]]);
+        }
+        if (array_key_exists($keys[197], $arr)) {
+            $this->setDummy($arr[$keys[197]]);
         }
     }
 
@@ -13141,36 +13637,6 @@ abstract class SalesHistory implements ActiveRecordInterface
         if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHROUTESEQ)) {
             $criteria->add(SalesHistoryTableMap::COL_OEHHROUTESEQ, $this->oehhrouteseq);
         }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE1)) {
-            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXCODE1, $this->oehhfrttaxcode1);
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT1)) {
-            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXAMT1, $this->oehhfrttaxamt1);
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE2)) {
-            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXCODE2, $this->oehhfrttaxcode2);
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT2)) {
-            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXAMT2, $this->oehhfrttaxamt2);
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE3)) {
-            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXCODE3, $this->oehhfrttaxcode3);
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT3)) {
-            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXAMT3, $this->oehhfrttaxamt3);
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE4)) {
-            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXCODE4, $this->oehhfrttaxcode4);
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT4)) {
-            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXAMT4, $this->oehhfrttaxamt4);
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE5)) {
-            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXCODE5, $this->oehhfrttaxcode5);
-        }
-        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT5)) {
-            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXAMT5, $this->oehhfrttaxamt5);
-        }
         if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHEDI855SENT)) {
             $criteria->add(SalesHistoryTableMap::COL_OEHHEDI855SENT, $this->oehhedi855sent);
         }
@@ -13317,6 +13783,60 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
         if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHREFNBR)) {
             $criteria->add(SalesHistoryTableMap::COL_OEHHREFNBR, $this->oehhrefnbr);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE1)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXCODE1, $this->oehhfrttaxcode1);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT1)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXAMT1, $this->oehhfrttaxamt1);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE2)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXCODE2, $this->oehhfrttaxcode2);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT2)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXAMT2, $this->oehhfrttaxamt2);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE3)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXCODE3, $this->oehhfrttaxcode3);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT3)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXAMT3, $this->oehhfrttaxamt3);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE4)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXCODE4, $this->oehhfrttaxcode4);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT4)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXAMT4, $this->oehhfrttaxamt4);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE5)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXCODE5, $this->oehhfrttaxcode5);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT5)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXAMT5, $this->oehhfrttaxamt5);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE6)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXCODE6, $this->oehhfrttaxcode6);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT6)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXAMT6, $this->oehhfrttaxamt6);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE7)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXCODE7, $this->oehhfrttaxcode7);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT7)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXAMT7, $this->oehhfrttaxamt7);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE8)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXCODE8, $this->oehhfrttaxcode8);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT8)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXAMT8, $this->oehhfrttaxamt8);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXCODE9)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXCODE9, $this->oehhfrttaxcode9);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHFRTTAXAMT9)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHFRTTAXAMT9, $this->oehhfrttaxamt9);
         }
         if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHACPROGNBR)) {
             $criteria->add(SalesHistoryTableMap::COL_OEHHACPROGNBR, $this->oehhacprognbr);
@@ -13545,16 +14065,6 @@ abstract class SalesHistory implements ActiveRecordInterface
         $copyObj->setOehhfrtcost($this->getOehhfrtcost());
         $copyObj->setOehhroute($this->getOehhroute());
         $copyObj->setOehhrouteseq($this->getOehhrouteseq());
-        $copyObj->setOehhfrttaxcode1($this->getOehhfrttaxcode1());
-        $copyObj->setOehhfrttaxamt1($this->getOehhfrttaxamt1());
-        $copyObj->setOehhfrttaxcode2($this->getOehhfrttaxcode2());
-        $copyObj->setOehhfrttaxamt2($this->getOehhfrttaxamt2());
-        $copyObj->setOehhfrttaxcode3($this->getOehhfrttaxcode3());
-        $copyObj->setOehhfrttaxamt3($this->getOehhfrttaxamt3());
-        $copyObj->setOehhfrttaxcode4($this->getOehhfrttaxcode4());
-        $copyObj->setOehhfrttaxamt4($this->getOehhfrttaxamt4());
-        $copyObj->setOehhfrttaxcode5($this->getOehhfrttaxcode5());
-        $copyObj->setOehhfrttaxamt5($this->getOehhfrttaxamt5());
         $copyObj->setOehhedi855sent($this->getOehhedi855sent());
         $copyObj->setOehhfrt3rdparty($this->getOehhfrt3rdparty());
         $copyObj->setOehhfob($this->getOehhfob());
@@ -13604,6 +14114,24 @@ abstract class SalesHistory implements ActiveRecordInterface
         $copyObj->setOehhdueamt6($this->getOehhdueamt6());
         $copyObj->setOehhduepct6($this->getOehhduepct6());
         $copyObj->setOehhrefnbr($this->getOehhrefnbr());
+        $copyObj->setOehhfrttaxcode1($this->getOehhfrttaxcode1());
+        $copyObj->setOehhfrttaxamt1($this->getOehhfrttaxamt1());
+        $copyObj->setOehhfrttaxcode2($this->getOehhfrttaxcode2());
+        $copyObj->setOehhfrttaxamt2($this->getOehhfrttaxamt2());
+        $copyObj->setOehhfrttaxcode3($this->getOehhfrttaxcode3());
+        $copyObj->setOehhfrttaxamt3($this->getOehhfrttaxamt3());
+        $copyObj->setOehhfrttaxcode4($this->getOehhfrttaxcode4());
+        $copyObj->setOehhfrttaxamt4($this->getOehhfrttaxamt4());
+        $copyObj->setOehhfrttaxcode5($this->getOehhfrttaxcode5());
+        $copyObj->setOehhfrttaxamt5($this->getOehhfrttaxamt5());
+        $copyObj->setOehhfrttaxcode6($this->getOehhfrttaxcode6());
+        $copyObj->setOehhfrttaxamt6($this->getOehhfrttaxamt6());
+        $copyObj->setOehhfrttaxcode7($this->getOehhfrttaxcode7());
+        $copyObj->setOehhfrttaxamt7($this->getOehhfrttaxamt7());
+        $copyObj->setOehhfrttaxcode8($this->getOehhfrttaxcode8());
+        $copyObj->setOehhfrttaxamt8($this->getOehhfrttaxamt8());
+        $copyObj->setOehhfrttaxcode9($this->getOehhfrttaxcode9());
+        $copyObj->setOehhfrttaxamt9($this->getOehhfrttaxamt9());
         $copyObj->setOehhacprognbr($this->getOehhacprognbr());
         $copyObj->setOehhacprogexpdate($this->getOehhacprogexpdate());
         $copyObj->setDateupdtd($this->getDateupdtd());
@@ -14021,6 +14549,31 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this SalesHistory is new, it will return
+     * an empty collection; or if this SalesHistory has previously
+     * been saved, it will retrieve related SalesHistoryDetails from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in SalesHistory.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildSalesHistoryDetail[] List of ChildSalesHistoryDetail objects
+     */
+    public function getSalesHistoryDetailsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildSalesHistoryDetailQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getSalesHistoryDetails($query, $con);
     }
 
     /**
@@ -14693,16 +15246,6 @@ abstract class SalesHistory implements ActiveRecordInterface
         $this->oehhfrtcost = null;
         $this->oehhroute = null;
         $this->oehhrouteseq = null;
-        $this->oehhfrttaxcode1 = null;
-        $this->oehhfrttaxamt1 = null;
-        $this->oehhfrttaxcode2 = null;
-        $this->oehhfrttaxamt2 = null;
-        $this->oehhfrttaxcode3 = null;
-        $this->oehhfrttaxamt3 = null;
-        $this->oehhfrttaxcode4 = null;
-        $this->oehhfrttaxamt4 = null;
-        $this->oehhfrttaxcode5 = null;
-        $this->oehhfrttaxamt5 = null;
         $this->oehhedi855sent = null;
         $this->oehhfrt3rdparty = null;
         $this->oehhfob = null;
@@ -14752,6 +15295,24 @@ abstract class SalesHistory implements ActiveRecordInterface
         $this->oehhdueamt6 = null;
         $this->oehhduepct6 = null;
         $this->oehhrefnbr = null;
+        $this->oehhfrttaxcode1 = null;
+        $this->oehhfrttaxamt1 = null;
+        $this->oehhfrttaxcode2 = null;
+        $this->oehhfrttaxamt2 = null;
+        $this->oehhfrttaxcode3 = null;
+        $this->oehhfrttaxamt3 = null;
+        $this->oehhfrttaxcode4 = null;
+        $this->oehhfrttaxamt4 = null;
+        $this->oehhfrttaxcode5 = null;
+        $this->oehhfrttaxamt5 = null;
+        $this->oehhfrttaxcode6 = null;
+        $this->oehhfrttaxamt6 = null;
+        $this->oehhfrttaxcode7 = null;
+        $this->oehhfrttaxamt7 = null;
+        $this->oehhfrttaxcode8 = null;
+        $this->oehhfrttaxamt8 = null;
+        $this->oehhfrttaxcode9 = null;
+        $this->oehhfrttaxamt9 = null;
         $this->oehhacprognbr = null;
         $this->oehhacprogexpdate = null;
         $this->dateupdtd = null;
@@ -14818,7 +15379,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // // parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }
@@ -14830,7 +15391,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     public function postSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postSave')) {
-            // // parent::postSave($con);
+            // parent::postSave($con);
         }
     }
 
@@ -14842,7 +15403,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
+            // return parent::preInsert($con);
         }
         return true;
     }
@@ -14866,7 +15427,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
+            // return parent::preUpdate($con);
         }
         return true;
     }
@@ -14890,7 +15451,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
+            // return parent::preDelete($con);
         }
         return true;
     }

@@ -15,33 +15,6 @@ class SalesOrder extends BaseSalesOrder {
 	use MagicMethodTraits;
 
 	/**
-	 * Hold Status Code
-	 * NOTE: The code is Case Sensitive
-	 * A = Customer is on Credit Hold
-	 * B = A detail line did not meet minimum margin requirements, Was an A, C, or H before
-	 * C = Over Credit Limit
-	 * H = This order is on Hold
-	 * M = A detail line did not meet minimum margin requirements, line quantity, or order amount.
-	 *     Same as B but was not on hold for other reasons
-	 * N = Not on Hold
-	 * R = Review by Sales Rep
-	 * r = reviewed by Sales Rep
-	 * n = Not on hold, released by user
-	 * S = On hold, waiting for transfer
-	 * T = On hold because of Terms or Rejected Credit Card
-	 * W = On hold because this a a new Web Order
-	 * @var string
-	 */
-	protected $oehdstat;
-
-	/**
-	 * Pick Queue Value
-	 * If L, then it's locked for line deletions
-	 * @var string
-	 */
-	protected $oehdpickqueue;
-
-	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
@@ -101,6 +74,9 @@ class SalesOrder extends BaseSalesOrder {
 	const LENGTH = 10;
 	const STATUS_NEW = 'N';
 	const PICKQUEUE_LOCKED = 'L';
+	const NBR_OF_FRT_TAXES = 9;
+
+	const BASECOL_FRT_TAX = 'oehdfrttax';
 
 	/**
 	 * Order Statuses indexed by description
@@ -125,6 +101,36 @@ class SalesOrder extends BaseSalesOrder {
 		'I' => 'invoiced'
 	);
 
+	/**
+	 * Hold Status Code
+	 * NOTE: The code is Case Sensitive
+	 * A = Customer is on Credit Hold
+	 * B = A detail line did not meet minimum margin requirements, Was an A, C, or H before
+	 * C = Over Credit Limit
+	 * H = This order is on Hold
+	 * M = A detail line did not meet minimum margin requirements, line quantity, or order amount.
+	 *     Same as B but was not on hold for other reasons
+	 * N = Not on Hold
+	 * R = Review by Sales Rep
+	 * r = reviewed by Sales Rep
+	 * n = Not on hold, released by user
+	 * S = On hold, waiting for transfer
+	 * T = On hold because of Terms or Rejected Credit Card
+	 * W = On hold because this a a new Web Order
+	 * @var string
+	 */
+	protected $oehdstat;
+
+	/**
+	 * Pick Queue Value
+	 * If L, then it's locked for line deletions
+	 * @var string
+	 */
+	protected $oehdpickqueue;
+
+/* =============================================================
+	Setters / Getters
+============================================================= */
 	/**
 	 * Return if Order is to Ship Complete
 	 * @return bool
@@ -183,14 +189,6 @@ class SalesOrder extends BaseSalesOrder {
 	}
 
 	/**
-	 * Returns if there is tracking data available in Sales Order Numbers
-	 * @return bool
-	 */
-	public function has_tracking() {
-		return boolval(SalesOrderShipmentQuery::create()->filterByOrdernumber($this->oehdnbr)->count());
-	}
-
-	/**
 	 * Returns if Sales Order is being edited via the heldby alias
 	 * @return bool
 	 */
@@ -211,11 +209,48 @@ class SalesOrder extends BaseSalesOrder {
 	}
 
 	/**
+	 * Return Tax Code value at index
+	 * @param  int $index
+	 * @return string
+	 */
+	public function frtTaxcodeCdX($index = 1) {
+		if ($index < 1 || $index > self::NBR_OF_FRT_TAXES) {
+			return '';
+		}
+		$col = self::BASECOL_FRT_TAX . 'code' . $index;
+		return $this->$col;
+	}
+
+	/**
+	 * Return Tax Code vAmount at index
+	 * @param  int $index
+	 * @return string
+	 */
+	public function frtTaxcodeAmtX($index = 1) {
+		if ($index < 1 || $index > self::NBR_OF_FRT_TAXES) {
+			return '';
+		}
+		$col = self::BASECOL_FRT_TAX . 'amt' . $index;
+		return $this->$col;
+	}
+
+/* =============================================================
+	Foreign Key Relationship Methods
+============================================================= */
+	/**
 	 * Returns the Number of Details Lines this Sales Order has
 	 * @return bool
 	 */
 	public function count_items() {
 		return SalesOrderDetailQuery::create()->filterByOrdernumber($this->oehdnbr)->count();
+	}
+
+	/**
+	 * Returns if there is tracking data available in Sales Order Numbers
+	 * @return bool
+	 */
+	public function has_tracking() {
+		return boolval(SalesOrderShipmentQuery::create()->filterByOrdernumber($this->oehdnbr)->count());
 	}
 
 	/**

@@ -146,16 +146,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryQuery orderByOehhfrtcost($order = Criteria::ASC) Order by the OehhFrtCost column
  * @method     ChildSalesHistoryQuery orderByOehhroute($order = Criteria::ASC) Order by the OehhRoute column
  * @method     ChildSalesHistoryQuery orderByOehhrouteseq($order = Criteria::ASC) Order by the OehhRouteSeq column
- * @method     ChildSalesHistoryQuery orderByOehhfrttaxcode1($order = Criteria::ASC) Order by the OehhFrtTaxCode1 column
- * @method     ChildSalesHistoryQuery orderByOehhfrttaxamt1($order = Criteria::ASC) Order by the OehhFrtTaxAmt1 column
- * @method     ChildSalesHistoryQuery orderByOehhfrttaxcode2($order = Criteria::ASC) Order by the OehhFrtTaxCode2 column
- * @method     ChildSalesHistoryQuery orderByOehhfrttaxamt2($order = Criteria::ASC) Order by the OehhFrtTaxAmt2 column
- * @method     ChildSalesHistoryQuery orderByOehhfrttaxcode3($order = Criteria::ASC) Order by the OehhFrtTaxCode3 column
- * @method     ChildSalesHistoryQuery orderByOehhfrttaxamt3($order = Criteria::ASC) Order by the OehhFrtTaxAmt3 column
- * @method     ChildSalesHistoryQuery orderByOehhfrttaxcode4($order = Criteria::ASC) Order by the OehhFrtTaxCode4 column
- * @method     ChildSalesHistoryQuery orderByOehhfrttaxamt4($order = Criteria::ASC) Order by the OehhFrtTaxAmt4 column
- * @method     ChildSalesHistoryQuery orderByOehhfrttaxcode5($order = Criteria::ASC) Order by the OehhFrtTaxCode5 column
- * @method     ChildSalesHistoryQuery orderByOehhfrttaxamt5($order = Criteria::ASC) Order by the OehhFrtTaxAmt5 column
  * @method     ChildSalesHistoryQuery orderByOehhedi855sent($order = Criteria::ASC) Order by the OehhEdi855Sent column
  * @method     ChildSalesHistoryQuery orderByOehhfrt3rdparty($order = Criteria::ASC) Order by the OehhFrt3rdParty column
  * @method     ChildSalesHistoryQuery orderByOehhfob($order = Criteria::ASC) Order by the OehhFob column
@@ -205,6 +195,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryQuery orderByOehhdueamt6($order = Criteria::ASC) Order by the OehhDueAmt6 column
  * @method     ChildSalesHistoryQuery orderByOehhduepct6($order = Criteria::ASC) Order by the OehhDuePct6 column
  * @method     ChildSalesHistoryQuery orderByOehhrefnbr($order = Criteria::ASC) Order by the OehhRefNbr column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxcode1($order = Criteria::ASC) Order by the OehhFrtTaxCode1 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxamt1($order = Criteria::ASC) Order by the OehhFrtTaxAmt1 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxcode2($order = Criteria::ASC) Order by the OehhFrtTaxCode2 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxamt2($order = Criteria::ASC) Order by the OehhFrtTaxAmt2 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxcode3($order = Criteria::ASC) Order by the OehhFrtTaxCode3 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxamt3($order = Criteria::ASC) Order by the OehhFrtTaxAmt3 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxcode4($order = Criteria::ASC) Order by the OehhFrtTaxCode4 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxamt4($order = Criteria::ASC) Order by the OehhFrtTaxAmt4 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxcode5($order = Criteria::ASC) Order by the OehhFrtTaxCode5 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxamt5($order = Criteria::ASC) Order by the OehhFrtTaxAmt5 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxcode6($order = Criteria::ASC) Order by the OehhFrtTaxCode6 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxamt6($order = Criteria::ASC) Order by the OehhFrtTaxAmt6 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxcode7($order = Criteria::ASC) Order by the OehhFrtTaxCode7 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxamt7($order = Criteria::ASC) Order by the OehhFrtTaxAmt7 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxcode8($order = Criteria::ASC) Order by the OehhFrtTaxCode8 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxamt8($order = Criteria::ASC) Order by the OehhFrtTaxAmt8 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxcode9($order = Criteria::ASC) Order by the OehhFrtTaxCode9 column
+ * @method     ChildSalesHistoryQuery orderByOehhfrttaxamt9($order = Criteria::ASC) Order by the OehhFrtTaxAmt9 column
  * @method     ChildSalesHistoryQuery orderByOehhacprognbr($order = Criteria::ASC) Order by the OehhAcProgNbr column
  * @method     ChildSalesHistoryQuery orderByOehhacprogexpdate($order = Criteria::ASC) Order by the OehhAcProgExpDate column
  * @method     ChildSalesHistoryQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
@@ -337,16 +345,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryQuery groupByOehhfrtcost() Group by the OehhFrtCost column
  * @method     ChildSalesHistoryQuery groupByOehhroute() Group by the OehhRoute column
  * @method     ChildSalesHistoryQuery groupByOehhrouteseq() Group by the OehhRouteSeq column
- * @method     ChildSalesHistoryQuery groupByOehhfrttaxcode1() Group by the OehhFrtTaxCode1 column
- * @method     ChildSalesHistoryQuery groupByOehhfrttaxamt1() Group by the OehhFrtTaxAmt1 column
- * @method     ChildSalesHistoryQuery groupByOehhfrttaxcode2() Group by the OehhFrtTaxCode2 column
- * @method     ChildSalesHistoryQuery groupByOehhfrttaxamt2() Group by the OehhFrtTaxAmt2 column
- * @method     ChildSalesHistoryQuery groupByOehhfrttaxcode3() Group by the OehhFrtTaxCode3 column
- * @method     ChildSalesHistoryQuery groupByOehhfrttaxamt3() Group by the OehhFrtTaxAmt3 column
- * @method     ChildSalesHistoryQuery groupByOehhfrttaxcode4() Group by the OehhFrtTaxCode4 column
- * @method     ChildSalesHistoryQuery groupByOehhfrttaxamt4() Group by the OehhFrtTaxAmt4 column
- * @method     ChildSalesHistoryQuery groupByOehhfrttaxcode5() Group by the OehhFrtTaxCode5 column
- * @method     ChildSalesHistoryQuery groupByOehhfrttaxamt5() Group by the OehhFrtTaxAmt5 column
  * @method     ChildSalesHistoryQuery groupByOehhedi855sent() Group by the OehhEdi855Sent column
  * @method     ChildSalesHistoryQuery groupByOehhfrt3rdparty() Group by the OehhFrt3rdParty column
  * @method     ChildSalesHistoryQuery groupByOehhfob() Group by the OehhFob column
@@ -396,6 +394,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryQuery groupByOehhdueamt6() Group by the OehhDueAmt6 column
  * @method     ChildSalesHistoryQuery groupByOehhduepct6() Group by the OehhDuePct6 column
  * @method     ChildSalesHistoryQuery groupByOehhrefnbr() Group by the OehhRefNbr column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxcode1() Group by the OehhFrtTaxCode1 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxamt1() Group by the OehhFrtTaxAmt1 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxcode2() Group by the OehhFrtTaxCode2 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxamt2() Group by the OehhFrtTaxAmt2 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxcode3() Group by the OehhFrtTaxCode3 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxamt3() Group by the OehhFrtTaxAmt3 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxcode4() Group by the OehhFrtTaxCode4 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxamt4() Group by the OehhFrtTaxAmt4 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxcode5() Group by the OehhFrtTaxCode5 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxamt5() Group by the OehhFrtTaxAmt5 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxcode6() Group by the OehhFrtTaxCode6 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxamt6() Group by the OehhFrtTaxAmt6 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxcode7() Group by the OehhFrtTaxCode7 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxamt7() Group by the OehhFrtTaxAmt7 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxcode8() Group by the OehhFrtTaxCode8 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxamt8() Group by the OehhFrtTaxAmt8 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxcode9() Group by the OehhFrtTaxCode9 column
+ * @method     ChildSalesHistoryQuery groupByOehhfrttaxamt9() Group by the OehhFrtTaxAmt9 column
  * @method     ChildSalesHistoryQuery groupByOehhacprognbr() Group by the OehhAcProgNbr column
  * @method     ChildSalesHistoryQuery groupByOehhacprogexpdate() Group by the OehhAcProgExpDate column
  * @method     ChildSalesHistoryQuery groupByDateupdtd() Group by the DateUpdtd column
@@ -591,16 +607,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistory findOneByOehhfrtcost(string $OehhFrtCost) Return the first ChildSalesHistory filtered by the OehhFrtCost column
  * @method     ChildSalesHistory findOneByOehhroute(string $OehhRoute) Return the first ChildSalesHistory filtered by the OehhRoute column
  * @method     ChildSalesHistory findOneByOehhrouteseq(int $OehhRouteSeq) Return the first ChildSalesHistory filtered by the OehhRouteSeq column
- * @method     ChildSalesHistory findOneByOehhfrttaxcode1(string $OehhFrtTaxCode1) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode1 column
- * @method     ChildSalesHistory findOneByOehhfrttaxamt1(string $OehhFrtTaxAmt1) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt1 column
- * @method     ChildSalesHistory findOneByOehhfrttaxcode2(string $OehhFrtTaxCode2) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode2 column
- * @method     ChildSalesHistory findOneByOehhfrttaxamt2(string $OehhFrtTaxAmt2) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt2 column
- * @method     ChildSalesHistory findOneByOehhfrttaxcode3(string $OehhFrtTaxCode3) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode3 column
- * @method     ChildSalesHistory findOneByOehhfrttaxamt3(string $OehhFrtTaxAmt3) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt3 column
- * @method     ChildSalesHistory findOneByOehhfrttaxcode4(string $OehhFrtTaxCode4) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode4 column
- * @method     ChildSalesHistory findOneByOehhfrttaxamt4(string $OehhFrtTaxAmt4) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt4 column
- * @method     ChildSalesHistory findOneByOehhfrttaxcode5(string $OehhFrtTaxCode5) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode5 column
- * @method     ChildSalesHistory findOneByOehhfrttaxamt5(string $OehhFrtTaxAmt5) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt5 column
  * @method     ChildSalesHistory findOneByOehhedi855sent(string $OehhEdi855Sent) Return the first ChildSalesHistory filtered by the OehhEdi855Sent column
  * @method     ChildSalesHistory findOneByOehhfrt3rdparty(string $OehhFrt3rdParty) Return the first ChildSalesHistory filtered by the OehhFrt3rdParty column
  * @method     ChildSalesHistory findOneByOehhfob(string $OehhFob) Return the first ChildSalesHistory filtered by the OehhFob column
@@ -650,6 +656,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistory findOneByOehhdueamt6(string $OehhDueAmt6) Return the first ChildSalesHistory filtered by the OehhDueAmt6 column
  * @method     ChildSalesHistory findOneByOehhduepct6(string $OehhDuePct6) Return the first ChildSalesHistory filtered by the OehhDuePct6 column
  * @method     ChildSalesHistory findOneByOehhrefnbr(string $OehhRefNbr) Return the first ChildSalesHistory filtered by the OehhRefNbr column
+ * @method     ChildSalesHistory findOneByOehhfrttaxcode1(string $OehhFrtTaxCode1) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode1 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxamt1(string $OehhFrtTaxAmt1) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt1 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxcode2(string $OehhFrtTaxCode2) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode2 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxamt2(string $OehhFrtTaxAmt2) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt2 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxcode3(string $OehhFrtTaxCode3) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode3 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxamt3(string $OehhFrtTaxAmt3) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt3 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxcode4(string $OehhFrtTaxCode4) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode4 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxamt4(string $OehhFrtTaxAmt4) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt4 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxcode5(string $OehhFrtTaxCode5) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode5 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxamt5(string $OehhFrtTaxAmt5) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt5 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxcode6(string $OehhFrtTaxCode6) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode6 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxamt6(string $OehhFrtTaxAmt6) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt6 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxcode7(string $OehhFrtTaxCode7) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode7 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxamt7(string $OehhFrtTaxAmt7) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt7 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxcode8(string $OehhFrtTaxCode8) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode8 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxamt8(string $OehhFrtTaxAmt8) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt8 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxcode9(string $OehhFrtTaxCode9) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode9 column
+ * @method     ChildSalesHistory findOneByOehhfrttaxamt9(string $OehhFrtTaxAmt9) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt9 column
  * @method     ChildSalesHistory findOneByOehhacprognbr(string $OehhAcProgNbr) Return the first ChildSalesHistory filtered by the OehhAcProgNbr column
  * @method     ChildSalesHistory findOneByOehhacprogexpdate(string $OehhAcProgExpDate) Return the first ChildSalesHistory filtered by the OehhAcProgExpDate column
  * @method     ChildSalesHistory findOneByDateupdtd(string $DateUpdtd) Return the first ChildSalesHistory filtered by the DateUpdtd column
@@ -785,16 +809,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistory requireOneByOehhfrtcost(string $OehhFrtCost) Return the first ChildSalesHistory filtered by the OehhFrtCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistory requireOneByOehhroute(string $OehhRoute) Return the first ChildSalesHistory filtered by the OehhRoute column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistory requireOneByOehhrouteseq(int $OehhRouteSeq) Return the first ChildSalesHistory filtered by the OehhRouteSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistory requireOneByOehhfrttaxcode1(string $OehhFrtTaxCode1) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistory requireOneByOehhfrttaxamt1(string $OehhFrtTaxAmt1) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistory requireOneByOehhfrttaxcode2(string $OehhFrtTaxCode2) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistory requireOneByOehhfrttaxamt2(string $OehhFrtTaxAmt2) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistory requireOneByOehhfrttaxcode3(string $OehhFrtTaxCode3) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistory requireOneByOehhfrttaxamt3(string $OehhFrtTaxAmt3) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistory requireOneByOehhfrttaxcode4(string $OehhFrtTaxCode4) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode4 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistory requireOneByOehhfrttaxamt4(string $OehhFrtTaxAmt4) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt4 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistory requireOneByOehhfrttaxcode5(string $OehhFrtTaxCode5) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode5 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistory requireOneByOehhfrttaxamt5(string $OehhFrtTaxAmt5) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt5 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistory requireOneByOehhedi855sent(string $OehhEdi855Sent) Return the first ChildSalesHistory filtered by the OehhEdi855Sent column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistory requireOneByOehhfrt3rdparty(string $OehhFrt3rdParty) Return the first ChildSalesHistory filtered by the OehhFrt3rdParty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistory requireOneByOehhfob(string $OehhFob) Return the first ChildSalesHistory filtered by the OehhFob column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -844,6 +858,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistory requireOneByOehhdueamt6(string $OehhDueAmt6) Return the first ChildSalesHistory filtered by the OehhDueAmt6 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistory requireOneByOehhduepct6(string $OehhDuePct6) Return the first ChildSalesHistory filtered by the OehhDuePct6 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistory requireOneByOehhrefnbr(string $OehhRefNbr) Return the first ChildSalesHistory filtered by the OehhRefNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxcode1(string $OehhFrtTaxCode1) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxamt1(string $OehhFrtTaxAmt1) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxcode2(string $OehhFrtTaxCode2) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxamt2(string $OehhFrtTaxAmt2) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxcode3(string $OehhFrtTaxCode3) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxamt3(string $OehhFrtTaxAmt3) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxcode4(string $OehhFrtTaxCode4) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode4 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxamt4(string $OehhFrtTaxAmt4) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt4 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxcode5(string $OehhFrtTaxCode5) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode5 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxamt5(string $OehhFrtTaxAmt5) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt5 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxcode6(string $OehhFrtTaxCode6) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode6 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxamt6(string $OehhFrtTaxAmt6) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt6 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxcode7(string $OehhFrtTaxCode7) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode7 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxamt7(string $OehhFrtTaxAmt7) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt7 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxcode8(string $OehhFrtTaxCode8) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode8 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxamt8(string $OehhFrtTaxAmt8) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt8 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxcode9(string $OehhFrtTaxCode9) Return the first ChildSalesHistory filtered by the OehhFrtTaxCode9 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistory requireOneByOehhfrttaxamt9(string $OehhFrtTaxAmt9) Return the first ChildSalesHistory filtered by the OehhFrtTaxAmt9 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistory requireOneByOehhacprognbr(string $OehhAcProgNbr) Return the first ChildSalesHistory filtered by the OehhAcProgNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistory requireOneByOehhacprogexpdate(string $OehhAcProgExpDate) Return the first ChildSalesHistory filtered by the OehhAcProgExpDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistory requireOneByDateupdtd(string $DateUpdtd) Return the first ChildSalesHistory filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -977,16 +1009,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrtcost(string $OehhFrtCost) Return ChildSalesHistory objects filtered by the OehhFrtCost column
  * @method     ChildSalesHistory[]|ObjectCollection findByOehhroute(string $OehhRoute) Return ChildSalesHistory objects filtered by the OehhRoute column
  * @method     ChildSalesHistory[]|ObjectCollection findByOehhrouteseq(int $OehhRouteSeq) Return ChildSalesHistory objects filtered by the OehhRouteSeq column
- * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxcode1(string $OehhFrtTaxCode1) Return ChildSalesHistory objects filtered by the OehhFrtTaxCode1 column
- * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxamt1(string $OehhFrtTaxAmt1) Return ChildSalesHistory objects filtered by the OehhFrtTaxAmt1 column
- * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxcode2(string $OehhFrtTaxCode2) Return ChildSalesHistory objects filtered by the OehhFrtTaxCode2 column
- * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxamt2(string $OehhFrtTaxAmt2) Return ChildSalesHistory objects filtered by the OehhFrtTaxAmt2 column
- * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxcode3(string $OehhFrtTaxCode3) Return ChildSalesHistory objects filtered by the OehhFrtTaxCode3 column
- * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxamt3(string $OehhFrtTaxAmt3) Return ChildSalesHistory objects filtered by the OehhFrtTaxAmt3 column
- * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxcode4(string $OehhFrtTaxCode4) Return ChildSalesHistory objects filtered by the OehhFrtTaxCode4 column
- * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxamt4(string $OehhFrtTaxAmt4) Return ChildSalesHistory objects filtered by the OehhFrtTaxAmt4 column
- * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxcode5(string $OehhFrtTaxCode5) Return ChildSalesHistory objects filtered by the OehhFrtTaxCode5 column
- * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxamt5(string $OehhFrtTaxAmt5) Return ChildSalesHistory objects filtered by the OehhFrtTaxAmt5 column
  * @method     ChildSalesHistory[]|ObjectCollection findByOehhedi855sent(string $OehhEdi855Sent) Return ChildSalesHistory objects filtered by the OehhEdi855Sent column
  * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrt3rdparty(string $OehhFrt3rdParty) Return ChildSalesHistory objects filtered by the OehhFrt3rdParty column
  * @method     ChildSalesHistory[]|ObjectCollection findByOehhfob(string $OehhFob) Return ChildSalesHistory objects filtered by the OehhFob column
@@ -1036,6 +1058,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistory[]|ObjectCollection findByOehhdueamt6(string $OehhDueAmt6) Return ChildSalesHistory objects filtered by the OehhDueAmt6 column
  * @method     ChildSalesHistory[]|ObjectCollection findByOehhduepct6(string $OehhDuePct6) Return ChildSalesHistory objects filtered by the OehhDuePct6 column
  * @method     ChildSalesHistory[]|ObjectCollection findByOehhrefnbr(string $OehhRefNbr) Return ChildSalesHistory objects filtered by the OehhRefNbr column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxcode1(string $OehhFrtTaxCode1) Return ChildSalesHistory objects filtered by the OehhFrtTaxCode1 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxamt1(string $OehhFrtTaxAmt1) Return ChildSalesHistory objects filtered by the OehhFrtTaxAmt1 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxcode2(string $OehhFrtTaxCode2) Return ChildSalesHistory objects filtered by the OehhFrtTaxCode2 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxamt2(string $OehhFrtTaxAmt2) Return ChildSalesHistory objects filtered by the OehhFrtTaxAmt2 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxcode3(string $OehhFrtTaxCode3) Return ChildSalesHistory objects filtered by the OehhFrtTaxCode3 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxamt3(string $OehhFrtTaxAmt3) Return ChildSalesHistory objects filtered by the OehhFrtTaxAmt3 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxcode4(string $OehhFrtTaxCode4) Return ChildSalesHistory objects filtered by the OehhFrtTaxCode4 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxamt4(string $OehhFrtTaxAmt4) Return ChildSalesHistory objects filtered by the OehhFrtTaxAmt4 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxcode5(string $OehhFrtTaxCode5) Return ChildSalesHistory objects filtered by the OehhFrtTaxCode5 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxamt5(string $OehhFrtTaxAmt5) Return ChildSalesHistory objects filtered by the OehhFrtTaxAmt5 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxcode6(string $OehhFrtTaxCode6) Return ChildSalesHistory objects filtered by the OehhFrtTaxCode6 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxamt6(string $OehhFrtTaxAmt6) Return ChildSalesHistory objects filtered by the OehhFrtTaxAmt6 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxcode7(string $OehhFrtTaxCode7) Return ChildSalesHistory objects filtered by the OehhFrtTaxCode7 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxamt7(string $OehhFrtTaxAmt7) Return ChildSalesHistory objects filtered by the OehhFrtTaxAmt7 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxcode8(string $OehhFrtTaxCode8) Return ChildSalesHistory objects filtered by the OehhFrtTaxCode8 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxamt8(string $OehhFrtTaxAmt8) Return ChildSalesHistory objects filtered by the OehhFrtTaxAmt8 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxcode9(string $OehhFrtTaxCode9) Return ChildSalesHistory objects filtered by the OehhFrtTaxCode9 column
+ * @method     ChildSalesHistory[]|ObjectCollection findByOehhfrttaxamt9(string $OehhFrtTaxAmt9) Return ChildSalesHistory objects filtered by the OehhFrtTaxAmt9 column
  * @method     ChildSalesHistory[]|ObjectCollection findByOehhacprognbr(string $OehhAcProgNbr) Return ChildSalesHistory objects filtered by the OehhAcProgNbr column
  * @method     ChildSalesHistory[]|ObjectCollection findByOehhacprogexpdate(string $OehhAcProgExpDate) Return ChildSalesHistory objects filtered by the OehhAcProgExpDate column
  * @method     ChildSalesHistory[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildSalesHistory objects filtered by the DateUpdtd column
@@ -1139,7 +1179,7 @@ abstract class SalesHistoryQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT OehhNbr, OehhYear, OehhStat, OehhHold, ArcuCustId, ArstShipId, OehhStName, OehhStLastName, OehhStFirstName, OehhStAdr1, OehhStAdr2, OehhStAdr3, OehhStCtry, OehhStCity, OehhStStat, OehhStZipCode, OehhCustPo, OehhOrdrDate, ArtmTermCd, ArtbShipVia, ArinInvNbr, OehhInvDate, OehhGLPd, ArspSalePer1, OehhSp1Pct, ArspSalePer2, OehhSp2Pct, ArspSalePer3, OehhSp3Pct, OehhCntrNbr, OehhWiBatch, OehhDropRelHold, OehhTaxSub, OehhNonTaxSub, OehhTaxTot, OehhFrtTot, OehhMiscTot, OehhOrdrTot, OehhCostTot, OehhSpCommLock, OehhTakenDate, OehhTakenTime, OehhPickDate, OehhPickTime, OehhPackDate, OehhPackTime, OehhVerifyDate, OehhVerifyTime, OehhCreditMemo, OehhBookedYn, IntbWhseOrig, OehhBtStat, OehhShipComp, OehhCwoFlag, OehhDivision, OehhTakenCode, OehhPickCode, OehhPackCode, OehhVerifyCode, OehhTotDisc, OehhEdiRefNbrQual, OehhUserCode1, OehhUserCode2, OehhUserCode3, OehhUserCode4, OehhExchCtry, OehhExchRate, OehhWghtTot, OehhWghtOride, OehhCcInfo, OehhBoxCount, OehhRqstDate, OehhCancDate, OehhCrntUser, OehhReleaseNbr, IntbWhse, OehhBordBuildDate, OehhDeptCode, OehhFrtInEntered, OehhDropShipEntered, OehhErFlag, OehhFrtIn, OehhDropShip, OehhMinOrder, OehhContractTerms, OehhDropShipBilled, OehhOrdTyp, OehhTrackNbr, OehhSource, OehhCcAprv, OehhPickFmatType, OehhInvcFmatType, OehhCashAmt, OehhCheckAmt, OehhCheckNbr, OehhDepositAmt, OehhDepositNbr, OehhCcAmt, OehhOTaxSub, OehhONonTaxSub, OehhOTaxTot, OehhOOrdrTot, OehhPickPrintDate, OehhPickPrintTime, OehhCont, OehhContTeleIntl, OehhContTeleNbr, OehhContTeleExt, OehhContFaxIntl, OehhContFaxNbr, OehhShipAcct, OehhChgDue, OehhAddlPricDisc, OehhAllShip, OehhQtyOrderAmt, OehhCreditApplied, OehhInvcPrintDate, OehhInvcPrintTime, OehhDiscFrt, OehhOrideShipComp, OehhContEmail, OehhManualFrt, OehhInternalFrt, OehhFrtCost, OehhRoute, OehhRouteSeq, OehhFrtTaxCode1, OehhFrtTaxAmt1, OehhFrtTaxCode2, OehhFrtTaxAmt2, OehhFrtTaxCode3, OehhFrtTaxAmt3, OehhFrtTaxCode4, OehhFrtTaxAmt4, OehhFrtTaxCode5, OehhFrtTaxAmt5, OehhEdi855Sent, OehhFrt3rdParty, OehhFob, OehhConfirmImagYn, OehhIndustConform, OehhCstkConsign, OehhLmDelayCapSent, OehhMfgId, OehhStoreId, OehhPickQueue, OehhArrvDate, OehhSurchgStat, OehhFrtGrup, OehhCommOride, OehhChrgSplt, OehhAcCcAprv, OehhOrigOrdrNbr, OehhPostDate, OehhDiscDate1, OehhDiscPct1, OehhDueDate1, OehhDueAmt1, OehhDuePct1, OehhDiscDate2, OehhDiscPct2, OehhDueDate2, OehhDueAmt2, OehhDuePct2, OehhDiscDate3, OehhDiscPct3, OehhDueDate3, OehhDueAmt3, OehhDuePct3, OehhDiscDate4, OehhDiscPct4, OehhDueDate4, OehhDueAmt4, OehhDuePct4, OehhDiscDate5, OehhDiscPct5, OehhDueDate5, OehhDueAmt5, OehhDuePct5, OehhDiscDate6, OehhDiscPct6, OehhDueDate6, OehhDueAmt6, OehhDuePct6, OehhRefNbr, OehhAcProgNbr, OehhAcProgExpDate, DateUpdtd, TimeUpdtd, dummy FROM so_head_hist WHERE OehhNbr = :p0';
+        $sql = 'SELECT OehhNbr, OehhYear, OehhStat, OehhHold, ArcuCustId, ArstShipId, OehhStName, OehhStLastName, OehhStFirstName, OehhStAdr1, OehhStAdr2, OehhStAdr3, OehhStCtry, OehhStCity, OehhStStat, OehhStZipCode, OehhCustPo, OehhOrdrDate, ArtmTermCd, ArtbShipVia, ArinInvNbr, OehhInvDate, OehhGLPd, ArspSalePer1, OehhSp1Pct, ArspSalePer2, OehhSp2Pct, ArspSalePer3, OehhSp3Pct, OehhCntrNbr, OehhWiBatch, OehhDropRelHold, OehhTaxSub, OehhNonTaxSub, OehhTaxTot, OehhFrtTot, OehhMiscTot, OehhOrdrTot, OehhCostTot, OehhSpCommLock, OehhTakenDate, OehhTakenTime, OehhPickDate, OehhPickTime, OehhPackDate, OehhPackTime, OehhVerifyDate, OehhVerifyTime, OehhCreditMemo, OehhBookedYn, IntbWhseOrig, OehhBtStat, OehhShipComp, OehhCwoFlag, OehhDivision, OehhTakenCode, OehhPickCode, OehhPackCode, OehhVerifyCode, OehhTotDisc, OehhEdiRefNbrQual, OehhUserCode1, OehhUserCode2, OehhUserCode3, OehhUserCode4, OehhExchCtry, OehhExchRate, OehhWghtTot, OehhWghtOride, OehhCcInfo, OehhBoxCount, OehhRqstDate, OehhCancDate, OehhCrntUser, OehhReleaseNbr, IntbWhse, OehhBordBuildDate, OehhDeptCode, OehhFrtInEntered, OehhDropShipEntered, OehhErFlag, OehhFrtIn, OehhDropShip, OehhMinOrder, OehhContractTerms, OehhDropShipBilled, OehhOrdTyp, OehhTrackNbr, OehhSource, OehhCcAprv, OehhPickFmatType, OehhInvcFmatType, OehhCashAmt, OehhCheckAmt, OehhCheckNbr, OehhDepositAmt, OehhDepositNbr, OehhCcAmt, OehhOTaxSub, OehhONonTaxSub, OehhOTaxTot, OehhOOrdrTot, OehhPickPrintDate, OehhPickPrintTime, OehhCont, OehhContTeleIntl, OehhContTeleNbr, OehhContTeleExt, OehhContFaxIntl, OehhContFaxNbr, OehhShipAcct, OehhChgDue, OehhAddlPricDisc, OehhAllShip, OehhQtyOrderAmt, OehhCreditApplied, OehhInvcPrintDate, OehhInvcPrintTime, OehhDiscFrt, OehhOrideShipComp, OehhContEmail, OehhManualFrt, OehhInternalFrt, OehhFrtCost, OehhRoute, OehhRouteSeq, OehhEdi855Sent, OehhFrt3rdParty, OehhFob, OehhConfirmImagYn, OehhIndustConform, OehhCstkConsign, OehhLmDelayCapSent, OehhMfgId, OehhStoreId, OehhPickQueue, OehhArrvDate, OehhSurchgStat, OehhFrtGrup, OehhCommOride, OehhChrgSplt, OehhAcCcAprv, OehhOrigOrdrNbr, OehhPostDate, OehhDiscDate1, OehhDiscPct1, OehhDueDate1, OehhDueAmt1, OehhDuePct1, OehhDiscDate2, OehhDiscPct2, OehhDueDate2, OehhDueAmt2, OehhDuePct2, OehhDiscDate3, OehhDiscPct3, OehhDueDate3, OehhDueAmt3, OehhDuePct3, OehhDiscDate4, OehhDiscPct4, OehhDueDate4, OehhDueAmt4, OehhDuePct4, OehhDiscDate5, OehhDiscPct5, OehhDueDate5, OehhDueAmt5, OehhDuePct5, OehhDiscDate6, OehhDiscPct6, OehhDueDate6, OehhDueAmt6, OehhDuePct6, OehhRefNbr, OehhFrtTaxCode1, OehhFrtTaxAmt1, OehhFrtTaxCode2, OehhFrtTaxAmt2, OehhFrtTaxCode3, OehhFrtTaxAmt3, OehhFrtTaxCode4, OehhFrtTaxAmt4, OehhFrtTaxCode5, OehhFrtTaxAmt5, OehhFrtTaxCode6, OehhFrtTaxAmt6, OehhFrtTaxCode7, OehhFrtTaxAmt7, OehhFrtTaxCode8, OehhFrtTaxAmt8, OehhFrtTaxCode9, OehhFrtTaxAmt9, OehhAcProgNbr, OehhAcProgExpDate, DateUpdtd, TimeUpdtd, dummy FROM so_head_hist WHERE OehhNbr = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -4956,336 +4996,6 @@ abstract class SalesHistoryQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the OehhFrtTaxCode1 column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByOehhfrttaxcode1('fooValue');   // WHERE OehhFrtTaxCode1 = 'fooValue'
-     * $query->filterByOehhfrttaxcode1('%fooValue%', Criteria::LIKE); // WHERE OehhFrtTaxCode1 LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $oehhfrttaxcode1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
-     */
-    public function filterByOehhfrttaxcode1($oehhfrttaxcode1 = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($oehhfrttaxcode1)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE1, $oehhfrttaxcode1, $comparison);
-    }
-
-    /**
-     * Filter the query on the OehhFrtTaxAmt1 column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByOehhfrttaxamt1(1234); // WHERE OehhFrtTaxAmt1 = 1234
-     * $query->filterByOehhfrttaxamt1(array(12, 34)); // WHERE OehhFrtTaxAmt1 IN (12, 34)
-     * $query->filterByOehhfrttaxamt1(array('min' => 12)); // WHERE OehhFrtTaxAmt1 > 12
-     * </code>
-     *
-     * @param     mixed $oehhfrttaxamt1 The value to use as filter.
-     *              Use scalar values for equality.
-     *              Use array values for in_array() equivalent.
-     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
-     */
-    public function filterByOehhfrttaxamt1($oehhfrttaxamt1 = null, $comparison = null)
-    {
-        if (is_array($oehhfrttaxamt1)) {
-            $useMinMax = false;
-            if (isset($oehhfrttaxamt1['min'])) {
-                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT1, $oehhfrttaxamt1['min'], Criteria::GREATER_EQUAL);
-                $useMinMax = true;
-            }
-            if (isset($oehhfrttaxamt1['max'])) {
-                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT1, $oehhfrttaxamt1['max'], Criteria::LESS_EQUAL);
-                $useMinMax = true;
-            }
-            if ($useMinMax) {
-                return $this;
-            }
-            if (null === $comparison) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT1, $oehhfrttaxamt1, $comparison);
-    }
-
-    /**
-     * Filter the query on the OehhFrtTaxCode2 column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByOehhfrttaxcode2('fooValue');   // WHERE OehhFrtTaxCode2 = 'fooValue'
-     * $query->filterByOehhfrttaxcode2('%fooValue%', Criteria::LIKE); // WHERE OehhFrtTaxCode2 LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $oehhfrttaxcode2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
-     */
-    public function filterByOehhfrttaxcode2($oehhfrttaxcode2 = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($oehhfrttaxcode2)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE2, $oehhfrttaxcode2, $comparison);
-    }
-
-    /**
-     * Filter the query on the OehhFrtTaxAmt2 column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByOehhfrttaxamt2(1234); // WHERE OehhFrtTaxAmt2 = 1234
-     * $query->filterByOehhfrttaxamt2(array(12, 34)); // WHERE OehhFrtTaxAmt2 IN (12, 34)
-     * $query->filterByOehhfrttaxamt2(array('min' => 12)); // WHERE OehhFrtTaxAmt2 > 12
-     * </code>
-     *
-     * @param     mixed $oehhfrttaxamt2 The value to use as filter.
-     *              Use scalar values for equality.
-     *              Use array values for in_array() equivalent.
-     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
-     */
-    public function filterByOehhfrttaxamt2($oehhfrttaxamt2 = null, $comparison = null)
-    {
-        if (is_array($oehhfrttaxamt2)) {
-            $useMinMax = false;
-            if (isset($oehhfrttaxamt2['min'])) {
-                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT2, $oehhfrttaxamt2['min'], Criteria::GREATER_EQUAL);
-                $useMinMax = true;
-            }
-            if (isset($oehhfrttaxamt2['max'])) {
-                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT2, $oehhfrttaxamt2['max'], Criteria::LESS_EQUAL);
-                $useMinMax = true;
-            }
-            if ($useMinMax) {
-                return $this;
-            }
-            if (null === $comparison) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT2, $oehhfrttaxamt2, $comparison);
-    }
-
-    /**
-     * Filter the query on the OehhFrtTaxCode3 column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByOehhfrttaxcode3('fooValue');   // WHERE OehhFrtTaxCode3 = 'fooValue'
-     * $query->filterByOehhfrttaxcode3('%fooValue%', Criteria::LIKE); // WHERE OehhFrtTaxCode3 LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $oehhfrttaxcode3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
-     */
-    public function filterByOehhfrttaxcode3($oehhfrttaxcode3 = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($oehhfrttaxcode3)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE3, $oehhfrttaxcode3, $comparison);
-    }
-
-    /**
-     * Filter the query on the OehhFrtTaxAmt3 column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByOehhfrttaxamt3(1234); // WHERE OehhFrtTaxAmt3 = 1234
-     * $query->filterByOehhfrttaxamt3(array(12, 34)); // WHERE OehhFrtTaxAmt3 IN (12, 34)
-     * $query->filterByOehhfrttaxamt3(array('min' => 12)); // WHERE OehhFrtTaxAmt3 > 12
-     * </code>
-     *
-     * @param     mixed $oehhfrttaxamt3 The value to use as filter.
-     *              Use scalar values for equality.
-     *              Use array values for in_array() equivalent.
-     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
-     */
-    public function filterByOehhfrttaxamt3($oehhfrttaxamt3 = null, $comparison = null)
-    {
-        if (is_array($oehhfrttaxamt3)) {
-            $useMinMax = false;
-            if (isset($oehhfrttaxamt3['min'])) {
-                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT3, $oehhfrttaxamt3['min'], Criteria::GREATER_EQUAL);
-                $useMinMax = true;
-            }
-            if (isset($oehhfrttaxamt3['max'])) {
-                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT3, $oehhfrttaxamt3['max'], Criteria::LESS_EQUAL);
-                $useMinMax = true;
-            }
-            if ($useMinMax) {
-                return $this;
-            }
-            if (null === $comparison) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT3, $oehhfrttaxamt3, $comparison);
-    }
-
-    /**
-     * Filter the query on the OehhFrtTaxCode4 column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByOehhfrttaxcode4('fooValue');   // WHERE OehhFrtTaxCode4 = 'fooValue'
-     * $query->filterByOehhfrttaxcode4('%fooValue%', Criteria::LIKE); // WHERE OehhFrtTaxCode4 LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $oehhfrttaxcode4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
-     */
-    public function filterByOehhfrttaxcode4($oehhfrttaxcode4 = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($oehhfrttaxcode4)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE4, $oehhfrttaxcode4, $comparison);
-    }
-
-    /**
-     * Filter the query on the OehhFrtTaxAmt4 column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByOehhfrttaxamt4(1234); // WHERE OehhFrtTaxAmt4 = 1234
-     * $query->filterByOehhfrttaxamt4(array(12, 34)); // WHERE OehhFrtTaxAmt4 IN (12, 34)
-     * $query->filterByOehhfrttaxamt4(array('min' => 12)); // WHERE OehhFrtTaxAmt4 > 12
-     * </code>
-     *
-     * @param     mixed $oehhfrttaxamt4 The value to use as filter.
-     *              Use scalar values for equality.
-     *              Use array values for in_array() equivalent.
-     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
-     */
-    public function filterByOehhfrttaxamt4($oehhfrttaxamt4 = null, $comparison = null)
-    {
-        if (is_array($oehhfrttaxamt4)) {
-            $useMinMax = false;
-            if (isset($oehhfrttaxamt4['min'])) {
-                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT4, $oehhfrttaxamt4['min'], Criteria::GREATER_EQUAL);
-                $useMinMax = true;
-            }
-            if (isset($oehhfrttaxamt4['max'])) {
-                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT4, $oehhfrttaxamt4['max'], Criteria::LESS_EQUAL);
-                $useMinMax = true;
-            }
-            if ($useMinMax) {
-                return $this;
-            }
-            if (null === $comparison) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT4, $oehhfrttaxamt4, $comparison);
-    }
-
-    /**
-     * Filter the query on the OehhFrtTaxCode5 column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByOehhfrttaxcode5('fooValue');   // WHERE OehhFrtTaxCode5 = 'fooValue'
-     * $query->filterByOehhfrttaxcode5('%fooValue%', Criteria::LIKE); // WHERE OehhFrtTaxCode5 LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $oehhfrttaxcode5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
-     */
-    public function filterByOehhfrttaxcode5($oehhfrttaxcode5 = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($oehhfrttaxcode5)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE5, $oehhfrttaxcode5, $comparison);
-    }
-
-    /**
-     * Filter the query on the OehhFrtTaxAmt5 column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByOehhfrttaxamt5(1234); // WHERE OehhFrtTaxAmt5 = 1234
-     * $query->filterByOehhfrttaxamt5(array(12, 34)); // WHERE OehhFrtTaxAmt5 IN (12, 34)
-     * $query->filterByOehhfrttaxamt5(array('min' => 12)); // WHERE OehhFrtTaxAmt5 > 12
-     * </code>
-     *
-     * @param     mixed $oehhfrttaxamt5 The value to use as filter.
-     *              Use scalar values for equality.
-     *              Use array values for in_array() equivalent.
-     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
-     */
-    public function filterByOehhfrttaxamt5($oehhfrttaxamt5 = null, $comparison = null)
-    {
-        if (is_array($oehhfrttaxamt5)) {
-            $useMinMax = false;
-            if (isset($oehhfrttaxamt5['min'])) {
-                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT5, $oehhfrttaxamt5['min'], Criteria::GREATER_EQUAL);
-                $useMinMax = true;
-            }
-            if (isset($oehhfrttaxamt5['max'])) {
-                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT5, $oehhfrttaxamt5['max'], Criteria::LESS_EQUAL);
-                $useMinMax = true;
-            }
-            if ($useMinMax) {
-                return $this;
-            }
-            if (null === $comparison) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT5, $oehhfrttaxamt5, $comparison);
-    }
-
-    /**
      * Filter the query on the OehhEdi855Sent column
      *
      * Example usage:
@@ -6812,6 +6522,600 @@ abstract class SalesHistoryQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHREFNBR, $oehhrefnbr, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxCode1 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxcode1('fooValue');   // WHERE OehhFrtTaxCode1 = 'fooValue'
+     * $query->filterByOehhfrttaxcode1('%fooValue%', Criteria::LIKE); // WHERE OehhFrtTaxCode1 LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oehhfrttaxcode1 The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxcode1($oehhfrttaxcode1 = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oehhfrttaxcode1)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE1, $oehhfrttaxcode1, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxAmt1 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxamt1(1234); // WHERE OehhFrtTaxAmt1 = 1234
+     * $query->filterByOehhfrttaxamt1(array(12, 34)); // WHERE OehhFrtTaxAmt1 IN (12, 34)
+     * $query->filterByOehhfrttaxamt1(array('min' => 12)); // WHERE OehhFrtTaxAmt1 > 12
+     * </code>
+     *
+     * @param     mixed $oehhfrttaxamt1 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxamt1($oehhfrttaxamt1 = null, $comparison = null)
+    {
+        if (is_array($oehhfrttaxamt1)) {
+            $useMinMax = false;
+            if (isset($oehhfrttaxamt1['min'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT1, $oehhfrttaxamt1['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oehhfrttaxamt1['max'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT1, $oehhfrttaxamt1['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT1, $oehhfrttaxamt1, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxCode2 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxcode2('fooValue');   // WHERE OehhFrtTaxCode2 = 'fooValue'
+     * $query->filterByOehhfrttaxcode2('%fooValue%', Criteria::LIKE); // WHERE OehhFrtTaxCode2 LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oehhfrttaxcode2 The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxcode2($oehhfrttaxcode2 = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oehhfrttaxcode2)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE2, $oehhfrttaxcode2, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxAmt2 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxamt2(1234); // WHERE OehhFrtTaxAmt2 = 1234
+     * $query->filterByOehhfrttaxamt2(array(12, 34)); // WHERE OehhFrtTaxAmt2 IN (12, 34)
+     * $query->filterByOehhfrttaxamt2(array('min' => 12)); // WHERE OehhFrtTaxAmt2 > 12
+     * </code>
+     *
+     * @param     mixed $oehhfrttaxamt2 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxamt2($oehhfrttaxamt2 = null, $comparison = null)
+    {
+        if (is_array($oehhfrttaxamt2)) {
+            $useMinMax = false;
+            if (isset($oehhfrttaxamt2['min'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT2, $oehhfrttaxamt2['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oehhfrttaxamt2['max'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT2, $oehhfrttaxamt2['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT2, $oehhfrttaxamt2, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxCode3 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxcode3('fooValue');   // WHERE OehhFrtTaxCode3 = 'fooValue'
+     * $query->filterByOehhfrttaxcode3('%fooValue%', Criteria::LIKE); // WHERE OehhFrtTaxCode3 LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oehhfrttaxcode3 The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxcode3($oehhfrttaxcode3 = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oehhfrttaxcode3)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE3, $oehhfrttaxcode3, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxAmt3 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxamt3(1234); // WHERE OehhFrtTaxAmt3 = 1234
+     * $query->filterByOehhfrttaxamt3(array(12, 34)); // WHERE OehhFrtTaxAmt3 IN (12, 34)
+     * $query->filterByOehhfrttaxamt3(array('min' => 12)); // WHERE OehhFrtTaxAmt3 > 12
+     * </code>
+     *
+     * @param     mixed $oehhfrttaxamt3 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxamt3($oehhfrttaxamt3 = null, $comparison = null)
+    {
+        if (is_array($oehhfrttaxamt3)) {
+            $useMinMax = false;
+            if (isset($oehhfrttaxamt3['min'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT3, $oehhfrttaxamt3['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oehhfrttaxamt3['max'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT3, $oehhfrttaxamt3['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT3, $oehhfrttaxamt3, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxCode4 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxcode4('fooValue');   // WHERE OehhFrtTaxCode4 = 'fooValue'
+     * $query->filterByOehhfrttaxcode4('%fooValue%', Criteria::LIKE); // WHERE OehhFrtTaxCode4 LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oehhfrttaxcode4 The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxcode4($oehhfrttaxcode4 = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oehhfrttaxcode4)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE4, $oehhfrttaxcode4, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxAmt4 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxamt4(1234); // WHERE OehhFrtTaxAmt4 = 1234
+     * $query->filterByOehhfrttaxamt4(array(12, 34)); // WHERE OehhFrtTaxAmt4 IN (12, 34)
+     * $query->filterByOehhfrttaxamt4(array('min' => 12)); // WHERE OehhFrtTaxAmt4 > 12
+     * </code>
+     *
+     * @param     mixed $oehhfrttaxamt4 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxamt4($oehhfrttaxamt4 = null, $comparison = null)
+    {
+        if (is_array($oehhfrttaxamt4)) {
+            $useMinMax = false;
+            if (isset($oehhfrttaxamt4['min'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT4, $oehhfrttaxamt4['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oehhfrttaxamt4['max'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT4, $oehhfrttaxamt4['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT4, $oehhfrttaxamt4, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxCode5 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxcode5('fooValue');   // WHERE OehhFrtTaxCode5 = 'fooValue'
+     * $query->filterByOehhfrttaxcode5('%fooValue%', Criteria::LIKE); // WHERE OehhFrtTaxCode5 LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oehhfrttaxcode5 The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxcode5($oehhfrttaxcode5 = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oehhfrttaxcode5)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE5, $oehhfrttaxcode5, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxAmt5 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxamt5(1234); // WHERE OehhFrtTaxAmt5 = 1234
+     * $query->filterByOehhfrttaxamt5(array(12, 34)); // WHERE OehhFrtTaxAmt5 IN (12, 34)
+     * $query->filterByOehhfrttaxamt5(array('min' => 12)); // WHERE OehhFrtTaxAmt5 > 12
+     * </code>
+     *
+     * @param     mixed $oehhfrttaxamt5 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxamt5($oehhfrttaxamt5 = null, $comparison = null)
+    {
+        if (is_array($oehhfrttaxamt5)) {
+            $useMinMax = false;
+            if (isset($oehhfrttaxamt5['min'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT5, $oehhfrttaxamt5['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oehhfrttaxamt5['max'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT5, $oehhfrttaxamt5['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT5, $oehhfrttaxamt5, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxCode6 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxcode6('fooValue');   // WHERE OehhFrtTaxCode6 = 'fooValue'
+     * $query->filterByOehhfrttaxcode6('%fooValue%', Criteria::LIKE); // WHERE OehhFrtTaxCode6 LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oehhfrttaxcode6 The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxcode6($oehhfrttaxcode6 = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oehhfrttaxcode6)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE6, $oehhfrttaxcode6, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxAmt6 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxamt6(1234); // WHERE OehhFrtTaxAmt6 = 1234
+     * $query->filterByOehhfrttaxamt6(array(12, 34)); // WHERE OehhFrtTaxAmt6 IN (12, 34)
+     * $query->filterByOehhfrttaxamt6(array('min' => 12)); // WHERE OehhFrtTaxAmt6 > 12
+     * </code>
+     *
+     * @param     mixed $oehhfrttaxamt6 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxamt6($oehhfrttaxamt6 = null, $comparison = null)
+    {
+        if (is_array($oehhfrttaxamt6)) {
+            $useMinMax = false;
+            if (isset($oehhfrttaxamt6['min'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT6, $oehhfrttaxamt6['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oehhfrttaxamt6['max'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT6, $oehhfrttaxamt6['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT6, $oehhfrttaxamt6, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxCode7 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxcode7('fooValue');   // WHERE OehhFrtTaxCode7 = 'fooValue'
+     * $query->filterByOehhfrttaxcode7('%fooValue%', Criteria::LIKE); // WHERE OehhFrtTaxCode7 LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oehhfrttaxcode7 The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxcode7($oehhfrttaxcode7 = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oehhfrttaxcode7)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE7, $oehhfrttaxcode7, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxAmt7 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxamt7(1234); // WHERE OehhFrtTaxAmt7 = 1234
+     * $query->filterByOehhfrttaxamt7(array(12, 34)); // WHERE OehhFrtTaxAmt7 IN (12, 34)
+     * $query->filterByOehhfrttaxamt7(array('min' => 12)); // WHERE OehhFrtTaxAmt7 > 12
+     * </code>
+     *
+     * @param     mixed $oehhfrttaxamt7 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxamt7($oehhfrttaxamt7 = null, $comparison = null)
+    {
+        if (is_array($oehhfrttaxamt7)) {
+            $useMinMax = false;
+            if (isset($oehhfrttaxamt7['min'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT7, $oehhfrttaxamt7['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oehhfrttaxamt7['max'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT7, $oehhfrttaxamt7['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT7, $oehhfrttaxamt7, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxCode8 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxcode8('fooValue');   // WHERE OehhFrtTaxCode8 = 'fooValue'
+     * $query->filterByOehhfrttaxcode8('%fooValue%', Criteria::LIKE); // WHERE OehhFrtTaxCode8 LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oehhfrttaxcode8 The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxcode8($oehhfrttaxcode8 = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oehhfrttaxcode8)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE8, $oehhfrttaxcode8, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxAmt8 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxamt8(1234); // WHERE OehhFrtTaxAmt8 = 1234
+     * $query->filterByOehhfrttaxamt8(array(12, 34)); // WHERE OehhFrtTaxAmt8 IN (12, 34)
+     * $query->filterByOehhfrttaxamt8(array('min' => 12)); // WHERE OehhFrtTaxAmt8 > 12
+     * </code>
+     *
+     * @param     mixed $oehhfrttaxamt8 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxamt8($oehhfrttaxamt8 = null, $comparison = null)
+    {
+        if (is_array($oehhfrttaxamt8)) {
+            $useMinMax = false;
+            if (isset($oehhfrttaxamt8['min'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT8, $oehhfrttaxamt8['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oehhfrttaxamt8['max'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT8, $oehhfrttaxamt8['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT8, $oehhfrttaxamt8, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxCode9 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxcode9('fooValue');   // WHERE OehhFrtTaxCode9 = 'fooValue'
+     * $query->filterByOehhfrttaxcode9('%fooValue%', Criteria::LIKE); // WHERE OehhFrtTaxCode9 LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oehhfrttaxcode9 The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxcode9($oehhfrttaxcode9 = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oehhfrttaxcode9)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXCODE9, $oehhfrttaxcode9, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehhFrtTaxAmt9 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehhfrttaxamt9(1234); // WHERE OehhFrtTaxAmt9 = 1234
+     * $query->filterByOehhfrttaxamt9(array(12, 34)); // WHERE OehhFrtTaxAmt9 IN (12, 34)
+     * $query->filterByOehhfrttaxamt9(array('min' => 12)); // WHERE OehhFrtTaxAmt9 > 12
+     * </code>
+     *
+     * @param     mixed $oehhfrttaxamt9 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByOehhfrttaxamt9($oehhfrttaxamt9 = null, $comparison = null)
+    {
+        if (is_array($oehhfrttaxamt9)) {
+            $useMinMax = false;
+            if (isset($oehhfrttaxamt9['min'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT9, $oehhfrttaxamt9['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oehhfrttaxamt9['max'])) {
+                $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT9, $oehhfrttaxamt9['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryTableMap::COL_OEHHFRTTAXAMT9, $oehhfrttaxamt9, $comparison);
     }
 
     /**

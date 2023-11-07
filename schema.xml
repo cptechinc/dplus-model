@@ -5121,7 +5121,7 @@
     </vendor>
   </table>
   <table name="so_head_hist" idMethod="native" phpName="SalesHistory">
-    <column name="OehhNbr" phpName="Oehhnbr" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+     <column name="OehhNbr" phpName="Oehhnbr" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" required="true" defaultValue="0"/>
     <column name="OehhYear" phpName="Oehhyear" type="CHAR" size="4" required="true" defaultValue=""/>
     <column name="OehhStat" phpName="Oehhstat" type="CHAR" required="true" defaultValue="N"/>
     <column name="OehhHold" phpName="Oehhhold" type="CHAR" required="true" defaultValue="N"/>
@@ -5247,16 +5247,6 @@
     <column name="OehhFrtCost" phpName="Oehhfrtcost" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="OehhRoute" phpName="Oehhroute" type="VARCHAR" size="4" required="true" defaultValue=""/>
     <column name="OehhRouteSeq" phpName="Oehhrouteseq" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="OehhFrtTaxCode1" phpName="Oehhfrttaxcode1" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="OehhFrtTaxAmt1" phpName="Oehhfrttaxamt1" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="OehhFrtTaxCode2" phpName="Oehhfrttaxcode2" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="OehhFrtTaxAmt2" phpName="Oehhfrttaxamt2" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="OehhFrtTaxCode3" phpName="Oehhfrttaxcode3" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="OehhFrtTaxAmt3" phpName="Oehhfrttaxamt3" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="OehhFrtTaxCode4" phpName="Oehhfrttaxcode4" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="OehhFrtTaxAmt4" phpName="Oehhfrttaxamt4" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="OehhFrtTaxCode5" phpName="Oehhfrttaxcode5" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="OehhFrtTaxAmt5" phpName="Oehhfrttaxamt5" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="OehhEdi855Sent" phpName="Oehhedi855sent" type="CHAR" required="true" defaultValue=""/>
     <column name="OehhFrt3rdParty" phpName="Oehhfrt3rdparty" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="OehhFob" phpName="Oehhfob" type="VARCHAR" size="15" required="true" defaultValue=""/>
@@ -5306,6 +5296,24 @@
     <column name="OehhDueAmt6" phpName="Oehhdueamt6" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="OehhDuePct6" phpName="Oehhduepct6" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
     <column name="OehhRefNbr" phpName="Oehhrefnbr" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="OehhFrtTaxCode1" phpName="Oehhfrttaxcode1" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhFrtTaxAmt1" phpName="Oehhfrttaxamt1" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhFrtTaxCode2" phpName="Oehhfrttaxcode2" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhFrtTaxAmt2" phpName="Oehhfrttaxamt2" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhFrtTaxCode3" phpName="Oehhfrttaxcode3" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhFrtTaxAmt3" phpName="Oehhfrttaxamt3" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhFrtTaxCode4" phpName="Oehhfrttaxcode4" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhFrtTaxAmt4" phpName="Oehhfrttaxamt4" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhFrtTaxCode5" phpName="Oehhfrttaxcode5" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhFrtTaxAmt5" phpName="Oehhfrttaxamt5" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhFrtTaxCode6" phpName="Oehhfrttaxcode6" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhFrtTaxAmt6" phpName="Oehhfrttaxamt6" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhFrtTaxCode7" phpName="Oehhfrttaxcode7" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhFrtTaxAmt7" phpName="Oehhfrttaxamt7" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhFrtTaxCode8" phpName="Oehhfrttaxcode8" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhFrtTaxAmt8" phpName="Oehhfrttaxamt8" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhFrtTaxCode9" phpName="Oehhfrttaxcode9" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhFrtTaxAmt9" phpName="Oehhfrttaxamt9" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="OehhAcProgNbr" phpName="Oehhacprognbr" type="VARCHAR" size="16" required="true" defaultValue=""/>
     <column name="OehhAcProgExpDate" phpName="Oehhacprogexpdate" type="VARCHAR" size="6" required="true" defaultValue=""/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
@@ -5448,16 +5456,6 @@
     <column name="OehdFrtCost" phpName="Oehdfrtcost" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="OehdRoute" phpName="Oehdroute" type="VARCHAR" size="4" required="true" defaultValue=""/>
     <column name="OehdRouteSeq" phpName="Oehdrouteseq" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="OehdFrtTaxCode1" phpName="Oehdfrttaxcode1" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="OehdFrtTaxAmt1" phpName="Oehdfrttaxamt1" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="OehdFrtTaxCode2" phpName="Oehdfrttaxcode2" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="OehdFrtTaxAmt2" phpName="Oehdfrttaxamt2" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="OehdFrtTaxCode3" phpName="Oehdfrttaxcode3" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="OehdFrtTaxAmt3" phpName="Oehdfrttaxamt3" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="OehdFrtTaxCode4" phpName="Oehdfrttaxcode4" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="OehdFrtTaxAmt4" phpName="Oehdfrttaxamt4" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="OehdFrtTaxCode5" phpName="Oehdfrttaxcode5" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="OehdFrtTaxAmt5" phpName="Oehdfrttaxamt5" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="OehdEdi855Sent" phpName="Oehdedi855sent" type="CHAR" required="true" defaultValue=""/>
     <column name="OehdFrt3rdParty" phpName="Oehdfrt3rdparty" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="OehdFob" phpName="Oehdfob" type="VARCHAR" size="15" required="true" defaultValue=""/>
@@ -5507,6 +5505,24 @@
     <column name="OehdDueAmt6" phpName="Oehddueamt6" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="OehdDuePct6" phpName="Oehdduepct6" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
     <column name="OehdRefNbr" phpName="Oehdrefnbr" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="OehdFrtTaxCode1" phpName="Oehdfrttaxcode1" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdFrtTaxAmt1" phpName="Oehdfrttaxamt1" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdFrtTaxCode2" phpName="Oehdfrttaxcode2" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdFrtTaxAmt2" phpName="Oehdfrttaxamt2" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdFrtTaxCode3" phpName="Oehdfrttaxcode3" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdFrtTaxAmt3" phpName="Oehdfrttaxamt3" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdFrtTaxCode4" phpName="Oehdfrttaxcode4" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdFrtTaxAmt4" phpName="Oehdfrttaxamt4" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdFrtTaxCode5" phpName="Oehdfrttaxcode5" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdFrtTaxAmt5" phpName="Oehdfrttaxamt5" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdFrtTaxCode6" phpName="Oehdfrttaxcode6" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdFrtTaxAmt6" phpName="Oehdfrttaxamt6" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdFrtTaxCode7" phpName="Oehdfrttaxcode7" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdFrtTaxAmt7" phpName="Oehdfrttaxamt7" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdFrtTaxCode8" phpName="Oehdfrttaxcode8" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdFrtTaxAmt8" phpName="Oehdfrttaxamt8" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdFrtTaxCode9" phpName="Oehdfrttaxcode9" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdFrtTaxAmt9" phpName="Oehdfrttaxamt9" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="OehdAcProgNbr" phpName="Oehdacprognbr" type="VARCHAR" size="16" required="true" defaultValue=""/>
     <column name="OehdAcProgExpDate" phpName="Oehdacprogexpdate" type="VARCHAR" size="6" required="true" defaultValue=""/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
