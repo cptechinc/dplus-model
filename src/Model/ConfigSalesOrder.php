@@ -76,13 +76,20 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	);
 
 
-
 	/**
 	 * Return If Overpicking is allowed
 	 * @return bool
 	 */
 	public function allowOverpick() {
 		return $this->overpick == self::YN_TRUE;
+	}
+
+	/**
+	 * Return if system should provide Routing
+	 * @return bool
+	 */
+	public function provideRouting() {
+		return $this->providerouting == self::YN_TRUE;
 	}
 
 	/**
