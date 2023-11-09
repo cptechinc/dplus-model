@@ -2836,6 +2836,50 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_trans_pre_allo" idMethod="native" phpName="InvTransferPreAllocatedLotserial">
+    <column name="InhdNbr" phpName="Inhdnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="IndtLine" phpName="Indtline" type="INTEGER" size="5" sqlType="int(5) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InidLotSer" phpName="Inidlotser" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InidBin" phpName="Inidbin" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InidPlltNbr" phpName="Inidplltnbr" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InidCrtnNbr" phpName="Inidcrtnnbr" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InidQtyResv" phpName="Inidqtyresv" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InidQtyShip" phpName="Inidqtyship" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InidQtyNotPost" phpName="Inidqtynotpost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InidUnitCost" phpName="Inidunitcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InidLotSerFrom" phpName="Inidlotserfrom" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="InidBinFrom" phpName="Inidbinfrom" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InidCases" phpName="Inidcases" type="INTEGER" size="5" sqlType="int(5) unsigned" required="true" defaultValue="0"/>
+    <column name="InidTag" phpName="Inidtag" type="INTEGER" size="5" sqlType="int(5) unsigned" required="true" defaultValue="0"/>
+    <column name="InidInspctLvl" phpName="Inidinspctlvl" type="CHAR" required="true" defaultValue=""/>
+    <column name="InidLotRef" phpName="Inidlotref" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="InidCrtnQty" phpName="Inidcrtnqty" type="DECIMAL" size="20" scale="0" required="true" defaultValue="0"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="inv_item_mast" name="item" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_trans_head" name="transferOrder">
+      <reference local="InhdNbr" foreign="InhdNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_trans_det" name="transferDetail">
+      <reference local="InhdNbr" foreign="InhdNbr"/>
+      <reference local="IndtLine" foreign="IndtLine"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_lot_mast" name="lot" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+      <reference local="InidLotSer" foreign="LotmLotNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_ser_mast" name="serial" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+      <reference local="InidLotSer" foreign="SermSerNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_trans_pulled" idMethod="native" phpName="InvTransferPickedLotserial">
     <column name="InhdNbr" phpName="Inhdnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" primaryKey="true" required="true" defaultValue="0"/>
     <column name="IndtLine" phpName="Indtline" type="INTEGER" size="5" sqlType="int(5) unsigned" primaryKey="true" required="true" defaultValue="0"/>

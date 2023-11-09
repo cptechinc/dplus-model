@@ -108,6 +108,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvLotMasterQuery rightJoinWithInvTransferLotserial() Adds a RIGHT JOIN clause and with to the query using the InvTransferLotserial relation
  * @method     ChildInvLotMasterQuery innerJoinWithInvTransferLotserial() Adds a INNER JOIN clause and with to the query using the InvTransferLotserial relation
  *
+ * @method     ChildInvLotMasterQuery leftJoinInvTransferPreAllocatedLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvTransferPreAllocatedLotserial relation
+ * @method     ChildInvLotMasterQuery rightJoinInvTransferPreAllocatedLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvTransferPreAllocatedLotserial relation
+ * @method     ChildInvLotMasterQuery innerJoinInvTransferPreAllocatedLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the InvTransferPreAllocatedLotserial relation
+ *
+ * @method     ChildInvLotMasterQuery joinWithInvTransferPreAllocatedLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvTransferPreAllocatedLotserial relation
+ *
+ * @method     ChildInvLotMasterQuery leftJoinWithInvTransferPreAllocatedLotserial() Adds a LEFT JOIN clause and with to the query using the InvTransferPreAllocatedLotserial relation
+ * @method     ChildInvLotMasterQuery rightJoinWithInvTransferPreAllocatedLotserial() Adds a RIGHT JOIN clause and with to the query using the InvTransferPreAllocatedLotserial relation
+ * @method     ChildInvLotMasterQuery innerJoinWithInvTransferPreAllocatedLotserial() Adds a INNER JOIN clause and with to the query using the InvTransferPreAllocatedLotserial relation
+ *
  * @method     ChildInvLotMasterQuery leftJoinInvTransferPickedLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvTransferPickedLotserial relation
  * @method     ChildInvLotMasterQuery rightJoinInvTransferPickedLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvTransferPickedLotserial relation
  * @method     ChildInvLotMasterQuery innerJoinInvTransferPickedLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the InvTransferPickedLotserial relation
@@ -138,7 +148,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvLotMasterQuery rightJoinWithSoPickedLotserial() Adds a RIGHT JOIN clause and with to the query using the SoPickedLotserial relation
  * @method     ChildInvLotMasterQuery innerJoinWithSoPickedLotserial() Adds a INNER JOIN clause and with to the query using the SoPickedLotserial relation
  *
- * @method     \ItemMasterItemQuery|\InvWhseLotQuery|\InvLotTagQuery|\InvTransferLotserialQuery|\InvTransferPickedLotserialQuery|\SoAllocatedLotserialQuery|\SoPickedLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ItemMasterItemQuery|\InvWhseLotQuery|\InvLotTagQuery|\InvTransferLotserialQuery|\InvTransferPreAllocatedLotserialQuery|\InvTransferPickedLotserialQuery|\SoAllocatedLotserialQuery|\SoPickedLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildInvLotMaster findOne(ConnectionInterface $con = null) Return the first ChildInvLotMaster matching the query
  * @method     ChildInvLotMaster findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvLotMaster matching the query, or a new ChildInvLotMaster object populated from the query conditions when no match is found
@@ -1211,6 +1221,75 @@ abstract class InvLotMasterQuery extends ModelCriteria
         return $this
             ->joinInvTransferLotserial($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'InvTransferLotserial', '\InvTransferLotserialQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvTransferPreAllocatedLotserial object
+     *
+     * @param \InvTransferPreAllocatedLotserial|ObjectCollection $invTransferPreAllocatedLotserial the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildInvLotMasterQuery The current query, for fluid interface
+     */
+    public function filterByInvTransferPreAllocatedLotserial($invTransferPreAllocatedLotserial, $comparison = null)
+    {
+        if ($invTransferPreAllocatedLotserial instanceof \InvTransferPreAllocatedLotserial) {
+            return $this
+                ->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $invTransferPreAllocatedLotserial->getInititemnbr(), $comparison)
+                ->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $invTransferPreAllocatedLotserial->getInidlotser(), $comparison);
+        } else {
+            throw new PropelException('filterByInvTransferPreAllocatedLotserial() only accepts arguments of type \InvTransferPreAllocatedLotserial');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvTransferPreAllocatedLotserial relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     */
+    public function joinInvTransferPreAllocatedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvTransferPreAllocatedLotserial');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvTransferPreAllocatedLotserial');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvTransferPreAllocatedLotserial relation InvTransferPreAllocatedLotserial object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvTransferPreAllocatedLotserialQuery A secondary query class using the current class as primary query
+     */
+    public function useInvTransferPreAllocatedLotserialQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvTransferPreAllocatedLotserial($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvTransferPreAllocatedLotserial', '\InvTransferPreAllocatedLotserialQuery');
     }
 
     /**

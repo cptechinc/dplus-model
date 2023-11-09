@@ -686,6 +686,13 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, 'InvTransferLotserials', false);
+        $this->addRelation('InvTransferPreAllocatedLotserial', '\\InvTransferPreAllocatedLotserial', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'InvTransferPreAllocatedLotserials', false);
         $this->addRelation('InvTransferPickedLotserial', '\\InvTransferPickedLotserial', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

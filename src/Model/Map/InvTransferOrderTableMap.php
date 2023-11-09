@@ -387,6 +387,13 @@ class InvTransferOrderTableMap extends TableMap
     1 => ':InhdNbr',
   ),
 ), null, null, 'InvTransferLotserials', false);
+        $this->addRelation('InvTransferPreAllocatedLotserial', '\\InvTransferPreAllocatedLotserial', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InhdNbr',
+    1 => ':InhdNbr',
+  ),
+), null, null, 'InvTransferPreAllocatedLotserials', false);
         $this->addRelation('InvTransferPickedLotserial', '\\InvTransferPickedLotserial', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
