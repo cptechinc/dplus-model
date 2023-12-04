@@ -3,7 +3,7 @@
 use Base\CpnLoadOrder as BaseCpnLoadOrder;
 
 /**
- * Skeleton subclass for representing a row from the 'load_cpn_order' table.
+ * Class for representing a row from the 'load_cpn_order' table.
  *
  *
  *
@@ -12,7 +12,15 @@ use Base\CpnLoadOrder as BaseCpnLoadOrder;
  * long as it does not already exist in the output directory.
  *
  */
-class CpnLoadOrder extends BaseCpnLoadOrder
-{
+class CpnLoadOrder extends BaseCpnLoadOrder {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = [
+		'lnbr'   => 'lchdloadnbr'
+	];
 }
