@@ -12,6 +12,11 @@ class Quote extends BaseQuote {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	/**
+	 * @var Customer
+	*/
+	protected $aCustomer;
+
 	const COLUMN_ALIASES = array(
 		'quotenbr'        => 'qthdid',
 		'quoteid'         => 'qthdid',
@@ -87,6 +92,10 @@ class Quote extends BaseQuote {
 		'P' => 'printed'
 	);
 
+/* =============================================================
+	Getters
+============================================================= */
+
 	public function fob() {
 		return self::FOB_OPTIONS_DESC[$this->fob];
 	}
@@ -95,24 +104,24 @@ class Quote extends BaseQuote {
 		return self::STATUS_DESCRIPTIONS[$this->status];
 	}
 
-
 	/**
-	 * Filter the query on the ArspSalePer1, ArspSalePer2, ArspSalePer3  column
-	 *
-	 * @param  string $salesperson The value to use as filter.
-	 * @return $this|QuoteQuery    The current query, for fluid interface
+	 * Return Customer Associated with this Quote
+	 * @return Customer
 	 */
-	public function filterbySalesPerson($salesperson) {
-		$this->condition('sp1', 'Quote.ArspSaleper1 = ? ', $salesperson);
-		$this->condition('sp2', 'Quote.ArspSaleper2 = ? ', $salesperson);
-		$this->condition('sp3', 'Quote.ArspSaleper3 = ? ', $salesperson);
-		$this->where(array('sp1', 'sp2', 'sp3'), Criteria::LOGICAL_OR); 				 // combine 'cond1' and 'cond2' with a logical OR
-		return $this;
-	 }
+	public function getCustomer() {
+		if ($this->aCustomer instanceof Customer) {
+			return $this->aCustomer;
+		}
+		if ($this->custid == '') {
+			$this->aCustomer = new Customer();
+			return $this->aCustomer;
+		}
+		$this->aCustomer = CustomerQuery::create()->findOneByCustid($this->custid);
+		return $this->aCustomer;
+	}
 
 	 /**
 	 * Returns Notes for the Quote
-	 *
 	 * @return QuoteNotes[]|ObjectCollection
 	 */
 	public function get_notes() {
@@ -121,7 +130,6 @@ class Quote extends BaseQuote {
 
 	/**
 	 * Returns the number of Notes for the Quote
-	 *
 	 * @return int
 	 */
 	public function count_notes() {
