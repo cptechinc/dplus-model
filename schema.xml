@@ -3122,6 +3122,83 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="load_cpn_header" idMethod="native" phpName="CpnLoad">
+    <column name="LchdLoadNbr" phpName="Lchdloadnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="LchdShipIdFrom" phpName="Lchdshipidfrom" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="LchdShipIdThru" phpName="Lchdshipidthru" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="LchdShipIdThruSel" phpName="Lchdshipidthrusel" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="LchdCustPoFrom" phpName="Lchdcustpofrom" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="LchdCustPoThru" phpName="Lchdcustpothru" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="LchdCustPoThruSel" phpName="Lchdcustpothrusel" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="LchdRqstDateFrom" phpName="Lchdrqstdatefrom" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="LchdRqstDateThru" phpName="Lchdrqstdatethru" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="LchdBol" phpName="Lchdbol" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="LchdProNbr" phpName="Lchdpronbr" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="LchdShipDate" phpName="Lchdshipdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="LchdNbrOfSkids" phpName="Lchdnbrofskids" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="LchdNbrOfBoxes" phpName="Lchdnbrofboxes" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="LchdTotWght" phpName="Lchdtotwght" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="LchdSlctNbrOfBoxes" phpName="Lchdslctnbrofboxes" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="LchdSlctTotWght" phpName="Lchdslcttotwght" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="LchdSchdPickupDate" phpName="Lchdschdpickupdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="LchdSchdPickupTime" phpName="Lchdschdpickuptime" type="CHAR" size="4" required="true" defaultValue=""/>
+    <column name="LchdExportDate" phpName="Lchdexportdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="LchdExportTime" phpName="Lchdexporttime" type="CHAR" size="4" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="load_cpn_item" idMethod="native" phpName="CpnLoadItem">
+    <column name="LchdLoadNbr" phpName="Lchdloadnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="LcorOrdrNbr" phpName="Lcorordrnbr" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="LcitLineNbr" phpName="Lcitlinenbr" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="LcitLotSer" phpName="Lcitlotser" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="LcitSkidNbr" phpName="Lcitskidnbr" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="LcitQtyOrd" phpName="Lcitqtyord" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="LcitRqstDate" phpName="Lcitrqstdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="LcitQtyPerBox" phpName="Lcitqtyperbox" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="LcitNbrOfBoxes" phpName="Lcitnbrofboxes" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="LcitTotWght" phpName="Lcittotwght" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="LcitUom" phpName="Lcituom" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="LcitQtyShip" phpName="Lcitqtyship" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="load_cpn_header" name="load" skipSql="true">
+      <reference local="LchdLoadNbr" foreign="LchdLoadNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="load_cpn_order" idMethod="native" phpName="CpnLoadOrder">
+    <column name="LchdLoadNbr" phpName="Lchdloadnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="LcorOrdrNbr" phpName="Lcorordrnbr" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="LcorShipId" phpName="Lcorshipid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="LcorCustPo" phpName="Lcorcustpo" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="LcorRqstDate" phpName="Lcorrqstdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="LcorNbrOfBoxes" phpName="Lcornbrofboxes" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="LcorTotWght" phpName="Lcortotwght" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="LcorOrdrType" phpName="Lcorordrtype" type="CHAR" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="load_cpn_header" name="load" skipSql="true">
+      <reference local="LchdLoadNbr" foreign="LchdLoadNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="mfcp_item_xref" idMethod="native" phpName="ItemXrefManufacturer">
     <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="McxrVendItemNbr" phpName="Mcxrvenditemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
