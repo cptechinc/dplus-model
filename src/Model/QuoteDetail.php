@@ -54,7 +54,7 @@ class QuoteDetail extends BaseQuoteDetail {
 		'vendorid'        => 'apvevendid',
 		'vendoritemid'    => 'qtdtvenditemjob',
 		'leaddays'        => 'qtdtleaddays',
-		'taxcodecd'       => 'artbmtaxcode'
+		'taxcodecd'       => 'artbctaxcode'
 	);
 
 	/**
