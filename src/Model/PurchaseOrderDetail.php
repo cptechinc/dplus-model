@@ -53,6 +53,7 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 		'status'           => 'podtstat',
 		'qtyduein'         => 'podtqtyduein',
 		'ordn'             => 'podtsonbr',
+		'confirmcode'      => 'potbcnfmcode',
 		// FK
 		'item'              => 'Itmitem',
 		'itm'              => 'Itmitem',

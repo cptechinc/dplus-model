@@ -169,7 +169,6 @@ class PurchaseOrder extends BasePurchaseOrder {
 
 	/**
 	 * Return PurchaseOrderDetail objects for this PO Number
-	 *
 	 * @return PurchaseOrderDetail[]|ObjectCollection
 	 */
 	public function get_items() {

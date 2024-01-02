@@ -23,4 +23,41 @@ use Dplus\Model\QueryTraits;
 class PurchaseOrderDetailQuery extends BasePurchaseOrderDetailQuery {
 	use QueryTraits;
 
+	/**
+	* Filter the query on the Pohdnbr column
+	* @param  mixed  $ponbr             string|array
+	* @param  string $comparison        Database Comparison Operator e.g. <=
+	* @return $this|PurchaseOrderDetailQuery  The current query, for fluid interface
+	*/
+	public function filterByPonbr($ponbr, $comparison = null) {
+		return $this->filterByPohdnbr($ponbr, $comparison);
+	}
+
+	/**
+	* Filter the query on the Intbwhse column
+	* @param  mixed  $whseID            string|array
+	* @param  string $comparison        Database Comparison Operator e.g. <=
+	* @return $this|PurchaseOrderDetailQuery  The current query, for fluid interface
+	*/
+	public function filterByWhseid($whseID, $comparison = null) {
+		return $this->filterByIntbwhse($whseID, $comparison);
+	}
+
+	/**
+	 * Filter the query by Status Closed
+	 * @param  string $comparison
+	 * @return $this|PurchaseOrderDetailQuery  The current query, for fluid interface
+	 */
+	public function filterByStatusClosed($comparison = null) {
+		return $this->filterByPodtstat(PurchaseOrderDetail::STATUS_CLOSED);
+	}
+
+	/**
+	 * Filter the query by Status Open
+	 * @param  string $comparison
+	 * @return $this|PurchaseOrderDetailQuery  The current query, for fluid interface
+	 */
+	public function filterByStatusOpen($comparison = null) {
+		return $this->filterByPodtstat(PurchaseOrderDetail::STATUS_OPEN);
+	}
 }

@@ -57,6 +57,8 @@ class ConfigPo extends BaseConfigPo {
 		'usefabrication'            => 'potbconfusefab',
 		'warnReceivedMoreThanOrdered' => 'potbconfwarnrcptqty',
 		'provideLabelPrinting'        => 'potbconfprovidelpo',
+		'receiveComplete'             => 'potbconfrecall',
+		'askReceiveComplete'          => 'potbconfrecallask',
 	);
 
 	/**
