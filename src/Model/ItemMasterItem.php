@@ -209,6 +209,14 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 * Return Description for Item Type
 	 * @return string
 	 */
+	public function itemtype() {
+		return self::ITEMTYPE_DESCRIPTIONS[$this->inittype];
+	}
+
+	/**
+	 * Return Description for Item Type
+	 * @return string
+	 */
 	public function get_itemtypedescription() {
 		return self::ITEMTYPE_DESCRIPTIONS[$this->inittype];
 	}
