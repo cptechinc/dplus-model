@@ -59,7 +59,7 @@ class WarehouseTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 34;
+    const NUM_COLUMNS = 37;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class WarehouseTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 34;
+    const NUM_HYDRATE_COLUMNS = 37;
 
     /**
      * the column name for the IntbWhse field
@@ -227,6 +227,21 @@ class WarehouseTableMap extends TableMap
     const COL_INTBWHSESUPPLYWHSE = 'inv_whse_code.IntbWhseSupplyWhse';
 
     /**
+     * the column name for the IntbWhseAreaSplit field
+     */
+    const COL_INTBWHSEAREASPLIT = 'inv_whse_code.IntbWhseAreaSplit';
+
+    /**
+     * the column name for the IntbWhseRcvBinCode field
+     */
+    const COL_INTBWHSERCVBINCODE = 'inv_whse_code.IntbWhseRcvBinCode';
+
+    /**
+     * the column name for the IntbWhseRcvBin field
+     */
+    const COL_INTBWHSERCVBIN = 'inv_whse_code.IntbWhseRcvBin';
+
+    /**
      * the column name for the DateUpdtd field
      */
     const COL_DATEUPDTD = 'inv_whse_code.DateUpdtd';
@@ -253,11 +268,11 @@ class WarehouseTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Intbwhse', 'Intbwhsename', 'Intbwhseadr1', 'Intbwhseadr2', 'Intbwhsecity', 'Intbwhsestat', 'Intbwhsezipcode', 'Intbwhsectry', 'Intbwhseusehandheld', 'Intbwhsecashcust', 'Intbwhsepickdtl', 'Intbwhseprodbin', 'Intbwhsepharea', 'Intbwhsephfrst3', 'Intbwhsephlast4', 'Intbwhsephext', 'Intbwhsefaxarea', 'Intbwhsefaxfrst3', 'Intbwhsefaxlast4', 'Intbwhseemailadr', 'Intbwhseqcrgabin', 'Intbwhserfprinter1', 'Intbwhserfprinter2', 'Intbwhserfprinter3', 'Intbwhserfprinter4', 'Intbwhserfprinter5', 'Intbwhseprofwhse', 'Intbwhseasetwhse', 'Intbwhseconsignwhse', 'Intbwhsebinrangelist', 'Intbwhsesupplywhse', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('intbwhse', 'intbwhsename', 'intbwhseadr1', 'intbwhseadr2', 'intbwhsecity', 'intbwhsestat', 'intbwhsezipcode', 'intbwhsectry', 'intbwhseusehandheld', 'intbwhsecashcust', 'intbwhsepickdtl', 'intbwhseprodbin', 'intbwhsepharea', 'intbwhsephfrst3', 'intbwhsephlast4', 'intbwhsephext', 'intbwhsefaxarea', 'intbwhsefaxfrst3', 'intbwhsefaxlast4', 'intbwhseemailadr', 'intbwhseqcrgabin', 'intbwhserfprinter1', 'intbwhserfprinter2', 'intbwhserfprinter3', 'intbwhserfprinter4', 'intbwhserfprinter5', 'intbwhseprofwhse', 'intbwhseasetwhse', 'intbwhseconsignwhse', 'intbwhsebinrangelist', 'intbwhsesupplywhse', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(WarehouseTableMap::COL_INTBWHSE, WarehouseTableMap::COL_INTBWHSENAME, WarehouseTableMap::COL_INTBWHSEADR1, WarehouseTableMap::COL_INTBWHSEADR2, WarehouseTableMap::COL_INTBWHSECITY, WarehouseTableMap::COL_INTBWHSESTAT, WarehouseTableMap::COL_INTBWHSEZIPCODE, WarehouseTableMap::COL_INTBWHSECTRY, WarehouseTableMap::COL_INTBWHSEUSEHANDHELD, WarehouseTableMap::COL_INTBWHSECASHCUST, WarehouseTableMap::COL_INTBWHSEPICKDTL, WarehouseTableMap::COL_INTBWHSEPRODBIN, WarehouseTableMap::COL_INTBWHSEPHAREA, WarehouseTableMap::COL_INTBWHSEPHFRST3, WarehouseTableMap::COL_INTBWHSEPHLAST4, WarehouseTableMap::COL_INTBWHSEPHEXT, WarehouseTableMap::COL_INTBWHSEFAXAREA, WarehouseTableMap::COL_INTBWHSEFAXFRST3, WarehouseTableMap::COL_INTBWHSEFAXLAST4, WarehouseTableMap::COL_INTBWHSEEMAILADR, WarehouseTableMap::COL_INTBWHSEQCRGABIN, WarehouseTableMap::COL_INTBWHSERFPRINTER1, WarehouseTableMap::COL_INTBWHSERFPRINTER2, WarehouseTableMap::COL_INTBWHSERFPRINTER3, WarehouseTableMap::COL_INTBWHSERFPRINTER4, WarehouseTableMap::COL_INTBWHSERFPRINTER5, WarehouseTableMap::COL_INTBWHSEPROFWHSE, WarehouseTableMap::COL_INTBWHSEASETWHSE, WarehouseTableMap::COL_INTBWHSECONSIGNWHSE, WarehouseTableMap::COL_INTBWHSEBINRANGELIST, WarehouseTableMap::COL_INTBWHSESUPPLYWHSE, WarehouseTableMap::COL_DATEUPDTD, WarehouseTableMap::COL_TIMEUPDTD, WarehouseTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('IntbWhse', 'IntbWhseName', 'IntbWhseAdr1', 'IntbWhseAdr2', 'IntbWhseCity', 'IntbWhseStat', 'IntbWhseZipCode', 'IntbWhseCtry', 'IntbWhseUseHandheld', 'IntbWhseCashCust', 'IntbWhsePickDtl', 'IntbWhseProdBin', 'IntbWhsePhArea', 'IntbWhsePhFrst3', 'IntbWhsePhLast4', 'IntbWhsePhExt', 'IntbWhseFaxArea', 'IntbWhseFaxFrst3', 'IntbWhseFaxLast4', 'IntbWhseEmailAdr', 'IntbWhseQcRgaBin', 'IntbWhseRfPrinter1', 'IntbWhseRfPrinter2', 'IntbWhseRfPrinter3', 'IntbWhseRfPrinter4', 'IntbWhseRfPrinter5', 'IntbWhseProfWhse', 'IntbWhseAsetWhse', 'IntbWhseConsignWhse', 'IntbWhseBinRangeList', 'IntbWhseSupplyWhse', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, )
+        self::TYPE_PHPNAME       => array('Intbwhse', 'Intbwhsename', 'Intbwhseadr1', 'Intbwhseadr2', 'Intbwhsecity', 'Intbwhsestat', 'Intbwhsezipcode', 'Intbwhsectry', 'Intbwhseusehandheld', 'Intbwhsecashcust', 'Intbwhsepickdtl', 'Intbwhseprodbin', 'Intbwhsepharea', 'Intbwhsephfrst3', 'Intbwhsephlast4', 'Intbwhsephext', 'Intbwhsefaxarea', 'Intbwhsefaxfrst3', 'Intbwhsefaxlast4', 'Intbwhseemailadr', 'Intbwhseqcrgabin', 'Intbwhserfprinter1', 'Intbwhserfprinter2', 'Intbwhserfprinter3', 'Intbwhserfprinter4', 'Intbwhserfprinter5', 'Intbwhseprofwhse', 'Intbwhseasetwhse', 'Intbwhseconsignwhse', 'Intbwhsebinrangelist', 'Intbwhsesupplywhse', 'Intbwhseareasplit', 'Intbwhsercvbincode', 'Intbwhsercvbin', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('intbwhse', 'intbwhsename', 'intbwhseadr1', 'intbwhseadr2', 'intbwhsecity', 'intbwhsestat', 'intbwhsezipcode', 'intbwhsectry', 'intbwhseusehandheld', 'intbwhsecashcust', 'intbwhsepickdtl', 'intbwhseprodbin', 'intbwhsepharea', 'intbwhsephfrst3', 'intbwhsephlast4', 'intbwhsephext', 'intbwhsefaxarea', 'intbwhsefaxfrst3', 'intbwhsefaxlast4', 'intbwhseemailadr', 'intbwhseqcrgabin', 'intbwhserfprinter1', 'intbwhserfprinter2', 'intbwhserfprinter3', 'intbwhserfprinter4', 'intbwhserfprinter5', 'intbwhseprofwhse', 'intbwhseasetwhse', 'intbwhseconsignwhse', 'intbwhsebinrangelist', 'intbwhsesupplywhse', 'intbwhseareasplit', 'intbwhsercvbincode', 'intbwhsercvbin', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(WarehouseTableMap::COL_INTBWHSE, WarehouseTableMap::COL_INTBWHSENAME, WarehouseTableMap::COL_INTBWHSEADR1, WarehouseTableMap::COL_INTBWHSEADR2, WarehouseTableMap::COL_INTBWHSECITY, WarehouseTableMap::COL_INTBWHSESTAT, WarehouseTableMap::COL_INTBWHSEZIPCODE, WarehouseTableMap::COL_INTBWHSECTRY, WarehouseTableMap::COL_INTBWHSEUSEHANDHELD, WarehouseTableMap::COL_INTBWHSECASHCUST, WarehouseTableMap::COL_INTBWHSEPICKDTL, WarehouseTableMap::COL_INTBWHSEPRODBIN, WarehouseTableMap::COL_INTBWHSEPHAREA, WarehouseTableMap::COL_INTBWHSEPHFRST3, WarehouseTableMap::COL_INTBWHSEPHLAST4, WarehouseTableMap::COL_INTBWHSEPHEXT, WarehouseTableMap::COL_INTBWHSEFAXAREA, WarehouseTableMap::COL_INTBWHSEFAXFRST3, WarehouseTableMap::COL_INTBWHSEFAXLAST4, WarehouseTableMap::COL_INTBWHSEEMAILADR, WarehouseTableMap::COL_INTBWHSEQCRGABIN, WarehouseTableMap::COL_INTBWHSERFPRINTER1, WarehouseTableMap::COL_INTBWHSERFPRINTER2, WarehouseTableMap::COL_INTBWHSERFPRINTER3, WarehouseTableMap::COL_INTBWHSERFPRINTER4, WarehouseTableMap::COL_INTBWHSERFPRINTER5, WarehouseTableMap::COL_INTBWHSEPROFWHSE, WarehouseTableMap::COL_INTBWHSEASETWHSE, WarehouseTableMap::COL_INTBWHSECONSIGNWHSE, WarehouseTableMap::COL_INTBWHSEBINRANGELIST, WarehouseTableMap::COL_INTBWHSESUPPLYWHSE, WarehouseTableMap::COL_INTBWHSEAREASPLIT, WarehouseTableMap::COL_INTBWHSERCVBINCODE, WarehouseTableMap::COL_INTBWHSERCVBIN, WarehouseTableMap::COL_DATEUPDTD, WarehouseTableMap::COL_TIMEUPDTD, WarehouseTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('IntbWhse', 'IntbWhseName', 'IntbWhseAdr1', 'IntbWhseAdr2', 'IntbWhseCity', 'IntbWhseStat', 'IntbWhseZipCode', 'IntbWhseCtry', 'IntbWhseUseHandheld', 'IntbWhseCashCust', 'IntbWhsePickDtl', 'IntbWhseProdBin', 'IntbWhsePhArea', 'IntbWhsePhFrst3', 'IntbWhsePhLast4', 'IntbWhsePhExt', 'IntbWhseFaxArea', 'IntbWhseFaxFrst3', 'IntbWhseFaxLast4', 'IntbWhseEmailAdr', 'IntbWhseQcRgaBin', 'IntbWhseRfPrinter1', 'IntbWhseRfPrinter2', 'IntbWhseRfPrinter3', 'IntbWhseRfPrinter4', 'IntbWhseRfPrinter5', 'IntbWhseProfWhse', 'IntbWhseAsetWhse', 'IntbWhseConsignWhse', 'IntbWhseBinRangeList', 'IntbWhseSupplyWhse', 'IntbWhseAreaSplit', 'IntbWhseRcvBinCode', 'IntbWhseRcvBin', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, )
     );
 
     /**
@@ -267,11 +282,11 @@ class WarehouseTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Intbwhse' => 0, 'Intbwhsename' => 1, 'Intbwhseadr1' => 2, 'Intbwhseadr2' => 3, 'Intbwhsecity' => 4, 'Intbwhsestat' => 5, 'Intbwhsezipcode' => 6, 'Intbwhsectry' => 7, 'Intbwhseusehandheld' => 8, 'Intbwhsecashcust' => 9, 'Intbwhsepickdtl' => 10, 'Intbwhseprodbin' => 11, 'Intbwhsepharea' => 12, 'Intbwhsephfrst3' => 13, 'Intbwhsephlast4' => 14, 'Intbwhsephext' => 15, 'Intbwhsefaxarea' => 16, 'Intbwhsefaxfrst3' => 17, 'Intbwhsefaxlast4' => 18, 'Intbwhseemailadr' => 19, 'Intbwhseqcrgabin' => 20, 'Intbwhserfprinter1' => 21, 'Intbwhserfprinter2' => 22, 'Intbwhserfprinter3' => 23, 'Intbwhserfprinter4' => 24, 'Intbwhserfprinter5' => 25, 'Intbwhseprofwhse' => 26, 'Intbwhseasetwhse' => 27, 'Intbwhseconsignwhse' => 28, 'Intbwhsebinrangelist' => 29, 'Intbwhsesupplywhse' => 30, 'Dateupdtd' => 31, 'Timeupdtd' => 32, 'Dummy' => 33, ),
-        self::TYPE_CAMELNAME     => array('intbwhse' => 0, 'intbwhsename' => 1, 'intbwhseadr1' => 2, 'intbwhseadr2' => 3, 'intbwhsecity' => 4, 'intbwhsestat' => 5, 'intbwhsezipcode' => 6, 'intbwhsectry' => 7, 'intbwhseusehandheld' => 8, 'intbwhsecashcust' => 9, 'intbwhsepickdtl' => 10, 'intbwhseprodbin' => 11, 'intbwhsepharea' => 12, 'intbwhsephfrst3' => 13, 'intbwhsephlast4' => 14, 'intbwhsephext' => 15, 'intbwhsefaxarea' => 16, 'intbwhsefaxfrst3' => 17, 'intbwhsefaxlast4' => 18, 'intbwhseemailadr' => 19, 'intbwhseqcrgabin' => 20, 'intbwhserfprinter1' => 21, 'intbwhserfprinter2' => 22, 'intbwhserfprinter3' => 23, 'intbwhserfprinter4' => 24, 'intbwhserfprinter5' => 25, 'intbwhseprofwhse' => 26, 'intbwhseasetwhse' => 27, 'intbwhseconsignwhse' => 28, 'intbwhsebinrangelist' => 29, 'intbwhsesupplywhse' => 30, 'dateupdtd' => 31, 'timeupdtd' => 32, 'dummy' => 33, ),
-        self::TYPE_COLNAME       => array(WarehouseTableMap::COL_INTBWHSE => 0, WarehouseTableMap::COL_INTBWHSENAME => 1, WarehouseTableMap::COL_INTBWHSEADR1 => 2, WarehouseTableMap::COL_INTBWHSEADR2 => 3, WarehouseTableMap::COL_INTBWHSECITY => 4, WarehouseTableMap::COL_INTBWHSESTAT => 5, WarehouseTableMap::COL_INTBWHSEZIPCODE => 6, WarehouseTableMap::COL_INTBWHSECTRY => 7, WarehouseTableMap::COL_INTBWHSEUSEHANDHELD => 8, WarehouseTableMap::COL_INTBWHSECASHCUST => 9, WarehouseTableMap::COL_INTBWHSEPICKDTL => 10, WarehouseTableMap::COL_INTBWHSEPRODBIN => 11, WarehouseTableMap::COL_INTBWHSEPHAREA => 12, WarehouseTableMap::COL_INTBWHSEPHFRST3 => 13, WarehouseTableMap::COL_INTBWHSEPHLAST4 => 14, WarehouseTableMap::COL_INTBWHSEPHEXT => 15, WarehouseTableMap::COL_INTBWHSEFAXAREA => 16, WarehouseTableMap::COL_INTBWHSEFAXFRST3 => 17, WarehouseTableMap::COL_INTBWHSEFAXLAST4 => 18, WarehouseTableMap::COL_INTBWHSEEMAILADR => 19, WarehouseTableMap::COL_INTBWHSEQCRGABIN => 20, WarehouseTableMap::COL_INTBWHSERFPRINTER1 => 21, WarehouseTableMap::COL_INTBWHSERFPRINTER2 => 22, WarehouseTableMap::COL_INTBWHSERFPRINTER3 => 23, WarehouseTableMap::COL_INTBWHSERFPRINTER4 => 24, WarehouseTableMap::COL_INTBWHSERFPRINTER5 => 25, WarehouseTableMap::COL_INTBWHSEPROFWHSE => 26, WarehouseTableMap::COL_INTBWHSEASETWHSE => 27, WarehouseTableMap::COL_INTBWHSECONSIGNWHSE => 28, WarehouseTableMap::COL_INTBWHSEBINRANGELIST => 29, WarehouseTableMap::COL_INTBWHSESUPPLYWHSE => 30, WarehouseTableMap::COL_DATEUPDTD => 31, WarehouseTableMap::COL_TIMEUPDTD => 32, WarehouseTableMap::COL_DUMMY => 33, ),
-        self::TYPE_FIELDNAME     => array('IntbWhse' => 0, 'IntbWhseName' => 1, 'IntbWhseAdr1' => 2, 'IntbWhseAdr2' => 3, 'IntbWhseCity' => 4, 'IntbWhseStat' => 5, 'IntbWhseZipCode' => 6, 'IntbWhseCtry' => 7, 'IntbWhseUseHandheld' => 8, 'IntbWhseCashCust' => 9, 'IntbWhsePickDtl' => 10, 'IntbWhseProdBin' => 11, 'IntbWhsePhArea' => 12, 'IntbWhsePhFrst3' => 13, 'IntbWhsePhLast4' => 14, 'IntbWhsePhExt' => 15, 'IntbWhseFaxArea' => 16, 'IntbWhseFaxFrst3' => 17, 'IntbWhseFaxLast4' => 18, 'IntbWhseEmailAdr' => 19, 'IntbWhseQcRgaBin' => 20, 'IntbWhseRfPrinter1' => 21, 'IntbWhseRfPrinter2' => 22, 'IntbWhseRfPrinter3' => 23, 'IntbWhseRfPrinter4' => 24, 'IntbWhseRfPrinter5' => 25, 'IntbWhseProfWhse' => 26, 'IntbWhseAsetWhse' => 27, 'IntbWhseConsignWhse' => 28, 'IntbWhseBinRangeList' => 29, 'IntbWhseSupplyWhse' => 30, 'DateUpdtd' => 31, 'TimeUpdtd' => 32, 'dummy' => 33, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, )
+        self::TYPE_PHPNAME       => array('Intbwhse' => 0, 'Intbwhsename' => 1, 'Intbwhseadr1' => 2, 'Intbwhseadr2' => 3, 'Intbwhsecity' => 4, 'Intbwhsestat' => 5, 'Intbwhsezipcode' => 6, 'Intbwhsectry' => 7, 'Intbwhseusehandheld' => 8, 'Intbwhsecashcust' => 9, 'Intbwhsepickdtl' => 10, 'Intbwhseprodbin' => 11, 'Intbwhsepharea' => 12, 'Intbwhsephfrst3' => 13, 'Intbwhsephlast4' => 14, 'Intbwhsephext' => 15, 'Intbwhsefaxarea' => 16, 'Intbwhsefaxfrst3' => 17, 'Intbwhsefaxlast4' => 18, 'Intbwhseemailadr' => 19, 'Intbwhseqcrgabin' => 20, 'Intbwhserfprinter1' => 21, 'Intbwhserfprinter2' => 22, 'Intbwhserfprinter3' => 23, 'Intbwhserfprinter4' => 24, 'Intbwhserfprinter5' => 25, 'Intbwhseprofwhse' => 26, 'Intbwhseasetwhse' => 27, 'Intbwhseconsignwhse' => 28, 'Intbwhsebinrangelist' => 29, 'Intbwhsesupplywhse' => 30, 'Intbwhseareasplit' => 31, 'Intbwhsercvbincode' => 32, 'Intbwhsercvbin' => 33, 'Dateupdtd' => 34, 'Timeupdtd' => 35, 'Dummy' => 36, ),
+        self::TYPE_CAMELNAME     => array('intbwhse' => 0, 'intbwhsename' => 1, 'intbwhseadr1' => 2, 'intbwhseadr2' => 3, 'intbwhsecity' => 4, 'intbwhsestat' => 5, 'intbwhsezipcode' => 6, 'intbwhsectry' => 7, 'intbwhseusehandheld' => 8, 'intbwhsecashcust' => 9, 'intbwhsepickdtl' => 10, 'intbwhseprodbin' => 11, 'intbwhsepharea' => 12, 'intbwhsephfrst3' => 13, 'intbwhsephlast4' => 14, 'intbwhsephext' => 15, 'intbwhsefaxarea' => 16, 'intbwhsefaxfrst3' => 17, 'intbwhsefaxlast4' => 18, 'intbwhseemailadr' => 19, 'intbwhseqcrgabin' => 20, 'intbwhserfprinter1' => 21, 'intbwhserfprinter2' => 22, 'intbwhserfprinter3' => 23, 'intbwhserfprinter4' => 24, 'intbwhserfprinter5' => 25, 'intbwhseprofwhse' => 26, 'intbwhseasetwhse' => 27, 'intbwhseconsignwhse' => 28, 'intbwhsebinrangelist' => 29, 'intbwhsesupplywhse' => 30, 'intbwhseareasplit' => 31, 'intbwhsercvbincode' => 32, 'intbwhsercvbin' => 33, 'dateupdtd' => 34, 'timeupdtd' => 35, 'dummy' => 36, ),
+        self::TYPE_COLNAME       => array(WarehouseTableMap::COL_INTBWHSE => 0, WarehouseTableMap::COL_INTBWHSENAME => 1, WarehouseTableMap::COL_INTBWHSEADR1 => 2, WarehouseTableMap::COL_INTBWHSEADR2 => 3, WarehouseTableMap::COL_INTBWHSECITY => 4, WarehouseTableMap::COL_INTBWHSESTAT => 5, WarehouseTableMap::COL_INTBWHSEZIPCODE => 6, WarehouseTableMap::COL_INTBWHSECTRY => 7, WarehouseTableMap::COL_INTBWHSEUSEHANDHELD => 8, WarehouseTableMap::COL_INTBWHSECASHCUST => 9, WarehouseTableMap::COL_INTBWHSEPICKDTL => 10, WarehouseTableMap::COL_INTBWHSEPRODBIN => 11, WarehouseTableMap::COL_INTBWHSEPHAREA => 12, WarehouseTableMap::COL_INTBWHSEPHFRST3 => 13, WarehouseTableMap::COL_INTBWHSEPHLAST4 => 14, WarehouseTableMap::COL_INTBWHSEPHEXT => 15, WarehouseTableMap::COL_INTBWHSEFAXAREA => 16, WarehouseTableMap::COL_INTBWHSEFAXFRST3 => 17, WarehouseTableMap::COL_INTBWHSEFAXLAST4 => 18, WarehouseTableMap::COL_INTBWHSEEMAILADR => 19, WarehouseTableMap::COL_INTBWHSEQCRGABIN => 20, WarehouseTableMap::COL_INTBWHSERFPRINTER1 => 21, WarehouseTableMap::COL_INTBWHSERFPRINTER2 => 22, WarehouseTableMap::COL_INTBWHSERFPRINTER3 => 23, WarehouseTableMap::COL_INTBWHSERFPRINTER4 => 24, WarehouseTableMap::COL_INTBWHSERFPRINTER5 => 25, WarehouseTableMap::COL_INTBWHSEPROFWHSE => 26, WarehouseTableMap::COL_INTBWHSEASETWHSE => 27, WarehouseTableMap::COL_INTBWHSECONSIGNWHSE => 28, WarehouseTableMap::COL_INTBWHSEBINRANGELIST => 29, WarehouseTableMap::COL_INTBWHSESUPPLYWHSE => 30, WarehouseTableMap::COL_INTBWHSEAREASPLIT => 31, WarehouseTableMap::COL_INTBWHSERCVBINCODE => 32, WarehouseTableMap::COL_INTBWHSERCVBIN => 33, WarehouseTableMap::COL_DATEUPDTD => 34, WarehouseTableMap::COL_TIMEUPDTD => 35, WarehouseTableMap::COL_DUMMY => 36, ),
+        self::TYPE_FIELDNAME     => array('IntbWhse' => 0, 'IntbWhseName' => 1, 'IntbWhseAdr1' => 2, 'IntbWhseAdr2' => 3, 'IntbWhseCity' => 4, 'IntbWhseStat' => 5, 'IntbWhseZipCode' => 6, 'IntbWhseCtry' => 7, 'IntbWhseUseHandheld' => 8, 'IntbWhseCashCust' => 9, 'IntbWhsePickDtl' => 10, 'IntbWhseProdBin' => 11, 'IntbWhsePhArea' => 12, 'IntbWhsePhFrst3' => 13, 'IntbWhsePhLast4' => 14, 'IntbWhsePhExt' => 15, 'IntbWhseFaxArea' => 16, 'IntbWhseFaxFrst3' => 17, 'IntbWhseFaxLast4' => 18, 'IntbWhseEmailAdr' => 19, 'IntbWhseQcRgaBin' => 20, 'IntbWhseRfPrinter1' => 21, 'IntbWhseRfPrinter2' => 22, 'IntbWhseRfPrinter3' => 23, 'IntbWhseRfPrinter4' => 24, 'IntbWhseRfPrinter5' => 25, 'IntbWhseProfWhse' => 26, 'IntbWhseAsetWhse' => 27, 'IntbWhseConsignWhse' => 28, 'IntbWhseBinRangeList' => 29, 'IntbWhseSupplyWhse' => 30, 'IntbWhseAreaSplit' => 31, 'IntbWhseRcvBinCode' => 32, 'IntbWhseRcvBin' => 33, 'DateUpdtd' => 34, 'TimeUpdtd' => 35, 'dummy' => 36, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, )
     );
 
     /**
@@ -291,40 +306,43 @@ class WarehouseTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('IntbWhse', 'Intbwhse', 'VARCHAR', true, 8, null);
-        $this->addColumn('IntbWhseName', 'Intbwhsename', 'VARCHAR', false, 30, null);
-        $this->addColumn('IntbWhseAdr1', 'Intbwhseadr1', 'VARCHAR', false, 30, null);
-        $this->addColumn('IntbWhseAdr2', 'Intbwhseadr2', 'VARCHAR', false, 30, null);
-        $this->addColumn('IntbWhseCity', 'Intbwhsecity', 'VARCHAR', false, 16, null);
-        $this->addColumn('IntbWhseStat', 'Intbwhsestat', 'VARCHAR', false, 2, null);
-        $this->addColumn('IntbWhseZipCode', 'Intbwhsezipcode', 'VARCHAR', false, 10, null);
-        $this->addColumn('IntbWhseCtry', 'Intbwhsectry', 'VARCHAR', false, 4, null);
-        $this->addColumn('IntbWhseUseHandheld', 'Intbwhseusehandheld', 'VARCHAR', false, 1, null);
-        $this->addColumn('IntbWhseCashCust', 'Intbwhsecashcust', 'VARCHAR', false, 6, null);
-        $this->addColumn('IntbWhsePickDtl', 'Intbwhsepickdtl', 'VARCHAR', false, 1, null);
-        $this->addColumn('IntbWhseProdBin', 'Intbwhseprodbin', 'VARCHAR', false, 8, null);
-        $this->addColumn('IntbWhsePhArea', 'Intbwhsepharea', 'VARCHAR', false, 3, null);
-        $this->addColumn('IntbWhsePhFrst3', 'Intbwhsephfrst3', 'VARCHAR', false, 3, null);
-        $this->addColumn('IntbWhsePhLast4', 'Intbwhsephlast4', 'VARCHAR', false, 4, null);
-        $this->addColumn('IntbWhsePhExt', 'Intbwhsephext', 'VARCHAR', false, 7, null);
-        $this->addColumn('IntbWhseFaxArea', 'Intbwhsefaxarea', 'VARCHAR', false, 3, null);
-        $this->addColumn('IntbWhseFaxFrst3', 'Intbwhsefaxfrst3', 'VARCHAR', false, 3, null);
-        $this->addColumn('IntbWhseFaxLast4', 'Intbwhsefaxlast4', 'VARCHAR', false, 4, null);
-        $this->addColumn('IntbWhseEmailAdr', 'Intbwhseemailadr', 'VARCHAR', false, 50, null);
-        $this->addColumn('IntbWhseQcRgaBin', 'Intbwhseqcrgabin', 'VARCHAR', false, 8, null);
-        $this->addColumn('IntbWhseRfPrinter1', 'Intbwhserfprinter1', 'VARCHAR', false, 12, null);
-        $this->addColumn('IntbWhseRfPrinter2', 'Intbwhserfprinter2', 'VARCHAR', false, 12, null);
-        $this->addColumn('IntbWhseRfPrinter3', 'Intbwhserfprinter3', 'VARCHAR', false, 12, null);
-        $this->addColumn('IntbWhseRfPrinter4', 'Intbwhserfprinter4', 'VARCHAR', false, 12, null);
-        $this->addColumn('IntbWhseRfPrinter5', 'Intbwhserfprinter5', 'VARCHAR', false, 12, null);
-        $this->addColumn('IntbWhseProfWhse', 'Intbwhseprofwhse', 'VARCHAR', false, 2, null);
-        $this->addColumn('IntbWhseAsetWhse', 'Intbwhseasetwhse', 'VARCHAR', false, 2, null);
-        $this->addColumn('IntbWhseConsignWhse', 'Intbwhseconsignwhse', 'VARCHAR', false, 1, null);
-        $this->addColumn('IntbWhseBinRangeList', 'Intbwhsebinrangelist', 'VARCHAR', false, 1, null);
-        $this->addColumn('IntbWhseSupplyWhse', 'Intbwhsesupplywhse', 'VARCHAR', false, 2, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addPrimaryKey('IntbWhse', 'Intbwhse', 'VARCHAR', true, 8, '');
+        $this->addColumn('IntbWhseName', 'Intbwhsename', 'VARCHAR', true, 30, '');
+        $this->addColumn('IntbWhseAdr1', 'Intbwhseadr1', 'VARCHAR', true, 30, '');
+        $this->addColumn('IntbWhseAdr2', 'Intbwhseadr2', 'VARCHAR', true, 30, '');
+        $this->addColumn('IntbWhseCity', 'Intbwhsecity', 'VARCHAR', true, 16, '');
+        $this->addColumn('IntbWhseStat', 'Intbwhsestat', 'VARCHAR', true, 2, '');
+        $this->addColumn('IntbWhseZipCode', 'Intbwhsezipcode', 'VARCHAR', true, 10, '');
+        $this->addColumn('IntbWhseCtry', 'Intbwhsectry', 'VARCHAR', true, 4, '');
+        $this->addColumn('IntbWhseUseHandheld', 'Intbwhseusehandheld', 'CHAR', true, null, 'N');
+        $this->addColumn('IntbWhseCashCust', 'Intbwhsecashcust', 'VARCHAR', true, 6, '');
+        $this->addColumn('IntbWhsePickDtl', 'Intbwhsepickdtl', 'CHAR', true, null, 'N');
+        $this->addColumn('IntbWhseProdBin', 'Intbwhseprodbin', 'VARCHAR', true, 8, '');
+        $this->addColumn('IntbWhsePhArea', 'Intbwhsepharea', 'VARCHAR', true, 3, '');
+        $this->addColumn('IntbWhsePhFrst3', 'Intbwhsephfrst3', 'VARCHAR', true, 3, '');
+        $this->addColumn('IntbWhsePhLast4', 'Intbwhsephlast4', 'VARCHAR', true, 4, '');
+        $this->addColumn('IntbWhsePhExt', 'Intbwhsephext', 'VARCHAR', true, 7, '');
+        $this->addColumn('IntbWhseFaxArea', 'Intbwhsefaxarea', 'VARCHAR', true, 3, '');
+        $this->addColumn('IntbWhseFaxFrst3', 'Intbwhsefaxfrst3', 'VARCHAR', true, 3, '');
+        $this->addColumn('IntbWhseFaxLast4', 'Intbwhsefaxlast4', 'VARCHAR', true, 4, '');
+        $this->addColumn('IntbWhseEmailAdr', 'Intbwhseemailadr', 'VARCHAR', true, 50, '');
+        $this->addColumn('IntbWhseQcRgaBin', 'Intbwhseqcrgabin', 'VARCHAR', true, 8, '');
+        $this->addColumn('IntbWhseRfPrinter1', 'Intbwhserfprinter1', 'VARCHAR', true, 12, '');
+        $this->addColumn('IntbWhseRfPrinter2', 'Intbwhserfprinter2', 'VARCHAR', true, 12, '');
+        $this->addColumn('IntbWhseRfPrinter3', 'Intbwhserfprinter3', 'VARCHAR', true, 12, '');
+        $this->addColumn('IntbWhseRfPrinter4', 'Intbwhserfprinter4', 'VARCHAR', true, 12, '');
+        $this->addColumn('IntbWhseRfPrinter5', 'Intbwhserfprinter5', 'VARCHAR', true, 12, '');
+        $this->addColumn('IntbWhseProfWhse', 'Intbwhseprofwhse', 'VARCHAR', true, 2, '');
+        $this->addColumn('IntbWhseAsetWhse', 'Intbwhseasetwhse', 'VARCHAR', true, 2, '');
+        $this->addColumn('IntbWhseConsignWhse', 'Intbwhseconsignwhse', 'CHAR', true, null, 'N');
+        $this->addColumn('IntbWhseBinRangeList', 'Intbwhsebinrangelist', 'CHAR', true, null, 'R');
+        $this->addColumn('IntbWhseSupplyWhse', 'Intbwhsesupplywhse', 'VARCHAR', true, 2, '');
+        $this->addColumn('IntbWhseAreaSplit', 'Intbwhseareasplit', 'CHAR', true, null, 'N');
+        $this->addColumn('IntbWhseRcvBinCode', 'Intbwhsercvbincode', 'CHAR', true, null, 'S');
+        $this->addColumn('IntbWhseRcvBin', 'Intbwhsercvbin', 'VARCHAR', true, 8, '');
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
     } // initialize()
 
     /**
@@ -569,6 +587,9 @@ class WarehouseTableMap extends TableMap
             $criteria->addSelectColumn(WarehouseTableMap::COL_INTBWHSECONSIGNWHSE);
             $criteria->addSelectColumn(WarehouseTableMap::COL_INTBWHSEBINRANGELIST);
             $criteria->addSelectColumn(WarehouseTableMap::COL_INTBWHSESUPPLYWHSE);
+            $criteria->addSelectColumn(WarehouseTableMap::COL_INTBWHSEAREASPLIT);
+            $criteria->addSelectColumn(WarehouseTableMap::COL_INTBWHSERCVBINCODE);
+            $criteria->addSelectColumn(WarehouseTableMap::COL_INTBWHSERCVBIN);
             $criteria->addSelectColumn(WarehouseTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(WarehouseTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(WarehouseTableMap::COL_DUMMY);
@@ -604,6 +625,9 @@ class WarehouseTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.IntbWhseConsignWhse');
             $criteria->addSelectColumn($alias . '.IntbWhseBinRangeList');
             $criteria->addSelectColumn($alias . '.IntbWhseSupplyWhse');
+            $criteria->addSelectColumn($alias . '.IntbWhseAreaSplit');
+            $criteria->addSelectColumn($alias . '.IntbWhseRcvBinCode');
+            $criteria->addSelectColumn($alias . '.IntbWhseRcvBin');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');

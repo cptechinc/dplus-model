@@ -51,6 +51,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseQuery orderByIntbwhseconsignwhse($order = Criteria::ASC) Order by the IntbWhseConsignWhse column
  * @method     ChildWarehouseQuery orderByIntbwhsebinrangelist($order = Criteria::ASC) Order by the IntbWhseBinRangeList column
  * @method     ChildWarehouseQuery orderByIntbwhsesupplywhse($order = Criteria::ASC) Order by the IntbWhseSupplyWhse column
+ * @method     ChildWarehouseQuery orderByIntbwhseareasplit($order = Criteria::ASC) Order by the IntbWhseAreaSplit column
+ * @method     ChildWarehouseQuery orderByIntbwhsercvbincode($order = Criteria::ASC) Order by the IntbWhseRcvBinCode column
+ * @method     ChildWarehouseQuery orderByIntbwhsercvbin($order = Criteria::ASC) Order by the IntbWhseRcvBin column
  * @method     ChildWarehouseQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildWarehouseQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildWarehouseQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -86,6 +89,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseQuery groupByIntbwhseconsignwhse() Group by the IntbWhseConsignWhse column
  * @method     ChildWarehouseQuery groupByIntbwhsebinrangelist() Group by the IntbWhseBinRangeList column
  * @method     ChildWarehouseQuery groupByIntbwhsesupplywhse() Group by the IntbWhseSupplyWhse column
+ * @method     ChildWarehouseQuery groupByIntbwhseareasplit() Group by the IntbWhseAreaSplit column
+ * @method     ChildWarehouseQuery groupByIntbwhsercvbincode() Group by the IntbWhseRcvBinCode column
+ * @method     ChildWarehouseQuery groupByIntbwhsercvbin() Group by the IntbWhseRcvBin column
  * @method     ChildWarehouseQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildWarehouseQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildWarehouseQuery groupByDummy() Group by the dummy column
@@ -224,6 +230,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouse findOneByIntbwhseconsignwhse(string $IntbWhseConsignWhse) Return the first ChildWarehouse filtered by the IntbWhseConsignWhse column
  * @method     ChildWarehouse findOneByIntbwhsebinrangelist(string $IntbWhseBinRangeList) Return the first ChildWarehouse filtered by the IntbWhseBinRangeList column
  * @method     ChildWarehouse findOneByIntbwhsesupplywhse(string $IntbWhseSupplyWhse) Return the first ChildWarehouse filtered by the IntbWhseSupplyWhse column
+ * @method     ChildWarehouse findOneByIntbwhseareasplit(string $IntbWhseAreaSplit) Return the first ChildWarehouse filtered by the IntbWhseAreaSplit column
+ * @method     ChildWarehouse findOneByIntbwhsercvbincode(string $IntbWhseRcvBinCode) Return the first ChildWarehouse filtered by the IntbWhseRcvBinCode column
+ * @method     ChildWarehouse findOneByIntbwhsercvbin(string $IntbWhseRcvBin) Return the first ChildWarehouse filtered by the IntbWhseRcvBin column
  * @method     ChildWarehouse findOneByDateupdtd(string $DateUpdtd) Return the first ChildWarehouse filtered by the DateUpdtd column
  * @method     ChildWarehouse findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildWarehouse filtered by the TimeUpdtd column
  * @method     ChildWarehouse findOneByDummy(string $dummy) Return the first ChildWarehouse filtered by the dummy column *
@@ -262,6 +271,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouse requireOneByIntbwhseconsignwhse(string $IntbWhseConsignWhse) Return the first ChildWarehouse filtered by the IntbWhseConsignWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouse requireOneByIntbwhsebinrangelist(string $IntbWhseBinRangeList) Return the first ChildWarehouse filtered by the IntbWhseBinRangeList column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouse requireOneByIntbwhsesupplywhse(string $IntbWhseSupplyWhse) Return the first ChildWarehouse filtered by the IntbWhseSupplyWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWarehouse requireOneByIntbwhseareasplit(string $IntbWhseAreaSplit) Return the first ChildWarehouse filtered by the IntbWhseAreaSplit column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWarehouse requireOneByIntbwhsercvbincode(string $IntbWhseRcvBinCode) Return the first ChildWarehouse filtered by the IntbWhseRcvBinCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWarehouse requireOneByIntbwhsercvbin(string $IntbWhseRcvBin) Return the first ChildWarehouse filtered by the IntbWhseRcvBin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouse requireOneByDateupdtd(string $DateUpdtd) Return the first ChildWarehouse filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouse requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildWarehouse filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouse requireOneByDummy(string $dummy) Return the first ChildWarehouse filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -298,6 +310,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouse[]|ObjectCollection findByIntbwhseconsignwhse(string $IntbWhseConsignWhse) Return ChildWarehouse objects filtered by the IntbWhseConsignWhse column
  * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsebinrangelist(string $IntbWhseBinRangeList) Return ChildWarehouse objects filtered by the IntbWhseBinRangeList column
  * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsesupplywhse(string $IntbWhseSupplyWhse) Return ChildWarehouse objects filtered by the IntbWhseSupplyWhse column
+ * @method     ChildWarehouse[]|ObjectCollection findByIntbwhseareasplit(string $IntbWhseAreaSplit) Return ChildWarehouse objects filtered by the IntbWhseAreaSplit column
+ * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsercvbincode(string $IntbWhseRcvBinCode) Return ChildWarehouse objects filtered by the IntbWhseRcvBinCode column
+ * @method     ChildWarehouse[]|ObjectCollection findByIntbwhsercvbin(string $IntbWhseRcvBin) Return ChildWarehouse objects filtered by the IntbWhseRcvBin column
  * @method     ChildWarehouse[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildWarehouse objects filtered by the DateUpdtd column
  * @method     ChildWarehouse[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildWarehouse objects filtered by the TimeUpdtd column
  * @method     ChildWarehouse[]|ObjectCollection findByDummy(string $dummy) Return ChildWarehouse objects filtered by the dummy column
@@ -399,7 +414,7 @@ abstract class WarehouseQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT IntbWhse, IntbWhseName, IntbWhseAdr1, IntbWhseAdr2, IntbWhseCity, IntbWhseStat, IntbWhseZipCode, IntbWhseCtry, IntbWhseUseHandheld, IntbWhseCashCust, IntbWhsePickDtl, IntbWhseProdBin, IntbWhsePhArea, IntbWhsePhFrst3, IntbWhsePhLast4, IntbWhsePhExt, IntbWhseFaxArea, IntbWhseFaxFrst3, IntbWhseFaxLast4, IntbWhseEmailAdr, IntbWhseQcRgaBin, IntbWhseRfPrinter1, IntbWhseRfPrinter2, IntbWhseRfPrinter3, IntbWhseRfPrinter4, IntbWhseRfPrinter5, IntbWhseProfWhse, IntbWhseAsetWhse, IntbWhseConsignWhse, IntbWhseBinRangeList, IntbWhseSupplyWhse, DateUpdtd, TimeUpdtd, dummy FROM inv_whse_code WHERE IntbWhse = :p0';
+        $sql = 'SELECT IntbWhse, IntbWhseName, IntbWhseAdr1, IntbWhseAdr2, IntbWhseCity, IntbWhseStat, IntbWhseZipCode, IntbWhseCtry, IntbWhseUseHandheld, IntbWhseCashCust, IntbWhsePickDtl, IntbWhseProdBin, IntbWhsePhArea, IntbWhsePhFrst3, IntbWhsePhLast4, IntbWhsePhExt, IntbWhseFaxArea, IntbWhseFaxFrst3, IntbWhseFaxLast4, IntbWhseEmailAdr, IntbWhseQcRgaBin, IntbWhseRfPrinter1, IntbWhseRfPrinter2, IntbWhseRfPrinter3, IntbWhseRfPrinter4, IntbWhseRfPrinter5, IntbWhseProfWhse, IntbWhseAsetWhse, IntbWhseConsignWhse, IntbWhseBinRangeList, IntbWhseSupplyWhse, IntbWhseAreaSplit, IntbWhseRcvBinCode, IntbWhseRcvBin, DateUpdtd, TimeUpdtd, dummy FROM inv_whse_code WHERE IntbWhse = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
@@ -1262,6 +1277,81 @@ abstract class WarehouseQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSESUPPLYWHSE, $intbwhsesupplywhse, $comparison);
+    }
+
+    /**
+     * Filter the query on the IntbWhseAreaSplit column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByIntbwhseareasplit('fooValue');   // WHERE IntbWhseAreaSplit = 'fooValue'
+     * $query->filterByIntbwhseareasplit('%fooValue%', Criteria::LIKE); // WHERE IntbWhseAreaSplit LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $intbwhseareasplit The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     */
+    public function filterByIntbwhseareasplit($intbwhseareasplit = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($intbwhseareasplit)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSEAREASPLIT, $intbwhseareasplit, $comparison);
+    }
+
+    /**
+     * Filter the query on the IntbWhseRcvBinCode column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByIntbwhsercvbincode('fooValue');   // WHERE IntbWhseRcvBinCode = 'fooValue'
+     * $query->filterByIntbwhsercvbincode('%fooValue%', Criteria::LIKE); // WHERE IntbWhseRcvBinCode LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $intbwhsercvbincode The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     */
+    public function filterByIntbwhsercvbincode($intbwhsercvbincode = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($intbwhsercvbincode)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSERCVBINCODE, $intbwhsercvbincode, $comparison);
+    }
+
+    /**
+     * Filter the query on the IntbWhseRcvBin column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByIntbwhsercvbin('fooValue');   // WHERE IntbWhseRcvBin = 'fooValue'
+     * $query->filterByIntbwhsercvbin('%fooValue%', Criteria::LIKE); // WHERE IntbWhseRcvBin LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $intbwhsercvbin The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     */
+    public function filterByIntbwhsercvbin($intbwhsercvbin = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($intbwhsercvbin)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(WarehouseTableMap::COL_INTBWHSERCVBIN, $intbwhsercvbin, $comparison);
     }
 
     /**

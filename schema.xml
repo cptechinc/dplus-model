@@ -3008,40 +3008,43 @@
     </vendor>
   </table>
   <table name="inv_whse_code" idMethod="native" phpName="Warehouse">
-    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="8" primaryKey="true" required="true"/>
-    <column name="IntbWhseName" phpName="Intbwhsename" type="VARCHAR" size="30"/>
-    <column name="IntbWhseAdr1" phpName="Intbwhseadr1" type="VARCHAR" size="30"/>
-    <column name="IntbWhseAdr2" phpName="Intbwhseadr2" type="VARCHAR" size="30"/>
-    <column name="IntbWhseCity" phpName="Intbwhsecity" type="VARCHAR" size="16"/>
-    <column name="IntbWhseStat" phpName="Intbwhsestat" type="VARCHAR" size="2"/>
-    <column name="IntbWhseZipCode" phpName="Intbwhsezipcode" type="VARCHAR" size="10"/>
-    <column name="IntbWhseCtry" phpName="Intbwhsectry" type="VARCHAR" size="4"/>
-    <column name="IntbWhseUseHandheld" phpName="Intbwhseusehandheld" type="VARCHAR" size="1"/>
-    <column name="IntbWhseCashCust" phpName="Intbwhsecashcust" type="VARCHAR" size="6"/>
-    <column name="IntbWhsePickDtl" phpName="Intbwhsepickdtl" type="VARCHAR" size="1"/>
-    <column name="IntbWhseProdBin" phpName="Intbwhseprodbin" type="VARCHAR" size="8"/>
-    <column name="IntbWhsePhArea" phpName="Intbwhsepharea" type="VARCHAR" size="3"/>
-    <column name="IntbWhsePhFrst3" phpName="Intbwhsephfrst3" type="VARCHAR" size="3"/>
-    <column name="IntbWhsePhLast4" phpName="Intbwhsephlast4" type="VARCHAR" size="4"/>
-    <column name="IntbWhsePhExt" phpName="Intbwhsephext" type="VARCHAR" size="7"/>
-    <column name="IntbWhseFaxArea" phpName="Intbwhsefaxarea" type="VARCHAR" size="3"/>
-    <column name="IntbWhseFaxFrst3" phpName="Intbwhsefaxfrst3" type="VARCHAR" size="3"/>
-    <column name="IntbWhseFaxLast4" phpName="Intbwhsefaxlast4" type="VARCHAR" size="4"/>
-    <column name="IntbWhseEmailAdr" phpName="Intbwhseemailadr" type="VARCHAR" size="50"/>
-    <column name="IntbWhseQcRgaBin" phpName="Intbwhseqcrgabin" type="VARCHAR" size="8"/>
-    <column name="IntbWhseRfPrinter1" phpName="Intbwhserfprinter1" type="VARCHAR" size="12"/>
-    <column name="IntbWhseRfPrinter2" phpName="Intbwhserfprinter2" type="VARCHAR" size="12"/>
-    <column name="IntbWhseRfPrinter3" phpName="Intbwhserfprinter3" type="VARCHAR" size="12"/>
-    <column name="IntbWhseRfPrinter4" phpName="Intbwhserfprinter4" type="VARCHAR" size="12"/>
-    <column name="IntbWhseRfPrinter5" phpName="Intbwhserfprinter5" type="VARCHAR" size="12"/>
-    <column name="IntbWhseProfWhse" phpName="Intbwhseprofwhse" type="VARCHAR" size="2"/>
-    <column name="IntbWhseAsetWhse" phpName="Intbwhseasetwhse" type="VARCHAR" size="2"/>
-    <column name="IntbWhseConsignWhse" phpName="Intbwhseconsignwhse" type="VARCHAR" size="1"/>
-    <column name="IntbWhseBinRangeList" phpName="Intbwhsebinrangelist" type="VARCHAR" size="1"/>
-    <column name="IntbWhseSupplyWhse" phpName="Intbwhsesupplywhse" type="VARCHAR" size="2"/>
-    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
-    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
-    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="IntbWhseName" phpName="Intbwhsename" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="IntbWhseAdr1" phpName="Intbwhseadr1" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="IntbWhseAdr2" phpName="Intbwhseadr2" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="IntbWhseCity" phpName="Intbwhsecity" type="VARCHAR" size="16" required="true" defaultValue=""/>
+    <column name="IntbWhseStat" phpName="Intbwhsestat" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbWhseZipCode" phpName="Intbwhsezipcode" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="IntbWhseCtry" phpName="Intbwhsectry" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="IntbWhseUseHandheld" phpName="Intbwhseusehandheld" type="CHAR" required="true" defaultValue="N"/>
+    <column name="IntbWhseCashCust" phpName="Intbwhsecashcust" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="IntbWhsePickDtl" phpName="Intbwhsepickdtl" type="CHAR" required="true" defaultValue="N"/>
+    <column name="IntbWhseProdBin" phpName="Intbwhseprodbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbWhsePhArea" phpName="Intbwhsepharea" type="VARCHAR" size="3" required="true" defaultValue=""/>
+    <column name="IntbWhsePhFrst3" phpName="Intbwhsephfrst3" type="VARCHAR" size="3" required="true" defaultValue=""/>
+    <column name="IntbWhsePhLast4" phpName="Intbwhsephlast4" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="IntbWhsePhExt" phpName="Intbwhsephext" type="VARCHAR" size="7" required="true" defaultValue=""/>
+    <column name="IntbWhseFaxArea" phpName="Intbwhsefaxarea" type="VARCHAR" size="3" required="true" defaultValue=""/>
+    <column name="IntbWhseFaxFrst3" phpName="Intbwhsefaxfrst3" type="VARCHAR" size="3" required="true" defaultValue=""/>
+    <column name="IntbWhseFaxLast4" phpName="Intbwhsefaxlast4" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="IntbWhseEmailAdr" phpName="Intbwhseemailadr" type="VARCHAR" size="50" required="true" defaultValue=""/>
+    <column name="IntbWhseQcRgaBin" phpName="Intbwhseqcrgabin" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbWhseRfPrinter1" phpName="Intbwhserfprinter1" type="VARCHAR" size="12" required="true" defaultValue=""/>
+    <column name="IntbWhseRfPrinter2" phpName="Intbwhserfprinter2" type="VARCHAR" size="12" required="true" defaultValue=""/>
+    <column name="IntbWhseRfPrinter3" phpName="Intbwhserfprinter3" type="VARCHAR" size="12" required="true" defaultValue=""/>
+    <column name="IntbWhseRfPrinter4" phpName="Intbwhserfprinter4" type="VARCHAR" size="12" required="true" defaultValue=""/>
+    <column name="IntbWhseRfPrinter5" phpName="Intbwhserfprinter5" type="VARCHAR" size="12" required="true" defaultValue=""/>
+    <column name="IntbWhseProfWhse" phpName="Intbwhseprofwhse" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbWhseAsetWhse" phpName="Intbwhseasetwhse" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbWhseConsignWhse" phpName="Intbwhseconsignwhse" type="CHAR" required="true" defaultValue="N"/>
+    <column name="IntbWhseBinRangeList" phpName="Intbwhsebinrangelist" type="CHAR" required="true" defaultValue="R"/>
+    <column name="IntbWhseSupplyWhse" phpName="Intbwhsesupplywhse" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbWhseAreaSplit" phpName="Intbwhseareasplit" type="CHAR" required="true" defaultValue="N"/>
+    <column name="IntbWhseRcvBinCode" phpName="Intbwhsercvbincode" type="CHAR" required="true" defaultValue="S"/>
+    <column name="IntbWhseRcvBin" phpName="Intbwhsercvbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>

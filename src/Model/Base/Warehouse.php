@@ -88,6 +88,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhse field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhse;
@@ -95,6 +96,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhsename field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhsename;
@@ -102,6 +104,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhseadr1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhseadr1;
@@ -109,6 +112,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhseadr2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhseadr2;
@@ -116,6 +120,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhsecity field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhsecity;
@@ -123,6 +128,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhsestat field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhsestat;
@@ -130,6 +136,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhsezipcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhsezipcode;
@@ -137,6 +144,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhsectry field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhsectry;
@@ -144,6 +152,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhseusehandheld field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbwhseusehandheld;
@@ -151,6 +160,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhsecashcust field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhsecashcust;
@@ -158,6 +168,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhsepickdtl field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbwhsepickdtl;
@@ -165,6 +176,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhseprodbin field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhseprodbin;
@@ -172,6 +184,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhsepharea field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhsepharea;
@@ -179,6 +192,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhsephfrst3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhsephfrst3;
@@ -186,6 +200,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhsephlast4 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhsephlast4;
@@ -193,6 +208,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhsephext field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhsephext;
@@ -200,6 +216,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhsefaxarea field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhsefaxarea;
@@ -207,6 +224,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhsefaxfrst3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhsefaxfrst3;
@@ -214,6 +232,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhsefaxlast4 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhsefaxlast4;
@@ -221,6 +240,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhseemailadr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhseemailadr;
@@ -228,6 +248,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhseqcrgabin field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhseqcrgabin;
@@ -235,6 +256,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhserfprinter1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhserfprinter1;
@@ -242,6 +264,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhserfprinter2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhserfprinter2;
@@ -249,6 +272,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhserfprinter3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhserfprinter3;
@@ -256,6 +280,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhserfprinter4 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhserfprinter4;
@@ -263,6 +288,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhserfprinter5 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhserfprinter5;
@@ -270,6 +296,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhseprofwhse field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhseprofwhse;
@@ -277,6 +304,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhseasetwhse field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhseasetwhse;
@@ -284,6 +312,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhseconsignwhse field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $intbwhseconsignwhse;
@@ -291,6 +320,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhsebinrangelist field.
      *
+     * Note: this column has a database default value of: 'R'
      * @var        string
      */
     protected $intbwhsebinrangelist;
@@ -298,13 +328,39 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the intbwhsesupplywhse field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhsesupplywhse;
 
     /**
+     * The value for the intbwhseareasplit field.
+     *
+     * Note: this column has a database default value of: 'N'
+     * @var        string
+     */
+    protected $intbwhseareasplit;
+
+    /**
+     * The value for the intbwhsercvbincode field.
+     *
+     * Note: this column has a database default value of: 'S'
+     * @var        string
+     */
+    protected $intbwhsercvbincode;
+
+    /**
+     * The value for the intbwhsercvbin field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $intbwhsercvbin;
+
+    /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -312,6 +368,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -319,6 +376,7 @@ abstract class Warehouse implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -440,10 +498,59 @@ abstract class Warehouse implements ActiveRecordInterface
     protected $poReceivingHeadsScheduledForDeletion = null;
 
     /**
+     * Applies default values to this object.
+     * This method should be called from the object's constructor (or
+     * equivalent initialization method).
+     * @see __construct()
+     */
+    public function applyDefaultValues()
+    {
+        $this->intbwhse = '';
+        $this->intbwhsename = '';
+        $this->intbwhseadr1 = '';
+        $this->intbwhseadr2 = '';
+        $this->intbwhsecity = '';
+        $this->intbwhsestat = '';
+        $this->intbwhsezipcode = '';
+        $this->intbwhsectry = '';
+        $this->intbwhseusehandheld = 'N';
+        $this->intbwhsecashcust = '';
+        $this->intbwhsepickdtl = 'N';
+        $this->intbwhseprodbin = '';
+        $this->intbwhsepharea = '';
+        $this->intbwhsephfrst3 = '';
+        $this->intbwhsephlast4 = '';
+        $this->intbwhsephext = '';
+        $this->intbwhsefaxarea = '';
+        $this->intbwhsefaxfrst3 = '';
+        $this->intbwhsefaxlast4 = '';
+        $this->intbwhseemailadr = '';
+        $this->intbwhseqcrgabin = '';
+        $this->intbwhserfprinter1 = '';
+        $this->intbwhserfprinter2 = '';
+        $this->intbwhserfprinter3 = '';
+        $this->intbwhserfprinter4 = '';
+        $this->intbwhserfprinter5 = '';
+        $this->intbwhseprofwhse = '';
+        $this->intbwhseasetwhse = '';
+        $this->intbwhseconsignwhse = 'N';
+        $this->intbwhsebinrangelist = 'R';
+        $this->intbwhsesupplywhse = '';
+        $this->intbwhseareasplit = 'N';
+        $this->intbwhsercvbincode = 'S';
+        $this->intbwhsercvbin = '';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
+    }
+
+    /**
      * Initializes internal state of Base\Warehouse object.
+     * @see applyDefaults()
      */
     public function __construct()
     {
+        $this->applyDefaultValues();
     }
 
     /**
@@ -972,6 +1079,36 @@ abstract class Warehouse implements ActiveRecordInterface
     public function getIntbwhsesupplywhse()
     {
         return $this->intbwhsesupplywhse;
+    }
+
+    /**
+     * Get the [intbwhseareasplit] column value.
+     *
+     * @return string
+     */
+    public function getIntbwhseareasplit()
+    {
+        return $this->intbwhseareasplit;
+    }
+
+    /**
+     * Get the [intbwhsercvbincode] column value.
+     *
+     * @return string
+     */
+    public function getIntbwhsercvbincode()
+    {
+        return $this->intbwhsercvbincode;
+    }
+
+    /**
+     * Get the [intbwhsercvbin] column value.
+     *
+     * @return string
+     */
+    public function getIntbwhsercvbin()
+    {
+        return $this->intbwhsercvbin;
     }
 
     /**
@@ -1625,6 +1762,66 @@ abstract class Warehouse implements ActiveRecordInterface
     } // setIntbwhsesupplywhse()
 
     /**
+     * Set the value of [intbwhseareasplit] column.
+     *
+     * @param string $v new value
+     * @return $this|\Warehouse The current object (for fluent API support)
+     */
+    public function setIntbwhseareasplit($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->intbwhseareasplit !== $v) {
+            $this->intbwhseareasplit = $v;
+            $this->modifiedColumns[WarehouseTableMap::COL_INTBWHSEAREASPLIT] = true;
+        }
+
+        return $this;
+    } // setIntbwhseareasplit()
+
+    /**
+     * Set the value of [intbwhsercvbincode] column.
+     *
+     * @param string $v new value
+     * @return $this|\Warehouse The current object (for fluent API support)
+     */
+    public function setIntbwhsercvbincode($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->intbwhsercvbincode !== $v) {
+            $this->intbwhsercvbincode = $v;
+            $this->modifiedColumns[WarehouseTableMap::COL_INTBWHSERCVBINCODE] = true;
+        }
+
+        return $this;
+    } // setIntbwhsercvbincode()
+
+    /**
+     * Set the value of [intbwhsercvbin] column.
+     *
+     * @param string $v new value
+     * @return $this|\Warehouse The current object (for fluent API support)
+     */
+    public function setIntbwhsercvbin($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->intbwhsercvbin !== $v) {
+            $this->intbwhsercvbin = $v;
+            $this->modifiedColumns[WarehouseTableMap::COL_INTBWHSERCVBIN] = true;
+        }
+
+        return $this;
+    } // setIntbwhsercvbin()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -1694,6 +1891,154 @@ abstract class Warehouse implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
+            if ($this->intbwhse !== '') {
+                return false;
+            }
+
+            if ($this->intbwhsename !== '') {
+                return false;
+            }
+
+            if ($this->intbwhseadr1 !== '') {
+                return false;
+            }
+
+            if ($this->intbwhseadr2 !== '') {
+                return false;
+            }
+
+            if ($this->intbwhsecity !== '') {
+                return false;
+            }
+
+            if ($this->intbwhsestat !== '') {
+                return false;
+            }
+
+            if ($this->intbwhsezipcode !== '') {
+                return false;
+            }
+
+            if ($this->intbwhsectry !== '') {
+                return false;
+            }
+
+            if ($this->intbwhseusehandheld !== 'N') {
+                return false;
+            }
+
+            if ($this->intbwhsecashcust !== '') {
+                return false;
+            }
+
+            if ($this->intbwhsepickdtl !== 'N') {
+                return false;
+            }
+
+            if ($this->intbwhseprodbin !== '') {
+                return false;
+            }
+
+            if ($this->intbwhsepharea !== '') {
+                return false;
+            }
+
+            if ($this->intbwhsephfrst3 !== '') {
+                return false;
+            }
+
+            if ($this->intbwhsephlast4 !== '') {
+                return false;
+            }
+
+            if ($this->intbwhsephext !== '') {
+                return false;
+            }
+
+            if ($this->intbwhsefaxarea !== '') {
+                return false;
+            }
+
+            if ($this->intbwhsefaxfrst3 !== '') {
+                return false;
+            }
+
+            if ($this->intbwhsefaxlast4 !== '') {
+                return false;
+            }
+
+            if ($this->intbwhseemailadr !== '') {
+                return false;
+            }
+
+            if ($this->intbwhseqcrgabin !== '') {
+                return false;
+            }
+
+            if ($this->intbwhserfprinter1 !== '') {
+                return false;
+            }
+
+            if ($this->intbwhserfprinter2 !== '') {
+                return false;
+            }
+
+            if ($this->intbwhserfprinter3 !== '') {
+                return false;
+            }
+
+            if ($this->intbwhserfprinter4 !== '') {
+                return false;
+            }
+
+            if ($this->intbwhserfprinter5 !== '') {
+                return false;
+            }
+
+            if ($this->intbwhseprofwhse !== '') {
+                return false;
+            }
+
+            if ($this->intbwhseasetwhse !== '') {
+                return false;
+            }
+
+            if ($this->intbwhseconsignwhse !== 'N') {
+                return false;
+            }
+
+            if ($this->intbwhsebinrangelist !== 'R') {
+                return false;
+            }
+
+            if ($this->intbwhsesupplywhse !== '') {
+                return false;
+            }
+
+            if ($this->intbwhseareasplit !== 'N') {
+                return false;
+            }
+
+            if ($this->intbwhsercvbincode !== 'S') {
+                return false;
+            }
+
+            if ($this->intbwhsercvbin !== '') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
+                return false;
+            }
+
         // otherwise, everything was equal, so return TRUE
         return true;
     } // hasOnlyDefaultValues()
@@ -1813,13 +2158,22 @@ abstract class Warehouse implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsesupplywhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhsesupplywhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : WarehouseTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : WarehouseTableMap::translateFieldName('Intbwhseareasplit', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->intbwhseareasplit = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsercvbincode', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->intbwhsercvbincode = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : WarehouseTableMap::translateFieldName('Intbwhsercvbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->intbwhsercvbin = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : WarehouseTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : WarehouseTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : WarehouseTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : WarehouseTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : WarehouseTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1829,7 +2183,7 @@ abstract class Warehouse implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 34; // 34 = WarehouseTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 37; // 37 = WarehouseTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\Warehouse'), 0, $e);
@@ -2291,6 +2645,15 @@ abstract class Warehouse implements ActiveRecordInterface
         if ($this->isColumnModified(WarehouseTableMap::COL_INTBWHSESUPPLYWHSE)) {
             $modifiedColumns[':p' . $index++]  = 'IntbWhseSupplyWhse';
         }
+        if ($this->isColumnModified(WarehouseTableMap::COL_INTBWHSEAREASPLIT)) {
+            $modifiedColumns[':p' . $index++]  = 'IntbWhseAreaSplit';
+        }
+        if ($this->isColumnModified(WarehouseTableMap::COL_INTBWHSERCVBINCODE)) {
+            $modifiedColumns[':p' . $index++]  = 'IntbWhseRcvBinCode';
+        }
+        if ($this->isColumnModified(WarehouseTableMap::COL_INTBWHSERCVBIN)) {
+            $modifiedColumns[':p' . $index++]  = 'IntbWhseRcvBin';
+        }
         if ($this->isColumnModified(WarehouseTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -2403,6 +2766,15 @@ abstract class Warehouse implements ActiveRecordInterface
                         break;
                     case 'IntbWhseSupplyWhse':
                         $stmt->bindValue($identifier, $this->intbwhsesupplywhse, PDO::PARAM_STR);
+                        break;
+                    case 'IntbWhseAreaSplit':
+                        $stmt->bindValue($identifier, $this->intbwhseareasplit, PDO::PARAM_STR);
+                        break;
+                    case 'IntbWhseRcvBinCode':
+                        $stmt->bindValue($identifier, $this->intbwhsercvbincode, PDO::PARAM_STR);
+                        break;
+                    case 'IntbWhseRcvBin':
+                        $stmt->bindValue($identifier, $this->intbwhsercvbin, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -2562,12 +2934,21 @@ abstract class Warehouse implements ActiveRecordInterface
                 return $this->getIntbwhsesupplywhse();
                 break;
             case 31:
-                return $this->getDateupdtd();
+                return $this->getIntbwhseareasplit();
                 break;
             case 32:
-                return $this->getTimeupdtd();
+                return $this->getIntbwhsercvbincode();
                 break;
             case 33:
+                return $this->getIntbwhsercvbin();
+                break;
+            case 34:
+                return $this->getDateupdtd();
+                break;
+            case 35:
+                return $this->getTimeupdtd();
+                break;
+            case 36:
                 return $this->getDummy();
                 break;
             default:
@@ -2631,9 +3012,12 @@ abstract class Warehouse implements ActiveRecordInterface
             $keys[28] => $this->getIntbwhseconsignwhse(),
             $keys[29] => $this->getIntbwhsebinrangelist(),
             $keys[30] => $this->getIntbwhsesupplywhse(),
-            $keys[31] => $this->getDateupdtd(),
-            $keys[32] => $this->getTimeupdtd(),
-            $keys[33] => $this->getDummy(),
+            $keys[31] => $this->getIntbwhseareasplit(),
+            $keys[32] => $this->getIntbwhsercvbincode(),
+            $keys[33] => $this->getIntbwhsercvbin(),
+            $keys[34] => $this->getDateupdtd(),
+            $keys[35] => $this->getTimeupdtd(),
+            $keys[36] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -2904,12 +3288,21 @@ abstract class Warehouse implements ActiveRecordInterface
                 $this->setIntbwhsesupplywhse($value);
                 break;
             case 31:
-                $this->setDateupdtd($value);
+                $this->setIntbwhseareasplit($value);
                 break;
             case 32:
-                $this->setTimeupdtd($value);
+                $this->setIntbwhsercvbincode($value);
                 break;
             case 33:
+                $this->setIntbwhsercvbin($value);
+                break;
+            case 34:
+                $this->setDateupdtd($value);
+                break;
+            case 35:
+                $this->setTimeupdtd($value);
+                break;
+            case 36:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -3032,13 +3425,22 @@ abstract class Warehouse implements ActiveRecordInterface
             $this->setIntbwhsesupplywhse($arr[$keys[30]]);
         }
         if (array_key_exists($keys[31], $arr)) {
-            $this->setDateupdtd($arr[$keys[31]]);
+            $this->setIntbwhseareasplit($arr[$keys[31]]);
         }
         if (array_key_exists($keys[32], $arr)) {
-            $this->setTimeupdtd($arr[$keys[32]]);
+            $this->setIntbwhsercvbincode($arr[$keys[32]]);
         }
         if (array_key_exists($keys[33], $arr)) {
-            $this->setDummy($arr[$keys[33]]);
+            $this->setIntbwhsercvbin($arr[$keys[33]]);
+        }
+        if (array_key_exists($keys[34], $arr)) {
+            $this->setDateupdtd($arr[$keys[34]]);
+        }
+        if (array_key_exists($keys[35], $arr)) {
+            $this->setTimeupdtd($arr[$keys[35]]);
+        }
+        if (array_key_exists($keys[36], $arr)) {
+            $this->setDummy($arr[$keys[36]]);
         }
     }
 
@@ -3174,6 +3576,15 @@ abstract class Warehouse implements ActiveRecordInterface
         if ($this->isColumnModified(WarehouseTableMap::COL_INTBWHSESUPPLYWHSE)) {
             $criteria->add(WarehouseTableMap::COL_INTBWHSESUPPLYWHSE, $this->intbwhsesupplywhse);
         }
+        if ($this->isColumnModified(WarehouseTableMap::COL_INTBWHSEAREASPLIT)) {
+            $criteria->add(WarehouseTableMap::COL_INTBWHSEAREASPLIT, $this->intbwhseareasplit);
+        }
+        if ($this->isColumnModified(WarehouseTableMap::COL_INTBWHSERCVBINCODE)) {
+            $criteria->add(WarehouseTableMap::COL_INTBWHSERCVBINCODE, $this->intbwhsercvbincode);
+        }
+        if ($this->isColumnModified(WarehouseTableMap::COL_INTBWHSERCVBIN)) {
+            $criteria->add(WarehouseTableMap::COL_INTBWHSERCVBIN, $this->intbwhsercvbin);
+        }
         if ($this->isColumnModified(WarehouseTableMap::COL_DATEUPDTD)) {
             $criteria->add(WarehouseTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -3300,6 +3711,9 @@ abstract class Warehouse implements ActiveRecordInterface
         $copyObj->setIntbwhseconsignwhse($this->getIntbwhseconsignwhse());
         $copyObj->setIntbwhsebinrangelist($this->getIntbwhsebinrangelist());
         $copyObj->setIntbwhsesupplywhse($this->getIntbwhsesupplywhse());
+        $copyObj->setIntbwhseareasplit($this->getIntbwhseareasplit());
+        $copyObj->setIntbwhsercvbincode($this->getIntbwhsercvbincode());
+        $copyObj->setIntbwhsercvbin($this->getIntbwhsercvbin());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -5944,11 +6358,15 @@ abstract class Warehouse implements ActiveRecordInterface
         $this->intbwhseconsignwhse = null;
         $this->intbwhsebinrangelist = null;
         $this->intbwhsesupplywhse = null;
+        $this->intbwhseareasplit = null;
+        $this->intbwhsercvbincode = null;
+        $this->intbwhsercvbin = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
         $this->alreadyInSave = false;
         $this->clearAllReferences();
+        $this->applyDefaultValues();
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
