@@ -49,7 +49,7 @@ class PurchaseOrderDetailQuery extends BasePurchaseOrderDetailQuery {
 	 * @return $this|PurchaseOrderDetailQuery  The current query, for fluid interface
 	 */
 	public function filterByStatusClosed($comparison = null) {
-		return $this->filterByPodtstat(PurchaseOrderDetail::STATUS_CLOSED);
+		return $this->filterByPodtstat(PurchaseOrderDetail::STATUS_CLOSED, $comparison);
 	}
 
 	/**
@@ -58,6 +58,6 @@ class PurchaseOrderDetailQuery extends BasePurchaseOrderDetailQuery {
 	 * @return $this|PurchaseOrderDetailQuery  The current query, for fluid interface
 	 */
 	public function filterByStatusOpen($comparison = null) {
-		return $this->filterByPodtstat(PurchaseOrderDetail::STATUS_OPEN);
+		return $this->filterByPodtstat(PurchaseOrderDetail::STATUS_OPEN, $comparison);
 	}
 }

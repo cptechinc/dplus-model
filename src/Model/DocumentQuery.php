@@ -47,4 +47,14 @@ class DocumentQuery extends BaseDocumentQuery {
 	public function filterByTag($value = null, $comparison = null) {
 		return $this->filterByDocitag($value, $comparison);
 	}
+
+	/**
+	 * Filter the Query on the Doccfolder column
+	 * @param  string|array  $value
+	 * @param  string        $comparison
+	 * @return self          The current query, for fluid interface
+	 */
+	public function filterByFolder($value = null, $comparison = null) {
+		return $this->filterByDoccfolder($value, $comparison);
+	}
 }

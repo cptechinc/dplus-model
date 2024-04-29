@@ -67,6 +67,8 @@ class Warehouse extends BaseWarehouse {
 		'cashcustomer'  => 'intbwhsecashcust',
 		'custid'        => 'intbwhsecashcust',
 		'pickdetail'    => 'intbwhsepickdtl',
+		'receivebintype' => 'intbwhsercvbincode',
+		'receivebinid'   => 'intbwhsercvbin',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd',
 		'cashCustomer'  => 'cashCustomer',

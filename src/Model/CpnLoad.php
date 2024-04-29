@@ -19,6 +19,9 @@ class CpnLoad extends BaseCpnLoad {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = [
-		'lnbr'   => 'lchdloadnbr'
+		'lnbr'       => 'lchdloadnbr',
+		'whseid'     => 'intbwhse',
+		'shipdate'   => 'lchdshipdate',
+		'pickupdate' => 'lchdschdpickupdate'
 	];
 }
