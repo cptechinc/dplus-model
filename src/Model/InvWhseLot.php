@@ -35,6 +35,7 @@ class InvWhseLot extends BaseInvWhseLot {
 		'qtyInShip'     => 'inltinship',
 		'qtyonhand'  	=> 'inltonhand',
 		'qtyintransit'  => 'inltintran',
+		'qtyintran'     => 'inltintran',
 		'qtyshipped'    => 'inltship',
 		'qtyallocated'  => 'inltallo',
 		'qtyreserved'   => 'inltResv',
