@@ -84,6 +84,7 @@ class SalesOrder extends BaseSalesOrder {
 		'packedby'        => 'oehdpackcode',
 		'verifiedby'      => 'oehdverifycode',
 		'whse'            => 'intbwhse',
+		'whseid'          => 'intbwhse',
 		'pricecode'       => 'artbpriccode',
 		'taxcode'         => 'artbmtaxcode',
 		'termscode'       => 'artmtermcd',
