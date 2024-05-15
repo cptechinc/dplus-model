@@ -26,6 +26,8 @@ trait MagicMethodTraits {
 			return $this->$method();
 		} elseif (property_exists($this, $column)) {
 			return $this->$column;
+		} elseif ($this->hasVirtualColumn($column)) {
+			return $this->getVirtualColumn($column);
 		} elseif (defined(get_class($this)."::COLUMN_ALIASES")) {
 			if (array_key_exists($column, self::COLUMN_ALIASES)) {
 				$realcolumn = $this->aliasproperty($column);
