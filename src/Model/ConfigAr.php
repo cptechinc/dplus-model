@@ -55,6 +55,8 @@ class ConfigAr extends BaseConfigAr {
 		'usercodelabel'           => 'artbconfcustlabl',
 		'reportGlByInvOrCust'     => 'artbConfInvCustGl ',
 		'usercodelabelshipto'     => 'artbconfshiplabl',
+		'overduestmtdays1'        => 'artbconfover1',
+		'overduestmtdays2'        => 'artbconfover2',
 	);
 
 	/**
