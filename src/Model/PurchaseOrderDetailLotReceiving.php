@@ -35,6 +35,8 @@ class PurchaseOrderDetailLotReceiving extends BasePurchaseOrderDetailLotReceivin
 		'sequence'        => 'potdseq',
 		'lotdate'         => 'potsexpiredate',
 		'datecode'        => 'potsexpiredatecd',
+		'date'            => 'dateupdtd',
+		'time'            => 'timeupdtd',
 
 		// FK
 		'item'            => 'itmItem',
