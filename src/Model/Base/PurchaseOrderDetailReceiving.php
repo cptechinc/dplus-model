@@ -72,8 +72,8 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the pothnbr field.
      *
-     * Note: this column has a database default value of: ''
-     * @var        string
+     * Note: this column has a database default value of: 0
+     * @var        int
      */
     protected $pothnbr;
 
@@ -96,6 +96,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the inititemnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inititemnbr;
@@ -103,6 +104,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potddesc1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $potddesc1;
@@ -110,6 +112,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potddesc2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $potddesc2;
@@ -117,6 +120,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdvenditemnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $potdvenditemnbr;
@@ -124,6 +128,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the intbuompur field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbuompur;
@@ -131,6 +136,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdref field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $potdref;
@@ -138,6 +144,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdqtyord field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $potdqtyord;
@@ -145,6 +152,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdqtyrec field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $potdqtyrec;
@@ -152,6 +160,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdpurchunitcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $potdpurchunitcost;
@@ -159,6 +168,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdpurchtotcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $potdpurchtotcost;
@@ -166,6 +176,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdglacct field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $potdglacct;
@@ -173,6 +184,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdclos field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $potdclos;
@@ -180,6 +192,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdshopminutes field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $potdshopminutes;
@@ -187,6 +200,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdtype field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $potdtype;
@@ -194,6 +208,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdforeigncost field.
      *
+     * Note: this column has a database default value of: '0.0000'
      * @var        string
      */
     protected $potdforeigncost;
@@ -201,6 +216,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdforeigncosttot field.
      *
+     * Note: this column has a database default value of: '0.0000'
      * @var        string
      */
     protected $potdforeigncosttot;
@@ -208,6 +224,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdspecordr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $potdspecordr;
@@ -215,6 +232,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdprodunitcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $potdprodunitcost;
@@ -222,6 +240,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdbaseunitcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $potdbaseunitcost;
@@ -229,6 +248,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdbin field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $potdbin;
@@ -236,6 +256,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdfabreturnscrap field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $potdfabreturnscrap;
@@ -243,6 +264,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdrfbatch field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $potdrfbatch;
@@ -250,6 +272,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdrevision field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $potdrevision;
@@ -257,6 +280,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdlandunitcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $potdlandunitcost;
@@ -264,6 +288,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdnbrofcases field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $potdnbrofcases;
@@ -271,6 +296,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdtariffcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $potdtariffcost;
@@ -278,13 +304,23 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the potdshopcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $potdshopcost;
 
     /**
+     * The value for the potdcasesord field.
+     *
+     * Note: this column has a database default value of: 0
+     * @var        int
+     */
+    protected $potdcasesord;
+
+    /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -292,6 +328,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -299,6 +336,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -344,9 +382,40 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
      */
     public function applyDefaultValues()
     {
-        $this->pothnbr = '';
+        $this->pothnbr = 0;
         $this->potdline = 0;
         $this->potdseq = 0;
+        $this->inititemnbr = '';
+        $this->potddesc1 = '';
+        $this->potddesc2 = '';
+        $this->potdvenditemnbr = '';
+        $this->intbuompur = '';
+        $this->potdref = '';
+        $this->potdqtyord = '0.0000000';
+        $this->potdqtyrec = '0.0000000';
+        $this->potdpurchunitcost = '0.0000000';
+        $this->potdpurchtotcost = '0.0000000';
+        $this->potdglacct = '';
+        $this->potdclos = '';
+        $this->potdshopminutes = 0;
+        $this->potdtype = '';
+        $this->potdforeigncost = '0.0000';
+        $this->potdforeigncosttot = '0.0000';
+        $this->potdspecordr = '';
+        $this->potdprodunitcost = '0.0000000';
+        $this->potdbaseunitcost = '0.0000000';
+        $this->potdbin = '';
+        $this->potdfabreturnscrap = '';
+        $this->potdrfbatch = '';
+        $this->potdrevision = '';
+        $this->potdlandunitcost = '0.0000000';
+        $this->potdnbrofcases = '0.00';
+        $this->potdtariffcost = '0.0000000';
+        $this->potdshopcost = '0.0000000';
+        $this->potdcasesord = 0;
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
@@ -579,7 +648,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * Get the [pothnbr] column value.
      *
-     * @return string
+     * @return int
      */
     public function getPothnbr()
     {
@@ -877,6 +946,16 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     }
 
     /**
+     * Get the [potdcasesord] column value.
+     *
+     * @return int
+     */
+    public function getPotdcasesord()
+    {
+        return $this->potdcasesord;
+    }
+
+    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -909,13 +988,13 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     /**
      * Set the value of [pothnbr] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\PurchaseOrderDetailReceiving The current object (for fluent API support)
      */
     public function setPothnbr($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->pothnbr !== $v) {
@@ -1531,6 +1610,26 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     } // setPotdshopcost()
 
     /**
+     * Set the value of [potdcasesord] column.
+     *
+     * @param int $v new value
+     * @return $this|\PurchaseOrderDetailReceiving The current object (for fluent API support)
+     */
+    public function setPotdcasesord($v)
+    {
+        if ($v !== null) {
+            $v = (int) $v;
+        }
+
+        if ($this->potdcasesord !== $v) {
+            $this->potdcasesord = $v;
+            $this->modifiedColumns[PurchaseOrderDetailReceivingTableMap::COL_POTDCASESORD] = true;
+        }
+
+        return $this;
+    } // setPotdcasesord()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -1600,7 +1699,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
-            if ($this->pothnbr !== '') {
+            if ($this->pothnbr !== 0) {
                 return false;
             }
 
@@ -1609,6 +1708,130 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
             }
 
             if ($this->potdseq !== 0) {
+                return false;
+            }
+
+            if ($this->inititemnbr !== '') {
+                return false;
+            }
+
+            if ($this->potddesc1 !== '') {
+                return false;
+            }
+
+            if ($this->potddesc2 !== '') {
+                return false;
+            }
+
+            if ($this->potdvenditemnbr !== '') {
+                return false;
+            }
+
+            if ($this->intbuompur !== '') {
+                return false;
+            }
+
+            if ($this->potdref !== '') {
+                return false;
+            }
+
+            if ($this->potdqtyord !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->potdqtyrec !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->potdpurchunitcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->potdpurchtotcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->potdglacct !== '') {
+                return false;
+            }
+
+            if ($this->potdclos !== '') {
+                return false;
+            }
+
+            if ($this->potdshopminutes !== 0) {
+                return false;
+            }
+
+            if ($this->potdtype !== '') {
+                return false;
+            }
+
+            if ($this->potdforeigncost !== '0.0000') {
+                return false;
+            }
+
+            if ($this->potdforeigncosttot !== '0.0000') {
+                return false;
+            }
+
+            if ($this->potdspecordr !== '') {
+                return false;
+            }
+
+            if ($this->potdprodunitcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->potdbaseunitcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->potdbin !== '') {
+                return false;
+            }
+
+            if ($this->potdfabreturnscrap !== '') {
+                return false;
+            }
+
+            if ($this->potdrfbatch !== '') {
+                return false;
+            }
+
+            if ($this->potdrevision !== '') {
+                return false;
+            }
+
+            if ($this->potdlandunitcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->potdnbrofcases !== '0.00') {
+                return false;
+            }
+
+            if ($this->potdtariffcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->potdshopcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->potdcasesord !== 0) {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
                 return false;
             }
 
@@ -1639,7 +1862,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
         try {
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Pothnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->pothnbr = (null !== $col) ? (string) $col : null;
+            $this->pothnbr = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Potdline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potdline = (null !== $col) ? (int) $col : null;
@@ -1728,13 +1951,16 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Potdshopcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potdshopcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Potdcasesord', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->potdcasesord = (null !== $col) ? (int) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1744,7 +1970,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 33; // 33 = PurchaseOrderDetailReceivingTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 34; // 34 = PurchaseOrderDetailReceivingTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\PurchaseOrderDetailReceiving'), 0, $e);
@@ -2094,6 +2320,9 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
         if ($this->isColumnModified(PurchaseOrderDetailReceivingTableMap::COL_POTDSHOPCOST)) {
             $modifiedColumns[':p' . $index++]  = 'PotdShopCost';
         }
+        if ($this->isColumnModified(PurchaseOrderDetailReceivingTableMap::COL_POTDCASESORD)) {
+            $modifiedColumns[':p' . $index++]  = 'PotdCasesOrd';
+        }
         if ($this->isColumnModified(PurchaseOrderDetailReceivingTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -2115,7 +2344,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
                     case 'PothNbr':
-                        $stmt->bindValue($identifier, $this->pothnbr, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->pothnbr, PDO::PARAM_INT);
                         break;
                     case 'PotdLine':
                         $stmt->bindValue($identifier, $this->potdline, PDO::PARAM_INT);
@@ -2203,6 +2432,9 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
                         break;
                     case 'PotdShopCost':
                         $stmt->bindValue($identifier, $this->potdshopcost, PDO::PARAM_STR);
+                        break;
+                    case 'PotdCasesOrd':
+                        $stmt->bindValue($identifier, $this->potdcasesord, PDO::PARAM_INT);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -2359,12 +2591,15 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
                 return $this->getPotdshopcost();
                 break;
             case 30:
-                return $this->getDateupdtd();
+                return $this->getPotdcasesord();
                 break;
             case 31:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 32:
+                return $this->getTimeupdtd();
+                break;
+            case 33:
                 return $this->getDummy();
                 break;
             default:
@@ -2427,9 +2662,10 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
             $keys[27] => $this->getPotdnbrofcases(),
             $keys[28] => $this->getPotdtariffcost(),
             $keys[29] => $this->getPotdshopcost(),
-            $keys[30] => $this->getDateupdtd(),
-            $keys[31] => $this->getTimeupdtd(),
-            $keys[32] => $this->getDummy(),
+            $keys[30] => $this->getPotdcasesord(),
+            $keys[31] => $this->getDateupdtd(),
+            $keys[32] => $this->getTimeupdtd(),
+            $keys[33] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -2637,12 +2873,15 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
                 $this->setPotdshopcost($value);
                 break;
             case 30:
-                $this->setDateupdtd($value);
+                $this->setPotdcasesord($value);
                 break;
             case 31:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 32:
+                $this->setTimeupdtd($value);
+                break;
+            case 33:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -2762,13 +3001,16 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
             $this->setPotdshopcost($arr[$keys[29]]);
         }
         if (array_key_exists($keys[30], $arr)) {
-            $this->setDateupdtd($arr[$keys[30]]);
+            $this->setPotdcasesord($arr[$keys[30]]);
         }
         if (array_key_exists($keys[31], $arr)) {
-            $this->setTimeupdtd($arr[$keys[31]]);
+            $this->setDateupdtd($arr[$keys[31]]);
         }
         if (array_key_exists($keys[32], $arr)) {
-            $this->setDummy($arr[$keys[32]]);
+            $this->setTimeupdtd($arr[$keys[32]]);
+        }
+        if (array_key_exists($keys[33], $arr)) {
+            $this->setDummy($arr[$keys[33]]);
         }
     }
 
@@ -2900,6 +3142,9 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
         }
         if ($this->isColumnModified(PurchaseOrderDetailReceivingTableMap::COL_POTDSHOPCOST)) {
             $criteria->add(PurchaseOrderDetailReceivingTableMap::COL_POTDSHOPCOST, $this->potdshopcost);
+        }
+        if ($this->isColumnModified(PurchaseOrderDetailReceivingTableMap::COL_POTDCASESORD)) {
+            $criteria->add(PurchaseOrderDetailReceivingTableMap::COL_POTDCASESORD, $this->potdcasesord);
         }
         if ($this->isColumnModified(PurchaseOrderDetailReceivingTableMap::COL_DATEUPDTD)) {
             $criteria->add(PurchaseOrderDetailReceivingTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -3059,6 +3304,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
         $copyObj->setPotdnbrofcases($this->getPotdnbrofcases());
         $copyObj->setPotdtariffcost($this->getPotdtariffcost());
         $copyObj->setPotdshopcost($this->getPotdshopcost());
+        $copyObj->setPotdcasesord($this->getPotdcasesord());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -3099,7 +3345,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     public function setPurchaseOrder(ChildPurchaseOrder $v = null)
     {
         if ($v === null) {
-            $this->setPothnbr('');
+            $this->setPothnbr(0);
         } else {
             $this->setPothnbr($v->getPohdnbr());
         }
@@ -3126,7 +3372,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
      */
     public function getPurchaseOrder(ConnectionInterface $con = null)
     {
-        if ($this->aPurchaseOrder === null && (($this->pothnbr !== "" && $this->pothnbr !== null))) {
+        if ($this->aPurchaseOrder === null && ($this->pothnbr != 0)) {
             $this->aPurchaseOrder = ChildPurchaseOrderQuery::create()->findPk($this->pothnbr, $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
@@ -3150,7 +3396,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     public function setPoReceivingHead(ChildPoReceivingHead $v = null)
     {
         if ($v === null) {
-            $this->setPothnbr('');
+            $this->setPothnbr(0);
         } else {
             $this->setPothnbr($v->getPothnbr());
         }
@@ -3177,7 +3423,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
      */
     public function getPoReceivingHead(ConnectionInterface $con = null)
     {
-        if ($this->aPoReceivingHead === null && (($this->pothnbr !== "" && $this->pothnbr !== null))) {
+        if ($this->aPoReceivingHead === null && ($this->pothnbr != 0)) {
             $this->aPoReceivingHead = ChildPoReceivingHeadQuery::create()->findPk($this->pothnbr, $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
@@ -3201,7 +3447,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     public function setPurchaseOrderDetail(ChildPurchaseOrderDetail $v = null)
     {
         if ($v === null) {
-            $this->setPothnbr('');
+            $this->setPothnbr(0);
         } else {
             $this->setPothnbr($v->getPohdnbr());
         }
@@ -3234,7 +3480,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
      */
     public function getPurchaseOrderDetail(ConnectionInterface $con = null)
     {
-        if ($this->aPurchaseOrderDetail === null && (($this->pothnbr !== "" && $this->pothnbr !== null) && $this->potdline != 0)) {
+        if ($this->aPurchaseOrderDetail === null && ($this->pothnbr != 0 && $this->potdline != 0)) {
             $this->aPurchaseOrderDetail = ChildPurchaseOrderDetailQuery::create()->findPk(array($this->pothnbr, $this->potdline), $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
@@ -3258,7 +3504,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     public function setItemMasterItem(ChildItemMasterItem $v = null)
     {
         if ($v === null) {
-            $this->setInititemnbr(NULL);
+            $this->setInititemnbr('');
         } else {
             $this->setInititemnbr($v->getInititemnbr());
         }
@@ -3309,7 +3555,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     public function setUnitofMeasureSale(ChildUnitofMeasureSale $v = null)
     {
         if ($v === null) {
-            $this->setIntbuompur(NULL);
+            $this->setIntbuompur('');
         } else {
             $this->setIntbuompur($v->getIntbuomsale());
         }
@@ -3402,6 +3648,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
         $this->potdnbrofcases = null;
         $this->potdtariffcost = null;
         $this->potdshopcost = null;
+        $this->potdcasesord = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
@@ -3451,7 +3698,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }
@@ -3475,7 +3722,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
+            // return parent::preInsert($con);
         }
         return true;
     }
@@ -3499,7 +3746,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
+            // return parent::preUpdate($con);
         }
         return true;
     }
@@ -3523,7 +3770,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
+            // return parent::preDelete($con);
         }
         return true;
     }

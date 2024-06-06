@@ -3884,49 +3884,50 @@
     </vendor>
   </table>
   <table name="po_detail" idMethod="native" phpName="PurchaseOrderDetail">
-    <column name="PohdNbr" phpName="Pohdnbr" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
-    <column name="PodtLine" phpName="Podtline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
-    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30"/>
-    <column name="PodtDesc1" phpName="Podtdesc1" type="VARCHAR" size="35"/>
-    <column name="PodtDesc2" phpName="Podtdesc2" type="VARCHAR" size="35"/>
-    <column name="PodtVendItemNbr" phpName="Podtvenditemnbr" type="VARCHAR" size="30"/>
-    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2"/>
-    <column name="PodtShipDate" phpName="Podtshipdate" type="VARCHAR" size="8"/>
-    <column name="PodtExptDate" phpName="Podtexptdate" type="VARCHAR" size="8"/>
-    <column name="PodtCancDate" phpName="Podtcancdate" type="VARCHAR" size="8"/>
-    <column name="IntbUomPur" phpName="Intbuompur" type="VARCHAR" size="4"/>
-    <column name="PodtQtyOrd" phpName="Podtqtyord" type="DECIMAL" size="20" scale="7"/>
-    <column name="PodtCost" phpName="Podtcost" type="DECIMAL" size="20" scale="7"/>
-    <column name="PodtCostTot" phpName="Podtcosttot" type="DECIMAL" size="20" scale="7"/>
-    <column name="PodtRel" phpName="Podtrel" type="VARCHAR" size="1"/>
-    <column name="PodtSpecOrdr" phpName="Podtspecordr" type="VARCHAR" size="1"/>
-    <column name="PodtGlAcct" phpName="Podtglacct" type="VARCHAR" size="9"/>
-    <column name="PodtSoNbr" phpName="Podtsonbr" type="VARCHAR" size="8"/>
-    <column name="PodtStat" phpName="Podtstat" type="VARCHAR" size="1"/>
-    <column name="PodtOrigSoLine" phpName="Podtorigsoline" type="INTEGER" size="4"/>
-    <column name="PodtQtyDueIn" phpName="Podtqtyduein" type="DECIMAL" size="20" scale="2"/>
-    <column name="PodtType" phpName="Podttype" type="VARCHAR" size="1"/>
-    <column name="PodtWghtTot" phpName="Podtwghttot" type="DECIMAL" size="20" scale="7"/>
-    <column name="PodtForeignCost" phpName="Podtforeigncost" type="DECIMAL" size="20" scale="4"/>
-    <column name="PodtForeignCostTot" phpName="Podtforeigncosttot" type="DECIMAL" size="20" scale="4"/>
-    <column name="PodtStanUnitCost" phpName="Podtstanunitcost" type="DECIMAL" size="20" scale="4"/>
-    <column name="PodtAckDate" phpName="Podtackdate" type="VARCHAR" size="8"/>
-    <column name="PodtInvcClearFlag" phpName="Podtinvcclearflag" type="VARCHAR" size="1"/>
-    <column name="PodtPrtKitDet" phpName="Podtprtkitdet" type="VARCHAR" size="1"/>
-    <column name="PodtDestWhse" phpName="Podtdestwhse" type="VARCHAR" size="2"/>
-    <column name="PodtRevision" phpName="Podtrevision" type="VARCHAR" size="10"/>
-    <column name="PodtPrtPoEOrU" phpName="Podtprtpoeoru" type="VARCHAR" size="1"/>
-    <column name="PotbCnfmCode" phpName="Potbcnfmcode" type="VARCHAR" size="4"/>
-    <column name="PodtRcptNbr" phpName="Podtrcptnbr" type="VARCHAR" size="8"/>
-    <column name="PodtWipNbr" phpName="Podtwipnbr" type="VARCHAR" size="8"/>
-    <column name="PodtOrdrAs" phpName="Podtordras" type="VARCHAR" size="1"/>
-    <column name="PodtBolDate" phpName="Podtboldate" type="VARCHAR" size="8"/>
-    <column name="PodtListPric" phpName="Podtlistpric" type="DECIMAL" size="20" scale="4"/>
-    <column name="PodtDeliveredDate" phpName="Podtdelivereddate" type="VARCHAR" size="8"/>
-    <column name="PodtLandCost" phpName="Podtlandcost" type="DECIMAL" size="20" scale="5"/>
-    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
-    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
-    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <column name="PohdNbr" phpName="Pohdnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="PodtLine" phpName="Podtline" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="PodtDesc1" phpName="Podtdesc1" type="VARCHAR" size="35" required="true" defaultValue=""/>
+    <column name="PodtDesc2" phpName="Podtdesc2" type="VARCHAR" size="35" required="true" defaultValue=""/>
+    <column name="PodtVendItemNbr" phpName="Podtvenditemnbr" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="PodtShipDate" phpName="Podtshipdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="PodtExptDate" phpName="Podtexptdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="PodtCancDate" phpName="Podtcancdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbUomPur" phpName="Intbuompur" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="PodtQtyOrd" phpName="Podtqtyord" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PodtCost" phpName="Podtcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PodtCostTot" phpName="Podtcosttot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PodtRel" phpName="Podtrel" type="CHAR" required="true" defaultValue="Y"/>
+    <column name="PodtSpecOrdr" phpName="Podtspecordr" type="CHAR" required="true" defaultValue="N"/>
+    <column name="PodtGlAcct" phpName="Podtglacct" type="VARCHAR" size="9" required="true" defaultValue=""/>
+    <column name="PodtSoNbr" phpName="Podtsonbr" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="PodtStat" phpName="Podtstat" type="CHAR" required="true" defaultValue="O"/>
+    <column name="PodtOrigSoLine" phpName="Podtorigsoline" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
+    <column name="PodtQtyDueIn" phpName="Podtqtyduein" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="PodtType" phpName="Podttype" type="CHAR" required="true" defaultValue="S"/>
+    <column name="PodtWghtTot" phpName="Podtwghttot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PodtForeignCost" phpName="Podtforeigncost" type="DECIMAL" size="20" scale="4" required="true" defaultValue="0.0000"/>
+    <column name="PodtForeignCostTot" phpName="Podtforeigncosttot" type="DECIMAL" size="20" scale="4" required="true" defaultValue="0.0000"/>
+    <column name="PodtStanUnitCost" phpName="Podtstanunitcost" type="DECIMAL" size="20" scale="4" required="true" defaultValue="0.0000"/>
+    <column name="PodtAckDate" phpName="Podtackdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="PodtInvcClearFlag" phpName="Podtinvcclearflag" type="CHAR" required="true" defaultValue="N"/>
+    <column name="PodtPrtKitDet" phpName="Podtprtkitdet" type="CHAR" required="true" defaultValue="N"/>
+    <column name="PodtDestWhse" phpName="Podtdestwhse" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="PodtRevision" phpName="Podtrevision" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="PodtPrtPoEOrU" phpName="Podtprtpoeoru" type="CHAR" required="true" defaultValue="E"/>
+    <column name="PotbCnfmCode" phpName="Potbcnfmcode" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="PodtRcptNbr" phpName="Podtrcptnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="PodtWipNbr" phpName="Podtwipnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="PodtOrdrAs" phpName="Podtordras" type="CHAR" required="true" defaultValue="C"/>
+    <column name="PodtBolDate" phpName="Podtboldate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="PodtListPric" phpName="Podtlistpric" type="DECIMAL" size="20" scale="4" required="true" defaultValue="0.0000"/>
+    <column name="PodtDeliveredDate" phpName="Podtdelivereddate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="PodtLandCost" phpName="Podtlandcost" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="PodtCasesOrd" phpName="Podtcasesord" type="INTEGER" size="6" sqlType="int(6) unsigned" required="true" defaultValue="0"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
     <foreign-key foreignTable="po_head" name="purchaseorder" skipSql="true">
       <reference local="PohdNbr" foreign="PohdNbr"/>
     </foreign-key>
@@ -4038,39 +4039,40 @@
     </vendor>
   </table>
   <table name="po_tran_det" idMethod="native" phpName="PurchaseOrderDetailReceiving">
-    <column name="PothNbr" phpName="Pothnbr" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
-    <column name="PotdLine" phpName="Potdline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
-    <column name="PotdSeq" phpName="Potdseq" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
-    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30"/>
-    <column name="PotdDesc1" phpName="Potddesc1" type="VARCHAR" size="35"/>
-    <column name="PotdDesc2" phpName="Potddesc2" type="VARCHAR" size="35"/>
-    <column name="PotdVendItemNbr" phpName="Potdvenditemnbr" type="VARCHAR" size="30"/>
-    <column name="IntbUomPur" phpName="Intbuompur" type="VARCHAR" size="4"/>
-    <column name="PotdRef" phpName="Potdref" type="VARCHAR" size="15"/>
-    <column name="PotdQtyOrd" phpName="Potdqtyord" type="DECIMAL" size="20" scale="7"/>
-    <column name="PotdQtyRec" phpName="Potdqtyrec" type="DECIMAL" size="20" scale="7"/>
-    <column name="PotdPurchUnitCost" phpName="Potdpurchunitcost" type="DECIMAL" size="20" scale="7"/>
-    <column name="PotdPurchTotCost" phpName="Potdpurchtotcost" type="DECIMAL" size="20" scale="7"/>
-    <column name="PotdGlAcct" phpName="Potdglacct" type="VARCHAR" size="9"/>
-    <column name="PotdClos" phpName="Potdclos" type="VARCHAR" size="1"/>
-    <column name="PotdShopMinutes" phpName="Potdshopminutes" type="INTEGER" size="6"/>
-    <column name="PotdType" phpName="Potdtype" type="VARCHAR" size="1"/>
-    <column name="PotdForeignCost" phpName="Potdforeigncost" type="DECIMAL" size="20" scale="4"/>
-    <column name="PotdForeignCostTot" phpName="Potdforeigncosttot" type="DECIMAL" size="20" scale="4"/>
-    <column name="PotdSpecOrdr" phpName="Potdspecordr" type="VARCHAR" size="1"/>
-    <column name="PotdProdUnitCost" phpName="Potdprodunitcost" type="DECIMAL" size="20" scale="7"/>
-    <column name="PotdBaseUnitCost" phpName="Potdbaseunitcost" type="DECIMAL" size="20" scale="7"/>
-    <column name="PotdBin" phpName="Potdbin" type="VARCHAR" size="8"/>
-    <column name="PotdFabReturnScrap" phpName="Potdfabreturnscrap" type="VARCHAR" size="1"/>
-    <column name="PotdRfBatch" phpName="Potdrfbatch" type="VARCHAR" size="8"/>
-    <column name="PotdRevision" phpName="Potdrevision" type="VARCHAR" size="10"/>
-    <column name="PotdLandUnitCost" phpName="Potdlandunitcost" type="DECIMAL" size="20" scale="7"/>
-    <column name="PotdNbrOfCases" phpName="Potdnbrofcases" type="DECIMAL" size="20" scale="2"/>
-    <column name="PotdTariffCost" phpName="Potdtariffcost" type="DECIMAL" size="20" scale="7"/>
-    <column name="PotdShopCost" phpName="Potdshopcost" type="DECIMAL" size="20" scale="7"/>
-    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
-    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
-    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <column name="PothNbr" phpName="Pothnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="PotdLine" phpName="Potdline" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="PotdSeq" phpName="Potdseq" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="PotdDesc1" phpName="Potddesc1" type="VARCHAR" size="35" required="true" defaultValue=""/>
+    <column name="PotdDesc2" phpName="Potddesc2" type="VARCHAR" size="35" required="true" defaultValue=""/>
+    <column name="PotdVendItemNbr" phpName="Potdvenditemnbr" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="IntbUomPur" phpName="Intbuompur" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="PotdRef" phpName="Potdref" type="VARCHAR" size="15" required="true" defaultValue=""/>
+    <column name="PotdQtyOrd" phpName="Potdqtyord" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PotdQtyRec" phpName="Potdqtyrec" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PotdPurchUnitCost" phpName="Potdpurchunitcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PotdPurchTotCost" phpName="Potdpurchtotcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PotdGlAcct" phpName="Potdglacct" type="VARCHAR" size="9" required="true" defaultValue=""/>
+    <column name="PotdClos" phpName="Potdclos" type="CHAR" required="true" defaultValue=""/>
+    <column name="PotdShopMinutes" phpName="Potdshopminutes" type="INTEGER" size="6" sqlType="int(6) unsigned" required="true" defaultValue="0"/>
+    <column name="PotdType" phpName="Potdtype" type="CHAR" required="true" defaultValue=""/>
+    <column name="PotdForeignCost" phpName="Potdforeigncost" type="DECIMAL" size="20" scale="4" required="true" defaultValue="0.0000"/>
+    <column name="PotdForeignCostTot" phpName="Potdforeigncosttot" type="DECIMAL" size="20" scale="4" required="true" defaultValue="0.0000"/>
+    <column name="PotdSpecOrdr" phpName="Potdspecordr" type="CHAR" required="true" defaultValue=""/>
+    <column name="PotdProdUnitCost" phpName="Potdprodunitcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PotdBaseUnitCost" phpName="Potdbaseunitcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PotdBin" phpName="Potdbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="PotdFabReturnScrap" phpName="Potdfabreturnscrap" type="CHAR" required="true" defaultValue=""/>
+    <column name="PotdRfBatch" phpName="Potdrfbatch" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="PotdRevision" phpName="Potdrevision" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="PotdLandUnitCost" phpName="Potdlandunitcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PotdNbrOfCases" phpName="Potdnbrofcases" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="PotdTariffCost" phpName="Potdtariffcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PotdShopCost" phpName="Potdshopcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PotdCasesOrd" phpName="Potdcasesord" type="INTEGER" size="6" sqlType="int(6) unsigned" required="true" defaultValue="0"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
     <foreign-key foreignTable="po_head" name="purchaseorder">
       <reference local="PothNbr" foreign="PohdNbr"/>
     </foreign-key>

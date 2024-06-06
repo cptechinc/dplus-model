@@ -77,8 +77,8 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the pohdnbr field.
      *
-     * Note: this column has a database default value of: ''
-     * @var        string
+     * Note: this column has a database default value of: 0
+     * @var        int
      */
     protected $pohdnbr;
 
@@ -93,6 +93,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the inititemnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inititemnbr;
@@ -100,6 +101,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtdesc1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $podtdesc1;
@@ -107,6 +109,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtdesc2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $podtdesc2;
@@ -114,6 +117,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtvenditemnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $podtvenditemnbr;
@@ -121,6 +125,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the intbwhse field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhse;
@@ -128,6 +133,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtshipdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $podtshipdate;
@@ -135,6 +141,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtexptdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $podtexptdate;
@@ -142,6 +149,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtcancdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $podtcancdate;
@@ -149,6 +157,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the intbuompur field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbuompur;
@@ -156,6 +165,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtqtyord field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $podtqtyord;
@@ -163,6 +173,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $podtcost;
@@ -170,6 +181,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtcosttot field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $podtcosttot;
@@ -177,6 +189,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtrel field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $podtrel;
@@ -184,6 +197,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtspecordr field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $podtspecordr;
@@ -191,6 +205,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtglacct field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $podtglacct;
@@ -198,13 +213,15 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtsonbr field.
      *
-     * @var        string
+     * Note: this column has a database default value of: 0
+     * @var        int
      */
     protected $podtsonbr;
 
     /**
      * The value for the podtstat field.
      *
+     * Note: this column has a database default value of: 'O'
      * @var        string
      */
     protected $podtstat;
@@ -212,6 +229,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtorigsoline field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $podtorigsoline;
@@ -219,6 +237,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtqtyduein field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $podtqtyduein;
@@ -226,6 +245,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podttype field.
      *
+     * Note: this column has a database default value of: 'S'
      * @var        string
      */
     protected $podttype;
@@ -233,6 +253,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtwghttot field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $podtwghttot;
@@ -240,6 +261,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtforeigncost field.
      *
+     * Note: this column has a database default value of: '0.0000'
      * @var        string
      */
     protected $podtforeigncost;
@@ -247,6 +269,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtforeigncosttot field.
      *
+     * Note: this column has a database default value of: '0.0000'
      * @var        string
      */
     protected $podtforeigncosttot;
@@ -254,6 +277,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtstanunitcost field.
      *
+     * Note: this column has a database default value of: '0.0000'
      * @var        string
      */
     protected $podtstanunitcost;
@@ -261,6 +285,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtackdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $podtackdate;
@@ -268,6 +293,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtinvcclearflag field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $podtinvcclearflag;
@@ -275,6 +301,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtprtkitdet field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $podtprtkitdet;
@@ -282,6 +309,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtdestwhse field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $podtdestwhse;
@@ -289,6 +317,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtrevision field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $podtrevision;
@@ -296,6 +325,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtprtpoeoru field.
      *
+     * Note: this column has a database default value of: 'E'
      * @var        string
      */
     protected $podtprtpoeoru;
@@ -303,6 +333,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the potbcnfmcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $potbcnfmcode;
@@ -310,20 +341,23 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtrcptnbr field.
      *
-     * @var        string
+     * Note: this column has a database default value of: 0
+     * @var        int
      */
     protected $podtrcptnbr;
 
     /**
      * The value for the podtwipnbr field.
      *
-     * @var        string
+     * Note: this column has a database default value of: 0
+     * @var        int
      */
     protected $podtwipnbr;
 
     /**
      * The value for the podtordras field.
      *
+     * Note: this column has a database default value of: 'C'
      * @var        string
      */
     protected $podtordras;
@@ -331,6 +365,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtboldate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $podtboldate;
@@ -338,6 +373,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtlistpric field.
      *
+     * Note: this column has a database default value of: '0.0000'
      * @var        string
      */
     protected $podtlistpric;
@@ -345,6 +381,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtdelivereddate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $podtdelivereddate;
@@ -352,13 +389,23 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the podtlandcost field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $podtlandcost;
 
     /**
+     * The value for the podtcasesord field.
+     *
+     * Note: this column has a database default value of: 0
+     * @var        int
+     */
+    protected $podtcasesord;
+
+    /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -366,6 +413,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -373,6 +421,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -439,8 +488,50 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      */
     public function applyDefaultValues()
     {
-        $this->pohdnbr = '';
+        $this->pohdnbr = 0;
         $this->podtline = 0;
+        $this->inititemnbr = '';
+        $this->podtdesc1 = '';
+        $this->podtdesc2 = '';
+        $this->podtvenditemnbr = '';
+        $this->intbwhse = '';
+        $this->podtshipdate = '';
+        $this->podtexptdate = '';
+        $this->podtcancdate = '';
+        $this->intbuompur = '';
+        $this->podtqtyord = '0.0000000';
+        $this->podtcost = '0.0000000';
+        $this->podtcosttot = '0.0000000';
+        $this->podtrel = 'Y';
+        $this->podtspecordr = 'N';
+        $this->podtglacct = '';
+        $this->podtsonbr = 0;
+        $this->podtstat = 'O';
+        $this->podtorigsoline = 0;
+        $this->podtqtyduein = '0.00';
+        $this->podttype = 'S';
+        $this->podtwghttot = '0.0000000';
+        $this->podtforeigncost = '0.0000';
+        $this->podtforeigncosttot = '0.0000';
+        $this->podtstanunitcost = '0.0000';
+        $this->podtackdate = '';
+        $this->podtinvcclearflag = 'N';
+        $this->podtprtkitdet = 'N';
+        $this->podtdestwhse = '';
+        $this->podtrevision = '';
+        $this->podtprtpoeoru = 'E';
+        $this->potbcnfmcode = '';
+        $this->podtrcptnbr = 0;
+        $this->podtwipnbr = 0;
+        $this->podtordras = 'C';
+        $this->podtboldate = '';
+        $this->podtlistpric = '0.0000';
+        $this->podtdelivereddate = '';
+        $this->podtlandcost = '0.00000';
+        $this->podtcasesord = 0;
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
@@ -673,7 +764,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Get the [pohdnbr] column value.
      *
-     * @return string
+     * @return int
      */
     public function getPohdnbr()
     {
@@ -843,7 +934,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Get the [podtsonbr] column value.
      *
-     * @return string
+     * @return int
      */
     public function getPodtsonbr()
     {
@@ -1003,7 +1094,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Get the [podtrcptnbr] column value.
      *
-     * @return string
+     * @return int
      */
     public function getPodtrcptnbr()
     {
@@ -1013,7 +1104,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Get the [podtwipnbr] column value.
      *
-     * @return string
+     * @return int
      */
     public function getPodtwipnbr()
     {
@@ -1071,6 +1162,16 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     }
 
     /**
+     * Get the [podtcasesord] column value.
+     *
+     * @return int
+     */
+    public function getPodtcasesord()
+    {
+        return $this->podtcasesord;
+    }
+
+    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -1103,13 +1204,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Set the value of [pohdnbr] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
      */
     public function setPohdnbr($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->pohdnbr !== $v) {
@@ -1451,13 +1552,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Set the value of [podtsonbr] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
      */
     public function setPodtsonbr($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->podtsonbr !== $v) {
@@ -1771,13 +1872,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Set the value of [podtrcptnbr] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
      */
     public function setPodtrcptnbr($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->podtrcptnbr !== $v) {
@@ -1791,13 +1892,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     /**
      * Set the value of [podtwipnbr] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
      */
     public function setPodtwipnbr($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->podtwipnbr !== $v) {
@@ -1909,6 +2010,26 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     } // setPodtlandcost()
 
     /**
+     * Set the value of [podtcasesord] column.
+     *
+     * @param int $v new value
+     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     */
+    public function setPodtcasesord($v)
+    {
+        if ($v !== null) {
+            $v = (int) $v;
+        }
+
+        if ($this->podtcasesord !== $v) {
+            $this->podtcasesord = $v;
+            $this->modifiedColumns[PurchaseOrderDetailTableMap::COL_PODTCASESORD] = true;
+        }
+
+        return $this;
+    } // setPodtcasesord()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -1978,11 +2099,179 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
-            if ($this->pohdnbr !== '') {
+            if ($this->pohdnbr !== 0) {
                 return false;
             }
 
             if ($this->podtline !== 0) {
+                return false;
+            }
+
+            if ($this->inititemnbr !== '') {
+                return false;
+            }
+
+            if ($this->podtdesc1 !== '') {
+                return false;
+            }
+
+            if ($this->podtdesc2 !== '') {
+                return false;
+            }
+
+            if ($this->podtvenditemnbr !== '') {
+                return false;
+            }
+
+            if ($this->intbwhse !== '') {
+                return false;
+            }
+
+            if ($this->podtshipdate !== '') {
+                return false;
+            }
+
+            if ($this->podtexptdate !== '') {
+                return false;
+            }
+
+            if ($this->podtcancdate !== '') {
+                return false;
+            }
+
+            if ($this->intbuompur !== '') {
+                return false;
+            }
+
+            if ($this->podtqtyord !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->podtcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->podtcosttot !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->podtrel !== 'Y') {
+                return false;
+            }
+
+            if ($this->podtspecordr !== 'N') {
+                return false;
+            }
+
+            if ($this->podtglacct !== '') {
+                return false;
+            }
+
+            if ($this->podtsonbr !== 0) {
+                return false;
+            }
+
+            if ($this->podtstat !== 'O') {
+                return false;
+            }
+
+            if ($this->podtorigsoline !== 0) {
+                return false;
+            }
+
+            if ($this->podtqtyduein !== '0.00') {
+                return false;
+            }
+
+            if ($this->podttype !== 'S') {
+                return false;
+            }
+
+            if ($this->podtwghttot !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->podtforeigncost !== '0.0000') {
+                return false;
+            }
+
+            if ($this->podtforeigncosttot !== '0.0000') {
+                return false;
+            }
+
+            if ($this->podtstanunitcost !== '0.0000') {
+                return false;
+            }
+
+            if ($this->podtackdate !== '') {
+                return false;
+            }
+
+            if ($this->podtinvcclearflag !== 'N') {
+                return false;
+            }
+
+            if ($this->podtprtkitdet !== 'N') {
+                return false;
+            }
+
+            if ($this->podtdestwhse !== '') {
+                return false;
+            }
+
+            if ($this->podtrevision !== '') {
+                return false;
+            }
+
+            if ($this->podtprtpoeoru !== 'E') {
+                return false;
+            }
+
+            if ($this->potbcnfmcode !== '') {
+                return false;
+            }
+
+            if ($this->podtrcptnbr !== 0) {
+                return false;
+            }
+
+            if ($this->podtwipnbr !== 0) {
+                return false;
+            }
+
+            if ($this->podtordras !== 'C') {
+                return false;
+            }
+
+            if ($this->podtboldate !== '') {
+                return false;
+            }
+
+            if ($this->podtlistpric !== '0.0000') {
+                return false;
+            }
+
+            if ($this->podtdelivereddate !== '') {
+                return false;
+            }
+
+            if ($this->podtlandcost !== '0.00000') {
+                return false;
+            }
+
+            if ($this->podtcasesord !== 0) {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
                 return false;
             }
 
@@ -2013,7 +2302,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         try {
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->pohdnbr = (null !== $col) ? (string) $col : null;
+            $this->pohdnbr = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtline = (null !== $col) ? (int) $col : null;
@@ -2064,7 +2353,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             $this->podtglacct = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtsonbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->podtsonbr = (null !== $col) ? (string) $col : null;
+            $this->podtsonbr = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtstat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtstat = (null !== $col) ? (string) $col : null;
@@ -2112,10 +2401,10 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             $this->potbcnfmcode = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtrcptnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->podtrcptnbr = (null !== $col) ? (string) $col : null;
+            $this->podtrcptnbr = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtwipnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->podtwipnbr = (null !== $col) ? (string) $col : null;
+            $this->podtwipnbr = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtordras', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtordras = (null !== $col) ? (string) $col : null;
@@ -2132,13 +2421,16 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtlandcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtlandcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtcasesord', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->podtcasesord = (null !== $col) ? (int) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -2148,7 +2440,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 43; // 43 = PurchaseOrderDetailTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 44; // 44 = PurchaseOrderDetailTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\PurchaseOrderDetail'), 0, $e);
@@ -2549,6 +2841,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_PODTLANDCOST)) {
             $modifiedColumns[':p' . $index++]  = 'PodtLandCost';
         }
+        if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_PODTCASESORD)) {
+            $modifiedColumns[':p' . $index++]  = 'PodtCasesOrd';
+        }
         if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -2570,7 +2865,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
                     case 'PohdNbr':
-                        $stmt->bindValue($identifier, $this->pohdnbr, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->pohdnbr, PDO::PARAM_INT);
                         break;
                     case 'PodtLine':
                         $stmt->bindValue($identifier, $this->podtline, PDO::PARAM_INT);
@@ -2621,7 +2916,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                         $stmt->bindValue($identifier, $this->podtglacct, PDO::PARAM_STR);
                         break;
                     case 'PodtSoNbr':
-                        $stmt->bindValue($identifier, $this->podtsonbr, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->podtsonbr, PDO::PARAM_INT);
                         break;
                     case 'PodtStat':
                         $stmt->bindValue($identifier, $this->podtstat, PDO::PARAM_STR);
@@ -2669,10 +2964,10 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                         $stmt->bindValue($identifier, $this->potbcnfmcode, PDO::PARAM_STR);
                         break;
                     case 'PodtRcptNbr':
-                        $stmt->bindValue($identifier, $this->podtrcptnbr, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->podtrcptnbr, PDO::PARAM_INT);
                         break;
                     case 'PodtWipNbr':
-                        $stmt->bindValue($identifier, $this->podtwipnbr, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->podtwipnbr, PDO::PARAM_INT);
                         break;
                     case 'PodtOrdrAs':
                         $stmt->bindValue($identifier, $this->podtordras, PDO::PARAM_STR);
@@ -2688,6 +2983,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                         break;
                     case 'PodtLandCost':
                         $stmt->bindValue($identifier, $this->podtlandcost, PDO::PARAM_STR);
+                        break;
+                    case 'PodtCasesOrd':
+                        $stmt->bindValue($identifier, $this->podtcasesord, PDO::PARAM_INT);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -2874,12 +3172,15 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 return $this->getPodtlandcost();
                 break;
             case 40:
-                return $this->getDateupdtd();
+                return $this->getPodtcasesord();
                 break;
             case 41:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 42:
+                return $this->getTimeupdtd();
+                break;
+            case 43:
                 return $this->getDummy();
                 break;
             default:
@@ -2952,9 +3253,10 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             $keys[37] => $this->getPodtlistpric(),
             $keys[38] => $this->getPodtdelivereddate(),
             $keys[39] => $this->getPodtlandcost(),
-            $keys[40] => $this->getDateupdtd(),
-            $keys[41] => $this->getTimeupdtd(),
-            $keys[42] => $this->getDummy(),
+            $keys[40] => $this->getPodtcasesord(),
+            $keys[41] => $this->getDateupdtd(),
+            $keys[42] => $this->getTimeupdtd(),
+            $keys[43] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -3192,12 +3494,15 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 $this->setPodtlandcost($value);
                 break;
             case 40:
-                $this->setDateupdtd($value);
+                $this->setPodtcasesord($value);
                 break;
             case 41:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 42:
+                $this->setTimeupdtd($value);
+                break;
+            case 43:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -3347,13 +3652,16 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             $this->setPodtlandcost($arr[$keys[39]]);
         }
         if (array_key_exists($keys[40], $arr)) {
-            $this->setDateupdtd($arr[$keys[40]]);
+            $this->setPodtcasesord($arr[$keys[40]]);
         }
         if (array_key_exists($keys[41], $arr)) {
-            $this->setTimeupdtd($arr[$keys[41]]);
+            $this->setDateupdtd($arr[$keys[41]]);
         }
         if (array_key_exists($keys[42], $arr)) {
-            $this->setDummy($arr[$keys[42]]);
+            $this->setTimeupdtd($arr[$keys[42]]);
+        }
+        if (array_key_exists($keys[43], $arr)) {
+            $this->setDummy($arr[$keys[43]]);
         }
     }
 
@@ -3516,6 +3824,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_PODTLANDCOST)) {
             $criteria->add(PurchaseOrderDetailTableMap::COL_PODTLANDCOST, $this->podtlandcost);
         }
+        if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_PODTCASESORD)) {
+            $criteria->add(PurchaseOrderDetailTableMap::COL_PODTCASESORD, $this->podtcasesord);
+        }
         if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_DATEUPDTD)) {
             $criteria->add(PurchaseOrderDetailTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -3666,6 +3977,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         $copyObj->setPodtlistpric($this->getPodtlistpric());
         $copyObj->setPodtdelivereddate($this->getPodtdelivereddate());
         $copyObj->setPodtlandcost($this->getPodtlandcost());
+        $copyObj->setPodtcasesord($this->getPodtcasesord());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -3732,7 +4044,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function setPurchaseOrder(ChildPurchaseOrder $v = null)
     {
         if ($v === null) {
-            $this->setPohdnbr('');
+            $this->setPohdnbr(0);
         } else {
             $this->setPohdnbr($v->getPohdnbr());
         }
@@ -3759,7 +4071,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
      */
     public function getPurchaseOrder(ConnectionInterface $con = null)
     {
-        if ($this->aPurchaseOrder === null && (($this->pohdnbr !== "" && $this->pohdnbr !== null))) {
+        if ($this->aPurchaseOrder === null && ($this->pohdnbr != 0)) {
             $this->aPurchaseOrder = ChildPurchaseOrderQuery::create()->findPk($this->pohdnbr, $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
@@ -3783,7 +4095,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function setItemMasterItem(ChildItemMasterItem $v = null)
     {
         if ($v === null) {
-            $this->setInititemnbr(NULL);
+            $this->setInititemnbr('');
         } else {
             $this->setInititemnbr($v->getInititemnbr());
         }
@@ -4811,6 +5123,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         $this->podtlistpric = null;
         $this->podtdelivereddate = null;
         $this->podtlandcost = null;
+        $this->podtcasesord = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
@@ -4875,7 +5188,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }
@@ -4899,7 +5212,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
+            // return parent::preInsert($con);
         }
         return true;
     }
@@ -4923,7 +5236,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
+            // return parent::preUpdate($con);
         }
         return true;
     }
@@ -4947,7 +5260,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
+            // return parent::preDelete($con);
         }
         return true;
     }

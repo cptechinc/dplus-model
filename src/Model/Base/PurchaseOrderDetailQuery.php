@@ -60,6 +60,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetailQuery orderByPodtlistpric($order = Criteria::ASC) Order by the PodtListPric column
  * @method     ChildPurchaseOrderDetailQuery orderByPodtdelivereddate($order = Criteria::ASC) Order by the PodtDeliveredDate column
  * @method     ChildPurchaseOrderDetailQuery orderByPodtlandcost($order = Criteria::ASC) Order by the PodtLandCost column
+ * @method     ChildPurchaseOrderDetailQuery orderByPodtcasesord($order = Criteria::ASC) Order by the PodtCasesOrd column
  * @method     ChildPurchaseOrderDetailQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildPurchaseOrderDetailQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildPurchaseOrderDetailQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -104,6 +105,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetailQuery groupByPodtlistpric() Group by the PodtListPric column
  * @method     ChildPurchaseOrderDetailQuery groupByPodtdelivereddate() Group by the PodtDeliveredDate column
  * @method     ChildPurchaseOrderDetailQuery groupByPodtlandcost() Group by the PodtLandCost column
+ * @method     ChildPurchaseOrderDetailQuery groupByPodtcasesord() Group by the PodtCasesOrd column
  * @method     ChildPurchaseOrderDetailQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildPurchaseOrderDetailQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildPurchaseOrderDetailQuery groupByDummy() Group by the dummy column
@@ -171,7 +173,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetail findOne(ConnectionInterface $con = null) Return the first ChildPurchaseOrderDetail matching the query
  * @method     ChildPurchaseOrderDetail findOneOrCreate(ConnectionInterface $con = null) Return the first ChildPurchaseOrderDetail matching the query, or a new ChildPurchaseOrderDetail object populated from the query conditions when no match is found
  *
- * @method     ChildPurchaseOrderDetail findOneByPohdnbr(string $PohdNbr) Return the first ChildPurchaseOrderDetail filtered by the PohdNbr column
+ * @method     ChildPurchaseOrderDetail findOneByPohdnbr(int $PohdNbr) Return the first ChildPurchaseOrderDetail filtered by the PohdNbr column
  * @method     ChildPurchaseOrderDetail findOneByPodtline(int $PodtLine) Return the first ChildPurchaseOrderDetail filtered by the PodtLine column
  * @method     ChildPurchaseOrderDetail findOneByInititemnbr(string $InitItemNbr) Return the first ChildPurchaseOrderDetail filtered by the InitItemNbr column
  * @method     ChildPurchaseOrderDetail findOneByPodtdesc1(string $PodtDesc1) Return the first ChildPurchaseOrderDetail filtered by the PodtDesc1 column
@@ -188,7 +190,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetail findOneByPodtrel(string $PodtRel) Return the first ChildPurchaseOrderDetail filtered by the PodtRel column
  * @method     ChildPurchaseOrderDetail findOneByPodtspecordr(string $PodtSpecOrdr) Return the first ChildPurchaseOrderDetail filtered by the PodtSpecOrdr column
  * @method     ChildPurchaseOrderDetail findOneByPodtglacct(string $PodtGlAcct) Return the first ChildPurchaseOrderDetail filtered by the PodtGlAcct column
- * @method     ChildPurchaseOrderDetail findOneByPodtsonbr(string $PodtSoNbr) Return the first ChildPurchaseOrderDetail filtered by the PodtSoNbr column
+ * @method     ChildPurchaseOrderDetail findOneByPodtsonbr(int $PodtSoNbr) Return the first ChildPurchaseOrderDetail filtered by the PodtSoNbr column
  * @method     ChildPurchaseOrderDetail findOneByPodtstat(string $PodtStat) Return the first ChildPurchaseOrderDetail filtered by the PodtStat column
  * @method     ChildPurchaseOrderDetail findOneByPodtorigsoline(int $PodtOrigSoLine) Return the first ChildPurchaseOrderDetail filtered by the PodtOrigSoLine column
  * @method     ChildPurchaseOrderDetail findOneByPodtqtyduein(string $PodtQtyDueIn) Return the first ChildPurchaseOrderDetail filtered by the PodtQtyDueIn column
@@ -204,13 +206,14 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetail findOneByPodtrevision(string $PodtRevision) Return the first ChildPurchaseOrderDetail filtered by the PodtRevision column
  * @method     ChildPurchaseOrderDetail findOneByPodtprtpoeoru(string $PodtPrtPoEOrU) Return the first ChildPurchaseOrderDetail filtered by the PodtPrtPoEOrU column
  * @method     ChildPurchaseOrderDetail findOneByPotbcnfmcode(string $PotbCnfmCode) Return the first ChildPurchaseOrderDetail filtered by the PotbCnfmCode column
- * @method     ChildPurchaseOrderDetail findOneByPodtrcptnbr(string $PodtRcptNbr) Return the first ChildPurchaseOrderDetail filtered by the PodtRcptNbr column
- * @method     ChildPurchaseOrderDetail findOneByPodtwipnbr(string $PodtWipNbr) Return the first ChildPurchaseOrderDetail filtered by the PodtWipNbr column
+ * @method     ChildPurchaseOrderDetail findOneByPodtrcptnbr(int $PodtRcptNbr) Return the first ChildPurchaseOrderDetail filtered by the PodtRcptNbr column
+ * @method     ChildPurchaseOrderDetail findOneByPodtwipnbr(int $PodtWipNbr) Return the first ChildPurchaseOrderDetail filtered by the PodtWipNbr column
  * @method     ChildPurchaseOrderDetail findOneByPodtordras(string $PodtOrdrAs) Return the first ChildPurchaseOrderDetail filtered by the PodtOrdrAs column
  * @method     ChildPurchaseOrderDetail findOneByPodtboldate(string $PodtBolDate) Return the first ChildPurchaseOrderDetail filtered by the PodtBolDate column
  * @method     ChildPurchaseOrderDetail findOneByPodtlistpric(string $PodtListPric) Return the first ChildPurchaseOrderDetail filtered by the PodtListPric column
  * @method     ChildPurchaseOrderDetail findOneByPodtdelivereddate(string $PodtDeliveredDate) Return the first ChildPurchaseOrderDetail filtered by the PodtDeliveredDate column
  * @method     ChildPurchaseOrderDetail findOneByPodtlandcost(string $PodtLandCost) Return the first ChildPurchaseOrderDetail filtered by the PodtLandCost column
+ * @method     ChildPurchaseOrderDetail findOneByPodtcasesord(int $PodtCasesOrd) Return the first ChildPurchaseOrderDetail filtered by the PodtCasesOrd column
  * @method     ChildPurchaseOrderDetail findOneByDateupdtd(string $DateUpdtd) Return the first ChildPurchaseOrderDetail filtered by the DateUpdtd column
  * @method     ChildPurchaseOrderDetail findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPurchaseOrderDetail filtered by the TimeUpdtd column
  * @method     ChildPurchaseOrderDetail findOneByDummy(string $dummy) Return the first ChildPurchaseOrderDetail filtered by the dummy column *
@@ -218,7 +221,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetail requirePk($key, ConnectionInterface $con = null) Return the ChildPurchaseOrderDetail by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOne(ConnectionInterface $con = null) Return the first ChildPurchaseOrderDetail matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildPurchaseOrderDetail requireOneByPohdnbr(string $PohdNbr) Return the first ChildPurchaseOrderDetail filtered by the PohdNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPurchaseOrderDetail requireOneByPohdnbr(int $PohdNbr) Return the first ChildPurchaseOrderDetail filtered by the PohdNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByPodtline(int $PodtLine) Return the first ChildPurchaseOrderDetail filtered by the PodtLine column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByInititemnbr(string $InitItemNbr) Return the first ChildPurchaseOrderDetail filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByPodtdesc1(string $PodtDesc1) Return the first ChildPurchaseOrderDetail filtered by the PodtDesc1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -235,7 +238,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetail requireOneByPodtrel(string $PodtRel) Return the first ChildPurchaseOrderDetail filtered by the PodtRel column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByPodtspecordr(string $PodtSpecOrdr) Return the first ChildPurchaseOrderDetail filtered by the PodtSpecOrdr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByPodtglacct(string $PodtGlAcct) Return the first ChildPurchaseOrderDetail filtered by the PodtGlAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildPurchaseOrderDetail requireOneByPodtsonbr(string $PodtSoNbr) Return the first ChildPurchaseOrderDetail filtered by the PodtSoNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPurchaseOrderDetail requireOneByPodtsonbr(int $PodtSoNbr) Return the first ChildPurchaseOrderDetail filtered by the PodtSoNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByPodtstat(string $PodtStat) Return the first ChildPurchaseOrderDetail filtered by the PodtStat column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByPodtorigsoline(int $PodtOrigSoLine) Return the first ChildPurchaseOrderDetail filtered by the PodtOrigSoLine column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByPodtqtyduein(string $PodtQtyDueIn) Return the first ChildPurchaseOrderDetail filtered by the PodtQtyDueIn column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -251,19 +254,20 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetail requireOneByPodtrevision(string $PodtRevision) Return the first ChildPurchaseOrderDetail filtered by the PodtRevision column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByPodtprtpoeoru(string $PodtPrtPoEOrU) Return the first ChildPurchaseOrderDetail filtered by the PodtPrtPoEOrU column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByPotbcnfmcode(string $PotbCnfmCode) Return the first ChildPurchaseOrderDetail filtered by the PotbCnfmCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildPurchaseOrderDetail requireOneByPodtrcptnbr(string $PodtRcptNbr) Return the first ChildPurchaseOrderDetail filtered by the PodtRcptNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildPurchaseOrderDetail requireOneByPodtwipnbr(string $PodtWipNbr) Return the first ChildPurchaseOrderDetail filtered by the PodtWipNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPurchaseOrderDetail requireOneByPodtrcptnbr(int $PodtRcptNbr) Return the first ChildPurchaseOrderDetail filtered by the PodtRcptNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPurchaseOrderDetail requireOneByPodtwipnbr(int $PodtWipNbr) Return the first ChildPurchaseOrderDetail filtered by the PodtWipNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByPodtordras(string $PodtOrdrAs) Return the first ChildPurchaseOrderDetail filtered by the PodtOrdrAs column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByPodtboldate(string $PodtBolDate) Return the first ChildPurchaseOrderDetail filtered by the PodtBolDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByPodtlistpric(string $PodtListPric) Return the first ChildPurchaseOrderDetail filtered by the PodtListPric column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByPodtdelivereddate(string $PodtDeliveredDate) Return the first ChildPurchaseOrderDetail filtered by the PodtDeliveredDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByPodtlandcost(string $PodtLandCost) Return the first ChildPurchaseOrderDetail filtered by the PodtLandCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPurchaseOrderDetail requireOneByPodtcasesord(int $PodtCasesOrd) Return the first ChildPurchaseOrderDetail filtered by the PodtCasesOrd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByDateupdtd(string $DateUpdtd) Return the first ChildPurchaseOrderDetail filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPurchaseOrderDetail filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetail requireOneByDummy(string $dummy) Return the first ChildPurchaseOrderDetail filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildPurchaseOrderDetail objects based on current ModelCriteria
- * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPohdnbr(string $PohdNbr) Return ChildPurchaseOrderDetail objects filtered by the PohdNbr column
+ * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPohdnbr(int $PohdNbr) Return ChildPurchaseOrderDetail objects filtered by the PohdNbr column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtline(int $PodtLine) Return ChildPurchaseOrderDetail objects filtered by the PodtLine column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildPurchaseOrderDetail objects filtered by the InitItemNbr column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtdesc1(string $PodtDesc1) Return ChildPurchaseOrderDetail objects filtered by the PodtDesc1 column
@@ -280,7 +284,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtrel(string $PodtRel) Return ChildPurchaseOrderDetail objects filtered by the PodtRel column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtspecordr(string $PodtSpecOrdr) Return ChildPurchaseOrderDetail objects filtered by the PodtSpecOrdr column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtglacct(string $PodtGlAcct) Return ChildPurchaseOrderDetail objects filtered by the PodtGlAcct column
- * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtsonbr(string $PodtSoNbr) Return ChildPurchaseOrderDetail objects filtered by the PodtSoNbr column
+ * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtsonbr(int $PodtSoNbr) Return ChildPurchaseOrderDetail objects filtered by the PodtSoNbr column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtstat(string $PodtStat) Return ChildPurchaseOrderDetail objects filtered by the PodtStat column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtorigsoline(int $PodtOrigSoLine) Return ChildPurchaseOrderDetail objects filtered by the PodtOrigSoLine column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtqtyduein(string $PodtQtyDueIn) Return ChildPurchaseOrderDetail objects filtered by the PodtQtyDueIn column
@@ -296,13 +300,14 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtrevision(string $PodtRevision) Return ChildPurchaseOrderDetail objects filtered by the PodtRevision column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtprtpoeoru(string $PodtPrtPoEOrU) Return ChildPurchaseOrderDetail objects filtered by the PodtPrtPoEOrU column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPotbcnfmcode(string $PotbCnfmCode) Return ChildPurchaseOrderDetail objects filtered by the PotbCnfmCode column
- * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtrcptnbr(string $PodtRcptNbr) Return ChildPurchaseOrderDetail objects filtered by the PodtRcptNbr column
- * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtwipnbr(string $PodtWipNbr) Return ChildPurchaseOrderDetail objects filtered by the PodtWipNbr column
+ * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtrcptnbr(int $PodtRcptNbr) Return ChildPurchaseOrderDetail objects filtered by the PodtRcptNbr column
+ * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtwipnbr(int $PodtWipNbr) Return ChildPurchaseOrderDetail objects filtered by the PodtWipNbr column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtordras(string $PodtOrdrAs) Return ChildPurchaseOrderDetail objects filtered by the PodtOrdrAs column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtboldate(string $PodtBolDate) Return ChildPurchaseOrderDetail objects filtered by the PodtBolDate column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtlistpric(string $PodtListPric) Return ChildPurchaseOrderDetail objects filtered by the PodtListPric column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtdelivereddate(string $PodtDeliveredDate) Return ChildPurchaseOrderDetail objects filtered by the PodtDeliveredDate column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtlandcost(string $PodtLandCost) Return ChildPurchaseOrderDetail objects filtered by the PodtLandCost column
+ * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByPodtcasesord(int $PodtCasesOrd) Return ChildPurchaseOrderDetail objects filtered by the PodtCasesOrd column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildPurchaseOrderDetail objects filtered by the DateUpdtd column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildPurchaseOrderDetail objects filtered by the TimeUpdtd column
  * @method     ChildPurchaseOrderDetail[]|ObjectCollection findByDummy(string $dummy) Return ChildPurchaseOrderDetail objects filtered by the dummy column
@@ -404,10 +409,10 @@ abstract class PurchaseOrderDetailQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT PohdNbr, PodtLine, InitItemNbr, PodtDesc1, PodtDesc2, PodtVendItemNbr, IntbWhse, PodtShipDate, PodtExptDate, PodtCancDate, IntbUomPur, PodtQtyOrd, PodtCost, PodtCostTot, PodtRel, PodtSpecOrdr, PodtGlAcct, PodtSoNbr, PodtStat, PodtOrigSoLine, PodtQtyDueIn, PodtType, PodtWghtTot, PodtForeignCost, PodtForeignCostTot, PodtStanUnitCost, PodtAckDate, PodtInvcClearFlag, PodtPrtKitDet, PodtDestWhse, PodtRevision, PodtPrtPoEOrU, PotbCnfmCode, PodtRcptNbr, PodtWipNbr, PodtOrdrAs, PodtBolDate, PodtListPric, PodtDeliveredDate, PodtLandCost, DateUpdtd, TimeUpdtd, dummy FROM po_detail WHERE PohdNbr = :p0 AND PodtLine = :p1';
+        $sql = 'SELECT PohdNbr, PodtLine, InitItemNbr, PodtDesc1, PodtDesc2, PodtVendItemNbr, IntbWhse, PodtShipDate, PodtExptDate, PodtCancDate, IntbUomPur, PodtQtyOrd, PodtCost, PodtCostTot, PodtRel, PodtSpecOrdr, PodtGlAcct, PodtSoNbr, PodtStat, PodtOrigSoLine, PodtQtyDueIn, PodtType, PodtWghtTot, PodtForeignCost, PodtForeignCostTot, PodtStanUnitCost, PodtAckDate, PodtInvcClearFlag, PodtPrtKitDet, PodtDestWhse, PodtRevision, PodtPrtPoEOrU, PotbCnfmCode, PodtRcptNbr, PodtWipNbr, PodtOrdrAs, PodtBolDate, PodtListPric, PodtDeliveredDate, PodtLandCost, PodtCasesOrd, DateUpdtd, TimeUpdtd, dummy FROM po_detail WHERE PohdNbr = :p0 AND PodtLine = :p1';
         try {
             $stmt = $con->prepare($sql);
-            $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
+            $stmt->bindValue(':p0', $key[0], PDO::PARAM_INT);
             $stmt->bindValue(':p1', $key[1], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
@@ -511,19 +516,37 @@ abstract class PurchaseOrderDetailQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByPohdnbr('fooValue');   // WHERE PohdNbr = 'fooValue'
-     * $query->filterByPohdnbr('%fooValue%', Criteria::LIKE); // WHERE PohdNbr LIKE '%fooValue%'
+     * $query->filterByPohdnbr(1234); // WHERE PohdNbr = 1234
+     * $query->filterByPohdnbr(array(12, 34)); // WHERE PohdNbr IN (12, 34)
+     * $query->filterByPohdnbr(array('min' => 12)); // WHERE PohdNbr > 12
      * </code>
      *
-     * @param     string $pohdnbr The value to use as filter.
+     * @see       filterByPurchaseOrder()
+     *
+     * @param     mixed $pohdnbr The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildPurchaseOrderDetailQuery The current query, for fluid interface
      */
     public function filterByPohdnbr($pohdnbr = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pohdnbr)) {
+        if (is_array($pohdnbr)) {
+            $useMinMax = false;
+            if (isset($pohdnbr['min'])) {
+                $this->addUsingAlias(PurchaseOrderDetailTableMap::COL_POHDNBR, $pohdnbr['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($pohdnbr['max'])) {
+                $this->addUsingAlias(PurchaseOrderDetailTableMap::COL_POHDNBR, $pohdnbr['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -1000,19 +1023,35 @@ abstract class PurchaseOrderDetailQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByPodtsonbr('fooValue');   // WHERE PodtSoNbr = 'fooValue'
-     * $query->filterByPodtsonbr('%fooValue%', Criteria::LIKE); // WHERE PodtSoNbr LIKE '%fooValue%'
+     * $query->filterByPodtsonbr(1234); // WHERE PodtSoNbr = 1234
+     * $query->filterByPodtsonbr(array(12, 34)); // WHERE PodtSoNbr IN (12, 34)
+     * $query->filterByPodtsonbr(array('min' => 12)); // WHERE PodtSoNbr > 12
      * </code>
      *
-     * @param     string $podtsonbr The value to use as filter.
+     * @param     mixed $podtsonbr The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildPurchaseOrderDetailQuery The current query, for fluid interface
      */
     public function filterByPodtsonbr($podtsonbr = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($podtsonbr)) {
+        if (is_array($podtsonbr)) {
+            $useMinMax = false;
+            if (isset($podtsonbr['min'])) {
+                $this->addUsingAlias(PurchaseOrderDetailTableMap::COL_PODTSONBR, $podtsonbr['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($podtsonbr['max'])) {
+                $this->addUsingAlias(PurchaseOrderDetailTableMap::COL_PODTSONBR, $podtsonbr['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -1496,19 +1535,35 @@ abstract class PurchaseOrderDetailQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByPodtrcptnbr('fooValue');   // WHERE PodtRcptNbr = 'fooValue'
-     * $query->filterByPodtrcptnbr('%fooValue%', Criteria::LIKE); // WHERE PodtRcptNbr LIKE '%fooValue%'
+     * $query->filterByPodtrcptnbr(1234); // WHERE PodtRcptNbr = 1234
+     * $query->filterByPodtrcptnbr(array(12, 34)); // WHERE PodtRcptNbr IN (12, 34)
+     * $query->filterByPodtrcptnbr(array('min' => 12)); // WHERE PodtRcptNbr > 12
      * </code>
      *
-     * @param     string $podtrcptnbr The value to use as filter.
+     * @param     mixed $podtrcptnbr The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildPurchaseOrderDetailQuery The current query, for fluid interface
      */
     public function filterByPodtrcptnbr($podtrcptnbr = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($podtrcptnbr)) {
+        if (is_array($podtrcptnbr)) {
+            $useMinMax = false;
+            if (isset($podtrcptnbr['min'])) {
+                $this->addUsingAlias(PurchaseOrderDetailTableMap::COL_PODTRCPTNBR, $podtrcptnbr['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($podtrcptnbr['max'])) {
+                $this->addUsingAlias(PurchaseOrderDetailTableMap::COL_PODTRCPTNBR, $podtrcptnbr['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -1521,19 +1576,35 @@ abstract class PurchaseOrderDetailQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByPodtwipnbr('fooValue');   // WHERE PodtWipNbr = 'fooValue'
-     * $query->filterByPodtwipnbr('%fooValue%', Criteria::LIKE); // WHERE PodtWipNbr LIKE '%fooValue%'
+     * $query->filterByPodtwipnbr(1234); // WHERE PodtWipNbr = 1234
+     * $query->filterByPodtwipnbr(array(12, 34)); // WHERE PodtWipNbr IN (12, 34)
+     * $query->filterByPodtwipnbr(array('min' => 12)); // WHERE PodtWipNbr > 12
      * </code>
      *
-     * @param     string $podtwipnbr The value to use as filter.
+     * @param     mixed $podtwipnbr The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildPurchaseOrderDetailQuery The current query, for fluid interface
      */
     public function filterByPodtwipnbr($podtwipnbr = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($podtwipnbr)) {
+        if (is_array($podtwipnbr)) {
+            $useMinMax = false;
+            if (isset($podtwipnbr['min'])) {
+                $this->addUsingAlias(PurchaseOrderDetailTableMap::COL_PODTWIPNBR, $podtwipnbr['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($podtwipnbr['max'])) {
+                $this->addUsingAlias(PurchaseOrderDetailTableMap::COL_PODTWIPNBR, $podtwipnbr['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -1696,6 +1767,47 @@ abstract class PurchaseOrderDetailQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(PurchaseOrderDetailTableMap::COL_PODTLANDCOST, $podtlandcost, $comparison);
+    }
+
+    /**
+     * Filter the query on the PodtCasesOrd column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPodtcasesord(1234); // WHERE PodtCasesOrd = 1234
+     * $query->filterByPodtcasesord(array(12, 34)); // WHERE PodtCasesOrd IN (12, 34)
+     * $query->filterByPodtcasesord(array('min' => 12)); // WHERE PodtCasesOrd > 12
+     * </code>
+     *
+     * @param     mixed $podtcasesord The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildPurchaseOrderDetailQuery The current query, for fluid interface
+     */
+    public function filterByPodtcasesord($podtcasesord = null, $comparison = null)
+    {
+        if (is_array($podtcasesord)) {
+            $useMinMax = false;
+            if (isset($podtcasesord['min'])) {
+                $this->addUsingAlias(PurchaseOrderDetailTableMap::COL_PODTCASESORD, $podtcasesord['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($podtcasesord['max'])) {
+                $this->addUsingAlias(PurchaseOrderDetailTableMap::COL_PODTCASESORD, $podtcasesord['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(PurchaseOrderDetailTableMap::COL_PODTCASESORD, $podtcasesord, $comparison);
     }
 
     /**
@@ -1885,7 +1997,7 @@ abstract class PurchaseOrderDetailQuery extends ModelCriteria
      *
      * @return $this|ChildPurchaseOrderDetailQuery The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -1920,7 +2032,7 @@ abstract class PurchaseOrderDetailQuery extends ModelCriteria
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
-    public function useItemMasterItemQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useItemMasterItemQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)

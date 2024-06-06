@@ -59,7 +59,7 @@ class PurchaseOrderDetailTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 43;
+    const NUM_COLUMNS = 44;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class PurchaseOrderDetailTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 43;
+    const NUM_HYDRATE_COLUMNS = 44;
 
     /**
      * the column name for the PohdNbr field
@@ -272,6 +272,11 @@ class PurchaseOrderDetailTableMap extends TableMap
     const COL_PODTLANDCOST = 'po_detail.PodtLandCost';
 
     /**
+     * the column name for the PodtCasesOrd field
+     */
+    const COL_PODTCASESORD = 'po_detail.PodtCasesOrd';
+
+    /**
      * the column name for the DateUpdtd field
      */
     const COL_DATEUPDTD = 'po_detail.DateUpdtd';
@@ -298,11 +303,11 @@ class PurchaseOrderDetailTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Pohdnbr', 'Podtline', 'Inititemnbr', 'Podtdesc1', 'Podtdesc2', 'Podtvenditemnbr', 'Intbwhse', 'Podtshipdate', 'Podtexptdate', 'Podtcancdate', 'Intbuompur', 'Podtqtyord', 'Podtcost', 'Podtcosttot', 'Podtrel', 'Podtspecordr', 'Podtglacct', 'Podtsonbr', 'Podtstat', 'Podtorigsoline', 'Podtqtyduein', 'Podttype', 'Podtwghttot', 'Podtforeigncost', 'Podtforeigncosttot', 'Podtstanunitcost', 'Podtackdate', 'Podtinvcclearflag', 'Podtprtkitdet', 'Podtdestwhse', 'Podtrevision', 'Podtprtpoeoru', 'Potbcnfmcode', 'Podtrcptnbr', 'Podtwipnbr', 'Podtordras', 'Podtboldate', 'Podtlistpric', 'Podtdelivereddate', 'Podtlandcost', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('pohdnbr', 'podtline', 'inititemnbr', 'podtdesc1', 'podtdesc2', 'podtvenditemnbr', 'intbwhse', 'podtshipdate', 'podtexptdate', 'podtcancdate', 'intbuompur', 'podtqtyord', 'podtcost', 'podtcosttot', 'podtrel', 'podtspecordr', 'podtglacct', 'podtsonbr', 'podtstat', 'podtorigsoline', 'podtqtyduein', 'podttype', 'podtwghttot', 'podtforeigncost', 'podtforeigncosttot', 'podtstanunitcost', 'podtackdate', 'podtinvcclearflag', 'podtprtkitdet', 'podtdestwhse', 'podtrevision', 'podtprtpoeoru', 'potbcnfmcode', 'podtrcptnbr', 'podtwipnbr', 'podtordras', 'podtboldate', 'podtlistpric', 'podtdelivereddate', 'podtlandcost', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(PurchaseOrderDetailTableMap::COL_POHDNBR, PurchaseOrderDetailTableMap::COL_PODTLINE, PurchaseOrderDetailTableMap::COL_INITITEMNBR, PurchaseOrderDetailTableMap::COL_PODTDESC1, PurchaseOrderDetailTableMap::COL_PODTDESC2, PurchaseOrderDetailTableMap::COL_PODTVENDITEMNBR, PurchaseOrderDetailTableMap::COL_INTBWHSE, PurchaseOrderDetailTableMap::COL_PODTSHIPDATE, PurchaseOrderDetailTableMap::COL_PODTEXPTDATE, PurchaseOrderDetailTableMap::COL_PODTCANCDATE, PurchaseOrderDetailTableMap::COL_INTBUOMPUR, PurchaseOrderDetailTableMap::COL_PODTQTYORD, PurchaseOrderDetailTableMap::COL_PODTCOST, PurchaseOrderDetailTableMap::COL_PODTCOSTTOT, PurchaseOrderDetailTableMap::COL_PODTREL, PurchaseOrderDetailTableMap::COL_PODTSPECORDR, PurchaseOrderDetailTableMap::COL_PODTGLACCT, PurchaseOrderDetailTableMap::COL_PODTSONBR, PurchaseOrderDetailTableMap::COL_PODTSTAT, PurchaseOrderDetailTableMap::COL_PODTORIGSOLINE, PurchaseOrderDetailTableMap::COL_PODTQTYDUEIN, PurchaseOrderDetailTableMap::COL_PODTTYPE, PurchaseOrderDetailTableMap::COL_PODTWGHTTOT, PurchaseOrderDetailTableMap::COL_PODTFOREIGNCOST, PurchaseOrderDetailTableMap::COL_PODTFOREIGNCOSTTOT, PurchaseOrderDetailTableMap::COL_PODTSTANUNITCOST, PurchaseOrderDetailTableMap::COL_PODTACKDATE, PurchaseOrderDetailTableMap::COL_PODTINVCCLEARFLAG, PurchaseOrderDetailTableMap::COL_PODTPRTKITDET, PurchaseOrderDetailTableMap::COL_PODTDESTWHSE, PurchaseOrderDetailTableMap::COL_PODTREVISION, PurchaseOrderDetailTableMap::COL_PODTPRTPOEORU, PurchaseOrderDetailTableMap::COL_POTBCNFMCODE, PurchaseOrderDetailTableMap::COL_PODTRCPTNBR, PurchaseOrderDetailTableMap::COL_PODTWIPNBR, PurchaseOrderDetailTableMap::COL_PODTORDRAS, PurchaseOrderDetailTableMap::COL_PODTBOLDATE, PurchaseOrderDetailTableMap::COL_PODTLISTPRIC, PurchaseOrderDetailTableMap::COL_PODTDELIVEREDDATE, PurchaseOrderDetailTableMap::COL_PODTLANDCOST, PurchaseOrderDetailTableMap::COL_DATEUPDTD, PurchaseOrderDetailTableMap::COL_TIMEUPDTD, PurchaseOrderDetailTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('PohdNbr', 'PodtLine', 'InitItemNbr', 'PodtDesc1', 'PodtDesc2', 'PodtVendItemNbr', 'IntbWhse', 'PodtShipDate', 'PodtExptDate', 'PodtCancDate', 'IntbUomPur', 'PodtQtyOrd', 'PodtCost', 'PodtCostTot', 'PodtRel', 'PodtSpecOrdr', 'PodtGlAcct', 'PodtSoNbr', 'PodtStat', 'PodtOrigSoLine', 'PodtQtyDueIn', 'PodtType', 'PodtWghtTot', 'PodtForeignCost', 'PodtForeignCostTot', 'PodtStanUnitCost', 'PodtAckDate', 'PodtInvcClearFlag', 'PodtPrtKitDet', 'PodtDestWhse', 'PodtRevision', 'PodtPrtPoEOrU', 'PotbCnfmCode', 'PodtRcptNbr', 'PodtWipNbr', 'PodtOrdrAs', 'PodtBolDate', 'PodtListPric', 'PodtDeliveredDate', 'PodtLandCost', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, )
+        self::TYPE_PHPNAME       => array('Pohdnbr', 'Podtline', 'Inititemnbr', 'Podtdesc1', 'Podtdesc2', 'Podtvenditemnbr', 'Intbwhse', 'Podtshipdate', 'Podtexptdate', 'Podtcancdate', 'Intbuompur', 'Podtqtyord', 'Podtcost', 'Podtcosttot', 'Podtrel', 'Podtspecordr', 'Podtglacct', 'Podtsonbr', 'Podtstat', 'Podtorigsoline', 'Podtqtyduein', 'Podttype', 'Podtwghttot', 'Podtforeigncost', 'Podtforeigncosttot', 'Podtstanunitcost', 'Podtackdate', 'Podtinvcclearflag', 'Podtprtkitdet', 'Podtdestwhse', 'Podtrevision', 'Podtprtpoeoru', 'Potbcnfmcode', 'Podtrcptnbr', 'Podtwipnbr', 'Podtordras', 'Podtboldate', 'Podtlistpric', 'Podtdelivereddate', 'Podtlandcost', 'Podtcasesord', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('pohdnbr', 'podtline', 'inititemnbr', 'podtdesc1', 'podtdesc2', 'podtvenditemnbr', 'intbwhse', 'podtshipdate', 'podtexptdate', 'podtcancdate', 'intbuompur', 'podtqtyord', 'podtcost', 'podtcosttot', 'podtrel', 'podtspecordr', 'podtglacct', 'podtsonbr', 'podtstat', 'podtorigsoline', 'podtqtyduein', 'podttype', 'podtwghttot', 'podtforeigncost', 'podtforeigncosttot', 'podtstanunitcost', 'podtackdate', 'podtinvcclearflag', 'podtprtkitdet', 'podtdestwhse', 'podtrevision', 'podtprtpoeoru', 'potbcnfmcode', 'podtrcptnbr', 'podtwipnbr', 'podtordras', 'podtboldate', 'podtlistpric', 'podtdelivereddate', 'podtlandcost', 'podtcasesord', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(PurchaseOrderDetailTableMap::COL_POHDNBR, PurchaseOrderDetailTableMap::COL_PODTLINE, PurchaseOrderDetailTableMap::COL_INITITEMNBR, PurchaseOrderDetailTableMap::COL_PODTDESC1, PurchaseOrderDetailTableMap::COL_PODTDESC2, PurchaseOrderDetailTableMap::COL_PODTVENDITEMNBR, PurchaseOrderDetailTableMap::COL_INTBWHSE, PurchaseOrderDetailTableMap::COL_PODTSHIPDATE, PurchaseOrderDetailTableMap::COL_PODTEXPTDATE, PurchaseOrderDetailTableMap::COL_PODTCANCDATE, PurchaseOrderDetailTableMap::COL_INTBUOMPUR, PurchaseOrderDetailTableMap::COL_PODTQTYORD, PurchaseOrderDetailTableMap::COL_PODTCOST, PurchaseOrderDetailTableMap::COL_PODTCOSTTOT, PurchaseOrderDetailTableMap::COL_PODTREL, PurchaseOrderDetailTableMap::COL_PODTSPECORDR, PurchaseOrderDetailTableMap::COL_PODTGLACCT, PurchaseOrderDetailTableMap::COL_PODTSONBR, PurchaseOrderDetailTableMap::COL_PODTSTAT, PurchaseOrderDetailTableMap::COL_PODTORIGSOLINE, PurchaseOrderDetailTableMap::COL_PODTQTYDUEIN, PurchaseOrderDetailTableMap::COL_PODTTYPE, PurchaseOrderDetailTableMap::COL_PODTWGHTTOT, PurchaseOrderDetailTableMap::COL_PODTFOREIGNCOST, PurchaseOrderDetailTableMap::COL_PODTFOREIGNCOSTTOT, PurchaseOrderDetailTableMap::COL_PODTSTANUNITCOST, PurchaseOrderDetailTableMap::COL_PODTACKDATE, PurchaseOrderDetailTableMap::COL_PODTINVCCLEARFLAG, PurchaseOrderDetailTableMap::COL_PODTPRTKITDET, PurchaseOrderDetailTableMap::COL_PODTDESTWHSE, PurchaseOrderDetailTableMap::COL_PODTREVISION, PurchaseOrderDetailTableMap::COL_PODTPRTPOEORU, PurchaseOrderDetailTableMap::COL_POTBCNFMCODE, PurchaseOrderDetailTableMap::COL_PODTRCPTNBR, PurchaseOrderDetailTableMap::COL_PODTWIPNBR, PurchaseOrderDetailTableMap::COL_PODTORDRAS, PurchaseOrderDetailTableMap::COL_PODTBOLDATE, PurchaseOrderDetailTableMap::COL_PODTLISTPRIC, PurchaseOrderDetailTableMap::COL_PODTDELIVEREDDATE, PurchaseOrderDetailTableMap::COL_PODTLANDCOST, PurchaseOrderDetailTableMap::COL_PODTCASESORD, PurchaseOrderDetailTableMap::COL_DATEUPDTD, PurchaseOrderDetailTableMap::COL_TIMEUPDTD, PurchaseOrderDetailTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('PohdNbr', 'PodtLine', 'InitItemNbr', 'PodtDesc1', 'PodtDesc2', 'PodtVendItemNbr', 'IntbWhse', 'PodtShipDate', 'PodtExptDate', 'PodtCancDate', 'IntbUomPur', 'PodtQtyOrd', 'PodtCost', 'PodtCostTot', 'PodtRel', 'PodtSpecOrdr', 'PodtGlAcct', 'PodtSoNbr', 'PodtStat', 'PodtOrigSoLine', 'PodtQtyDueIn', 'PodtType', 'PodtWghtTot', 'PodtForeignCost', 'PodtForeignCostTot', 'PodtStanUnitCost', 'PodtAckDate', 'PodtInvcClearFlag', 'PodtPrtKitDet', 'PodtDestWhse', 'PodtRevision', 'PodtPrtPoEOrU', 'PotbCnfmCode', 'PodtRcptNbr', 'PodtWipNbr', 'PodtOrdrAs', 'PodtBolDate', 'PodtListPric', 'PodtDeliveredDate', 'PodtLandCost', 'PodtCasesOrd', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, )
     );
 
     /**
@@ -312,11 +317,11 @@ class PurchaseOrderDetailTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Pohdnbr' => 0, 'Podtline' => 1, 'Inititemnbr' => 2, 'Podtdesc1' => 3, 'Podtdesc2' => 4, 'Podtvenditemnbr' => 5, 'Intbwhse' => 6, 'Podtshipdate' => 7, 'Podtexptdate' => 8, 'Podtcancdate' => 9, 'Intbuompur' => 10, 'Podtqtyord' => 11, 'Podtcost' => 12, 'Podtcosttot' => 13, 'Podtrel' => 14, 'Podtspecordr' => 15, 'Podtglacct' => 16, 'Podtsonbr' => 17, 'Podtstat' => 18, 'Podtorigsoline' => 19, 'Podtqtyduein' => 20, 'Podttype' => 21, 'Podtwghttot' => 22, 'Podtforeigncost' => 23, 'Podtforeigncosttot' => 24, 'Podtstanunitcost' => 25, 'Podtackdate' => 26, 'Podtinvcclearflag' => 27, 'Podtprtkitdet' => 28, 'Podtdestwhse' => 29, 'Podtrevision' => 30, 'Podtprtpoeoru' => 31, 'Potbcnfmcode' => 32, 'Podtrcptnbr' => 33, 'Podtwipnbr' => 34, 'Podtordras' => 35, 'Podtboldate' => 36, 'Podtlistpric' => 37, 'Podtdelivereddate' => 38, 'Podtlandcost' => 39, 'Dateupdtd' => 40, 'Timeupdtd' => 41, 'Dummy' => 42, ),
-        self::TYPE_CAMELNAME     => array('pohdnbr' => 0, 'podtline' => 1, 'inititemnbr' => 2, 'podtdesc1' => 3, 'podtdesc2' => 4, 'podtvenditemnbr' => 5, 'intbwhse' => 6, 'podtshipdate' => 7, 'podtexptdate' => 8, 'podtcancdate' => 9, 'intbuompur' => 10, 'podtqtyord' => 11, 'podtcost' => 12, 'podtcosttot' => 13, 'podtrel' => 14, 'podtspecordr' => 15, 'podtglacct' => 16, 'podtsonbr' => 17, 'podtstat' => 18, 'podtorigsoline' => 19, 'podtqtyduein' => 20, 'podttype' => 21, 'podtwghttot' => 22, 'podtforeigncost' => 23, 'podtforeigncosttot' => 24, 'podtstanunitcost' => 25, 'podtackdate' => 26, 'podtinvcclearflag' => 27, 'podtprtkitdet' => 28, 'podtdestwhse' => 29, 'podtrevision' => 30, 'podtprtpoeoru' => 31, 'potbcnfmcode' => 32, 'podtrcptnbr' => 33, 'podtwipnbr' => 34, 'podtordras' => 35, 'podtboldate' => 36, 'podtlistpric' => 37, 'podtdelivereddate' => 38, 'podtlandcost' => 39, 'dateupdtd' => 40, 'timeupdtd' => 41, 'dummy' => 42, ),
-        self::TYPE_COLNAME       => array(PurchaseOrderDetailTableMap::COL_POHDNBR => 0, PurchaseOrderDetailTableMap::COL_PODTLINE => 1, PurchaseOrderDetailTableMap::COL_INITITEMNBR => 2, PurchaseOrderDetailTableMap::COL_PODTDESC1 => 3, PurchaseOrderDetailTableMap::COL_PODTDESC2 => 4, PurchaseOrderDetailTableMap::COL_PODTVENDITEMNBR => 5, PurchaseOrderDetailTableMap::COL_INTBWHSE => 6, PurchaseOrderDetailTableMap::COL_PODTSHIPDATE => 7, PurchaseOrderDetailTableMap::COL_PODTEXPTDATE => 8, PurchaseOrderDetailTableMap::COL_PODTCANCDATE => 9, PurchaseOrderDetailTableMap::COL_INTBUOMPUR => 10, PurchaseOrderDetailTableMap::COL_PODTQTYORD => 11, PurchaseOrderDetailTableMap::COL_PODTCOST => 12, PurchaseOrderDetailTableMap::COL_PODTCOSTTOT => 13, PurchaseOrderDetailTableMap::COL_PODTREL => 14, PurchaseOrderDetailTableMap::COL_PODTSPECORDR => 15, PurchaseOrderDetailTableMap::COL_PODTGLACCT => 16, PurchaseOrderDetailTableMap::COL_PODTSONBR => 17, PurchaseOrderDetailTableMap::COL_PODTSTAT => 18, PurchaseOrderDetailTableMap::COL_PODTORIGSOLINE => 19, PurchaseOrderDetailTableMap::COL_PODTQTYDUEIN => 20, PurchaseOrderDetailTableMap::COL_PODTTYPE => 21, PurchaseOrderDetailTableMap::COL_PODTWGHTTOT => 22, PurchaseOrderDetailTableMap::COL_PODTFOREIGNCOST => 23, PurchaseOrderDetailTableMap::COL_PODTFOREIGNCOSTTOT => 24, PurchaseOrderDetailTableMap::COL_PODTSTANUNITCOST => 25, PurchaseOrderDetailTableMap::COL_PODTACKDATE => 26, PurchaseOrderDetailTableMap::COL_PODTINVCCLEARFLAG => 27, PurchaseOrderDetailTableMap::COL_PODTPRTKITDET => 28, PurchaseOrderDetailTableMap::COL_PODTDESTWHSE => 29, PurchaseOrderDetailTableMap::COL_PODTREVISION => 30, PurchaseOrderDetailTableMap::COL_PODTPRTPOEORU => 31, PurchaseOrderDetailTableMap::COL_POTBCNFMCODE => 32, PurchaseOrderDetailTableMap::COL_PODTRCPTNBR => 33, PurchaseOrderDetailTableMap::COL_PODTWIPNBR => 34, PurchaseOrderDetailTableMap::COL_PODTORDRAS => 35, PurchaseOrderDetailTableMap::COL_PODTBOLDATE => 36, PurchaseOrderDetailTableMap::COL_PODTLISTPRIC => 37, PurchaseOrderDetailTableMap::COL_PODTDELIVEREDDATE => 38, PurchaseOrderDetailTableMap::COL_PODTLANDCOST => 39, PurchaseOrderDetailTableMap::COL_DATEUPDTD => 40, PurchaseOrderDetailTableMap::COL_TIMEUPDTD => 41, PurchaseOrderDetailTableMap::COL_DUMMY => 42, ),
-        self::TYPE_FIELDNAME     => array('PohdNbr' => 0, 'PodtLine' => 1, 'InitItemNbr' => 2, 'PodtDesc1' => 3, 'PodtDesc2' => 4, 'PodtVendItemNbr' => 5, 'IntbWhse' => 6, 'PodtShipDate' => 7, 'PodtExptDate' => 8, 'PodtCancDate' => 9, 'IntbUomPur' => 10, 'PodtQtyOrd' => 11, 'PodtCost' => 12, 'PodtCostTot' => 13, 'PodtRel' => 14, 'PodtSpecOrdr' => 15, 'PodtGlAcct' => 16, 'PodtSoNbr' => 17, 'PodtStat' => 18, 'PodtOrigSoLine' => 19, 'PodtQtyDueIn' => 20, 'PodtType' => 21, 'PodtWghtTot' => 22, 'PodtForeignCost' => 23, 'PodtForeignCostTot' => 24, 'PodtStanUnitCost' => 25, 'PodtAckDate' => 26, 'PodtInvcClearFlag' => 27, 'PodtPrtKitDet' => 28, 'PodtDestWhse' => 29, 'PodtRevision' => 30, 'PodtPrtPoEOrU' => 31, 'PotbCnfmCode' => 32, 'PodtRcptNbr' => 33, 'PodtWipNbr' => 34, 'PodtOrdrAs' => 35, 'PodtBolDate' => 36, 'PodtListPric' => 37, 'PodtDeliveredDate' => 38, 'PodtLandCost' => 39, 'DateUpdtd' => 40, 'TimeUpdtd' => 41, 'dummy' => 42, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, )
+        self::TYPE_PHPNAME       => array('Pohdnbr' => 0, 'Podtline' => 1, 'Inititemnbr' => 2, 'Podtdesc1' => 3, 'Podtdesc2' => 4, 'Podtvenditemnbr' => 5, 'Intbwhse' => 6, 'Podtshipdate' => 7, 'Podtexptdate' => 8, 'Podtcancdate' => 9, 'Intbuompur' => 10, 'Podtqtyord' => 11, 'Podtcost' => 12, 'Podtcosttot' => 13, 'Podtrel' => 14, 'Podtspecordr' => 15, 'Podtglacct' => 16, 'Podtsonbr' => 17, 'Podtstat' => 18, 'Podtorigsoline' => 19, 'Podtqtyduein' => 20, 'Podttype' => 21, 'Podtwghttot' => 22, 'Podtforeigncost' => 23, 'Podtforeigncosttot' => 24, 'Podtstanunitcost' => 25, 'Podtackdate' => 26, 'Podtinvcclearflag' => 27, 'Podtprtkitdet' => 28, 'Podtdestwhse' => 29, 'Podtrevision' => 30, 'Podtprtpoeoru' => 31, 'Potbcnfmcode' => 32, 'Podtrcptnbr' => 33, 'Podtwipnbr' => 34, 'Podtordras' => 35, 'Podtboldate' => 36, 'Podtlistpric' => 37, 'Podtdelivereddate' => 38, 'Podtlandcost' => 39, 'Podtcasesord' => 40, 'Dateupdtd' => 41, 'Timeupdtd' => 42, 'Dummy' => 43, ),
+        self::TYPE_CAMELNAME     => array('pohdnbr' => 0, 'podtline' => 1, 'inititemnbr' => 2, 'podtdesc1' => 3, 'podtdesc2' => 4, 'podtvenditemnbr' => 5, 'intbwhse' => 6, 'podtshipdate' => 7, 'podtexptdate' => 8, 'podtcancdate' => 9, 'intbuompur' => 10, 'podtqtyord' => 11, 'podtcost' => 12, 'podtcosttot' => 13, 'podtrel' => 14, 'podtspecordr' => 15, 'podtglacct' => 16, 'podtsonbr' => 17, 'podtstat' => 18, 'podtorigsoline' => 19, 'podtqtyduein' => 20, 'podttype' => 21, 'podtwghttot' => 22, 'podtforeigncost' => 23, 'podtforeigncosttot' => 24, 'podtstanunitcost' => 25, 'podtackdate' => 26, 'podtinvcclearflag' => 27, 'podtprtkitdet' => 28, 'podtdestwhse' => 29, 'podtrevision' => 30, 'podtprtpoeoru' => 31, 'potbcnfmcode' => 32, 'podtrcptnbr' => 33, 'podtwipnbr' => 34, 'podtordras' => 35, 'podtboldate' => 36, 'podtlistpric' => 37, 'podtdelivereddate' => 38, 'podtlandcost' => 39, 'podtcasesord' => 40, 'dateupdtd' => 41, 'timeupdtd' => 42, 'dummy' => 43, ),
+        self::TYPE_COLNAME       => array(PurchaseOrderDetailTableMap::COL_POHDNBR => 0, PurchaseOrderDetailTableMap::COL_PODTLINE => 1, PurchaseOrderDetailTableMap::COL_INITITEMNBR => 2, PurchaseOrderDetailTableMap::COL_PODTDESC1 => 3, PurchaseOrderDetailTableMap::COL_PODTDESC2 => 4, PurchaseOrderDetailTableMap::COL_PODTVENDITEMNBR => 5, PurchaseOrderDetailTableMap::COL_INTBWHSE => 6, PurchaseOrderDetailTableMap::COL_PODTSHIPDATE => 7, PurchaseOrderDetailTableMap::COL_PODTEXPTDATE => 8, PurchaseOrderDetailTableMap::COL_PODTCANCDATE => 9, PurchaseOrderDetailTableMap::COL_INTBUOMPUR => 10, PurchaseOrderDetailTableMap::COL_PODTQTYORD => 11, PurchaseOrderDetailTableMap::COL_PODTCOST => 12, PurchaseOrderDetailTableMap::COL_PODTCOSTTOT => 13, PurchaseOrderDetailTableMap::COL_PODTREL => 14, PurchaseOrderDetailTableMap::COL_PODTSPECORDR => 15, PurchaseOrderDetailTableMap::COL_PODTGLACCT => 16, PurchaseOrderDetailTableMap::COL_PODTSONBR => 17, PurchaseOrderDetailTableMap::COL_PODTSTAT => 18, PurchaseOrderDetailTableMap::COL_PODTORIGSOLINE => 19, PurchaseOrderDetailTableMap::COL_PODTQTYDUEIN => 20, PurchaseOrderDetailTableMap::COL_PODTTYPE => 21, PurchaseOrderDetailTableMap::COL_PODTWGHTTOT => 22, PurchaseOrderDetailTableMap::COL_PODTFOREIGNCOST => 23, PurchaseOrderDetailTableMap::COL_PODTFOREIGNCOSTTOT => 24, PurchaseOrderDetailTableMap::COL_PODTSTANUNITCOST => 25, PurchaseOrderDetailTableMap::COL_PODTACKDATE => 26, PurchaseOrderDetailTableMap::COL_PODTINVCCLEARFLAG => 27, PurchaseOrderDetailTableMap::COL_PODTPRTKITDET => 28, PurchaseOrderDetailTableMap::COL_PODTDESTWHSE => 29, PurchaseOrderDetailTableMap::COL_PODTREVISION => 30, PurchaseOrderDetailTableMap::COL_PODTPRTPOEORU => 31, PurchaseOrderDetailTableMap::COL_POTBCNFMCODE => 32, PurchaseOrderDetailTableMap::COL_PODTRCPTNBR => 33, PurchaseOrderDetailTableMap::COL_PODTWIPNBR => 34, PurchaseOrderDetailTableMap::COL_PODTORDRAS => 35, PurchaseOrderDetailTableMap::COL_PODTBOLDATE => 36, PurchaseOrderDetailTableMap::COL_PODTLISTPRIC => 37, PurchaseOrderDetailTableMap::COL_PODTDELIVEREDDATE => 38, PurchaseOrderDetailTableMap::COL_PODTLANDCOST => 39, PurchaseOrderDetailTableMap::COL_PODTCASESORD => 40, PurchaseOrderDetailTableMap::COL_DATEUPDTD => 41, PurchaseOrderDetailTableMap::COL_TIMEUPDTD => 42, PurchaseOrderDetailTableMap::COL_DUMMY => 43, ),
+        self::TYPE_FIELDNAME     => array('PohdNbr' => 0, 'PodtLine' => 1, 'InitItemNbr' => 2, 'PodtDesc1' => 3, 'PodtDesc2' => 4, 'PodtVendItemNbr' => 5, 'IntbWhse' => 6, 'PodtShipDate' => 7, 'PodtExptDate' => 8, 'PodtCancDate' => 9, 'IntbUomPur' => 10, 'PodtQtyOrd' => 11, 'PodtCost' => 12, 'PodtCostTot' => 13, 'PodtRel' => 14, 'PodtSpecOrdr' => 15, 'PodtGlAcct' => 16, 'PodtSoNbr' => 17, 'PodtStat' => 18, 'PodtOrigSoLine' => 19, 'PodtQtyDueIn' => 20, 'PodtType' => 21, 'PodtWghtTot' => 22, 'PodtForeignCost' => 23, 'PodtForeignCostTot' => 24, 'PodtStanUnitCost' => 25, 'PodtAckDate' => 26, 'PodtInvcClearFlag' => 27, 'PodtPrtKitDet' => 28, 'PodtDestWhse' => 29, 'PodtRevision' => 30, 'PodtPrtPoEOrU' => 31, 'PotbCnfmCode' => 32, 'PodtRcptNbr' => 33, 'PodtWipNbr' => 34, 'PodtOrdrAs' => 35, 'PodtBolDate' => 36, 'PodtListPric' => 37, 'PodtDeliveredDate' => 38, 'PodtLandCost' => 39, 'PodtCasesOrd' => 40, 'DateUpdtd' => 41, 'TimeUpdtd' => 42, 'dummy' => 43, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, )
     );
 
     /**
@@ -336,49 +341,50 @@ class PurchaseOrderDetailTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addForeignPrimaryKey('PohdNbr', 'Pohdnbr', 'VARCHAR' , 'po_head', 'PohdNbr', true, 8, '');
+        $this->addForeignPrimaryKey('PohdNbr', 'Pohdnbr', 'INTEGER' , 'po_head', 'PohdNbr', true, 8, 0);
         $this->addPrimaryKey('PodtLine', 'Podtline', 'INTEGER', true, 4, 0);
-        $this->addForeignKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', false, 30, null);
-        $this->addColumn('PodtDesc1', 'Podtdesc1', 'VARCHAR', false, 35, null);
-        $this->addColumn('PodtDesc2', 'Podtdesc2', 'VARCHAR', false, 35, null);
-        $this->addColumn('PodtVendItemNbr', 'Podtvenditemnbr', 'VARCHAR', false, 30, null);
-        $this->addColumn('IntbWhse', 'Intbwhse', 'VARCHAR', false, 2, null);
-        $this->addColumn('PodtShipDate', 'Podtshipdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('PodtExptDate', 'Podtexptdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('PodtCancDate', 'Podtcancdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('IntbUomPur', 'Intbuompur', 'VARCHAR', false, 4, null);
-        $this->addColumn('PodtQtyOrd', 'Podtqtyord', 'DECIMAL', false, 20, null);
-        $this->addColumn('PodtCost', 'Podtcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('PodtCostTot', 'Podtcosttot', 'DECIMAL', false, 20, null);
-        $this->addColumn('PodtRel', 'Podtrel', 'VARCHAR', false, 1, null);
-        $this->addColumn('PodtSpecOrdr', 'Podtspecordr', 'VARCHAR', false, 1, null);
-        $this->addColumn('PodtGlAcct', 'Podtglacct', 'VARCHAR', false, 9, null);
-        $this->addColumn('PodtSoNbr', 'Podtsonbr', 'VARCHAR', false, 8, null);
-        $this->addColumn('PodtStat', 'Podtstat', 'VARCHAR', false, 1, null);
-        $this->addColumn('PodtOrigSoLine', 'Podtorigsoline', 'INTEGER', false, 4, null);
-        $this->addColumn('PodtQtyDueIn', 'Podtqtyduein', 'DECIMAL', false, 20, null);
-        $this->addColumn('PodtType', 'Podttype', 'VARCHAR', false, 1, null);
-        $this->addColumn('PodtWghtTot', 'Podtwghttot', 'DECIMAL', false, 20, null);
-        $this->addColumn('PodtForeignCost', 'Podtforeigncost', 'DECIMAL', false, 20, null);
-        $this->addColumn('PodtForeignCostTot', 'Podtforeigncosttot', 'DECIMAL', false, 20, null);
-        $this->addColumn('PodtStanUnitCost', 'Podtstanunitcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('PodtAckDate', 'Podtackdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('PodtInvcClearFlag', 'Podtinvcclearflag', 'VARCHAR', false, 1, null);
-        $this->addColumn('PodtPrtKitDet', 'Podtprtkitdet', 'VARCHAR', false, 1, null);
-        $this->addColumn('PodtDestWhse', 'Podtdestwhse', 'VARCHAR', false, 2, null);
-        $this->addColumn('PodtRevision', 'Podtrevision', 'VARCHAR', false, 10, null);
-        $this->addColumn('PodtPrtPoEOrU', 'Podtprtpoeoru', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbCnfmCode', 'Potbcnfmcode', 'VARCHAR', false, 4, null);
-        $this->addColumn('PodtRcptNbr', 'Podtrcptnbr', 'VARCHAR', false, 8, null);
-        $this->addColumn('PodtWipNbr', 'Podtwipnbr', 'VARCHAR', false, 8, null);
-        $this->addColumn('PodtOrdrAs', 'Podtordras', 'VARCHAR', false, 1, null);
-        $this->addColumn('PodtBolDate', 'Podtboldate', 'VARCHAR', false, 8, null);
-        $this->addColumn('PodtListPric', 'Podtlistpric', 'DECIMAL', false, 20, null);
-        $this->addColumn('PodtDeliveredDate', 'Podtdelivereddate', 'VARCHAR', false, 8, null);
-        $this->addColumn('PodtLandCost', 'Podtlandcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addForeignKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', true, 30, '');
+        $this->addColumn('PodtDesc1', 'Podtdesc1', 'VARCHAR', true, 35, '');
+        $this->addColumn('PodtDesc2', 'Podtdesc2', 'VARCHAR', true, 35, '');
+        $this->addColumn('PodtVendItemNbr', 'Podtvenditemnbr', 'VARCHAR', true, 30, '');
+        $this->addColumn('IntbWhse', 'Intbwhse', 'VARCHAR', true, 2, '');
+        $this->addColumn('PodtShipDate', 'Podtshipdate', 'CHAR', true, 8, '');
+        $this->addColumn('PodtExptDate', 'Podtexptdate', 'CHAR', true, 8, '');
+        $this->addColumn('PodtCancDate', 'Podtcancdate', 'CHAR', true, 8, '');
+        $this->addColumn('IntbUomPur', 'Intbuompur', 'VARCHAR', true, 4, '');
+        $this->addColumn('PodtQtyOrd', 'Podtqtyord', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PodtCost', 'Podtcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PodtCostTot', 'Podtcosttot', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PodtRel', 'Podtrel', 'CHAR', true, null, 'Y');
+        $this->addColumn('PodtSpecOrdr', 'Podtspecordr', 'CHAR', true, null, 'N');
+        $this->addColumn('PodtGlAcct', 'Podtglacct', 'VARCHAR', true, 9, '');
+        $this->addColumn('PodtSoNbr', 'Podtsonbr', 'INTEGER', true, 8, 0);
+        $this->addColumn('PodtStat', 'Podtstat', 'CHAR', true, null, 'O');
+        $this->addColumn('PodtOrigSoLine', 'Podtorigsoline', 'INTEGER', true, 4, 0);
+        $this->addColumn('PodtQtyDueIn', 'Podtqtyduein', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PodtType', 'Podttype', 'CHAR', true, null, 'S');
+        $this->addColumn('PodtWghtTot', 'Podtwghttot', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PodtForeignCost', 'Podtforeigncost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PodtForeignCostTot', 'Podtforeigncosttot', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PodtStanUnitCost', 'Podtstanunitcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PodtAckDate', 'Podtackdate', 'CHAR', true, 8, '');
+        $this->addColumn('PodtInvcClearFlag', 'Podtinvcclearflag', 'CHAR', true, null, 'N');
+        $this->addColumn('PodtPrtKitDet', 'Podtprtkitdet', 'CHAR', true, null, 'N');
+        $this->addColumn('PodtDestWhse', 'Podtdestwhse', 'VARCHAR', true, 2, '');
+        $this->addColumn('PodtRevision', 'Podtrevision', 'VARCHAR', true, 10, '');
+        $this->addColumn('PodtPrtPoEOrU', 'Podtprtpoeoru', 'CHAR', true, null, 'E');
+        $this->addColumn('PotbCnfmCode', 'Potbcnfmcode', 'VARCHAR', true, 4, '');
+        $this->addColumn('PodtRcptNbr', 'Podtrcptnbr', 'INTEGER', true, 8, 0);
+        $this->addColumn('PodtWipNbr', 'Podtwipnbr', 'INTEGER', true, 8, 0);
+        $this->addColumn('PodtOrdrAs', 'Podtordras', 'CHAR', true, null, 'C');
+        $this->addColumn('PodtBolDate', 'Podtboldate', 'CHAR', true, 8, '');
+        $this->addColumn('PodtListPric', 'Podtlistpric', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PodtDeliveredDate', 'Podtdelivereddate', 'CHAR', true, 8, '');
+        $this->addColumn('PodtLandCost', 'Podtlandcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PodtCasesOrd', 'Podtcasesord', 'INTEGER', true, 6, 0);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
     } // initialize()
 
     /**
@@ -530,7 +536,7 @@ class PurchaseOrderDetailTableMap extends TableMap
     {
             $pks = [];
 
-        $pks[] = (string) $row[
+        $pks[] = (int) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 0 + $offset
                 : self::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)
@@ -681,6 +687,7 @@ class PurchaseOrderDetailTableMap extends TableMap
             $criteria->addSelectColumn(PurchaseOrderDetailTableMap::COL_PODTLISTPRIC);
             $criteria->addSelectColumn(PurchaseOrderDetailTableMap::COL_PODTDELIVEREDDATE);
             $criteria->addSelectColumn(PurchaseOrderDetailTableMap::COL_PODTLANDCOST);
+            $criteria->addSelectColumn(PurchaseOrderDetailTableMap::COL_PODTCASESORD);
             $criteria->addSelectColumn(PurchaseOrderDetailTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(PurchaseOrderDetailTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(PurchaseOrderDetailTableMap::COL_DUMMY);
@@ -725,6 +732,7 @@ class PurchaseOrderDetailTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.PodtListPric');
             $criteria->addSelectColumn($alias . '.PodtDeliveredDate');
             $criteria->addSelectColumn($alias . '.PodtLandCost');
+            $criteria->addSelectColumn($alias . '.PodtCasesOrd');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');
