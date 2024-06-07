@@ -59,7 +59,7 @@ class PurchaseOrderDetailReceivingTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 33;
+    const NUM_COLUMNS = 34;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class PurchaseOrderDetailReceivingTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 33;
+    const NUM_HYDRATE_COLUMNS = 34;
 
     /**
      * the column name for the PothNbr field
@@ -222,6 +222,11 @@ class PurchaseOrderDetailReceivingTableMap extends TableMap
     const COL_POTDSHOPCOST = 'po_tran_det.PotdShopCost';
 
     /**
+     * the column name for the PotdCasesOrd field
+     */
+    const COL_POTDCASESORD = 'po_tran_det.PotdCasesOrd';
+
+    /**
      * the column name for the DateUpdtd field
      */
     const COL_DATEUPDTD = 'po_tran_det.DateUpdtd';
@@ -248,11 +253,11 @@ class PurchaseOrderDetailReceivingTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Pothnbr', 'Potdline', 'Potdseq', 'Inititemnbr', 'Potddesc1', 'Potddesc2', 'Potdvenditemnbr', 'Intbuompur', 'Potdref', 'Potdqtyord', 'Potdqtyrec', 'Potdpurchunitcost', 'Potdpurchtotcost', 'Potdglacct', 'Potdclos', 'Potdshopminutes', 'Potdtype', 'Potdforeigncost', 'Potdforeigncosttot', 'Potdspecordr', 'Potdprodunitcost', 'Potdbaseunitcost', 'Potdbin', 'Potdfabreturnscrap', 'Potdrfbatch', 'Potdrevision', 'Potdlandunitcost', 'Potdnbrofcases', 'Potdtariffcost', 'Potdshopcost', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('pothnbr', 'potdline', 'potdseq', 'inititemnbr', 'potddesc1', 'potddesc2', 'potdvenditemnbr', 'intbuompur', 'potdref', 'potdqtyord', 'potdqtyrec', 'potdpurchunitcost', 'potdpurchtotcost', 'potdglacct', 'potdclos', 'potdshopminutes', 'potdtype', 'potdforeigncost', 'potdforeigncosttot', 'potdspecordr', 'potdprodunitcost', 'potdbaseunitcost', 'potdbin', 'potdfabreturnscrap', 'potdrfbatch', 'potdrevision', 'potdlandunitcost', 'potdnbrofcases', 'potdtariffcost', 'potdshopcost', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(PurchaseOrderDetailReceivingTableMap::COL_POTHNBR, PurchaseOrderDetailReceivingTableMap::COL_POTDLINE, PurchaseOrderDetailReceivingTableMap::COL_POTDSEQ, PurchaseOrderDetailReceivingTableMap::COL_INITITEMNBR, PurchaseOrderDetailReceivingTableMap::COL_POTDDESC1, PurchaseOrderDetailReceivingTableMap::COL_POTDDESC2, PurchaseOrderDetailReceivingTableMap::COL_POTDVENDITEMNBR, PurchaseOrderDetailReceivingTableMap::COL_INTBUOMPUR, PurchaseOrderDetailReceivingTableMap::COL_POTDREF, PurchaseOrderDetailReceivingTableMap::COL_POTDQTYORD, PurchaseOrderDetailReceivingTableMap::COL_POTDQTYREC, PurchaseOrderDetailReceivingTableMap::COL_POTDPURCHUNITCOST, PurchaseOrderDetailReceivingTableMap::COL_POTDPURCHTOTCOST, PurchaseOrderDetailReceivingTableMap::COL_POTDGLACCT, PurchaseOrderDetailReceivingTableMap::COL_POTDCLOS, PurchaseOrderDetailReceivingTableMap::COL_POTDSHOPMINUTES, PurchaseOrderDetailReceivingTableMap::COL_POTDTYPE, PurchaseOrderDetailReceivingTableMap::COL_POTDFOREIGNCOST, PurchaseOrderDetailReceivingTableMap::COL_POTDFOREIGNCOSTTOT, PurchaseOrderDetailReceivingTableMap::COL_POTDSPECORDR, PurchaseOrderDetailReceivingTableMap::COL_POTDPRODUNITCOST, PurchaseOrderDetailReceivingTableMap::COL_POTDBASEUNITCOST, PurchaseOrderDetailReceivingTableMap::COL_POTDBIN, PurchaseOrderDetailReceivingTableMap::COL_POTDFABRETURNSCRAP, PurchaseOrderDetailReceivingTableMap::COL_POTDRFBATCH, PurchaseOrderDetailReceivingTableMap::COL_POTDREVISION, PurchaseOrderDetailReceivingTableMap::COL_POTDLANDUNITCOST, PurchaseOrderDetailReceivingTableMap::COL_POTDNBROFCASES, PurchaseOrderDetailReceivingTableMap::COL_POTDTARIFFCOST, PurchaseOrderDetailReceivingTableMap::COL_POTDSHOPCOST, PurchaseOrderDetailReceivingTableMap::COL_DATEUPDTD, PurchaseOrderDetailReceivingTableMap::COL_TIMEUPDTD, PurchaseOrderDetailReceivingTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('PothNbr', 'PotdLine', 'PotdSeq', 'InitItemNbr', 'PotdDesc1', 'PotdDesc2', 'PotdVendItemNbr', 'IntbUomPur', 'PotdRef', 'PotdQtyOrd', 'PotdQtyRec', 'PotdPurchUnitCost', 'PotdPurchTotCost', 'PotdGlAcct', 'PotdClos', 'PotdShopMinutes', 'PotdType', 'PotdForeignCost', 'PotdForeignCostTot', 'PotdSpecOrdr', 'PotdProdUnitCost', 'PotdBaseUnitCost', 'PotdBin', 'PotdFabReturnScrap', 'PotdRfBatch', 'PotdRevision', 'PotdLandUnitCost', 'PotdNbrOfCases', 'PotdTariffCost', 'PotdShopCost', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, )
+        self::TYPE_PHPNAME       => array('Pothnbr', 'Potdline', 'Potdseq', 'Inititemnbr', 'Potddesc1', 'Potddesc2', 'Potdvenditemnbr', 'Intbuompur', 'Potdref', 'Potdqtyord', 'Potdqtyrec', 'Potdpurchunitcost', 'Potdpurchtotcost', 'Potdglacct', 'Potdclos', 'Potdshopminutes', 'Potdtype', 'Potdforeigncost', 'Potdforeigncosttot', 'Potdspecordr', 'Potdprodunitcost', 'Potdbaseunitcost', 'Potdbin', 'Potdfabreturnscrap', 'Potdrfbatch', 'Potdrevision', 'Potdlandunitcost', 'Potdnbrofcases', 'Potdtariffcost', 'Potdshopcost', 'Potdcasesord', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('pothnbr', 'potdline', 'potdseq', 'inititemnbr', 'potddesc1', 'potddesc2', 'potdvenditemnbr', 'intbuompur', 'potdref', 'potdqtyord', 'potdqtyrec', 'potdpurchunitcost', 'potdpurchtotcost', 'potdglacct', 'potdclos', 'potdshopminutes', 'potdtype', 'potdforeigncost', 'potdforeigncosttot', 'potdspecordr', 'potdprodunitcost', 'potdbaseunitcost', 'potdbin', 'potdfabreturnscrap', 'potdrfbatch', 'potdrevision', 'potdlandunitcost', 'potdnbrofcases', 'potdtariffcost', 'potdshopcost', 'potdcasesord', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(PurchaseOrderDetailReceivingTableMap::COL_POTHNBR, PurchaseOrderDetailReceivingTableMap::COL_POTDLINE, PurchaseOrderDetailReceivingTableMap::COL_POTDSEQ, PurchaseOrderDetailReceivingTableMap::COL_INITITEMNBR, PurchaseOrderDetailReceivingTableMap::COL_POTDDESC1, PurchaseOrderDetailReceivingTableMap::COL_POTDDESC2, PurchaseOrderDetailReceivingTableMap::COL_POTDVENDITEMNBR, PurchaseOrderDetailReceivingTableMap::COL_INTBUOMPUR, PurchaseOrderDetailReceivingTableMap::COL_POTDREF, PurchaseOrderDetailReceivingTableMap::COL_POTDQTYORD, PurchaseOrderDetailReceivingTableMap::COL_POTDQTYREC, PurchaseOrderDetailReceivingTableMap::COL_POTDPURCHUNITCOST, PurchaseOrderDetailReceivingTableMap::COL_POTDPURCHTOTCOST, PurchaseOrderDetailReceivingTableMap::COL_POTDGLACCT, PurchaseOrderDetailReceivingTableMap::COL_POTDCLOS, PurchaseOrderDetailReceivingTableMap::COL_POTDSHOPMINUTES, PurchaseOrderDetailReceivingTableMap::COL_POTDTYPE, PurchaseOrderDetailReceivingTableMap::COL_POTDFOREIGNCOST, PurchaseOrderDetailReceivingTableMap::COL_POTDFOREIGNCOSTTOT, PurchaseOrderDetailReceivingTableMap::COL_POTDSPECORDR, PurchaseOrderDetailReceivingTableMap::COL_POTDPRODUNITCOST, PurchaseOrderDetailReceivingTableMap::COL_POTDBASEUNITCOST, PurchaseOrderDetailReceivingTableMap::COL_POTDBIN, PurchaseOrderDetailReceivingTableMap::COL_POTDFABRETURNSCRAP, PurchaseOrderDetailReceivingTableMap::COL_POTDRFBATCH, PurchaseOrderDetailReceivingTableMap::COL_POTDREVISION, PurchaseOrderDetailReceivingTableMap::COL_POTDLANDUNITCOST, PurchaseOrderDetailReceivingTableMap::COL_POTDNBROFCASES, PurchaseOrderDetailReceivingTableMap::COL_POTDTARIFFCOST, PurchaseOrderDetailReceivingTableMap::COL_POTDSHOPCOST, PurchaseOrderDetailReceivingTableMap::COL_POTDCASESORD, PurchaseOrderDetailReceivingTableMap::COL_DATEUPDTD, PurchaseOrderDetailReceivingTableMap::COL_TIMEUPDTD, PurchaseOrderDetailReceivingTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('PothNbr', 'PotdLine', 'PotdSeq', 'InitItemNbr', 'PotdDesc1', 'PotdDesc2', 'PotdVendItemNbr', 'IntbUomPur', 'PotdRef', 'PotdQtyOrd', 'PotdQtyRec', 'PotdPurchUnitCost', 'PotdPurchTotCost', 'PotdGlAcct', 'PotdClos', 'PotdShopMinutes', 'PotdType', 'PotdForeignCost', 'PotdForeignCostTot', 'PotdSpecOrdr', 'PotdProdUnitCost', 'PotdBaseUnitCost', 'PotdBin', 'PotdFabReturnScrap', 'PotdRfBatch', 'PotdRevision', 'PotdLandUnitCost', 'PotdNbrOfCases', 'PotdTariffCost', 'PotdShopCost', 'PotdCasesOrd', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, )
     );
 
     /**
@@ -262,11 +267,11 @@ class PurchaseOrderDetailReceivingTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Pothnbr' => 0, 'Potdline' => 1, 'Potdseq' => 2, 'Inititemnbr' => 3, 'Potddesc1' => 4, 'Potddesc2' => 5, 'Potdvenditemnbr' => 6, 'Intbuompur' => 7, 'Potdref' => 8, 'Potdqtyord' => 9, 'Potdqtyrec' => 10, 'Potdpurchunitcost' => 11, 'Potdpurchtotcost' => 12, 'Potdglacct' => 13, 'Potdclos' => 14, 'Potdshopminutes' => 15, 'Potdtype' => 16, 'Potdforeigncost' => 17, 'Potdforeigncosttot' => 18, 'Potdspecordr' => 19, 'Potdprodunitcost' => 20, 'Potdbaseunitcost' => 21, 'Potdbin' => 22, 'Potdfabreturnscrap' => 23, 'Potdrfbatch' => 24, 'Potdrevision' => 25, 'Potdlandunitcost' => 26, 'Potdnbrofcases' => 27, 'Potdtariffcost' => 28, 'Potdshopcost' => 29, 'Dateupdtd' => 30, 'Timeupdtd' => 31, 'Dummy' => 32, ),
-        self::TYPE_CAMELNAME     => array('pothnbr' => 0, 'potdline' => 1, 'potdseq' => 2, 'inititemnbr' => 3, 'potddesc1' => 4, 'potddesc2' => 5, 'potdvenditemnbr' => 6, 'intbuompur' => 7, 'potdref' => 8, 'potdqtyord' => 9, 'potdqtyrec' => 10, 'potdpurchunitcost' => 11, 'potdpurchtotcost' => 12, 'potdglacct' => 13, 'potdclos' => 14, 'potdshopminutes' => 15, 'potdtype' => 16, 'potdforeigncost' => 17, 'potdforeigncosttot' => 18, 'potdspecordr' => 19, 'potdprodunitcost' => 20, 'potdbaseunitcost' => 21, 'potdbin' => 22, 'potdfabreturnscrap' => 23, 'potdrfbatch' => 24, 'potdrevision' => 25, 'potdlandunitcost' => 26, 'potdnbrofcases' => 27, 'potdtariffcost' => 28, 'potdshopcost' => 29, 'dateupdtd' => 30, 'timeupdtd' => 31, 'dummy' => 32, ),
-        self::TYPE_COLNAME       => array(PurchaseOrderDetailReceivingTableMap::COL_POTHNBR => 0, PurchaseOrderDetailReceivingTableMap::COL_POTDLINE => 1, PurchaseOrderDetailReceivingTableMap::COL_POTDSEQ => 2, PurchaseOrderDetailReceivingTableMap::COL_INITITEMNBR => 3, PurchaseOrderDetailReceivingTableMap::COL_POTDDESC1 => 4, PurchaseOrderDetailReceivingTableMap::COL_POTDDESC2 => 5, PurchaseOrderDetailReceivingTableMap::COL_POTDVENDITEMNBR => 6, PurchaseOrderDetailReceivingTableMap::COL_INTBUOMPUR => 7, PurchaseOrderDetailReceivingTableMap::COL_POTDREF => 8, PurchaseOrderDetailReceivingTableMap::COL_POTDQTYORD => 9, PurchaseOrderDetailReceivingTableMap::COL_POTDQTYREC => 10, PurchaseOrderDetailReceivingTableMap::COL_POTDPURCHUNITCOST => 11, PurchaseOrderDetailReceivingTableMap::COL_POTDPURCHTOTCOST => 12, PurchaseOrderDetailReceivingTableMap::COL_POTDGLACCT => 13, PurchaseOrderDetailReceivingTableMap::COL_POTDCLOS => 14, PurchaseOrderDetailReceivingTableMap::COL_POTDSHOPMINUTES => 15, PurchaseOrderDetailReceivingTableMap::COL_POTDTYPE => 16, PurchaseOrderDetailReceivingTableMap::COL_POTDFOREIGNCOST => 17, PurchaseOrderDetailReceivingTableMap::COL_POTDFOREIGNCOSTTOT => 18, PurchaseOrderDetailReceivingTableMap::COL_POTDSPECORDR => 19, PurchaseOrderDetailReceivingTableMap::COL_POTDPRODUNITCOST => 20, PurchaseOrderDetailReceivingTableMap::COL_POTDBASEUNITCOST => 21, PurchaseOrderDetailReceivingTableMap::COL_POTDBIN => 22, PurchaseOrderDetailReceivingTableMap::COL_POTDFABRETURNSCRAP => 23, PurchaseOrderDetailReceivingTableMap::COL_POTDRFBATCH => 24, PurchaseOrderDetailReceivingTableMap::COL_POTDREVISION => 25, PurchaseOrderDetailReceivingTableMap::COL_POTDLANDUNITCOST => 26, PurchaseOrderDetailReceivingTableMap::COL_POTDNBROFCASES => 27, PurchaseOrderDetailReceivingTableMap::COL_POTDTARIFFCOST => 28, PurchaseOrderDetailReceivingTableMap::COL_POTDSHOPCOST => 29, PurchaseOrderDetailReceivingTableMap::COL_DATEUPDTD => 30, PurchaseOrderDetailReceivingTableMap::COL_TIMEUPDTD => 31, PurchaseOrderDetailReceivingTableMap::COL_DUMMY => 32, ),
-        self::TYPE_FIELDNAME     => array('PothNbr' => 0, 'PotdLine' => 1, 'PotdSeq' => 2, 'InitItemNbr' => 3, 'PotdDesc1' => 4, 'PotdDesc2' => 5, 'PotdVendItemNbr' => 6, 'IntbUomPur' => 7, 'PotdRef' => 8, 'PotdQtyOrd' => 9, 'PotdQtyRec' => 10, 'PotdPurchUnitCost' => 11, 'PotdPurchTotCost' => 12, 'PotdGlAcct' => 13, 'PotdClos' => 14, 'PotdShopMinutes' => 15, 'PotdType' => 16, 'PotdForeignCost' => 17, 'PotdForeignCostTot' => 18, 'PotdSpecOrdr' => 19, 'PotdProdUnitCost' => 20, 'PotdBaseUnitCost' => 21, 'PotdBin' => 22, 'PotdFabReturnScrap' => 23, 'PotdRfBatch' => 24, 'PotdRevision' => 25, 'PotdLandUnitCost' => 26, 'PotdNbrOfCases' => 27, 'PotdTariffCost' => 28, 'PotdShopCost' => 29, 'DateUpdtd' => 30, 'TimeUpdtd' => 31, 'dummy' => 32, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, )
+        self::TYPE_PHPNAME       => array('Pothnbr' => 0, 'Potdline' => 1, 'Potdseq' => 2, 'Inititemnbr' => 3, 'Potddesc1' => 4, 'Potddesc2' => 5, 'Potdvenditemnbr' => 6, 'Intbuompur' => 7, 'Potdref' => 8, 'Potdqtyord' => 9, 'Potdqtyrec' => 10, 'Potdpurchunitcost' => 11, 'Potdpurchtotcost' => 12, 'Potdglacct' => 13, 'Potdclos' => 14, 'Potdshopminutes' => 15, 'Potdtype' => 16, 'Potdforeigncost' => 17, 'Potdforeigncosttot' => 18, 'Potdspecordr' => 19, 'Potdprodunitcost' => 20, 'Potdbaseunitcost' => 21, 'Potdbin' => 22, 'Potdfabreturnscrap' => 23, 'Potdrfbatch' => 24, 'Potdrevision' => 25, 'Potdlandunitcost' => 26, 'Potdnbrofcases' => 27, 'Potdtariffcost' => 28, 'Potdshopcost' => 29, 'Potdcasesord' => 30, 'Dateupdtd' => 31, 'Timeupdtd' => 32, 'Dummy' => 33, ),
+        self::TYPE_CAMELNAME     => array('pothnbr' => 0, 'potdline' => 1, 'potdseq' => 2, 'inititemnbr' => 3, 'potddesc1' => 4, 'potddesc2' => 5, 'potdvenditemnbr' => 6, 'intbuompur' => 7, 'potdref' => 8, 'potdqtyord' => 9, 'potdqtyrec' => 10, 'potdpurchunitcost' => 11, 'potdpurchtotcost' => 12, 'potdglacct' => 13, 'potdclos' => 14, 'potdshopminutes' => 15, 'potdtype' => 16, 'potdforeigncost' => 17, 'potdforeigncosttot' => 18, 'potdspecordr' => 19, 'potdprodunitcost' => 20, 'potdbaseunitcost' => 21, 'potdbin' => 22, 'potdfabreturnscrap' => 23, 'potdrfbatch' => 24, 'potdrevision' => 25, 'potdlandunitcost' => 26, 'potdnbrofcases' => 27, 'potdtariffcost' => 28, 'potdshopcost' => 29, 'potdcasesord' => 30, 'dateupdtd' => 31, 'timeupdtd' => 32, 'dummy' => 33, ),
+        self::TYPE_COLNAME       => array(PurchaseOrderDetailReceivingTableMap::COL_POTHNBR => 0, PurchaseOrderDetailReceivingTableMap::COL_POTDLINE => 1, PurchaseOrderDetailReceivingTableMap::COL_POTDSEQ => 2, PurchaseOrderDetailReceivingTableMap::COL_INITITEMNBR => 3, PurchaseOrderDetailReceivingTableMap::COL_POTDDESC1 => 4, PurchaseOrderDetailReceivingTableMap::COL_POTDDESC2 => 5, PurchaseOrderDetailReceivingTableMap::COL_POTDVENDITEMNBR => 6, PurchaseOrderDetailReceivingTableMap::COL_INTBUOMPUR => 7, PurchaseOrderDetailReceivingTableMap::COL_POTDREF => 8, PurchaseOrderDetailReceivingTableMap::COL_POTDQTYORD => 9, PurchaseOrderDetailReceivingTableMap::COL_POTDQTYREC => 10, PurchaseOrderDetailReceivingTableMap::COL_POTDPURCHUNITCOST => 11, PurchaseOrderDetailReceivingTableMap::COL_POTDPURCHTOTCOST => 12, PurchaseOrderDetailReceivingTableMap::COL_POTDGLACCT => 13, PurchaseOrderDetailReceivingTableMap::COL_POTDCLOS => 14, PurchaseOrderDetailReceivingTableMap::COL_POTDSHOPMINUTES => 15, PurchaseOrderDetailReceivingTableMap::COL_POTDTYPE => 16, PurchaseOrderDetailReceivingTableMap::COL_POTDFOREIGNCOST => 17, PurchaseOrderDetailReceivingTableMap::COL_POTDFOREIGNCOSTTOT => 18, PurchaseOrderDetailReceivingTableMap::COL_POTDSPECORDR => 19, PurchaseOrderDetailReceivingTableMap::COL_POTDPRODUNITCOST => 20, PurchaseOrderDetailReceivingTableMap::COL_POTDBASEUNITCOST => 21, PurchaseOrderDetailReceivingTableMap::COL_POTDBIN => 22, PurchaseOrderDetailReceivingTableMap::COL_POTDFABRETURNSCRAP => 23, PurchaseOrderDetailReceivingTableMap::COL_POTDRFBATCH => 24, PurchaseOrderDetailReceivingTableMap::COL_POTDREVISION => 25, PurchaseOrderDetailReceivingTableMap::COL_POTDLANDUNITCOST => 26, PurchaseOrderDetailReceivingTableMap::COL_POTDNBROFCASES => 27, PurchaseOrderDetailReceivingTableMap::COL_POTDTARIFFCOST => 28, PurchaseOrderDetailReceivingTableMap::COL_POTDSHOPCOST => 29, PurchaseOrderDetailReceivingTableMap::COL_POTDCASESORD => 30, PurchaseOrderDetailReceivingTableMap::COL_DATEUPDTD => 31, PurchaseOrderDetailReceivingTableMap::COL_TIMEUPDTD => 32, PurchaseOrderDetailReceivingTableMap::COL_DUMMY => 33, ),
+        self::TYPE_FIELDNAME     => array('PothNbr' => 0, 'PotdLine' => 1, 'PotdSeq' => 2, 'InitItemNbr' => 3, 'PotdDesc1' => 4, 'PotdDesc2' => 5, 'PotdVendItemNbr' => 6, 'IntbUomPur' => 7, 'PotdRef' => 8, 'PotdQtyOrd' => 9, 'PotdQtyRec' => 10, 'PotdPurchUnitCost' => 11, 'PotdPurchTotCost' => 12, 'PotdGlAcct' => 13, 'PotdClos' => 14, 'PotdShopMinutes' => 15, 'PotdType' => 16, 'PotdForeignCost' => 17, 'PotdForeignCostTot' => 18, 'PotdSpecOrdr' => 19, 'PotdProdUnitCost' => 20, 'PotdBaseUnitCost' => 21, 'PotdBin' => 22, 'PotdFabReturnScrap' => 23, 'PotdRfBatch' => 24, 'PotdRevision' => 25, 'PotdLandUnitCost' => 26, 'PotdNbrOfCases' => 27, 'PotdTariffCost' => 28, 'PotdShopCost' => 29, 'PotdCasesOrd' => 30, 'DateUpdtd' => 31, 'TimeUpdtd' => 32, 'dummy' => 33, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, )
     );
 
     /**
@@ -286,41 +291,42 @@ class PurchaseOrderDetailReceivingTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addForeignPrimaryKey('PothNbr', 'Pothnbr', 'VARCHAR' , 'po_head', 'PohdNbr', true, 8, '');
-        $this->addForeignPrimaryKey('PothNbr', 'Pothnbr', 'VARCHAR' , 'po_tran_head', 'PothNbr', true, 8, '');
-        $this->addForeignPrimaryKey('PothNbr', 'Pothnbr', 'VARCHAR' , 'po_detail', 'PohdNbr', true, 8, '');
+        $this->addForeignPrimaryKey('PothNbr', 'Pothnbr', 'INTEGER' , 'po_head', 'PohdNbr', true, 8, 0);
+        $this->addForeignPrimaryKey('PothNbr', 'Pothnbr', 'INTEGER' , 'po_tran_head', 'PothNbr', true, 8, 0);
+        $this->addForeignPrimaryKey('PothNbr', 'Pothnbr', 'INTEGER' , 'po_detail', 'PohdNbr', true, 8, 0);
         $this->addForeignPrimaryKey('PotdLine', 'Potdline', 'INTEGER' , 'po_detail', 'PodtLine', true, 4, 0);
         $this->addPrimaryKey('PotdSeq', 'Potdseq', 'INTEGER', true, 4, 0);
-        $this->addForeignKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', false, 30, null);
-        $this->addColumn('PotdDesc1', 'Potddesc1', 'VARCHAR', false, 35, null);
-        $this->addColumn('PotdDesc2', 'Potddesc2', 'VARCHAR', false, 35, null);
-        $this->addColumn('PotdVendItemNbr', 'Potdvenditemnbr', 'VARCHAR', false, 30, null);
-        $this->addForeignKey('IntbUomPur', 'Intbuompur', 'VARCHAR', 'inv_uom_sale', 'IntbUomSale', false, 4, null);
-        $this->addColumn('PotdRef', 'Potdref', 'VARCHAR', false, 15, null);
-        $this->addColumn('PotdQtyOrd', 'Potdqtyord', 'DECIMAL', false, 20, null);
-        $this->addColumn('PotdQtyRec', 'Potdqtyrec', 'DECIMAL', false, 20, null);
-        $this->addColumn('PotdPurchUnitCost', 'Potdpurchunitcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('PotdPurchTotCost', 'Potdpurchtotcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('PotdGlAcct', 'Potdglacct', 'VARCHAR', false, 9, null);
-        $this->addColumn('PotdClos', 'Potdclos', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotdShopMinutes', 'Potdshopminutes', 'INTEGER', false, 6, null);
-        $this->addColumn('PotdType', 'Potdtype', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotdForeignCost', 'Potdforeigncost', 'DECIMAL', false, 20, null);
-        $this->addColumn('PotdForeignCostTot', 'Potdforeigncosttot', 'DECIMAL', false, 20, null);
-        $this->addColumn('PotdSpecOrdr', 'Potdspecordr', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotdProdUnitCost', 'Potdprodunitcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('PotdBaseUnitCost', 'Potdbaseunitcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('PotdBin', 'Potdbin', 'VARCHAR', false, 8, null);
-        $this->addColumn('PotdFabReturnScrap', 'Potdfabreturnscrap', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotdRfBatch', 'Potdrfbatch', 'VARCHAR', false, 8, null);
-        $this->addColumn('PotdRevision', 'Potdrevision', 'VARCHAR', false, 10, null);
-        $this->addColumn('PotdLandUnitCost', 'Potdlandunitcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('PotdNbrOfCases', 'Potdnbrofcases', 'DECIMAL', false, 20, null);
-        $this->addColumn('PotdTariffCost', 'Potdtariffcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('PotdShopCost', 'Potdshopcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addForeignKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', true, 30, '');
+        $this->addColumn('PotdDesc1', 'Potddesc1', 'VARCHAR', true, 35, '');
+        $this->addColumn('PotdDesc2', 'Potddesc2', 'VARCHAR', true, 35, '');
+        $this->addColumn('PotdVendItemNbr', 'Potdvenditemnbr', 'VARCHAR', true, 30, '');
+        $this->addForeignKey('IntbUomPur', 'Intbuompur', 'VARCHAR', 'inv_uom_sale', 'IntbUomSale', true, 4, '');
+        $this->addColumn('PotdRef', 'Potdref', 'VARCHAR', true, 15, '');
+        $this->addColumn('PotdQtyOrd', 'Potdqtyord', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PotdQtyRec', 'Potdqtyrec', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PotdPurchUnitCost', 'Potdpurchunitcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PotdPurchTotCost', 'Potdpurchtotcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PotdGlAcct', 'Potdglacct', 'VARCHAR', true, 9, '');
+        $this->addColumn('PotdClos', 'Potdclos', 'CHAR', true, null, '');
+        $this->addColumn('PotdShopMinutes', 'Potdshopminutes', 'INTEGER', true, 6, 0);
+        $this->addColumn('PotdType', 'Potdtype', 'CHAR', true, null, '');
+        $this->addColumn('PotdForeignCost', 'Potdforeigncost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PotdForeignCostTot', 'Potdforeigncosttot', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PotdSpecOrdr', 'Potdspecordr', 'CHAR', true, null, '');
+        $this->addColumn('PotdProdUnitCost', 'Potdprodunitcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PotdBaseUnitCost', 'Potdbaseunitcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PotdBin', 'Potdbin', 'VARCHAR', true, 8, '');
+        $this->addColumn('PotdFabReturnScrap', 'Potdfabreturnscrap', 'CHAR', true, null, '');
+        $this->addColumn('PotdRfBatch', 'Potdrfbatch', 'VARCHAR', true, 8, '');
+        $this->addColumn('PotdRevision', 'Potdrevision', 'VARCHAR', true, 10, '');
+        $this->addColumn('PotdLandUnitCost', 'Potdlandunitcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PotdNbrOfCases', 'Potdnbrofcases', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PotdTariffCost', 'Potdtariffcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PotdShopCost', 'Potdshopcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PotdCasesOrd', 'Potdcasesord', 'INTEGER', true, 6, 0);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
     } // initialize()
 
     /**
@@ -462,7 +468,7 @@ class PurchaseOrderDetailReceivingTableMap extends TableMap
     {
             $pks = [];
 
-        $pks[] = (string) $row[
+        $pks[] = (int) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 0 + $offset
                 : self::translateFieldName('Pothnbr', TableMap::TYPE_PHPNAME, $indexType)
@@ -608,6 +614,7 @@ class PurchaseOrderDetailReceivingTableMap extends TableMap
             $criteria->addSelectColumn(PurchaseOrderDetailReceivingTableMap::COL_POTDNBROFCASES);
             $criteria->addSelectColumn(PurchaseOrderDetailReceivingTableMap::COL_POTDTARIFFCOST);
             $criteria->addSelectColumn(PurchaseOrderDetailReceivingTableMap::COL_POTDSHOPCOST);
+            $criteria->addSelectColumn(PurchaseOrderDetailReceivingTableMap::COL_POTDCASESORD);
             $criteria->addSelectColumn(PurchaseOrderDetailReceivingTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(PurchaseOrderDetailReceivingTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(PurchaseOrderDetailReceivingTableMap::COL_DUMMY);
@@ -642,6 +649,7 @@ class PurchaseOrderDetailReceivingTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.PotdNbrOfCases');
             $criteria->addSelectColumn($alias . '.PotdTariffCost');
             $criteria->addSelectColumn($alias . '.PotdShopCost');
+            $criteria->addSelectColumn($alias . '.PotdCasesOrd');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');
