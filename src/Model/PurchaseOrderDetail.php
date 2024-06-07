@@ -43,6 +43,7 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 		'uom'           => 'intbuompur',
 		'qty_ordered'   => 'podtqtyord',
 		'qtyOrdered'    => 'podtqtyord',
+		'casesordered'  => 'podtcasesord',
 		'cost'          => 'podtcost',
 		'cost_total'    => 'podtcosttot',
 		'totalcost'     => 'podtcosttot',
