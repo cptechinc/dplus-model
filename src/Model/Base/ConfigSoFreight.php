@@ -156,6 +156,22 @@ abstract class ConfigSoFreight implements ActiveRecordInterface
     protected $oetbcon2chrgfrghtbkord;
 
     /**
+     * The value for the oetbcon3mnrtldelfeemin field.
+     *
+     * Note: this column has a database default value of: '0.00'
+     * @var        string
+     */
+    protected $oetbcon3mnrtldelfeemin;
+
+    /**
+     * The value for the oetbcon3mnrtldelfeeamt field.
+     *
+     * Note: this column has a database default value of: '0.00'
+     * @var        string
+     */
+    protected $oetbcon3mnrtldelfeeamt;
+
+    /**
      * The value for the oetbcon2frghtaddmeth field.
      *
      * Note: this column has a database default value of: '1'
@@ -287,6 +303,8 @@ abstract class ConfigSoFreight implements ActiveRecordInterface
         $this->oetbcon2frghtordramtd = '0.00';
         $this->oetbcon2frghtordramte = '0.00';
         $this->oetbcon2chrgfrghtbkord = 'N';
+        $this->oetbcon3mnrtldelfeemin = '0.00';
+        $this->oetbcon3mnrtldelfeeamt = '0.00';
         $this->oetbcon2frghtaddmeth = '1';
         $this->oetbcon2frghtorder = '0.00';
         $this->oetbcon2frghtcntnr = '0.00';
@@ -647,6 +665,26 @@ abstract class ConfigSoFreight implements ActiveRecordInterface
     public function getOetbcon2chrgfrghtbkord()
     {
         return $this->oetbcon2chrgfrghtbkord;
+    }
+
+    /**
+     * Get the [oetbcon3mnrtldelfeemin] column value.
+     *
+     * @return string
+     */
+    public function getOetbcon3mnrtldelfeemin()
+    {
+        return $this->oetbcon3mnrtldelfeemin;
+    }
+
+    /**
+     * Get the [oetbcon3mnrtldelfeeamt] column value.
+     *
+     * @return string
+     */
+    public function getOetbcon3mnrtldelfeeamt()
+    {
+        return $this->oetbcon3mnrtldelfeeamt;
     }
 
     /**
@@ -1020,6 +1058,46 @@ abstract class ConfigSoFreight implements ActiveRecordInterface
     } // setOetbcon2chrgfrghtbkord()
 
     /**
+     * Set the value of [oetbcon3mnrtldelfeemin] column.
+     *
+     * @param string $v new value
+     * @return $this|\ConfigSoFreight The current object (for fluent API support)
+     */
+    public function setOetbcon3mnrtldelfeemin($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oetbcon3mnrtldelfeemin !== $v) {
+            $this->oetbcon3mnrtldelfeemin = $v;
+            $this->modifiedColumns[ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEMIN] = true;
+        }
+
+        return $this;
+    } // setOetbcon3mnrtldelfeemin()
+
+    /**
+     * Set the value of [oetbcon3mnrtldelfeeamt] column.
+     *
+     * @param string $v new value
+     * @return $this|\ConfigSoFreight The current object (for fluent API support)
+     */
+    public function setOetbcon3mnrtldelfeeamt($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oetbcon3mnrtldelfeeamt !== $v) {
+            $this->oetbcon3mnrtldelfeeamt = $v;
+            $this->modifiedColumns[ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEAMT] = true;
+        }
+
+        return $this;
+    } // setOetbcon3mnrtldelfeeamt()
+
+    /**
      * Set the value of [oetbcon2frghtaddmeth] column.
      *
      * @param string $v new value
@@ -1337,6 +1415,14 @@ abstract class ConfigSoFreight implements ActiveRecordInterface
                 return false;
             }
 
+            if ($this->oetbcon3mnrtldelfeemin !== '0.00') {
+                return false;
+            }
+
+            if ($this->oetbcon3mnrtldelfeeamt !== '0.00') {
+                return false;
+            }
+
             if ($this->oetbcon2frghtaddmeth !== '1') {
                 return false;
             }
@@ -1451,43 +1537,49 @@ abstract class ConfigSoFreight implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2chrgfrghtbkord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2chrgfrghtbkord = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtaddmeth', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon3mnrtldelfeemin', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oetbcon3mnrtldelfeemin = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon3mnrtldelfeeamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oetbcon3mnrtldelfeeamt = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtaddmeth', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2frghtaddmeth = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtorder', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtorder', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2frghtorder = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtcntnr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtcntnr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2frghtcntnr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtadd1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtadd1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2frghtadd1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtaddamt1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtaddamt1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2frghtaddamt1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtaddper', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtaddper', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2frghtaddper = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtaddamtper', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtaddamtper', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2frghtaddamtper = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtaddamtmax', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtaddamtmax', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2frghtaddamtmax = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtaddpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtaddpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2frghtaddpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtminchrg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ConfigSoFreightTableMap::translateFieldName('Oetbcon2frghtminchrg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2frghtminchrg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ConfigSoFreightTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ConfigSoFreightTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ConfigSoFreightTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ConfigSoFreightTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ConfigSoFreightTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ConfigSoFreightTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1497,7 +1589,7 @@ abstract class ConfigSoFreight implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 25; // 25 = ConfigSoFreightTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 27; // 27 = ConfigSoFreightTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\ConfigSoFreight'), 0, $e);
@@ -1730,6 +1822,12 @@ abstract class ConfigSoFreight implements ActiveRecordInterface
         if ($this->isColumnModified(ConfigSoFreightTableMap::COL_OETBCON2CHRGFRGHTBKORD)) {
             $modifiedColumns[':p' . $index++]  = 'OetbCon2ChrgFrghtBkord';
         }
+        if ($this->isColumnModified(ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEMIN)) {
+            $modifiedColumns[':p' . $index++]  = 'OetbCon3MnRtlDelFeeMin';
+        }
+        if ($this->isColumnModified(ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEAMT)) {
+            $modifiedColumns[':p' . $index++]  = 'OetbCon3MnRtlDelFeeAmt';
+        }
         if ($this->isColumnModified(ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDMETH)) {
             $modifiedColumns[':p' . $index++]  = 'OetbCon2FrghtAddMeth';
         }
@@ -1815,6 +1913,12 @@ abstract class ConfigSoFreight implements ActiveRecordInterface
                         break;
                     case 'OetbCon2ChrgFrghtBkord':
                         $stmt->bindValue($identifier, $this->oetbcon2chrgfrghtbkord, PDO::PARAM_STR);
+                        break;
+                    case 'OetbCon3MnRtlDelFeeMin':
+                        $stmt->bindValue($identifier, $this->oetbcon3mnrtldelfeemin, PDO::PARAM_STR);
+                        break;
+                    case 'OetbCon3MnRtlDelFeeAmt':
+                        $stmt->bindValue($identifier, $this->oetbcon3mnrtldelfeeamt, PDO::PARAM_STR);
                         break;
                     case 'OetbCon2FrghtAddMeth':
                         $stmt->bindValue($identifier, $this->oetbcon2frghtaddmeth, PDO::PARAM_STR);
@@ -1947,42 +2051,48 @@ abstract class ConfigSoFreight implements ActiveRecordInterface
                 return $this->getOetbcon2chrgfrghtbkord();
                 break;
             case 12:
-                return $this->getOetbcon2frghtaddmeth();
+                return $this->getOetbcon3mnrtldelfeemin();
                 break;
             case 13:
-                return $this->getOetbcon2frghtorder();
+                return $this->getOetbcon3mnrtldelfeeamt();
                 break;
             case 14:
-                return $this->getOetbcon2frghtcntnr();
+                return $this->getOetbcon2frghtaddmeth();
                 break;
             case 15:
-                return $this->getOetbcon2frghtadd1();
+                return $this->getOetbcon2frghtorder();
                 break;
             case 16:
-                return $this->getOetbcon2frghtaddamt1();
+                return $this->getOetbcon2frghtcntnr();
                 break;
             case 17:
-                return $this->getOetbcon2frghtaddper();
+                return $this->getOetbcon2frghtadd1();
                 break;
             case 18:
-                return $this->getOetbcon2frghtaddamtper();
+                return $this->getOetbcon2frghtaddamt1();
                 break;
             case 19:
-                return $this->getOetbcon2frghtaddamtmax();
+                return $this->getOetbcon2frghtaddper();
                 break;
             case 20:
-                return $this->getOetbcon2frghtaddpct();
+                return $this->getOetbcon2frghtaddamtper();
                 break;
             case 21:
-                return $this->getOetbcon2frghtminchrg();
+                return $this->getOetbcon2frghtaddamtmax();
                 break;
             case 22:
-                return $this->getDateupdtd();
+                return $this->getOetbcon2frghtaddpct();
                 break;
             case 23:
-                return $this->getTimeupdtd();
+                return $this->getOetbcon2frghtminchrg();
                 break;
             case 24:
+                return $this->getDateupdtd();
+                break;
+            case 25:
+                return $this->getTimeupdtd();
+                break;
+            case 26:
                 return $this->getDummy();
                 break;
             default:
@@ -2026,19 +2136,21 @@ abstract class ConfigSoFreight implements ActiveRecordInterface
             $keys[9] => $this->getOetbcon2frghtordramtd(),
             $keys[10] => $this->getOetbcon2frghtordramte(),
             $keys[11] => $this->getOetbcon2chrgfrghtbkord(),
-            $keys[12] => $this->getOetbcon2frghtaddmeth(),
-            $keys[13] => $this->getOetbcon2frghtorder(),
-            $keys[14] => $this->getOetbcon2frghtcntnr(),
-            $keys[15] => $this->getOetbcon2frghtadd1(),
-            $keys[16] => $this->getOetbcon2frghtaddamt1(),
-            $keys[17] => $this->getOetbcon2frghtaddper(),
-            $keys[18] => $this->getOetbcon2frghtaddamtper(),
-            $keys[19] => $this->getOetbcon2frghtaddamtmax(),
-            $keys[20] => $this->getOetbcon2frghtaddpct(),
-            $keys[21] => $this->getOetbcon2frghtminchrg(),
-            $keys[22] => $this->getDateupdtd(),
-            $keys[23] => $this->getTimeupdtd(),
-            $keys[24] => $this->getDummy(),
+            $keys[12] => $this->getOetbcon3mnrtldelfeemin(),
+            $keys[13] => $this->getOetbcon3mnrtldelfeeamt(),
+            $keys[14] => $this->getOetbcon2frghtaddmeth(),
+            $keys[15] => $this->getOetbcon2frghtorder(),
+            $keys[16] => $this->getOetbcon2frghtcntnr(),
+            $keys[17] => $this->getOetbcon2frghtadd1(),
+            $keys[18] => $this->getOetbcon2frghtaddamt1(),
+            $keys[19] => $this->getOetbcon2frghtaddper(),
+            $keys[20] => $this->getOetbcon2frghtaddamtper(),
+            $keys[21] => $this->getOetbcon2frghtaddamtmax(),
+            $keys[22] => $this->getOetbcon2frghtaddpct(),
+            $keys[23] => $this->getOetbcon2frghtminchrg(),
+            $keys[24] => $this->getDateupdtd(),
+            $keys[25] => $this->getTimeupdtd(),
+            $keys[26] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -2115,42 +2227,48 @@ abstract class ConfigSoFreight implements ActiveRecordInterface
                 $this->setOetbcon2chrgfrghtbkord($value);
                 break;
             case 12:
-                $this->setOetbcon2frghtaddmeth($value);
+                $this->setOetbcon3mnrtldelfeemin($value);
                 break;
             case 13:
-                $this->setOetbcon2frghtorder($value);
+                $this->setOetbcon3mnrtldelfeeamt($value);
                 break;
             case 14:
-                $this->setOetbcon2frghtcntnr($value);
+                $this->setOetbcon2frghtaddmeth($value);
                 break;
             case 15:
-                $this->setOetbcon2frghtadd1($value);
+                $this->setOetbcon2frghtorder($value);
                 break;
             case 16:
-                $this->setOetbcon2frghtaddamt1($value);
+                $this->setOetbcon2frghtcntnr($value);
                 break;
             case 17:
-                $this->setOetbcon2frghtaddper($value);
+                $this->setOetbcon2frghtadd1($value);
                 break;
             case 18:
-                $this->setOetbcon2frghtaddamtper($value);
+                $this->setOetbcon2frghtaddamt1($value);
                 break;
             case 19:
-                $this->setOetbcon2frghtaddamtmax($value);
+                $this->setOetbcon2frghtaddper($value);
                 break;
             case 20:
-                $this->setOetbcon2frghtaddpct($value);
+                $this->setOetbcon2frghtaddamtper($value);
                 break;
             case 21:
-                $this->setOetbcon2frghtminchrg($value);
+                $this->setOetbcon2frghtaddamtmax($value);
                 break;
             case 22:
-                $this->setDateupdtd($value);
+                $this->setOetbcon2frghtaddpct($value);
                 break;
             case 23:
-                $this->setTimeupdtd($value);
+                $this->setOetbcon2frghtminchrg($value);
                 break;
             case 24:
+                $this->setDateupdtd($value);
+                break;
+            case 25:
+                $this->setTimeupdtd($value);
+                break;
+            case 26:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -2216,43 +2334,49 @@ abstract class ConfigSoFreight implements ActiveRecordInterface
             $this->setOetbcon2chrgfrghtbkord($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setOetbcon2frghtaddmeth($arr[$keys[12]]);
+            $this->setOetbcon3mnrtldelfeemin($arr[$keys[12]]);
         }
         if (array_key_exists($keys[13], $arr)) {
-            $this->setOetbcon2frghtorder($arr[$keys[13]]);
+            $this->setOetbcon3mnrtldelfeeamt($arr[$keys[13]]);
         }
         if (array_key_exists($keys[14], $arr)) {
-            $this->setOetbcon2frghtcntnr($arr[$keys[14]]);
+            $this->setOetbcon2frghtaddmeth($arr[$keys[14]]);
         }
         if (array_key_exists($keys[15], $arr)) {
-            $this->setOetbcon2frghtadd1($arr[$keys[15]]);
+            $this->setOetbcon2frghtorder($arr[$keys[15]]);
         }
         if (array_key_exists($keys[16], $arr)) {
-            $this->setOetbcon2frghtaddamt1($arr[$keys[16]]);
+            $this->setOetbcon2frghtcntnr($arr[$keys[16]]);
         }
         if (array_key_exists($keys[17], $arr)) {
-            $this->setOetbcon2frghtaddper($arr[$keys[17]]);
+            $this->setOetbcon2frghtadd1($arr[$keys[17]]);
         }
         if (array_key_exists($keys[18], $arr)) {
-            $this->setOetbcon2frghtaddamtper($arr[$keys[18]]);
+            $this->setOetbcon2frghtaddamt1($arr[$keys[18]]);
         }
         if (array_key_exists($keys[19], $arr)) {
-            $this->setOetbcon2frghtaddamtmax($arr[$keys[19]]);
+            $this->setOetbcon2frghtaddper($arr[$keys[19]]);
         }
         if (array_key_exists($keys[20], $arr)) {
-            $this->setOetbcon2frghtaddpct($arr[$keys[20]]);
+            $this->setOetbcon2frghtaddamtper($arr[$keys[20]]);
         }
         if (array_key_exists($keys[21], $arr)) {
-            $this->setOetbcon2frghtminchrg($arr[$keys[21]]);
+            $this->setOetbcon2frghtaddamtmax($arr[$keys[21]]);
         }
         if (array_key_exists($keys[22], $arr)) {
-            $this->setDateupdtd($arr[$keys[22]]);
+            $this->setOetbcon2frghtaddpct($arr[$keys[22]]);
         }
         if (array_key_exists($keys[23], $arr)) {
-            $this->setTimeupdtd($arr[$keys[23]]);
+            $this->setOetbcon2frghtminchrg($arr[$keys[23]]);
         }
         if (array_key_exists($keys[24], $arr)) {
-            $this->setDummy($arr[$keys[24]]);
+            $this->setDateupdtd($arr[$keys[24]]);
+        }
+        if (array_key_exists($keys[25], $arr)) {
+            $this->setTimeupdtd($arr[$keys[25]]);
+        }
+        if (array_key_exists($keys[26], $arr)) {
+            $this->setDummy($arr[$keys[26]]);
         }
     }
 
@@ -2330,6 +2454,12 @@ abstract class ConfigSoFreight implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ConfigSoFreightTableMap::COL_OETBCON2CHRGFRGHTBKORD)) {
             $criteria->add(ConfigSoFreightTableMap::COL_OETBCON2CHRGFRGHTBKORD, $this->oetbcon2chrgfrghtbkord);
+        }
+        if ($this->isColumnModified(ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEMIN)) {
+            $criteria->add(ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEMIN, $this->oetbcon3mnrtldelfeemin);
+        }
+        if ($this->isColumnModified(ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEAMT)) {
+            $criteria->add(ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEAMT, $this->oetbcon3mnrtldelfeeamt);
         }
         if ($this->isColumnModified(ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDMETH)) {
             $criteria->add(ConfigSoFreightTableMap::COL_OETBCON2FRGHTADDMETH, $this->oetbcon2frghtaddmeth);
@@ -2468,6 +2598,8 @@ abstract class ConfigSoFreight implements ActiveRecordInterface
         $copyObj->setOetbcon2frghtordramtd($this->getOetbcon2frghtordramtd());
         $copyObj->setOetbcon2frghtordramte($this->getOetbcon2frghtordramte());
         $copyObj->setOetbcon2chrgfrghtbkord($this->getOetbcon2chrgfrghtbkord());
+        $copyObj->setOetbcon3mnrtldelfeemin($this->getOetbcon3mnrtldelfeemin());
+        $copyObj->setOetbcon3mnrtldelfeeamt($this->getOetbcon3mnrtldelfeeamt());
         $copyObj->setOetbcon2frghtaddmeth($this->getOetbcon2frghtaddmeth());
         $copyObj->setOetbcon2frghtorder($this->getOetbcon2frghtorder());
         $copyObj->setOetbcon2frghtcntnr($this->getOetbcon2frghtcntnr());
@@ -2527,6 +2659,8 @@ abstract class ConfigSoFreight implements ActiveRecordInterface
         $this->oetbcon2frghtordramtd = null;
         $this->oetbcon2frghtordramte = null;
         $this->oetbcon2chrgfrghtbkord = null;
+        $this->oetbcon3mnrtldelfeemin = null;
+        $this->oetbcon3mnrtldelfeeamt = null;
         $this->oetbcon2frghtaddmeth = null;
         $this->oetbcon2frghtorder = null;
         $this->oetbcon2frghtcntnr = null;

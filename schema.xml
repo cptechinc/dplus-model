@@ -5217,6 +5217,8 @@
     <column name="OetbCon2FrghtOrdrAmtD" phpName="Oetbcon2frghtordramtd" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="OetbCon2FrghtOrdrAmtE" phpName="Oetbcon2frghtordramte" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="OetbCon2ChrgFrghtBkord" phpName="Oetbcon2chrgfrghtbkord" type="CHAR" required="true" defaultValue="N"/>
+    <column name="OetbCon3MnRtlDelFeeMin" phpName="Oetbcon3mnrtldelfeemin" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OetbCon3MnRtlDelFeeAmt" phpName="Oetbcon3mnrtldelfeeamt" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="OetbCon2FrghtAddMeth" phpName="Oetbcon2frghtaddmeth" type="CHAR" required="true" defaultValue="1"/>
     <column name="OetbCon2FrghtOrder" phpName="Oetbcon2frghtorder" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="OetbCon2FrghtCntnr" phpName="Oetbcon2frghtcntnr" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>

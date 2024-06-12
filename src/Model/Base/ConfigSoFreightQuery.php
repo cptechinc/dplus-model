@@ -31,6 +31,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigSoFreightQuery orderByOetbcon2frghtordramtd($order = Criteria::ASC) Order by the OetbCon2FrghtOrdrAmtD column
  * @method     ChildConfigSoFreightQuery orderByOetbcon2frghtordramte($order = Criteria::ASC) Order by the OetbCon2FrghtOrdrAmtE column
  * @method     ChildConfigSoFreightQuery orderByOetbcon2chrgfrghtbkord($order = Criteria::ASC) Order by the OetbCon2ChrgFrghtBkord column
+ * @method     ChildConfigSoFreightQuery orderByOetbcon3mnrtldelfeemin($order = Criteria::ASC) Order by the OetbCon3MnRtlDelFeeMin column
+ * @method     ChildConfigSoFreightQuery orderByOetbcon3mnrtldelfeeamt($order = Criteria::ASC) Order by the OetbCon3MnRtlDelFeeAmt column
  * @method     ChildConfigSoFreightQuery orderByOetbcon2frghtaddmeth($order = Criteria::ASC) Order by the OetbCon2FrghtAddMeth column
  * @method     ChildConfigSoFreightQuery orderByOetbcon2frghtorder($order = Criteria::ASC) Order by the OetbCon2FrghtOrder column
  * @method     ChildConfigSoFreightQuery orderByOetbcon2frghtcntnr($order = Criteria::ASC) Order by the OetbCon2FrghtCntnr column
@@ -57,6 +59,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigSoFreightQuery groupByOetbcon2frghtordramtd() Group by the OetbCon2FrghtOrdrAmtD column
  * @method     ChildConfigSoFreightQuery groupByOetbcon2frghtordramte() Group by the OetbCon2FrghtOrdrAmtE column
  * @method     ChildConfigSoFreightQuery groupByOetbcon2chrgfrghtbkord() Group by the OetbCon2ChrgFrghtBkord column
+ * @method     ChildConfigSoFreightQuery groupByOetbcon3mnrtldelfeemin() Group by the OetbCon3MnRtlDelFeeMin column
+ * @method     ChildConfigSoFreightQuery groupByOetbcon3mnrtldelfeeamt() Group by the OetbCon3MnRtlDelFeeAmt column
  * @method     ChildConfigSoFreightQuery groupByOetbcon2frghtaddmeth() Group by the OetbCon2FrghtAddMeth column
  * @method     ChildConfigSoFreightQuery groupByOetbcon2frghtorder() Group by the OetbCon2FrghtOrder column
  * @method     ChildConfigSoFreightQuery groupByOetbcon2frghtcntnr() Group by the OetbCon2FrghtCntnr column
@@ -94,6 +98,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigSoFreight findOneByOetbcon2frghtordramtd(string $OetbCon2FrghtOrdrAmtD) Return the first ChildConfigSoFreight filtered by the OetbCon2FrghtOrdrAmtD column
  * @method     ChildConfigSoFreight findOneByOetbcon2frghtordramte(string $OetbCon2FrghtOrdrAmtE) Return the first ChildConfigSoFreight filtered by the OetbCon2FrghtOrdrAmtE column
  * @method     ChildConfigSoFreight findOneByOetbcon2chrgfrghtbkord(string $OetbCon2ChrgFrghtBkord) Return the first ChildConfigSoFreight filtered by the OetbCon2ChrgFrghtBkord column
+ * @method     ChildConfigSoFreight findOneByOetbcon3mnrtldelfeemin(string $OetbCon3MnRtlDelFeeMin) Return the first ChildConfigSoFreight filtered by the OetbCon3MnRtlDelFeeMin column
+ * @method     ChildConfigSoFreight findOneByOetbcon3mnrtldelfeeamt(string $OetbCon3MnRtlDelFeeAmt) Return the first ChildConfigSoFreight filtered by the OetbCon3MnRtlDelFeeAmt column
  * @method     ChildConfigSoFreight findOneByOetbcon2frghtaddmeth(string $OetbCon2FrghtAddMeth) Return the first ChildConfigSoFreight filtered by the OetbCon2FrghtAddMeth column
  * @method     ChildConfigSoFreight findOneByOetbcon2frghtorder(string $OetbCon2FrghtOrder) Return the first ChildConfigSoFreight filtered by the OetbCon2FrghtOrder column
  * @method     ChildConfigSoFreight findOneByOetbcon2frghtcntnr(string $OetbCon2FrghtCntnr) Return the first ChildConfigSoFreight filtered by the OetbCon2FrghtCntnr column
@@ -123,6 +129,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigSoFreight requireOneByOetbcon2frghtordramtd(string $OetbCon2FrghtOrdrAmtD) Return the first ChildConfigSoFreight filtered by the OetbCon2FrghtOrdrAmtD column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigSoFreight requireOneByOetbcon2frghtordramte(string $OetbCon2FrghtOrdrAmtE) Return the first ChildConfigSoFreight filtered by the OetbCon2FrghtOrdrAmtE column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigSoFreight requireOneByOetbcon2chrgfrghtbkord(string $OetbCon2ChrgFrghtBkord) Return the first ChildConfigSoFreight filtered by the OetbCon2ChrgFrghtBkord column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigSoFreight requireOneByOetbcon3mnrtldelfeemin(string $OetbCon3MnRtlDelFeeMin) Return the first ChildConfigSoFreight filtered by the OetbCon3MnRtlDelFeeMin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigSoFreight requireOneByOetbcon3mnrtldelfeeamt(string $OetbCon3MnRtlDelFeeAmt) Return the first ChildConfigSoFreight filtered by the OetbCon3MnRtlDelFeeAmt column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigSoFreight requireOneByOetbcon2frghtaddmeth(string $OetbCon2FrghtAddMeth) Return the first ChildConfigSoFreight filtered by the OetbCon2FrghtAddMeth column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigSoFreight requireOneByOetbcon2frghtorder(string $OetbCon2FrghtOrder) Return the first ChildConfigSoFreight filtered by the OetbCon2FrghtOrder column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigSoFreight requireOneByOetbcon2frghtcntnr(string $OetbCon2FrghtCntnr) Return the first ChildConfigSoFreight filtered by the OetbCon2FrghtCntnr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -150,6 +158,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigSoFreight[]|ObjectCollection findByOetbcon2frghtordramtd(string $OetbCon2FrghtOrdrAmtD) Return ChildConfigSoFreight objects filtered by the OetbCon2FrghtOrdrAmtD column
  * @method     ChildConfigSoFreight[]|ObjectCollection findByOetbcon2frghtordramte(string $OetbCon2FrghtOrdrAmtE) Return ChildConfigSoFreight objects filtered by the OetbCon2FrghtOrdrAmtE column
  * @method     ChildConfigSoFreight[]|ObjectCollection findByOetbcon2chrgfrghtbkord(string $OetbCon2ChrgFrghtBkord) Return ChildConfigSoFreight objects filtered by the OetbCon2ChrgFrghtBkord column
+ * @method     ChildConfigSoFreight[]|ObjectCollection findByOetbcon3mnrtldelfeemin(string $OetbCon3MnRtlDelFeeMin) Return ChildConfigSoFreight objects filtered by the OetbCon3MnRtlDelFeeMin column
+ * @method     ChildConfigSoFreight[]|ObjectCollection findByOetbcon3mnrtldelfeeamt(string $OetbCon3MnRtlDelFeeAmt) Return ChildConfigSoFreight objects filtered by the OetbCon3MnRtlDelFeeAmt column
  * @method     ChildConfigSoFreight[]|ObjectCollection findByOetbcon2frghtaddmeth(string $OetbCon2FrghtAddMeth) Return ChildConfigSoFreight objects filtered by the OetbCon2FrghtAddMeth column
  * @method     ChildConfigSoFreight[]|ObjectCollection findByOetbcon2frghtorder(string $OetbCon2FrghtOrder) Return ChildConfigSoFreight objects filtered by the OetbCon2FrghtOrder column
  * @method     ChildConfigSoFreight[]|ObjectCollection findByOetbcon2frghtcntnr(string $OetbCon2FrghtCntnr) Return ChildConfigSoFreight objects filtered by the OetbCon2FrghtCntnr column
@@ -261,7 +271,7 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT OetbConfKey, OetbConfUseFrtCost, OetbCon2FrtRateTabl, OetbCon2FrtZoneSorZ, OetbCon2ChrgActFrt, OetbCon3UseFrtGrup, OetbCon2FrghtOrdrAmtA, OetbCon2FrghtOrdrAmtB, OetbCon2FrghtOrdrAmtC, OetbCon2FrghtOrdrAmtD, OetbCon2FrghtOrdrAmtE, OetbCon2ChrgFrghtBkord, OetbCon2FrghtAddMeth, OetbCon2FrghtOrder, OetbCon2FrghtCntnr, OetbCon2FrghtAdd1, OetbCon2FrghtAddAmt1, OetbCon2FrghtAddPer, OetbCon2FrghtAddAmtPer, OetbCon2FrghtAddAmtMax, OetbCon2FrghtAddPct, OetbCon2FrghtMinChrg, DateUpdtd, TimeUpdtd, dummy FROM so_frt_config WHERE OetbConfKey = :p0';
+        $sql = 'SELECT OetbConfKey, OetbConfUseFrtCost, OetbCon2FrtRateTabl, OetbCon2FrtZoneSorZ, OetbCon2ChrgActFrt, OetbCon3UseFrtGrup, OetbCon2FrghtOrdrAmtA, OetbCon2FrghtOrdrAmtB, OetbCon2FrghtOrdrAmtC, OetbCon2FrghtOrdrAmtD, OetbCon2FrghtOrdrAmtE, OetbCon2ChrgFrghtBkord, OetbCon3MnRtlDelFeeMin, OetbCon3MnRtlDelFeeAmt, OetbCon2FrghtAddMeth, OetbCon2FrghtOrder, OetbCon2FrghtCntnr, OetbCon2FrghtAdd1, OetbCon2FrghtAddAmt1, OetbCon2FrghtAddPer, OetbCon2FrghtAddAmtPer, OetbCon2FrghtAddAmtMax, OetbCon2FrghtAddPct, OetbCon2FrghtMinChrg, DateUpdtd, TimeUpdtd, dummy FROM so_frt_config WHERE OetbConfKey = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -745,6 +755,88 @@ abstract class ConfigSoFreightQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ConfigSoFreightTableMap::COL_OETBCON2CHRGFRGHTBKORD, $oetbcon2chrgfrghtbkord, $comparison);
+    }
+
+    /**
+     * Filter the query on the OetbCon3MnRtlDelFeeMin column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOetbcon3mnrtldelfeemin(1234); // WHERE OetbCon3MnRtlDelFeeMin = 1234
+     * $query->filterByOetbcon3mnrtldelfeemin(array(12, 34)); // WHERE OetbCon3MnRtlDelFeeMin IN (12, 34)
+     * $query->filterByOetbcon3mnrtldelfeemin(array('min' => 12)); // WHERE OetbCon3MnRtlDelFeeMin > 12
+     * </code>
+     *
+     * @param     mixed $oetbcon3mnrtldelfeemin The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigSoFreightQuery The current query, for fluid interface
+     */
+    public function filterByOetbcon3mnrtldelfeemin($oetbcon3mnrtldelfeemin = null, $comparison = null)
+    {
+        if (is_array($oetbcon3mnrtldelfeemin)) {
+            $useMinMax = false;
+            if (isset($oetbcon3mnrtldelfeemin['min'])) {
+                $this->addUsingAlias(ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEMIN, $oetbcon3mnrtldelfeemin['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oetbcon3mnrtldelfeemin['max'])) {
+                $this->addUsingAlias(ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEMIN, $oetbcon3mnrtldelfeemin['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEMIN, $oetbcon3mnrtldelfeemin, $comparison);
+    }
+
+    /**
+     * Filter the query on the OetbCon3MnRtlDelFeeAmt column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOetbcon3mnrtldelfeeamt(1234); // WHERE OetbCon3MnRtlDelFeeAmt = 1234
+     * $query->filterByOetbcon3mnrtldelfeeamt(array(12, 34)); // WHERE OetbCon3MnRtlDelFeeAmt IN (12, 34)
+     * $query->filterByOetbcon3mnrtldelfeeamt(array('min' => 12)); // WHERE OetbCon3MnRtlDelFeeAmt > 12
+     * </code>
+     *
+     * @param     mixed $oetbcon3mnrtldelfeeamt The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigSoFreightQuery The current query, for fluid interface
+     */
+    public function filterByOetbcon3mnrtldelfeeamt($oetbcon3mnrtldelfeeamt = null, $comparison = null)
+    {
+        if (is_array($oetbcon3mnrtldelfeeamt)) {
+            $useMinMax = false;
+            if (isset($oetbcon3mnrtldelfeeamt['min'])) {
+                $this->addUsingAlias(ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEAMT, $oetbcon3mnrtldelfeeamt['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oetbcon3mnrtldelfeeamt['max'])) {
+                $this->addUsingAlias(ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEAMT, $oetbcon3mnrtldelfeeamt['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigSoFreightTableMap::COL_OETBCON3MNRTLDELFEEAMT, $oetbcon3mnrtldelfeeamt, $comparison);
     }
 
     /**
