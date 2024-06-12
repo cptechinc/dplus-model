@@ -41,6 +41,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigInQuery orderByIntbconfpricgrupdef($order = Criteria::ASC) Order by the IntbConfPricGrupDef column
  * @method     ChildConfigInQuery orderByIntbconfcommgrupdef($order = Criteria::ASC) Order by the IntbConfCommGrupDef column
  * @method     ChildConfigInQuery orderByIntbconftypedef($order = Criteria::ASC) Order by the IntbConfTypeDef column
+ * @method     ChildConfigInQuery orderByIntbconfmultilotref($order = Criteria::ASC) Order by the IntbConfMultiLotRef column
  * @method     ChildConfigInQuery orderByIntbconfpricuseitem($order = Criteria::ASC) Order by the IntbConfPricUseItem column
  * @method     ChildConfigInQuery orderByIntbconfcommuseitem($order = Criteria::ASC) Order by the IntbConfCommUseItem column
  * @method     ChildConfigInQuery orderByIntbconfuomsaledef($order = Criteria::ASC) Order by the IntbConfUomSaleDef column
@@ -131,7 +132,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigInQuery orderByIntbconfupdxrefcost($order = Criteria::ASC) Order by the IntbConfUpdXrefCost column
  * @method     ChildConfigInQuery orderByIntbconfiqpaupddate($order = Criteria::ASC) Order by the IntbConfIqpaUpdDate column
  * @method     ChildConfigInQuery orderByIntbconfupcxrefoptn($order = Criteria::ASC) Order by the IntbConfUpcXrefOptn column
- * @method     ChildConfigInQuery orderByIntbconfresqyn($order = Criteria::ASC) Order by the IntbConfResqYN column
  * @method     ChildConfigInQuery orderByIntbconftranviewlib($order = Criteria::ASC) Order by the IntbConfTranViewLIB column
  * @method     ChildConfigInQuery orderByIntbconfresvcost($order = Criteria::ASC) Order by the IntbConfResvCost column
  * @method     ChildConfigInQuery orderByIntbcon2tranzerorqst($order = Criteria::ASC) Order by the IntbCon2TranZeroRqst column
@@ -216,6 +216,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigInQuery groupByIntbconfpricgrupdef() Group by the IntbConfPricGrupDef column
  * @method     ChildConfigInQuery groupByIntbconfcommgrupdef() Group by the IntbConfCommGrupDef column
  * @method     ChildConfigInQuery groupByIntbconftypedef() Group by the IntbConfTypeDef column
+ * @method     ChildConfigInQuery groupByIntbconfmultilotref() Group by the IntbConfMultiLotRef column
  * @method     ChildConfigInQuery groupByIntbconfpricuseitem() Group by the IntbConfPricUseItem column
  * @method     ChildConfigInQuery groupByIntbconfcommuseitem() Group by the IntbConfCommUseItem column
  * @method     ChildConfigInQuery groupByIntbconfuomsaledef() Group by the IntbConfUomSaleDef column
@@ -306,7 +307,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigInQuery groupByIntbconfupdxrefcost() Group by the IntbConfUpdXrefCost column
  * @method     ChildConfigInQuery groupByIntbconfiqpaupddate() Group by the IntbConfIqpaUpdDate column
  * @method     ChildConfigInQuery groupByIntbconfupcxrefoptn() Group by the IntbConfUpcXrefOptn column
- * @method     ChildConfigInQuery groupByIntbconfresqyn() Group by the IntbConfResqYN column
  * @method     ChildConfigInQuery groupByIntbconftranviewlib() Group by the IntbConfTranViewLIB column
  * @method     ChildConfigInQuery groupByIntbconfresvcost() Group by the IntbConfResvCost column
  * @method     ChildConfigInQuery groupByIntbcon2tranzerorqst() Group by the IntbCon2TranZeroRqst column
@@ -402,6 +402,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigIn findOneByIntbconfpricgrupdef(string $IntbConfPricGrupDef) Return the first ChildConfigIn filtered by the IntbConfPricGrupDef column
  * @method     ChildConfigIn findOneByIntbconfcommgrupdef(string $IntbConfCommGrupDef) Return the first ChildConfigIn filtered by the IntbConfCommGrupDef column
  * @method     ChildConfigIn findOneByIntbconftypedef(string $IntbConfTypeDef) Return the first ChildConfigIn filtered by the IntbConfTypeDef column
+ * @method     ChildConfigIn findOneByIntbconfmultilotref(string $IntbConfMultiLotRef) Return the first ChildConfigIn filtered by the IntbConfMultiLotRef column
  * @method     ChildConfigIn findOneByIntbconfpricuseitem(string $IntbConfPricUseItem) Return the first ChildConfigIn filtered by the IntbConfPricUseItem column
  * @method     ChildConfigIn findOneByIntbconfcommuseitem(string $IntbConfCommUseItem) Return the first ChildConfigIn filtered by the IntbConfCommUseItem column
  * @method     ChildConfigIn findOneByIntbconfuomsaledef(string $IntbConfUomSaleDef) Return the first ChildConfigIn filtered by the IntbConfUomSaleDef column
@@ -492,7 +493,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigIn findOneByIntbconfupdxrefcost(string $IntbConfUpdXrefCost) Return the first ChildConfigIn filtered by the IntbConfUpdXrefCost column
  * @method     ChildConfigIn findOneByIntbconfiqpaupddate(string $IntbConfIqpaUpdDate) Return the first ChildConfigIn filtered by the IntbConfIqpaUpdDate column
  * @method     ChildConfigIn findOneByIntbconfupcxrefoptn(string $IntbConfUpcXrefOptn) Return the first ChildConfigIn filtered by the IntbConfUpcXrefOptn column
- * @method     ChildConfigIn findOneByIntbconfresqyn(string $IntbConfResqYN) Return the first ChildConfigIn filtered by the IntbConfResqYN column
  * @method     ChildConfigIn findOneByIntbconftranviewlib(string $IntbConfTranViewLIB) Return the first ChildConfigIn filtered by the IntbConfTranViewLIB column
  * @method     ChildConfigIn findOneByIntbconfresvcost(string $IntbConfResvCost) Return the first ChildConfigIn filtered by the IntbConfResvCost column
  * @method     ChildConfigIn findOneByIntbcon2tranzerorqst(string $IntbCon2TranZeroRqst) Return the first ChildConfigIn filtered by the IntbCon2TranZeroRqst column
@@ -580,6 +580,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigIn requireOneByIntbconfpricgrupdef(string $IntbConfPricGrupDef) Return the first ChildConfigIn filtered by the IntbConfPricGrupDef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigIn requireOneByIntbconfcommgrupdef(string $IntbConfCommGrupDef) Return the first ChildConfigIn filtered by the IntbConfCommGrupDef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigIn requireOneByIntbconftypedef(string $IntbConfTypeDef) Return the first ChildConfigIn filtered by the IntbConfTypeDef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigIn requireOneByIntbconfmultilotref(string $IntbConfMultiLotRef) Return the first ChildConfigIn filtered by the IntbConfMultiLotRef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigIn requireOneByIntbconfpricuseitem(string $IntbConfPricUseItem) Return the first ChildConfigIn filtered by the IntbConfPricUseItem column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigIn requireOneByIntbconfcommuseitem(string $IntbConfCommUseItem) Return the first ChildConfigIn filtered by the IntbConfCommUseItem column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigIn requireOneByIntbconfuomsaledef(string $IntbConfUomSaleDef) Return the first ChildConfigIn filtered by the IntbConfUomSaleDef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -670,7 +671,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigIn requireOneByIntbconfupdxrefcost(string $IntbConfUpdXrefCost) Return the first ChildConfigIn filtered by the IntbConfUpdXrefCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigIn requireOneByIntbconfiqpaupddate(string $IntbConfIqpaUpdDate) Return the first ChildConfigIn filtered by the IntbConfIqpaUpdDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigIn requireOneByIntbconfupcxrefoptn(string $IntbConfUpcXrefOptn) Return the first ChildConfigIn filtered by the IntbConfUpcXrefOptn column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigIn requireOneByIntbconfresqyn(string $IntbConfResqYN) Return the first ChildConfigIn filtered by the IntbConfResqYN column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigIn requireOneByIntbconftranviewlib(string $IntbConfTranViewLIB) Return the first ChildConfigIn filtered by the IntbConfTranViewLIB column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigIn requireOneByIntbconfresvcost(string $IntbConfResvCost) Return the first ChildConfigIn filtered by the IntbConfResvCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigIn requireOneByIntbcon2tranzerorqst(string $IntbCon2TranZeroRqst) Return the first ChildConfigIn filtered by the IntbCon2TranZeroRqst column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -756,6 +756,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigIn[]|ObjectCollection findByIntbconfpricgrupdef(string $IntbConfPricGrupDef) Return ChildConfigIn objects filtered by the IntbConfPricGrupDef column
  * @method     ChildConfigIn[]|ObjectCollection findByIntbconfcommgrupdef(string $IntbConfCommGrupDef) Return ChildConfigIn objects filtered by the IntbConfCommGrupDef column
  * @method     ChildConfigIn[]|ObjectCollection findByIntbconftypedef(string $IntbConfTypeDef) Return ChildConfigIn objects filtered by the IntbConfTypeDef column
+ * @method     ChildConfigIn[]|ObjectCollection findByIntbconfmultilotref(string $IntbConfMultiLotRef) Return ChildConfigIn objects filtered by the IntbConfMultiLotRef column
  * @method     ChildConfigIn[]|ObjectCollection findByIntbconfpricuseitem(string $IntbConfPricUseItem) Return ChildConfigIn objects filtered by the IntbConfPricUseItem column
  * @method     ChildConfigIn[]|ObjectCollection findByIntbconfcommuseitem(string $IntbConfCommUseItem) Return ChildConfigIn objects filtered by the IntbConfCommUseItem column
  * @method     ChildConfigIn[]|ObjectCollection findByIntbconfuomsaledef(string $IntbConfUomSaleDef) Return ChildConfigIn objects filtered by the IntbConfUomSaleDef column
@@ -846,7 +847,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigIn[]|ObjectCollection findByIntbconfupdxrefcost(string $IntbConfUpdXrefCost) Return ChildConfigIn objects filtered by the IntbConfUpdXrefCost column
  * @method     ChildConfigIn[]|ObjectCollection findByIntbconfiqpaupddate(string $IntbConfIqpaUpdDate) Return ChildConfigIn objects filtered by the IntbConfIqpaUpdDate column
  * @method     ChildConfigIn[]|ObjectCollection findByIntbconfupcxrefoptn(string $IntbConfUpcXrefOptn) Return ChildConfigIn objects filtered by the IntbConfUpcXrefOptn column
- * @method     ChildConfigIn[]|ObjectCollection findByIntbconfresqyn(string $IntbConfResqYN) Return ChildConfigIn objects filtered by the IntbConfResqYN column
  * @method     ChildConfigIn[]|ObjectCollection findByIntbconftranviewlib(string $IntbConfTranViewLIB) Return ChildConfigIn objects filtered by the IntbConfTranViewLIB column
  * @method     ChildConfigIn[]|ObjectCollection findByIntbconfresvcost(string $IntbConfResvCost) Return ChildConfigIn objects filtered by the IntbConfResvCost column
  * @method     ChildConfigIn[]|ObjectCollection findByIntbcon2tranzerorqst(string $IntbCon2TranZeroRqst) Return ChildConfigIn objects filtered by the IntbCon2TranZeroRqst column
@@ -1006,7 +1006,7 @@ abstract class ConfigInQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT IntbConfKey, IntbConfGlIfac, IntbConfUseIw, IntbConfLifoFifo, IntbConfGoNeg, IntbConfUseLots, IntbConfNbrUppr, IntbConfDescUppr, IntbConfUseDesc2, IntbConfUseUpcCode, IntbConfUpcEanCntrl, IntbConfUpcGenNbr, IntbCon2AllowDupUpc, IntbConfXrefNoSpace, IntbConfUsePricGrup, IntbConfUseCommGrup, IntbConfUseWarrDays, IntbConfStanBaseDef, IntbConfGrupDef, IntbConfPricGrupDef, IntbConfCommGrupDef, IntbConfTypeDef, IntbConfPricUseItem, IntbConfCommUseItem, IntbConfUomSaleDef, IntbConfUomPurDef, IntbConfSviaDef, IntbConfCustxrefOrUse, IntbConfHeadGetDef, IntbConfItemGetDef, IntbConfGetDispOhAval, IntbConfUserCode1Labl, IntbConfUserCode1Ver, IntbConfUserCode2Labl, IntbConfUserCode2Ver, IntbConfItemLine, IntbConfItemCols, IntbConfHeadLine, IntbConfHeadCols, IntbConfDetLine, IntbConfDetCols, IntbConfMinMaxZero, IntbConfMinRec, IntbConfAtBelowMin, IntbConfOneWhse, IntbConfYtdMth, IntbConfUseGramsLtr, IntbConfAbcByWhse, IntbConfAbcNbrMths, IntbConfAbcBaseCode, IntbConfAbcLevlA, IntbConfAbcLevlB, IntbConfAbcLevlC, IntbConfAbcLevlD, IntbConfAbcLevlE, IntbConfAbcLevlF, IntbConfAbcLevlG, IntbConfAbcLevlH, IntbConfAbcLevlI, IntbConfAbcLevlJ, IntbConfUseForeignX, IntbConfUseNafta, IntbConfNaftaPrefCode, IntbConfNaftaProducer, IntbConfNaftaDocCode, IntbConfPhysCurrWksh, IntbConf20Or30, IntbConfDispOrigCnt, IntbConfDispGl, IntbConfDispRef, IntbConfDispCost, IntbConfPrtVal, IntbConfPrtGl, IntbConfGlAcct, IntbConfRef, IntbConfCostType, IntbConfNormalOnly, IntbConfUseWhseDef, IntbCon2DfltWhse01, IntbCon2DfltWhse02, IntbCon2DfltWhse03, IntbCon2DfltWhse04, IntbCon2DfltWhse05, IntbCon2DfltWhse06, IntbCon2DfltWhse07, IntbCon2DfltWhse08, IntbCon2DfltWhse09, IntbCon2DfltWhse10, IntbConfBinDef, IntbConfCyclDef, IntbConfStatDef, IntbConfAbcDef, IntbConfSpecOrdrDef, IntbConfOrdrPntDef, IntbConfMaxDef, IntbConfOrdrQtyDef, IntbConfTrcptAllowCmpl, IntbConfTreCmmtStock, IntbConfUseFrtIn, IntbConfEachOrUom, IntbConfNegLotCorr, IntbConfTrnsGlAcct, IntbConfTrnsProtStock, IntbConfNumericItem, IntbConfItemDigits, IntbConfSingleWhse, IntbConfUpdUsePct, IntbConfUpdPric, IntbConfUpdStdCost, IntbConfUpdXrefCost, IntbConfIqpaUpdDate, IntbConfUpcXrefOptn, IntbConfResqYN, IntbConfTranViewLIB, IntbConfResvCost, IntbCon2TranZeroRqst, IntbConfMonEndAdjDate, IntbConfMonEndTrnDate, IntbConfMonEndLogDate, IntbConfDStatProc, IntbConfStanCostUpd, IntbConfLastCost, IntbConfUseSOrGPct, IntbConfAddOnStan, IntbConfStdCostError, IntbConfAvgCurrFive, IntbConfUseCntrlBin, IntbConfNbrBinAreas, IntbConfUseMultBin, IntbConfDfltWhseBin, IntbConfDfltBin, IntbConfCtryItemLot, IntbConfUseShipBin, IntbCon2PrtBinrLabel, IntbCon2ItemLookup, IntbConfIncldCti, IntbConfCertImage, IntbConfDrawImage, IntbConfConfirmImage, IntbCon2ProductImage, IntbConfDefPick, IntbConfDefPack, IntbConfDefInvc, IntbConfDefAck, IntbConfDefQuot, IntbConfDefPo, IntbConfDefTrans, IntbConfAdjGlCogs, IntbCon2DfltAdjGlAcct, IntbConfAdjCostBase, IntbConfDfltAdjtBin, IntbConfAdjtBin, IntbConfCStockSeq, IntbConfCStockHistDay, IntbConfCStockFormat, IntbConfCstkExportItem, IntbConfCstkPdmContract, IntbCon2ImportSeq, IntbConfStopItemChg, IntbConfAddToMxrfe, IntbConfMxrfeVendId, IntbCon2NewIdLabelList, IntbConfUseFormat, IntbConfDefFormat, IntbConfSeqShortItem, IntbConfShortItemLen, IntbConfUseScale, IntbConfStoreWght, IntbConfValidAsstCode, IntbConfWhiteGoods, IntbCon2TransCustId, DateUpdtd, TimeUpdtd, dummy FROM in_config WHERE IntbConfKey = :p0';
+        $sql = 'SELECT IntbConfKey, IntbConfGlIfac, IntbConfUseIw, IntbConfLifoFifo, IntbConfGoNeg, IntbConfUseLots, IntbConfNbrUppr, IntbConfDescUppr, IntbConfUseDesc2, IntbConfUseUpcCode, IntbConfUpcEanCntrl, IntbConfUpcGenNbr, IntbCon2AllowDupUpc, IntbConfXrefNoSpace, IntbConfUsePricGrup, IntbConfUseCommGrup, IntbConfUseWarrDays, IntbConfStanBaseDef, IntbConfGrupDef, IntbConfPricGrupDef, IntbConfCommGrupDef, IntbConfTypeDef, IntbConfMultiLotRef, IntbConfPricUseItem, IntbConfCommUseItem, IntbConfUomSaleDef, IntbConfUomPurDef, IntbConfSviaDef, IntbConfCustxrefOrUse, IntbConfHeadGetDef, IntbConfItemGetDef, IntbConfGetDispOhAval, IntbConfUserCode1Labl, IntbConfUserCode1Ver, IntbConfUserCode2Labl, IntbConfUserCode2Ver, IntbConfItemLine, IntbConfItemCols, IntbConfHeadLine, IntbConfHeadCols, IntbConfDetLine, IntbConfDetCols, IntbConfMinMaxZero, IntbConfMinRec, IntbConfAtBelowMin, IntbConfOneWhse, IntbConfYtdMth, IntbConfUseGramsLtr, IntbConfAbcByWhse, IntbConfAbcNbrMths, IntbConfAbcBaseCode, IntbConfAbcLevlA, IntbConfAbcLevlB, IntbConfAbcLevlC, IntbConfAbcLevlD, IntbConfAbcLevlE, IntbConfAbcLevlF, IntbConfAbcLevlG, IntbConfAbcLevlH, IntbConfAbcLevlI, IntbConfAbcLevlJ, IntbConfUseForeignX, IntbConfUseNafta, IntbConfNaftaPrefCode, IntbConfNaftaProducer, IntbConfNaftaDocCode, IntbConfPhysCurrWksh, IntbConf20Or30, IntbConfDispOrigCnt, IntbConfDispGl, IntbConfDispRef, IntbConfDispCost, IntbConfPrtVal, IntbConfPrtGl, IntbConfGlAcct, IntbConfRef, IntbConfCostType, IntbConfNormalOnly, IntbConfUseWhseDef, IntbCon2DfltWhse01, IntbCon2DfltWhse02, IntbCon2DfltWhse03, IntbCon2DfltWhse04, IntbCon2DfltWhse05, IntbCon2DfltWhse06, IntbCon2DfltWhse07, IntbCon2DfltWhse08, IntbCon2DfltWhse09, IntbCon2DfltWhse10, IntbConfBinDef, IntbConfCyclDef, IntbConfStatDef, IntbConfAbcDef, IntbConfSpecOrdrDef, IntbConfOrdrPntDef, IntbConfMaxDef, IntbConfOrdrQtyDef, IntbConfTrcptAllowCmpl, IntbConfTreCmmtStock, IntbConfUseFrtIn, IntbConfEachOrUom, IntbConfNegLotCorr, IntbConfTrnsGlAcct, IntbConfTrnsProtStock, IntbConfNumericItem, IntbConfItemDigits, IntbConfSingleWhse, IntbConfUpdUsePct, IntbConfUpdPric, IntbConfUpdStdCost, IntbConfUpdXrefCost, IntbConfIqpaUpdDate, IntbConfUpcXrefOptn, IntbConfTranViewLIB, IntbConfResvCost, IntbCon2TranZeroRqst, IntbConfMonEndAdjDate, IntbConfMonEndTrnDate, IntbConfMonEndLogDate, IntbConfDStatProc, IntbConfStanCostUpd, IntbConfLastCost, IntbConfUseSOrGPct, IntbConfAddOnStan, IntbConfStdCostError, IntbConfAvgCurrFive, IntbConfUseCntrlBin, IntbConfNbrBinAreas, IntbConfUseMultBin, IntbConfDfltWhseBin, IntbConfDfltBin, IntbConfCtryItemLot, IntbConfUseShipBin, IntbCon2PrtBinrLabel, IntbCon2ItemLookup, IntbConfIncldCti, IntbConfCertImage, IntbConfDrawImage, IntbConfConfirmImage, IntbCon2ProductImage, IntbConfDefPick, IntbConfDefPack, IntbConfDefInvc, IntbConfDefAck, IntbConfDefQuot, IntbConfDefPo, IntbConfDefTrans, IntbConfAdjGlCogs, IntbCon2DfltAdjGlAcct, IntbConfAdjCostBase, IntbConfDfltAdjtBin, IntbConfAdjtBin, IntbConfCStockSeq, IntbConfCStockHistDay, IntbConfCStockFormat, IntbConfCstkExportItem, IntbConfCstkPdmContract, IntbCon2ImportSeq, IntbConfStopItemChg, IntbConfAddToMxrfe, IntbConfMxrfeVendId, IntbCon2NewIdLabelList, IntbConfUseFormat, IntbConfDefFormat, IntbConfSeqShortItem, IntbConfShortItemLen, IntbConfUseScale, IntbConfStoreWght, IntbConfValidAsstCode, IntbConfWhiteGoods, IntbCon2TransCustId, DateUpdtd, TimeUpdtd, dummy FROM in_config WHERE IntbConfKey = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -1676,6 +1676,31 @@ abstract class ConfigInQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFTYPEDEF, $intbconftypedef, $comparison);
+    }
+
+    /**
+     * Filter the query on the IntbConfMultiLotRef column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByIntbconfmultilotref('fooValue');   // WHERE IntbConfMultiLotRef = 'fooValue'
+     * $query->filterByIntbconfmultilotref('%fooValue%', Criteria::LIKE); // WHERE IntbConfMultiLotRef LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $intbconfmultilotref The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigInQuery The current query, for fluid interface
+     */
+    public function filterByIntbconfmultilotref($intbconfmultilotref = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($intbconfmultilotref)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFMULTILOTREF, $intbconfmultilotref, $comparison);
     }
 
     /**
@@ -4342,31 +4367,6 @@ abstract class ConfigInQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFUPCXREFOPTN, $intbconfupcxrefoptn, $comparison);
-    }
-
-    /**
-     * Filter the query on the IntbConfResqYN column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByIntbconfresqyn('fooValue');   // WHERE IntbConfResqYN = 'fooValue'
-     * $query->filterByIntbconfresqyn('%fooValue%', Criteria::LIKE); // WHERE IntbConfResqYN LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $intbconfresqyn The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildConfigInQuery The current query, for fluid interface
-     */
-    public function filterByIntbconfresqyn($intbconfresqyn = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($intbconfresqyn)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(ConfigInTableMap::COL_INTBCONFRESQYN, $intbconfresqyn, $comparison);
     }
 
     /**

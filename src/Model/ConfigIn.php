@@ -70,6 +70,7 @@ class ConfigIn extends BaseConfigIn {
 		'default_maxqty'                => 'intbConfMaxDef',
 		'default_whseid'                => 'intbCon2DfltWhse01',
 		'default_orderpoint'            => 'intbConfOrdrPntDef',
+		'allowMultiLotRefUse'           => 'intbConfMultiLotRef'
 	);
 
 	/**

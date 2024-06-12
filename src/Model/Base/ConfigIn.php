@@ -236,6 +236,14 @@ abstract class ConfigIn implements ActiveRecordInterface
     protected $intbconftypedef;
 
     /**
+     * The value for the intbconfmultilotref field.
+     *
+     * Note: this column has a database default value of: 'Y'
+     * @var        string
+     */
+    protected $intbconfmultilotref;
+
+    /**
      * The value for the intbconfpricuseitem field.
      *
      * Note: this column has a database default value of: 'N'
@@ -956,14 +964,6 @@ abstract class ConfigIn implements ActiveRecordInterface
     protected $intbconfupcxrefoptn;
 
     /**
-     * The value for the intbconfresqyn field.
-     *
-     * Note: this column has a database default value of: ''
-     * @var        string
-     */
-    protected $intbconfresqyn;
-
-    /**
      * The value for the intbconftranviewlib field.
      *
      * Note: this column has a database default value of: 'L'
@@ -1489,6 +1489,7 @@ abstract class ConfigIn implements ActiveRecordInterface
         $this->intbconfpricgrupdef = '';
         $this->intbconfcommgrupdef = '';
         $this->intbconftypedef = 'N';
+        $this->intbconfmultilotref = 'Y';
         $this->intbconfpricuseitem = 'N';
         $this->intbconfcommuseitem = 'N';
         $this->intbconfuomsaledef = '';
@@ -1579,7 +1580,6 @@ abstract class ConfigIn implements ActiveRecordInterface
         $this->intbconfupdxrefcost = 'N';
         $this->intbconfiqpaupddate = 'N';
         $this->intbconfupcxrefoptn = 'N';
-        $this->intbconfresqyn = '';
         $this->intbconftranviewlib = 'L';
         $this->intbconfresvcost = 'I';
         $this->intbcon2tranzerorqst = 'N';
@@ -2088,6 +2088,16 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function getIntbconftypedef()
     {
         return $this->intbconftypedef;
+    }
+
+    /**
+     * Get the [intbconfmultilotref] column value.
+     *
+     * @return string
+     */
+    public function getIntbconfmultilotref()
+    {
+        return $this->intbconfmultilotref;
     }
 
     /**
@@ -2988,16 +2998,6 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function getIntbconfupcxrefoptn()
     {
         return $this->intbconfupcxrefoptn;
-    }
-
-    /**
-     * Get the [intbconfresqyn] column value.
-     *
-     * @return string
-     */
-    public function getIntbconfresqyn()
-    {
-        return $this->intbconfresqyn;
     }
 
     /**
@@ -4049,6 +4049,26 @@ abstract class ConfigIn implements ActiveRecordInterface
 
         return $this;
     } // setIntbconftypedef()
+
+    /**
+     * Set the value of [intbconfmultilotref] column.
+     *
+     * @param string $v new value
+     * @return $this|\ConfigIn The current object (for fluent API support)
+     */
+    public function setIntbconfmultilotref($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->intbconfmultilotref !== $v) {
+            $this->intbconfmultilotref = $v;
+            $this->modifiedColumns[ConfigInTableMap::COL_INTBCONFMULTILOTREF] = true;
+        }
+
+        return $this;
+    } // setIntbconfmultilotref()
 
     /**
      * Set the value of [intbconfpricuseitem] column.
@@ -5851,26 +5871,6 @@ abstract class ConfigIn implements ActiveRecordInterface
     } // setIntbconfupcxrefoptn()
 
     /**
-     * Set the value of [intbconfresqyn] column.
-     *
-     * @param string $v new value
-     * @return $this|\ConfigIn The current object (for fluent API support)
-     */
-    public function setIntbconfresqyn($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->intbconfresqyn !== $v) {
-            $this->intbconfresqyn = $v;
-            $this->modifiedColumns[ConfigInTableMap::COL_INTBCONFRESQYN] = true;
-        }
-
-        return $this;
-    } // setIntbconfresqyn()
-
-    /**
      * Set the value of [intbconftranviewlib] column.
      *
      * @param string $v new value
@@ -7188,6 +7188,10 @@ abstract class ConfigIn implements ActiveRecordInterface
                 return false;
             }
 
+            if ($this->intbconfmultilotref !== 'Y') {
+                return false;
+            }
+
             if ($this->intbconfpricuseitem !== 'N') {
                 return false;
             }
@@ -7548,10 +7552,6 @@ abstract class ConfigIn implements ActiveRecordInterface
                 return false;
             }
 
-            if ($this->intbconfresqyn !== '') {
-                return false;
-            }
-
             if ($this->intbconftranviewlib !== 'L') {
                 return false;
             }
@@ -7888,278 +7888,278 @@ abstract class ConfigIn implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ConfigInTableMap::translateFieldName('Intbconftypedef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconftypedef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ConfigInTableMap::translateFieldName('Intbconfpricuseitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ConfigInTableMap::translateFieldName('Intbconfmultilotref', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->intbconfmultilotref = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ConfigInTableMap::translateFieldName('Intbconfpricuseitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfpricuseitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcommuseitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcommuseitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfcommuseitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuomsaledef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuomsaledef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfuomsaledef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuompurdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuompurdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfuompurdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ConfigInTableMap::translateFieldName('Intbconfsviadef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ConfigInTableMap::translateFieldName('Intbconfsviadef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfsviadef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcustxreforuse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcustxreforuse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfcustxreforuse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ConfigInTableMap::translateFieldName('Intbconfheadgetdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ConfigInTableMap::translateFieldName('Intbconfheadgetdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfheadgetdef = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ConfigInTableMap::translateFieldName('Intbconfitemgetdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ConfigInTableMap::translateFieldName('Intbconfitemgetdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfitemgetdef = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ConfigInTableMap::translateFieldName('Intbconfgetdispohaval', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ConfigInTableMap::translateFieldName('Intbconfgetdispohaval', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfgetdispohaval = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusercode1labl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusercode1labl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusercode1labl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusercode1ver', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusercode1ver', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusercode1ver = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusercode2labl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusercode2labl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusercode2labl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusercode2ver', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusercode2ver', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusercode2ver = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ConfigInTableMap::translateFieldName('Intbconfitemline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ConfigInTableMap::translateFieldName('Intbconfitemline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfitemline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ConfigInTableMap::translateFieldName('Intbconfitemcols', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : ConfigInTableMap::translateFieldName('Intbconfitemcols', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfitemcols = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : ConfigInTableMap::translateFieldName('Intbconfheadline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : ConfigInTableMap::translateFieldName('Intbconfheadline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfheadline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : ConfigInTableMap::translateFieldName('Intbconfheadcols', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : ConfigInTableMap::translateFieldName('Intbconfheadcols', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfheadcols = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdetline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdetline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdetline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdetcols', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdetcols', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdetcols = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : ConfigInTableMap::translateFieldName('Intbconfminmaxzero', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : ConfigInTableMap::translateFieldName('Intbconfminmaxzero', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfminmaxzero = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : ConfigInTableMap::translateFieldName('Intbconfminrec', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : ConfigInTableMap::translateFieldName('Intbconfminrec', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfminrec = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : ConfigInTableMap::translateFieldName('Intbconfatbelowmin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : ConfigInTableMap::translateFieldName('Intbconfatbelowmin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfatbelowmin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : ConfigInTableMap::translateFieldName('Intbconfonewhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : ConfigInTableMap::translateFieldName('Intbconfonewhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfonewhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : ConfigInTableMap::translateFieldName('Intbconfytdmth', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : ConfigInTableMap::translateFieldName('Intbconfytdmth', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfytdmth = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusegramsltr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusegramsltr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusegramsltr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabcbywhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabcbywhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabcbywhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabcnbrmths', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabcnbrmths', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabcnbrmths = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabcbasecode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabcbasecode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabcbasecode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevla', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevla', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevla = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlb', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlb', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevlb = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevlc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevld', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevld', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevld = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevle', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevle', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevle = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlf', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlf', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevlf = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevlg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlh', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlh', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevlh = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevli', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevli', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevli = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlj', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabclevlj', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabclevlj = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuseforeignx', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ConfigInTableMap::translateFieldName('Intbconfuseforeignx', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfuseforeignx = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusenafta', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusenafta', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusenafta = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnaftaprefcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnaftaprefcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfnaftaprefcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnaftaproducer', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnaftaproducer', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfnaftaproducer = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnaftadoccode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnaftadoccode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfnaftadoccode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : ConfigInTableMap::translateFieldName('Intbconfphyscurrwksh', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : ConfigInTableMap::translateFieldName('Intbconfphyscurrwksh', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfphyscurrwksh = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : ConfigInTableMap::translateFieldName('Intbconf20or30', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : ConfigInTableMap::translateFieldName('Intbconf20or30', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconf20or30 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdisporigcnt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdisporigcnt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdisporigcnt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdispgl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdispgl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdispgl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdispref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdispref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdispref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdispcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : ConfigInTableMap::translateFieldName('Intbconfdispcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfdispcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : ConfigInTableMap::translateFieldName('Intbconfprtval', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : ConfigInTableMap::translateFieldName('Intbconfprtval', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfprtval = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : ConfigInTableMap::translateFieldName('Intbconfprtgl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : ConfigInTableMap::translateFieldName('Intbconfprtgl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfprtgl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : ConfigInTableMap::translateFieldName('Intbconfglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : ConfigInTableMap::translateFieldName('Intbconfglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : ConfigInTableMap::translateFieldName('Intbconfref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : ConfigInTableMap::translateFieldName('Intbconfref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcosttype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcosttype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfcosttype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnormalonly', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnormalonly', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfnormalonly = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusewhsedef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusewhsedef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusewhsedef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse01', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse01', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse01 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse02', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse02', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse02 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse03', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse03', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse03 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse04', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse04', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse04 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse05', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse05', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse05 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse06', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse06', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse06 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse07', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse07', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse07 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse08', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse08', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse08 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse09', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse09', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse09 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : ConfigInTableMap::translateFieldName('Intbcon2dfltwhse10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcon2dfltwhse10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : ConfigInTableMap::translateFieldName('Intbconfbindef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : ConfigInTableMap::translateFieldName('Intbconfbindef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfbindef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcycldef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : ConfigInTableMap::translateFieldName('Intbconfcycldef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfcycldef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : ConfigInTableMap::translateFieldName('Intbconfstatdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : ConfigInTableMap::translateFieldName('Intbconfstatdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfstatdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabcdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : ConfigInTableMap::translateFieldName('Intbconfabcdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfabcdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : ConfigInTableMap::translateFieldName('Intbconfspecordrdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : ConfigInTableMap::translateFieldName('Intbconfspecordrdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfspecordrdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : ConfigInTableMap::translateFieldName('Intbconfordrpntdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : ConfigInTableMap::translateFieldName('Intbconfordrpntdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfordrpntdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : ConfigInTableMap::translateFieldName('Intbconfmaxdef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : ConfigInTableMap::translateFieldName('Intbconfmaxdef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfmaxdef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : ConfigInTableMap::translateFieldName('Intbconfordrqtydef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : ConfigInTableMap::translateFieldName('Intbconfordrqtydef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfordrqtydef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : ConfigInTableMap::translateFieldName('Intbconftrcptallowcmpl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : ConfigInTableMap::translateFieldName('Intbconftrcptallowcmpl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconftrcptallowcmpl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : ConfigInTableMap::translateFieldName('Intbconftrecmmtstock', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : ConfigInTableMap::translateFieldName('Intbconftrecmmtstock', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconftrecmmtstock = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusefrtin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : ConfigInTableMap::translateFieldName('Intbconfusefrtin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfusefrtin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : ConfigInTableMap::translateFieldName('Intbconfeachoruom', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : ConfigInTableMap::translateFieldName('Intbconfeachoruom', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfeachoruom = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : ConfigInTableMap::translateFieldName('Intbconfneglotcorr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : ConfigInTableMap::translateFieldName('Intbconfneglotcorr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfneglotcorr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : ConfigInTableMap::translateFieldName('Intbconftrnsglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 102 + $startcol : ConfigInTableMap::translateFieldName('Intbconftrnsglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconftrnsglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 102 + $startcol : ConfigInTableMap::translateFieldName('Intbconftrnsprotstock', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 103 + $startcol : ConfigInTableMap::translateFieldName('Intbconftrnsprotstock', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconftrnsprotstock = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 103 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnumericitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 104 + $startcol : ConfigInTableMap::translateFieldName('Intbconfnumericitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfnumericitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 104 + $startcol : ConfigInTableMap::translateFieldName('Intbconfitemdigits', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : ConfigInTableMap::translateFieldName('Intbconfitemdigits', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfitemdigits = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : ConfigInTableMap::translateFieldName('Intbconfsinglewhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : ConfigInTableMap::translateFieldName('Intbconfsinglewhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfsinglewhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupdusepct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupdusepct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfupdusepct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupdpric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupdpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfupdpric = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupdstdcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupdstdcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfupdstdcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupdxrefcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupdxrefcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfupdxrefcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : ConfigInTableMap::translateFieldName('Intbconfiqpaupddate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : ConfigInTableMap::translateFieldName('Intbconfiqpaupddate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfiqpaupddate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupcxrefoptn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : ConfigInTableMap::translateFieldName('Intbconfupcxrefoptn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconfupcxrefoptn = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : ConfigInTableMap::translateFieldName('Intbconfresqyn', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->intbconfresqyn = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : ConfigInTableMap::translateFieldName('Intbconftranviewlib', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbconftranviewlib = (null !== $col) ? (string) $col : null;
@@ -8614,6 +8614,9 @@ abstract class ConfigIn implements ActiveRecordInterface
         if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFTYPEDEF)) {
             $modifiedColumns[':p' . $index++]  = 'IntbConfTypeDef';
         }
+        if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFMULTILOTREF)) {
+            $modifiedColumns[':p' . $index++]  = 'IntbConfMultiLotRef';
+        }
         if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFPRICUSEITEM)) {
             $modifiedColumns[':p' . $index++]  = 'IntbConfPricUseItem';
         }
@@ -8884,9 +8887,6 @@ abstract class ConfigIn implements ActiveRecordInterface
         if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFUPCXREFOPTN)) {
             $modifiedColumns[':p' . $index++]  = 'IntbConfUpcXrefOptn';
         }
-        if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFRESQYN)) {
-            $modifiedColumns[':p' . $index++]  = 'IntbConfResqYN';
-        }
         if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFTRANVIEWLIB)) {
             $modifiedColumns[':p' . $index++]  = 'IntbConfTranViewLIB';
         }
@@ -9146,6 +9146,9 @@ abstract class ConfigIn implements ActiveRecordInterface
                         break;
                     case 'IntbConfTypeDef':
                         $stmt->bindValue($identifier, $this->intbconftypedef, PDO::PARAM_STR);
+                        break;
+                    case 'IntbConfMultiLotRef':
+                        $stmt->bindValue($identifier, $this->intbconfmultilotref, PDO::PARAM_STR);
                         break;
                     case 'IntbConfPricUseItem':
                         $stmt->bindValue($identifier, $this->intbconfpricuseitem, PDO::PARAM_STR);
@@ -9416,9 +9419,6 @@ abstract class ConfigIn implements ActiveRecordInterface
                         break;
                     case 'IntbConfUpcXrefOptn':
                         $stmt->bindValue($identifier, $this->intbconfupcxrefoptn, PDO::PARAM_STR);
-                        break;
-                    case 'IntbConfResqYN':
-                        $stmt->bindValue($identifier, $this->intbconfresqyn, PDO::PARAM_STR);
                         break;
                     case 'IntbConfTranViewLIB':
                         $stmt->bindValue($identifier, $this->intbconftranviewlib, PDO::PARAM_STR);
@@ -9725,277 +9725,277 @@ abstract class ConfigIn implements ActiveRecordInterface
                 return $this->getIntbconftypedef();
                 break;
             case 22:
-                return $this->getIntbconfpricuseitem();
+                return $this->getIntbconfmultilotref();
                 break;
             case 23:
-                return $this->getIntbconfcommuseitem();
+                return $this->getIntbconfpricuseitem();
                 break;
             case 24:
-                return $this->getIntbconfuomsaledef();
+                return $this->getIntbconfcommuseitem();
                 break;
             case 25:
-                return $this->getIntbconfuompurdef();
+                return $this->getIntbconfuomsaledef();
                 break;
             case 26:
-                return $this->getIntbconfsviadef();
+                return $this->getIntbconfuompurdef();
                 break;
             case 27:
-                return $this->getIntbconfcustxreforuse();
+                return $this->getIntbconfsviadef();
                 break;
             case 28:
-                return $this->getIntbconfheadgetdef();
+                return $this->getIntbconfcustxreforuse();
                 break;
             case 29:
-                return $this->getIntbconfitemgetdef();
+                return $this->getIntbconfheadgetdef();
                 break;
             case 30:
-                return $this->getIntbconfgetdispohaval();
+                return $this->getIntbconfitemgetdef();
                 break;
             case 31:
-                return $this->getIntbconfusercode1labl();
+                return $this->getIntbconfgetdispohaval();
                 break;
             case 32:
-                return $this->getIntbconfusercode1ver();
+                return $this->getIntbconfusercode1labl();
                 break;
             case 33:
-                return $this->getIntbconfusercode2labl();
+                return $this->getIntbconfusercode1ver();
                 break;
             case 34:
-                return $this->getIntbconfusercode2ver();
+                return $this->getIntbconfusercode2labl();
                 break;
             case 35:
-                return $this->getIntbconfitemline();
+                return $this->getIntbconfusercode2ver();
                 break;
             case 36:
-                return $this->getIntbconfitemcols();
+                return $this->getIntbconfitemline();
                 break;
             case 37:
-                return $this->getIntbconfheadline();
+                return $this->getIntbconfitemcols();
                 break;
             case 38:
-                return $this->getIntbconfheadcols();
+                return $this->getIntbconfheadline();
                 break;
             case 39:
-                return $this->getIntbconfdetline();
+                return $this->getIntbconfheadcols();
                 break;
             case 40:
-                return $this->getIntbconfdetcols();
+                return $this->getIntbconfdetline();
                 break;
             case 41:
-                return $this->getIntbconfminmaxzero();
+                return $this->getIntbconfdetcols();
                 break;
             case 42:
-                return $this->getIntbconfminrec();
+                return $this->getIntbconfminmaxzero();
                 break;
             case 43:
-                return $this->getIntbconfatbelowmin();
+                return $this->getIntbconfminrec();
                 break;
             case 44:
-                return $this->getIntbconfonewhse();
+                return $this->getIntbconfatbelowmin();
                 break;
             case 45:
-                return $this->getIntbconfytdmth();
+                return $this->getIntbconfonewhse();
                 break;
             case 46:
-                return $this->getIntbconfusegramsltr();
+                return $this->getIntbconfytdmth();
                 break;
             case 47:
-                return $this->getIntbconfabcbywhse();
+                return $this->getIntbconfusegramsltr();
                 break;
             case 48:
-                return $this->getIntbconfabcnbrmths();
+                return $this->getIntbconfabcbywhse();
                 break;
             case 49:
-                return $this->getIntbconfabcbasecode();
+                return $this->getIntbconfabcnbrmths();
                 break;
             case 50:
-                return $this->getIntbconfabclevla();
+                return $this->getIntbconfabcbasecode();
                 break;
             case 51:
-                return $this->getIntbconfabclevlb();
+                return $this->getIntbconfabclevla();
                 break;
             case 52:
-                return $this->getIntbconfabclevlc();
+                return $this->getIntbconfabclevlb();
                 break;
             case 53:
-                return $this->getIntbconfabclevld();
+                return $this->getIntbconfabclevlc();
                 break;
             case 54:
-                return $this->getIntbconfabclevle();
+                return $this->getIntbconfabclevld();
                 break;
             case 55:
-                return $this->getIntbconfabclevlf();
+                return $this->getIntbconfabclevle();
                 break;
             case 56:
-                return $this->getIntbconfabclevlg();
+                return $this->getIntbconfabclevlf();
                 break;
             case 57:
-                return $this->getIntbconfabclevlh();
+                return $this->getIntbconfabclevlg();
                 break;
             case 58:
-                return $this->getIntbconfabclevli();
+                return $this->getIntbconfabclevlh();
                 break;
             case 59:
-                return $this->getIntbconfabclevlj();
+                return $this->getIntbconfabclevli();
                 break;
             case 60:
-                return $this->getIntbconfuseforeignx();
+                return $this->getIntbconfabclevlj();
                 break;
             case 61:
-                return $this->getIntbconfusenafta();
+                return $this->getIntbconfuseforeignx();
                 break;
             case 62:
-                return $this->getIntbconfnaftaprefcode();
+                return $this->getIntbconfusenafta();
                 break;
             case 63:
-                return $this->getIntbconfnaftaproducer();
+                return $this->getIntbconfnaftaprefcode();
                 break;
             case 64:
-                return $this->getIntbconfnaftadoccode();
+                return $this->getIntbconfnaftaproducer();
                 break;
             case 65:
-                return $this->getIntbconfphyscurrwksh();
+                return $this->getIntbconfnaftadoccode();
                 break;
             case 66:
-                return $this->getIntbconf20or30();
+                return $this->getIntbconfphyscurrwksh();
                 break;
             case 67:
-                return $this->getIntbconfdisporigcnt();
+                return $this->getIntbconf20or30();
                 break;
             case 68:
-                return $this->getIntbconfdispgl();
+                return $this->getIntbconfdisporigcnt();
                 break;
             case 69:
-                return $this->getIntbconfdispref();
+                return $this->getIntbconfdispgl();
                 break;
             case 70:
-                return $this->getIntbconfdispcost();
+                return $this->getIntbconfdispref();
                 break;
             case 71:
-                return $this->getIntbconfprtval();
+                return $this->getIntbconfdispcost();
                 break;
             case 72:
-                return $this->getIntbconfprtgl();
+                return $this->getIntbconfprtval();
                 break;
             case 73:
-                return $this->getIntbconfglacct();
+                return $this->getIntbconfprtgl();
                 break;
             case 74:
-                return $this->getIntbconfref();
+                return $this->getIntbconfglacct();
                 break;
             case 75:
-                return $this->getIntbconfcosttype();
+                return $this->getIntbconfref();
                 break;
             case 76:
-                return $this->getIntbconfnormalonly();
+                return $this->getIntbconfcosttype();
                 break;
             case 77:
-                return $this->getIntbconfusewhsedef();
+                return $this->getIntbconfnormalonly();
                 break;
             case 78:
-                return $this->getIntbcon2dfltwhse01();
+                return $this->getIntbconfusewhsedef();
                 break;
             case 79:
-                return $this->getIntbcon2dfltwhse02();
+                return $this->getIntbcon2dfltwhse01();
                 break;
             case 80:
-                return $this->getIntbcon2dfltwhse03();
+                return $this->getIntbcon2dfltwhse02();
                 break;
             case 81:
-                return $this->getIntbcon2dfltwhse04();
+                return $this->getIntbcon2dfltwhse03();
                 break;
             case 82:
-                return $this->getIntbcon2dfltwhse05();
+                return $this->getIntbcon2dfltwhse04();
                 break;
             case 83:
-                return $this->getIntbcon2dfltwhse06();
+                return $this->getIntbcon2dfltwhse05();
                 break;
             case 84:
-                return $this->getIntbcon2dfltwhse07();
+                return $this->getIntbcon2dfltwhse06();
                 break;
             case 85:
-                return $this->getIntbcon2dfltwhse08();
+                return $this->getIntbcon2dfltwhse07();
                 break;
             case 86:
-                return $this->getIntbcon2dfltwhse09();
+                return $this->getIntbcon2dfltwhse08();
                 break;
             case 87:
-                return $this->getIntbcon2dfltwhse10();
+                return $this->getIntbcon2dfltwhse09();
                 break;
             case 88:
-                return $this->getIntbconfbindef();
+                return $this->getIntbcon2dfltwhse10();
                 break;
             case 89:
-                return $this->getIntbconfcycldef();
+                return $this->getIntbconfbindef();
                 break;
             case 90:
-                return $this->getIntbconfstatdef();
+                return $this->getIntbconfcycldef();
                 break;
             case 91:
-                return $this->getIntbconfabcdef();
+                return $this->getIntbconfstatdef();
                 break;
             case 92:
-                return $this->getIntbconfspecordrdef();
+                return $this->getIntbconfabcdef();
                 break;
             case 93:
-                return $this->getIntbconfordrpntdef();
+                return $this->getIntbconfspecordrdef();
                 break;
             case 94:
-                return $this->getIntbconfmaxdef();
+                return $this->getIntbconfordrpntdef();
                 break;
             case 95:
-                return $this->getIntbconfordrqtydef();
+                return $this->getIntbconfmaxdef();
                 break;
             case 96:
-                return $this->getIntbconftrcptallowcmpl();
+                return $this->getIntbconfordrqtydef();
                 break;
             case 97:
-                return $this->getIntbconftrecmmtstock();
+                return $this->getIntbconftrcptallowcmpl();
                 break;
             case 98:
-                return $this->getIntbconfusefrtin();
+                return $this->getIntbconftrecmmtstock();
                 break;
             case 99:
-                return $this->getIntbconfeachoruom();
+                return $this->getIntbconfusefrtin();
                 break;
             case 100:
-                return $this->getIntbconfneglotcorr();
+                return $this->getIntbconfeachoruom();
                 break;
             case 101:
-                return $this->getIntbconftrnsglacct();
+                return $this->getIntbconfneglotcorr();
                 break;
             case 102:
-                return $this->getIntbconftrnsprotstock();
+                return $this->getIntbconftrnsglacct();
                 break;
             case 103:
-                return $this->getIntbconfnumericitem();
+                return $this->getIntbconftrnsprotstock();
                 break;
             case 104:
-                return $this->getIntbconfitemdigits();
+                return $this->getIntbconfnumericitem();
                 break;
             case 105:
-                return $this->getIntbconfsinglewhse();
+                return $this->getIntbconfitemdigits();
                 break;
             case 106:
-                return $this->getIntbconfupdusepct();
+                return $this->getIntbconfsinglewhse();
                 break;
             case 107:
-                return $this->getIntbconfupdpric();
+                return $this->getIntbconfupdusepct();
                 break;
             case 108:
-                return $this->getIntbconfupdstdcost();
+                return $this->getIntbconfupdpric();
                 break;
             case 109:
-                return $this->getIntbconfupdxrefcost();
+                return $this->getIntbconfupdstdcost();
                 break;
             case 110:
-                return $this->getIntbconfiqpaupddate();
+                return $this->getIntbconfupdxrefcost();
                 break;
             case 111:
-                return $this->getIntbconfupcxrefoptn();
+                return $this->getIntbconfiqpaupddate();
                 break;
             case 112:
-                return $this->getIntbconfresqyn();
+                return $this->getIntbconfupcxrefoptn();
                 break;
             case 113:
                 return $this->getIntbconftranviewlib();
@@ -10231,97 +10231,97 @@ abstract class ConfigIn implements ActiveRecordInterface
             $keys[19] => $this->getIntbconfpricgrupdef(),
             $keys[20] => $this->getIntbconfcommgrupdef(),
             $keys[21] => $this->getIntbconftypedef(),
-            $keys[22] => $this->getIntbconfpricuseitem(),
-            $keys[23] => $this->getIntbconfcommuseitem(),
-            $keys[24] => $this->getIntbconfuomsaledef(),
-            $keys[25] => $this->getIntbconfuompurdef(),
-            $keys[26] => $this->getIntbconfsviadef(),
-            $keys[27] => $this->getIntbconfcustxreforuse(),
-            $keys[28] => $this->getIntbconfheadgetdef(),
-            $keys[29] => $this->getIntbconfitemgetdef(),
-            $keys[30] => $this->getIntbconfgetdispohaval(),
-            $keys[31] => $this->getIntbconfusercode1labl(),
-            $keys[32] => $this->getIntbconfusercode1ver(),
-            $keys[33] => $this->getIntbconfusercode2labl(),
-            $keys[34] => $this->getIntbconfusercode2ver(),
-            $keys[35] => $this->getIntbconfitemline(),
-            $keys[36] => $this->getIntbconfitemcols(),
-            $keys[37] => $this->getIntbconfheadline(),
-            $keys[38] => $this->getIntbconfheadcols(),
-            $keys[39] => $this->getIntbconfdetline(),
-            $keys[40] => $this->getIntbconfdetcols(),
-            $keys[41] => $this->getIntbconfminmaxzero(),
-            $keys[42] => $this->getIntbconfminrec(),
-            $keys[43] => $this->getIntbconfatbelowmin(),
-            $keys[44] => $this->getIntbconfonewhse(),
-            $keys[45] => $this->getIntbconfytdmth(),
-            $keys[46] => $this->getIntbconfusegramsltr(),
-            $keys[47] => $this->getIntbconfabcbywhse(),
-            $keys[48] => $this->getIntbconfabcnbrmths(),
-            $keys[49] => $this->getIntbconfabcbasecode(),
-            $keys[50] => $this->getIntbconfabclevla(),
-            $keys[51] => $this->getIntbconfabclevlb(),
-            $keys[52] => $this->getIntbconfabclevlc(),
-            $keys[53] => $this->getIntbconfabclevld(),
-            $keys[54] => $this->getIntbconfabclevle(),
-            $keys[55] => $this->getIntbconfabclevlf(),
-            $keys[56] => $this->getIntbconfabclevlg(),
-            $keys[57] => $this->getIntbconfabclevlh(),
-            $keys[58] => $this->getIntbconfabclevli(),
-            $keys[59] => $this->getIntbconfabclevlj(),
-            $keys[60] => $this->getIntbconfuseforeignx(),
-            $keys[61] => $this->getIntbconfusenafta(),
-            $keys[62] => $this->getIntbconfnaftaprefcode(),
-            $keys[63] => $this->getIntbconfnaftaproducer(),
-            $keys[64] => $this->getIntbconfnaftadoccode(),
-            $keys[65] => $this->getIntbconfphyscurrwksh(),
-            $keys[66] => $this->getIntbconf20or30(),
-            $keys[67] => $this->getIntbconfdisporigcnt(),
-            $keys[68] => $this->getIntbconfdispgl(),
-            $keys[69] => $this->getIntbconfdispref(),
-            $keys[70] => $this->getIntbconfdispcost(),
-            $keys[71] => $this->getIntbconfprtval(),
-            $keys[72] => $this->getIntbconfprtgl(),
-            $keys[73] => $this->getIntbconfglacct(),
-            $keys[74] => $this->getIntbconfref(),
-            $keys[75] => $this->getIntbconfcosttype(),
-            $keys[76] => $this->getIntbconfnormalonly(),
-            $keys[77] => $this->getIntbconfusewhsedef(),
-            $keys[78] => $this->getIntbcon2dfltwhse01(),
-            $keys[79] => $this->getIntbcon2dfltwhse02(),
-            $keys[80] => $this->getIntbcon2dfltwhse03(),
-            $keys[81] => $this->getIntbcon2dfltwhse04(),
-            $keys[82] => $this->getIntbcon2dfltwhse05(),
-            $keys[83] => $this->getIntbcon2dfltwhse06(),
-            $keys[84] => $this->getIntbcon2dfltwhse07(),
-            $keys[85] => $this->getIntbcon2dfltwhse08(),
-            $keys[86] => $this->getIntbcon2dfltwhse09(),
-            $keys[87] => $this->getIntbcon2dfltwhse10(),
-            $keys[88] => $this->getIntbconfbindef(),
-            $keys[89] => $this->getIntbconfcycldef(),
-            $keys[90] => $this->getIntbconfstatdef(),
-            $keys[91] => $this->getIntbconfabcdef(),
-            $keys[92] => $this->getIntbconfspecordrdef(),
-            $keys[93] => $this->getIntbconfordrpntdef(),
-            $keys[94] => $this->getIntbconfmaxdef(),
-            $keys[95] => $this->getIntbconfordrqtydef(),
-            $keys[96] => $this->getIntbconftrcptallowcmpl(),
-            $keys[97] => $this->getIntbconftrecmmtstock(),
-            $keys[98] => $this->getIntbconfusefrtin(),
-            $keys[99] => $this->getIntbconfeachoruom(),
-            $keys[100] => $this->getIntbconfneglotcorr(),
-            $keys[101] => $this->getIntbconftrnsglacct(),
-            $keys[102] => $this->getIntbconftrnsprotstock(),
-            $keys[103] => $this->getIntbconfnumericitem(),
-            $keys[104] => $this->getIntbconfitemdigits(),
-            $keys[105] => $this->getIntbconfsinglewhse(),
-            $keys[106] => $this->getIntbconfupdusepct(),
-            $keys[107] => $this->getIntbconfupdpric(),
-            $keys[108] => $this->getIntbconfupdstdcost(),
-            $keys[109] => $this->getIntbconfupdxrefcost(),
-            $keys[110] => $this->getIntbconfiqpaupddate(),
-            $keys[111] => $this->getIntbconfupcxrefoptn(),
-            $keys[112] => $this->getIntbconfresqyn(),
+            $keys[22] => $this->getIntbconfmultilotref(),
+            $keys[23] => $this->getIntbconfpricuseitem(),
+            $keys[24] => $this->getIntbconfcommuseitem(),
+            $keys[25] => $this->getIntbconfuomsaledef(),
+            $keys[26] => $this->getIntbconfuompurdef(),
+            $keys[27] => $this->getIntbconfsviadef(),
+            $keys[28] => $this->getIntbconfcustxreforuse(),
+            $keys[29] => $this->getIntbconfheadgetdef(),
+            $keys[30] => $this->getIntbconfitemgetdef(),
+            $keys[31] => $this->getIntbconfgetdispohaval(),
+            $keys[32] => $this->getIntbconfusercode1labl(),
+            $keys[33] => $this->getIntbconfusercode1ver(),
+            $keys[34] => $this->getIntbconfusercode2labl(),
+            $keys[35] => $this->getIntbconfusercode2ver(),
+            $keys[36] => $this->getIntbconfitemline(),
+            $keys[37] => $this->getIntbconfitemcols(),
+            $keys[38] => $this->getIntbconfheadline(),
+            $keys[39] => $this->getIntbconfheadcols(),
+            $keys[40] => $this->getIntbconfdetline(),
+            $keys[41] => $this->getIntbconfdetcols(),
+            $keys[42] => $this->getIntbconfminmaxzero(),
+            $keys[43] => $this->getIntbconfminrec(),
+            $keys[44] => $this->getIntbconfatbelowmin(),
+            $keys[45] => $this->getIntbconfonewhse(),
+            $keys[46] => $this->getIntbconfytdmth(),
+            $keys[47] => $this->getIntbconfusegramsltr(),
+            $keys[48] => $this->getIntbconfabcbywhse(),
+            $keys[49] => $this->getIntbconfabcnbrmths(),
+            $keys[50] => $this->getIntbconfabcbasecode(),
+            $keys[51] => $this->getIntbconfabclevla(),
+            $keys[52] => $this->getIntbconfabclevlb(),
+            $keys[53] => $this->getIntbconfabclevlc(),
+            $keys[54] => $this->getIntbconfabclevld(),
+            $keys[55] => $this->getIntbconfabclevle(),
+            $keys[56] => $this->getIntbconfabclevlf(),
+            $keys[57] => $this->getIntbconfabclevlg(),
+            $keys[58] => $this->getIntbconfabclevlh(),
+            $keys[59] => $this->getIntbconfabclevli(),
+            $keys[60] => $this->getIntbconfabclevlj(),
+            $keys[61] => $this->getIntbconfuseforeignx(),
+            $keys[62] => $this->getIntbconfusenafta(),
+            $keys[63] => $this->getIntbconfnaftaprefcode(),
+            $keys[64] => $this->getIntbconfnaftaproducer(),
+            $keys[65] => $this->getIntbconfnaftadoccode(),
+            $keys[66] => $this->getIntbconfphyscurrwksh(),
+            $keys[67] => $this->getIntbconf20or30(),
+            $keys[68] => $this->getIntbconfdisporigcnt(),
+            $keys[69] => $this->getIntbconfdispgl(),
+            $keys[70] => $this->getIntbconfdispref(),
+            $keys[71] => $this->getIntbconfdispcost(),
+            $keys[72] => $this->getIntbconfprtval(),
+            $keys[73] => $this->getIntbconfprtgl(),
+            $keys[74] => $this->getIntbconfglacct(),
+            $keys[75] => $this->getIntbconfref(),
+            $keys[76] => $this->getIntbconfcosttype(),
+            $keys[77] => $this->getIntbconfnormalonly(),
+            $keys[78] => $this->getIntbconfusewhsedef(),
+            $keys[79] => $this->getIntbcon2dfltwhse01(),
+            $keys[80] => $this->getIntbcon2dfltwhse02(),
+            $keys[81] => $this->getIntbcon2dfltwhse03(),
+            $keys[82] => $this->getIntbcon2dfltwhse04(),
+            $keys[83] => $this->getIntbcon2dfltwhse05(),
+            $keys[84] => $this->getIntbcon2dfltwhse06(),
+            $keys[85] => $this->getIntbcon2dfltwhse07(),
+            $keys[86] => $this->getIntbcon2dfltwhse08(),
+            $keys[87] => $this->getIntbcon2dfltwhse09(),
+            $keys[88] => $this->getIntbcon2dfltwhse10(),
+            $keys[89] => $this->getIntbconfbindef(),
+            $keys[90] => $this->getIntbconfcycldef(),
+            $keys[91] => $this->getIntbconfstatdef(),
+            $keys[92] => $this->getIntbconfabcdef(),
+            $keys[93] => $this->getIntbconfspecordrdef(),
+            $keys[94] => $this->getIntbconfordrpntdef(),
+            $keys[95] => $this->getIntbconfmaxdef(),
+            $keys[96] => $this->getIntbconfordrqtydef(),
+            $keys[97] => $this->getIntbconftrcptallowcmpl(),
+            $keys[98] => $this->getIntbconftrecmmtstock(),
+            $keys[99] => $this->getIntbconfusefrtin(),
+            $keys[100] => $this->getIntbconfeachoruom(),
+            $keys[101] => $this->getIntbconfneglotcorr(),
+            $keys[102] => $this->getIntbconftrnsglacct(),
+            $keys[103] => $this->getIntbconftrnsprotstock(),
+            $keys[104] => $this->getIntbconfnumericitem(),
+            $keys[105] => $this->getIntbconfitemdigits(),
+            $keys[106] => $this->getIntbconfsinglewhse(),
+            $keys[107] => $this->getIntbconfupdusepct(),
+            $keys[108] => $this->getIntbconfupdpric(),
+            $keys[109] => $this->getIntbconfupdstdcost(),
+            $keys[110] => $this->getIntbconfupdxrefcost(),
+            $keys[111] => $this->getIntbconfiqpaupddate(),
+            $keys[112] => $this->getIntbconfupcxrefoptn(),
             $keys[113] => $this->getIntbconftranviewlib(),
             $keys[114] => $this->getIntbconfresvcost(),
             $keys[115] => $this->getIntbcon2tranzerorqst(),
@@ -10489,277 +10489,277 @@ abstract class ConfigIn implements ActiveRecordInterface
                 $this->setIntbconftypedef($value);
                 break;
             case 22:
-                $this->setIntbconfpricuseitem($value);
+                $this->setIntbconfmultilotref($value);
                 break;
             case 23:
-                $this->setIntbconfcommuseitem($value);
+                $this->setIntbconfpricuseitem($value);
                 break;
             case 24:
-                $this->setIntbconfuomsaledef($value);
+                $this->setIntbconfcommuseitem($value);
                 break;
             case 25:
-                $this->setIntbconfuompurdef($value);
+                $this->setIntbconfuomsaledef($value);
                 break;
             case 26:
-                $this->setIntbconfsviadef($value);
+                $this->setIntbconfuompurdef($value);
                 break;
             case 27:
-                $this->setIntbconfcustxreforuse($value);
+                $this->setIntbconfsviadef($value);
                 break;
             case 28:
-                $this->setIntbconfheadgetdef($value);
+                $this->setIntbconfcustxreforuse($value);
                 break;
             case 29:
-                $this->setIntbconfitemgetdef($value);
+                $this->setIntbconfheadgetdef($value);
                 break;
             case 30:
-                $this->setIntbconfgetdispohaval($value);
+                $this->setIntbconfitemgetdef($value);
                 break;
             case 31:
-                $this->setIntbconfusercode1labl($value);
+                $this->setIntbconfgetdispohaval($value);
                 break;
             case 32:
-                $this->setIntbconfusercode1ver($value);
+                $this->setIntbconfusercode1labl($value);
                 break;
             case 33:
-                $this->setIntbconfusercode2labl($value);
+                $this->setIntbconfusercode1ver($value);
                 break;
             case 34:
-                $this->setIntbconfusercode2ver($value);
+                $this->setIntbconfusercode2labl($value);
                 break;
             case 35:
-                $this->setIntbconfitemline($value);
+                $this->setIntbconfusercode2ver($value);
                 break;
             case 36:
-                $this->setIntbconfitemcols($value);
+                $this->setIntbconfitemline($value);
                 break;
             case 37:
-                $this->setIntbconfheadline($value);
+                $this->setIntbconfitemcols($value);
                 break;
             case 38:
-                $this->setIntbconfheadcols($value);
+                $this->setIntbconfheadline($value);
                 break;
             case 39:
-                $this->setIntbconfdetline($value);
+                $this->setIntbconfheadcols($value);
                 break;
             case 40:
-                $this->setIntbconfdetcols($value);
+                $this->setIntbconfdetline($value);
                 break;
             case 41:
-                $this->setIntbconfminmaxzero($value);
+                $this->setIntbconfdetcols($value);
                 break;
             case 42:
-                $this->setIntbconfminrec($value);
+                $this->setIntbconfminmaxzero($value);
                 break;
             case 43:
-                $this->setIntbconfatbelowmin($value);
+                $this->setIntbconfminrec($value);
                 break;
             case 44:
-                $this->setIntbconfonewhse($value);
+                $this->setIntbconfatbelowmin($value);
                 break;
             case 45:
-                $this->setIntbconfytdmth($value);
+                $this->setIntbconfonewhse($value);
                 break;
             case 46:
-                $this->setIntbconfusegramsltr($value);
+                $this->setIntbconfytdmth($value);
                 break;
             case 47:
-                $this->setIntbconfabcbywhse($value);
+                $this->setIntbconfusegramsltr($value);
                 break;
             case 48:
-                $this->setIntbconfabcnbrmths($value);
+                $this->setIntbconfabcbywhse($value);
                 break;
             case 49:
-                $this->setIntbconfabcbasecode($value);
+                $this->setIntbconfabcnbrmths($value);
                 break;
             case 50:
-                $this->setIntbconfabclevla($value);
+                $this->setIntbconfabcbasecode($value);
                 break;
             case 51:
-                $this->setIntbconfabclevlb($value);
+                $this->setIntbconfabclevla($value);
                 break;
             case 52:
-                $this->setIntbconfabclevlc($value);
+                $this->setIntbconfabclevlb($value);
                 break;
             case 53:
-                $this->setIntbconfabclevld($value);
+                $this->setIntbconfabclevlc($value);
                 break;
             case 54:
-                $this->setIntbconfabclevle($value);
+                $this->setIntbconfabclevld($value);
                 break;
             case 55:
-                $this->setIntbconfabclevlf($value);
+                $this->setIntbconfabclevle($value);
                 break;
             case 56:
-                $this->setIntbconfabclevlg($value);
+                $this->setIntbconfabclevlf($value);
                 break;
             case 57:
-                $this->setIntbconfabclevlh($value);
+                $this->setIntbconfabclevlg($value);
                 break;
             case 58:
-                $this->setIntbconfabclevli($value);
+                $this->setIntbconfabclevlh($value);
                 break;
             case 59:
-                $this->setIntbconfabclevlj($value);
+                $this->setIntbconfabclevli($value);
                 break;
             case 60:
-                $this->setIntbconfuseforeignx($value);
+                $this->setIntbconfabclevlj($value);
                 break;
             case 61:
-                $this->setIntbconfusenafta($value);
+                $this->setIntbconfuseforeignx($value);
                 break;
             case 62:
-                $this->setIntbconfnaftaprefcode($value);
+                $this->setIntbconfusenafta($value);
                 break;
             case 63:
-                $this->setIntbconfnaftaproducer($value);
+                $this->setIntbconfnaftaprefcode($value);
                 break;
             case 64:
-                $this->setIntbconfnaftadoccode($value);
+                $this->setIntbconfnaftaproducer($value);
                 break;
             case 65:
-                $this->setIntbconfphyscurrwksh($value);
+                $this->setIntbconfnaftadoccode($value);
                 break;
             case 66:
-                $this->setIntbconf20or30($value);
+                $this->setIntbconfphyscurrwksh($value);
                 break;
             case 67:
-                $this->setIntbconfdisporigcnt($value);
+                $this->setIntbconf20or30($value);
                 break;
             case 68:
-                $this->setIntbconfdispgl($value);
+                $this->setIntbconfdisporigcnt($value);
                 break;
             case 69:
-                $this->setIntbconfdispref($value);
+                $this->setIntbconfdispgl($value);
                 break;
             case 70:
-                $this->setIntbconfdispcost($value);
+                $this->setIntbconfdispref($value);
                 break;
             case 71:
-                $this->setIntbconfprtval($value);
+                $this->setIntbconfdispcost($value);
                 break;
             case 72:
-                $this->setIntbconfprtgl($value);
+                $this->setIntbconfprtval($value);
                 break;
             case 73:
-                $this->setIntbconfglacct($value);
+                $this->setIntbconfprtgl($value);
                 break;
             case 74:
-                $this->setIntbconfref($value);
+                $this->setIntbconfglacct($value);
                 break;
             case 75:
-                $this->setIntbconfcosttype($value);
+                $this->setIntbconfref($value);
                 break;
             case 76:
-                $this->setIntbconfnormalonly($value);
+                $this->setIntbconfcosttype($value);
                 break;
             case 77:
-                $this->setIntbconfusewhsedef($value);
+                $this->setIntbconfnormalonly($value);
                 break;
             case 78:
-                $this->setIntbcon2dfltwhse01($value);
+                $this->setIntbconfusewhsedef($value);
                 break;
             case 79:
-                $this->setIntbcon2dfltwhse02($value);
+                $this->setIntbcon2dfltwhse01($value);
                 break;
             case 80:
-                $this->setIntbcon2dfltwhse03($value);
+                $this->setIntbcon2dfltwhse02($value);
                 break;
             case 81:
-                $this->setIntbcon2dfltwhse04($value);
+                $this->setIntbcon2dfltwhse03($value);
                 break;
             case 82:
-                $this->setIntbcon2dfltwhse05($value);
+                $this->setIntbcon2dfltwhse04($value);
                 break;
             case 83:
-                $this->setIntbcon2dfltwhse06($value);
+                $this->setIntbcon2dfltwhse05($value);
                 break;
             case 84:
-                $this->setIntbcon2dfltwhse07($value);
+                $this->setIntbcon2dfltwhse06($value);
                 break;
             case 85:
-                $this->setIntbcon2dfltwhse08($value);
+                $this->setIntbcon2dfltwhse07($value);
                 break;
             case 86:
-                $this->setIntbcon2dfltwhse09($value);
+                $this->setIntbcon2dfltwhse08($value);
                 break;
             case 87:
-                $this->setIntbcon2dfltwhse10($value);
+                $this->setIntbcon2dfltwhse09($value);
                 break;
             case 88:
-                $this->setIntbconfbindef($value);
+                $this->setIntbcon2dfltwhse10($value);
                 break;
             case 89:
-                $this->setIntbconfcycldef($value);
+                $this->setIntbconfbindef($value);
                 break;
             case 90:
-                $this->setIntbconfstatdef($value);
+                $this->setIntbconfcycldef($value);
                 break;
             case 91:
-                $this->setIntbconfabcdef($value);
+                $this->setIntbconfstatdef($value);
                 break;
             case 92:
-                $this->setIntbconfspecordrdef($value);
+                $this->setIntbconfabcdef($value);
                 break;
             case 93:
-                $this->setIntbconfordrpntdef($value);
+                $this->setIntbconfspecordrdef($value);
                 break;
             case 94:
-                $this->setIntbconfmaxdef($value);
+                $this->setIntbconfordrpntdef($value);
                 break;
             case 95:
-                $this->setIntbconfordrqtydef($value);
+                $this->setIntbconfmaxdef($value);
                 break;
             case 96:
-                $this->setIntbconftrcptallowcmpl($value);
+                $this->setIntbconfordrqtydef($value);
                 break;
             case 97:
-                $this->setIntbconftrecmmtstock($value);
+                $this->setIntbconftrcptallowcmpl($value);
                 break;
             case 98:
-                $this->setIntbconfusefrtin($value);
+                $this->setIntbconftrecmmtstock($value);
                 break;
             case 99:
-                $this->setIntbconfeachoruom($value);
+                $this->setIntbconfusefrtin($value);
                 break;
             case 100:
-                $this->setIntbconfneglotcorr($value);
+                $this->setIntbconfeachoruom($value);
                 break;
             case 101:
-                $this->setIntbconftrnsglacct($value);
+                $this->setIntbconfneglotcorr($value);
                 break;
             case 102:
-                $this->setIntbconftrnsprotstock($value);
+                $this->setIntbconftrnsglacct($value);
                 break;
             case 103:
-                $this->setIntbconfnumericitem($value);
+                $this->setIntbconftrnsprotstock($value);
                 break;
             case 104:
-                $this->setIntbconfitemdigits($value);
+                $this->setIntbconfnumericitem($value);
                 break;
             case 105:
-                $this->setIntbconfsinglewhse($value);
+                $this->setIntbconfitemdigits($value);
                 break;
             case 106:
-                $this->setIntbconfupdusepct($value);
+                $this->setIntbconfsinglewhse($value);
                 break;
             case 107:
-                $this->setIntbconfupdpric($value);
+                $this->setIntbconfupdusepct($value);
                 break;
             case 108:
-                $this->setIntbconfupdstdcost($value);
+                $this->setIntbconfupdpric($value);
                 break;
             case 109:
-                $this->setIntbconfupdxrefcost($value);
+                $this->setIntbconfupdstdcost($value);
                 break;
             case 110:
-                $this->setIntbconfiqpaupddate($value);
+                $this->setIntbconfupdxrefcost($value);
                 break;
             case 111:
-                $this->setIntbconfupcxrefoptn($value);
+                $this->setIntbconfiqpaupddate($value);
                 break;
             case 112:
-                $this->setIntbconfresqyn($value);
+                $this->setIntbconfupcxrefoptn($value);
                 break;
             case 113:
                 $this->setIntbconftranviewlib($value);
@@ -11037,277 +11037,277 @@ abstract class ConfigIn implements ActiveRecordInterface
             $this->setIntbconftypedef($arr[$keys[21]]);
         }
         if (array_key_exists($keys[22], $arr)) {
-            $this->setIntbconfpricuseitem($arr[$keys[22]]);
+            $this->setIntbconfmultilotref($arr[$keys[22]]);
         }
         if (array_key_exists($keys[23], $arr)) {
-            $this->setIntbconfcommuseitem($arr[$keys[23]]);
+            $this->setIntbconfpricuseitem($arr[$keys[23]]);
         }
         if (array_key_exists($keys[24], $arr)) {
-            $this->setIntbconfuomsaledef($arr[$keys[24]]);
+            $this->setIntbconfcommuseitem($arr[$keys[24]]);
         }
         if (array_key_exists($keys[25], $arr)) {
-            $this->setIntbconfuompurdef($arr[$keys[25]]);
+            $this->setIntbconfuomsaledef($arr[$keys[25]]);
         }
         if (array_key_exists($keys[26], $arr)) {
-            $this->setIntbconfsviadef($arr[$keys[26]]);
+            $this->setIntbconfuompurdef($arr[$keys[26]]);
         }
         if (array_key_exists($keys[27], $arr)) {
-            $this->setIntbconfcustxreforuse($arr[$keys[27]]);
+            $this->setIntbconfsviadef($arr[$keys[27]]);
         }
         if (array_key_exists($keys[28], $arr)) {
-            $this->setIntbconfheadgetdef($arr[$keys[28]]);
+            $this->setIntbconfcustxreforuse($arr[$keys[28]]);
         }
         if (array_key_exists($keys[29], $arr)) {
-            $this->setIntbconfitemgetdef($arr[$keys[29]]);
+            $this->setIntbconfheadgetdef($arr[$keys[29]]);
         }
         if (array_key_exists($keys[30], $arr)) {
-            $this->setIntbconfgetdispohaval($arr[$keys[30]]);
+            $this->setIntbconfitemgetdef($arr[$keys[30]]);
         }
         if (array_key_exists($keys[31], $arr)) {
-            $this->setIntbconfusercode1labl($arr[$keys[31]]);
+            $this->setIntbconfgetdispohaval($arr[$keys[31]]);
         }
         if (array_key_exists($keys[32], $arr)) {
-            $this->setIntbconfusercode1ver($arr[$keys[32]]);
+            $this->setIntbconfusercode1labl($arr[$keys[32]]);
         }
         if (array_key_exists($keys[33], $arr)) {
-            $this->setIntbconfusercode2labl($arr[$keys[33]]);
+            $this->setIntbconfusercode1ver($arr[$keys[33]]);
         }
         if (array_key_exists($keys[34], $arr)) {
-            $this->setIntbconfusercode2ver($arr[$keys[34]]);
+            $this->setIntbconfusercode2labl($arr[$keys[34]]);
         }
         if (array_key_exists($keys[35], $arr)) {
-            $this->setIntbconfitemline($arr[$keys[35]]);
+            $this->setIntbconfusercode2ver($arr[$keys[35]]);
         }
         if (array_key_exists($keys[36], $arr)) {
-            $this->setIntbconfitemcols($arr[$keys[36]]);
+            $this->setIntbconfitemline($arr[$keys[36]]);
         }
         if (array_key_exists($keys[37], $arr)) {
-            $this->setIntbconfheadline($arr[$keys[37]]);
+            $this->setIntbconfitemcols($arr[$keys[37]]);
         }
         if (array_key_exists($keys[38], $arr)) {
-            $this->setIntbconfheadcols($arr[$keys[38]]);
+            $this->setIntbconfheadline($arr[$keys[38]]);
         }
         if (array_key_exists($keys[39], $arr)) {
-            $this->setIntbconfdetline($arr[$keys[39]]);
+            $this->setIntbconfheadcols($arr[$keys[39]]);
         }
         if (array_key_exists($keys[40], $arr)) {
-            $this->setIntbconfdetcols($arr[$keys[40]]);
+            $this->setIntbconfdetline($arr[$keys[40]]);
         }
         if (array_key_exists($keys[41], $arr)) {
-            $this->setIntbconfminmaxzero($arr[$keys[41]]);
+            $this->setIntbconfdetcols($arr[$keys[41]]);
         }
         if (array_key_exists($keys[42], $arr)) {
-            $this->setIntbconfminrec($arr[$keys[42]]);
+            $this->setIntbconfminmaxzero($arr[$keys[42]]);
         }
         if (array_key_exists($keys[43], $arr)) {
-            $this->setIntbconfatbelowmin($arr[$keys[43]]);
+            $this->setIntbconfminrec($arr[$keys[43]]);
         }
         if (array_key_exists($keys[44], $arr)) {
-            $this->setIntbconfonewhse($arr[$keys[44]]);
+            $this->setIntbconfatbelowmin($arr[$keys[44]]);
         }
         if (array_key_exists($keys[45], $arr)) {
-            $this->setIntbconfytdmth($arr[$keys[45]]);
+            $this->setIntbconfonewhse($arr[$keys[45]]);
         }
         if (array_key_exists($keys[46], $arr)) {
-            $this->setIntbconfusegramsltr($arr[$keys[46]]);
+            $this->setIntbconfytdmth($arr[$keys[46]]);
         }
         if (array_key_exists($keys[47], $arr)) {
-            $this->setIntbconfabcbywhse($arr[$keys[47]]);
+            $this->setIntbconfusegramsltr($arr[$keys[47]]);
         }
         if (array_key_exists($keys[48], $arr)) {
-            $this->setIntbconfabcnbrmths($arr[$keys[48]]);
+            $this->setIntbconfabcbywhse($arr[$keys[48]]);
         }
         if (array_key_exists($keys[49], $arr)) {
-            $this->setIntbconfabcbasecode($arr[$keys[49]]);
+            $this->setIntbconfabcnbrmths($arr[$keys[49]]);
         }
         if (array_key_exists($keys[50], $arr)) {
-            $this->setIntbconfabclevla($arr[$keys[50]]);
+            $this->setIntbconfabcbasecode($arr[$keys[50]]);
         }
         if (array_key_exists($keys[51], $arr)) {
-            $this->setIntbconfabclevlb($arr[$keys[51]]);
+            $this->setIntbconfabclevla($arr[$keys[51]]);
         }
         if (array_key_exists($keys[52], $arr)) {
-            $this->setIntbconfabclevlc($arr[$keys[52]]);
+            $this->setIntbconfabclevlb($arr[$keys[52]]);
         }
         if (array_key_exists($keys[53], $arr)) {
-            $this->setIntbconfabclevld($arr[$keys[53]]);
+            $this->setIntbconfabclevlc($arr[$keys[53]]);
         }
         if (array_key_exists($keys[54], $arr)) {
-            $this->setIntbconfabclevle($arr[$keys[54]]);
+            $this->setIntbconfabclevld($arr[$keys[54]]);
         }
         if (array_key_exists($keys[55], $arr)) {
-            $this->setIntbconfabclevlf($arr[$keys[55]]);
+            $this->setIntbconfabclevle($arr[$keys[55]]);
         }
         if (array_key_exists($keys[56], $arr)) {
-            $this->setIntbconfabclevlg($arr[$keys[56]]);
+            $this->setIntbconfabclevlf($arr[$keys[56]]);
         }
         if (array_key_exists($keys[57], $arr)) {
-            $this->setIntbconfabclevlh($arr[$keys[57]]);
+            $this->setIntbconfabclevlg($arr[$keys[57]]);
         }
         if (array_key_exists($keys[58], $arr)) {
-            $this->setIntbconfabclevli($arr[$keys[58]]);
+            $this->setIntbconfabclevlh($arr[$keys[58]]);
         }
         if (array_key_exists($keys[59], $arr)) {
-            $this->setIntbconfabclevlj($arr[$keys[59]]);
+            $this->setIntbconfabclevli($arr[$keys[59]]);
         }
         if (array_key_exists($keys[60], $arr)) {
-            $this->setIntbconfuseforeignx($arr[$keys[60]]);
+            $this->setIntbconfabclevlj($arr[$keys[60]]);
         }
         if (array_key_exists($keys[61], $arr)) {
-            $this->setIntbconfusenafta($arr[$keys[61]]);
+            $this->setIntbconfuseforeignx($arr[$keys[61]]);
         }
         if (array_key_exists($keys[62], $arr)) {
-            $this->setIntbconfnaftaprefcode($arr[$keys[62]]);
+            $this->setIntbconfusenafta($arr[$keys[62]]);
         }
         if (array_key_exists($keys[63], $arr)) {
-            $this->setIntbconfnaftaproducer($arr[$keys[63]]);
+            $this->setIntbconfnaftaprefcode($arr[$keys[63]]);
         }
         if (array_key_exists($keys[64], $arr)) {
-            $this->setIntbconfnaftadoccode($arr[$keys[64]]);
+            $this->setIntbconfnaftaproducer($arr[$keys[64]]);
         }
         if (array_key_exists($keys[65], $arr)) {
-            $this->setIntbconfphyscurrwksh($arr[$keys[65]]);
+            $this->setIntbconfnaftadoccode($arr[$keys[65]]);
         }
         if (array_key_exists($keys[66], $arr)) {
-            $this->setIntbconf20or30($arr[$keys[66]]);
+            $this->setIntbconfphyscurrwksh($arr[$keys[66]]);
         }
         if (array_key_exists($keys[67], $arr)) {
-            $this->setIntbconfdisporigcnt($arr[$keys[67]]);
+            $this->setIntbconf20or30($arr[$keys[67]]);
         }
         if (array_key_exists($keys[68], $arr)) {
-            $this->setIntbconfdispgl($arr[$keys[68]]);
+            $this->setIntbconfdisporigcnt($arr[$keys[68]]);
         }
         if (array_key_exists($keys[69], $arr)) {
-            $this->setIntbconfdispref($arr[$keys[69]]);
+            $this->setIntbconfdispgl($arr[$keys[69]]);
         }
         if (array_key_exists($keys[70], $arr)) {
-            $this->setIntbconfdispcost($arr[$keys[70]]);
+            $this->setIntbconfdispref($arr[$keys[70]]);
         }
         if (array_key_exists($keys[71], $arr)) {
-            $this->setIntbconfprtval($arr[$keys[71]]);
+            $this->setIntbconfdispcost($arr[$keys[71]]);
         }
         if (array_key_exists($keys[72], $arr)) {
-            $this->setIntbconfprtgl($arr[$keys[72]]);
+            $this->setIntbconfprtval($arr[$keys[72]]);
         }
         if (array_key_exists($keys[73], $arr)) {
-            $this->setIntbconfglacct($arr[$keys[73]]);
+            $this->setIntbconfprtgl($arr[$keys[73]]);
         }
         if (array_key_exists($keys[74], $arr)) {
-            $this->setIntbconfref($arr[$keys[74]]);
+            $this->setIntbconfglacct($arr[$keys[74]]);
         }
         if (array_key_exists($keys[75], $arr)) {
-            $this->setIntbconfcosttype($arr[$keys[75]]);
+            $this->setIntbconfref($arr[$keys[75]]);
         }
         if (array_key_exists($keys[76], $arr)) {
-            $this->setIntbconfnormalonly($arr[$keys[76]]);
+            $this->setIntbconfcosttype($arr[$keys[76]]);
         }
         if (array_key_exists($keys[77], $arr)) {
-            $this->setIntbconfusewhsedef($arr[$keys[77]]);
+            $this->setIntbconfnormalonly($arr[$keys[77]]);
         }
         if (array_key_exists($keys[78], $arr)) {
-            $this->setIntbcon2dfltwhse01($arr[$keys[78]]);
+            $this->setIntbconfusewhsedef($arr[$keys[78]]);
         }
         if (array_key_exists($keys[79], $arr)) {
-            $this->setIntbcon2dfltwhse02($arr[$keys[79]]);
+            $this->setIntbcon2dfltwhse01($arr[$keys[79]]);
         }
         if (array_key_exists($keys[80], $arr)) {
-            $this->setIntbcon2dfltwhse03($arr[$keys[80]]);
+            $this->setIntbcon2dfltwhse02($arr[$keys[80]]);
         }
         if (array_key_exists($keys[81], $arr)) {
-            $this->setIntbcon2dfltwhse04($arr[$keys[81]]);
+            $this->setIntbcon2dfltwhse03($arr[$keys[81]]);
         }
         if (array_key_exists($keys[82], $arr)) {
-            $this->setIntbcon2dfltwhse05($arr[$keys[82]]);
+            $this->setIntbcon2dfltwhse04($arr[$keys[82]]);
         }
         if (array_key_exists($keys[83], $arr)) {
-            $this->setIntbcon2dfltwhse06($arr[$keys[83]]);
+            $this->setIntbcon2dfltwhse05($arr[$keys[83]]);
         }
         if (array_key_exists($keys[84], $arr)) {
-            $this->setIntbcon2dfltwhse07($arr[$keys[84]]);
+            $this->setIntbcon2dfltwhse06($arr[$keys[84]]);
         }
         if (array_key_exists($keys[85], $arr)) {
-            $this->setIntbcon2dfltwhse08($arr[$keys[85]]);
+            $this->setIntbcon2dfltwhse07($arr[$keys[85]]);
         }
         if (array_key_exists($keys[86], $arr)) {
-            $this->setIntbcon2dfltwhse09($arr[$keys[86]]);
+            $this->setIntbcon2dfltwhse08($arr[$keys[86]]);
         }
         if (array_key_exists($keys[87], $arr)) {
-            $this->setIntbcon2dfltwhse10($arr[$keys[87]]);
+            $this->setIntbcon2dfltwhse09($arr[$keys[87]]);
         }
         if (array_key_exists($keys[88], $arr)) {
-            $this->setIntbconfbindef($arr[$keys[88]]);
+            $this->setIntbcon2dfltwhse10($arr[$keys[88]]);
         }
         if (array_key_exists($keys[89], $arr)) {
-            $this->setIntbconfcycldef($arr[$keys[89]]);
+            $this->setIntbconfbindef($arr[$keys[89]]);
         }
         if (array_key_exists($keys[90], $arr)) {
-            $this->setIntbconfstatdef($arr[$keys[90]]);
+            $this->setIntbconfcycldef($arr[$keys[90]]);
         }
         if (array_key_exists($keys[91], $arr)) {
-            $this->setIntbconfabcdef($arr[$keys[91]]);
+            $this->setIntbconfstatdef($arr[$keys[91]]);
         }
         if (array_key_exists($keys[92], $arr)) {
-            $this->setIntbconfspecordrdef($arr[$keys[92]]);
+            $this->setIntbconfabcdef($arr[$keys[92]]);
         }
         if (array_key_exists($keys[93], $arr)) {
-            $this->setIntbconfordrpntdef($arr[$keys[93]]);
+            $this->setIntbconfspecordrdef($arr[$keys[93]]);
         }
         if (array_key_exists($keys[94], $arr)) {
-            $this->setIntbconfmaxdef($arr[$keys[94]]);
+            $this->setIntbconfordrpntdef($arr[$keys[94]]);
         }
         if (array_key_exists($keys[95], $arr)) {
-            $this->setIntbconfordrqtydef($arr[$keys[95]]);
+            $this->setIntbconfmaxdef($arr[$keys[95]]);
         }
         if (array_key_exists($keys[96], $arr)) {
-            $this->setIntbconftrcptallowcmpl($arr[$keys[96]]);
+            $this->setIntbconfordrqtydef($arr[$keys[96]]);
         }
         if (array_key_exists($keys[97], $arr)) {
-            $this->setIntbconftrecmmtstock($arr[$keys[97]]);
+            $this->setIntbconftrcptallowcmpl($arr[$keys[97]]);
         }
         if (array_key_exists($keys[98], $arr)) {
-            $this->setIntbconfusefrtin($arr[$keys[98]]);
+            $this->setIntbconftrecmmtstock($arr[$keys[98]]);
         }
         if (array_key_exists($keys[99], $arr)) {
-            $this->setIntbconfeachoruom($arr[$keys[99]]);
+            $this->setIntbconfusefrtin($arr[$keys[99]]);
         }
         if (array_key_exists($keys[100], $arr)) {
-            $this->setIntbconfneglotcorr($arr[$keys[100]]);
+            $this->setIntbconfeachoruom($arr[$keys[100]]);
         }
         if (array_key_exists($keys[101], $arr)) {
-            $this->setIntbconftrnsglacct($arr[$keys[101]]);
+            $this->setIntbconfneglotcorr($arr[$keys[101]]);
         }
         if (array_key_exists($keys[102], $arr)) {
-            $this->setIntbconftrnsprotstock($arr[$keys[102]]);
+            $this->setIntbconftrnsglacct($arr[$keys[102]]);
         }
         if (array_key_exists($keys[103], $arr)) {
-            $this->setIntbconfnumericitem($arr[$keys[103]]);
+            $this->setIntbconftrnsprotstock($arr[$keys[103]]);
         }
         if (array_key_exists($keys[104], $arr)) {
-            $this->setIntbconfitemdigits($arr[$keys[104]]);
+            $this->setIntbconfnumericitem($arr[$keys[104]]);
         }
         if (array_key_exists($keys[105], $arr)) {
-            $this->setIntbconfsinglewhse($arr[$keys[105]]);
+            $this->setIntbconfitemdigits($arr[$keys[105]]);
         }
         if (array_key_exists($keys[106], $arr)) {
-            $this->setIntbconfupdusepct($arr[$keys[106]]);
+            $this->setIntbconfsinglewhse($arr[$keys[106]]);
         }
         if (array_key_exists($keys[107], $arr)) {
-            $this->setIntbconfupdpric($arr[$keys[107]]);
+            $this->setIntbconfupdusepct($arr[$keys[107]]);
         }
         if (array_key_exists($keys[108], $arr)) {
-            $this->setIntbconfupdstdcost($arr[$keys[108]]);
+            $this->setIntbconfupdpric($arr[$keys[108]]);
         }
         if (array_key_exists($keys[109], $arr)) {
-            $this->setIntbconfupdxrefcost($arr[$keys[109]]);
+            $this->setIntbconfupdstdcost($arr[$keys[109]]);
         }
         if (array_key_exists($keys[110], $arr)) {
-            $this->setIntbconfiqpaupddate($arr[$keys[110]]);
+            $this->setIntbconfupdxrefcost($arr[$keys[110]]);
         }
         if (array_key_exists($keys[111], $arr)) {
-            $this->setIntbconfupcxrefoptn($arr[$keys[111]]);
+            $this->setIntbconfiqpaupddate($arr[$keys[111]]);
         }
         if (array_key_exists($keys[112], $arr)) {
-            $this->setIntbconfresqyn($arr[$keys[112]]);
+            $this->setIntbconfupcxrefoptn($arr[$keys[112]]);
         }
         if (array_key_exists($keys[113], $arr)) {
             $this->setIntbconftranviewlib($arr[$keys[113]]);
@@ -11599,6 +11599,9 @@ abstract class ConfigIn implements ActiveRecordInterface
         if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFTYPEDEF)) {
             $criteria->add(ConfigInTableMap::COL_INTBCONFTYPEDEF, $this->intbconftypedef);
         }
+        if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFMULTILOTREF)) {
+            $criteria->add(ConfigInTableMap::COL_INTBCONFMULTILOTREF, $this->intbconfmultilotref);
+        }
         if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFPRICUSEITEM)) {
             $criteria->add(ConfigInTableMap::COL_INTBCONFPRICUSEITEM, $this->intbconfpricuseitem);
         }
@@ -11868,9 +11871,6 @@ abstract class ConfigIn implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFUPCXREFOPTN)) {
             $criteria->add(ConfigInTableMap::COL_INTBCONFUPCXREFOPTN, $this->intbconfupcxrefoptn);
-        }
-        if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFRESQYN)) {
-            $criteria->add(ConfigInTableMap::COL_INTBCONFRESQYN, $this->intbconfresqyn);
         }
         if ($this->isColumnModified(ConfigInTableMap::COL_INTBCONFTRANVIEWLIB)) {
             $criteria->add(ConfigInTableMap::COL_INTBCONFTRANVIEWLIB, $this->intbconftranviewlib);
@@ -12163,6 +12163,7 @@ abstract class ConfigIn implements ActiveRecordInterface
         $copyObj->setIntbconfpricgrupdef($this->getIntbconfpricgrupdef());
         $copyObj->setIntbconfcommgrupdef($this->getIntbconfcommgrupdef());
         $copyObj->setIntbconftypedef($this->getIntbconftypedef());
+        $copyObj->setIntbconfmultilotref($this->getIntbconfmultilotref());
         $copyObj->setIntbconfpricuseitem($this->getIntbconfpricuseitem());
         $copyObj->setIntbconfcommuseitem($this->getIntbconfcommuseitem());
         $copyObj->setIntbconfuomsaledef($this->getIntbconfuomsaledef());
@@ -12253,7 +12254,6 @@ abstract class ConfigIn implements ActiveRecordInterface
         $copyObj->setIntbconfupdxrefcost($this->getIntbconfupdxrefcost());
         $copyObj->setIntbconfiqpaupddate($this->getIntbconfiqpaupddate());
         $copyObj->setIntbconfupcxrefoptn($this->getIntbconfupcxrefoptn());
-        $copyObj->setIntbconfresqyn($this->getIntbconfresqyn());
         $copyObj->setIntbconftranviewlib($this->getIntbconftranviewlib());
         $copyObj->setIntbconfresvcost($this->getIntbconfresvcost());
         $copyObj->setIntbcon2tranzerorqst($this->getIntbcon2tranzerorqst());
@@ -12371,6 +12371,7 @@ abstract class ConfigIn implements ActiveRecordInterface
         $this->intbconfpricgrupdef = null;
         $this->intbconfcommgrupdef = null;
         $this->intbconftypedef = null;
+        $this->intbconfmultilotref = null;
         $this->intbconfpricuseitem = null;
         $this->intbconfcommuseitem = null;
         $this->intbconfuomsaledef = null;
@@ -12461,7 +12462,6 @@ abstract class ConfigIn implements ActiveRecordInterface
         $this->intbconfupdxrefcost = null;
         $this->intbconfiqpaupddate = null;
         $this->intbconfupcxrefoptn = null;
-        $this->intbconfresqyn = null;
         $this->intbconftranviewlib = null;
         $this->intbconfresvcost = null;
         $this->intbcon2tranzerorqst = null;
@@ -12564,7 +12564,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            return parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }
@@ -12576,7 +12576,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function postSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postSave')) {
-            parent::postSave($con);
+            // parent::postSave($con);
         }
     }
 
@@ -12588,7 +12588,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            return parent::preInsert($con);
+            // return parent::preInsert($con);
         }
         return true;
     }
@@ -12600,7 +12600,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function postInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postInsert')) {
-            parent::postInsert($con);
+            // parent::postInsert($con);
         }
     }
 
@@ -12612,7 +12612,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            return parent::preUpdate($con);
+            // return parent::preUpdate($con);
         }
         return true;
     }
@@ -12624,7 +12624,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function postUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postUpdate')) {
-            parent::postUpdate($con);
+            // parent::postUpdate($con);
         }
     }
 
@@ -12636,7 +12636,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            return parent::preDelete($con);
+            // return parent::preDelete($con);
         }
         return true;
     }
@@ -12648,7 +12648,7 @@ abstract class ConfigIn implements ActiveRecordInterface
     public function postDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postDelete')) {
-            parent::postDelete($con);
+            // parent::postDelete($con);
         }
     }
 
