@@ -3708,6 +3708,33 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="pallet_detail" idMethod="native" phpName="InvPalletLot">
+    <column name="PlthPalletId" phpName="Plthpalletid" type="VARCHAR" size="12" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PltdLotNbr" phpName="Pltdlotnbr" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+     <foreign-key foreignTable="pallet_header" name="pallet" skipSql="true">
+      <reference local="PlthPalletId" foreign="PlthPalletId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="pallet_header" idMethod="native" phpName="InvPallet">
+    <column name="PlthPalletId" phpName="Plthpalletid" type="VARCHAR" size="12" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="PlthBin" phpName="Plthbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="inv_item_mast" name="item" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="phoneadr" idMethod="native" phpName="PhoneBook">
     <column name="PhadType" phpName="Phadtype" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
     <column name="PhadId" phpName="Phadid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>

@@ -26,6 +26,8 @@ use \InvLotTag as ChildInvLotTag;
 use \InvLotTagQuery as ChildInvLotTagQuery;
 use \InvOptCodeNote as ChildInvOptCodeNote;
 use \InvOptCodeNoteQuery as ChildInvOptCodeNoteQuery;
+use \InvPallet as ChildInvPallet;
+use \InvPalletQuery as ChildInvPalletQuery;
 use \InvPriceCode as ChildInvPriceCode;
 use \InvPriceCodeQuery as ChildInvPriceCodeQuery;
 use \InvSerialMaster as ChildInvSerialMaster;
@@ -109,6 +111,7 @@ use Map\InvKitComponentTableMap;
 use Map\InvLotMasterTableMap;
 use Map\InvLotTagTableMap;
 use Map\InvOptCodeNoteTableMap;
+use Map\InvPalletTableMap;
 use Map\InvSerialMasterTableMap;
 use Map\InvSerialWarrantyTableMap;
 use Map\InvTransferDetailTableMap;
@@ -847,6 +850,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $collItemXrefVendorNoteInternalsPartial;
 
     /**
+     * @var        ObjectCollection|ChildInvPallet[] Collection to store aggregation of ChildInvPallet objects.
+     */
+    protected $collInvPallets;
+    protected $collInvPalletsPartial;
+
+    /**
      * @var        ObjectCollection|ChildPurchaseOrderDetail[] Collection to store aggregation of ChildPurchaseOrderDetail objects.
      */
     protected $collPurchaseOrderDetails;
@@ -1104,6 +1113,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildItemXrefVendorNoteInternal[]
      */
     protected $itemXrefVendorNoteInternalsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvPallet[]
+     */
+    protected $invPalletsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3796,6 +3811,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->collItemXrefVendorNoteInternals = null;
 
+            $this->collInvPallets = null;
+
             $this->collPurchaseOrderDetails = null;
 
             $this->collPurchaseOrderDetailReceipts = null;
@@ -4439,12 +4456,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
+            if ($this->invPalletsScheduledForDeletion !== null) {
+                if (!$this->invPalletsScheduledForDeletion->isEmpty()) {
+                    \InvPalletQuery::create()
+                        ->filterByPrimaryKeys($this->invPalletsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invPalletsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvPallets !== null) {
+                foreach ($this->collInvPallets as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
             if ($this->purchaseOrderDetailsScheduledForDeletion !== null) {
                 if (!$this->purchaseOrderDetailsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->purchaseOrderDetailsScheduledForDeletion as $purchaseOrderDetail) {
-                        // need to save related object because we set the relation to null
-                        $purchaseOrderDetail->save($con);
-                    }
+                    \PurchaseOrderDetailQuery::create()
+                        ->filterByPrimaryKeys($this->purchaseOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
                     $this->purchaseOrderDetailsScheduledForDeletion = null;
                 }
             }
@@ -4476,10 +4509,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             if ($this->purchaseOrderDetailReceivingsScheduledForDeletion !== null) {
                 if (!$this->purchaseOrderDetailReceivingsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->purchaseOrderDetailReceivingsScheduledForDeletion as $purchaseOrderDetailReceiving) {
-                        // need to save related object because we set the relation to null
-                        $purchaseOrderDetailReceiving->save($con);
-                    }
+                    \PurchaseOrderDetailReceivingQuery::create()
+                        ->filterByPrimaryKeys($this->purchaseOrderDetailReceivingsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
                     $this->purchaseOrderDetailReceivingsScheduledForDeletion = null;
                 }
             }
@@ -6005,6 +6037,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->collItemXrefVendorNoteInternals->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->collInvPallets) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invPallets';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'pallet_headers';
+                        break;
+                    default:
+                        $key = 'InvPallets';
+                }
+
+                $result[$key] = $this->collInvPallets->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collPurchaseOrderDetails) {
 
                 switch ($keyType) {
@@ -7275,6 +7322,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getInvPallets() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvPallet($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getPurchaseOrderDetails() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addPurchaseOrderDetail($relObj->copy($deepCopy));
@@ -7814,6 +7867,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
         if ('ItemXrefVendorNoteInternal' == $relationName) {
             $this->initItemXrefVendorNoteInternals();
+            return;
+        }
+        if ('InvPallet' == $relationName) {
+            $this->initInvPallets();
             return;
         }
         if ('PurchaseOrderDetail' == $relationName) {
@@ -14445,6 +14502,231 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collInvPallets collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvPallets()
+     */
+    public function clearInvPallets()
+    {
+        $this->collInvPallets = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvPallets collection loaded partially.
+     */
+    public function resetPartialInvPallets($v = true)
+    {
+        $this->collInvPalletsPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvPallets collection.
+     *
+     * By default this just sets the collInvPallets collection to an empty array (like clearcollInvPallets());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvPallets($overrideExisting = true)
+    {
+        if (null !== $this->collInvPallets && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvPalletTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvPallets = new $collectionClassName;
+        $this->collInvPallets->setModel('\InvPallet');
+    }
+
+    /**
+     * Gets an array of ChildInvPallet objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvPallet[] List of ChildInvPallet objects
+     * @throws PropelException
+     */
+    public function getInvPallets(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvPalletsPartial && !$this->isNew();
+        if (null === $this->collInvPallets || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvPallets) {
+                // return empty collection
+                $this->initInvPallets();
+            } else {
+                $collInvPallets = ChildInvPalletQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvPalletsPartial && count($collInvPallets)) {
+                        $this->initInvPallets(false);
+
+                        foreach ($collInvPallets as $obj) {
+                            if (false == $this->collInvPallets->contains($obj)) {
+                                $this->collInvPallets->append($obj);
+                            }
+                        }
+
+                        $this->collInvPalletsPartial = true;
+                    }
+
+                    return $collInvPallets;
+                }
+
+                if ($partial && $this->collInvPallets) {
+                    foreach ($this->collInvPallets as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvPallets[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvPallets = $collInvPallets;
+                $this->collInvPalletsPartial = false;
+            }
+        }
+
+        return $this->collInvPallets;
+    }
+
+    /**
+     * Sets a collection of ChildInvPallet objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invPallets A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setInvPallets(Collection $invPallets, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvPallet[] $invPalletsToDelete */
+        $invPalletsToDelete = $this->getInvPallets(new Criteria(), $con)->diff($invPallets);
+
+
+        $this->invPalletsScheduledForDeletion = $invPalletsToDelete;
+
+        foreach ($invPalletsToDelete as $invPalletRemoved) {
+            $invPalletRemoved->setItemMasterItem(null);
+        }
+
+        $this->collInvPallets = null;
+        foreach ($invPallets as $invPallet) {
+            $this->addInvPallet($invPallet);
+        }
+
+        $this->collInvPallets = $invPallets;
+        $this->collInvPalletsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvPallet objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvPallet objects.
+     * @throws PropelException
+     */
+    public function countInvPallets(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvPalletsPartial && !$this->isNew();
+        if (null === $this->collInvPallets || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvPallets) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvPallets());
+            }
+
+            $query = ChildInvPalletQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collInvPallets);
+    }
+
+    /**
+     * Method called to associate a ChildInvPallet object to this object
+     * through the ChildInvPallet foreign key attribute.
+     *
+     * @param  ChildInvPallet $l ChildInvPallet
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addInvPallet(ChildInvPallet $l)
+    {
+        if ($this->collInvPallets === null) {
+            $this->initInvPallets();
+            $this->collInvPalletsPartial = true;
+        }
+
+        if (!$this->collInvPallets->contains($l)) {
+            $this->doAddInvPallet($l);
+
+            if ($this->invPalletsScheduledForDeletion and $this->invPalletsScheduledForDeletion->contains($l)) {
+                $this->invPalletsScheduledForDeletion->remove($this->invPalletsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvPallet $invPallet The ChildInvPallet object to add.
+     */
+    protected function doAddInvPallet(ChildInvPallet $invPallet)
+    {
+        $this->collInvPallets[]= $invPallet;
+        $invPallet->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildInvPallet $invPallet The ChildInvPallet object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeInvPallet(ChildInvPallet $invPallet)
+    {
+        if ($this->getInvPallets()->contains($invPallet)) {
+            $pos = $this->collInvPallets->search($invPallet);
+            $this->collInvPallets->remove($pos);
+            if (null === $this->invPalletsScheduledForDeletion) {
+                $this->invPalletsScheduledForDeletion = clone $this->collInvPallets;
+                $this->invPalletsScheduledForDeletion->clear();
+            }
+            $this->invPalletsScheduledForDeletion[]= clone $invPallet;
+            $invPallet->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+    /**
      * Clears out the collPurchaseOrderDetails collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
@@ -14662,7 +14944,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->purchaseOrderDetailsScheduledForDeletion = clone $this->collPurchaseOrderDetails;
                 $this->purchaseOrderDetailsScheduledForDeletion->clear();
             }
-            $this->purchaseOrderDetailsScheduledForDeletion[]= $purchaseOrderDetail;
+            $this->purchaseOrderDetailsScheduledForDeletion[]= clone $purchaseOrderDetail;
             $purchaseOrderDetail->setItemMasterItem(null);
         }
 
@@ -15190,7 +15472,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->purchaseOrderDetailReceivingsScheduledForDeletion = clone $this->collPurchaseOrderDetailReceivings;
                 $this->purchaseOrderDetailReceivingsScheduledForDeletion->clear();
             }
-            $this->purchaseOrderDetailReceivingsScheduledForDeletion[]= $purchaseOrderDetailReceiving;
+            $this->purchaseOrderDetailReceivingsScheduledForDeletion[]= clone $purchaseOrderDetailReceiving;
             $purchaseOrderDetailReceiving->setItemMasterItem(null);
         }
 
@@ -19056,6 +19338,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collInvPallets) {
+                foreach ($this->collInvPallets as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collPurchaseOrderDetails) {
                 foreach ($this->collPurchaseOrderDetails as $o) {
                     $o->clearAllReferences($deep);
@@ -19169,6 +19456,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collInvOptCodeNotes = null;
         $this->collItemXrefVendorNoteDetails = null;
         $this->collItemXrefVendorNoteInternals = null;
+        $this->collInvPallets = null;
         $this->collPurchaseOrderDetails = null;
         $this->collPurchaseOrderDetailReceipts = null;
         $this->collPurchaseOrderDetailReceivings = null;
@@ -19212,7 +19500,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            return parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }
@@ -19224,7 +19512,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function postSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postSave')) {
-            parent::postSave($con);
+            // parent::postSave($con);
         }
     }
 
@@ -19236,7 +19524,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            return parent::preInsert($con);
+            // return parent::preInsert($con);
         }
         return true;
     }
@@ -19248,7 +19536,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function postInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postInsert')) {
-            parent::postInsert($con);
+            // parent::postInsert($con);
         }
     }
 
@@ -19260,7 +19548,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            return parent::preUpdate($con);
+            // return parent::preUpdate($con);
         }
         return true;
     }
@@ -19272,7 +19560,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function postUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postUpdate')) {
-            parent::postUpdate($con);
+            // parent::postUpdate($con);
         }
     }
 
@@ -19284,7 +19572,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            return parent::preDelete($con);
+            // return parent::preDelete($con);
         }
         return true;
     }
@@ -19296,7 +19584,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function postDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postDelete')) {
-            parent::postDelete($con);
+            // parent::postDelete($con);
         }
     }
 
