@@ -59,7 +59,7 @@ class ConfigPoTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 89;
+    const NUM_COLUMNS = 90;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class ConfigPoTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 89;
+    const NUM_HYDRATE_COLUMNS = 90;
 
     /**
      * the column name for the PotbConfKey field
@@ -167,21 +167,6 @@ class ConfigPoTableMap extends TableMap
     const COL_POTBCONFEPOUPDLASTCOST = 'po_config.PotbConfEpoUpdLastCost';
 
     /**
-     * the column name for the PotbConfOneTwoLine field
-     */
-    const COL_POTBCONFONETWOLINE = 'po_config.PotbConfOneTwoLine';
-
-    /**
-     * the column name for the PotbConfUseOrdrAs field
-     */
-    const COL_POTBCONFUSEORDRAS = 'po_config.PotbConfUseOrdrAs';
-
-    /**
-     * the column name for the PotbConfAprvVendOnly field
-     */
-    const COL_POTBCONFAPRVVENDONLY = 'po_config.PotbConfAprvVendOnly';
-
-    /**
      * the column name for the PotbConfRecAll field
      */
     const COL_POTBCONFRECALL = 'po_config.PotbConfRecAll';
@@ -245,6 +230,11 @@ class ConfigPoTableMap extends TableMap
      * the column name for the PotbConfAskClose field
      */
     const COL_POTBCONFASKCLOSE = 'po_config.PotbConfAskClose';
+
+    /**
+     * the column name for the PotbConfErAdd2Po field
+     */
+    const COL_POTBCONFERADD2PO = 'po_config.PotbConfErAdd2Po';
 
     /**
      * the column name for the PotbConfTariffGlAcct field
@@ -417,6 +407,21 @@ class ConfigPoTableMap extends TableMap
     const COL_POTBCONFDISPCASEQTY = 'po_config.PotbConfDispCaseQty';
 
     /**
+     * the column name for the PotbConfOneTwoLine field
+     */
+    const COL_POTBCONFONETWOLINE = 'po_config.PotbConfOneTwoLine';
+
+    /**
+     * the column name for the PotbConfUseOrdrAs field
+     */
+    const COL_POTBCONFUSEORDRAS = 'po_config.PotbConfUseOrdrAs';
+
+    /**
+     * the column name for the PotbConfAprvVendOnly field
+     */
+    const COL_POTBCONFAPRVVENDONLY = 'po_config.PotbConfAprvVendOnly';
+
+    /**
      * the column name for the PotbConfUseFab field
      */
     const COL_POTBCONFUSEFAB = 'po_config.PotbConfUseFab';
@@ -528,11 +533,11 @@ class ConfigPoTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Potbconfkey', 'Potbconfsortpo', 'Potbconfcancorrshpdate', 'Potbconfackoretadate', 'Potbconfeditshipdate', 'Potbconfeditexptdate', 'Potbconfeditcancdate', 'Potbconfeditackdate', 'Potbconfexptdatedef', 'Potbconfheadgetdef', 'Potbconfreseq', 'Potbconfforcevxref', 'Potbconfqtydue', 'Potbconfwarndup', 'Potbconfforceporef', 'Potbconfdestwhse', 'Potbconfeditpoitemnotes', 'Potbconfloadpovxmnotes', 'Potbconfepoupdlastcost', 'Potbconfonetwoline', 'Potbconfuseordras', 'Potbconfaprvvendonly', 'Potbconfrecall', 'Potbconfrecallask', 'Potbconfreceivecost', 'Potbconfprocvari', 'Potbconfcostrcvryacct', 'Potbconfinvtyvariacct', 'Potbconfallowchgcost', 'Potbconfwarnrcptqty', 'Potbconferdispdate', 'Potbconfprovidelpo', 'Potbconfwarndiffwhse', 'Potbconfallocrcvd', 'Potbconfaskclose', 'Potbconftariffglacct', 'Potbconfshopglacct', 'Potbconfshoprate', 'Potbconfuseprime', 'Potbconfusewatch', 'Potbconfprtpowsugg', 'Potbconfpowslctyes', 'Potbconfpowgvendrpt', 'Potbconfpowgwipstatus', 'Potbconfpowgwipautogen', 'Potbconfbuyercontrol', 'Potbconfpowgoqmethod', 'Potbconffxpo', 'Potbconffxinv', 'Potbconfuselandcost', 'Potbconfbaselandamtqty', 'Potbconflandglacct', 'Potbconfwarnlandiner', 'Potbconflandamtmultwght', 'Potbconflanderedit', 'Potbconfhistcmplfab', 'Potbconfupdatevendcost', 'Potbconfaskupdate', 'Potbconfvxmroundpos', 'Potbconfxrefmaint', 'Potbconfuseidopts', 'Potbconfsrchvxmfirst', 'Potbconfopenlineonly', 'Potbconfitemdesc', 'Potbconfopenbalonly', 'Potbconfprtwhsedtl', 'Potbconfautorcpt', 'Potbconfdispitemcost', 'Potbconfdispcaseqty', 'Potbconfusefab', 'Potbconfshowitem', 'Potbconfscrapacct', 'Potbconfscrapvaripct', 'Potbconflifofifo', 'Potbconffabbomorkit', 'Potbconfallocepoer', 'Potbconffabprealloc', 'Potbconfforcefabepo', 'Potbconfpreviewcomplist', 'Potbconfnegcompusage', 'Potbconfautoselectcomp', 'Potbconfbinfromvendor', 'Potbconfdfltstckcd', 'Potbconfuseremain', 'Potbconfsamecompcost', 'Potbconfpasscode', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('potbconfkey', 'potbconfsortpo', 'potbconfcancorrshpdate', 'potbconfackoretadate', 'potbconfeditshipdate', 'potbconfeditexptdate', 'potbconfeditcancdate', 'potbconfeditackdate', 'potbconfexptdatedef', 'potbconfheadgetdef', 'potbconfreseq', 'potbconfforcevxref', 'potbconfqtydue', 'potbconfwarndup', 'potbconfforceporef', 'potbconfdestwhse', 'potbconfeditpoitemnotes', 'potbconfloadpovxmnotes', 'potbconfepoupdlastcost', 'potbconfonetwoline', 'potbconfuseordras', 'potbconfaprvvendonly', 'potbconfrecall', 'potbconfrecallask', 'potbconfreceivecost', 'potbconfprocvari', 'potbconfcostrcvryacct', 'potbconfinvtyvariacct', 'potbconfallowchgcost', 'potbconfwarnrcptqty', 'potbconferdispdate', 'potbconfprovidelpo', 'potbconfwarndiffwhse', 'potbconfallocrcvd', 'potbconfaskclose', 'potbconftariffglacct', 'potbconfshopglacct', 'potbconfshoprate', 'potbconfuseprime', 'potbconfusewatch', 'potbconfprtpowsugg', 'potbconfpowslctyes', 'potbconfpowgvendrpt', 'potbconfpowgwipstatus', 'potbconfpowgwipautogen', 'potbconfbuyercontrol', 'potbconfpowgoqmethod', 'potbconffxpo', 'potbconffxinv', 'potbconfuselandcost', 'potbconfbaselandamtqty', 'potbconflandglacct', 'potbconfwarnlandiner', 'potbconflandamtmultwght', 'potbconflanderedit', 'potbconfhistcmplfab', 'potbconfupdatevendcost', 'potbconfaskupdate', 'potbconfvxmroundpos', 'potbconfxrefmaint', 'potbconfuseidopts', 'potbconfsrchvxmfirst', 'potbconfopenlineonly', 'potbconfitemdesc', 'potbconfopenbalonly', 'potbconfprtwhsedtl', 'potbconfautorcpt', 'potbconfdispitemcost', 'potbconfdispcaseqty', 'potbconfusefab', 'potbconfshowitem', 'potbconfscrapacct', 'potbconfscrapvaripct', 'potbconflifofifo', 'potbconffabbomorkit', 'potbconfallocepoer', 'potbconffabprealloc', 'potbconfforcefabepo', 'potbconfpreviewcomplist', 'potbconfnegcompusage', 'potbconfautoselectcomp', 'potbconfbinfromvendor', 'potbconfdfltstckcd', 'potbconfuseremain', 'potbconfsamecompcost', 'potbconfpasscode', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ConfigPoTableMap::COL_POTBCONFKEY, ConfigPoTableMap::COL_POTBCONFSORTPO, ConfigPoTableMap::COL_POTBCONFCANCORRSHPDATE, ConfigPoTableMap::COL_POTBCONFACKORETADATE, ConfigPoTableMap::COL_POTBCONFEDITSHIPDATE, ConfigPoTableMap::COL_POTBCONFEDITEXPTDATE, ConfigPoTableMap::COL_POTBCONFEDITCANCDATE, ConfigPoTableMap::COL_POTBCONFEDITACKDATE, ConfigPoTableMap::COL_POTBCONFEXPTDATEDEF, ConfigPoTableMap::COL_POTBCONFHEADGETDEF, ConfigPoTableMap::COL_POTBCONFRESEQ, ConfigPoTableMap::COL_POTBCONFFORCEVXREF, ConfigPoTableMap::COL_POTBCONFQTYDUE, ConfigPoTableMap::COL_POTBCONFWARNDUP, ConfigPoTableMap::COL_POTBCONFFORCEPOREF, ConfigPoTableMap::COL_POTBCONFDESTWHSE, ConfigPoTableMap::COL_POTBCONFEDITPOITEMNOTES, ConfigPoTableMap::COL_POTBCONFLOADPOVXMNOTES, ConfigPoTableMap::COL_POTBCONFEPOUPDLASTCOST, ConfigPoTableMap::COL_POTBCONFONETWOLINE, ConfigPoTableMap::COL_POTBCONFUSEORDRAS, ConfigPoTableMap::COL_POTBCONFAPRVVENDONLY, ConfigPoTableMap::COL_POTBCONFRECALL, ConfigPoTableMap::COL_POTBCONFRECALLASK, ConfigPoTableMap::COL_POTBCONFRECEIVECOST, ConfigPoTableMap::COL_POTBCONFPROCVARI, ConfigPoTableMap::COL_POTBCONFCOSTRCVRYACCT, ConfigPoTableMap::COL_POTBCONFINVTYVARIACCT, ConfigPoTableMap::COL_POTBCONFALLOWCHGCOST, ConfigPoTableMap::COL_POTBCONFWARNRCPTQTY, ConfigPoTableMap::COL_POTBCONFERDISPDATE, ConfigPoTableMap::COL_POTBCONFPROVIDELPO, ConfigPoTableMap::COL_POTBCONFWARNDIFFWHSE, ConfigPoTableMap::COL_POTBCONFALLOCRCVD, ConfigPoTableMap::COL_POTBCONFASKCLOSE, ConfigPoTableMap::COL_POTBCONFTARIFFGLACCT, ConfigPoTableMap::COL_POTBCONFSHOPGLACCT, ConfigPoTableMap::COL_POTBCONFSHOPRATE, ConfigPoTableMap::COL_POTBCONFUSEPRIME, ConfigPoTableMap::COL_POTBCONFUSEWATCH, ConfigPoTableMap::COL_POTBCONFPRTPOWSUGG, ConfigPoTableMap::COL_POTBCONFPOWSLCTYES, ConfigPoTableMap::COL_POTBCONFPOWGVENDRPT, ConfigPoTableMap::COL_POTBCONFPOWGWIPSTATUS, ConfigPoTableMap::COL_POTBCONFPOWGWIPAUTOGEN, ConfigPoTableMap::COL_POTBCONFBUYERCONTROL, ConfigPoTableMap::COL_POTBCONFPOWGOQMETHOD, ConfigPoTableMap::COL_POTBCONFFXPO, ConfigPoTableMap::COL_POTBCONFFXINV, ConfigPoTableMap::COL_POTBCONFUSELANDCOST, ConfigPoTableMap::COL_POTBCONFBASELANDAMTQTY, ConfigPoTableMap::COL_POTBCONFLANDGLACCT, ConfigPoTableMap::COL_POTBCONFWARNLANDINER, ConfigPoTableMap::COL_POTBCONFLANDAMTMULTWGHT, ConfigPoTableMap::COL_POTBCONFLANDEREDIT, ConfigPoTableMap::COL_POTBCONFHISTCMPLFAB, ConfigPoTableMap::COL_POTBCONFUPDATEVENDCOST, ConfigPoTableMap::COL_POTBCONFASKUPDATE, ConfigPoTableMap::COL_POTBCONFVXMROUNDPOS, ConfigPoTableMap::COL_POTBCONFXREFMAINT, ConfigPoTableMap::COL_POTBCONFUSEIDOPTS, ConfigPoTableMap::COL_POTBCONFSRCHVXMFIRST, ConfigPoTableMap::COL_POTBCONFOPENLINEONLY, ConfigPoTableMap::COL_POTBCONFITEMDESC, ConfigPoTableMap::COL_POTBCONFOPENBALONLY, ConfigPoTableMap::COL_POTBCONFPRTWHSEDTL, ConfigPoTableMap::COL_POTBCONFAUTORCPT, ConfigPoTableMap::COL_POTBCONFDISPITEMCOST, ConfigPoTableMap::COL_POTBCONFDISPCASEQTY, ConfigPoTableMap::COL_POTBCONFUSEFAB, ConfigPoTableMap::COL_POTBCONFSHOWITEM, ConfigPoTableMap::COL_POTBCONFSCRAPACCT, ConfigPoTableMap::COL_POTBCONFSCRAPVARIPCT, ConfigPoTableMap::COL_POTBCONFLIFOFIFO, ConfigPoTableMap::COL_POTBCONFFABBOMORKIT, ConfigPoTableMap::COL_POTBCONFALLOCEPOER, ConfigPoTableMap::COL_POTBCONFFABPREALLOC, ConfigPoTableMap::COL_POTBCONFFORCEFABEPO, ConfigPoTableMap::COL_POTBCONFPREVIEWCOMPLIST, ConfigPoTableMap::COL_POTBCONFNEGCOMPUSAGE, ConfigPoTableMap::COL_POTBCONFAUTOSELECTCOMP, ConfigPoTableMap::COL_POTBCONFBINFROMVENDOR, ConfigPoTableMap::COL_POTBCONFDFLTSTCKCD, ConfigPoTableMap::COL_POTBCONFUSEREMAIN, ConfigPoTableMap::COL_POTBCONFSAMECOMPCOST, ConfigPoTableMap::COL_POTBCONFPASSCODE, ConfigPoTableMap::COL_DATEUPDTD, ConfigPoTableMap::COL_TIMEUPDTD, ConfigPoTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('PotbConfKey', 'PotbConfSortPo', 'PotbConfCancOrRshpDate', 'PotbConfAckOrEtaDate', 'PotbConfEditShipDate', 'PotbConfEditExptDate', 'PotbConfEditCancDate', 'PotbConfEditAckDate', 'PotbConfExptDateDef', 'PotbConfHeadGetDef', 'PotbConfReseq', 'PotbConfForceVxref', 'PotbConfQtyDue', 'PotbConfWarnDup', 'PotbConfForcePoRef', 'PotbConfDestWhse', 'PotbConfEditPoItemNotes', 'PotbConfLoadPoVxmNotes', 'PotbConfEpoUpdLastCost', 'PotbConfOneTwoLine', 'PotbConfUseOrdrAs', 'PotbConfAprvVendOnly', 'PotbConfRecAll', 'PotbConfRecAllAsk', 'PotbConfReceiveCost', 'PotbConfProcVari', 'PotbConfCostRcvryAcct', 'PotbConfInvtyVariAcct', 'PotbConfAllowChgCost', 'PotbConfWarnRcptQty', 'PotbConfErDispDate', 'PotbConfProvideLpo', 'PotbConfWarnDiffWhse', 'PotbConfAllocRcvd', 'PotbConfAskClose', 'PotbConfTariffGlAcct', 'PotbConfShopGlAcct', 'PotbConfShopRate', 'PotbConfUsePrime', 'PotbConfUseWatch', 'PotbConfPrtPowSugg', 'PotbConfPowSlctYes', 'PotbConfPowgVendRpt', 'PotbConfPowgWipStatus', 'PotbConfPowgWipAutoGen', 'PotbConfBuyerControl', 'PotbConfPowgOqMethod', 'PotbConfFxPo', 'PotbConfFxInv', 'PotbConfUseLandCost', 'PotbConfBaseLandAmtQty', 'PotbConfLandGlAcct', 'PotbConfWarnLandInEr', 'PotbConfLandAmtMultWght', 'PotbConfLandErEdit', 'PotbConfHistCmplFab', 'PotbConfUpDateVendCost', 'PotbConfAskUpDate', 'PotbConfVxmRoundPos', 'PotbConfXrefMaint', 'PotbConfUseIdOpts', 'PotbConfSrchVxmFirst', 'PotbConfOpenLineOnly', 'PotbConfItemDesc', 'PotbConfOpenBalOnly', 'PotbConfPrtWhseDtl', 'PotbConfAutoRcpt', 'PotbConfDispItemCost', 'PotbConfDispCaseQty', 'PotbConfUseFab', 'PotbConfShowItem', 'PotbConfScrapAcct', 'PotbConfScrapVariPct', 'PotbConfLifoFifo', 'PotbConfFabBomOrKit', 'PotbConfAllocEpoEr', 'PotbConfFabPrealloc', 'PotbConfForceFabEpo', 'PotbConfPreviewCompList', 'PotbConfNegCompUsage', 'PotbConfAutoSelectComp', 'PotbConfBinFromVendor', 'PotbConfDfltStckCd', 'PotbConfUseRemain', 'PotbConfSameCompCost', 'PotbConfPassCode', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, )
+        self::TYPE_PHPNAME       => array('Potbconfkey', 'Potbconfsortpo', 'Potbconfcancorrshpdate', 'Potbconfackoretadate', 'Potbconfeditshipdate', 'Potbconfeditexptdate', 'Potbconfeditcancdate', 'Potbconfeditackdate', 'Potbconfexptdatedef', 'Potbconfheadgetdef', 'Potbconfreseq', 'Potbconfforcevxref', 'Potbconfqtydue', 'Potbconfwarndup', 'Potbconfforceporef', 'Potbconfdestwhse', 'Potbconfeditpoitemnotes', 'Potbconfloadpovxmnotes', 'Potbconfepoupdlastcost', 'Potbconfrecall', 'Potbconfrecallask', 'Potbconfreceivecost', 'Potbconfprocvari', 'Potbconfcostrcvryacct', 'Potbconfinvtyvariacct', 'Potbconfallowchgcost', 'Potbconfwarnrcptqty', 'Potbconferdispdate', 'Potbconfprovidelpo', 'Potbconfwarndiffwhse', 'Potbconfallocrcvd', 'Potbconfaskclose', 'Potbconferadd2po', 'Potbconftariffglacct', 'Potbconfshopglacct', 'Potbconfshoprate', 'Potbconfuseprime', 'Potbconfusewatch', 'Potbconfprtpowsugg', 'Potbconfpowslctyes', 'Potbconfpowgvendrpt', 'Potbconfpowgwipstatus', 'Potbconfpowgwipautogen', 'Potbconfbuyercontrol', 'Potbconfpowgoqmethod', 'Potbconffxpo', 'Potbconffxinv', 'Potbconfuselandcost', 'Potbconfbaselandamtqty', 'Potbconflandglacct', 'Potbconfwarnlandiner', 'Potbconflandamtmultwght', 'Potbconflanderedit', 'Potbconfhistcmplfab', 'Potbconfupdatevendcost', 'Potbconfaskupdate', 'Potbconfvxmroundpos', 'Potbconfxrefmaint', 'Potbconfuseidopts', 'Potbconfsrchvxmfirst', 'Potbconfopenlineonly', 'Potbconfitemdesc', 'Potbconfopenbalonly', 'Potbconfprtwhsedtl', 'Potbconfautorcpt', 'Potbconfdispitemcost', 'Potbconfdispcaseqty', 'Potbconfonetwoline', 'Potbconfuseordras', 'Potbconfaprvvendonly', 'Potbconfusefab', 'Potbconfshowitem', 'Potbconfscrapacct', 'Potbconfscrapvaripct', 'Potbconflifofifo', 'Potbconffabbomorkit', 'Potbconfallocepoer', 'Potbconffabprealloc', 'Potbconfforcefabepo', 'Potbconfpreviewcomplist', 'Potbconfnegcompusage', 'Potbconfautoselectcomp', 'Potbconfbinfromvendor', 'Potbconfdfltstckcd', 'Potbconfuseremain', 'Potbconfsamecompcost', 'Potbconfpasscode', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('potbconfkey', 'potbconfsortpo', 'potbconfcancorrshpdate', 'potbconfackoretadate', 'potbconfeditshipdate', 'potbconfeditexptdate', 'potbconfeditcancdate', 'potbconfeditackdate', 'potbconfexptdatedef', 'potbconfheadgetdef', 'potbconfreseq', 'potbconfforcevxref', 'potbconfqtydue', 'potbconfwarndup', 'potbconfforceporef', 'potbconfdestwhse', 'potbconfeditpoitemnotes', 'potbconfloadpovxmnotes', 'potbconfepoupdlastcost', 'potbconfrecall', 'potbconfrecallask', 'potbconfreceivecost', 'potbconfprocvari', 'potbconfcostrcvryacct', 'potbconfinvtyvariacct', 'potbconfallowchgcost', 'potbconfwarnrcptqty', 'potbconferdispdate', 'potbconfprovidelpo', 'potbconfwarndiffwhse', 'potbconfallocrcvd', 'potbconfaskclose', 'potbconferadd2po', 'potbconftariffglacct', 'potbconfshopglacct', 'potbconfshoprate', 'potbconfuseprime', 'potbconfusewatch', 'potbconfprtpowsugg', 'potbconfpowslctyes', 'potbconfpowgvendrpt', 'potbconfpowgwipstatus', 'potbconfpowgwipautogen', 'potbconfbuyercontrol', 'potbconfpowgoqmethod', 'potbconffxpo', 'potbconffxinv', 'potbconfuselandcost', 'potbconfbaselandamtqty', 'potbconflandglacct', 'potbconfwarnlandiner', 'potbconflandamtmultwght', 'potbconflanderedit', 'potbconfhistcmplfab', 'potbconfupdatevendcost', 'potbconfaskupdate', 'potbconfvxmroundpos', 'potbconfxrefmaint', 'potbconfuseidopts', 'potbconfsrchvxmfirst', 'potbconfopenlineonly', 'potbconfitemdesc', 'potbconfopenbalonly', 'potbconfprtwhsedtl', 'potbconfautorcpt', 'potbconfdispitemcost', 'potbconfdispcaseqty', 'potbconfonetwoline', 'potbconfuseordras', 'potbconfaprvvendonly', 'potbconfusefab', 'potbconfshowitem', 'potbconfscrapacct', 'potbconfscrapvaripct', 'potbconflifofifo', 'potbconffabbomorkit', 'potbconfallocepoer', 'potbconffabprealloc', 'potbconfforcefabepo', 'potbconfpreviewcomplist', 'potbconfnegcompusage', 'potbconfautoselectcomp', 'potbconfbinfromvendor', 'potbconfdfltstckcd', 'potbconfuseremain', 'potbconfsamecompcost', 'potbconfpasscode', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(ConfigPoTableMap::COL_POTBCONFKEY, ConfigPoTableMap::COL_POTBCONFSORTPO, ConfigPoTableMap::COL_POTBCONFCANCORRSHPDATE, ConfigPoTableMap::COL_POTBCONFACKORETADATE, ConfigPoTableMap::COL_POTBCONFEDITSHIPDATE, ConfigPoTableMap::COL_POTBCONFEDITEXPTDATE, ConfigPoTableMap::COL_POTBCONFEDITCANCDATE, ConfigPoTableMap::COL_POTBCONFEDITACKDATE, ConfigPoTableMap::COL_POTBCONFEXPTDATEDEF, ConfigPoTableMap::COL_POTBCONFHEADGETDEF, ConfigPoTableMap::COL_POTBCONFRESEQ, ConfigPoTableMap::COL_POTBCONFFORCEVXREF, ConfigPoTableMap::COL_POTBCONFQTYDUE, ConfigPoTableMap::COL_POTBCONFWARNDUP, ConfigPoTableMap::COL_POTBCONFFORCEPOREF, ConfigPoTableMap::COL_POTBCONFDESTWHSE, ConfigPoTableMap::COL_POTBCONFEDITPOITEMNOTES, ConfigPoTableMap::COL_POTBCONFLOADPOVXMNOTES, ConfigPoTableMap::COL_POTBCONFEPOUPDLASTCOST, ConfigPoTableMap::COL_POTBCONFRECALL, ConfigPoTableMap::COL_POTBCONFRECALLASK, ConfigPoTableMap::COL_POTBCONFRECEIVECOST, ConfigPoTableMap::COL_POTBCONFPROCVARI, ConfigPoTableMap::COL_POTBCONFCOSTRCVRYACCT, ConfigPoTableMap::COL_POTBCONFINVTYVARIACCT, ConfigPoTableMap::COL_POTBCONFALLOWCHGCOST, ConfigPoTableMap::COL_POTBCONFWARNRCPTQTY, ConfigPoTableMap::COL_POTBCONFERDISPDATE, ConfigPoTableMap::COL_POTBCONFPROVIDELPO, ConfigPoTableMap::COL_POTBCONFWARNDIFFWHSE, ConfigPoTableMap::COL_POTBCONFALLOCRCVD, ConfigPoTableMap::COL_POTBCONFASKCLOSE, ConfigPoTableMap::COL_POTBCONFERADD2PO, ConfigPoTableMap::COL_POTBCONFTARIFFGLACCT, ConfigPoTableMap::COL_POTBCONFSHOPGLACCT, ConfigPoTableMap::COL_POTBCONFSHOPRATE, ConfigPoTableMap::COL_POTBCONFUSEPRIME, ConfigPoTableMap::COL_POTBCONFUSEWATCH, ConfigPoTableMap::COL_POTBCONFPRTPOWSUGG, ConfigPoTableMap::COL_POTBCONFPOWSLCTYES, ConfigPoTableMap::COL_POTBCONFPOWGVENDRPT, ConfigPoTableMap::COL_POTBCONFPOWGWIPSTATUS, ConfigPoTableMap::COL_POTBCONFPOWGWIPAUTOGEN, ConfigPoTableMap::COL_POTBCONFBUYERCONTROL, ConfigPoTableMap::COL_POTBCONFPOWGOQMETHOD, ConfigPoTableMap::COL_POTBCONFFXPO, ConfigPoTableMap::COL_POTBCONFFXINV, ConfigPoTableMap::COL_POTBCONFUSELANDCOST, ConfigPoTableMap::COL_POTBCONFBASELANDAMTQTY, ConfigPoTableMap::COL_POTBCONFLANDGLACCT, ConfigPoTableMap::COL_POTBCONFWARNLANDINER, ConfigPoTableMap::COL_POTBCONFLANDAMTMULTWGHT, ConfigPoTableMap::COL_POTBCONFLANDEREDIT, ConfigPoTableMap::COL_POTBCONFHISTCMPLFAB, ConfigPoTableMap::COL_POTBCONFUPDATEVENDCOST, ConfigPoTableMap::COL_POTBCONFASKUPDATE, ConfigPoTableMap::COL_POTBCONFVXMROUNDPOS, ConfigPoTableMap::COL_POTBCONFXREFMAINT, ConfigPoTableMap::COL_POTBCONFUSEIDOPTS, ConfigPoTableMap::COL_POTBCONFSRCHVXMFIRST, ConfigPoTableMap::COL_POTBCONFOPENLINEONLY, ConfigPoTableMap::COL_POTBCONFITEMDESC, ConfigPoTableMap::COL_POTBCONFOPENBALONLY, ConfigPoTableMap::COL_POTBCONFPRTWHSEDTL, ConfigPoTableMap::COL_POTBCONFAUTORCPT, ConfigPoTableMap::COL_POTBCONFDISPITEMCOST, ConfigPoTableMap::COL_POTBCONFDISPCASEQTY, ConfigPoTableMap::COL_POTBCONFONETWOLINE, ConfigPoTableMap::COL_POTBCONFUSEORDRAS, ConfigPoTableMap::COL_POTBCONFAPRVVENDONLY, ConfigPoTableMap::COL_POTBCONFUSEFAB, ConfigPoTableMap::COL_POTBCONFSHOWITEM, ConfigPoTableMap::COL_POTBCONFSCRAPACCT, ConfigPoTableMap::COL_POTBCONFSCRAPVARIPCT, ConfigPoTableMap::COL_POTBCONFLIFOFIFO, ConfigPoTableMap::COL_POTBCONFFABBOMORKIT, ConfigPoTableMap::COL_POTBCONFALLOCEPOER, ConfigPoTableMap::COL_POTBCONFFABPREALLOC, ConfigPoTableMap::COL_POTBCONFFORCEFABEPO, ConfigPoTableMap::COL_POTBCONFPREVIEWCOMPLIST, ConfigPoTableMap::COL_POTBCONFNEGCOMPUSAGE, ConfigPoTableMap::COL_POTBCONFAUTOSELECTCOMP, ConfigPoTableMap::COL_POTBCONFBINFROMVENDOR, ConfigPoTableMap::COL_POTBCONFDFLTSTCKCD, ConfigPoTableMap::COL_POTBCONFUSEREMAIN, ConfigPoTableMap::COL_POTBCONFSAMECOMPCOST, ConfigPoTableMap::COL_POTBCONFPASSCODE, ConfigPoTableMap::COL_DATEUPDTD, ConfigPoTableMap::COL_TIMEUPDTD, ConfigPoTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('PotbConfKey', 'PotbConfSortPo', 'PotbConfCancOrRshpDate', 'PotbConfAckOrEtaDate', 'PotbConfEditShipDate', 'PotbConfEditExptDate', 'PotbConfEditCancDate', 'PotbConfEditAckDate', 'PotbConfExptDateDef', 'PotbConfHeadGetDef', 'PotbConfReseq', 'PotbConfForceVxref', 'PotbConfQtyDue', 'PotbConfWarnDup', 'PotbConfForcePoRef', 'PotbConfDestWhse', 'PotbConfEditPoItemNotes', 'PotbConfLoadPoVxmNotes', 'PotbConfEpoUpdLastCost', 'PotbConfRecAll', 'PotbConfRecAllAsk', 'PotbConfReceiveCost', 'PotbConfProcVari', 'PotbConfCostRcvryAcct', 'PotbConfInvtyVariAcct', 'PotbConfAllowChgCost', 'PotbConfWarnRcptQty', 'PotbConfErDispDate', 'PotbConfProvideLpo', 'PotbConfWarnDiffWhse', 'PotbConfAllocRcvd', 'PotbConfAskClose', 'PotbConfErAdd2Po', 'PotbConfTariffGlAcct', 'PotbConfShopGlAcct', 'PotbConfShopRate', 'PotbConfUsePrime', 'PotbConfUseWatch', 'PotbConfPrtPowSugg', 'PotbConfPowSlctYes', 'PotbConfPowgVendRpt', 'PotbConfPowgWipStatus', 'PotbConfPowgWipAutoGen', 'PotbConfBuyerControl', 'PotbConfPowgOqMethod', 'PotbConfFxPo', 'PotbConfFxInv', 'PotbConfUseLandCost', 'PotbConfBaseLandAmtQty', 'PotbConfLandGlAcct', 'PotbConfWarnLandInEr', 'PotbConfLandAmtMultWght', 'PotbConfLandErEdit', 'PotbConfHistCmplFab', 'PotbConfUpDateVendCost', 'PotbConfAskUpDate', 'PotbConfVxmRoundPos', 'PotbConfXrefMaint', 'PotbConfUseIdOpts', 'PotbConfSrchVxmFirst', 'PotbConfOpenLineOnly', 'PotbConfItemDesc', 'PotbConfOpenBalOnly', 'PotbConfPrtWhseDtl', 'PotbConfAutoRcpt', 'PotbConfDispItemCost', 'PotbConfDispCaseQty', 'PotbConfOneTwoLine', 'PotbConfUseOrdrAs', 'PotbConfAprvVendOnly', 'PotbConfUseFab', 'PotbConfShowItem', 'PotbConfScrapAcct', 'PotbConfScrapVariPct', 'PotbConfLifoFifo', 'PotbConfFabBomOrKit', 'PotbConfAllocEpoEr', 'PotbConfFabPrealloc', 'PotbConfForceFabEpo', 'PotbConfPreviewCompList', 'PotbConfNegCompUsage', 'PotbConfAutoSelectComp', 'PotbConfBinFromVendor', 'PotbConfDfltStckCd', 'PotbConfUseRemain', 'PotbConfSameCompCost', 'PotbConfPassCode', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, )
     );
 
     /**
@@ -542,11 +547,11 @@ class ConfigPoTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Potbconfkey' => 0, 'Potbconfsortpo' => 1, 'Potbconfcancorrshpdate' => 2, 'Potbconfackoretadate' => 3, 'Potbconfeditshipdate' => 4, 'Potbconfeditexptdate' => 5, 'Potbconfeditcancdate' => 6, 'Potbconfeditackdate' => 7, 'Potbconfexptdatedef' => 8, 'Potbconfheadgetdef' => 9, 'Potbconfreseq' => 10, 'Potbconfforcevxref' => 11, 'Potbconfqtydue' => 12, 'Potbconfwarndup' => 13, 'Potbconfforceporef' => 14, 'Potbconfdestwhse' => 15, 'Potbconfeditpoitemnotes' => 16, 'Potbconfloadpovxmnotes' => 17, 'Potbconfepoupdlastcost' => 18, 'Potbconfonetwoline' => 19, 'Potbconfuseordras' => 20, 'Potbconfaprvvendonly' => 21, 'Potbconfrecall' => 22, 'Potbconfrecallask' => 23, 'Potbconfreceivecost' => 24, 'Potbconfprocvari' => 25, 'Potbconfcostrcvryacct' => 26, 'Potbconfinvtyvariacct' => 27, 'Potbconfallowchgcost' => 28, 'Potbconfwarnrcptqty' => 29, 'Potbconferdispdate' => 30, 'Potbconfprovidelpo' => 31, 'Potbconfwarndiffwhse' => 32, 'Potbconfallocrcvd' => 33, 'Potbconfaskclose' => 34, 'Potbconftariffglacct' => 35, 'Potbconfshopglacct' => 36, 'Potbconfshoprate' => 37, 'Potbconfuseprime' => 38, 'Potbconfusewatch' => 39, 'Potbconfprtpowsugg' => 40, 'Potbconfpowslctyes' => 41, 'Potbconfpowgvendrpt' => 42, 'Potbconfpowgwipstatus' => 43, 'Potbconfpowgwipautogen' => 44, 'Potbconfbuyercontrol' => 45, 'Potbconfpowgoqmethod' => 46, 'Potbconffxpo' => 47, 'Potbconffxinv' => 48, 'Potbconfuselandcost' => 49, 'Potbconfbaselandamtqty' => 50, 'Potbconflandglacct' => 51, 'Potbconfwarnlandiner' => 52, 'Potbconflandamtmultwght' => 53, 'Potbconflanderedit' => 54, 'Potbconfhistcmplfab' => 55, 'Potbconfupdatevendcost' => 56, 'Potbconfaskupdate' => 57, 'Potbconfvxmroundpos' => 58, 'Potbconfxrefmaint' => 59, 'Potbconfuseidopts' => 60, 'Potbconfsrchvxmfirst' => 61, 'Potbconfopenlineonly' => 62, 'Potbconfitemdesc' => 63, 'Potbconfopenbalonly' => 64, 'Potbconfprtwhsedtl' => 65, 'Potbconfautorcpt' => 66, 'Potbconfdispitemcost' => 67, 'Potbconfdispcaseqty' => 68, 'Potbconfusefab' => 69, 'Potbconfshowitem' => 70, 'Potbconfscrapacct' => 71, 'Potbconfscrapvaripct' => 72, 'Potbconflifofifo' => 73, 'Potbconffabbomorkit' => 74, 'Potbconfallocepoer' => 75, 'Potbconffabprealloc' => 76, 'Potbconfforcefabepo' => 77, 'Potbconfpreviewcomplist' => 78, 'Potbconfnegcompusage' => 79, 'Potbconfautoselectcomp' => 80, 'Potbconfbinfromvendor' => 81, 'Potbconfdfltstckcd' => 82, 'Potbconfuseremain' => 83, 'Potbconfsamecompcost' => 84, 'Potbconfpasscode' => 85, 'Dateupdtd' => 86, 'Timeupdtd' => 87, 'Dummy' => 88, ),
-        self::TYPE_CAMELNAME     => array('potbconfkey' => 0, 'potbconfsortpo' => 1, 'potbconfcancorrshpdate' => 2, 'potbconfackoretadate' => 3, 'potbconfeditshipdate' => 4, 'potbconfeditexptdate' => 5, 'potbconfeditcancdate' => 6, 'potbconfeditackdate' => 7, 'potbconfexptdatedef' => 8, 'potbconfheadgetdef' => 9, 'potbconfreseq' => 10, 'potbconfforcevxref' => 11, 'potbconfqtydue' => 12, 'potbconfwarndup' => 13, 'potbconfforceporef' => 14, 'potbconfdestwhse' => 15, 'potbconfeditpoitemnotes' => 16, 'potbconfloadpovxmnotes' => 17, 'potbconfepoupdlastcost' => 18, 'potbconfonetwoline' => 19, 'potbconfuseordras' => 20, 'potbconfaprvvendonly' => 21, 'potbconfrecall' => 22, 'potbconfrecallask' => 23, 'potbconfreceivecost' => 24, 'potbconfprocvari' => 25, 'potbconfcostrcvryacct' => 26, 'potbconfinvtyvariacct' => 27, 'potbconfallowchgcost' => 28, 'potbconfwarnrcptqty' => 29, 'potbconferdispdate' => 30, 'potbconfprovidelpo' => 31, 'potbconfwarndiffwhse' => 32, 'potbconfallocrcvd' => 33, 'potbconfaskclose' => 34, 'potbconftariffglacct' => 35, 'potbconfshopglacct' => 36, 'potbconfshoprate' => 37, 'potbconfuseprime' => 38, 'potbconfusewatch' => 39, 'potbconfprtpowsugg' => 40, 'potbconfpowslctyes' => 41, 'potbconfpowgvendrpt' => 42, 'potbconfpowgwipstatus' => 43, 'potbconfpowgwipautogen' => 44, 'potbconfbuyercontrol' => 45, 'potbconfpowgoqmethod' => 46, 'potbconffxpo' => 47, 'potbconffxinv' => 48, 'potbconfuselandcost' => 49, 'potbconfbaselandamtqty' => 50, 'potbconflandglacct' => 51, 'potbconfwarnlandiner' => 52, 'potbconflandamtmultwght' => 53, 'potbconflanderedit' => 54, 'potbconfhistcmplfab' => 55, 'potbconfupdatevendcost' => 56, 'potbconfaskupdate' => 57, 'potbconfvxmroundpos' => 58, 'potbconfxrefmaint' => 59, 'potbconfuseidopts' => 60, 'potbconfsrchvxmfirst' => 61, 'potbconfopenlineonly' => 62, 'potbconfitemdesc' => 63, 'potbconfopenbalonly' => 64, 'potbconfprtwhsedtl' => 65, 'potbconfautorcpt' => 66, 'potbconfdispitemcost' => 67, 'potbconfdispcaseqty' => 68, 'potbconfusefab' => 69, 'potbconfshowitem' => 70, 'potbconfscrapacct' => 71, 'potbconfscrapvaripct' => 72, 'potbconflifofifo' => 73, 'potbconffabbomorkit' => 74, 'potbconfallocepoer' => 75, 'potbconffabprealloc' => 76, 'potbconfforcefabepo' => 77, 'potbconfpreviewcomplist' => 78, 'potbconfnegcompusage' => 79, 'potbconfautoselectcomp' => 80, 'potbconfbinfromvendor' => 81, 'potbconfdfltstckcd' => 82, 'potbconfuseremain' => 83, 'potbconfsamecompcost' => 84, 'potbconfpasscode' => 85, 'dateupdtd' => 86, 'timeupdtd' => 87, 'dummy' => 88, ),
-        self::TYPE_COLNAME       => array(ConfigPoTableMap::COL_POTBCONFKEY => 0, ConfigPoTableMap::COL_POTBCONFSORTPO => 1, ConfigPoTableMap::COL_POTBCONFCANCORRSHPDATE => 2, ConfigPoTableMap::COL_POTBCONFACKORETADATE => 3, ConfigPoTableMap::COL_POTBCONFEDITSHIPDATE => 4, ConfigPoTableMap::COL_POTBCONFEDITEXPTDATE => 5, ConfigPoTableMap::COL_POTBCONFEDITCANCDATE => 6, ConfigPoTableMap::COL_POTBCONFEDITACKDATE => 7, ConfigPoTableMap::COL_POTBCONFEXPTDATEDEF => 8, ConfigPoTableMap::COL_POTBCONFHEADGETDEF => 9, ConfigPoTableMap::COL_POTBCONFRESEQ => 10, ConfigPoTableMap::COL_POTBCONFFORCEVXREF => 11, ConfigPoTableMap::COL_POTBCONFQTYDUE => 12, ConfigPoTableMap::COL_POTBCONFWARNDUP => 13, ConfigPoTableMap::COL_POTBCONFFORCEPOREF => 14, ConfigPoTableMap::COL_POTBCONFDESTWHSE => 15, ConfigPoTableMap::COL_POTBCONFEDITPOITEMNOTES => 16, ConfigPoTableMap::COL_POTBCONFLOADPOVXMNOTES => 17, ConfigPoTableMap::COL_POTBCONFEPOUPDLASTCOST => 18, ConfigPoTableMap::COL_POTBCONFONETWOLINE => 19, ConfigPoTableMap::COL_POTBCONFUSEORDRAS => 20, ConfigPoTableMap::COL_POTBCONFAPRVVENDONLY => 21, ConfigPoTableMap::COL_POTBCONFRECALL => 22, ConfigPoTableMap::COL_POTBCONFRECALLASK => 23, ConfigPoTableMap::COL_POTBCONFRECEIVECOST => 24, ConfigPoTableMap::COL_POTBCONFPROCVARI => 25, ConfigPoTableMap::COL_POTBCONFCOSTRCVRYACCT => 26, ConfigPoTableMap::COL_POTBCONFINVTYVARIACCT => 27, ConfigPoTableMap::COL_POTBCONFALLOWCHGCOST => 28, ConfigPoTableMap::COL_POTBCONFWARNRCPTQTY => 29, ConfigPoTableMap::COL_POTBCONFERDISPDATE => 30, ConfigPoTableMap::COL_POTBCONFPROVIDELPO => 31, ConfigPoTableMap::COL_POTBCONFWARNDIFFWHSE => 32, ConfigPoTableMap::COL_POTBCONFALLOCRCVD => 33, ConfigPoTableMap::COL_POTBCONFASKCLOSE => 34, ConfigPoTableMap::COL_POTBCONFTARIFFGLACCT => 35, ConfigPoTableMap::COL_POTBCONFSHOPGLACCT => 36, ConfigPoTableMap::COL_POTBCONFSHOPRATE => 37, ConfigPoTableMap::COL_POTBCONFUSEPRIME => 38, ConfigPoTableMap::COL_POTBCONFUSEWATCH => 39, ConfigPoTableMap::COL_POTBCONFPRTPOWSUGG => 40, ConfigPoTableMap::COL_POTBCONFPOWSLCTYES => 41, ConfigPoTableMap::COL_POTBCONFPOWGVENDRPT => 42, ConfigPoTableMap::COL_POTBCONFPOWGWIPSTATUS => 43, ConfigPoTableMap::COL_POTBCONFPOWGWIPAUTOGEN => 44, ConfigPoTableMap::COL_POTBCONFBUYERCONTROL => 45, ConfigPoTableMap::COL_POTBCONFPOWGOQMETHOD => 46, ConfigPoTableMap::COL_POTBCONFFXPO => 47, ConfigPoTableMap::COL_POTBCONFFXINV => 48, ConfigPoTableMap::COL_POTBCONFUSELANDCOST => 49, ConfigPoTableMap::COL_POTBCONFBASELANDAMTQTY => 50, ConfigPoTableMap::COL_POTBCONFLANDGLACCT => 51, ConfigPoTableMap::COL_POTBCONFWARNLANDINER => 52, ConfigPoTableMap::COL_POTBCONFLANDAMTMULTWGHT => 53, ConfigPoTableMap::COL_POTBCONFLANDEREDIT => 54, ConfigPoTableMap::COL_POTBCONFHISTCMPLFAB => 55, ConfigPoTableMap::COL_POTBCONFUPDATEVENDCOST => 56, ConfigPoTableMap::COL_POTBCONFASKUPDATE => 57, ConfigPoTableMap::COL_POTBCONFVXMROUNDPOS => 58, ConfigPoTableMap::COL_POTBCONFXREFMAINT => 59, ConfigPoTableMap::COL_POTBCONFUSEIDOPTS => 60, ConfigPoTableMap::COL_POTBCONFSRCHVXMFIRST => 61, ConfigPoTableMap::COL_POTBCONFOPENLINEONLY => 62, ConfigPoTableMap::COL_POTBCONFITEMDESC => 63, ConfigPoTableMap::COL_POTBCONFOPENBALONLY => 64, ConfigPoTableMap::COL_POTBCONFPRTWHSEDTL => 65, ConfigPoTableMap::COL_POTBCONFAUTORCPT => 66, ConfigPoTableMap::COL_POTBCONFDISPITEMCOST => 67, ConfigPoTableMap::COL_POTBCONFDISPCASEQTY => 68, ConfigPoTableMap::COL_POTBCONFUSEFAB => 69, ConfigPoTableMap::COL_POTBCONFSHOWITEM => 70, ConfigPoTableMap::COL_POTBCONFSCRAPACCT => 71, ConfigPoTableMap::COL_POTBCONFSCRAPVARIPCT => 72, ConfigPoTableMap::COL_POTBCONFLIFOFIFO => 73, ConfigPoTableMap::COL_POTBCONFFABBOMORKIT => 74, ConfigPoTableMap::COL_POTBCONFALLOCEPOER => 75, ConfigPoTableMap::COL_POTBCONFFABPREALLOC => 76, ConfigPoTableMap::COL_POTBCONFFORCEFABEPO => 77, ConfigPoTableMap::COL_POTBCONFPREVIEWCOMPLIST => 78, ConfigPoTableMap::COL_POTBCONFNEGCOMPUSAGE => 79, ConfigPoTableMap::COL_POTBCONFAUTOSELECTCOMP => 80, ConfigPoTableMap::COL_POTBCONFBINFROMVENDOR => 81, ConfigPoTableMap::COL_POTBCONFDFLTSTCKCD => 82, ConfigPoTableMap::COL_POTBCONFUSEREMAIN => 83, ConfigPoTableMap::COL_POTBCONFSAMECOMPCOST => 84, ConfigPoTableMap::COL_POTBCONFPASSCODE => 85, ConfigPoTableMap::COL_DATEUPDTD => 86, ConfigPoTableMap::COL_TIMEUPDTD => 87, ConfigPoTableMap::COL_DUMMY => 88, ),
-        self::TYPE_FIELDNAME     => array('PotbConfKey' => 0, 'PotbConfSortPo' => 1, 'PotbConfCancOrRshpDate' => 2, 'PotbConfAckOrEtaDate' => 3, 'PotbConfEditShipDate' => 4, 'PotbConfEditExptDate' => 5, 'PotbConfEditCancDate' => 6, 'PotbConfEditAckDate' => 7, 'PotbConfExptDateDef' => 8, 'PotbConfHeadGetDef' => 9, 'PotbConfReseq' => 10, 'PotbConfForceVxref' => 11, 'PotbConfQtyDue' => 12, 'PotbConfWarnDup' => 13, 'PotbConfForcePoRef' => 14, 'PotbConfDestWhse' => 15, 'PotbConfEditPoItemNotes' => 16, 'PotbConfLoadPoVxmNotes' => 17, 'PotbConfEpoUpdLastCost' => 18, 'PotbConfOneTwoLine' => 19, 'PotbConfUseOrdrAs' => 20, 'PotbConfAprvVendOnly' => 21, 'PotbConfRecAll' => 22, 'PotbConfRecAllAsk' => 23, 'PotbConfReceiveCost' => 24, 'PotbConfProcVari' => 25, 'PotbConfCostRcvryAcct' => 26, 'PotbConfInvtyVariAcct' => 27, 'PotbConfAllowChgCost' => 28, 'PotbConfWarnRcptQty' => 29, 'PotbConfErDispDate' => 30, 'PotbConfProvideLpo' => 31, 'PotbConfWarnDiffWhse' => 32, 'PotbConfAllocRcvd' => 33, 'PotbConfAskClose' => 34, 'PotbConfTariffGlAcct' => 35, 'PotbConfShopGlAcct' => 36, 'PotbConfShopRate' => 37, 'PotbConfUsePrime' => 38, 'PotbConfUseWatch' => 39, 'PotbConfPrtPowSugg' => 40, 'PotbConfPowSlctYes' => 41, 'PotbConfPowgVendRpt' => 42, 'PotbConfPowgWipStatus' => 43, 'PotbConfPowgWipAutoGen' => 44, 'PotbConfBuyerControl' => 45, 'PotbConfPowgOqMethod' => 46, 'PotbConfFxPo' => 47, 'PotbConfFxInv' => 48, 'PotbConfUseLandCost' => 49, 'PotbConfBaseLandAmtQty' => 50, 'PotbConfLandGlAcct' => 51, 'PotbConfWarnLandInEr' => 52, 'PotbConfLandAmtMultWght' => 53, 'PotbConfLandErEdit' => 54, 'PotbConfHistCmplFab' => 55, 'PotbConfUpDateVendCost' => 56, 'PotbConfAskUpDate' => 57, 'PotbConfVxmRoundPos' => 58, 'PotbConfXrefMaint' => 59, 'PotbConfUseIdOpts' => 60, 'PotbConfSrchVxmFirst' => 61, 'PotbConfOpenLineOnly' => 62, 'PotbConfItemDesc' => 63, 'PotbConfOpenBalOnly' => 64, 'PotbConfPrtWhseDtl' => 65, 'PotbConfAutoRcpt' => 66, 'PotbConfDispItemCost' => 67, 'PotbConfDispCaseQty' => 68, 'PotbConfUseFab' => 69, 'PotbConfShowItem' => 70, 'PotbConfScrapAcct' => 71, 'PotbConfScrapVariPct' => 72, 'PotbConfLifoFifo' => 73, 'PotbConfFabBomOrKit' => 74, 'PotbConfAllocEpoEr' => 75, 'PotbConfFabPrealloc' => 76, 'PotbConfForceFabEpo' => 77, 'PotbConfPreviewCompList' => 78, 'PotbConfNegCompUsage' => 79, 'PotbConfAutoSelectComp' => 80, 'PotbConfBinFromVendor' => 81, 'PotbConfDfltStckCd' => 82, 'PotbConfUseRemain' => 83, 'PotbConfSameCompCost' => 84, 'PotbConfPassCode' => 85, 'DateUpdtd' => 86, 'TimeUpdtd' => 87, 'dummy' => 88, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, )
+        self::TYPE_PHPNAME       => array('Potbconfkey' => 0, 'Potbconfsortpo' => 1, 'Potbconfcancorrshpdate' => 2, 'Potbconfackoretadate' => 3, 'Potbconfeditshipdate' => 4, 'Potbconfeditexptdate' => 5, 'Potbconfeditcancdate' => 6, 'Potbconfeditackdate' => 7, 'Potbconfexptdatedef' => 8, 'Potbconfheadgetdef' => 9, 'Potbconfreseq' => 10, 'Potbconfforcevxref' => 11, 'Potbconfqtydue' => 12, 'Potbconfwarndup' => 13, 'Potbconfforceporef' => 14, 'Potbconfdestwhse' => 15, 'Potbconfeditpoitemnotes' => 16, 'Potbconfloadpovxmnotes' => 17, 'Potbconfepoupdlastcost' => 18, 'Potbconfrecall' => 19, 'Potbconfrecallask' => 20, 'Potbconfreceivecost' => 21, 'Potbconfprocvari' => 22, 'Potbconfcostrcvryacct' => 23, 'Potbconfinvtyvariacct' => 24, 'Potbconfallowchgcost' => 25, 'Potbconfwarnrcptqty' => 26, 'Potbconferdispdate' => 27, 'Potbconfprovidelpo' => 28, 'Potbconfwarndiffwhse' => 29, 'Potbconfallocrcvd' => 30, 'Potbconfaskclose' => 31, 'Potbconferadd2po' => 32, 'Potbconftariffglacct' => 33, 'Potbconfshopglacct' => 34, 'Potbconfshoprate' => 35, 'Potbconfuseprime' => 36, 'Potbconfusewatch' => 37, 'Potbconfprtpowsugg' => 38, 'Potbconfpowslctyes' => 39, 'Potbconfpowgvendrpt' => 40, 'Potbconfpowgwipstatus' => 41, 'Potbconfpowgwipautogen' => 42, 'Potbconfbuyercontrol' => 43, 'Potbconfpowgoqmethod' => 44, 'Potbconffxpo' => 45, 'Potbconffxinv' => 46, 'Potbconfuselandcost' => 47, 'Potbconfbaselandamtqty' => 48, 'Potbconflandglacct' => 49, 'Potbconfwarnlandiner' => 50, 'Potbconflandamtmultwght' => 51, 'Potbconflanderedit' => 52, 'Potbconfhistcmplfab' => 53, 'Potbconfupdatevendcost' => 54, 'Potbconfaskupdate' => 55, 'Potbconfvxmroundpos' => 56, 'Potbconfxrefmaint' => 57, 'Potbconfuseidopts' => 58, 'Potbconfsrchvxmfirst' => 59, 'Potbconfopenlineonly' => 60, 'Potbconfitemdesc' => 61, 'Potbconfopenbalonly' => 62, 'Potbconfprtwhsedtl' => 63, 'Potbconfautorcpt' => 64, 'Potbconfdispitemcost' => 65, 'Potbconfdispcaseqty' => 66, 'Potbconfonetwoline' => 67, 'Potbconfuseordras' => 68, 'Potbconfaprvvendonly' => 69, 'Potbconfusefab' => 70, 'Potbconfshowitem' => 71, 'Potbconfscrapacct' => 72, 'Potbconfscrapvaripct' => 73, 'Potbconflifofifo' => 74, 'Potbconffabbomorkit' => 75, 'Potbconfallocepoer' => 76, 'Potbconffabprealloc' => 77, 'Potbconfforcefabepo' => 78, 'Potbconfpreviewcomplist' => 79, 'Potbconfnegcompusage' => 80, 'Potbconfautoselectcomp' => 81, 'Potbconfbinfromvendor' => 82, 'Potbconfdfltstckcd' => 83, 'Potbconfuseremain' => 84, 'Potbconfsamecompcost' => 85, 'Potbconfpasscode' => 86, 'Dateupdtd' => 87, 'Timeupdtd' => 88, 'Dummy' => 89, ),
+        self::TYPE_CAMELNAME     => array('potbconfkey' => 0, 'potbconfsortpo' => 1, 'potbconfcancorrshpdate' => 2, 'potbconfackoretadate' => 3, 'potbconfeditshipdate' => 4, 'potbconfeditexptdate' => 5, 'potbconfeditcancdate' => 6, 'potbconfeditackdate' => 7, 'potbconfexptdatedef' => 8, 'potbconfheadgetdef' => 9, 'potbconfreseq' => 10, 'potbconfforcevxref' => 11, 'potbconfqtydue' => 12, 'potbconfwarndup' => 13, 'potbconfforceporef' => 14, 'potbconfdestwhse' => 15, 'potbconfeditpoitemnotes' => 16, 'potbconfloadpovxmnotes' => 17, 'potbconfepoupdlastcost' => 18, 'potbconfrecall' => 19, 'potbconfrecallask' => 20, 'potbconfreceivecost' => 21, 'potbconfprocvari' => 22, 'potbconfcostrcvryacct' => 23, 'potbconfinvtyvariacct' => 24, 'potbconfallowchgcost' => 25, 'potbconfwarnrcptqty' => 26, 'potbconferdispdate' => 27, 'potbconfprovidelpo' => 28, 'potbconfwarndiffwhse' => 29, 'potbconfallocrcvd' => 30, 'potbconfaskclose' => 31, 'potbconferadd2po' => 32, 'potbconftariffglacct' => 33, 'potbconfshopglacct' => 34, 'potbconfshoprate' => 35, 'potbconfuseprime' => 36, 'potbconfusewatch' => 37, 'potbconfprtpowsugg' => 38, 'potbconfpowslctyes' => 39, 'potbconfpowgvendrpt' => 40, 'potbconfpowgwipstatus' => 41, 'potbconfpowgwipautogen' => 42, 'potbconfbuyercontrol' => 43, 'potbconfpowgoqmethod' => 44, 'potbconffxpo' => 45, 'potbconffxinv' => 46, 'potbconfuselandcost' => 47, 'potbconfbaselandamtqty' => 48, 'potbconflandglacct' => 49, 'potbconfwarnlandiner' => 50, 'potbconflandamtmultwght' => 51, 'potbconflanderedit' => 52, 'potbconfhistcmplfab' => 53, 'potbconfupdatevendcost' => 54, 'potbconfaskupdate' => 55, 'potbconfvxmroundpos' => 56, 'potbconfxrefmaint' => 57, 'potbconfuseidopts' => 58, 'potbconfsrchvxmfirst' => 59, 'potbconfopenlineonly' => 60, 'potbconfitemdesc' => 61, 'potbconfopenbalonly' => 62, 'potbconfprtwhsedtl' => 63, 'potbconfautorcpt' => 64, 'potbconfdispitemcost' => 65, 'potbconfdispcaseqty' => 66, 'potbconfonetwoline' => 67, 'potbconfuseordras' => 68, 'potbconfaprvvendonly' => 69, 'potbconfusefab' => 70, 'potbconfshowitem' => 71, 'potbconfscrapacct' => 72, 'potbconfscrapvaripct' => 73, 'potbconflifofifo' => 74, 'potbconffabbomorkit' => 75, 'potbconfallocepoer' => 76, 'potbconffabprealloc' => 77, 'potbconfforcefabepo' => 78, 'potbconfpreviewcomplist' => 79, 'potbconfnegcompusage' => 80, 'potbconfautoselectcomp' => 81, 'potbconfbinfromvendor' => 82, 'potbconfdfltstckcd' => 83, 'potbconfuseremain' => 84, 'potbconfsamecompcost' => 85, 'potbconfpasscode' => 86, 'dateupdtd' => 87, 'timeupdtd' => 88, 'dummy' => 89, ),
+        self::TYPE_COLNAME       => array(ConfigPoTableMap::COL_POTBCONFKEY => 0, ConfigPoTableMap::COL_POTBCONFSORTPO => 1, ConfigPoTableMap::COL_POTBCONFCANCORRSHPDATE => 2, ConfigPoTableMap::COL_POTBCONFACKORETADATE => 3, ConfigPoTableMap::COL_POTBCONFEDITSHIPDATE => 4, ConfigPoTableMap::COL_POTBCONFEDITEXPTDATE => 5, ConfigPoTableMap::COL_POTBCONFEDITCANCDATE => 6, ConfigPoTableMap::COL_POTBCONFEDITACKDATE => 7, ConfigPoTableMap::COL_POTBCONFEXPTDATEDEF => 8, ConfigPoTableMap::COL_POTBCONFHEADGETDEF => 9, ConfigPoTableMap::COL_POTBCONFRESEQ => 10, ConfigPoTableMap::COL_POTBCONFFORCEVXREF => 11, ConfigPoTableMap::COL_POTBCONFQTYDUE => 12, ConfigPoTableMap::COL_POTBCONFWARNDUP => 13, ConfigPoTableMap::COL_POTBCONFFORCEPOREF => 14, ConfigPoTableMap::COL_POTBCONFDESTWHSE => 15, ConfigPoTableMap::COL_POTBCONFEDITPOITEMNOTES => 16, ConfigPoTableMap::COL_POTBCONFLOADPOVXMNOTES => 17, ConfigPoTableMap::COL_POTBCONFEPOUPDLASTCOST => 18, ConfigPoTableMap::COL_POTBCONFRECALL => 19, ConfigPoTableMap::COL_POTBCONFRECALLASK => 20, ConfigPoTableMap::COL_POTBCONFRECEIVECOST => 21, ConfigPoTableMap::COL_POTBCONFPROCVARI => 22, ConfigPoTableMap::COL_POTBCONFCOSTRCVRYACCT => 23, ConfigPoTableMap::COL_POTBCONFINVTYVARIACCT => 24, ConfigPoTableMap::COL_POTBCONFALLOWCHGCOST => 25, ConfigPoTableMap::COL_POTBCONFWARNRCPTQTY => 26, ConfigPoTableMap::COL_POTBCONFERDISPDATE => 27, ConfigPoTableMap::COL_POTBCONFPROVIDELPO => 28, ConfigPoTableMap::COL_POTBCONFWARNDIFFWHSE => 29, ConfigPoTableMap::COL_POTBCONFALLOCRCVD => 30, ConfigPoTableMap::COL_POTBCONFASKCLOSE => 31, ConfigPoTableMap::COL_POTBCONFERADD2PO => 32, ConfigPoTableMap::COL_POTBCONFTARIFFGLACCT => 33, ConfigPoTableMap::COL_POTBCONFSHOPGLACCT => 34, ConfigPoTableMap::COL_POTBCONFSHOPRATE => 35, ConfigPoTableMap::COL_POTBCONFUSEPRIME => 36, ConfigPoTableMap::COL_POTBCONFUSEWATCH => 37, ConfigPoTableMap::COL_POTBCONFPRTPOWSUGG => 38, ConfigPoTableMap::COL_POTBCONFPOWSLCTYES => 39, ConfigPoTableMap::COL_POTBCONFPOWGVENDRPT => 40, ConfigPoTableMap::COL_POTBCONFPOWGWIPSTATUS => 41, ConfigPoTableMap::COL_POTBCONFPOWGWIPAUTOGEN => 42, ConfigPoTableMap::COL_POTBCONFBUYERCONTROL => 43, ConfigPoTableMap::COL_POTBCONFPOWGOQMETHOD => 44, ConfigPoTableMap::COL_POTBCONFFXPO => 45, ConfigPoTableMap::COL_POTBCONFFXINV => 46, ConfigPoTableMap::COL_POTBCONFUSELANDCOST => 47, ConfigPoTableMap::COL_POTBCONFBASELANDAMTQTY => 48, ConfigPoTableMap::COL_POTBCONFLANDGLACCT => 49, ConfigPoTableMap::COL_POTBCONFWARNLANDINER => 50, ConfigPoTableMap::COL_POTBCONFLANDAMTMULTWGHT => 51, ConfigPoTableMap::COL_POTBCONFLANDEREDIT => 52, ConfigPoTableMap::COL_POTBCONFHISTCMPLFAB => 53, ConfigPoTableMap::COL_POTBCONFUPDATEVENDCOST => 54, ConfigPoTableMap::COL_POTBCONFASKUPDATE => 55, ConfigPoTableMap::COL_POTBCONFVXMROUNDPOS => 56, ConfigPoTableMap::COL_POTBCONFXREFMAINT => 57, ConfigPoTableMap::COL_POTBCONFUSEIDOPTS => 58, ConfigPoTableMap::COL_POTBCONFSRCHVXMFIRST => 59, ConfigPoTableMap::COL_POTBCONFOPENLINEONLY => 60, ConfigPoTableMap::COL_POTBCONFITEMDESC => 61, ConfigPoTableMap::COL_POTBCONFOPENBALONLY => 62, ConfigPoTableMap::COL_POTBCONFPRTWHSEDTL => 63, ConfigPoTableMap::COL_POTBCONFAUTORCPT => 64, ConfigPoTableMap::COL_POTBCONFDISPITEMCOST => 65, ConfigPoTableMap::COL_POTBCONFDISPCASEQTY => 66, ConfigPoTableMap::COL_POTBCONFONETWOLINE => 67, ConfigPoTableMap::COL_POTBCONFUSEORDRAS => 68, ConfigPoTableMap::COL_POTBCONFAPRVVENDONLY => 69, ConfigPoTableMap::COL_POTBCONFUSEFAB => 70, ConfigPoTableMap::COL_POTBCONFSHOWITEM => 71, ConfigPoTableMap::COL_POTBCONFSCRAPACCT => 72, ConfigPoTableMap::COL_POTBCONFSCRAPVARIPCT => 73, ConfigPoTableMap::COL_POTBCONFLIFOFIFO => 74, ConfigPoTableMap::COL_POTBCONFFABBOMORKIT => 75, ConfigPoTableMap::COL_POTBCONFALLOCEPOER => 76, ConfigPoTableMap::COL_POTBCONFFABPREALLOC => 77, ConfigPoTableMap::COL_POTBCONFFORCEFABEPO => 78, ConfigPoTableMap::COL_POTBCONFPREVIEWCOMPLIST => 79, ConfigPoTableMap::COL_POTBCONFNEGCOMPUSAGE => 80, ConfigPoTableMap::COL_POTBCONFAUTOSELECTCOMP => 81, ConfigPoTableMap::COL_POTBCONFBINFROMVENDOR => 82, ConfigPoTableMap::COL_POTBCONFDFLTSTCKCD => 83, ConfigPoTableMap::COL_POTBCONFUSEREMAIN => 84, ConfigPoTableMap::COL_POTBCONFSAMECOMPCOST => 85, ConfigPoTableMap::COL_POTBCONFPASSCODE => 86, ConfigPoTableMap::COL_DATEUPDTD => 87, ConfigPoTableMap::COL_TIMEUPDTD => 88, ConfigPoTableMap::COL_DUMMY => 89, ),
+        self::TYPE_FIELDNAME     => array('PotbConfKey' => 0, 'PotbConfSortPo' => 1, 'PotbConfCancOrRshpDate' => 2, 'PotbConfAckOrEtaDate' => 3, 'PotbConfEditShipDate' => 4, 'PotbConfEditExptDate' => 5, 'PotbConfEditCancDate' => 6, 'PotbConfEditAckDate' => 7, 'PotbConfExptDateDef' => 8, 'PotbConfHeadGetDef' => 9, 'PotbConfReseq' => 10, 'PotbConfForceVxref' => 11, 'PotbConfQtyDue' => 12, 'PotbConfWarnDup' => 13, 'PotbConfForcePoRef' => 14, 'PotbConfDestWhse' => 15, 'PotbConfEditPoItemNotes' => 16, 'PotbConfLoadPoVxmNotes' => 17, 'PotbConfEpoUpdLastCost' => 18, 'PotbConfRecAll' => 19, 'PotbConfRecAllAsk' => 20, 'PotbConfReceiveCost' => 21, 'PotbConfProcVari' => 22, 'PotbConfCostRcvryAcct' => 23, 'PotbConfInvtyVariAcct' => 24, 'PotbConfAllowChgCost' => 25, 'PotbConfWarnRcptQty' => 26, 'PotbConfErDispDate' => 27, 'PotbConfProvideLpo' => 28, 'PotbConfWarnDiffWhse' => 29, 'PotbConfAllocRcvd' => 30, 'PotbConfAskClose' => 31, 'PotbConfErAdd2Po' => 32, 'PotbConfTariffGlAcct' => 33, 'PotbConfShopGlAcct' => 34, 'PotbConfShopRate' => 35, 'PotbConfUsePrime' => 36, 'PotbConfUseWatch' => 37, 'PotbConfPrtPowSugg' => 38, 'PotbConfPowSlctYes' => 39, 'PotbConfPowgVendRpt' => 40, 'PotbConfPowgWipStatus' => 41, 'PotbConfPowgWipAutoGen' => 42, 'PotbConfBuyerControl' => 43, 'PotbConfPowgOqMethod' => 44, 'PotbConfFxPo' => 45, 'PotbConfFxInv' => 46, 'PotbConfUseLandCost' => 47, 'PotbConfBaseLandAmtQty' => 48, 'PotbConfLandGlAcct' => 49, 'PotbConfWarnLandInEr' => 50, 'PotbConfLandAmtMultWght' => 51, 'PotbConfLandErEdit' => 52, 'PotbConfHistCmplFab' => 53, 'PotbConfUpDateVendCost' => 54, 'PotbConfAskUpDate' => 55, 'PotbConfVxmRoundPos' => 56, 'PotbConfXrefMaint' => 57, 'PotbConfUseIdOpts' => 58, 'PotbConfSrchVxmFirst' => 59, 'PotbConfOpenLineOnly' => 60, 'PotbConfItemDesc' => 61, 'PotbConfOpenBalOnly' => 62, 'PotbConfPrtWhseDtl' => 63, 'PotbConfAutoRcpt' => 64, 'PotbConfDispItemCost' => 65, 'PotbConfDispCaseQty' => 66, 'PotbConfOneTwoLine' => 67, 'PotbConfUseOrdrAs' => 68, 'PotbConfAprvVendOnly' => 69, 'PotbConfUseFab' => 70, 'PotbConfShowItem' => 71, 'PotbConfScrapAcct' => 72, 'PotbConfScrapVariPct' => 73, 'PotbConfLifoFifo' => 74, 'PotbConfFabBomOrKit' => 75, 'PotbConfAllocEpoEr' => 76, 'PotbConfFabPrealloc' => 77, 'PotbConfForceFabEpo' => 78, 'PotbConfPreviewCompList' => 79, 'PotbConfNegCompUsage' => 80, 'PotbConfAutoSelectComp' => 81, 'PotbConfBinFromVendor' => 82, 'PotbConfDfltStckCd' => 83, 'PotbConfUseRemain' => 84, 'PotbConfSameCompCost' => 85, 'PotbConfPassCode' => 86, 'DateUpdtd' => 87, 'TimeUpdtd' => 88, 'dummy' => 89, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, )
     );
 
     /**
@@ -566,95 +571,96 @@ class ConfigPoTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('PotbConfKey', 'Potbconfkey', 'INTEGER', true, 1, 0);
-        $this->addColumn('PotbConfSortPo', 'Potbconfsortpo', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfCancOrRshpDate', 'Potbconfcancorrshpdate', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfAckOrEtaDate', 'Potbconfackoretadate', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfEditShipDate', 'Potbconfeditshipdate', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfEditExptDate', 'Potbconfeditexptdate', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfEditCancDate', 'Potbconfeditcancdate', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfEditAckDate', 'Potbconfeditackdate', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfExptDateDef', 'Potbconfexptdatedef', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfHeadGetDef', 'Potbconfheadgetdef', 'INTEGER', false, 1, null);
-        $this->addColumn('PotbConfReseq', 'Potbconfreseq', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfForceVxref', 'Potbconfforcevxref', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfQtyDue', 'Potbconfqtydue', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfWarnDup', 'Potbconfwarndup', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfForcePoRef', 'Potbconfforceporef', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfDestWhse', 'Potbconfdestwhse', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfEditPoItemNotes', 'Potbconfeditpoitemnotes', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfLoadPoVxmNotes', 'Potbconfloadpovxmnotes', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfEpoUpdLastCost', 'Potbconfepoupdlastcost', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfOneTwoLine', 'Potbconfonetwoline', 'INTEGER', false, 1, null);
-        $this->addColumn('PotbConfUseOrdrAs', 'Potbconfuseordras', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfAprvVendOnly', 'Potbconfaprvvendonly', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfRecAll', 'Potbconfrecall', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfRecAllAsk', 'Potbconfrecallask', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfReceiveCost', 'Potbconfreceivecost', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfProcVari', 'Potbconfprocvari', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfCostRcvryAcct', 'Potbconfcostrcvryacct', 'VARCHAR', false, 9, null);
-        $this->addColumn('PotbConfInvtyVariAcct', 'Potbconfinvtyvariacct', 'VARCHAR', false, 9, null);
-        $this->addColumn('PotbConfAllowChgCost', 'Potbconfallowchgcost', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfWarnRcptQty', 'Potbconfwarnrcptqty', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfErDispDate', 'Potbconferdispdate', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfProvideLpo', 'Potbconfprovidelpo', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfWarnDiffWhse', 'Potbconfwarndiffwhse', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfAllocRcvd', 'Potbconfallocrcvd', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfAskClose', 'Potbconfaskclose', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfTariffGlAcct', 'Potbconftariffglacct', 'VARCHAR', false, 9, null);
-        $this->addColumn('PotbConfShopGlAcct', 'Potbconfshopglacct', 'VARCHAR', false, 9, null);
-        $this->addColumn('PotbConfShopRate', 'Potbconfshoprate', 'DECIMAL', false, 20, null);
-        $this->addColumn('PotbConfUsePrime', 'Potbconfuseprime', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfUseWatch', 'Potbconfusewatch', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfPrtPowSugg', 'Potbconfprtpowsugg', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfPowSlctYes', 'Potbconfpowslctyes', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfPowgVendRpt', 'Potbconfpowgvendrpt', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfPowgWipStatus', 'Potbconfpowgwipstatus', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfPowgWipAutoGen', 'Potbconfpowgwipautogen', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfBuyerControl', 'Potbconfbuyercontrol', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfPowgOqMethod', 'Potbconfpowgoqmethod', 'INTEGER', false, 1, null);
-        $this->addColumn('PotbConfFxPo', 'Potbconffxpo', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfFxInv', 'Potbconffxinv', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfUseLandCost', 'Potbconfuselandcost', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfBaseLandAmtQty', 'Potbconfbaselandamtqty', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfLandGlAcct', 'Potbconflandglacct', 'VARCHAR', false, 9, null);
-        $this->addColumn('PotbConfWarnLandInEr', 'Potbconfwarnlandiner', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfLandAmtMultWght', 'Potbconflandamtmultwght', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfLandErEdit', 'Potbconflanderedit', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfHistCmplFab', 'Potbconfhistcmplfab', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfUpDateVendCost', 'Potbconfupdatevendcost', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfAskUpDate', 'Potbconfaskupdate', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfVxmRoundPos', 'Potbconfvxmroundpos', 'INTEGER', false, 1, null);
-        $this->addColumn('PotbConfXrefMaint', 'Potbconfxrefmaint', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfUseIdOpts', 'Potbconfuseidopts', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfSrchVxmFirst', 'Potbconfsrchvxmfirst', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfOpenLineOnly', 'Potbconfopenlineonly', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfItemDesc', 'Potbconfitemdesc', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfOpenBalOnly', 'Potbconfopenbalonly', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfPrtWhseDtl', 'Potbconfprtwhsedtl', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfAutoRcpt', 'Potbconfautorcpt', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfDispItemCost', 'Potbconfdispitemcost', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfDispCaseQty', 'Potbconfdispcaseqty', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfUseFab', 'Potbconfusefab', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfShowItem', 'Potbconfshowitem', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfScrapAcct', 'Potbconfscrapacct', 'VARCHAR', false, 9, null);
-        $this->addColumn('PotbConfScrapVariPct', 'Potbconfscrapvaripct', 'DECIMAL', false, 20, null);
-        $this->addColumn('PotbConfLifoFifo', 'Potbconflifofifo', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfFabBomOrKit', 'Potbconffabbomorkit', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfAllocEpoEr', 'Potbconfallocepoer', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfFabPrealloc', 'Potbconffabprealloc', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfForceFabEpo', 'Potbconfforcefabepo', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfPreviewCompList', 'Potbconfpreviewcomplist', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfNegCompUsage', 'Potbconfnegcompusage', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfAutoSelectComp', 'Potbconfautoselectcomp', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfBinFromVendor', 'Potbconfbinfromvendor', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfDfltStckCd', 'Potbconfdfltstckcd', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfUseRemain', 'Potbconfuseremain', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfSameCompCost', 'Potbconfsamecompcost', 'VARCHAR', false, 1, null);
-        $this->addColumn('PotbConfPassCode', 'Potbconfpasscode', 'VARCHAR', false, 6, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addPrimaryKey('PotbConfKey', 'Potbconfkey', 'INTEGER', true, 1, 1);
+        $this->addColumn('PotbConfSortPo', 'Potbconfsortpo', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfCancOrRshpDate', 'Potbconfcancorrshpdate', 'CHAR', true, null, 'C');
+        $this->addColumn('PotbConfAckOrEtaDate', 'Potbconfackoretadate', 'CHAR', true, null, 'A');
+        $this->addColumn('PotbConfEditShipDate', 'Potbconfeditshipdate', 'CHAR', true, null, 'D');
+        $this->addColumn('PotbConfEditExptDate', 'Potbconfeditexptdate', 'CHAR', true, null, 'H');
+        $this->addColumn('PotbConfEditCancDate', 'Potbconfeditcancdate', 'CHAR', true, null, 'H');
+        $this->addColumn('PotbConfEditAckDate', 'Potbconfeditackdate', 'CHAR', true, null, 'D');
+        $this->addColumn('PotbConfExptDateDef', 'Potbconfexptdatedef', 'CHAR', true, null, 'P');
+        $this->addColumn('PotbConfHeadGetDef', 'Potbconfheadgetdef', 'INTEGER', true, 1, 1);
+        $this->addColumn('PotbConfReseq', 'Potbconfreseq', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfForceVxref', 'Potbconfforcevxref', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfQtyDue', 'Potbconfqtydue', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfWarnDup', 'Potbconfwarndup', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfForcePoRef', 'Potbconfforceporef', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfDestWhse', 'Potbconfdestwhse', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfEditPoItemNotes', 'Potbconfeditpoitemnotes', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfLoadPoVxmNotes', 'Potbconfloadpovxmnotes', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfEpoUpdLastCost', 'Potbconfepoupdlastcost', 'CHAR', true, null, 'Y');
+        $this->addColumn('PotbConfRecAll', 'Potbconfrecall', 'CHAR', true, null, 'Y');
+        $this->addColumn('PotbConfRecAllAsk', 'Potbconfrecallask', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfReceiveCost', 'Potbconfreceivecost', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfProcVari', 'Potbconfprocvari', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfCostRcvryAcct', 'Potbconfcostrcvryacct', 'VARCHAR', true, 9, '');
+        $this->addColumn('PotbConfInvtyVariAcct', 'Potbconfinvtyvariacct', 'VARCHAR', true, 9, '');
+        $this->addColumn('PotbConfAllowChgCost', 'Potbconfallowchgcost', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfWarnRcptQty', 'Potbconfwarnrcptqty', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfErDispDate', 'Potbconferdispdate', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfProvideLpo', 'Potbconfprovidelpo', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfWarnDiffWhse', 'Potbconfwarndiffwhse', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfAllocRcvd', 'Potbconfallocrcvd', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfAskClose', 'Potbconfaskclose', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfErAdd2Po', 'Potbconferadd2po', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfTariffGlAcct', 'Potbconftariffglacct', 'VARCHAR', true, 9, '');
+        $this->addColumn('PotbConfShopGlAcct', 'Potbconfshopglacct', 'VARCHAR', true, 9, '');
+        $this->addColumn('PotbConfShopRate', 'Potbconfshoprate', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PotbConfUsePrime', 'Potbconfuseprime', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfUseWatch', 'Potbconfusewatch', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfPrtPowSugg', 'Potbconfprtpowsugg', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfPowSlctYes', 'Potbconfpowslctyes', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfPowgVendRpt', 'Potbconfpowgvendrpt', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfPowgWipStatus', 'Potbconfpowgwipstatus', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfPowgWipAutoGen', 'Potbconfpowgwipautogen', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfBuyerControl', 'Potbconfbuyercontrol', 'CHAR', true, null, 'V');
+        $this->addColumn('PotbConfPowgOqMethod', 'Potbconfpowgoqmethod', 'INTEGER', true, 1, 1);
+        $this->addColumn('PotbConfFxPo', 'Potbconffxpo', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfFxInv', 'Potbconffxinv', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfUseLandCost', 'Potbconfuselandcost', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfBaseLandAmtQty', 'Potbconfbaselandamtqty', 'CHAR', true, null, 'A');
+        $this->addColumn('PotbConfLandGlAcct', 'Potbconflandglacct', 'VARCHAR', true, 9, '');
+        $this->addColumn('PotbConfWarnLandInEr', 'Potbconfwarnlandiner', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfLandAmtMultWght', 'Potbconflandamtmultwght', 'CHAR', true, null, 'A');
+        $this->addColumn('PotbConfLandErEdit', 'Potbconflanderedit', 'CHAR', true, null, 'Y');
+        $this->addColumn('PotbConfHistCmplFab', 'Potbconfhistcmplfab', 'CHAR', true, null, 'C');
+        $this->addColumn('PotbConfUpDateVendCost', 'Potbconfupdatevendcost', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfAskUpDate', 'Potbconfaskupdate', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfVxmRoundPos', 'Potbconfvxmroundpos', 'INTEGER', true, 1, 3);
+        $this->addColumn('PotbConfXrefMaint', 'Potbconfxrefmaint', 'CHAR', true, null, 'O');
+        $this->addColumn('PotbConfUseIdOpts', 'Potbconfuseidopts', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfSrchVxmFirst', 'Potbconfsrchvxmfirst', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfOpenLineOnly', 'Potbconfopenlineonly', 'CHAR', true, null, 'Y');
+        $this->addColumn('PotbConfItemDesc', 'Potbconfitemdesc', 'CHAR', true, null, 'Y');
+        $this->addColumn('PotbConfOpenBalOnly', 'Potbconfopenbalonly', 'CHAR', true, null, 'Y');
+        $this->addColumn('PotbConfPrtWhseDtl', 'Potbconfprtwhsedtl', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfAutoRcpt', 'Potbconfautorcpt', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfDispItemCost', 'Potbconfdispitemcost', 'CHAR', true, null, 'Y');
+        $this->addColumn('PotbConfDispCaseQty', 'Potbconfdispcaseqty', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfOneTwoLine', 'Potbconfonetwoline', 'INTEGER', true, 1, 1);
+        $this->addColumn('PotbConfUseOrdrAs', 'Potbconfuseordras', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfAprvVendOnly', 'Potbconfaprvvendonly', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfUseFab', 'Potbconfusefab', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfShowItem', 'Potbconfshowitem', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfScrapAcct', 'Potbconfscrapacct', 'VARCHAR', true, 9, '');
+        $this->addColumn('PotbConfScrapVariPct', 'Potbconfscrapvaripct', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PotbConfLifoFifo', 'Potbconflifofifo', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfFabBomOrKit', 'Potbconffabbomorkit', 'CHAR', true, null, 'K');
+        $this->addColumn('PotbConfAllocEpoEr', 'Potbconfallocepoer', 'CHAR', true, null, 'P');
+        $this->addColumn('PotbConfFabPrealloc', 'Potbconffabprealloc', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfForceFabEpo', 'Potbconfforcefabepo', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfPreviewCompList', 'Potbconfpreviewcomplist', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfNegCompUsage', 'Potbconfnegcompusage', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfAutoSelectComp', 'Potbconfautoselectcomp', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfBinFromVendor', 'Potbconfbinfromvendor', 'CHAR', true, null, 'N');
+        $this->addColumn('PotbConfDfltStckCd', 'Potbconfdfltstckcd', 'CHAR', true, null, 'S');
+        $this->addColumn('PotbConfUseRemain', 'Potbconfuseremain', 'CHAR', true, null, 'Y');
+        $this->addColumn('PotbConfSameCompCost', 'Potbconfsamecompcost', 'CHAR', true, null, 'K');
+        $this->addColumn('PotbConfPassCode', 'Potbconfpasscode', 'VARCHAR', true, 6, '');
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
     } // initialize()
 
     /**
@@ -824,9 +830,6 @@ class ConfigPoTableMap extends TableMap
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFEDITPOITEMNOTES);
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFLOADPOVXMNOTES);
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFEPOUPDLASTCOST);
-            $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFONETWOLINE);
-            $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFUSEORDRAS);
-            $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFAPRVVENDONLY);
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFRECALL);
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFRECALLASK);
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFRECEIVECOST);
@@ -840,6 +843,7 @@ class ConfigPoTableMap extends TableMap
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFWARNDIFFWHSE);
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFALLOCRCVD);
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFASKCLOSE);
+            $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFERADD2PO);
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFTARIFFGLACCT);
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFSHOPGLACCT);
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFSHOPRATE);
@@ -874,6 +878,9 @@ class ConfigPoTableMap extends TableMap
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFAUTORCPT);
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFDISPITEMCOST);
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFDISPCASEQTY);
+            $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFONETWOLINE);
+            $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFUSEORDRAS);
+            $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFAPRVVENDONLY);
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFUSEFAB);
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFSHOWITEM);
             $criteria->addSelectColumn(ConfigPoTableMap::COL_POTBCONFSCRAPACCT);
@@ -914,9 +921,6 @@ class ConfigPoTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.PotbConfEditPoItemNotes');
             $criteria->addSelectColumn($alias . '.PotbConfLoadPoVxmNotes');
             $criteria->addSelectColumn($alias . '.PotbConfEpoUpdLastCost');
-            $criteria->addSelectColumn($alias . '.PotbConfOneTwoLine');
-            $criteria->addSelectColumn($alias . '.PotbConfUseOrdrAs');
-            $criteria->addSelectColumn($alias . '.PotbConfAprvVendOnly');
             $criteria->addSelectColumn($alias . '.PotbConfRecAll');
             $criteria->addSelectColumn($alias . '.PotbConfRecAllAsk');
             $criteria->addSelectColumn($alias . '.PotbConfReceiveCost');
@@ -930,6 +934,7 @@ class ConfigPoTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.PotbConfWarnDiffWhse');
             $criteria->addSelectColumn($alias . '.PotbConfAllocRcvd');
             $criteria->addSelectColumn($alias . '.PotbConfAskClose');
+            $criteria->addSelectColumn($alias . '.PotbConfErAdd2Po');
             $criteria->addSelectColumn($alias . '.PotbConfTariffGlAcct');
             $criteria->addSelectColumn($alias . '.PotbConfShopGlAcct');
             $criteria->addSelectColumn($alias . '.PotbConfShopRate');
@@ -964,6 +969,9 @@ class ConfigPoTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.PotbConfAutoRcpt');
             $criteria->addSelectColumn($alias . '.PotbConfDispItemCost');
             $criteria->addSelectColumn($alias . '.PotbConfDispCaseQty');
+            $criteria->addSelectColumn($alias . '.PotbConfOneTwoLine');
+            $criteria->addSelectColumn($alias . '.PotbConfUseOrdrAs');
+            $criteria->addSelectColumn($alias . '.PotbConfAprvVendOnly');
             $criteria->addSelectColumn($alias . '.PotbConfUseFab');
             $criteria->addSelectColumn($alias . '.PotbConfShowItem');
             $criteria->addSelectColumn($alias . '.PotbConfScrapAcct');

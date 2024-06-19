@@ -59,6 +59,7 @@ class ConfigPo extends BaseConfigPo {
 		'provideLabelPrinting'        => 'potbconfprovidelpo',
 		'receiveComplete'             => 'potbconfrecall',
 		'askReceiveComplete'          => 'potbconfrecallask',
+		'allowAddItemsEr'             => 'potbconferadd2po'
 	);
 
 	/**
@@ -131,6 +132,14 @@ class ConfigPo extends BaseConfigPo {
 	 */
 	public function forcePoReference() {
 		return $this->force_po_reference == self::VALUE_TRUE;
+	}
+
+	/**
+	 * Return if Receiving can add Items to PO
+	 * @return bool
+	 */
+	public function allowAddItemsEr() {
+		return $this->allowAddItemsEr == self::VALUE_TRUE;
 	}
 
 /* =============================================================
