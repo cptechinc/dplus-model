@@ -37,6 +37,7 @@ class PurchaseOrderDetailReceiving extends BasePurchaseOrderDetailReceiving {
 		'cost'            => 'potdpurchunitcost',
 		'cost_total'      => 'potdpurchtotcost',
 		'totalcost'       => 'potdpurchtotcost',
+		'binid'           => 'potdbin',
 		'podetail'        => 'purchaseOrderDetail',
 	);
 
