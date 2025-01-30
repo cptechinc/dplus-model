@@ -28,8 +28,9 @@ class ConfigKt extends BaseConfigKt {
 	const COLUMN_ALIASES = array(
 		'key'            => 'ktbconfkey',
 		'usageorfree'    => 'kttbconffreeortag',
-		'date'           => 'dateupdtd',
-		'time'           => 'timeupdtd',
+		'displayinorders' => 'kttbconfeditso',
+		'date'            => 'dateupdtd',
+		'time'            => 'timeupdtd',
 	);
 
 	public function usageorfreefree() {
