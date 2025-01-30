@@ -77,6 +77,9 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'vso_printinvoice'     => 'oetbCon2PrtInv',
 		'usecanceldate'        => 'oetbconfUsecancDate',
 		'useordnasinvnbr'      => 'oetbconfuseordrnbr',
+		'sop_treatlotslikenormal' => 'oetbcon3soplotlikenorm',
+		'eso_showquotelink'       => 'oetbcon3esoshowquotlink',
+		'eso_showwiplink'         => 'oetbcon3esoshowwiplink',
 	);
 
 	/**

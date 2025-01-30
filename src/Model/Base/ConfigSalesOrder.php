@@ -62,7 +62,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfkey field.
      *
-     * Note: this column has a database default value of: 0
+     * Note: this column has a database default value of: 1
      * @var        int
      */
     protected $oetbconfkey;
@@ -70,6 +70,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfglifac field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfglifac;
@@ -77,6 +78,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfinifac field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfinifac;
@@ -84,6 +86,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfrelivty field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfrelivty;
@@ -91,6 +94,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfuseordrnbr field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfuseordrnbr;
@@ -98,6 +102,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfdefrqstdate field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfdefrqstdate;
@@ -105,6 +110,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfusecancdate field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfusecancdate;
@@ -112,6 +118,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfshowsp field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfshowsp;
@@ -119,6 +126,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfjrnlsort field.
      *
+     * Note: this column has a database default value of: 1
      * @var        int
      */
     protected $oetbconfjrnlsort;
@@ -126,6 +134,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfuseprepsoopt field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfuseprepsoopt;
@@ -133,6 +142,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfdispbillto field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfdispbillto;
@@ -140,6 +150,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfslctflm field.
      *
+     * Note: this column has a database default value of: 'M'
      * @var        string
      */
     protected $oetbconfslctflm;
@@ -147,6 +158,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3usestockpull field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3usestockpull;
@@ -154,6 +166,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfqtytoship field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfqtytoship;
@@ -161,6 +174,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfqtytoshipdef field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfqtytoshipdef;
@@ -168,6 +182,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfdfltordrqty field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfdfltordrqty;
@@ -175,6 +190,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfallocqtytoship field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfallocqtytoship;
@@ -182,6 +198,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfoverallocqts field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfoverallocqts;
@@ -189,6 +206,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3completelotbin field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3completelotbin;
@@ -196,6 +214,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3rqtsopt field.
      *
+     * Note: this column has a database default value of: 'B'
      * @var        string
      */
     protected $oetbcon3rqtsopt;
@@ -203,6 +222,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2shipcomphold field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oetbcon2shipcomphold;
@@ -210,6 +230,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3usesaleforecast field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3usesaleforecast;
@@ -217,6 +238,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfverfstopneg field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfverfstopneg;
@@ -224,6 +246,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfverfaudtrept field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfverfaudtrept;
@@ -231,6 +254,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfagelevldisp field.
      *
+     * Note: this column has a database default value of: 'G'
      * @var        string
      */
     protected $oetbconfagelevldisp;
@@ -238,6 +262,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfagealltime field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfagealltime;
@@ -245,6 +270,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfageathold field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfageathold;
@@ -252,6 +278,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfshowatlevl field.
      *
+     * Note: this column has a database default value of: '2'
      * @var        string
      */
     protected $oetbconfshowatlevl;
@@ -259,6 +286,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfshowitem field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfshowitem;
@@ -266,6 +294,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfstoppnt field.
      *
+     * Note: this column has a database default value of: 'Q'
      * @var        string
      */
     protected $oetbconfstoppnt;
@@ -273,6 +302,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfpricwind field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfpricwind;
@@ -280,6 +310,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfshowcost field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfshowcost;
@@ -287,6 +318,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfcosttouse field.
      *
+     * Note: this column has a database default value of: 'L'
      * @var        string
      */
     protected $oetbconfcosttouse;
@@ -294,6 +326,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfshowmarg field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfshowmarg;
@@ -301,6 +334,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconffxoe field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconffxoe;
@@ -308,6 +342,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconffxinv field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconffxinv;
@@ -315,6 +350,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfdispvia field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfdispvia;
@@ -322,6 +358,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfdispcaseqty field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfdispcaseqty;
@@ -329,6 +366,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconffrtin field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconffrtin;
@@ -336,6 +374,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconffrtinglacct field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbconffrtinglacct;
@@ -343,6 +382,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfmincharge field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oetbconfmincharge;
@@ -350,6 +390,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfminchrgglacct field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbconfminchrgglacct;
@@ -357,6 +398,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfdropshipchrg field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oetbconfdropshipchrg;
@@ -364,6 +406,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfdropshpglacct field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbconfdropshpglacct;
@@ -371,6 +414,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfnontaxcustcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbconfnontaxcustcode;
@@ -378,6 +422,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfhstaxid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbconfhstaxid;
@@ -385,6 +430,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfhsfrtid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbconfhsfrtid;
@@ -392,6 +438,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfhsmiscid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbconfhsmiscid;
@@ -399,6 +446,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2hscusdid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbcon2hscusdid;
@@ -406,6 +454,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3hsfrtinid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbcon3hsfrtinid;
@@ -413,6 +462,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3hsdropid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbcon3hsdropid;
@@ -420,6 +470,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3hsminordid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbcon3hsminordid;
@@ -427,6 +478,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfheadgetdef field.
      *
+     * Note: this column has a database default value of: '1'
      * @var        string
      */
     protected $oetbconfheadgetdef;
@@ -434,6 +486,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfitemgetdef field.
      *
+     * Note: this column has a database default value of: '1'
      * @var        string
      */
     protected $oetbconfitemgetdef;
@@ -441,6 +494,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfautogetcust field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfautogetcust;
@@ -448,6 +502,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3autogetitem field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3autogetitem;
@@ -455,6 +510,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfrqstheaddtl field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfrqstheaddtl;
@@ -462,6 +518,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfcancheaddtl field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfcancheaddtl;
@@ -469,6 +526,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfuseinvcasship field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfuseinvcasship;
@@ -476,6 +534,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3usearrvdate field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3usearrvdate;
@@ -483,6 +542,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfseparatecred field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfseparatecred;
@@ -490,6 +550,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3applycredits field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3applycredits;
@@ -497,6 +558,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfwarnnotnew field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfwarnnotnew;
@@ -504,6 +566,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfwarnbotozero field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfwarnbotozero;
@@ -511,6 +574,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2providerouting field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2providerouting;
@@ -518,6 +582,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2srtrtbyrqstdte field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2srtrtbyrqstdte;
@@ -525,6 +590,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfusesoreview field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfusesoreview;
@@ -532,6 +598,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfpicknotedef field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfpicknotedef;
@@ -539,6 +606,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfpacknotedef field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfpacknotedef;
@@ -546,6 +614,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfpicksort field.
      *
+     * Note: this column has a database default value of: 'L'
      * @var        string
      */
     protected $oetbconfpicksort;
@@ -553,6 +622,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfpacksort field.
      *
+     * Note: this column has a database default value of: 'L'
      * @var        string
      */
     protected $oetbconfpacksort;
@@ -560,6 +630,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfprtpriconly field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfprtpriconly;
@@ -567,6 +638,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfprtneg field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfprtneg;
@@ -574,6 +646,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2prtpackageinfo field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2prtpackageinfo;
@@ -581,6 +654,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2innerpacklabel field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbcon2innerpacklabel;
@@ -588,6 +662,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2outerpacklabel field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbcon2outerpacklabel;
@@ -595,6 +670,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2shiptarelabel field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbcon2shiptarelabel;
@@ -602,6 +678,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfprtpick field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfprtpick;
@@ -609,6 +686,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfpicprioseq field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfpicprioseq;
@@ -616,6 +694,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfprtpack field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfprtpack;
@@ -623,6 +702,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfprtinv field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfprtinv;
@@ -630,6 +710,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2prtcredmemo field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbcon2prtcredmemo;
@@ -637,6 +718,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfcrntdate field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfcrntdate;
@@ -644,6 +726,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfmarkpicked field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfmarkpicked;
@@ -651,6 +734,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfshowunavail field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfshowunavail;
@@ -658,6 +742,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfdecplaces field.
      *
+     * Note: this column has a database default value of: 2
      * @var        int
      */
     protected $oetbconfdecplaces;
@@ -665,6 +750,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfwarndup field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfwarndup;
@@ -672,6 +758,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfdefpick field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfdefpick;
@@ -679,6 +766,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfdefpack field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfdefpack;
@@ -686,6 +774,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfdefinvc field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfdefinvc;
@@ -693,6 +782,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfdefack field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfdefack;
@@ -700,6 +790,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfacksortopt field.
      *
+     * Note: this column has a database default value of: 'L'
      * @var        string
      */
     protected $oetbconfacksortopt;
@@ -707,6 +798,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfreleasenbr field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfreleasenbr;
@@ -714,6 +806,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfpodetlinenbr field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfpodetlinenbr;
@@ -721,6 +814,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfdetlinebinnbr field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfdetlinebinnbr;
@@ -728,6 +822,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfsplitbywhse field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfsplitbywhse;
@@ -735,6 +830,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3allowmultwhse field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbcon3allowmultwhse;
@@ -742,6 +838,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfuseorigwhse field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfuseorigwhse;
@@ -749,6 +846,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfuseesosingle field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfuseesosingle;
@@ -756,6 +854,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfcreatepo field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfcreatepo;
@@ -763,6 +862,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfbestprice field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfbestprice;
@@ -770,6 +870,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfesobacktonew field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfesobacktonew;
@@ -777,6 +878,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfpickprintdrop field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfpickprintdrop;
@@ -784,6 +886,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfwarnmultpo field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfwarnmultpo;
@@ -791,6 +894,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfalertitemquote field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfalertitemquote;
@@ -798,6 +902,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3askchgprcwqty field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3askchgprcwqty;
@@ -805,6 +910,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3tenqtybrks field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3tenqtybrks;
@@ -812,6 +918,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfdecordrpric field.
      *
+     * Note: this column has a database default value of: 2
      * @var        int
      */
     protected $oetbconfdecordrpric;
@@ -819,6 +926,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2provlostsales field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2provlostsales;
@@ -826,6 +934,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2askreasoncode field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2askreasoncode;
@@ -833,6 +942,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2defreasoncode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbcon2defreasoncode;
@@ -840,6 +950,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2bordcntl field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2bordcntl;
@@ -847,6 +958,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2defreabocode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbcon2defreabocode;
@@ -854,6 +966,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2numdayssavls field.
      *
+     * Note: this column has a database default value of: 31
      * @var        int
      */
     protected $oetbcon2numdayssavls;
@@ -861,6 +974,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2callbacknotif field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2callbacknotif;
@@ -868,6 +982,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2defdayswhenin field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oetbcon2defdayswhenin;
@@ -875,6 +990,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2addsubsls field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2addsubsls;
@@ -882,6 +998,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2defreasubscode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbcon2defreasubscode;
@@ -889,6 +1006,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2ordtypnorm field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbcon2ordtypnorm;
@@ -896,6 +1014,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2ordtyprep field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2ordtyprep;
@@ -903,6 +1022,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2ordtypserv field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2ordtypserv;
@@ -910,6 +1030,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2defordtyp field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2defordtyp;
@@ -917,6 +1038,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfchgpric field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfchgpric;
@@ -924,6 +1046,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2spordpricezero field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2spordpricezero;
@@ -931,6 +1054,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfinactpricezero field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfinactpricezero;
@@ -938,6 +1062,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2reseq field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2reseq;
@@ -945,6 +1070,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2reseqby field.
      *
+     * Note: this column has a database default value of: 'I'
      * @var        string
      */
     protected $oetbcon2reseqby;
@@ -952,6 +1078,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2minqtysales field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbcon2minqtysales;
@@ -959,6 +1086,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2chgorder field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2chgorder;
@@ -966,6 +1094,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2vercomp field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2vercomp;
@@ -973,6 +1102,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2prtinv field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2prtinv;
@@ -980,6 +1110,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2dynamicpicktick field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2dynamicpicktick;
@@ -987,6 +1118,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2dynamicinvoice field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2dynamicinvoice;
@@ -994,6 +1126,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2edidefinvoice field.
      *
+     * Note: this column has a database default value of: 'E'
      * @var        string
      */
     protected $oetbcon2edidefinvoice;
@@ -1001,6 +1134,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2allowccpick field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2allowccpick;
@@ -1008,6 +1142,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2autoccwind field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2autoccwind;
@@ -1015,6 +1150,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2autoccupdate field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2autoccupdate;
@@ -1022,6 +1158,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2allowapvdccchg field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2allowapvdccchg;
@@ -1029,6 +1166,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3apvdbckordclear field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3apvdbckordclear;
@@ -1036,6 +1174,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2polwhichcost field.
      *
+     * Note: this column has a database default value of: 'R'
      * @var        string
      */
     protected $oetbcon2polwhichcost;
@@ -1043,6 +1182,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2revhazard field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2revhazard;
@@ -1050,6 +1190,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2showdisclist field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2showdisclist;
@@ -1057,6 +1198,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2chglist field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2chglist;
@@ -1064,6 +1206,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2maillist field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2maillist;
@@ -1071,6 +1214,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2nameformat field.
      *
+     * Note: this column has a database default value of: 'C'
      * @var        string
      */
     protected $oetbcon2nameformat;
@@ -1078,6 +1222,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2mailidtype field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $oetbcon2mailidtype;
@@ -1085,6 +1230,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2cashdrawerpswd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbcon2cashdrawerpswd;
@@ -1092,6 +1238,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2upsonline field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2upsonline;
@@ -1099,6 +1246,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2picorver field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $oetbcon2picorver;
@@ -1106,6 +1254,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2combback field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2combback;
@@ -1113,6 +1262,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2frtallowamt field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oetbcon2frtallowamt;
@@ -1120,6 +1270,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3shipmoreordered field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbcon3shipmoreordered;
@@ -1127,6 +1278,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3warnshipmore field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbcon3warnshipmore;
@@ -1134,6 +1286,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3proformafromeso field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3proformafromeso;
@@ -1141,6 +1294,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3pickpackcode field.
      *
+     * Note: this column has a database default value of: 'I'
      * @var        string
      */
     protected $oetbcon3pickpackcode;
@@ -1148,6 +1302,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2usedept field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2usedept;
@@ -1155,6 +1310,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2usedivision field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2usedivision;
@@ -1162,6 +1318,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2defmfecode field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $oetbcon2defmfecode;
@@ -1169,6 +1326,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2showavgcost field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2showavgcost;
@@ -1176,6 +1334,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2fedex field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2fedex;
@@ -1183,6 +1342,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3deffrghtgrup field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbcon3deffrghtgrup;
@@ -1190,6 +1350,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3upsmysqldbname field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbcon3upsmysqldbname;
@@ -1197,6 +1358,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfuseoptcode field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbconfuseoptcode;
@@ -1204,6 +1366,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfscn4opt field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfscn4opt;
@@ -1211,6 +1374,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2takenbyuse field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2takenbyuse;
@@ -1218,6 +1382,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2takenbylogin field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2takenbylogin;
@@ -1225,6 +1390,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2takenbyforce field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2takenbyforce;
@@ -1232,6 +1398,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2pickedbyuse field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2pickedbyuse;
@@ -1239,6 +1406,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2pickedbyforce field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2pickedbyforce;
@@ -1246,6 +1414,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2pickedbyproc field.
      *
+     * Note: this column has a database default value of: 'K'
      * @var        string
      */
     protected $oetbcon2pickedbyproc;
@@ -1253,6 +1422,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2packedbyuse field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2packedbyuse;
@@ -1260,6 +1430,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2packedbyforce field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2packedbyforce;
@@ -1267,6 +1438,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2verifiedbyuse field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2verifiedbyuse;
@@ -1274,6 +1446,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2verifiedbylogin field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2verifiedbylogin;
@@ -1281,6 +1454,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2verifiedbyforce field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2verifiedbyforce;
@@ -1288,6 +1462,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfoptlabl1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbconfoptlabl1;
@@ -1295,6 +1470,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2ucode1force field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2ucode1force;
@@ -1302,6 +1478,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfoptlabl2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbconfoptlabl2;
@@ -1309,6 +1486,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2ucode2force field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2ucode2force;
@@ -1316,6 +1494,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfoptlabl3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbconfoptlabl3;
@@ -1323,6 +1502,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2ucode3force field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2ucode3force;
@@ -1330,6 +1510,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfoptlabl4 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oetbconfoptlabl4;
@@ -1337,6 +1518,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2ucode4force field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2ucode4force;
@@ -1344,6 +1526,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfverifyafterpack field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfverifyafterpack;
@@ -1351,6 +1534,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfhistyrsback field.
      *
+     * Note: this column has a database default value of: 5
      * @var        int
      */
     protected $oetbconfhistyrsback;
@@ -1358,6 +1542,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfrqstcatlg field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfrqstcatlg;
@@ -1365,6 +1550,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2conpick field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2conpick;
@@ -1372,6 +1558,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2allowpick field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2allowpick;
@@ -1379,6 +1566,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2combinesame field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2combinesame;
@@ -1386,6 +1574,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3autovernitems field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3autovernitems;
@@ -1393,6 +1582,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2allowzeroqty field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbcon2allowzeroqty;
@@ -1400,6 +1590,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2allowinvalidwhse field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbcon2allowinvalidwhse;
@@ -1407,13 +1598,31 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2showediinfo field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2showediinfo;
 
     /**
+     * The value for the oetbcon3esoshowquotlink field.
+     *
+     * Note: this column has a database default value of: 'N'
+     * @var        string
+     */
+    protected $oetbcon3esoshowquotlink;
+
+    /**
+     * The value for the oetbcon3esoshowwiplink field.
+     *
+     * Note: this column has a database default value of: 'N'
+     * @var        string
+     */
+    protected $oetbcon3esoshowwiplink;
+
+    /**
      * The value for the oetbcon2addonsales field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2addonsales;
@@ -1421,6 +1630,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2forcedbkord field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2forcedbkord;
@@ -1428,6 +1638,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2updtprcdisc field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2updtprcdisc;
@@ -1435,6 +1646,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2autopack field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2autopack;
@@ -1442,6 +1654,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2pickboprtzqts field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbcon2pickboprtzqts;
@@ -1449,6 +1662,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3pick00noship field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3pick00noship;
@@ -1456,6 +1670,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2standordlead field.
      *
+     * Note: this column has a database default value of: 'D'
      * @var        string
      */
     protected $oetbcon2standordlead;
@@ -1463,6 +1678,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2standordamnt field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oetbcon2standordamnt;
@@ -1470,6 +1686,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2inactitemcntrl field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2inactitemcntrl;
@@ -1477,6 +1694,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon2useitemref field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon2useitemref;
@@ -1484,13 +1702,23 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3upsnaftarecords field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3upsnaftarecords;
 
     /**
+     * The value for the oetbcon3soplotlikenorm field.
+     *
+     * Note: this column has a database default value of: 'N'
+     * @var        string
+     */
+    protected $oetbcon3soplotlikenorm;
+
+    /**
      * The value for the oetbconfdfltshipwhse field.
      *
+     * Note: this column has a database default value of: 'C'
      * @var        string
      */
     protected $oetbconfdfltshipwhse;
@@ -1498,6 +1726,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfdfltorigwhse field.
      *
+     * Note: this column has a database default value of: 'B'
      * @var        string
      */
     protected $oetbconfdfltorigwhse;
@@ -1505,6 +1734,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfinvcwithpack field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfinvcwithpack;
@@ -1512,6 +1742,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfcarrycntrqty field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfcarrycntrqty;
@@ -1519,6 +1750,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3useordras field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3useordras;
@@ -1526,6 +1758,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbconfuseordrsource field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbconfuseordrsource;
@@ -1533,6 +1766,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3ccprocessor field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3ccprocessor;
@@ -1540,6 +1774,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3creditcardcap field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3creditcardcap;
@@ -1547,6 +1782,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3keyorcccap field.
      *
+     * Note: this column has a database default value of: 'C'
      * @var        string
      */
     protected $oetbcon3keyorcccap;
@@ -1554,6 +1790,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3ccxoverlay field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbcon3ccxoverlay;
@@ -1561,6 +1798,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3cctimeout field.
      *
+     * Note: this column has a database default value of: 60
      * @var        int
      */
     protected $oetbcon3cctimeout;
@@ -1568,6 +1806,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3signaturecapture field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbcon3signaturecapture;
@@ -1575,6 +1814,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3ccpreapproval field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3ccpreapproval;
@@ -1582,6 +1822,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3forceccnbrentry field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $oetbcon3forceccnbrentry;
@@ -1589,6 +1830,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3intritemnotes field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3intritemnotes;
@@ -1596,6 +1838,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3mtrcert field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3mtrcert;
@@ -1603,6 +1846,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the oetbcon3cofccert field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oetbcon3cofccert;
@@ -1610,6 +1854,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -1617,6 +1862,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -1624,6 +1870,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -1644,7 +1891,233 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      */
     public function applyDefaultValues()
     {
-        $this->oetbconfkey = 0;
+        $this->oetbconfkey = 1;
+        $this->oetbconfglifac = 'Y';
+        $this->oetbconfinifac = 'Y';
+        $this->oetbconfrelivty = 'Y';
+        $this->oetbconfuseordrnbr = 'Y';
+        $this->oetbconfdefrqstdate = 'Y';
+        $this->oetbconfusecancdate = 'Y';
+        $this->oetbconfshowsp = 'Y';
+        $this->oetbconfjrnlsort = 1;
+        $this->oetbconfuseprepsoopt = 'N';
+        $this->oetbconfdispbillto = 'N';
+        $this->oetbconfslctflm = 'M';
+        $this->oetbcon3usestockpull = 'N';
+        $this->oetbconfqtytoship = 'N';
+        $this->oetbconfqtytoshipdef = 'N';
+        $this->oetbconfdfltordrqty = 'Y';
+        $this->oetbconfallocqtytoship = 'N';
+        $this->oetbconfoverallocqts = 'Y';
+        $this->oetbcon3completelotbin = 'N';
+        $this->oetbcon3rqtsopt = 'B';
+        $this->oetbcon2shipcomphold = 0;
+        $this->oetbcon3usesaleforecast = 'N';
+        $this->oetbconfverfstopneg = 'Y';
+        $this->oetbconfverfaudtrept = 'Y';
+        $this->oetbconfagelevldisp = 'G';
+        $this->oetbconfagealltime = 'N';
+        $this->oetbconfageathold = 'Y';
+        $this->oetbconfshowatlevl = '2';
+        $this->oetbconfshowitem = 'Y';
+        $this->oetbconfstoppnt = 'Q';
+        $this->oetbconfpricwind = 'Y';
+        $this->oetbconfshowcost = 'Y';
+        $this->oetbconfcosttouse = 'L';
+        $this->oetbconfshowmarg = 'Y';
+        $this->oetbconffxoe = 'N';
+        $this->oetbconffxinv = 'N';
+        $this->oetbconfdispvia = 'N';
+        $this->oetbconfdispcaseqty = 'N';
+        $this->oetbconffrtin = 'N';
+        $this->oetbconffrtinglacct = '';
+        $this->oetbconfmincharge = '0.00';
+        $this->oetbconfminchrgglacct = '';
+        $this->oetbconfdropshipchrg = '0.00';
+        $this->oetbconfdropshpglacct = '';
+        $this->oetbconfnontaxcustcode = '';
+        $this->oetbconfhstaxid = '';
+        $this->oetbconfhsfrtid = '';
+        $this->oetbconfhsmiscid = '';
+        $this->oetbcon2hscusdid = '';
+        $this->oetbcon3hsfrtinid = '';
+        $this->oetbcon3hsdropid = '';
+        $this->oetbcon3hsminordid = '';
+        $this->oetbconfheadgetdef = '1';
+        $this->oetbconfitemgetdef = '1';
+        $this->oetbconfautogetcust = 'N';
+        $this->oetbcon3autogetitem = 'N';
+        $this->oetbconfrqstheaddtl = 'N';
+        $this->oetbconfcancheaddtl = 'N';
+        $this->oetbconfuseinvcasship = 'N';
+        $this->oetbcon3usearrvdate = 'N';
+        $this->oetbconfseparatecred = 'N';
+        $this->oetbcon3applycredits = 'N';
+        $this->oetbconfwarnnotnew = 'N';
+        $this->oetbconfwarnbotozero = 'N';
+        $this->oetbcon2providerouting = 'N';
+        $this->oetbcon2srtrtbyrqstdte = 'N';
+        $this->oetbconfusesoreview = 'N';
+        $this->oetbconfpicknotedef = 'N';
+        $this->oetbconfpacknotedef = 'N';
+        $this->oetbconfpicksort = 'L';
+        $this->oetbconfpacksort = 'L';
+        $this->oetbconfprtpriconly = 'Y';
+        $this->oetbconfprtneg = 'Y';
+        $this->oetbcon2prtpackageinfo = 'N';
+        $this->oetbcon2innerpacklabel = '';
+        $this->oetbcon2outerpacklabel = '';
+        $this->oetbcon2shiptarelabel = '';
+        $this->oetbconfprtpick = 'Y';
+        $this->oetbconfpicprioseq = 'N';
+        $this->oetbconfprtpack = 'Y';
+        $this->oetbconfprtinv = 'Y';
+        $this->oetbcon2prtcredmemo = 'Y';
+        $this->oetbconfcrntdate = 'N';
+        $this->oetbconfmarkpicked = 'Y';
+        $this->oetbconfshowunavail = 'N';
+        $this->oetbconfdecplaces = 2;
+        $this->oetbconfwarndup = 'N';
+        $this->oetbconfdefpick = 'N';
+        $this->oetbconfdefpack = 'N';
+        $this->oetbconfdefinvc = 'N';
+        $this->oetbconfdefack = 'N';
+        $this->oetbconfacksortopt = 'L';
+        $this->oetbconfreleasenbr = 'N';
+        $this->oetbconfpodetlinenbr = 'N';
+        $this->oetbconfdetlinebinnbr = 'N';
+        $this->oetbconfsplitbywhse = 'N';
+        $this->oetbcon3allowmultwhse = 'Y';
+        $this->oetbconfuseorigwhse = 'N';
+        $this->oetbconfuseesosingle = 'N';
+        $this->oetbconfcreatepo = 'N';
+        $this->oetbconfbestprice = 'N';
+        $this->oetbconfesobacktonew = 'Y';
+        $this->oetbconfpickprintdrop = 'N';
+        $this->oetbconfwarnmultpo = 'N';
+        $this->oetbconfalertitemquote = 'N';
+        $this->oetbcon3askchgprcwqty = 'N';
+        $this->oetbcon3tenqtybrks = 'N';
+        $this->oetbconfdecordrpric = 2;
+        $this->oetbcon2provlostsales = 'N';
+        $this->oetbcon2askreasoncode = 'N';
+        $this->oetbcon2defreasoncode = '';
+        $this->oetbcon2bordcntl = 'N';
+        $this->oetbcon2defreabocode = '';
+        $this->oetbcon2numdayssavls = 31;
+        $this->oetbcon2callbacknotif = 'N';
+        $this->oetbcon2defdayswhenin = 0;
+        $this->oetbcon2addsubsls = 'N';
+        $this->oetbcon2defreasubscode = '';
+        $this->oetbcon2ordtypnorm = 'Y';
+        $this->oetbcon2ordtyprep = 'N';
+        $this->oetbcon2ordtypserv = 'N';
+        $this->oetbcon2defordtyp = 'N';
+        $this->oetbconfchgpric = 'Y';
+        $this->oetbcon2spordpricezero = 'N';
+        $this->oetbconfinactpricezero = 'N';
+        $this->oetbcon2reseq = 'N';
+        $this->oetbcon2reseqby = 'I';
+        $this->oetbcon2minqtysales = 'Y';
+        $this->oetbcon2chgorder = 'N';
+        $this->oetbcon2vercomp = 'N';
+        $this->oetbcon2prtinv = 'N';
+        $this->oetbcon2dynamicpicktick = 'N';
+        $this->oetbcon2dynamicinvoice = 'N';
+        $this->oetbcon2edidefinvoice = 'E';
+        $this->oetbcon2allowccpick = 'N';
+        $this->oetbcon2autoccwind = 'N';
+        $this->oetbcon2autoccupdate = 'N';
+        $this->oetbcon2allowapvdccchg = 'N';
+        $this->oetbcon3apvdbckordclear = 'N';
+        $this->oetbcon2polwhichcost = 'R';
+        $this->oetbcon2revhazard = 'N';
+        $this->oetbcon2showdisclist = 'N';
+        $this->oetbcon2chglist = 'N';
+        $this->oetbcon2maillist = 'N';
+        $this->oetbcon2nameformat = 'C';
+        $this->oetbcon2mailidtype = 'P';
+        $this->oetbcon2cashdrawerpswd = '';
+        $this->oetbcon2upsonline = 'N';
+        $this->oetbcon2picorver = 'P';
+        $this->oetbcon2combback = 'N';
+        $this->oetbcon2frtallowamt = 0;
+        $this->oetbcon3shipmoreordered = 'Y';
+        $this->oetbcon3warnshipmore = 'Y';
+        $this->oetbcon3proformafromeso = 'N';
+        $this->oetbcon3pickpackcode = 'I';
+        $this->oetbcon2usedept = 'N';
+        $this->oetbcon2usedivision = 'N';
+        $this->oetbcon2defmfecode = 'P';
+        $this->oetbcon2showavgcost = 'N';
+        $this->oetbcon2fedex = 'N';
+        $this->oetbcon3deffrghtgrup = '';
+        $this->oetbcon3upsmysqldbname = '';
+        $this->oetbconfuseoptcode = 'Y';
+        $this->oetbconfscn4opt = 'N';
+        $this->oetbcon2takenbyuse = 'N';
+        $this->oetbcon2takenbylogin = 'N';
+        $this->oetbcon2takenbyforce = 'N';
+        $this->oetbcon2pickedbyuse = 'N';
+        $this->oetbcon2pickedbyforce = 'N';
+        $this->oetbcon2pickedbyproc = 'K';
+        $this->oetbcon2packedbyuse = 'N';
+        $this->oetbcon2packedbyforce = 'N';
+        $this->oetbcon2verifiedbyuse = 'N';
+        $this->oetbcon2verifiedbylogin = 'N';
+        $this->oetbcon2verifiedbyforce = 'N';
+        $this->oetbconfoptlabl1 = '';
+        $this->oetbcon2ucode1force = 'N';
+        $this->oetbconfoptlabl2 = '';
+        $this->oetbcon2ucode2force = 'N';
+        $this->oetbconfoptlabl3 = '';
+        $this->oetbcon2ucode3force = 'N';
+        $this->oetbconfoptlabl4 = '';
+        $this->oetbcon2ucode4force = 'N';
+        $this->oetbconfverifyafterpack = 'N';
+        $this->oetbconfhistyrsback = 5;
+        $this->oetbconfrqstcatlg = 'N';
+        $this->oetbcon2conpick = 'N';
+        $this->oetbcon2allowpick = 'N';
+        $this->oetbcon2combinesame = 'N';
+        $this->oetbcon3autovernitems = 'N';
+        $this->oetbcon2allowzeroqty = 'Y';
+        $this->oetbcon2allowinvalidwhse = 'Y';
+        $this->oetbcon2showediinfo = 'N';
+        $this->oetbcon3esoshowquotlink = 'N';
+        $this->oetbcon3esoshowwiplink = 'N';
+        $this->oetbcon2addonsales = 'N';
+        $this->oetbcon2forcedbkord = 'N';
+        $this->oetbcon2updtprcdisc = 'N';
+        $this->oetbcon2autopack = 'N';
+        $this->oetbcon2pickboprtzqts = 'Y';
+        $this->oetbcon3pick00noship = 'N';
+        $this->oetbcon2standordlead = 'D';
+        $this->oetbcon2standordamnt = 0;
+        $this->oetbcon2inactitemcntrl = 'N';
+        $this->oetbcon2useitemref = 'N';
+        $this->oetbcon3upsnaftarecords = 'N';
+        $this->oetbcon3soplotlikenorm = 'N';
+        $this->oetbconfdfltshipwhse = 'C';
+        $this->oetbconfdfltorigwhse = 'B';
+        $this->oetbconfinvcwithpack = 'N';
+        $this->oetbconfcarrycntrqty = 'N';
+        $this->oetbcon3useordras = 'N';
+        $this->oetbconfuseordrsource = 'N';
+        $this->oetbcon3ccprocessor = 'N';
+        $this->oetbcon3creditcardcap = 'N';
+        $this->oetbcon3keyorcccap = 'C';
+        $this->oetbcon3ccxoverlay = 'Y';
+        $this->oetbcon3cctimeout = 60;
+        $this->oetbcon3signaturecapture = 'Y';
+        $this->oetbcon3ccpreapproval = 'N';
+        $this->oetbcon3forceccnbrentry = 'Y';
+        $this->oetbcon3intritemnotes = 'N';
+        $this->oetbcon3mtrcert = 'N';
+        $this->oetbcon3cofccert = 'N';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
@@ -3805,6 +4278,26 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     }
 
     /**
+     * Get the [oetbcon3esoshowquotlink] column value.
+     *
+     * @return string
+     */
+    public function getOetbcon3esoshowquotlink()
+    {
+        return $this->oetbcon3esoshowquotlink;
+    }
+
+    /**
+     * Get the [oetbcon3esoshowwiplink] column value.
+     *
+     * @return string
+     */
+    public function getOetbcon3esoshowwiplink()
+    {
+        return $this->oetbcon3esoshowwiplink;
+    }
+
+    /**
      * Get the [oetbcon2addonsales] column value.
      *
      * @return string
@@ -3912,6 +4405,16 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     public function getOetbcon3upsnaftarecords()
     {
         return $this->oetbcon3upsnaftarecords;
+    }
+
+    /**
+     * Get the [oetbcon3soplotlikenorm] column value.
+     *
+     * @return string
+     */
+    public function getOetbcon3soplotlikenorm()
+    {
+        return $this->oetbcon3soplotlikenorm;
     }
 
     /**
@@ -7975,6 +8478,46 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     } // setOetbcon2showediinfo()
 
     /**
+     * Set the value of [oetbcon3esoshowquotlink] column.
+     *
+     * @param string $v new value
+     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     */
+    public function setOetbcon3esoshowquotlink($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oetbcon3esoshowquotlink !== $v) {
+            $this->oetbcon3esoshowquotlink = $v;
+            $this->modifiedColumns[ConfigSalesOrderTableMap::COL_OETBCON3ESOSHOWQUOTLINK] = true;
+        }
+
+        return $this;
+    } // setOetbcon3esoshowquotlink()
+
+    /**
+     * Set the value of [oetbcon3esoshowwiplink] column.
+     *
+     * @param string $v new value
+     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     */
+    public function setOetbcon3esoshowwiplink($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oetbcon3esoshowwiplink !== $v) {
+            $this->oetbcon3esoshowwiplink = $v;
+            $this->modifiedColumns[ConfigSalesOrderTableMap::COL_OETBCON3ESOSHOWWIPLINK] = true;
+        }
+
+        return $this;
+    } // setOetbcon3esoshowwiplink()
+
+    /**
      * Set the value of [oetbcon2addonsales] column.
      *
      * @param string $v new value
@@ -8193,6 +8736,26 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
 
         return $this;
     } // setOetbcon3upsnaftarecords()
+
+    /**
+     * Set the value of [oetbcon3soplotlikenorm] column.
+     *
+     * @param string $v new value
+     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     */
+    public function setOetbcon3soplotlikenorm($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oetbcon3soplotlikenorm !== $v) {
+            $this->oetbcon3soplotlikenorm = $v;
+            $this->modifiedColumns[ConfigSalesOrderTableMap::COL_OETBCON3SOPLOTLIKENORM] = true;
+        }
+
+        return $this;
+    } // setOetbcon3soplotlikenorm()
 
     /**
      * Set the value of [oetbconfdfltshipwhse] column.
@@ -8604,7 +9167,911 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
-            if ($this->oetbconfkey !== 0) {
+            if ($this->oetbconfkey !== 1) {
+                return false;
+            }
+
+            if ($this->oetbconfglifac !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfinifac !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfrelivty !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfuseordrnbr !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfdefrqstdate !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfusecancdate !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfshowsp !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfjrnlsort !== 1) {
+                return false;
+            }
+
+            if ($this->oetbconfuseprepsoopt !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfdispbillto !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfslctflm !== 'M') {
+                return false;
+            }
+
+            if ($this->oetbcon3usestockpull !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfqtytoship !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfqtytoshipdef !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfdfltordrqty !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfallocqtytoship !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfoverallocqts !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbcon3completelotbin !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3rqtsopt !== 'B') {
+                return false;
+            }
+
+            if ($this->oetbcon2shipcomphold !== 0) {
+                return false;
+            }
+
+            if ($this->oetbcon3usesaleforecast !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfverfstopneg !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfverfaudtrept !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfagelevldisp !== 'G') {
+                return false;
+            }
+
+            if ($this->oetbconfagealltime !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfageathold !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfshowatlevl !== '2') {
+                return false;
+            }
+
+            if ($this->oetbconfshowitem !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfstoppnt !== 'Q') {
+                return false;
+            }
+
+            if ($this->oetbconfpricwind !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfshowcost !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfcosttouse !== 'L') {
+                return false;
+            }
+
+            if ($this->oetbconfshowmarg !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconffxoe !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconffxinv !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfdispvia !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfdispcaseqty !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconffrtin !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconffrtinglacct !== '') {
+                return false;
+            }
+
+            if ($this->oetbconfmincharge !== '0.00') {
+                return false;
+            }
+
+            if ($this->oetbconfminchrgglacct !== '') {
+                return false;
+            }
+
+            if ($this->oetbconfdropshipchrg !== '0.00') {
+                return false;
+            }
+
+            if ($this->oetbconfdropshpglacct !== '') {
+                return false;
+            }
+
+            if ($this->oetbconfnontaxcustcode !== '') {
+                return false;
+            }
+
+            if ($this->oetbconfhstaxid !== '') {
+                return false;
+            }
+
+            if ($this->oetbconfhsfrtid !== '') {
+                return false;
+            }
+
+            if ($this->oetbconfhsmiscid !== '') {
+                return false;
+            }
+
+            if ($this->oetbcon2hscusdid !== '') {
+                return false;
+            }
+
+            if ($this->oetbcon3hsfrtinid !== '') {
+                return false;
+            }
+
+            if ($this->oetbcon3hsdropid !== '') {
+                return false;
+            }
+
+            if ($this->oetbcon3hsminordid !== '') {
+                return false;
+            }
+
+            if ($this->oetbconfheadgetdef !== '1') {
+                return false;
+            }
+
+            if ($this->oetbconfitemgetdef !== '1') {
+                return false;
+            }
+
+            if ($this->oetbconfautogetcust !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3autogetitem !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfrqstheaddtl !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfcancheaddtl !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfuseinvcasship !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3usearrvdate !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfseparatecred !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3applycredits !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfwarnnotnew !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfwarnbotozero !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2providerouting !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2srtrtbyrqstdte !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfusesoreview !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfpicknotedef !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfpacknotedef !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfpicksort !== 'L') {
+                return false;
+            }
+
+            if ($this->oetbconfpacksort !== 'L') {
+                return false;
+            }
+
+            if ($this->oetbconfprtpriconly !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfprtneg !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbcon2prtpackageinfo !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2innerpacklabel !== '') {
+                return false;
+            }
+
+            if ($this->oetbcon2outerpacklabel !== '') {
+                return false;
+            }
+
+            if ($this->oetbcon2shiptarelabel !== '') {
+                return false;
+            }
+
+            if ($this->oetbconfprtpick !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfpicprioseq !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfprtpack !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfprtinv !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbcon2prtcredmemo !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfcrntdate !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfmarkpicked !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfshowunavail !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfdecplaces !== 2) {
+                return false;
+            }
+
+            if ($this->oetbconfwarndup !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfdefpick !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfdefpack !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfdefinvc !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfdefack !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfacksortopt !== 'L') {
+                return false;
+            }
+
+            if ($this->oetbconfreleasenbr !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfpodetlinenbr !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfdetlinebinnbr !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfsplitbywhse !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3allowmultwhse !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfuseorigwhse !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfuseesosingle !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfcreatepo !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfbestprice !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfesobacktonew !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfpickprintdrop !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfwarnmultpo !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfalertitemquote !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3askchgprcwqty !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3tenqtybrks !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfdecordrpric !== 2) {
+                return false;
+            }
+
+            if ($this->oetbcon2provlostsales !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2askreasoncode !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2defreasoncode !== '') {
+                return false;
+            }
+
+            if ($this->oetbcon2bordcntl !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2defreabocode !== '') {
+                return false;
+            }
+
+            if ($this->oetbcon2numdayssavls !== 31) {
+                return false;
+            }
+
+            if ($this->oetbcon2callbacknotif !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2defdayswhenin !== 0) {
+                return false;
+            }
+
+            if ($this->oetbcon2addsubsls !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2defreasubscode !== '') {
+                return false;
+            }
+
+            if ($this->oetbcon2ordtypnorm !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbcon2ordtyprep !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2ordtypserv !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2defordtyp !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfchgpric !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbcon2spordpricezero !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfinactpricezero !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2reseq !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2reseqby !== 'I') {
+                return false;
+            }
+
+            if ($this->oetbcon2minqtysales !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbcon2chgorder !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2vercomp !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2prtinv !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2dynamicpicktick !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2dynamicinvoice !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2edidefinvoice !== 'E') {
+                return false;
+            }
+
+            if ($this->oetbcon2allowccpick !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2autoccwind !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2autoccupdate !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2allowapvdccchg !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3apvdbckordclear !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2polwhichcost !== 'R') {
+                return false;
+            }
+
+            if ($this->oetbcon2revhazard !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2showdisclist !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2chglist !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2maillist !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2nameformat !== 'C') {
+                return false;
+            }
+
+            if ($this->oetbcon2mailidtype !== 'P') {
+                return false;
+            }
+
+            if ($this->oetbcon2cashdrawerpswd !== '') {
+                return false;
+            }
+
+            if ($this->oetbcon2upsonline !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2picorver !== 'P') {
+                return false;
+            }
+
+            if ($this->oetbcon2combback !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2frtallowamt !== 0) {
+                return false;
+            }
+
+            if ($this->oetbcon3shipmoreordered !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbcon3warnshipmore !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbcon3proformafromeso !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3pickpackcode !== 'I') {
+                return false;
+            }
+
+            if ($this->oetbcon2usedept !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2usedivision !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2defmfecode !== 'P') {
+                return false;
+            }
+
+            if ($this->oetbcon2showavgcost !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2fedex !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3deffrghtgrup !== '') {
+                return false;
+            }
+
+            if ($this->oetbcon3upsmysqldbname !== '') {
+                return false;
+            }
+
+            if ($this->oetbconfuseoptcode !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbconfscn4opt !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2takenbyuse !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2takenbylogin !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2takenbyforce !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2pickedbyuse !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2pickedbyforce !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2pickedbyproc !== 'K') {
+                return false;
+            }
+
+            if ($this->oetbcon2packedbyuse !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2packedbyforce !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2verifiedbyuse !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2verifiedbylogin !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2verifiedbyforce !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfoptlabl1 !== '') {
+                return false;
+            }
+
+            if ($this->oetbcon2ucode1force !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfoptlabl2 !== '') {
+                return false;
+            }
+
+            if ($this->oetbcon2ucode2force !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfoptlabl3 !== '') {
+                return false;
+            }
+
+            if ($this->oetbcon2ucode3force !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfoptlabl4 !== '') {
+                return false;
+            }
+
+            if ($this->oetbcon2ucode4force !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfverifyafterpack !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfhistyrsback !== 5) {
+                return false;
+            }
+
+            if ($this->oetbconfrqstcatlg !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2conpick !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2allowpick !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2combinesame !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3autovernitems !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2allowzeroqty !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbcon2allowinvalidwhse !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbcon2showediinfo !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3esoshowquotlink !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3esoshowwiplink !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2addonsales !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2forcedbkord !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2updtprcdisc !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2autopack !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2pickboprtzqts !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbcon3pick00noship !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2standordlead !== 'D') {
+                return false;
+            }
+
+            if ($this->oetbcon2standordamnt !== 0) {
+                return false;
+            }
+
+            if ($this->oetbcon2inactitemcntrl !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon2useitemref !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3upsnaftarecords !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3soplotlikenorm !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfdfltshipwhse !== 'C') {
+                return false;
+            }
+
+            if ($this->oetbconfdfltorigwhse !== 'B') {
+                return false;
+            }
+
+            if ($this->oetbconfinvcwithpack !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfcarrycntrqty !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3useordras !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbconfuseordrsource !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3ccprocessor !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3creditcardcap !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3keyorcccap !== 'C') {
+                return false;
+            }
+
+            if ($this->oetbcon3ccxoverlay !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbcon3cctimeout !== 60) {
+                return false;
+            }
+
+            if ($this->oetbcon3signaturecapture !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbcon3ccpreapproval !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3forceccnbrentry !== 'Y') {
+                return false;
+            }
+
+            if ($this->oetbcon3intritemnotes !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3mtrcert !== 'N') {
+                return false;
+            }
+
+            if ($this->oetbcon3cofccert !== 'N') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
                 return false;
             }
 
@@ -9213,97 +10680,106 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 192 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2showediinfo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2showediinfo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 193 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2addonsales', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 193 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3esoshowquotlink', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oetbcon3esoshowquotlink = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 194 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3esoshowwiplink', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oetbcon3esoshowwiplink = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 195 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2addonsales', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2addonsales = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 194 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2forcedbkord', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 196 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2forcedbkord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2forcedbkord = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 195 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2updtprcdisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 197 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2updtprcdisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2updtprcdisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 196 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2autopack', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 198 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2autopack', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2autopack = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 197 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickboprtzqts', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 199 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickboprtzqts', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2pickboprtzqts = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 198 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3pick00noship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 200 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3pick00noship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3pick00noship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 199 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2standordlead', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 201 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2standordlead', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2standordlead = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 200 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2standordamnt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 202 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2standordamnt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2standordamnt = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 201 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2inactitemcntrl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 203 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2inactitemcntrl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2inactitemcntrl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 202 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2useitemref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 204 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2useitemref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2useitemref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 203 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3upsnaftarecords', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 205 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3upsnaftarecords', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3upsnaftarecords = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 204 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdfltshipwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 206 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3soplotlikenorm', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oetbcon3soplotlikenorm = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 207 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdfltshipwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdfltshipwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 205 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdfltorigwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 208 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdfltorigwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdfltorigwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 206 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfinvcwithpack', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 209 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfinvcwithpack', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfinvcwithpack = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 207 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfcarrycntrqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 210 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfcarrycntrqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfcarrycntrqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 208 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3useordras', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 211 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3useordras', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3useordras = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 209 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseordrsource', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 212 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseordrsource', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfuseordrsource = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 210 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccprocessor', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 213 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccprocessor', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3ccprocessor = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 211 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3creditcardcap', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 214 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3creditcardcap', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3creditcardcap = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 212 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3keyorcccap', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 215 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3keyorcccap', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3keyorcccap = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 213 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccxoverlay', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 216 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccxoverlay', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3ccxoverlay = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 214 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3cctimeout', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 217 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3cctimeout', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3cctimeout = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 215 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3signaturecapture', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 218 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3signaturecapture', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3signaturecapture = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 216 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccpreapproval', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 219 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccpreapproval', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3ccpreapproval = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 217 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3forceccnbrentry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 220 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3forceccnbrentry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3forceccnbrentry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 218 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3intritemnotes', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 221 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3intritemnotes', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3intritemnotes = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 219 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3mtrcert', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 222 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3mtrcert', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3mtrcert = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 220 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3cofccert', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 223 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3cofccert', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3cofccert = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 221 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 224 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 222 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 225 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 223 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 226 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -9313,7 +10789,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 224; // 224 = ConfigSalesOrderTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 227; // 227 = ConfigSalesOrderTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\ConfigSalesOrder'), 0, $e);
@@ -10089,6 +11565,12 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON2SHOWEDIINFO)) {
             $modifiedColumns[':p' . $index++]  = 'OetbCon2ShowEdiInfo';
         }
+        if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON3ESOSHOWQUOTLINK)) {
+            $modifiedColumns[':p' . $index++]  = 'OetbCon3EsoShowQuotLink';
+        }
+        if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON3ESOSHOWWIPLINK)) {
+            $modifiedColumns[':p' . $index++]  = 'OetbCon3EsoShowWipLink';
+        }
         if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON2ADDONSALES)) {
             $modifiedColumns[':p' . $index++]  = 'OetbCon2AddOnSales';
         }
@@ -10121,6 +11603,9 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON3UPSNAFTARECORDS)) {
             $modifiedColumns[':p' . $index++]  = 'OetbCon3UpsNaftaRecords';
+        }
+        if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON3SOPLOTLIKENORM)) {
+            $modifiedColumns[':p' . $index++]  = 'OetbCon3SopLotLikeNorm';
         }
         if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCONFDFLTSHIPWHSE)) {
             $modifiedColumns[':p' . $index++]  = 'OetbConfDfltShipWhse';
@@ -10772,6 +12257,12 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
                     case 'OetbCon2ShowEdiInfo':
                         $stmt->bindValue($identifier, $this->oetbcon2showediinfo, PDO::PARAM_STR);
                         break;
+                    case 'OetbCon3EsoShowQuotLink':
+                        $stmt->bindValue($identifier, $this->oetbcon3esoshowquotlink, PDO::PARAM_STR);
+                        break;
+                    case 'OetbCon3EsoShowWipLink':
+                        $stmt->bindValue($identifier, $this->oetbcon3esoshowwiplink, PDO::PARAM_STR);
+                        break;
                     case 'OetbCon2AddOnSales':
                         $stmt->bindValue($identifier, $this->oetbcon2addonsales, PDO::PARAM_STR);
                         break;
@@ -10804,6 +12295,9 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
                         break;
                     case 'OetbCon3UpsNaftaRecords':
                         $stmt->bindValue($identifier, $this->oetbcon3upsnaftarecords, PDO::PARAM_STR);
+                        break;
+                    case 'OetbCon3SopLotLikeNorm':
+                        $stmt->bindValue($identifier, $this->oetbcon3soplotlikenorm, PDO::PARAM_STR);
                         break;
                     case 'OetbConfDfltShipWhse':
                         $stmt->bindValue($identifier, $this->oetbconfdfltshipwhse, PDO::PARAM_STR);
@@ -11500,96 +12994,105 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
                 return $this->getOetbcon2showediinfo();
                 break;
             case 193:
-                return $this->getOetbcon2addonsales();
+                return $this->getOetbcon3esoshowquotlink();
                 break;
             case 194:
-                return $this->getOetbcon2forcedbkord();
+                return $this->getOetbcon3esoshowwiplink();
                 break;
             case 195:
-                return $this->getOetbcon2updtprcdisc();
+                return $this->getOetbcon2addonsales();
                 break;
             case 196:
-                return $this->getOetbcon2autopack();
+                return $this->getOetbcon2forcedbkord();
                 break;
             case 197:
-                return $this->getOetbcon2pickboprtzqts();
+                return $this->getOetbcon2updtprcdisc();
                 break;
             case 198:
-                return $this->getOetbcon3pick00noship();
+                return $this->getOetbcon2autopack();
                 break;
             case 199:
-                return $this->getOetbcon2standordlead();
+                return $this->getOetbcon2pickboprtzqts();
                 break;
             case 200:
-                return $this->getOetbcon2standordamnt();
+                return $this->getOetbcon3pick00noship();
                 break;
             case 201:
-                return $this->getOetbcon2inactitemcntrl();
+                return $this->getOetbcon2standordlead();
                 break;
             case 202:
-                return $this->getOetbcon2useitemref();
+                return $this->getOetbcon2standordamnt();
                 break;
             case 203:
-                return $this->getOetbcon3upsnaftarecords();
+                return $this->getOetbcon2inactitemcntrl();
                 break;
             case 204:
-                return $this->getOetbconfdfltshipwhse();
+                return $this->getOetbcon2useitemref();
                 break;
             case 205:
-                return $this->getOetbconfdfltorigwhse();
+                return $this->getOetbcon3upsnaftarecords();
                 break;
             case 206:
-                return $this->getOetbconfinvcwithpack();
+                return $this->getOetbcon3soplotlikenorm();
                 break;
             case 207:
-                return $this->getOetbconfcarrycntrqty();
+                return $this->getOetbconfdfltshipwhse();
                 break;
             case 208:
-                return $this->getOetbcon3useordras();
+                return $this->getOetbconfdfltorigwhse();
                 break;
             case 209:
-                return $this->getOetbconfuseordrsource();
+                return $this->getOetbconfinvcwithpack();
                 break;
             case 210:
-                return $this->getOetbcon3ccprocessor();
+                return $this->getOetbconfcarrycntrqty();
                 break;
             case 211:
-                return $this->getOetbcon3creditcardcap();
+                return $this->getOetbcon3useordras();
                 break;
             case 212:
-                return $this->getOetbcon3keyorcccap();
+                return $this->getOetbconfuseordrsource();
                 break;
             case 213:
-                return $this->getOetbcon3ccxoverlay();
+                return $this->getOetbcon3ccprocessor();
                 break;
             case 214:
-                return $this->getOetbcon3cctimeout();
+                return $this->getOetbcon3creditcardcap();
                 break;
             case 215:
-                return $this->getOetbcon3signaturecapture();
+                return $this->getOetbcon3keyorcccap();
                 break;
             case 216:
-                return $this->getOetbcon3ccpreapproval();
+                return $this->getOetbcon3ccxoverlay();
                 break;
             case 217:
-                return $this->getOetbcon3forceccnbrentry();
+                return $this->getOetbcon3cctimeout();
                 break;
             case 218:
-                return $this->getOetbcon3intritemnotes();
+                return $this->getOetbcon3signaturecapture();
                 break;
             case 219:
-                return $this->getOetbcon3mtrcert();
+                return $this->getOetbcon3ccpreapproval();
                 break;
             case 220:
-                return $this->getOetbcon3cofccert();
+                return $this->getOetbcon3forceccnbrentry();
                 break;
             case 221:
-                return $this->getDateupdtd();
+                return $this->getOetbcon3intritemnotes();
                 break;
             case 222:
-                return $this->getTimeupdtd();
+                return $this->getOetbcon3mtrcert();
                 break;
             case 223:
+                return $this->getOetbcon3cofccert();
+                break;
+            case 224:
+                return $this->getDateupdtd();
+                break;
+            case 225:
+                return $this->getTimeupdtd();
+                break;
+            case 226:
                 return $this->getDummy();
                 break;
             default:
@@ -11814,37 +13317,40 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
             $keys[190] => $this->getOetbcon2allowzeroqty(),
             $keys[191] => $this->getOetbcon2allowinvalidwhse(),
             $keys[192] => $this->getOetbcon2showediinfo(),
-            $keys[193] => $this->getOetbcon2addonsales(),
-            $keys[194] => $this->getOetbcon2forcedbkord(),
-            $keys[195] => $this->getOetbcon2updtprcdisc(),
-            $keys[196] => $this->getOetbcon2autopack(),
-            $keys[197] => $this->getOetbcon2pickboprtzqts(),
-            $keys[198] => $this->getOetbcon3pick00noship(),
-            $keys[199] => $this->getOetbcon2standordlead(),
-            $keys[200] => $this->getOetbcon2standordamnt(),
-            $keys[201] => $this->getOetbcon2inactitemcntrl(),
-            $keys[202] => $this->getOetbcon2useitemref(),
-            $keys[203] => $this->getOetbcon3upsnaftarecords(),
-            $keys[204] => $this->getOetbconfdfltshipwhse(),
-            $keys[205] => $this->getOetbconfdfltorigwhse(),
-            $keys[206] => $this->getOetbconfinvcwithpack(),
-            $keys[207] => $this->getOetbconfcarrycntrqty(),
-            $keys[208] => $this->getOetbcon3useordras(),
-            $keys[209] => $this->getOetbconfuseordrsource(),
-            $keys[210] => $this->getOetbcon3ccprocessor(),
-            $keys[211] => $this->getOetbcon3creditcardcap(),
-            $keys[212] => $this->getOetbcon3keyorcccap(),
-            $keys[213] => $this->getOetbcon3ccxoverlay(),
-            $keys[214] => $this->getOetbcon3cctimeout(),
-            $keys[215] => $this->getOetbcon3signaturecapture(),
-            $keys[216] => $this->getOetbcon3ccpreapproval(),
-            $keys[217] => $this->getOetbcon3forceccnbrentry(),
-            $keys[218] => $this->getOetbcon3intritemnotes(),
-            $keys[219] => $this->getOetbcon3mtrcert(),
-            $keys[220] => $this->getOetbcon3cofccert(),
-            $keys[221] => $this->getDateupdtd(),
-            $keys[222] => $this->getTimeupdtd(),
-            $keys[223] => $this->getDummy(),
+            $keys[193] => $this->getOetbcon3esoshowquotlink(),
+            $keys[194] => $this->getOetbcon3esoshowwiplink(),
+            $keys[195] => $this->getOetbcon2addonsales(),
+            $keys[196] => $this->getOetbcon2forcedbkord(),
+            $keys[197] => $this->getOetbcon2updtprcdisc(),
+            $keys[198] => $this->getOetbcon2autopack(),
+            $keys[199] => $this->getOetbcon2pickboprtzqts(),
+            $keys[200] => $this->getOetbcon3pick00noship(),
+            $keys[201] => $this->getOetbcon2standordlead(),
+            $keys[202] => $this->getOetbcon2standordamnt(),
+            $keys[203] => $this->getOetbcon2inactitemcntrl(),
+            $keys[204] => $this->getOetbcon2useitemref(),
+            $keys[205] => $this->getOetbcon3upsnaftarecords(),
+            $keys[206] => $this->getOetbcon3soplotlikenorm(),
+            $keys[207] => $this->getOetbconfdfltshipwhse(),
+            $keys[208] => $this->getOetbconfdfltorigwhse(),
+            $keys[209] => $this->getOetbconfinvcwithpack(),
+            $keys[210] => $this->getOetbconfcarrycntrqty(),
+            $keys[211] => $this->getOetbcon3useordras(),
+            $keys[212] => $this->getOetbconfuseordrsource(),
+            $keys[213] => $this->getOetbcon3ccprocessor(),
+            $keys[214] => $this->getOetbcon3creditcardcap(),
+            $keys[215] => $this->getOetbcon3keyorcccap(),
+            $keys[216] => $this->getOetbcon3ccxoverlay(),
+            $keys[217] => $this->getOetbcon3cctimeout(),
+            $keys[218] => $this->getOetbcon3signaturecapture(),
+            $keys[219] => $this->getOetbcon3ccpreapproval(),
+            $keys[220] => $this->getOetbcon3forceccnbrentry(),
+            $keys[221] => $this->getOetbcon3intritemnotes(),
+            $keys[222] => $this->getOetbcon3mtrcert(),
+            $keys[223] => $this->getOetbcon3cofccert(),
+            $keys[224] => $this->getDateupdtd(),
+            $keys[225] => $this->getTimeupdtd(),
+            $keys[226] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -12464,96 +13970,105 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
                 $this->setOetbcon2showediinfo($value);
                 break;
             case 193:
-                $this->setOetbcon2addonsales($value);
+                $this->setOetbcon3esoshowquotlink($value);
                 break;
             case 194:
-                $this->setOetbcon2forcedbkord($value);
+                $this->setOetbcon3esoshowwiplink($value);
                 break;
             case 195:
-                $this->setOetbcon2updtprcdisc($value);
+                $this->setOetbcon2addonsales($value);
                 break;
             case 196:
-                $this->setOetbcon2autopack($value);
+                $this->setOetbcon2forcedbkord($value);
                 break;
             case 197:
-                $this->setOetbcon2pickboprtzqts($value);
+                $this->setOetbcon2updtprcdisc($value);
                 break;
             case 198:
-                $this->setOetbcon3pick00noship($value);
+                $this->setOetbcon2autopack($value);
                 break;
             case 199:
-                $this->setOetbcon2standordlead($value);
+                $this->setOetbcon2pickboprtzqts($value);
                 break;
             case 200:
-                $this->setOetbcon2standordamnt($value);
+                $this->setOetbcon3pick00noship($value);
                 break;
             case 201:
-                $this->setOetbcon2inactitemcntrl($value);
+                $this->setOetbcon2standordlead($value);
                 break;
             case 202:
-                $this->setOetbcon2useitemref($value);
+                $this->setOetbcon2standordamnt($value);
                 break;
             case 203:
-                $this->setOetbcon3upsnaftarecords($value);
+                $this->setOetbcon2inactitemcntrl($value);
                 break;
             case 204:
-                $this->setOetbconfdfltshipwhse($value);
+                $this->setOetbcon2useitemref($value);
                 break;
             case 205:
-                $this->setOetbconfdfltorigwhse($value);
+                $this->setOetbcon3upsnaftarecords($value);
                 break;
             case 206:
-                $this->setOetbconfinvcwithpack($value);
+                $this->setOetbcon3soplotlikenorm($value);
                 break;
             case 207:
-                $this->setOetbconfcarrycntrqty($value);
+                $this->setOetbconfdfltshipwhse($value);
                 break;
             case 208:
-                $this->setOetbcon3useordras($value);
+                $this->setOetbconfdfltorigwhse($value);
                 break;
             case 209:
-                $this->setOetbconfuseordrsource($value);
+                $this->setOetbconfinvcwithpack($value);
                 break;
             case 210:
-                $this->setOetbcon3ccprocessor($value);
+                $this->setOetbconfcarrycntrqty($value);
                 break;
             case 211:
-                $this->setOetbcon3creditcardcap($value);
+                $this->setOetbcon3useordras($value);
                 break;
             case 212:
-                $this->setOetbcon3keyorcccap($value);
+                $this->setOetbconfuseordrsource($value);
                 break;
             case 213:
-                $this->setOetbcon3ccxoverlay($value);
+                $this->setOetbcon3ccprocessor($value);
                 break;
             case 214:
-                $this->setOetbcon3cctimeout($value);
+                $this->setOetbcon3creditcardcap($value);
                 break;
             case 215:
-                $this->setOetbcon3signaturecapture($value);
+                $this->setOetbcon3keyorcccap($value);
                 break;
             case 216:
-                $this->setOetbcon3ccpreapproval($value);
+                $this->setOetbcon3ccxoverlay($value);
                 break;
             case 217:
-                $this->setOetbcon3forceccnbrentry($value);
+                $this->setOetbcon3cctimeout($value);
                 break;
             case 218:
-                $this->setOetbcon3intritemnotes($value);
+                $this->setOetbcon3signaturecapture($value);
                 break;
             case 219:
-                $this->setOetbcon3mtrcert($value);
+                $this->setOetbcon3ccpreapproval($value);
                 break;
             case 220:
-                $this->setOetbcon3cofccert($value);
+                $this->setOetbcon3forceccnbrentry($value);
                 break;
             case 221:
-                $this->setDateupdtd($value);
+                $this->setOetbcon3intritemnotes($value);
                 break;
             case 222:
-                $this->setTimeupdtd($value);
+                $this->setOetbcon3mtrcert($value);
                 break;
             case 223:
+                $this->setOetbcon3cofccert($value);
+                break;
+            case 224:
+                $this->setDateupdtd($value);
+                break;
+            case 225:
+                $this->setTimeupdtd($value);
+                break;
+            case 226:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -13162,97 +14677,106 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
             $this->setOetbcon2showediinfo($arr[$keys[192]]);
         }
         if (array_key_exists($keys[193], $arr)) {
-            $this->setOetbcon2addonsales($arr[$keys[193]]);
+            $this->setOetbcon3esoshowquotlink($arr[$keys[193]]);
         }
         if (array_key_exists($keys[194], $arr)) {
-            $this->setOetbcon2forcedbkord($arr[$keys[194]]);
+            $this->setOetbcon3esoshowwiplink($arr[$keys[194]]);
         }
         if (array_key_exists($keys[195], $arr)) {
-            $this->setOetbcon2updtprcdisc($arr[$keys[195]]);
+            $this->setOetbcon2addonsales($arr[$keys[195]]);
         }
         if (array_key_exists($keys[196], $arr)) {
-            $this->setOetbcon2autopack($arr[$keys[196]]);
+            $this->setOetbcon2forcedbkord($arr[$keys[196]]);
         }
         if (array_key_exists($keys[197], $arr)) {
-            $this->setOetbcon2pickboprtzqts($arr[$keys[197]]);
+            $this->setOetbcon2updtprcdisc($arr[$keys[197]]);
         }
         if (array_key_exists($keys[198], $arr)) {
-            $this->setOetbcon3pick00noship($arr[$keys[198]]);
+            $this->setOetbcon2autopack($arr[$keys[198]]);
         }
         if (array_key_exists($keys[199], $arr)) {
-            $this->setOetbcon2standordlead($arr[$keys[199]]);
+            $this->setOetbcon2pickboprtzqts($arr[$keys[199]]);
         }
         if (array_key_exists($keys[200], $arr)) {
-            $this->setOetbcon2standordamnt($arr[$keys[200]]);
+            $this->setOetbcon3pick00noship($arr[$keys[200]]);
         }
         if (array_key_exists($keys[201], $arr)) {
-            $this->setOetbcon2inactitemcntrl($arr[$keys[201]]);
+            $this->setOetbcon2standordlead($arr[$keys[201]]);
         }
         if (array_key_exists($keys[202], $arr)) {
-            $this->setOetbcon2useitemref($arr[$keys[202]]);
+            $this->setOetbcon2standordamnt($arr[$keys[202]]);
         }
         if (array_key_exists($keys[203], $arr)) {
-            $this->setOetbcon3upsnaftarecords($arr[$keys[203]]);
+            $this->setOetbcon2inactitemcntrl($arr[$keys[203]]);
         }
         if (array_key_exists($keys[204], $arr)) {
-            $this->setOetbconfdfltshipwhse($arr[$keys[204]]);
+            $this->setOetbcon2useitemref($arr[$keys[204]]);
         }
         if (array_key_exists($keys[205], $arr)) {
-            $this->setOetbconfdfltorigwhse($arr[$keys[205]]);
+            $this->setOetbcon3upsnaftarecords($arr[$keys[205]]);
         }
         if (array_key_exists($keys[206], $arr)) {
-            $this->setOetbconfinvcwithpack($arr[$keys[206]]);
+            $this->setOetbcon3soplotlikenorm($arr[$keys[206]]);
         }
         if (array_key_exists($keys[207], $arr)) {
-            $this->setOetbconfcarrycntrqty($arr[$keys[207]]);
+            $this->setOetbconfdfltshipwhse($arr[$keys[207]]);
         }
         if (array_key_exists($keys[208], $arr)) {
-            $this->setOetbcon3useordras($arr[$keys[208]]);
+            $this->setOetbconfdfltorigwhse($arr[$keys[208]]);
         }
         if (array_key_exists($keys[209], $arr)) {
-            $this->setOetbconfuseordrsource($arr[$keys[209]]);
+            $this->setOetbconfinvcwithpack($arr[$keys[209]]);
         }
         if (array_key_exists($keys[210], $arr)) {
-            $this->setOetbcon3ccprocessor($arr[$keys[210]]);
+            $this->setOetbconfcarrycntrqty($arr[$keys[210]]);
         }
         if (array_key_exists($keys[211], $arr)) {
-            $this->setOetbcon3creditcardcap($arr[$keys[211]]);
+            $this->setOetbcon3useordras($arr[$keys[211]]);
         }
         if (array_key_exists($keys[212], $arr)) {
-            $this->setOetbcon3keyorcccap($arr[$keys[212]]);
+            $this->setOetbconfuseordrsource($arr[$keys[212]]);
         }
         if (array_key_exists($keys[213], $arr)) {
-            $this->setOetbcon3ccxoverlay($arr[$keys[213]]);
+            $this->setOetbcon3ccprocessor($arr[$keys[213]]);
         }
         if (array_key_exists($keys[214], $arr)) {
-            $this->setOetbcon3cctimeout($arr[$keys[214]]);
+            $this->setOetbcon3creditcardcap($arr[$keys[214]]);
         }
         if (array_key_exists($keys[215], $arr)) {
-            $this->setOetbcon3signaturecapture($arr[$keys[215]]);
+            $this->setOetbcon3keyorcccap($arr[$keys[215]]);
         }
         if (array_key_exists($keys[216], $arr)) {
-            $this->setOetbcon3ccpreapproval($arr[$keys[216]]);
+            $this->setOetbcon3ccxoverlay($arr[$keys[216]]);
         }
         if (array_key_exists($keys[217], $arr)) {
-            $this->setOetbcon3forceccnbrentry($arr[$keys[217]]);
+            $this->setOetbcon3cctimeout($arr[$keys[217]]);
         }
         if (array_key_exists($keys[218], $arr)) {
-            $this->setOetbcon3intritemnotes($arr[$keys[218]]);
+            $this->setOetbcon3signaturecapture($arr[$keys[218]]);
         }
         if (array_key_exists($keys[219], $arr)) {
-            $this->setOetbcon3mtrcert($arr[$keys[219]]);
+            $this->setOetbcon3ccpreapproval($arr[$keys[219]]);
         }
         if (array_key_exists($keys[220], $arr)) {
-            $this->setOetbcon3cofccert($arr[$keys[220]]);
+            $this->setOetbcon3forceccnbrentry($arr[$keys[220]]);
         }
         if (array_key_exists($keys[221], $arr)) {
-            $this->setDateupdtd($arr[$keys[221]]);
+            $this->setOetbcon3intritemnotes($arr[$keys[221]]);
         }
         if (array_key_exists($keys[222], $arr)) {
-            $this->setTimeupdtd($arr[$keys[222]]);
+            $this->setOetbcon3mtrcert($arr[$keys[222]]);
         }
         if (array_key_exists($keys[223], $arr)) {
-            $this->setDummy($arr[$keys[223]]);
+            $this->setOetbcon3cofccert($arr[$keys[223]]);
+        }
+        if (array_key_exists($keys[224], $arr)) {
+            $this->setDateupdtd($arr[$keys[224]]);
+        }
+        if (array_key_exists($keys[225], $arr)) {
+            $this->setTimeupdtd($arr[$keys[225]]);
+        }
+        if (array_key_exists($keys[226], $arr)) {
+            $this->setDummy($arr[$keys[226]]);
         }
     }
 
@@ -13874,6 +15398,12 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON2SHOWEDIINFO)) {
             $criteria->add(ConfigSalesOrderTableMap::COL_OETBCON2SHOWEDIINFO, $this->oetbcon2showediinfo);
         }
+        if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON3ESOSHOWQUOTLINK)) {
+            $criteria->add(ConfigSalesOrderTableMap::COL_OETBCON3ESOSHOWQUOTLINK, $this->oetbcon3esoshowquotlink);
+        }
+        if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON3ESOSHOWWIPLINK)) {
+            $criteria->add(ConfigSalesOrderTableMap::COL_OETBCON3ESOSHOWWIPLINK, $this->oetbcon3esoshowwiplink);
+        }
         if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON2ADDONSALES)) {
             $criteria->add(ConfigSalesOrderTableMap::COL_OETBCON2ADDONSALES, $this->oetbcon2addonsales);
         }
@@ -13906,6 +15436,9 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON3UPSNAFTARECORDS)) {
             $criteria->add(ConfigSalesOrderTableMap::COL_OETBCON3UPSNAFTARECORDS, $this->oetbcon3upsnaftarecords);
+        }
+        if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON3SOPLOTLIKENORM)) {
+            $criteria->add(ConfigSalesOrderTableMap::COL_OETBCON3SOPLOTLIKENORM, $this->oetbcon3soplotlikenorm);
         }
         if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCONFDFLTSHIPWHSE)) {
             $criteria->add(ConfigSalesOrderTableMap::COL_OETBCONFDFLTSHIPWHSE, $this->oetbconfdfltshipwhse);
@@ -14246,6 +15779,8 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         $copyObj->setOetbcon2allowzeroqty($this->getOetbcon2allowzeroqty());
         $copyObj->setOetbcon2allowinvalidwhse($this->getOetbcon2allowinvalidwhse());
         $copyObj->setOetbcon2showediinfo($this->getOetbcon2showediinfo());
+        $copyObj->setOetbcon3esoshowquotlink($this->getOetbcon3esoshowquotlink());
+        $copyObj->setOetbcon3esoshowwiplink($this->getOetbcon3esoshowwiplink());
         $copyObj->setOetbcon2addonsales($this->getOetbcon2addonsales());
         $copyObj->setOetbcon2forcedbkord($this->getOetbcon2forcedbkord());
         $copyObj->setOetbcon2updtprcdisc($this->getOetbcon2updtprcdisc());
@@ -14257,6 +15792,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         $copyObj->setOetbcon2inactitemcntrl($this->getOetbcon2inactitemcntrl());
         $copyObj->setOetbcon2useitemref($this->getOetbcon2useitemref());
         $copyObj->setOetbcon3upsnaftarecords($this->getOetbcon3upsnaftarecords());
+        $copyObj->setOetbcon3soplotlikenorm($this->getOetbcon3soplotlikenorm());
         $copyObj->setOetbconfdfltshipwhse($this->getOetbconfdfltshipwhse());
         $copyObj->setOetbconfdfltorigwhse($this->getOetbconfdfltorigwhse());
         $copyObj->setOetbconfinvcwithpack($this->getOetbconfinvcwithpack());
@@ -14504,6 +16040,8 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         $this->oetbcon2allowzeroqty = null;
         $this->oetbcon2allowinvalidwhse = null;
         $this->oetbcon2showediinfo = null;
+        $this->oetbcon3esoshowquotlink = null;
+        $this->oetbcon3esoshowwiplink = null;
         $this->oetbcon2addonsales = null;
         $this->oetbcon2forcedbkord = null;
         $this->oetbcon2updtprcdisc = null;
@@ -14515,6 +16053,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         $this->oetbcon2inactitemcntrl = null;
         $this->oetbcon2useitemref = null;
         $this->oetbcon3upsnaftarecords = null;
+        $this->oetbcon3soplotlikenorm = null;
         $this->oetbconfdfltshipwhse = null;
         $this->oetbconfdfltorigwhse = null;
         $this->oetbconfinvcwithpack = null;
@@ -14576,7 +16115,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }
@@ -14600,7 +16139,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
+            // return parent::preInsert($con);
         }
         return true;
     }
@@ -14624,7 +16163,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
+            // return parent::preUpdate($con);
         }
         return true;
     }
@@ -14648,7 +16187,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
+            // return parent::preDelete($con);
         }
         return true;
     }
