@@ -159,12 +159,12 @@ class ArTermsCode extends BaseArTermsCode {
 		return $this->setStdColByIndex(self::BASECOL_STD_ORDER_PERCENT, $index, $value);
 	}
 
-	public function std_disc_percent($index) {
-		return $this->getStdColByIndex(self::BASECOL_STD_DISCOUNT_PERCENT, $index);
+	public function std_order_percent($index) {
+		return $this->getStdColByIndex(self::BASECOL_STD_ORDER_PERCENT, $index);
 	}
 
-	public function set_std_disc_percent($index, $value) {
-		return $this->setStdColByIndex(self::BASECOL_STD_DISCOUNT_PERCENT, $index, $value);
+	public function set_std_order_percent($index, $value) {
+		return $this->setStdColByIndex(self::BASECOL_STD_ORDER_PERCENT, $index, $value);
 	}
 
 	public function std_disc_days($index) {

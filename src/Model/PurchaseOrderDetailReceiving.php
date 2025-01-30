@@ -16,6 +16,8 @@ class PurchaseOrderDetailReceiving extends BasePurchaseOrderDetailReceiving {
 	use MagicMethodTraits;
 	use ItemMasterTraits;
 
+	const YN_TRUE = 'Y';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -26,10 +28,9 @@ class PurchaseOrderDetailReceiving extends BasePurchaseOrderDetailReceiving {
 		'itemid'          => 'inititemnbr',
 		'description'     => 'potddesc1',
 		'uom'             => 'intbuompur',
-		'poref'           => 'pordref',
 		'qty_ordered'     => 'potdqtyord',
 		'qtyOrdered'      => 'potdqtyord',
-		'casesordered'    => 'podtcasesord',
+		'casesordered'    => 'potdcasesord',
 		'qty_received'    => 'potdqtyrec',
 		'qtyReceived'     => 'potdqtyrec',
 		'date_transfered' => 'potdtrandate',
@@ -39,6 +40,8 @@ class PurchaseOrderDetailReceiving extends BasePurchaseOrderDetailReceiving {
 		'totalcost'       => 'potdpurchtotcost',
 		'binid'           => 'potdbin',
 		'podetail'        => 'purchaseOrderDetail',
+		'isclosed'        => 'potdclos',
+		'poref'           => 'potdref',
 	);
 
 	/**

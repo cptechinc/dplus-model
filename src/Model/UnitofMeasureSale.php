@@ -46,4 +46,12 @@ class UnitofMeasureSale extends BaseUnitofMeasureSale {
 	public function isStockedByCaseWeight() {
 		return in_array($this->pricebyweight, [self::STOCKBYWEIGHT_CATCH, self::STOCKBYWEIGHT_STANDARD]);
 	}
+
+	/**
+	 * Return if Qty is Weight
+	 * @return bool
+	 */
+	public function isWeightQty() {
+		return in_array($this->pricebyweight, [self::STOCKBYWEIGHT_CATCH]);
+	}
 }

@@ -60,7 +60,6 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'decimal_places'           => 'oetbconfdecplaces',
 		'decimal_places_qty'       => 'oetbconfdecplaces',
 		'decimal_places_price'     => 'oetbconfdecordrpric',
-		'decimal_places_price'     => 'oetbconfdecordrpric',
 		'allow_change_price'       => 'oetbconfchgpric',
 		'allowpricechange'         => 'oetbconfchgpric',
 		'use_core_items'           => 'oetbcon2usecore',
@@ -73,8 +72,20 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'pickingtype'              => 'oetbCon3pickpackcode',
 		'freightAllowAmt'          => 'oetbcon2frtallowamt',
 		'providerouting'           => 'oetbcon2providerouting',
+		'vso_makeorderchanges' => 'oetbCon2ChgOrder',
+		'vso_verifycomplete'   => 'oetbCon2VerComp',
+		'vso_printinvoice'     => 'oetbCon2PrtInv',
+		'usecanceldate'        => 'oetbconfUsecancDate',
+		'useordnasinvnbr'      => 'oetbconfuseordrnbr',
 	);
 
+	/**
+	 * Return If Order Number is same as Invoice Number
+	 * @return bool
+	 */
+	public function useOrdnAsInvnbr() {
+		return $this->useordnasinvnbr == self::YN_TRUE;
+	}
 
 	/**
 	 * Return If Overpicking is allowed

@@ -57,6 +57,7 @@ class SalesOrder extends BaseSalesOrder {
 		'date_canceled'   => 'oehdcancdate',
 		'date_taken'      => 'oehdtakendate',
 		'releasenumber'   => 'oehdreleasenbr',
+		'releasenbr'      => 'oehdreleasenbr',
 		'status'          => 'oehdstat',
 		'orderstatus'     => 'oehdstat',
 		'subtotal_nontax' => 'OehdNonTaxSub',
@@ -97,11 +98,13 @@ class SalesOrder extends BaseSalesOrder {
 		'exchangerate'    => 'oehdexchrate',
 		'items'           => 'SalesOrderDetails', // NOTE: Used for getting Detaisl via __call()
 		'pickqueue'       => 'oehdpickqueue',
+		'hold'            => 'oehdhold',
 	);
 
 	const LENGTH = 10;
 	const STATUS_NEW = 'N';
 	const PICKQUEUE_LOCKED = 'L';
+	const ONHOLD_FALSE = 'N';
 
 	/**
 	 * Order Statuses indexed by description
@@ -111,7 +114,8 @@ class SalesOrder extends BaseSalesOrder {
 		'new'       => 'N',
 		'picked'    => 'P',
 		'verified'  => 'V',
-		'invoiced'  => 'I'
+		'invoiced'  => 'I',
+		'sales'     => 'S',
 	);
 
 	/**

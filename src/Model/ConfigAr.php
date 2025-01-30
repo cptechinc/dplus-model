@@ -45,7 +45,6 @@ class ConfigAr extends BaseConfigAr {
 		'defaultAllowBackorder'   => 'artbconfallowbo',
 		'defaultAllowFinancecharge'    => 'artbconfallowfc',
 		'defaultGlCodeFreight'    => 'artbconffrtacct',
-		'defaultGlCodeFreight'    => 'artbconffrtacct',
 		'defaultGlCodeMisc'       => 'artbconfmiscacct',
 		'defaultGlCodeAr'         => 'artbconfaracct',
 		'defaultGlCodeCash'       => 'artbconfcashacct',
@@ -57,6 +56,7 @@ class ConfigAr extends BaseConfigAr {
 		'usercodelabelshipto'     => 'artbconfshiplabl',
 		'overduestmtdays1'        => 'artbconfover1',
 		'overduestmtdays2'        => 'artbconfover2',
+		'nbrofsalespersons'       => 'artbconfnbrsp',
 	);
 
 	/**

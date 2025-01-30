@@ -32,6 +32,7 @@ class ArCust3partyFreight extends BaseArCust3partyFreight {
 		'city'            => 'ar3pcity',
 		'state'           => 'ar3pstat',
 		'zip'             => 'ar3pzipcode',
+		'zipcode'         => 'ar3pzipcode',
 		'international'   => 'ar3pintl',
 		'phone'           => 'ar3ptelenbr',
 		'phoneintl'       => 'ar3pitelnbr',
