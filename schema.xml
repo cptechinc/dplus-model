@@ -3854,13 +3854,6 @@
     <column name="PotbConfPowgOqMethod" phpName="Potbconfpowgoqmethod" type="INTEGER" size="1" sqlType="int(1) unsigned" required="true" defaultValue="1"/>
     <column name="PotbConfFxPo" phpName="Potbconffxpo" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfFxInv" phpName="Potbconffxinv" type="CHAR" required="true" defaultValue="N"/>
-    <column name="PotbConfUseLandCost" phpName="Potbconfuselandcost" type="CHAR" required="true" defaultValue="N"/>
-    <column name="PotbConfBaseLandAmtQty" phpName="Potbconfbaselandamtqty" type="CHAR" required="true" defaultValue="A"/>
-    <column name="PotbConfLandGlAcct" phpName="Potbconflandglacct" type="VARCHAR" size="9" required="true" defaultValue=""/>
-    <column name="PotbConfWarnLandInEr" phpName="Potbconfwarnlandiner" type="CHAR" required="true" defaultValue="N"/>
-    <column name="PotbConfLandAmtMultWght" phpName="Potbconflandamtmultwght" type="CHAR" required="true" defaultValue="A"/>
-    <column name="PotbConfLandErEdit" phpName="Potbconflanderedit" type="CHAR" required="true" defaultValue="Y"/>
-    <column name="PotbConfHistCmplFab" phpName="Potbconfhistcmplfab" type="CHAR" required="true" defaultValue="C"/>
     <column name="PotbConfUpDateVendCost" phpName="Potbconfupdatevendcost" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfAskUpDate" phpName="Potbconfaskupdate" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfVxmRoundPos" phpName="Potbconfvxmroundpos" type="INTEGER" size="1" sqlType="int(1) unsigned" required="true" defaultValue="3"/>
@@ -3894,6 +3887,16 @@
     <column name="PotbConfUseRemain" phpName="Potbconfuseremain" type="CHAR" required="true" defaultValue="Y"/>
     <column name="PotbConfSameCompCost" phpName="Potbconfsamecompcost" type="CHAR" required="true" defaultValue="K"/>
     <column name="PotbConfPassCode" phpName="Potbconfpasscode" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="PotbConfUseLandCost" phpName="Potbconfuselandcost" type="CHAR" required="true" defaultValue="N"/>
+    <column name="PotbConfBaseLandAmtQty" phpName="Potbconfbaselandamtqty" type="CHAR" required="true" defaultValue="A"/>
+    <column name="PotbConfWarnLandInEr" phpName="Potbconfwarnlandiner" type="CHAR" required="true" defaultValue="N"/>
+    <column name="PotbConfLandAmtMultWght" phpName="Potbconflandamtmultwght" type="CHAR" required="true" defaultValue="A"/>
+    <column name="PotbConfLandErEdit" phpName="Potbconflanderedit" type="CHAR" required="true" defaultValue="Y"/>
+    <column name="PotbConfHistCmplFab" phpName="Potbconfhistcmplfab" type="CHAR" required="true" defaultValue="C"/>
+    <column name="PotbConfLandGlAcct" phpName="Potbconflandglacct" type="VARCHAR" size="9" required="true" defaultValue=""/>
+    <column name="PotbLandMpfGlAcct" phpName="Potblandmpfglacct" type="VARCHAR" size="9" required="true" defaultValue=""/>
+    <column name="PotbLandHmfGlAcct" phpName="Potblandhmfglacct" type="VARCHAR" size="9" required="true" defaultValue=""/>
+    <column name="PotbLandDsetGlAcct" phpName="Potblanddsetglacct" type="VARCHAR" size="9" required="true" defaultValue=""/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>

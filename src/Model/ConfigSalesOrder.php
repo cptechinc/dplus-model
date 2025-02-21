@@ -80,6 +80,7 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'sop_treatlotslikenormal' => 'oetbcon3soplotlikenorm',
 		'eso_showquotelink'       => 'oetbcon3esoshowquotlink',
 		'eso_showwiplink'         => 'oetbcon3esoshowwiplink',
+		'useqtytoship'            => 'oetbconfqtytoship',
 	);
 
 	/**
