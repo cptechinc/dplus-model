@@ -66,13 +66,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPoQuery orderByPotbconfpowgoqmethod($order = Criteria::ASC) Order by the PotbConfPowgOqMethod column
  * @method     ChildConfigPoQuery orderByPotbconffxpo($order = Criteria::ASC) Order by the PotbConfFxPo column
  * @method     ChildConfigPoQuery orderByPotbconffxinv($order = Criteria::ASC) Order by the PotbConfFxInv column
- * @method     ChildConfigPoQuery orderByPotbconfuselandcost($order = Criteria::ASC) Order by the PotbConfUseLandCost column
- * @method     ChildConfigPoQuery orderByPotbconfbaselandamtqty($order = Criteria::ASC) Order by the PotbConfBaseLandAmtQty column
- * @method     ChildConfigPoQuery orderByPotbconflandglacct($order = Criteria::ASC) Order by the PotbConfLandGlAcct column
- * @method     ChildConfigPoQuery orderByPotbconfwarnlandiner($order = Criteria::ASC) Order by the PotbConfWarnLandInEr column
- * @method     ChildConfigPoQuery orderByPotbconflandamtmultwght($order = Criteria::ASC) Order by the PotbConfLandAmtMultWght column
- * @method     ChildConfigPoQuery orderByPotbconflanderedit($order = Criteria::ASC) Order by the PotbConfLandErEdit column
- * @method     ChildConfigPoQuery orderByPotbconfhistcmplfab($order = Criteria::ASC) Order by the PotbConfHistCmplFab column
  * @method     ChildConfigPoQuery orderByPotbconfupdatevendcost($order = Criteria::ASC) Order by the PotbConfUpDateVendCost column
  * @method     ChildConfigPoQuery orderByPotbconfaskupdate($order = Criteria::ASC) Order by the PotbConfAskUpDate column
  * @method     ChildConfigPoQuery orderByPotbconfvxmroundpos($order = Criteria::ASC) Order by the PotbConfVxmRoundPos column
@@ -106,6 +99,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPoQuery orderByPotbconfuseremain($order = Criteria::ASC) Order by the PotbConfUseRemain column
  * @method     ChildConfigPoQuery orderByPotbconfsamecompcost($order = Criteria::ASC) Order by the PotbConfSameCompCost column
  * @method     ChildConfigPoQuery orderByPotbconfpasscode($order = Criteria::ASC) Order by the PotbConfPassCode column
+ * @method     ChildConfigPoQuery orderByPotbconfuselandcost($order = Criteria::ASC) Order by the PotbConfUseLandCost column
+ * @method     ChildConfigPoQuery orderByPotbconfbaselandamtqty($order = Criteria::ASC) Order by the PotbConfBaseLandAmtQty column
+ * @method     ChildConfigPoQuery orderByPotbconfwarnlandiner($order = Criteria::ASC) Order by the PotbConfWarnLandInEr column
+ * @method     ChildConfigPoQuery orderByPotbconflandamtmultwght($order = Criteria::ASC) Order by the PotbConfLandAmtMultWght column
+ * @method     ChildConfigPoQuery orderByPotbconflanderedit($order = Criteria::ASC) Order by the PotbConfLandErEdit column
+ * @method     ChildConfigPoQuery orderByPotbconfhistcmplfab($order = Criteria::ASC) Order by the PotbConfHistCmplFab column
+ * @method     ChildConfigPoQuery orderByPotbconflandglacct($order = Criteria::ASC) Order by the PotbConfLandGlAcct column
+ * @method     ChildConfigPoQuery orderByPotblandmpfglacct($order = Criteria::ASC) Order by the PotbLandMpfGlAcct column
+ * @method     ChildConfigPoQuery orderByPotblandhmfglacct($order = Criteria::ASC) Order by the PotbLandHmfGlAcct column
+ * @method     ChildConfigPoQuery orderByPotblanddsetglacct($order = Criteria::ASC) Order by the PotbLandDsetGlAcct column
  * @method     ChildConfigPoQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildConfigPoQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildConfigPoQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -157,13 +160,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPoQuery groupByPotbconfpowgoqmethod() Group by the PotbConfPowgOqMethod column
  * @method     ChildConfigPoQuery groupByPotbconffxpo() Group by the PotbConfFxPo column
  * @method     ChildConfigPoQuery groupByPotbconffxinv() Group by the PotbConfFxInv column
- * @method     ChildConfigPoQuery groupByPotbconfuselandcost() Group by the PotbConfUseLandCost column
- * @method     ChildConfigPoQuery groupByPotbconfbaselandamtqty() Group by the PotbConfBaseLandAmtQty column
- * @method     ChildConfigPoQuery groupByPotbconflandglacct() Group by the PotbConfLandGlAcct column
- * @method     ChildConfigPoQuery groupByPotbconfwarnlandiner() Group by the PotbConfWarnLandInEr column
- * @method     ChildConfigPoQuery groupByPotbconflandamtmultwght() Group by the PotbConfLandAmtMultWght column
- * @method     ChildConfigPoQuery groupByPotbconflanderedit() Group by the PotbConfLandErEdit column
- * @method     ChildConfigPoQuery groupByPotbconfhistcmplfab() Group by the PotbConfHistCmplFab column
  * @method     ChildConfigPoQuery groupByPotbconfupdatevendcost() Group by the PotbConfUpDateVendCost column
  * @method     ChildConfigPoQuery groupByPotbconfaskupdate() Group by the PotbConfAskUpDate column
  * @method     ChildConfigPoQuery groupByPotbconfvxmroundpos() Group by the PotbConfVxmRoundPos column
@@ -197,6 +193,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPoQuery groupByPotbconfuseremain() Group by the PotbConfUseRemain column
  * @method     ChildConfigPoQuery groupByPotbconfsamecompcost() Group by the PotbConfSameCompCost column
  * @method     ChildConfigPoQuery groupByPotbconfpasscode() Group by the PotbConfPassCode column
+ * @method     ChildConfigPoQuery groupByPotbconfuselandcost() Group by the PotbConfUseLandCost column
+ * @method     ChildConfigPoQuery groupByPotbconfbaselandamtqty() Group by the PotbConfBaseLandAmtQty column
+ * @method     ChildConfigPoQuery groupByPotbconfwarnlandiner() Group by the PotbConfWarnLandInEr column
+ * @method     ChildConfigPoQuery groupByPotbconflandamtmultwght() Group by the PotbConfLandAmtMultWght column
+ * @method     ChildConfigPoQuery groupByPotbconflanderedit() Group by the PotbConfLandErEdit column
+ * @method     ChildConfigPoQuery groupByPotbconfhistcmplfab() Group by the PotbConfHistCmplFab column
+ * @method     ChildConfigPoQuery groupByPotbconflandglacct() Group by the PotbConfLandGlAcct column
+ * @method     ChildConfigPoQuery groupByPotblandmpfglacct() Group by the PotbLandMpfGlAcct column
+ * @method     ChildConfigPoQuery groupByPotblandhmfglacct() Group by the PotbLandHmfGlAcct column
+ * @method     ChildConfigPoQuery groupByPotblanddsetglacct() Group by the PotbLandDsetGlAcct column
  * @method     ChildConfigPoQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildConfigPoQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildConfigPoQuery groupByDummy() Group by the dummy column
@@ -259,13 +265,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPo findOneByPotbconfpowgoqmethod(int $PotbConfPowgOqMethod) Return the first ChildConfigPo filtered by the PotbConfPowgOqMethod column
  * @method     ChildConfigPo findOneByPotbconffxpo(string $PotbConfFxPo) Return the first ChildConfigPo filtered by the PotbConfFxPo column
  * @method     ChildConfigPo findOneByPotbconffxinv(string $PotbConfFxInv) Return the first ChildConfigPo filtered by the PotbConfFxInv column
- * @method     ChildConfigPo findOneByPotbconfuselandcost(string $PotbConfUseLandCost) Return the first ChildConfigPo filtered by the PotbConfUseLandCost column
- * @method     ChildConfigPo findOneByPotbconfbaselandamtqty(string $PotbConfBaseLandAmtQty) Return the first ChildConfigPo filtered by the PotbConfBaseLandAmtQty column
- * @method     ChildConfigPo findOneByPotbconflandglacct(string $PotbConfLandGlAcct) Return the first ChildConfigPo filtered by the PotbConfLandGlAcct column
- * @method     ChildConfigPo findOneByPotbconfwarnlandiner(string $PotbConfWarnLandInEr) Return the first ChildConfigPo filtered by the PotbConfWarnLandInEr column
- * @method     ChildConfigPo findOneByPotbconflandamtmultwght(string $PotbConfLandAmtMultWght) Return the first ChildConfigPo filtered by the PotbConfLandAmtMultWght column
- * @method     ChildConfigPo findOneByPotbconflanderedit(string $PotbConfLandErEdit) Return the first ChildConfigPo filtered by the PotbConfLandErEdit column
- * @method     ChildConfigPo findOneByPotbconfhistcmplfab(string $PotbConfHistCmplFab) Return the first ChildConfigPo filtered by the PotbConfHistCmplFab column
  * @method     ChildConfigPo findOneByPotbconfupdatevendcost(string $PotbConfUpDateVendCost) Return the first ChildConfigPo filtered by the PotbConfUpDateVendCost column
  * @method     ChildConfigPo findOneByPotbconfaskupdate(string $PotbConfAskUpDate) Return the first ChildConfigPo filtered by the PotbConfAskUpDate column
  * @method     ChildConfigPo findOneByPotbconfvxmroundpos(int $PotbConfVxmRoundPos) Return the first ChildConfigPo filtered by the PotbConfVxmRoundPos column
@@ -299,6 +298,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPo findOneByPotbconfuseremain(string $PotbConfUseRemain) Return the first ChildConfigPo filtered by the PotbConfUseRemain column
  * @method     ChildConfigPo findOneByPotbconfsamecompcost(string $PotbConfSameCompCost) Return the first ChildConfigPo filtered by the PotbConfSameCompCost column
  * @method     ChildConfigPo findOneByPotbconfpasscode(string $PotbConfPassCode) Return the first ChildConfigPo filtered by the PotbConfPassCode column
+ * @method     ChildConfigPo findOneByPotbconfuselandcost(string $PotbConfUseLandCost) Return the first ChildConfigPo filtered by the PotbConfUseLandCost column
+ * @method     ChildConfigPo findOneByPotbconfbaselandamtqty(string $PotbConfBaseLandAmtQty) Return the first ChildConfigPo filtered by the PotbConfBaseLandAmtQty column
+ * @method     ChildConfigPo findOneByPotbconfwarnlandiner(string $PotbConfWarnLandInEr) Return the first ChildConfigPo filtered by the PotbConfWarnLandInEr column
+ * @method     ChildConfigPo findOneByPotbconflandamtmultwght(string $PotbConfLandAmtMultWght) Return the first ChildConfigPo filtered by the PotbConfLandAmtMultWght column
+ * @method     ChildConfigPo findOneByPotbconflanderedit(string $PotbConfLandErEdit) Return the first ChildConfigPo filtered by the PotbConfLandErEdit column
+ * @method     ChildConfigPo findOneByPotbconfhistcmplfab(string $PotbConfHistCmplFab) Return the first ChildConfigPo filtered by the PotbConfHistCmplFab column
+ * @method     ChildConfigPo findOneByPotbconflandglacct(string $PotbConfLandGlAcct) Return the first ChildConfigPo filtered by the PotbConfLandGlAcct column
+ * @method     ChildConfigPo findOneByPotblandmpfglacct(string $PotbLandMpfGlAcct) Return the first ChildConfigPo filtered by the PotbLandMpfGlAcct column
+ * @method     ChildConfigPo findOneByPotblandhmfglacct(string $PotbLandHmfGlAcct) Return the first ChildConfigPo filtered by the PotbLandHmfGlAcct column
+ * @method     ChildConfigPo findOneByPotblanddsetglacct(string $PotbLandDsetGlAcct) Return the first ChildConfigPo filtered by the PotbLandDsetGlAcct column
  * @method     ChildConfigPo findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigPo filtered by the DateUpdtd column
  * @method     ChildConfigPo findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigPo filtered by the TimeUpdtd column
  * @method     ChildConfigPo findOneByDummy(string $dummy) Return the first ChildConfigPo filtered by the dummy column *
@@ -353,13 +362,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPo requireOneByPotbconfpowgoqmethod(int $PotbConfPowgOqMethod) Return the first ChildConfigPo filtered by the PotbConfPowgOqMethod column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByPotbconffxpo(string $PotbConfFxPo) Return the first ChildConfigPo filtered by the PotbConfFxPo column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByPotbconffxinv(string $PotbConfFxInv) Return the first ChildConfigPo filtered by the PotbConfFxInv column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigPo requireOneByPotbconfuselandcost(string $PotbConfUseLandCost) Return the first ChildConfigPo filtered by the PotbConfUseLandCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigPo requireOneByPotbconfbaselandamtqty(string $PotbConfBaseLandAmtQty) Return the first ChildConfigPo filtered by the PotbConfBaseLandAmtQty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigPo requireOneByPotbconflandglacct(string $PotbConfLandGlAcct) Return the first ChildConfigPo filtered by the PotbConfLandGlAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigPo requireOneByPotbconfwarnlandiner(string $PotbConfWarnLandInEr) Return the first ChildConfigPo filtered by the PotbConfWarnLandInEr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigPo requireOneByPotbconflandamtmultwght(string $PotbConfLandAmtMultWght) Return the first ChildConfigPo filtered by the PotbConfLandAmtMultWght column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigPo requireOneByPotbconflanderedit(string $PotbConfLandErEdit) Return the first ChildConfigPo filtered by the PotbConfLandErEdit column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigPo requireOneByPotbconfhistcmplfab(string $PotbConfHistCmplFab) Return the first ChildConfigPo filtered by the PotbConfHistCmplFab column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByPotbconfupdatevendcost(string $PotbConfUpDateVendCost) Return the first ChildConfigPo filtered by the PotbConfUpDateVendCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByPotbconfaskupdate(string $PotbConfAskUpDate) Return the first ChildConfigPo filtered by the PotbConfAskUpDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByPotbconfvxmroundpos(int $PotbConfVxmRoundPos) Return the first ChildConfigPo filtered by the PotbConfVxmRoundPos column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -393,6 +395,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPo requireOneByPotbconfuseremain(string $PotbConfUseRemain) Return the first ChildConfigPo filtered by the PotbConfUseRemain column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByPotbconfsamecompcost(string $PotbConfSameCompCost) Return the first ChildConfigPo filtered by the PotbConfSameCompCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByPotbconfpasscode(string $PotbConfPassCode) Return the first ChildConfigPo filtered by the PotbConfPassCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigPo requireOneByPotbconfuselandcost(string $PotbConfUseLandCost) Return the first ChildConfigPo filtered by the PotbConfUseLandCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigPo requireOneByPotbconfbaselandamtqty(string $PotbConfBaseLandAmtQty) Return the first ChildConfigPo filtered by the PotbConfBaseLandAmtQty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigPo requireOneByPotbconfwarnlandiner(string $PotbConfWarnLandInEr) Return the first ChildConfigPo filtered by the PotbConfWarnLandInEr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigPo requireOneByPotbconflandamtmultwght(string $PotbConfLandAmtMultWght) Return the first ChildConfigPo filtered by the PotbConfLandAmtMultWght column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigPo requireOneByPotbconflanderedit(string $PotbConfLandErEdit) Return the first ChildConfigPo filtered by the PotbConfLandErEdit column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigPo requireOneByPotbconfhistcmplfab(string $PotbConfHistCmplFab) Return the first ChildConfigPo filtered by the PotbConfHistCmplFab column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigPo requireOneByPotbconflandglacct(string $PotbConfLandGlAcct) Return the first ChildConfigPo filtered by the PotbConfLandGlAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigPo requireOneByPotblandmpfglacct(string $PotbLandMpfGlAcct) Return the first ChildConfigPo filtered by the PotbLandMpfGlAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigPo requireOneByPotblandhmfglacct(string $PotbLandHmfGlAcct) Return the first ChildConfigPo filtered by the PotbLandHmfGlAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigPo requireOneByPotblanddsetglacct(string $PotbLandDsetGlAcct) Return the first ChildConfigPo filtered by the PotbLandDsetGlAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigPo filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigPo filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByDummy(string $dummy) Return the first ChildConfigPo filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -445,13 +457,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPo[]|ObjectCollection findByPotbconfpowgoqmethod(int $PotbConfPowgOqMethod) Return ChildConfigPo objects filtered by the PotbConfPowgOqMethod column
  * @method     ChildConfigPo[]|ObjectCollection findByPotbconffxpo(string $PotbConfFxPo) Return ChildConfigPo objects filtered by the PotbConfFxPo column
  * @method     ChildConfigPo[]|ObjectCollection findByPotbconffxinv(string $PotbConfFxInv) Return ChildConfigPo objects filtered by the PotbConfFxInv column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfuselandcost(string $PotbConfUseLandCost) Return ChildConfigPo objects filtered by the PotbConfUseLandCost column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfbaselandamtqty(string $PotbConfBaseLandAmtQty) Return ChildConfigPo objects filtered by the PotbConfBaseLandAmtQty column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconflandglacct(string $PotbConfLandGlAcct) Return ChildConfigPo objects filtered by the PotbConfLandGlAcct column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfwarnlandiner(string $PotbConfWarnLandInEr) Return ChildConfigPo objects filtered by the PotbConfWarnLandInEr column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconflandamtmultwght(string $PotbConfLandAmtMultWght) Return ChildConfigPo objects filtered by the PotbConfLandAmtMultWght column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconflanderedit(string $PotbConfLandErEdit) Return ChildConfigPo objects filtered by the PotbConfLandErEdit column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfhistcmplfab(string $PotbConfHistCmplFab) Return ChildConfigPo objects filtered by the PotbConfHistCmplFab column
  * @method     ChildConfigPo[]|ObjectCollection findByPotbconfupdatevendcost(string $PotbConfUpDateVendCost) Return ChildConfigPo objects filtered by the PotbConfUpDateVendCost column
  * @method     ChildConfigPo[]|ObjectCollection findByPotbconfaskupdate(string $PotbConfAskUpDate) Return ChildConfigPo objects filtered by the PotbConfAskUpDate column
  * @method     ChildConfigPo[]|ObjectCollection findByPotbconfvxmroundpos(int $PotbConfVxmRoundPos) Return ChildConfigPo objects filtered by the PotbConfVxmRoundPos column
@@ -485,6 +490,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPo[]|ObjectCollection findByPotbconfuseremain(string $PotbConfUseRemain) Return ChildConfigPo objects filtered by the PotbConfUseRemain column
  * @method     ChildConfigPo[]|ObjectCollection findByPotbconfsamecompcost(string $PotbConfSameCompCost) Return ChildConfigPo objects filtered by the PotbConfSameCompCost column
  * @method     ChildConfigPo[]|ObjectCollection findByPotbconfpasscode(string $PotbConfPassCode) Return ChildConfigPo objects filtered by the PotbConfPassCode column
+ * @method     ChildConfigPo[]|ObjectCollection findByPotbconfuselandcost(string $PotbConfUseLandCost) Return ChildConfigPo objects filtered by the PotbConfUseLandCost column
+ * @method     ChildConfigPo[]|ObjectCollection findByPotbconfbaselandamtqty(string $PotbConfBaseLandAmtQty) Return ChildConfigPo objects filtered by the PotbConfBaseLandAmtQty column
+ * @method     ChildConfigPo[]|ObjectCollection findByPotbconfwarnlandiner(string $PotbConfWarnLandInEr) Return ChildConfigPo objects filtered by the PotbConfWarnLandInEr column
+ * @method     ChildConfigPo[]|ObjectCollection findByPotbconflandamtmultwght(string $PotbConfLandAmtMultWght) Return ChildConfigPo objects filtered by the PotbConfLandAmtMultWght column
+ * @method     ChildConfigPo[]|ObjectCollection findByPotbconflanderedit(string $PotbConfLandErEdit) Return ChildConfigPo objects filtered by the PotbConfLandErEdit column
+ * @method     ChildConfigPo[]|ObjectCollection findByPotbconfhistcmplfab(string $PotbConfHistCmplFab) Return ChildConfigPo objects filtered by the PotbConfHistCmplFab column
+ * @method     ChildConfigPo[]|ObjectCollection findByPotbconflandglacct(string $PotbConfLandGlAcct) Return ChildConfigPo objects filtered by the PotbConfLandGlAcct column
+ * @method     ChildConfigPo[]|ObjectCollection findByPotblandmpfglacct(string $PotbLandMpfGlAcct) Return ChildConfigPo objects filtered by the PotbLandMpfGlAcct column
+ * @method     ChildConfigPo[]|ObjectCollection findByPotblandhmfglacct(string $PotbLandHmfGlAcct) Return ChildConfigPo objects filtered by the PotbLandHmfGlAcct column
+ * @method     ChildConfigPo[]|ObjectCollection findByPotblanddsetglacct(string $PotbLandDsetGlAcct) Return ChildConfigPo objects filtered by the PotbLandDsetGlAcct column
  * @method     ChildConfigPo[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildConfigPo objects filtered by the DateUpdtd column
  * @method     ChildConfigPo[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildConfigPo objects filtered by the TimeUpdtd column
  * @method     ChildConfigPo[]|ObjectCollection findByDummy(string $dummy) Return ChildConfigPo objects filtered by the dummy column
@@ -586,7 +601,7 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT PotbConfKey, PotbConfSortPo, PotbConfCancOrRshpDate, PotbConfAckOrEtaDate, PotbConfEditShipDate, PotbConfEditExptDate, PotbConfEditCancDate, PotbConfEditAckDate, PotbConfExptDateDef, PotbConfHeadGetDef, PotbConfReseq, PotbConfForceVxref, PotbConfQtyDue, PotbConfWarnDup, PotbConfForcePoRef, PotbConfDestWhse, PotbConfEditPoItemNotes, PotbConfLoadPoVxmNotes, PotbConfEpoUpdLastCost, PotbConfRecAll, PotbConfRecAllAsk, PotbConfReceiveCost, PotbConfProcVari, PotbConfCostRcvryAcct, PotbConfInvtyVariAcct, PotbConfAllowChgCost, PotbConfWarnRcptQty, PotbConfErDispDate, PotbConfProvideLpo, PotbConfWarnDiffWhse, PotbConfAllocRcvd, PotbConfAskClose, PotbConfErAdd2Po, PotbConfTariffGlAcct, PotbConfShopGlAcct, PotbConfShopRate, PotbConfUsePrime, PotbConfUseWatch, PotbConfPrtPowSugg, PotbConfPowSlctYes, PotbConfPowgVendRpt, PotbConfPowgWipStatus, PotbConfPowgWipAutoGen, PotbConfBuyerControl, PotbConfPowgOqMethod, PotbConfFxPo, PotbConfFxInv, PotbConfUseLandCost, PotbConfBaseLandAmtQty, PotbConfLandGlAcct, PotbConfWarnLandInEr, PotbConfLandAmtMultWght, PotbConfLandErEdit, PotbConfHistCmplFab, PotbConfUpDateVendCost, PotbConfAskUpDate, PotbConfVxmRoundPos, PotbConfXrefMaint, PotbConfUseIdOpts, PotbConfSrchVxmFirst, PotbConfOpenLineOnly, PotbConfItemDesc, PotbConfOpenBalOnly, PotbConfPrtWhseDtl, PotbConfAutoRcpt, PotbConfDispItemCost, PotbConfDispCaseQty, PotbConfOneTwoLine, PotbConfUseOrdrAs, PotbConfAprvVendOnly, PotbConfUseFab, PotbConfShowItem, PotbConfScrapAcct, PotbConfScrapVariPct, PotbConfLifoFifo, PotbConfFabBomOrKit, PotbConfAllocEpoEr, PotbConfFabPrealloc, PotbConfForceFabEpo, PotbConfPreviewCompList, PotbConfNegCompUsage, PotbConfAutoSelectComp, PotbConfBinFromVendor, PotbConfDfltStckCd, PotbConfUseRemain, PotbConfSameCompCost, PotbConfPassCode, DateUpdtd, TimeUpdtd, dummy FROM po_config WHERE PotbConfKey = :p0';
+        $sql = 'SELECT PotbConfKey, PotbConfSortPo, PotbConfCancOrRshpDate, PotbConfAckOrEtaDate, PotbConfEditShipDate, PotbConfEditExptDate, PotbConfEditCancDate, PotbConfEditAckDate, PotbConfExptDateDef, PotbConfHeadGetDef, PotbConfReseq, PotbConfForceVxref, PotbConfQtyDue, PotbConfWarnDup, PotbConfForcePoRef, PotbConfDestWhse, PotbConfEditPoItemNotes, PotbConfLoadPoVxmNotes, PotbConfEpoUpdLastCost, PotbConfRecAll, PotbConfRecAllAsk, PotbConfReceiveCost, PotbConfProcVari, PotbConfCostRcvryAcct, PotbConfInvtyVariAcct, PotbConfAllowChgCost, PotbConfWarnRcptQty, PotbConfErDispDate, PotbConfProvideLpo, PotbConfWarnDiffWhse, PotbConfAllocRcvd, PotbConfAskClose, PotbConfErAdd2Po, PotbConfTariffGlAcct, PotbConfShopGlAcct, PotbConfShopRate, PotbConfUsePrime, PotbConfUseWatch, PotbConfPrtPowSugg, PotbConfPowSlctYes, PotbConfPowgVendRpt, PotbConfPowgWipStatus, PotbConfPowgWipAutoGen, PotbConfBuyerControl, PotbConfPowgOqMethod, PotbConfFxPo, PotbConfFxInv, PotbConfUpDateVendCost, PotbConfAskUpDate, PotbConfVxmRoundPos, PotbConfXrefMaint, PotbConfUseIdOpts, PotbConfSrchVxmFirst, PotbConfOpenLineOnly, PotbConfItemDesc, PotbConfOpenBalOnly, PotbConfPrtWhseDtl, PotbConfAutoRcpt, PotbConfDispItemCost, PotbConfDispCaseQty, PotbConfOneTwoLine, PotbConfUseOrdrAs, PotbConfAprvVendOnly, PotbConfUseFab, PotbConfShowItem, PotbConfScrapAcct, PotbConfScrapVariPct, PotbConfLifoFifo, PotbConfFabBomOrKit, PotbConfAllocEpoEr, PotbConfFabPrealloc, PotbConfForceFabEpo, PotbConfPreviewCompList, PotbConfNegCompUsage, PotbConfAutoSelectComp, PotbConfBinFromVendor, PotbConfDfltStckCd, PotbConfUseRemain, PotbConfSameCompCost, PotbConfPassCode, PotbConfUseLandCost, PotbConfBaseLandAmtQty, PotbConfWarnLandInEr, PotbConfLandAmtMultWght, PotbConfLandErEdit, PotbConfHistCmplFab, PotbConfLandGlAcct, PotbLandMpfGlAcct, PotbLandHmfGlAcct, PotbLandDsetGlAcct, DateUpdtd, TimeUpdtd, dummy FROM po_config WHERE PotbConfKey = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -1916,181 +1931,6 @@ abstract class ConfigPoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the PotbConfUseLandCost column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByPotbconfuselandcost('fooValue');   // WHERE PotbConfUseLandCost = 'fooValue'
-     * $query->filterByPotbconfuselandcost('%fooValue%', Criteria::LIKE); // WHERE PotbConfUseLandCost LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $potbconfuselandcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
-     */
-    public function filterByPotbconfuselandcost($potbconfuselandcost = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($potbconfuselandcost)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSELANDCOST, $potbconfuselandcost, $comparison);
-    }
-
-    /**
-     * Filter the query on the PotbConfBaseLandAmtQty column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByPotbconfbaselandamtqty('fooValue');   // WHERE PotbConfBaseLandAmtQty = 'fooValue'
-     * $query->filterByPotbconfbaselandamtqty('%fooValue%', Criteria::LIKE); // WHERE PotbConfBaseLandAmtQty LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $potbconfbaselandamtqty The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
-     */
-    public function filterByPotbconfbaselandamtqty($potbconfbaselandamtqty = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($potbconfbaselandamtqty)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFBASELANDAMTQTY, $potbconfbaselandamtqty, $comparison);
-    }
-
-    /**
-     * Filter the query on the PotbConfLandGlAcct column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByPotbconflandglacct('fooValue');   // WHERE PotbConfLandGlAcct = 'fooValue'
-     * $query->filterByPotbconflandglacct('%fooValue%', Criteria::LIKE); // WHERE PotbConfLandGlAcct LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $potbconflandglacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
-     */
-    public function filterByPotbconflandglacct($potbconflandglacct = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($potbconflandglacct)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLANDGLACCT, $potbconflandglacct, $comparison);
-    }
-
-    /**
-     * Filter the query on the PotbConfWarnLandInEr column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByPotbconfwarnlandiner('fooValue');   // WHERE PotbConfWarnLandInEr = 'fooValue'
-     * $query->filterByPotbconfwarnlandiner('%fooValue%', Criteria::LIKE); // WHERE PotbConfWarnLandInEr LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $potbconfwarnlandiner The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
-     */
-    public function filterByPotbconfwarnlandiner($potbconfwarnlandiner = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($potbconfwarnlandiner)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFWARNLANDINER, $potbconfwarnlandiner, $comparison);
-    }
-
-    /**
-     * Filter the query on the PotbConfLandAmtMultWght column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByPotbconflandamtmultwght('fooValue');   // WHERE PotbConfLandAmtMultWght = 'fooValue'
-     * $query->filterByPotbconflandamtmultwght('%fooValue%', Criteria::LIKE); // WHERE PotbConfLandAmtMultWght LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $potbconflandamtmultwght The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
-     */
-    public function filterByPotbconflandamtmultwght($potbconflandamtmultwght = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($potbconflandamtmultwght)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLANDAMTMULTWGHT, $potbconflandamtmultwght, $comparison);
-    }
-
-    /**
-     * Filter the query on the PotbConfLandErEdit column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByPotbconflanderedit('fooValue');   // WHERE PotbConfLandErEdit = 'fooValue'
-     * $query->filterByPotbconflanderedit('%fooValue%', Criteria::LIKE); // WHERE PotbConfLandErEdit LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $potbconflanderedit The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
-     */
-    public function filterByPotbconflanderedit($potbconflanderedit = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($potbconflanderedit)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLANDEREDIT, $potbconflanderedit, $comparison);
-    }
-
-    /**
-     * Filter the query on the PotbConfHistCmplFab column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByPotbconfhistcmplfab('fooValue');   // WHERE PotbConfHistCmplFab = 'fooValue'
-     * $query->filterByPotbconfhistcmplfab('%fooValue%', Criteria::LIKE); // WHERE PotbConfHistCmplFab LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $potbconfhistcmplfab The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
-     */
-    public function filterByPotbconfhistcmplfab($potbconfhistcmplfab = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($potbconfhistcmplfab)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFHISTCMPLFAB, $potbconfhistcmplfab, $comparison);
-    }
-
-    /**
      * Filter the query on the PotbConfUpDateVendCost column
      *
      * Example usage:
@@ -2961,6 +2801,256 @@ abstract class ConfigPoQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPASSCODE, $potbconfpasscode, $comparison);
+    }
+
+    /**
+     * Filter the query on the PotbConfUseLandCost column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPotbconfuselandcost('fooValue');   // WHERE PotbConfUseLandCost = 'fooValue'
+     * $query->filterByPotbconfuselandcost('%fooValue%', Criteria::LIKE); // WHERE PotbConfUseLandCost LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $potbconfuselandcost The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     */
+    public function filterByPotbconfuselandcost($potbconfuselandcost = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($potbconfuselandcost)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSELANDCOST, $potbconfuselandcost, $comparison);
+    }
+
+    /**
+     * Filter the query on the PotbConfBaseLandAmtQty column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPotbconfbaselandamtqty('fooValue');   // WHERE PotbConfBaseLandAmtQty = 'fooValue'
+     * $query->filterByPotbconfbaselandamtqty('%fooValue%', Criteria::LIKE); // WHERE PotbConfBaseLandAmtQty LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $potbconfbaselandamtqty The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     */
+    public function filterByPotbconfbaselandamtqty($potbconfbaselandamtqty = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($potbconfbaselandamtqty)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFBASELANDAMTQTY, $potbconfbaselandamtqty, $comparison);
+    }
+
+    /**
+     * Filter the query on the PotbConfWarnLandInEr column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPotbconfwarnlandiner('fooValue');   // WHERE PotbConfWarnLandInEr = 'fooValue'
+     * $query->filterByPotbconfwarnlandiner('%fooValue%', Criteria::LIKE); // WHERE PotbConfWarnLandInEr LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $potbconfwarnlandiner The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     */
+    public function filterByPotbconfwarnlandiner($potbconfwarnlandiner = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($potbconfwarnlandiner)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFWARNLANDINER, $potbconfwarnlandiner, $comparison);
+    }
+
+    /**
+     * Filter the query on the PotbConfLandAmtMultWght column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPotbconflandamtmultwght('fooValue');   // WHERE PotbConfLandAmtMultWght = 'fooValue'
+     * $query->filterByPotbconflandamtmultwght('%fooValue%', Criteria::LIKE); // WHERE PotbConfLandAmtMultWght LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $potbconflandamtmultwght The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     */
+    public function filterByPotbconflandamtmultwght($potbconflandamtmultwght = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($potbconflandamtmultwght)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLANDAMTMULTWGHT, $potbconflandamtmultwght, $comparison);
+    }
+
+    /**
+     * Filter the query on the PotbConfLandErEdit column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPotbconflanderedit('fooValue');   // WHERE PotbConfLandErEdit = 'fooValue'
+     * $query->filterByPotbconflanderedit('%fooValue%', Criteria::LIKE); // WHERE PotbConfLandErEdit LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $potbconflanderedit The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     */
+    public function filterByPotbconflanderedit($potbconflanderedit = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($potbconflanderedit)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLANDEREDIT, $potbconflanderedit, $comparison);
+    }
+
+    /**
+     * Filter the query on the PotbConfHistCmplFab column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPotbconfhistcmplfab('fooValue');   // WHERE PotbConfHistCmplFab = 'fooValue'
+     * $query->filterByPotbconfhistcmplfab('%fooValue%', Criteria::LIKE); // WHERE PotbConfHistCmplFab LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $potbconfhistcmplfab The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     */
+    public function filterByPotbconfhistcmplfab($potbconfhistcmplfab = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($potbconfhistcmplfab)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFHISTCMPLFAB, $potbconfhistcmplfab, $comparison);
+    }
+
+    /**
+     * Filter the query on the PotbConfLandGlAcct column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPotbconflandglacct('fooValue');   // WHERE PotbConfLandGlAcct = 'fooValue'
+     * $query->filterByPotbconflandglacct('%fooValue%', Criteria::LIKE); // WHERE PotbConfLandGlAcct LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $potbconflandglacct The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     */
+    public function filterByPotbconflandglacct($potbconflandglacct = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($potbconflandglacct)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLANDGLACCT, $potbconflandglacct, $comparison);
+    }
+
+    /**
+     * Filter the query on the PotbLandMpfGlAcct column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPotblandmpfglacct('fooValue');   // WHERE PotbLandMpfGlAcct = 'fooValue'
+     * $query->filterByPotblandmpfglacct('%fooValue%', Criteria::LIKE); // WHERE PotbLandMpfGlAcct LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $potblandmpfglacct The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     */
+    public function filterByPotblandmpfglacct($potblandmpfglacct = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($potblandmpfglacct)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBLANDMPFGLACCT, $potblandmpfglacct, $comparison);
+    }
+
+    /**
+     * Filter the query on the PotbLandHmfGlAcct column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPotblandhmfglacct('fooValue');   // WHERE PotbLandHmfGlAcct = 'fooValue'
+     * $query->filterByPotblandhmfglacct('%fooValue%', Criteria::LIKE); // WHERE PotbLandHmfGlAcct LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $potblandhmfglacct The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     */
+    public function filterByPotblandhmfglacct($potblandhmfglacct = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($potblandhmfglacct)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBLANDHMFGLACCT, $potblandhmfglacct, $comparison);
+    }
+
+    /**
+     * Filter the query on the PotbLandDsetGlAcct column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPotblanddsetglacct('fooValue');   // WHERE PotbLandDsetGlAcct = 'fooValue'
+     * $query->filterByPotblanddsetglacct('%fooValue%', Criteria::LIKE); // WHERE PotbLandDsetGlAcct LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $potblanddsetglacct The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     */
+    public function filterByPotblanddsetglacct($potblanddsetglacct = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($potblanddsetglacct)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBLANDDSETGLACCT, $potblanddsetglacct, $comparison);
     }
 
     /**
