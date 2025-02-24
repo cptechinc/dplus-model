@@ -31,6 +31,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetailReceiptQuery orderByPordcosttot($order = Criteria::ASC) Order by the PordCostTot column
  * @method     ChildPurchaseOrderDetailReceiptQuery orderByPordlandunitcost($order = Criteria::ASC) Order by the PordLandUnitCost column
  * @method     ChildPurchaseOrderDetailReceiptQuery orderByPordtariffcost($order = Criteria::ASC) Order by the PordTariffCost column
+ * @method     ChildPurchaseOrderDetailReceiptQuery orderByPordmpfunitcost($order = Criteria::ASC) Order by the PordMpfUnitCost column
+ * @method     ChildPurchaseOrderDetailReceiptQuery orderByPordhmfunitcost($order = Criteria::ASC) Order by the PordHmfUnitCost column
+ * @method     ChildPurchaseOrderDetailReceiptQuery orderByPorddsetunitcost($order = Criteria::ASC) Order by the PordDsetUnitCost column
  * @method     ChildPurchaseOrderDetailReceiptQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildPurchaseOrderDetailReceiptQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildPurchaseOrderDetailReceiptQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -46,6 +49,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetailReceiptQuery groupByPordcosttot() Group by the PordCostTot column
  * @method     ChildPurchaseOrderDetailReceiptQuery groupByPordlandunitcost() Group by the PordLandUnitCost column
  * @method     ChildPurchaseOrderDetailReceiptQuery groupByPordtariffcost() Group by the PordTariffCost column
+ * @method     ChildPurchaseOrderDetailReceiptQuery groupByPordmpfunitcost() Group by the PordMpfUnitCost column
+ * @method     ChildPurchaseOrderDetailReceiptQuery groupByPordhmfunitcost() Group by the PordHmfUnitCost column
+ * @method     ChildPurchaseOrderDetailReceiptQuery groupByPorddsetunitcost() Group by the PordDsetUnitCost column
  * @method     ChildPurchaseOrderDetailReceiptQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildPurchaseOrderDetailReceiptQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildPurchaseOrderDetailReceiptQuery groupByDummy() Group by the dummy column
@@ -93,7 +99,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetailReceipt findOne(ConnectionInterface $con = null) Return the first ChildPurchaseOrderDetailReceipt matching the query
  * @method     ChildPurchaseOrderDetailReceipt findOneOrCreate(ConnectionInterface $con = null) Return the first ChildPurchaseOrderDetailReceipt matching the query, or a new ChildPurchaseOrderDetailReceipt object populated from the query conditions when no match is found
  *
- * @method     ChildPurchaseOrderDetailReceipt findOneByPohdnbr(string $PohdNbr) Return the first ChildPurchaseOrderDetailReceipt filtered by the PohdNbr column
+ * @method     ChildPurchaseOrderDetailReceipt findOneByPohdnbr(int $PohdNbr) Return the first ChildPurchaseOrderDetailReceipt filtered by the PohdNbr column
  * @method     ChildPurchaseOrderDetailReceipt findOneByPodtline(int $PodtLine) Return the first ChildPurchaseOrderDetailReceipt filtered by the PodtLine column
  * @method     ChildPurchaseOrderDetailReceipt findOneByInititemnbr(string $InitItemNbr) Return the first ChildPurchaseOrderDetailReceipt filtered by the InitItemNbr column
  * @method     ChildPurchaseOrderDetailReceipt findOneByPordseq(int $PordSeq) Return the first ChildPurchaseOrderDetailReceipt filtered by the PordSeq column
@@ -104,6 +110,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetailReceipt findOneByPordcosttot(string $PordCostTot) Return the first ChildPurchaseOrderDetailReceipt filtered by the PordCostTot column
  * @method     ChildPurchaseOrderDetailReceipt findOneByPordlandunitcost(string $PordLandUnitCost) Return the first ChildPurchaseOrderDetailReceipt filtered by the PordLandUnitCost column
  * @method     ChildPurchaseOrderDetailReceipt findOneByPordtariffcost(string $PordTariffCost) Return the first ChildPurchaseOrderDetailReceipt filtered by the PordTariffCost column
+ * @method     ChildPurchaseOrderDetailReceipt findOneByPordmpfunitcost(string $PordMpfUnitCost) Return the first ChildPurchaseOrderDetailReceipt filtered by the PordMpfUnitCost column
+ * @method     ChildPurchaseOrderDetailReceipt findOneByPordhmfunitcost(string $PordHmfUnitCost) Return the first ChildPurchaseOrderDetailReceipt filtered by the PordHmfUnitCost column
+ * @method     ChildPurchaseOrderDetailReceipt findOneByPorddsetunitcost(string $PordDsetUnitCost) Return the first ChildPurchaseOrderDetailReceipt filtered by the PordDsetUnitCost column
  * @method     ChildPurchaseOrderDetailReceipt findOneByDateupdtd(string $DateUpdtd) Return the first ChildPurchaseOrderDetailReceipt filtered by the DateUpdtd column
  * @method     ChildPurchaseOrderDetailReceipt findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPurchaseOrderDetailReceipt filtered by the TimeUpdtd column
  * @method     ChildPurchaseOrderDetailReceipt findOneByDummy(string $dummy) Return the first ChildPurchaseOrderDetailReceipt filtered by the dummy column *
@@ -111,7 +120,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetailReceipt requirePk($key, ConnectionInterface $con = null) Return the ChildPurchaseOrderDetailReceipt by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetailReceipt requireOne(ConnectionInterface $con = null) Return the first ChildPurchaseOrderDetailReceipt matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildPurchaseOrderDetailReceipt requireOneByPohdnbr(string $PohdNbr) Return the first ChildPurchaseOrderDetailReceipt filtered by the PohdNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPurchaseOrderDetailReceipt requireOneByPohdnbr(int $PohdNbr) Return the first ChildPurchaseOrderDetailReceipt filtered by the PohdNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetailReceipt requireOneByPodtline(int $PodtLine) Return the first ChildPurchaseOrderDetailReceipt filtered by the PodtLine column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetailReceipt requireOneByInititemnbr(string $InitItemNbr) Return the first ChildPurchaseOrderDetailReceipt filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetailReceipt requireOneByPordseq(int $PordSeq) Return the first ChildPurchaseOrderDetailReceipt filtered by the PordSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -122,12 +131,15 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetailReceipt requireOneByPordcosttot(string $PordCostTot) Return the first ChildPurchaseOrderDetailReceipt filtered by the PordCostTot column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetailReceipt requireOneByPordlandunitcost(string $PordLandUnitCost) Return the first ChildPurchaseOrderDetailReceipt filtered by the PordLandUnitCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetailReceipt requireOneByPordtariffcost(string $PordTariffCost) Return the first ChildPurchaseOrderDetailReceipt filtered by the PordTariffCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPurchaseOrderDetailReceipt requireOneByPordmpfunitcost(string $PordMpfUnitCost) Return the first ChildPurchaseOrderDetailReceipt filtered by the PordMpfUnitCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPurchaseOrderDetailReceipt requireOneByPordhmfunitcost(string $PordHmfUnitCost) Return the first ChildPurchaseOrderDetailReceipt filtered by the PordHmfUnitCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPurchaseOrderDetailReceipt requireOneByPorddsetunitcost(string $PordDsetUnitCost) Return the first ChildPurchaseOrderDetailReceipt filtered by the PordDsetUnitCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetailReceipt requireOneByDateupdtd(string $DateUpdtd) Return the first ChildPurchaseOrderDetailReceipt filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetailReceipt requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPurchaseOrderDetailReceipt filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetailReceipt requireOneByDummy(string $dummy) Return the first ChildPurchaseOrderDetailReceipt filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildPurchaseOrderDetailReceipt[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildPurchaseOrderDetailReceipt objects based on current ModelCriteria
- * @method     ChildPurchaseOrderDetailReceipt[]|ObjectCollection findByPohdnbr(string $PohdNbr) Return ChildPurchaseOrderDetailReceipt objects filtered by the PohdNbr column
+ * @method     ChildPurchaseOrderDetailReceipt[]|ObjectCollection findByPohdnbr(int $PohdNbr) Return ChildPurchaseOrderDetailReceipt objects filtered by the PohdNbr column
  * @method     ChildPurchaseOrderDetailReceipt[]|ObjectCollection findByPodtline(int $PodtLine) Return ChildPurchaseOrderDetailReceipt objects filtered by the PodtLine column
  * @method     ChildPurchaseOrderDetailReceipt[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildPurchaseOrderDetailReceipt objects filtered by the InitItemNbr column
  * @method     ChildPurchaseOrderDetailReceipt[]|ObjectCollection findByPordseq(int $PordSeq) Return ChildPurchaseOrderDetailReceipt objects filtered by the PordSeq column
@@ -138,6 +150,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetailReceipt[]|ObjectCollection findByPordcosttot(string $PordCostTot) Return ChildPurchaseOrderDetailReceipt objects filtered by the PordCostTot column
  * @method     ChildPurchaseOrderDetailReceipt[]|ObjectCollection findByPordlandunitcost(string $PordLandUnitCost) Return ChildPurchaseOrderDetailReceipt objects filtered by the PordLandUnitCost column
  * @method     ChildPurchaseOrderDetailReceipt[]|ObjectCollection findByPordtariffcost(string $PordTariffCost) Return ChildPurchaseOrderDetailReceipt objects filtered by the PordTariffCost column
+ * @method     ChildPurchaseOrderDetailReceipt[]|ObjectCollection findByPordmpfunitcost(string $PordMpfUnitCost) Return ChildPurchaseOrderDetailReceipt objects filtered by the PordMpfUnitCost column
+ * @method     ChildPurchaseOrderDetailReceipt[]|ObjectCollection findByPordhmfunitcost(string $PordHmfUnitCost) Return ChildPurchaseOrderDetailReceipt objects filtered by the PordHmfUnitCost column
+ * @method     ChildPurchaseOrderDetailReceipt[]|ObjectCollection findByPorddsetunitcost(string $PordDsetUnitCost) Return ChildPurchaseOrderDetailReceipt objects filtered by the PordDsetUnitCost column
  * @method     ChildPurchaseOrderDetailReceipt[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildPurchaseOrderDetailReceipt objects filtered by the DateUpdtd column
  * @method     ChildPurchaseOrderDetailReceipt[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildPurchaseOrderDetailReceipt objects filtered by the TimeUpdtd column
  * @method     ChildPurchaseOrderDetailReceipt[]|ObjectCollection findByDummy(string $dummy) Return ChildPurchaseOrderDetailReceipt objects filtered by the dummy column
@@ -239,10 +254,10 @@ abstract class PurchaseOrderDetailReceiptQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT PohdNbr, PodtLine, InitItemNbr, PordSeq, PordRef, PordTranDate, PordGlPd, PordQtyRec, PordCostTot, PordLandUnitCost, PordTariffCost, DateUpdtd, TimeUpdtd, dummy FROM po_receipt_det WHERE PohdNbr = :p0 AND PodtLine = :p1 AND InitItemNbr = :p2 AND PordSeq = :p3';
+        $sql = 'SELECT PohdNbr, PodtLine, InitItemNbr, PordSeq, PordRef, PordTranDate, PordGlPd, PordQtyRec, PordCostTot, PordLandUnitCost, PordTariffCost, PordMpfUnitCost, PordHmfUnitCost, PordDsetUnitCost, DateUpdtd, TimeUpdtd, dummy FROM po_receipt_det WHERE PohdNbr = :p0 AND PodtLine = :p1 AND InitItemNbr = :p2 AND PordSeq = :p3';
         try {
             $stmt = $con->prepare($sql);
-            $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
+            $stmt->bindValue(':p0', $key[0], PDO::PARAM_INT);
             $stmt->bindValue(':p1', $key[1], PDO::PARAM_INT);
             $stmt->bindValue(':p2', $key[2], PDO::PARAM_STR);
             $stmt->bindValue(':p3', $key[3], PDO::PARAM_INT);
@@ -354,19 +369,39 @@ abstract class PurchaseOrderDetailReceiptQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByPohdnbr('fooValue');   // WHERE PohdNbr = 'fooValue'
-     * $query->filterByPohdnbr('%fooValue%', Criteria::LIKE); // WHERE PohdNbr LIKE '%fooValue%'
+     * $query->filterByPohdnbr(1234); // WHERE PohdNbr = 1234
+     * $query->filterByPohdnbr(array(12, 34)); // WHERE PohdNbr IN (12, 34)
+     * $query->filterByPohdnbr(array('min' => 12)); // WHERE PohdNbr > 12
      * </code>
      *
-     * @param     string $pohdnbr The value to use as filter.
+     * @see       filterByPurchaseOrder()
+     *
+     * @see       filterByPurchaseOrderDetail()
+     *
+     * @param     mixed $pohdnbr The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildPurchaseOrderDetailReceiptQuery The current query, for fluid interface
      */
     public function filterByPohdnbr($pohdnbr = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($pohdnbr)) {
+        if (is_array($pohdnbr)) {
+            $useMinMax = false;
+            if (isset($pohdnbr['min'])) {
+                $this->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_POHDNBR, $pohdnbr['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($pohdnbr['max'])) {
+                $this->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_POHDNBR, $pohdnbr['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -736,6 +771,129 @@ abstract class PurchaseOrderDetailReceiptQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_PORDTARIFFCOST, $pordtariffcost, $comparison);
+    }
+
+    /**
+     * Filter the query on the PordMpfUnitCost column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPordmpfunitcost(1234); // WHERE PordMpfUnitCost = 1234
+     * $query->filterByPordmpfunitcost(array(12, 34)); // WHERE PordMpfUnitCost IN (12, 34)
+     * $query->filterByPordmpfunitcost(array('min' => 12)); // WHERE PordMpfUnitCost > 12
+     * </code>
+     *
+     * @param     mixed $pordmpfunitcost The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildPurchaseOrderDetailReceiptQuery The current query, for fluid interface
+     */
+    public function filterByPordmpfunitcost($pordmpfunitcost = null, $comparison = null)
+    {
+        if (is_array($pordmpfunitcost)) {
+            $useMinMax = false;
+            if (isset($pordmpfunitcost['min'])) {
+                $this->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_PORDMPFUNITCOST, $pordmpfunitcost['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($pordmpfunitcost['max'])) {
+                $this->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_PORDMPFUNITCOST, $pordmpfunitcost['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_PORDMPFUNITCOST, $pordmpfunitcost, $comparison);
+    }
+
+    /**
+     * Filter the query on the PordHmfUnitCost column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPordhmfunitcost(1234); // WHERE PordHmfUnitCost = 1234
+     * $query->filterByPordhmfunitcost(array(12, 34)); // WHERE PordHmfUnitCost IN (12, 34)
+     * $query->filterByPordhmfunitcost(array('min' => 12)); // WHERE PordHmfUnitCost > 12
+     * </code>
+     *
+     * @param     mixed $pordhmfunitcost The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildPurchaseOrderDetailReceiptQuery The current query, for fluid interface
+     */
+    public function filterByPordhmfunitcost($pordhmfunitcost = null, $comparison = null)
+    {
+        if (is_array($pordhmfunitcost)) {
+            $useMinMax = false;
+            if (isset($pordhmfunitcost['min'])) {
+                $this->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_PORDHMFUNITCOST, $pordhmfunitcost['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($pordhmfunitcost['max'])) {
+                $this->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_PORDHMFUNITCOST, $pordhmfunitcost['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_PORDHMFUNITCOST, $pordhmfunitcost, $comparison);
+    }
+
+    /**
+     * Filter the query on the PordDsetUnitCost column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPorddsetunitcost(1234); // WHERE PordDsetUnitCost = 1234
+     * $query->filterByPorddsetunitcost(array(12, 34)); // WHERE PordDsetUnitCost IN (12, 34)
+     * $query->filterByPorddsetunitcost(array('min' => 12)); // WHERE PordDsetUnitCost > 12
+     * </code>
+     *
+     * @param     mixed $porddsetunitcost The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildPurchaseOrderDetailReceiptQuery The current query, for fluid interface
+     */
+    public function filterByPorddsetunitcost($porddsetunitcost = null, $comparison = null)
+    {
+        if (is_array($porddsetunitcost)) {
+            $useMinMax = false;
+            if (isset($porddsetunitcost['min'])) {
+                $this->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_PORDDSETUNITCOST, $porddsetunitcost['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($porddsetunitcost['max'])) {
+                $this->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_PORDDSETUNITCOST, $porddsetunitcost['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_PORDDSETUNITCOST, $porddsetunitcost, $comparison);
     }
 
     /**

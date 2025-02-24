@@ -318,6 +318,30 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     protected $potdcasesord;
 
     /**
+     * The value for the potdmpfunitcost field.
+     *
+     * Note: this column has a database default value of: '0.00000'
+     * @var        string
+     */
+    protected $potdmpfunitcost;
+
+    /**
+     * The value for the potdhmfunitcost field.
+     *
+     * Note: this column has a database default value of: '0.00000'
+     * @var        string
+     */
+    protected $potdhmfunitcost;
+
+    /**
+     * The value for the potddsetunitcost field.
+     *
+     * Note: this column has a database default value of: '0.00000'
+     * @var        string
+     */
+    protected $potddsetunitcost;
+
+    /**
      * The value for the dateupdtd field.
      *
      * Note: this column has a database default value of: ''
@@ -413,6 +437,9 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
         $this->potdtariffcost = '0.0000000';
         $this->potdshopcost = '0.0000000';
         $this->potdcasesord = 0;
+        $this->potdmpfunitcost = '0.00000';
+        $this->potdhmfunitcost = '0.00000';
+        $this->potddsetunitcost = '0.00000';
         $this->dateupdtd = '';
         $this->timeupdtd = '';
         $this->dummy = 'P';
@@ -953,6 +980,36 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     public function getPotdcasesord()
     {
         return $this->potdcasesord;
+    }
+
+    /**
+     * Get the [potdmpfunitcost] column value.
+     *
+     * @return string
+     */
+    public function getPotdmpfunitcost()
+    {
+        return $this->potdmpfunitcost;
+    }
+
+    /**
+     * Get the [potdhmfunitcost] column value.
+     *
+     * @return string
+     */
+    public function getPotdhmfunitcost()
+    {
+        return $this->potdhmfunitcost;
+    }
+
+    /**
+     * Get the [potddsetunitcost] column value.
+     *
+     * @return string
+     */
+    public function getPotddsetunitcost()
+    {
+        return $this->potddsetunitcost;
     }
 
     /**
@@ -1630,6 +1687,66 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
     } // setPotdcasesord()
 
     /**
+     * Set the value of [potdmpfunitcost] column.
+     *
+     * @param string $v new value
+     * @return $this|\PurchaseOrderDetailReceiving The current object (for fluent API support)
+     */
+    public function setPotdmpfunitcost($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->potdmpfunitcost !== $v) {
+            $this->potdmpfunitcost = $v;
+            $this->modifiedColumns[PurchaseOrderDetailReceivingTableMap::COL_POTDMPFUNITCOST] = true;
+        }
+
+        return $this;
+    } // setPotdmpfunitcost()
+
+    /**
+     * Set the value of [potdhmfunitcost] column.
+     *
+     * @param string $v new value
+     * @return $this|\PurchaseOrderDetailReceiving The current object (for fluent API support)
+     */
+    public function setPotdhmfunitcost($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->potdhmfunitcost !== $v) {
+            $this->potdhmfunitcost = $v;
+            $this->modifiedColumns[PurchaseOrderDetailReceivingTableMap::COL_POTDHMFUNITCOST] = true;
+        }
+
+        return $this;
+    } // setPotdhmfunitcost()
+
+    /**
+     * Set the value of [potddsetunitcost] column.
+     *
+     * @param string $v new value
+     * @return $this|\PurchaseOrderDetailReceiving The current object (for fluent API support)
+     */
+    public function setPotddsetunitcost($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->potddsetunitcost !== $v) {
+            $this->potddsetunitcost = $v;
+            $this->modifiedColumns[PurchaseOrderDetailReceivingTableMap::COL_POTDDSETUNITCOST] = true;
+        }
+
+        return $this;
+    } // setPotddsetunitcost()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -1823,6 +1940,18 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
                 return false;
             }
 
+            if ($this->potdmpfunitcost !== '0.00000') {
+                return false;
+            }
+
+            if ($this->potdhmfunitcost !== '0.00000') {
+                return false;
+            }
+
+            if ($this->potddsetunitcost !== '0.00000') {
+                return false;
+            }
+
             if ($this->dateupdtd !== '') {
                 return false;
             }
@@ -1954,13 +2083,22 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Potdcasesord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potdcasesord = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Potdmpfunitcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->potdmpfunitcost = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Potdhmfunitcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->potdhmfunitcost = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Potddsetunitcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->potddsetunitcost = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : PurchaseOrderDetailReceivingTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1970,7 +2108,7 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 34; // 34 = PurchaseOrderDetailReceivingTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 37; // 37 = PurchaseOrderDetailReceivingTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\PurchaseOrderDetailReceiving'), 0, $e);
@@ -2323,6 +2461,15 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
         if ($this->isColumnModified(PurchaseOrderDetailReceivingTableMap::COL_POTDCASESORD)) {
             $modifiedColumns[':p' . $index++]  = 'PotdCasesOrd';
         }
+        if ($this->isColumnModified(PurchaseOrderDetailReceivingTableMap::COL_POTDMPFUNITCOST)) {
+            $modifiedColumns[':p' . $index++]  = 'PotdMpfUnitCost';
+        }
+        if ($this->isColumnModified(PurchaseOrderDetailReceivingTableMap::COL_POTDHMFUNITCOST)) {
+            $modifiedColumns[':p' . $index++]  = 'PotdHmfUnitCost';
+        }
+        if ($this->isColumnModified(PurchaseOrderDetailReceivingTableMap::COL_POTDDSETUNITCOST)) {
+            $modifiedColumns[':p' . $index++]  = 'PotdDsetUnitCost';
+        }
         if ($this->isColumnModified(PurchaseOrderDetailReceivingTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -2435,6 +2582,15 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
                         break;
                     case 'PotdCasesOrd':
                         $stmt->bindValue($identifier, $this->potdcasesord, PDO::PARAM_INT);
+                        break;
+                    case 'PotdMpfUnitCost':
+                        $stmt->bindValue($identifier, $this->potdmpfunitcost, PDO::PARAM_STR);
+                        break;
+                    case 'PotdHmfUnitCost':
+                        $stmt->bindValue($identifier, $this->potdhmfunitcost, PDO::PARAM_STR);
+                        break;
+                    case 'PotdDsetUnitCost':
+                        $stmt->bindValue($identifier, $this->potddsetunitcost, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -2594,12 +2750,21 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
                 return $this->getPotdcasesord();
                 break;
             case 31:
-                return $this->getDateupdtd();
+                return $this->getPotdmpfunitcost();
                 break;
             case 32:
-                return $this->getTimeupdtd();
+                return $this->getPotdhmfunitcost();
                 break;
             case 33:
+                return $this->getPotddsetunitcost();
+                break;
+            case 34:
+                return $this->getDateupdtd();
+                break;
+            case 35:
+                return $this->getTimeupdtd();
+                break;
+            case 36:
                 return $this->getDummy();
                 break;
             default:
@@ -2663,9 +2828,12 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
             $keys[28] => $this->getPotdtariffcost(),
             $keys[29] => $this->getPotdshopcost(),
             $keys[30] => $this->getPotdcasesord(),
-            $keys[31] => $this->getDateupdtd(),
-            $keys[32] => $this->getTimeupdtd(),
-            $keys[33] => $this->getDummy(),
+            $keys[31] => $this->getPotdmpfunitcost(),
+            $keys[32] => $this->getPotdhmfunitcost(),
+            $keys[33] => $this->getPotddsetunitcost(),
+            $keys[34] => $this->getDateupdtd(),
+            $keys[35] => $this->getTimeupdtd(),
+            $keys[36] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -2876,12 +3044,21 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
                 $this->setPotdcasesord($value);
                 break;
             case 31:
-                $this->setDateupdtd($value);
+                $this->setPotdmpfunitcost($value);
                 break;
             case 32:
-                $this->setTimeupdtd($value);
+                $this->setPotdhmfunitcost($value);
                 break;
             case 33:
+                $this->setPotddsetunitcost($value);
+                break;
+            case 34:
+                $this->setDateupdtd($value);
+                break;
+            case 35:
+                $this->setTimeupdtd($value);
+                break;
+            case 36:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -3004,13 +3181,22 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
             $this->setPotdcasesord($arr[$keys[30]]);
         }
         if (array_key_exists($keys[31], $arr)) {
-            $this->setDateupdtd($arr[$keys[31]]);
+            $this->setPotdmpfunitcost($arr[$keys[31]]);
         }
         if (array_key_exists($keys[32], $arr)) {
-            $this->setTimeupdtd($arr[$keys[32]]);
+            $this->setPotdhmfunitcost($arr[$keys[32]]);
         }
         if (array_key_exists($keys[33], $arr)) {
-            $this->setDummy($arr[$keys[33]]);
+            $this->setPotddsetunitcost($arr[$keys[33]]);
+        }
+        if (array_key_exists($keys[34], $arr)) {
+            $this->setDateupdtd($arr[$keys[34]]);
+        }
+        if (array_key_exists($keys[35], $arr)) {
+            $this->setTimeupdtd($arr[$keys[35]]);
+        }
+        if (array_key_exists($keys[36], $arr)) {
+            $this->setDummy($arr[$keys[36]]);
         }
     }
 
@@ -3145,6 +3331,15 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
         }
         if ($this->isColumnModified(PurchaseOrderDetailReceivingTableMap::COL_POTDCASESORD)) {
             $criteria->add(PurchaseOrderDetailReceivingTableMap::COL_POTDCASESORD, $this->potdcasesord);
+        }
+        if ($this->isColumnModified(PurchaseOrderDetailReceivingTableMap::COL_POTDMPFUNITCOST)) {
+            $criteria->add(PurchaseOrderDetailReceivingTableMap::COL_POTDMPFUNITCOST, $this->potdmpfunitcost);
+        }
+        if ($this->isColumnModified(PurchaseOrderDetailReceivingTableMap::COL_POTDHMFUNITCOST)) {
+            $criteria->add(PurchaseOrderDetailReceivingTableMap::COL_POTDHMFUNITCOST, $this->potdhmfunitcost);
+        }
+        if ($this->isColumnModified(PurchaseOrderDetailReceivingTableMap::COL_POTDDSETUNITCOST)) {
+            $criteria->add(PurchaseOrderDetailReceivingTableMap::COL_POTDDSETUNITCOST, $this->potddsetunitcost);
         }
         if ($this->isColumnModified(PurchaseOrderDetailReceivingTableMap::COL_DATEUPDTD)) {
             $criteria->add(PurchaseOrderDetailReceivingTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -3305,6 +3500,9 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
         $copyObj->setPotdtariffcost($this->getPotdtariffcost());
         $copyObj->setPotdshopcost($this->getPotdshopcost());
         $copyObj->setPotdcasesord($this->getPotdcasesord());
+        $copyObj->setPotdmpfunitcost($this->getPotdmpfunitcost());
+        $copyObj->setPotdhmfunitcost($this->getPotdhmfunitcost());
+        $copyObj->setPotddsetunitcost($this->getPotddsetunitcost());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -3649,6 +3847,9 @@ abstract class PurchaseOrderDetailReceiving implements ActiveRecordInterface
         $this->potdtariffcost = null;
         $this->potdshopcost = null;
         $this->potdcasesord = null;
+        $this->potdmpfunitcost = null;
+        $this->potdhmfunitcost = null;
+        $this->potddsetunitcost = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

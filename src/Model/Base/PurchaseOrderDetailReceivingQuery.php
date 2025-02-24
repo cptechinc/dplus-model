@@ -51,6 +51,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetailReceivingQuery orderByPotdtariffcost($order = Criteria::ASC) Order by the PotdTariffCost column
  * @method     ChildPurchaseOrderDetailReceivingQuery orderByPotdshopcost($order = Criteria::ASC) Order by the PotdShopCost column
  * @method     ChildPurchaseOrderDetailReceivingQuery orderByPotdcasesord($order = Criteria::ASC) Order by the PotdCasesOrd column
+ * @method     ChildPurchaseOrderDetailReceivingQuery orderByPotdmpfunitcost($order = Criteria::ASC) Order by the PotdMpfUnitCost column
+ * @method     ChildPurchaseOrderDetailReceivingQuery orderByPotdhmfunitcost($order = Criteria::ASC) Order by the PotdHmfUnitCost column
+ * @method     ChildPurchaseOrderDetailReceivingQuery orderByPotddsetunitcost($order = Criteria::ASC) Order by the PotdDsetUnitCost column
  * @method     ChildPurchaseOrderDetailReceivingQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildPurchaseOrderDetailReceivingQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildPurchaseOrderDetailReceivingQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -86,6 +89,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetailReceivingQuery groupByPotdtariffcost() Group by the PotdTariffCost column
  * @method     ChildPurchaseOrderDetailReceivingQuery groupByPotdshopcost() Group by the PotdShopCost column
  * @method     ChildPurchaseOrderDetailReceivingQuery groupByPotdcasesord() Group by the PotdCasesOrd column
+ * @method     ChildPurchaseOrderDetailReceivingQuery groupByPotdmpfunitcost() Group by the PotdMpfUnitCost column
+ * @method     ChildPurchaseOrderDetailReceivingQuery groupByPotdhmfunitcost() Group by the PotdHmfUnitCost column
+ * @method     ChildPurchaseOrderDetailReceivingQuery groupByPotddsetunitcost() Group by the PotdDsetUnitCost column
  * @method     ChildPurchaseOrderDetailReceivingQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildPurchaseOrderDetailReceivingQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildPurchaseOrderDetailReceivingQuery groupByDummy() Group by the dummy column
@@ -184,6 +190,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetailReceiving findOneByPotdtariffcost(string $PotdTariffCost) Return the first ChildPurchaseOrderDetailReceiving filtered by the PotdTariffCost column
  * @method     ChildPurchaseOrderDetailReceiving findOneByPotdshopcost(string $PotdShopCost) Return the first ChildPurchaseOrderDetailReceiving filtered by the PotdShopCost column
  * @method     ChildPurchaseOrderDetailReceiving findOneByPotdcasesord(int $PotdCasesOrd) Return the first ChildPurchaseOrderDetailReceiving filtered by the PotdCasesOrd column
+ * @method     ChildPurchaseOrderDetailReceiving findOneByPotdmpfunitcost(string $PotdMpfUnitCost) Return the first ChildPurchaseOrderDetailReceiving filtered by the PotdMpfUnitCost column
+ * @method     ChildPurchaseOrderDetailReceiving findOneByPotdhmfunitcost(string $PotdHmfUnitCost) Return the first ChildPurchaseOrderDetailReceiving filtered by the PotdHmfUnitCost column
+ * @method     ChildPurchaseOrderDetailReceiving findOneByPotddsetunitcost(string $PotdDsetUnitCost) Return the first ChildPurchaseOrderDetailReceiving filtered by the PotdDsetUnitCost column
  * @method     ChildPurchaseOrderDetailReceiving findOneByDateupdtd(string $DateUpdtd) Return the first ChildPurchaseOrderDetailReceiving filtered by the DateUpdtd column
  * @method     ChildPurchaseOrderDetailReceiving findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPurchaseOrderDetailReceiving filtered by the TimeUpdtd column
  * @method     ChildPurchaseOrderDetailReceiving findOneByDummy(string $dummy) Return the first ChildPurchaseOrderDetailReceiving filtered by the dummy column *
@@ -222,6 +231,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetailReceiving requireOneByPotdtariffcost(string $PotdTariffCost) Return the first ChildPurchaseOrderDetailReceiving filtered by the PotdTariffCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetailReceiving requireOneByPotdshopcost(string $PotdShopCost) Return the first ChildPurchaseOrderDetailReceiving filtered by the PotdShopCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetailReceiving requireOneByPotdcasesord(int $PotdCasesOrd) Return the first ChildPurchaseOrderDetailReceiving filtered by the PotdCasesOrd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPurchaseOrderDetailReceiving requireOneByPotdmpfunitcost(string $PotdMpfUnitCost) Return the first ChildPurchaseOrderDetailReceiving filtered by the PotdMpfUnitCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPurchaseOrderDetailReceiving requireOneByPotdhmfunitcost(string $PotdHmfUnitCost) Return the first ChildPurchaseOrderDetailReceiving filtered by the PotdHmfUnitCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPurchaseOrderDetailReceiving requireOneByPotddsetunitcost(string $PotdDsetUnitCost) Return the first ChildPurchaseOrderDetailReceiving filtered by the PotdDsetUnitCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetailReceiving requireOneByDateupdtd(string $DateUpdtd) Return the first ChildPurchaseOrderDetailReceiving filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetailReceiving requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPurchaseOrderDetailReceiving filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPurchaseOrderDetailReceiving requireOneByDummy(string $dummy) Return the first ChildPurchaseOrderDetailReceiving filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -258,6 +270,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetailReceiving[]|ObjectCollection findByPotdtariffcost(string $PotdTariffCost) Return ChildPurchaseOrderDetailReceiving objects filtered by the PotdTariffCost column
  * @method     ChildPurchaseOrderDetailReceiving[]|ObjectCollection findByPotdshopcost(string $PotdShopCost) Return ChildPurchaseOrderDetailReceiving objects filtered by the PotdShopCost column
  * @method     ChildPurchaseOrderDetailReceiving[]|ObjectCollection findByPotdcasesord(int $PotdCasesOrd) Return ChildPurchaseOrderDetailReceiving objects filtered by the PotdCasesOrd column
+ * @method     ChildPurchaseOrderDetailReceiving[]|ObjectCollection findByPotdmpfunitcost(string $PotdMpfUnitCost) Return ChildPurchaseOrderDetailReceiving objects filtered by the PotdMpfUnitCost column
+ * @method     ChildPurchaseOrderDetailReceiving[]|ObjectCollection findByPotdhmfunitcost(string $PotdHmfUnitCost) Return ChildPurchaseOrderDetailReceiving objects filtered by the PotdHmfUnitCost column
+ * @method     ChildPurchaseOrderDetailReceiving[]|ObjectCollection findByPotddsetunitcost(string $PotdDsetUnitCost) Return ChildPurchaseOrderDetailReceiving objects filtered by the PotdDsetUnitCost column
  * @method     ChildPurchaseOrderDetailReceiving[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildPurchaseOrderDetailReceiving objects filtered by the DateUpdtd column
  * @method     ChildPurchaseOrderDetailReceiving[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildPurchaseOrderDetailReceiving objects filtered by the TimeUpdtd column
  * @method     ChildPurchaseOrderDetailReceiving[]|ObjectCollection findByDummy(string $dummy) Return ChildPurchaseOrderDetailReceiving objects filtered by the dummy column
@@ -359,7 +374,7 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT PothNbr, PotdLine, PotdSeq, InitItemNbr, PotdDesc1, PotdDesc2, PotdVendItemNbr, IntbUomPur, PotdRef, PotdQtyOrd, PotdQtyRec, PotdPurchUnitCost, PotdPurchTotCost, PotdGlAcct, PotdClos, PotdShopMinutes, PotdType, PotdForeignCost, PotdForeignCostTot, PotdSpecOrdr, PotdProdUnitCost, PotdBaseUnitCost, PotdBin, PotdFabReturnScrap, PotdRfBatch, PotdRevision, PotdLandUnitCost, PotdNbrOfCases, PotdTariffCost, PotdShopCost, PotdCasesOrd, DateUpdtd, TimeUpdtd, dummy FROM po_tran_det WHERE PothNbr = :p0 AND PotdLine = :p1 AND PotdSeq = :p2';
+        $sql = 'SELECT PothNbr, PotdLine, PotdSeq, InitItemNbr, PotdDesc1, PotdDesc2, PotdVendItemNbr, IntbUomPur, PotdRef, PotdQtyOrd, PotdQtyRec, PotdPurchUnitCost, PotdPurchTotCost, PotdGlAcct, PotdClos, PotdShopMinutes, PotdType, PotdForeignCost, PotdForeignCostTot, PotdSpecOrdr, PotdProdUnitCost, PotdBaseUnitCost, PotdBin, PotdFabReturnScrap, PotdRfBatch, PotdRevision, PotdLandUnitCost, PotdNbrOfCases, PotdTariffCost, PotdShopCost, PotdCasesOrd, PotdMpfUnitCost, PotdHmfUnitCost, PotdDsetUnitCost, DateUpdtd, TimeUpdtd, dummy FROM po_tran_det WHERE PothNbr = :p0 AND PotdLine = :p1 AND PotdSeq = :p2';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_INT);
@@ -1518,6 +1533,129 @@ abstract class PurchaseOrderDetailReceivingQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDCASESORD, $potdcasesord, $comparison);
+    }
+
+    /**
+     * Filter the query on the PotdMpfUnitCost column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPotdmpfunitcost(1234); // WHERE PotdMpfUnitCost = 1234
+     * $query->filterByPotdmpfunitcost(array(12, 34)); // WHERE PotdMpfUnitCost IN (12, 34)
+     * $query->filterByPotdmpfunitcost(array('min' => 12)); // WHERE PotdMpfUnitCost > 12
+     * </code>
+     *
+     * @param     mixed $potdmpfunitcost The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildPurchaseOrderDetailReceivingQuery The current query, for fluid interface
+     */
+    public function filterByPotdmpfunitcost($potdmpfunitcost = null, $comparison = null)
+    {
+        if (is_array($potdmpfunitcost)) {
+            $useMinMax = false;
+            if (isset($potdmpfunitcost['min'])) {
+                $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDMPFUNITCOST, $potdmpfunitcost['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($potdmpfunitcost['max'])) {
+                $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDMPFUNITCOST, $potdmpfunitcost['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDMPFUNITCOST, $potdmpfunitcost, $comparison);
+    }
+
+    /**
+     * Filter the query on the PotdHmfUnitCost column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPotdhmfunitcost(1234); // WHERE PotdHmfUnitCost = 1234
+     * $query->filterByPotdhmfunitcost(array(12, 34)); // WHERE PotdHmfUnitCost IN (12, 34)
+     * $query->filterByPotdhmfunitcost(array('min' => 12)); // WHERE PotdHmfUnitCost > 12
+     * </code>
+     *
+     * @param     mixed $potdhmfunitcost The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildPurchaseOrderDetailReceivingQuery The current query, for fluid interface
+     */
+    public function filterByPotdhmfunitcost($potdhmfunitcost = null, $comparison = null)
+    {
+        if (is_array($potdhmfunitcost)) {
+            $useMinMax = false;
+            if (isset($potdhmfunitcost['min'])) {
+                $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDHMFUNITCOST, $potdhmfunitcost['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($potdhmfunitcost['max'])) {
+                $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDHMFUNITCOST, $potdhmfunitcost['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDHMFUNITCOST, $potdhmfunitcost, $comparison);
+    }
+
+    /**
+     * Filter the query on the PotdDsetUnitCost column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPotddsetunitcost(1234); // WHERE PotdDsetUnitCost = 1234
+     * $query->filterByPotddsetunitcost(array(12, 34)); // WHERE PotdDsetUnitCost IN (12, 34)
+     * $query->filterByPotddsetunitcost(array('min' => 12)); // WHERE PotdDsetUnitCost > 12
+     * </code>
+     *
+     * @param     mixed $potddsetunitcost The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildPurchaseOrderDetailReceivingQuery The current query, for fluid interface
+     */
+    public function filterByPotddsetunitcost($potddsetunitcost = null, $comparison = null)
+    {
+        if (is_array($potddsetunitcost)) {
+            $useMinMax = false;
+            if (isset($potddsetunitcost['min'])) {
+                $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDDSETUNITCOST, $potddsetunitcost['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($potddsetunitcost['max'])) {
+                $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDDSETUNITCOST, $potddsetunitcost['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(PurchaseOrderDetailReceivingTableMap::COL_POTDDSETUNITCOST, $potddsetunitcost, $comparison);
     }
 
     /**

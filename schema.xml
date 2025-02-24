@@ -4041,20 +4041,23 @@
     </vendor>
   </table>
   <table name="po_receipt_det" idMethod="native" phpName="PurchaseOrderDetailReceipt">
-    <column name="PohdNbr" phpName="Pohdnbr" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
-    <column name="PodtLine" phpName="Podtline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="PohdNbr" phpName="Pohdnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="PodtLine" phpName="Podtline" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
-    <column name="PordSeq" phpName="Pordseq" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
-    <column name="PordRef" phpName="Pordref" type="VARCHAR" size="15"/>
-    <column name="PordTranDate" phpName="Pordtrandate" type="VARCHAR" size="8"/>
-    <column name="PordGlPd" phpName="Pordglpd" type="INTEGER" size="2"/>
-    <column name="PordQtyRec" phpName="Pordqtyrec" type="DECIMAL" size="20" scale="7"/>
-    <column name="PordCostTot" phpName="Pordcosttot" type="DECIMAL" size="20" scale="7"/>
-    <column name="PordLandUnitCost" phpName="Pordlandunitcost" type="DECIMAL" size="20" scale="7"/>
-    <column name="PordTariffCost" phpName="Pordtariffcost" type="DECIMAL" size="20" scale="7"/>
-    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
-    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
-    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <column name="PordSeq" phpName="Pordseq" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="PordRef" phpName="Pordref" type="VARCHAR" size="15" required="true" defaultValue=""/>
+    <column name="PordTranDate" phpName="Pordtrandate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="PordGlPd" phpName="Pordglpd" type="INTEGER" size="2" sqlType="int(2) unsigned" required="true" defaultValue="0"/>
+    <column name="PordQtyRec" phpName="Pordqtyrec" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PordCostTot" phpName="Pordcosttot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PordLandUnitCost" phpName="Pordlandunitcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PordTariffCost" phpName="Pordtariffcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PordMpfUnitCost" phpName="Pordmpfunitcost" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="PordHmfUnitCost" phpName="Pordhmfunitcost" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="PordDsetUnitCost" phpName="Porddsetunitcost" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
     <foreign-key foreignTable="po_head" name="purchaseorder">
       <reference local="PohdNbr" foreign="PohdNbr"/>
     </foreign-key>
@@ -4101,6 +4104,9 @@
     <column name="PotdTariffCost" phpName="Potdtariffcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
     <column name="PotdShopCost" phpName="Potdshopcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
     <column name="PotdCasesOrd" phpName="Potdcasesord" type="INTEGER" size="6" sqlType="int(6) unsigned" required="true" defaultValue="0"/>
+    <column name="PotdMpfUnitCost" phpName="Potdmpfunitcost" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="PotdHmfUnitCost" phpName="Potdhmfunitcost" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="PotdDsetUnitCost" phpName="Potddsetunitcost" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
