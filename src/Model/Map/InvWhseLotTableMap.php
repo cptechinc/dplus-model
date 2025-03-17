@@ -152,29 +152,29 @@ class InvWhseLotTableMap extends TableMap
     const COL_INLTBATCH = 'inv_inv_lot.InltBatch';
 
     /**
-     * the column name for the InltLandCost1 field
+     * the column name for the InltLandCost field
      */
-    const COL_INLTLANDCOST1 = 'inv_inv_lot.InltLandCost1';
+    const COL_INLTLANDCOST = 'inv_inv_lot.InltLandCost';
 
     /**
-     * the column name for the InltLandCost2 field
+     * the column name for the InltMpfUnitCost field
      */
-    const COL_INLTLANDCOST2 = 'inv_inv_lot.InltLandCost2';
+    const COL_INLTMPFUNITCOST = 'inv_inv_lot.InltMpfUnitCost';
 
     /**
-     * the column name for the InltLandCost3 field
+     * the column name for the InltHmfUnitCost field
      */
-    const COL_INLTLANDCOST3 = 'inv_inv_lot.InltLandCost3';
+    const COL_INLTHMFUNITCOST = 'inv_inv_lot.InltHmfUnitCost';
 
     /**
-     * the column name for the InltLandCost4 field
+     * the column name for the InltDsetUnitCost field
      */
-    const COL_INLTLANDCOST4 = 'inv_inv_lot.InltLandCost4';
+    const COL_INLTDSETUNITCOST = 'inv_inv_lot.InltDsetUnitCost';
 
     /**
-     * the column name for the InltLandCost5 field
+     * the column name for the InltNumericFiller field
      */
-    const COL_INLTLANDCOST5 = 'inv_inv_lot.InltLandCost5';
+    const COL_INLTNUMERICFILLER = 'inv_inv_lot.InltNumericFiller';
 
     /**
      * the column name for the InltTariffCost field
@@ -298,10 +298,10 @@ class InvWhseLotTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr', 'Intbwhse', 'Inltlotser', 'Inltbin', 'Inltdate', 'Inltdatewrit', 'Inltcost', 'Inltonhand', 'Inltresv', 'Inltship', 'Inltallo', 'Inltfaballo', 'Inltintran', 'Inltinship', 'Inltlotref', 'Inltbatch', 'Inltlandcost1', 'Inltlandcost2', 'Inltlandcost3', 'Inltlandcost4', 'Inltlandcost5', 'Inlttariffcost', 'Inltshopcost', 'Inltisscodfsqty', 'Inltheadmark', 'Inltctry', 'Inltrvalorigcost', 'Inltrvalpct', 'Inltunitwght', 'Inltdestwhse', 'Inltcntrqty', 'Inltqtyperroll', 'Inlttarewght', 'Inltqcreasoncd', 'Inltcert', 'Inltcuredate', 'Inltexpiredatecd', 'Inltexpiredate', 'Inltorigbin', 'Inltshopitem', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('inititemnbr', 'intbwhse', 'inltlotser', 'inltbin', 'inltdate', 'inltdatewrit', 'inltcost', 'inltonhand', 'inltresv', 'inltship', 'inltallo', 'inltfaballo', 'inltintran', 'inltinship', 'inltlotref', 'inltbatch', 'inltlandcost1', 'inltlandcost2', 'inltlandcost3', 'inltlandcost4', 'inltlandcost5', 'inlttariffcost', 'inltshopcost', 'inltisscodfsqty', 'inltheadmark', 'inltctry', 'inltrvalorigcost', 'inltrvalpct', 'inltunitwght', 'inltdestwhse', 'inltcntrqty', 'inltqtyperroll', 'inlttarewght', 'inltqcreasoncd', 'inltcert', 'inltcuredate', 'inltexpiredatecd', 'inltexpiredate', 'inltorigbin', 'inltshopitem', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvWhseLotTableMap::COL_INITITEMNBR, InvWhseLotTableMap::COL_INTBWHSE, InvWhseLotTableMap::COL_INLTLOTSER, InvWhseLotTableMap::COL_INLTBIN, InvWhseLotTableMap::COL_INLTDATE, InvWhseLotTableMap::COL_INLTDATEWRIT, InvWhseLotTableMap::COL_INLTCOST, InvWhseLotTableMap::COL_INLTONHAND, InvWhseLotTableMap::COL_INLTRESV, InvWhseLotTableMap::COL_INLTSHIP, InvWhseLotTableMap::COL_INLTALLO, InvWhseLotTableMap::COL_INLTFABALLO, InvWhseLotTableMap::COL_INLTINTRAN, InvWhseLotTableMap::COL_INLTINSHIP, InvWhseLotTableMap::COL_INLTLOTREF, InvWhseLotTableMap::COL_INLTBATCH, InvWhseLotTableMap::COL_INLTLANDCOST1, InvWhseLotTableMap::COL_INLTLANDCOST2, InvWhseLotTableMap::COL_INLTLANDCOST3, InvWhseLotTableMap::COL_INLTLANDCOST4, InvWhseLotTableMap::COL_INLTLANDCOST5, InvWhseLotTableMap::COL_INLTTARIFFCOST, InvWhseLotTableMap::COL_INLTSHOPCOST, InvWhseLotTableMap::COL_INLTISSCODFSQTY, InvWhseLotTableMap::COL_INLTHEADMARK, InvWhseLotTableMap::COL_INLTCTRY, InvWhseLotTableMap::COL_INLTRVALORIGCOST, InvWhseLotTableMap::COL_INLTRVALPCT, InvWhseLotTableMap::COL_INLTUNITWGHT, InvWhseLotTableMap::COL_INLTDESTWHSE, InvWhseLotTableMap::COL_INLTCNTRQTY, InvWhseLotTableMap::COL_INLTQTYPERROLL, InvWhseLotTableMap::COL_INLTTAREWGHT, InvWhseLotTableMap::COL_INLTQCREASONCD, InvWhseLotTableMap::COL_INLTCERT, InvWhseLotTableMap::COL_INLTCUREDATE, InvWhseLotTableMap::COL_INLTEXPIREDATECD, InvWhseLotTableMap::COL_INLTEXPIREDATE, InvWhseLotTableMap::COL_INLTORIGBIN, InvWhseLotTableMap::COL_INLTSHOPITEM, InvWhseLotTableMap::COL_DATEUPDTD, InvWhseLotTableMap::COL_TIMEUPDTD, InvWhseLotTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr', 'IntbWhse', 'InltLotSer', 'InltBin', 'InltDate', 'InltDateWrit', 'InltCost', 'InltOnHand', 'InltResv', 'InltShip', 'InltAllo', 'InltFabAllo', 'InltInTran', 'InltInShip', 'InltLotRef', 'InltBatch', 'InltLandCost1', 'InltLandCost2', 'InltLandCost3', 'InltLandCost4', 'InltLandCost5', 'InltTariffCost', 'InltShopCost', 'InltIsscoDfsQty', 'InltHeadMark', 'InltCtry', 'InltRvalOrigCost', 'InltRvalPct', 'InltUnitWght', 'InltDestWhse', 'InltCntrQty', 'InltQtyPerRoll', 'InltTareWght', 'InltQcReasonCd', 'InltCert', 'InltCureDate', 'InltExpireDateCd', 'InltExpireDate', 'InltOrigBin', 'InltShopItem', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_PHPNAME       => array('Inititemnbr', 'Intbwhse', 'Inltlotser', 'Inltbin', 'Inltdate', 'Inltdatewrit', 'Inltcost', 'Inltonhand', 'Inltresv', 'Inltship', 'Inltallo', 'Inltfaballo', 'Inltintran', 'Inltinship', 'Inltlotref', 'Inltbatch', 'Inltlandcost', 'Inltmpfunitcost', 'Inlthmfunitcost', 'Inltdsetunitcost', 'Inltnumericfiller', 'Inlttariffcost', 'Inltshopcost', 'Inltisscodfsqty', 'Inltheadmark', 'Inltctry', 'Inltrvalorigcost', 'Inltrvalpct', 'Inltunitwght', 'Inltdestwhse', 'Inltcntrqty', 'Inltqtyperroll', 'Inlttarewght', 'Inltqcreasoncd', 'Inltcert', 'Inltcuredate', 'Inltexpiredatecd', 'Inltexpiredate', 'Inltorigbin', 'Inltshopitem', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('inititemnbr', 'intbwhse', 'inltlotser', 'inltbin', 'inltdate', 'inltdatewrit', 'inltcost', 'inltonhand', 'inltresv', 'inltship', 'inltallo', 'inltfaballo', 'inltintran', 'inltinship', 'inltlotref', 'inltbatch', 'inltlandcost', 'inltmpfunitcost', 'inlthmfunitcost', 'inltdsetunitcost', 'inltnumericfiller', 'inlttariffcost', 'inltshopcost', 'inltisscodfsqty', 'inltheadmark', 'inltctry', 'inltrvalorigcost', 'inltrvalpct', 'inltunitwght', 'inltdestwhse', 'inltcntrqty', 'inltqtyperroll', 'inlttarewght', 'inltqcreasoncd', 'inltcert', 'inltcuredate', 'inltexpiredatecd', 'inltexpiredate', 'inltorigbin', 'inltshopitem', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(InvWhseLotTableMap::COL_INITITEMNBR, InvWhseLotTableMap::COL_INTBWHSE, InvWhseLotTableMap::COL_INLTLOTSER, InvWhseLotTableMap::COL_INLTBIN, InvWhseLotTableMap::COL_INLTDATE, InvWhseLotTableMap::COL_INLTDATEWRIT, InvWhseLotTableMap::COL_INLTCOST, InvWhseLotTableMap::COL_INLTONHAND, InvWhseLotTableMap::COL_INLTRESV, InvWhseLotTableMap::COL_INLTSHIP, InvWhseLotTableMap::COL_INLTALLO, InvWhseLotTableMap::COL_INLTFABALLO, InvWhseLotTableMap::COL_INLTINTRAN, InvWhseLotTableMap::COL_INLTINSHIP, InvWhseLotTableMap::COL_INLTLOTREF, InvWhseLotTableMap::COL_INLTBATCH, InvWhseLotTableMap::COL_INLTLANDCOST, InvWhseLotTableMap::COL_INLTMPFUNITCOST, InvWhseLotTableMap::COL_INLTHMFUNITCOST, InvWhseLotTableMap::COL_INLTDSETUNITCOST, InvWhseLotTableMap::COL_INLTNUMERICFILLER, InvWhseLotTableMap::COL_INLTTARIFFCOST, InvWhseLotTableMap::COL_INLTSHOPCOST, InvWhseLotTableMap::COL_INLTISSCODFSQTY, InvWhseLotTableMap::COL_INLTHEADMARK, InvWhseLotTableMap::COL_INLTCTRY, InvWhseLotTableMap::COL_INLTRVALORIGCOST, InvWhseLotTableMap::COL_INLTRVALPCT, InvWhseLotTableMap::COL_INLTUNITWGHT, InvWhseLotTableMap::COL_INLTDESTWHSE, InvWhseLotTableMap::COL_INLTCNTRQTY, InvWhseLotTableMap::COL_INLTQTYPERROLL, InvWhseLotTableMap::COL_INLTTAREWGHT, InvWhseLotTableMap::COL_INLTQCREASONCD, InvWhseLotTableMap::COL_INLTCERT, InvWhseLotTableMap::COL_INLTCUREDATE, InvWhseLotTableMap::COL_INLTEXPIREDATECD, InvWhseLotTableMap::COL_INLTEXPIREDATE, InvWhseLotTableMap::COL_INLTORIGBIN, InvWhseLotTableMap::COL_INLTSHOPITEM, InvWhseLotTableMap::COL_DATEUPDTD, InvWhseLotTableMap::COL_TIMEUPDTD, InvWhseLotTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('InitItemNbr', 'IntbWhse', 'InltLotSer', 'InltBin', 'InltDate', 'InltDateWrit', 'InltCost', 'InltOnHand', 'InltResv', 'InltShip', 'InltAllo', 'InltFabAllo', 'InltInTran', 'InltInShip', 'InltLotRef', 'InltBatch', 'InltLandCost', 'InltMpfUnitCost', 'InltHmfUnitCost', 'InltDsetUnitCost', 'InltNumericFiller', 'InltTariffCost', 'InltShopCost', 'InltIsscoDfsQty', 'InltHeadMark', 'InltCtry', 'InltRvalOrigCost', 'InltRvalPct', 'InltUnitWght', 'InltDestWhse', 'InltCntrQty', 'InltQtyPerRoll', 'InltTareWght', 'InltQcReasonCd', 'InltCert', 'InltCureDate', 'InltExpireDateCd', 'InltExpireDate', 'InltOrigBin', 'InltShopItem', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, )
     );
 
@@ -312,10 +312,10 @@ class InvWhseLotTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Intbwhse' => 1, 'Inltlotser' => 2, 'Inltbin' => 3, 'Inltdate' => 4, 'Inltdatewrit' => 5, 'Inltcost' => 6, 'Inltonhand' => 7, 'Inltresv' => 8, 'Inltship' => 9, 'Inltallo' => 10, 'Inltfaballo' => 11, 'Inltintran' => 12, 'Inltinship' => 13, 'Inltlotref' => 14, 'Inltbatch' => 15, 'Inltlandcost1' => 16, 'Inltlandcost2' => 17, 'Inltlandcost3' => 18, 'Inltlandcost4' => 19, 'Inltlandcost5' => 20, 'Inlttariffcost' => 21, 'Inltshopcost' => 22, 'Inltisscodfsqty' => 23, 'Inltheadmark' => 24, 'Inltctry' => 25, 'Inltrvalorigcost' => 26, 'Inltrvalpct' => 27, 'Inltunitwght' => 28, 'Inltdestwhse' => 29, 'Inltcntrqty' => 30, 'Inltqtyperroll' => 31, 'Inlttarewght' => 32, 'Inltqcreasoncd' => 33, 'Inltcert' => 34, 'Inltcuredate' => 35, 'Inltexpiredatecd' => 36, 'Inltexpiredate' => 37, 'Inltorigbin' => 38, 'Inltshopitem' => 39, 'Dateupdtd' => 40, 'Timeupdtd' => 41, 'Dummy' => 42, ),
-        self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'intbwhse' => 1, 'inltlotser' => 2, 'inltbin' => 3, 'inltdate' => 4, 'inltdatewrit' => 5, 'inltcost' => 6, 'inltonhand' => 7, 'inltresv' => 8, 'inltship' => 9, 'inltallo' => 10, 'inltfaballo' => 11, 'inltintran' => 12, 'inltinship' => 13, 'inltlotref' => 14, 'inltbatch' => 15, 'inltlandcost1' => 16, 'inltlandcost2' => 17, 'inltlandcost3' => 18, 'inltlandcost4' => 19, 'inltlandcost5' => 20, 'inlttariffcost' => 21, 'inltshopcost' => 22, 'inltisscodfsqty' => 23, 'inltheadmark' => 24, 'inltctry' => 25, 'inltrvalorigcost' => 26, 'inltrvalpct' => 27, 'inltunitwght' => 28, 'inltdestwhse' => 29, 'inltcntrqty' => 30, 'inltqtyperroll' => 31, 'inlttarewght' => 32, 'inltqcreasoncd' => 33, 'inltcert' => 34, 'inltcuredate' => 35, 'inltexpiredatecd' => 36, 'inltexpiredate' => 37, 'inltorigbin' => 38, 'inltshopitem' => 39, 'dateupdtd' => 40, 'timeupdtd' => 41, 'dummy' => 42, ),
-        self::TYPE_COLNAME       => array(InvWhseLotTableMap::COL_INITITEMNBR => 0, InvWhseLotTableMap::COL_INTBWHSE => 1, InvWhseLotTableMap::COL_INLTLOTSER => 2, InvWhseLotTableMap::COL_INLTBIN => 3, InvWhseLotTableMap::COL_INLTDATE => 4, InvWhseLotTableMap::COL_INLTDATEWRIT => 5, InvWhseLotTableMap::COL_INLTCOST => 6, InvWhseLotTableMap::COL_INLTONHAND => 7, InvWhseLotTableMap::COL_INLTRESV => 8, InvWhseLotTableMap::COL_INLTSHIP => 9, InvWhseLotTableMap::COL_INLTALLO => 10, InvWhseLotTableMap::COL_INLTFABALLO => 11, InvWhseLotTableMap::COL_INLTINTRAN => 12, InvWhseLotTableMap::COL_INLTINSHIP => 13, InvWhseLotTableMap::COL_INLTLOTREF => 14, InvWhseLotTableMap::COL_INLTBATCH => 15, InvWhseLotTableMap::COL_INLTLANDCOST1 => 16, InvWhseLotTableMap::COL_INLTLANDCOST2 => 17, InvWhseLotTableMap::COL_INLTLANDCOST3 => 18, InvWhseLotTableMap::COL_INLTLANDCOST4 => 19, InvWhseLotTableMap::COL_INLTLANDCOST5 => 20, InvWhseLotTableMap::COL_INLTTARIFFCOST => 21, InvWhseLotTableMap::COL_INLTSHOPCOST => 22, InvWhseLotTableMap::COL_INLTISSCODFSQTY => 23, InvWhseLotTableMap::COL_INLTHEADMARK => 24, InvWhseLotTableMap::COL_INLTCTRY => 25, InvWhseLotTableMap::COL_INLTRVALORIGCOST => 26, InvWhseLotTableMap::COL_INLTRVALPCT => 27, InvWhseLotTableMap::COL_INLTUNITWGHT => 28, InvWhseLotTableMap::COL_INLTDESTWHSE => 29, InvWhseLotTableMap::COL_INLTCNTRQTY => 30, InvWhseLotTableMap::COL_INLTQTYPERROLL => 31, InvWhseLotTableMap::COL_INLTTAREWGHT => 32, InvWhseLotTableMap::COL_INLTQCREASONCD => 33, InvWhseLotTableMap::COL_INLTCERT => 34, InvWhseLotTableMap::COL_INLTCUREDATE => 35, InvWhseLotTableMap::COL_INLTEXPIREDATECD => 36, InvWhseLotTableMap::COL_INLTEXPIREDATE => 37, InvWhseLotTableMap::COL_INLTORIGBIN => 38, InvWhseLotTableMap::COL_INLTSHOPITEM => 39, InvWhseLotTableMap::COL_DATEUPDTD => 40, InvWhseLotTableMap::COL_TIMEUPDTD => 41, InvWhseLotTableMap::COL_DUMMY => 42, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'IntbWhse' => 1, 'InltLotSer' => 2, 'InltBin' => 3, 'InltDate' => 4, 'InltDateWrit' => 5, 'InltCost' => 6, 'InltOnHand' => 7, 'InltResv' => 8, 'InltShip' => 9, 'InltAllo' => 10, 'InltFabAllo' => 11, 'InltInTran' => 12, 'InltInShip' => 13, 'InltLotRef' => 14, 'InltBatch' => 15, 'InltLandCost1' => 16, 'InltLandCost2' => 17, 'InltLandCost3' => 18, 'InltLandCost4' => 19, 'InltLandCost5' => 20, 'InltTariffCost' => 21, 'InltShopCost' => 22, 'InltIsscoDfsQty' => 23, 'InltHeadMark' => 24, 'InltCtry' => 25, 'InltRvalOrigCost' => 26, 'InltRvalPct' => 27, 'InltUnitWght' => 28, 'InltDestWhse' => 29, 'InltCntrQty' => 30, 'InltQtyPerRoll' => 31, 'InltTareWght' => 32, 'InltQcReasonCd' => 33, 'InltCert' => 34, 'InltCureDate' => 35, 'InltExpireDateCd' => 36, 'InltExpireDate' => 37, 'InltOrigBin' => 38, 'InltShopItem' => 39, 'DateUpdtd' => 40, 'TimeUpdtd' => 41, 'dummy' => 42, ),
+        self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Intbwhse' => 1, 'Inltlotser' => 2, 'Inltbin' => 3, 'Inltdate' => 4, 'Inltdatewrit' => 5, 'Inltcost' => 6, 'Inltonhand' => 7, 'Inltresv' => 8, 'Inltship' => 9, 'Inltallo' => 10, 'Inltfaballo' => 11, 'Inltintran' => 12, 'Inltinship' => 13, 'Inltlotref' => 14, 'Inltbatch' => 15, 'Inltlandcost' => 16, 'Inltmpfunitcost' => 17, 'Inlthmfunitcost' => 18, 'Inltdsetunitcost' => 19, 'Inltnumericfiller' => 20, 'Inlttariffcost' => 21, 'Inltshopcost' => 22, 'Inltisscodfsqty' => 23, 'Inltheadmark' => 24, 'Inltctry' => 25, 'Inltrvalorigcost' => 26, 'Inltrvalpct' => 27, 'Inltunitwght' => 28, 'Inltdestwhse' => 29, 'Inltcntrqty' => 30, 'Inltqtyperroll' => 31, 'Inlttarewght' => 32, 'Inltqcreasoncd' => 33, 'Inltcert' => 34, 'Inltcuredate' => 35, 'Inltexpiredatecd' => 36, 'Inltexpiredate' => 37, 'Inltorigbin' => 38, 'Inltshopitem' => 39, 'Dateupdtd' => 40, 'Timeupdtd' => 41, 'Dummy' => 42, ),
+        self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'intbwhse' => 1, 'inltlotser' => 2, 'inltbin' => 3, 'inltdate' => 4, 'inltdatewrit' => 5, 'inltcost' => 6, 'inltonhand' => 7, 'inltresv' => 8, 'inltship' => 9, 'inltallo' => 10, 'inltfaballo' => 11, 'inltintran' => 12, 'inltinship' => 13, 'inltlotref' => 14, 'inltbatch' => 15, 'inltlandcost' => 16, 'inltmpfunitcost' => 17, 'inlthmfunitcost' => 18, 'inltdsetunitcost' => 19, 'inltnumericfiller' => 20, 'inlttariffcost' => 21, 'inltshopcost' => 22, 'inltisscodfsqty' => 23, 'inltheadmark' => 24, 'inltctry' => 25, 'inltrvalorigcost' => 26, 'inltrvalpct' => 27, 'inltunitwght' => 28, 'inltdestwhse' => 29, 'inltcntrqty' => 30, 'inltqtyperroll' => 31, 'inlttarewght' => 32, 'inltqcreasoncd' => 33, 'inltcert' => 34, 'inltcuredate' => 35, 'inltexpiredatecd' => 36, 'inltexpiredate' => 37, 'inltorigbin' => 38, 'inltshopitem' => 39, 'dateupdtd' => 40, 'timeupdtd' => 41, 'dummy' => 42, ),
+        self::TYPE_COLNAME       => array(InvWhseLotTableMap::COL_INITITEMNBR => 0, InvWhseLotTableMap::COL_INTBWHSE => 1, InvWhseLotTableMap::COL_INLTLOTSER => 2, InvWhseLotTableMap::COL_INLTBIN => 3, InvWhseLotTableMap::COL_INLTDATE => 4, InvWhseLotTableMap::COL_INLTDATEWRIT => 5, InvWhseLotTableMap::COL_INLTCOST => 6, InvWhseLotTableMap::COL_INLTONHAND => 7, InvWhseLotTableMap::COL_INLTRESV => 8, InvWhseLotTableMap::COL_INLTSHIP => 9, InvWhseLotTableMap::COL_INLTALLO => 10, InvWhseLotTableMap::COL_INLTFABALLO => 11, InvWhseLotTableMap::COL_INLTINTRAN => 12, InvWhseLotTableMap::COL_INLTINSHIP => 13, InvWhseLotTableMap::COL_INLTLOTREF => 14, InvWhseLotTableMap::COL_INLTBATCH => 15, InvWhseLotTableMap::COL_INLTLANDCOST => 16, InvWhseLotTableMap::COL_INLTMPFUNITCOST => 17, InvWhseLotTableMap::COL_INLTHMFUNITCOST => 18, InvWhseLotTableMap::COL_INLTDSETUNITCOST => 19, InvWhseLotTableMap::COL_INLTNUMERICFILLER => 20, InvWhseLotTableMap::COL_INLTTARIFFCOST => 21, InvWhseLotTableMap::COL_INLTSHOPCOST => 22, InvWhseLotTableMap::COL_INLTISSCODFSQTY => 23, InvWhseLotTableMap::COL_INLTHEADMARK => 24, InvWhseLotTableMap::COL_INLTCTRY => 25, InvWhseLotTableMap::COL_INLTRVALORIGCOST => 26, InvWhseLotTableMap::COL_INLTRVALPCT => 27, InvWhseLotTableMap::COL_INLTUNITWGHT => 28, InvWhseLotTableMap::COL_INLTDESTWHSE => 29, InvWhseLotTableMap::COL_INLTCNTRQTY => 30, InvWhseLotTableMap::COL_INLTQTYPERROLL => 31, InvWhseLotTableMap::COL_INLTTAREWGHT => 32, InvWhseLotTableMap::COL_INLTQCREASONCD => 33, InvWhseLotTableMap::COL_INLTCERT => 34, InvWhseLotTableMap::COL_INLTCUREDATE => 35, InvWhseLotTableMap::COL_INLTEXPIREDATECD => 36, InvWhseLotTableMap::COL_INLTEXPIREDATE => 37, InvWhseLotTableMap::COL_INLTORIGBIN => 38, InvWhseLotTableMap::COL_INLTSHOPITEM => 39, InvWhseLotTableMap::COL_DATEUPDTD => 40, InvWhseLotTableMap::COL_TIMEUPDTD => 41, InvWhseLotTableMap::COL_DUMMY => 42, ),
+        self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'IntbWhse' => 1, 'InltLotSer' => 2, 'InltBin' => 3, 'InltDate' => 4, 'InltDateWrit' => 5, 'InltCost' => 6, 'InltOnHand' => 7, 'InltResv' => 8, 'InltShip' => 9, 'InltAllo' => 10, 'InltFabAllo' => 11, 'InltInTran' => 12, 'InltInShip' => 13, 'InltLotRef' => 14, 'InltBatch' => 15, 'InltLandCost' => 16, 'InltMpfUnitCost' => 17, 'InltHmfUnitCost' => 18, 'InltDsetUnitCost' => 19, 'InltNumericFiller' => 20, 'InltTariffCost' => 21, 'InltShopCost' => 22, 'InltIsscoDfsQty' => 23, 'InltHeadMark' => 24, 'InltCtry' => 25, 'InltRvalOrigCost' => 26, 'InltRvalPct' => 27, 'InltUnitWght' => 28, 'InltDestWhse' => 29, 'InltCntrQty' => 30, 'InltQtyPerRoll' => 31, 'InltTareWght' => 32, 'InltQcReasonCd' => 33, 'InltCert' => 34, 'InltCureDate' => 35, 'InltExpireDateCd' => 36, 'InltExpireDate' => 37, 'InltOrigBin' => 38, 'InltShopItem' => 39, 'DateUpdtd' => 40, 'TimeUpdtd' => 41, 'dummy' => 42, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, )
     );
 
@@ -341,45 +341,45 @@ class InvWhseLotTableMap extends TableMap
         $this->addForeignPrimaryKey('IntbWhse', 'Intbwhse', 'VARCHAR' , 'inv_whse_code', 'IntbWhse', true, 2, '');
         $this->addForeignPrimaryKey('InltLotSer', 'Inltlotser', 'VARCHAR' , 'inv_lot_mast', 'LotmLotNbr', true, 20, '');
         $this->addPrimaryKey('InltBin', 'Inltbin', 'VARCHAR', true, 8, '');
-        $this->addColumn('InltDate', 'Inltdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('InltDateWrit', 'Inltdatewrit', 'VARCHAR', false, 8, null);
-        $this->addColumn('InltCost', 'Inltcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltOnHand', 'Inltonhand', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltResv', 'Inltresv', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltShip', 'Inltship', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltAllo', 'Inltallo', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltFabAllo', 'Inltfaballo', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltInTran', 'Inltintran', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltInShip', 'Inltinship', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltLotRef', 'Inltlotref', 'VARCHAR', false, 20, null);
-        $this->addColumn('InltBatch', 'Inltbatch', 'VARCHAR', false, 20, null);
-        $this->addColumn('InltLandCost1', 'Inltlandcost1', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltLandCost2', 'Inltlandcost2', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltLandCost3', 'Inltlandcost3', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltLandCost4', 'Inltlandcost4', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltLandCost5', 'Inltlandcost5', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltTariffCost', 'Inlttariffcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltShopCost', 'Inltshopcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltIsscoDfsQty', 'Inltisscodfsqty', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltHeadMark', 'Inltheadmark', 'VARCHAR', false, 4, null);
-        $this->addColumn('InltCtry', 'Inltctry', 'VARCHAR', false, 4, null);
-        $this->addColumn('InltRvalOrigCost', 'Inltrvalorigcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltRvalPct', 'Inltrvalpct', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltUnitWght', 'Inltunitwght', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltDestWhse', 'Inltdestwhse', 'VARCHAR', false, 2, null);
-        $this->addColumn('InltCntrQty', 'Inltcntrqty', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltQtyPerRoll', 'Inltqtyperroll', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltTareWght', 'Inlttarewght', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltQcReasonCd', 'Inltqcreasoncd', 'VARCHAR', false, 1, null);
-        $this->addColumn('InltCert', 'Inltcert', 'VARCHAR', false, 1, null);
-        $this->addColumn('InltCureDate', 'Inltcuredate', 'VARCHAR', false, 10, null);
-        $this->addColumn('InltExpireDateCd', 'Inltexpiredatecd', 'VARCHAR', false, 1, null);
-        $this->addColumn('InltExpireDate', 'Inltexpiredate', 'VARCHAR', false, 8, null);
-        $this->addColumn('InltOrigBin', 'Inltorigbin', 'VARCHAR', false, 8, null);
-        $this->addColumn('InltShopItem', 'Inltshopitem', 'VARCHAR', false, 1, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('InltDate', 'Inltdate', 'CHAR', true, 8, '');
+        $this->addColumn('InltDateWrit', 'Inltdatewrit', 'CHAR', true, 8, '');
+        $this->addColumn('InltCost', 'Inltcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltOnHand', 'Inltonhand', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltResv', 'Inltresv', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltShip', 'Inltship', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltAllo', 'Inltallo', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltFabAllo', 'Inltfaballo', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltInTran', 'Inltintran', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltInShip', 'Inltinship', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltLotRef', 'Inltlotref', 'VARCHAR', true, 20, '');
+        $this->addColumn('InltBatch', 'Inltbatch', 'VARCHAR', true, 20, '');
+        $this->addColumn('InltLandCost', 'Inltlandcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltMpfUnitCost', 'Inltmpfunitcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltHmfUnitCost', 'Inlthmfunitcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltDsetUnitCost', 'Inltdsetunitcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltNumericFiller', 'Inltnumericfiller', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltTariffCost', 'Inlttariffcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltShopCost', 'Inltshopcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltIsscoDfsQty', 'Inltisscodfsqty', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltHeadMark', 'Inltheadmark', 'VARCHAR', true, 4, '');
+        $this->addColumn('InltCtry', 'Inltctry', 'VARCHAR', true, 4, '');
+        $this->addColumn('InltRvalOrigCost', 'Inltrvalorigcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltRvalPct', 'Inltrvalpct', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltUnitWght', 'Inltunitwght', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltDestWhse', 'Inltdestwhse', 'VARCHAR', true, 2, '');
+        $this->addColumn('InltCntrQty', 'Inltcntrqty', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltQtyPerRoll', 'Inltqtyperroll', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltTareWght', 'Inlttarewght', 'DECIMAL', true, 20, 0);
+        $this->addColumn('InltQcReasonCd', 'Inltqcreasoncd', 'CHAR', true, null, '');
+        $this->addColumn('InltCert', 'Inltcert', 'CHAR', true, null, '');
+        $this->addColumn('InltCureDate', 'Inltcuredate', 'VARCHAR', true, 10, '');
+        $this->addColumn('InltExpireDateCd', 'Inltexpiredatecd', 'CHAR', true, null, '');
+        $this->addColumn('InltExpireDate', 'Inltexpiredate', 'CHAR', true, 8, '');
+        $this->addColumn('InltOrigBin', 'Inltorigbin', 'VARCHAR', true, 8, '');
+        $this->addColumn('InltShopItem', 'Inltshopitem', 'CHAR', true, null, '');
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
     } // initialize()
 
     /**
@@ -644,11 +644,11 @@ class InvWhseLotTableMap extends TableMap
             $criteria->addSelectColumn(InvWhseLotTableMap::COL_INLTINSHIP);
             $criteria->addSelectColumn(InvWhseLotTableMap::COL_INLTLOTREF);
             $criteria->addSelectColumn(InvWhseLotTableMap::COL_INLTBATCH);
-            $criteria->addSelectColumn(InvWhseLotTableMap::COL_INLTLANDCOST1);
-            $criteria->addSelectColumn(InvWhseLotTableMap::COL_INLTLANDCOST2);
-            $criteria->addSelectColumn(InvWhseLotTableMap::COL_INLTLANDCOST3);
-            $criteria->addSelectColumn(InvWhseLotTableMap::COL_INLTLANDCOST4);
-            $criteria->addSelectColumn(InvWhseLotTableMap::COL_INLTLANDCOST5);
+            $criteria->addSelectColumn(InvWhseLotTableMap::COL_INLTLANDCOST);
+            $criteria->addSelectColumn(InvWhseLotTableMap::COL_INLTMPFUNITCOST);
+            $criteria->addSelectColumn(InvWhseLotTableMap::COL_INLTHMFUNITCOST);
+            $criteria->addSelectColumn(InvWhseLotTableMap::COL_INLTDSETUNITCOST);
+            $criteria->addSelectColumn(InvWhseLotTableMap::COL_INLTNUMERICFILLER);
             $criteria->addSelectColumn(InvWhseLotTableMap::COL_INLTTARIFFCOST);
             $criteria->addSelectColumn(InvWhseLotTableMap::COL_INLTSHOPCOST);
             $criteria->addSelectColumn(InvWhseLotTableMap::COL_INLTISSCODFSQTY);
@@ -688,11 +688,11 @@ class InvWhseLotTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.InltInShip');
             $criteria->addSelectColumn($alias . '.InltLotRef');
             $criteria->addSelectColumn($alias . '.InltBatch');
-            $criteria->addSelectColumn($alias . '.InltLandCost1');
-            $criteria->addSelectColumn($alias . '.InltLandCost2');
-            $criteria->addSelectColumn($alias . '.InltLandCost3');
-            $criteria->addSelectColumn($alias . '.InltLandCost4');
-            $criteria->addSelectColumn($alias . '.InltLandCost5');
+            $criteria->addSelectColumn($alias . '.InltLandCost');
+            $criteria->addSelectColumn($alias . '.InltMpfUnitCost');
+            $criteria->addSelectColumn($alias . '.InltHmfUnitCost');
+            $criteria->addSelectColumn($alias . '.InltDsetUnitCost');
+            $criteria->addSelectColumn($alias . '.InltNumericFiller');
             $criteria->addSelectColumn($alias . '.InltTariffCost');
             $criteria->addSelectColumn($alias . '.InltShopCost');
             $criteria->addSelectColumn($alias . '.InltIsscoDfsQty');

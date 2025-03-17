@@ -2251,45 +2251,45 @@
     <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
     <column name="InltLotSer" phpName="Inltlotser" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
     <column name="InltBin" phpName="Inltbin" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
-    <column name="InltDate" phpName="Inltdate" type="VARCHAR" size="8"/>
-    <column name="InltDateWrit" phpName="Inltdatewrit" type="VARCHAR" size="8"/>
-    <column name="InltCost" phpName="Inltcost" type="DECIMAL" size="20" scale="7"/>
-    <column name="InltOnHand" phpName="Inltonhand" type="DECIMAL" size="20" scale="7"/>
-    <column name="InltResv" phpName="Inltresv" type="DECIMAL" size="20" scale="7"/>
-    <column name="InltShip" phpName="Inltship" type="DECIMAL" size="20" scale="7"/>
-    <column name="InltAllo" phpName="Inltallo" type="DECIMAL" size="20" scale="7"/>
-    <column name="InltFabAllo" phpName="Inltfaballo" type="DECIMAL" size="20" scale="7"/>
-    <column name="InltInTran" phpName="Inltintran" type="DECIMAL" size="20" scale="7"/>
-    <column name="InltInShip" phpName="Inltinship" type="DECIMAL" size="20" scale="7"/>
-    <column name="InltLotRef" phpName="Inltlotref" type="VARCHAR" size="20"/>
-    <column name="InltBatch" phpName="Inltbatch" type="VARCHAR" size="20"/>
-    <column name="InltLandCost1" phpName="Inltlandcost1" type="DECIMAL" size="20" scale="5"/>
-    <column name="InltLandCost2" phpName="Inltlandcost2" type="DECIMAL" size="20" scale="5"/>
-    <column name="InltLandCost3" phpName="Inltlandcost3" type="DECIMAL" size="20" scale="5"/>
-    <column name="InltLandCost4" phpName="Inltlandcost4" type="DECIMAL" size="20" scale="5"/>
-    <column name="InltLandCost5" phpName="Inltlandcost5" type="DECIMAL" size="20" scale="5"/>
-    <column name="InltTariffCost" phpName="Inlttariffcost" type="DECIMAL" size="20" scale="7"/>
-    <column name="InltShopCost" phpName="Inltshopcost" type="DECIMAL" size="20" scale="7"/>
-    <column name="InltIsscoDfsQty" phpName="Inltisscodfsqty" type="DECIMAL" size="20" scale="7"/>
-    <column name="InltHeadMark" phpName="Inltheadmark" type="VARCHAR" size="4"/>
-    <column name="InltCtry" phpName="Inltctry" type="VARCHAR" size="4"/>
-    <column name="InltRvalOrigCost" phpName="Inltrvalorigcost" type="DECIMAL" size="20" scale="7"/>
-    <column name="InltRvalPct" phpName="Inltrvalpct" type="DECIMAL" size="20" scale="2"/>
-    <column name="InltUnitWght" phpName="Inltunitwght" type="DECIMAL" size="20" scale="7"/>
-    <column name="InltDestWhse" phpName="Inltdestwhse" type="VARCHAR" size="2"/>
-    <column name="InltCntrQty" phpName="Inltcntrqty" type="DECIMAL" size="20" scale="0"/>
-    <column name="InltQtyPerRoll" phpName="Inltqtyperroll" type="DECIMAL" size="20" scale="3"/>
-    <column name="InltTareWght" phpName="Inlttarewght" type="DECIMAL" size="20" scale="3"/>
-    <column name="InltQcReasonCd" phpName="Inltqcreasoncd" type="VARCHAR" size="1"/>
-    <column name="InltCert" phpName="Inltcert" type="VARCHAR" size="1"/>
-    <column name="InltCureDate" phpName="Inltcuredate" type="VARCHAR" size="10"/>
-    <column name="InltExpireDateCd" phpName="Inltexpiredatecd" type="VARCHAR" size="1"/>
-    <column name="InltExpireDate" phpName="Inltexpiredate" type="VARCHAR" size="8"/>
-    <column name="InltOrigBin" phpName="Inltorigbin" type="VARCHAR" size="8"/>
-    <column name="InltShopItem" phpName="Inltshopitem" type="VARCHAR" size="1"/>
-    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
-    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
-    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <column name="InltDate" phpName="Inltdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="InltDateWrit" phpName="Inltdatewrit" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="InltCost" phpName="Inltcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltOnHand" phpName="Inltonhand" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltResv" phpName="Inltresv" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltShip" phpName="Inltship" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltAllo" phpName="Inltallo" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltFabAllo" phpName="Inltfaballo" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltInTran" phpName="Inltintran" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltInShip" phpName="Inltinship" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltLotRef" phpName="Inltlotref" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="InltBatch" phpName="Inltbatch" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="InltLandCost" phpName="Inltlandcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltMpfUnitCost" phpName="Inltmpfunitcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltHmfUnitCost" phpName="Inlthmfunitcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltDsetUnitCost" phpName="Inltdsetunitcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltNumericFiller" phpName="Inltnumericfiller" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltTariffCost" phpName="Inlttariffcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltShopCost" phpName="Inltshopcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltIsscoDfsQty" phpName="Inltisscodfsqty" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltHeadMark" phpName="Inltheadmark" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="InltCtry" phpName="Inltctry" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="InltRvalOrigCost" phpName="Inltrvalorigcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltRvalPct" phpName="Inltrvalpct" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="InltUnitWght" phpName="Inltunitwght" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InltDestWhse" phpName="Inltdestwhse" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="InltCntrQty" phpName="Inltcntrqty" type="DECIMAL" size="20" scale="0" required="true" defaultValue="0"/>
+    <column name="InltQtyPerRoll" phpName="Inltqtyperroll" type="DECIMAL" size="20" scale="3" required="true" defaultValue="0.000"/>
+    <column name="InltTareWght" phpName="Inlttarewght" type="DECIMAL" size="20" scale="3" required="true" defaultValue="0.000"/>
+    <column name="InltQcReasonCd" phpName="Inltqcreasoncd" type="CHAR" required="true" defaultValue=""/>
+    <column name="InltCert" phpName="Inltcert" type="CHAR" required="true" defaultValue=""/>
+    <column name="InltCureDate" phpName="Inltcuredate" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="InltExpireDateCd" phpName="Inltexpiredatecd" type="CHAR" required="true" defaultValue=""/>
+    <column name="InltExpireDate" phpName="Inltexpiredate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="InltOrigBin" phpName="Inltorigbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InltShopItem" phpName="Inltshopitem" type="CHAR" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
     <foreign-key foreignTable="inv_item_mast" name="item">
       <reference local="InitItemNbr" foreign="InitItemNbr"/>
     </foreign-key>

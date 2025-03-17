@@ -4,11 +4,11 @@ namespace Base;
 
 use \InvLotMaster as ChildInvLotMaster;
 use \InvLotMasterQuery as ChildInvLotMasterQuery;
+use \InvWhseLotQuery as ChildInvWhseLotQuery;
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \Warehouse as ChildWarehouse;
 use \WarehouseQuery as ChildWarehouseQuery;
-use \InvWhseLotQuery as ChildInvWhseLotQuery;
 use \Exception;
 use \PDO;
 use Map\InvWhseLotTableMap;
@@ -100,6 +100,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inltdate;
@@ -107,6 +108,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltdatewrit field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inltdatewrit;
@@ -114,6 +116,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inltcost;
@@ -121,6 +124,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltonhand field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inltonhand;
@@ -128,6 +132,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltresv field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inltresv;
@@ -135,6 +140,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltship field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inltship;
@@ -142,6 +148,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltallo field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inltallo;
@@ -149,6 +156,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltfaballo field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inltfaballo;
@@ -156,6 +164,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltintran field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inltintran;
@@ -163,6 +172,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltinship field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inltinship;
@@ -170,6 +180,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltlotref field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inltlotref;
@@ -177,48 +188,55 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltbatch field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inltbatch;
 
     /**
-     * The value for the inltlandcost1 field.
+     * The value for the inltlandcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
-    protected $inltlandcost1;
+    protected $inltlandcost;
 
     /**
-     * The value for the inltlandcost2 field.
+     * The value for the inltmpfunitcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
-    protected $inltlandcost2;
+    protected $inltmpfunitcost;
 
     /**
-     * The value for the inltlandcost3 field.
+     * The value for the inlthmfunitcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
-    protected $inltlandcost3;
+    protected $inlthmfunitcost;
 
     /**
-     * The value for the inltlandcost4 field.
+     * The value for the inltdsetunitcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
-    protected $inltlandcost4;
+    protected $inltdsetunitcost;
 
     /**
-     * The value for the inltlandcost5 field.
+     * The value for the inltnumericfiller field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
-    protected $inltlandcost5;
+    protected $inltnumericfiller;
 
     /**
      * The value for the inlttariffcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inlttariffcost;
@@ -226,6 +244,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltshopcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inltshopcost;
@@ -233,6 +252,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltisscodfsqty field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inltisscodfsqty;
@@ -240,6 +260,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltheadmark field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inltheadmark;
@@ -247,6 +268,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltctry field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inltctry;
@@ -254,6 +276,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltrvalorigcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inltrvalorigcost;
@@ -261,6 +284,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltrvalpct field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $inltrvalpct;
@@ -268,6 +292,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltunitwght field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inltunitwght;
@@ -275,6 +300,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltdestwhse field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inltdestwhse;
@@ -282,6 +308,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltcntrqty field.
      *
+     * Note: this column has a database default value of: '0'
      * @var        string
      */
     protected $inltcntrqty;
@@ -289,6 +316,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltqtyperroll field.
      *
+     * Note: this column has a database default value of: '0.000'
      * @var        string
      */
     protected $inltqtyperroll;
@@ -296,6 +324,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inlttarewght field.
      *
+     * Note: this column has a database default value of: '0.000'
      * @var        string
      */
     protected $inlttarewght;
@@ -303,6 +332,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltqcreasoncd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inltqcreasoncd;
@@ -310,6 +340,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltcert field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inltcert;
@@ -317,6 +348,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltcuredate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inltcuredate;
@@ -324,6 +356,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltexpiredatecd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inltexpiredatecd;
@@ -331,6 +364,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltexpiredate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inltexpiredate;
@@ -338,6 +372,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltorigbin field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inltorigbin;
@@ -345,6 +380,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the inltshopitem field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inltshopitem;
@@ -352,6 +388,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -359,6 +396,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -366,6 +404,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -405,6 +444,45 @@ abstract class InvWhseLot implements ActiveRecordInterface
         $this->intbwhse = '';
         $this->inltlotser = '';
         $this->inltbin = '';
+        $this->inltdate = '';
+        $this->inltdatewrit = '';
+        $this->inltcost = '0.0000000';
+        $this->inltonhand = '0.0000000';
+        $this->inltresv = '0.0000000';
+        $this->inltship = '0.0000000';
+        $this->inltallo = '0.0000000';
+        $this->inltfaballo = '0.0000000';
+        $this->inltintran = '0.0000000';
+        $this->inltinship = '0.0000000';
+        $this->inltlotref = '';
+        $this->inltbatch = '';
+        $this->inltlandcost = '0.0000000';
+        $this->inltmpfunitcost = '0.0000000';
+        $this->inlthmfunitcost = '0.0000000';
+        $this->inltdsetunitcost = '0.0000000';
+        $this->inltnumericfiller = '0.0000000';
+        $this->inlttariffcost = '0.0000000';
+        $this->inltshopcost = '0.0000000';
+        $this->inltisscodfsqty = '0.0000000';
+        $this->inltheadmark = '';
+        $this->inltctry = '';
+        $this->inltrvalorigcost = '0.0000000';
+        $this->inltrvalpct = '0.00';
+        $this->inltunitwght = '0.0000000';
+        $this->inltdestwhse = '';
+        $this->inltcntrqty = '0';
+        $this->inltqtyperroll = '0.000';
+        $this->inlttarewght = '0.000';
+        $this->inltqcreasoncd = '';
+        $this->inltcert = '';
+        $this->inltcuredate = '';
+        $this->inltexpiredatecd = '';
+        $this->inltexpiredate = '';
+        $this->inltorigbin = '';
+        $this->inltshopitem = '';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
@@ -795,53 +873,53 @@ abstract class InvWhseLot implements ActiveRecordInterface
     }
 
     /**
-     * Get the [inltlandcost1] column value.
+     * Get the [inltlandcost] column value.
      *
      * @return string
      */
-    public function getInltlandcost1()
+    public function getInltlandcost()
     {
-        return $this->inltlandcost1;
+        return $this->inltlandcost;
     }
 
     /**
-     * Get the [inltlandcost2] column value.
+     * Get the [inltmpfunitcost] column value.
      *
      * @return string
      */
-    public function getInltlandcost2()
+    public function getInltmpfunitcost()
     {
-        return $this->inltlandcost2;
+        return $this->inltmpfunitcost;
     }
 
     /**
-     * Get the [inltlandcost3] column value.
+     * Get the [inlthmfunitcost] column value.
      *
      * @return string
      */
-    public function getInltlandcost3()
+    public function getInlthmfunitcost()
     {
-        return $this->inltlandcost3;
+        return $this->inlthmfunitcost;
     }
 
     /**
-     * Get the [inltlandcost4] column value.
+     * Get the [inltdsetunitcost] column value.
      *
      * @return string
      */
-    public function getInltlandcost4()
+    public function getInltdsetunitcost()
     {
-        return $this->inltlandcost4;
+        return $this->inltdsetunitcost;
     }
 
     /**
-     * Get the [inltlandcost5] column value.
+     * Get the [inltnumericfiller] column value.
      *
      * @return string
      */
-    public function getInltlandcost5()
+    public function getInltnumericfiller()
     {
-        return $this->inltlandcost5;
+        return $this->inltnumericfiller;
     }
 
     /**
@@ -1401,104 +1479,104 @@ abstract class InvWhseLot implements ActiveRecordInterface
     } // setInltbatch()
 
     /**
-     * Set the value of [inltlandcost1] column.
+     * Set the value of [inltlandcost] column.
      *
      * @param string $v new value
      * @return $this|\InvWhseLot The current object (for fluent API support)
      */
-    public function setInltlandcost1($v)
+    public function setInltlandcost($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltlandcost1 !== $v) {
-            $this->inltlandcost1 = $v;
-            $this->modifiedColumns[InvWhseLotTableMap::COL_INLTLANDCOST1] = true;
+        if ($this->inltlandcost !== $v) {
+            $this->inltlandcost = $v;
+            $this->modifiedColumns[InvWhseLotTableMap::COL_INLTLANDCOST] = true;
         }
 
         return $this;
-    } // setInltlandcost1()
+    } // setInltlandcost()
 
     /**
-     * Set the value of [inltlandcost2] column.
+     * Set the value of [inltmpfunitcost] column.
      *
      * @param string $v new value
      * @return $this|\InvWhseLot The current object (for fluent API support)
      */
-    public function setInltlandcost2($v)
+    public function setInltmpfunitcost($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltlandcost2 !== $v) {
-            $this->inltlandcost2 = $v;
-            $this->modifiedColumns[InvWhseLotTableMap::COL_INLTLANDCOST2] = true;
+        if ($this->inltmpfunitcost !== $v) {
+            $this->inltmpfunitcost = $v;
+            $this->modifiedColumns[InvWhseLotTableMap::COL_INLTMPFUNITCOST] = true;
         }
 
         return $this;
-    } // setInltlandcost2()
+    } // setInltmpfunitcost()
 
     /**
-     * Set the value of [inltlandcost3] column.
+     * Set the value of [inlthmfunitcost] column.
      *
      * @param string $v new value
      * @return $this|\InvWhseLot The current object (for fluent API support)
      */
-    public function setInltlandcost3($v)
+    public function setInlthmfunitcost($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltlandcost3 !== $v) {
-            $this->inltlandcost3 = $v;
-            $this->modifiedColumns[InvWhseLotTableMap::COL_INLTLANDCOST3] = true;
+        if ($this->inlthmfunitcost !== $v) {
+            $this->inlthmfunitcost = $v;
+            $this->modifiedColumns[InvWhseLotTableMap::COL_INLTHMFUNITCOST] = true;
         }
 
         return $this;
-    } // setInltlandcost3()
+    } // setInlthmfunitcost()
 
     /**
-     * Set the value of [inltlandcost4] column.
+     * Set the value of [inltdsetunitcost] column.
      *
      * @param string $v new value
      * @return $this|\InvWhseLot The current object (for fluent API support)
      */
-    public function setInltlandcost4($v)
+    public function setInltdsetunitcost($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltlandcost4 !== $v) {
-            $this->inltlandcost4 = $v;
-            $this->modifiedColumns[InvWhseLotTableMap::COL_INLTLANDCOST4] = true;
+        if ($this->inltdsetunitcost !== $v) {
+            $this->inltdsetunitcost = $v;
+            $this->modifiedColumns[InvWhseLotTableMap::COL_INLTDSETUNITCOST] = true;
         }
 
         return $this;
-    } // setInltlandcost4()
+    } // setInltdsetunitcost()
 
     /**
-     * Set the value of [inltlandcost5] column.
+     * Set the value of [inltnumericfiller] column.
      *
      * @param string $v new value
      * @return $this|\InvWhseLot The current object (for fluent API support)
      */
-    public function setInltlandcost5($v)
+    public function setInltnumericfiller($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltlandcost5 !== $v) {
-            $this->inltlandcost5 = $v;
-            $this->modifiedColumns[InvWhseLotTableMap::COL_INLTLANDCOST5] = true;
+        if ($this->inltnumericfiller !== $v) {
+            $this->inltnumericfiller = $v;
+            $this->modifiedColumns[InvWhseLotTableMap::COL_INLTNUMERICFILLER] = true;
         }
 
         return $this;
-    } // setInltlandcost5()
+    } // setInltnumericfiller()
 
     /**
      * Set the value of [inlttariffcost] column.
@@ -1966,6 +2044,162 @@ abstract class InvWhseLot implements ActiveRecordInterface
                 return false;
             }
 
+            if ($this->inltdate !== '') {
+                return false;
+            }
+
+            if ($this->inltdatewrit !== '') {
+                return false;
+            }
+
+            if ($this->inltcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inltonhand !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inltresv !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inltship !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inltallo !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inltfaballo !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inltintran !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inltinship !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inltlotref !== '') {
+                return false;
+            }
+
+            if ($this->inltbatch !== '') {
+                return false;
+            }
+
+            if ($this->inltlandcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inltmpfunitcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inlthmfunitcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inltdsetunitcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inltnumericfiller !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inlttariffcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inltshopcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inltisscodfsqty !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inltheadmark !== '') {
+                return false;
+            }
+
+            if ($this->inltctry !== '') {
+                return false;
+            }
+
+            if ($this->inltrvalorigcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inltrvalpct !== '0.00') {
+                return false;
+            }
+
+            if ($this->inltunitwght !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inltdestwhse !== '') {
+                return false;
+            }
+
+            if ($this->inltcntrqty !== '0') {
+                return false;
+            }
+
+            if ($this->inltqtyperroll !== '0.000') {
+                return false;
+            }
+
+            if ($this->inlttarewght !== '0.000') {
+                return false;
+            }
+
+            if ($this->inltqcreasoncd !== '') {
+                return false;
+            }
+
+            if ($this->inltcert !== '') {
+                return false;
+            }
+
+            if ($this->inltcuredate !== '') {
+                return false;
+            }
+
+            if ($this->inltexpiredatecd !== '') {
+                return false;
+            }
+
+            if ($this->inltexpiredate !== '') {
+                return false;
+            }
+
+            if ($this->inltorigbin !== '') {
+                return false;
+            }
+
+            if ($this->inltshopitem !== '') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
+                return false;
+            }
+
         // otherwise, everything was equal, so return TRUE
         return true;
     } // hasOnlyDefaultValues()
@@ -2040,20 +2274,20 @@ abstract class InvWhseLot implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : InvWhseLotTableMap::translateFieldName('Inltbatch', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltbatch = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : InvWhseLotTableMap::translateFieldName('Inltlandcost1', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltlandcost1 = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : InvWhseLotTableMap::translateFieldName('Inltlandcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->inltlandcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : InvWhseLotTableMap::translateFieldName('Inltlandcost2', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltlandcost2 = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : InvWhseLotTableMap::translateFieldName('Inltmpfunitcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->inltmpfunitcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : InvWhseLotTableMap::translateFieldName('Inltlandcost3', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltlandcost3 = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : InvWhseLotTableMap::translateFieldName('Inlthmfunitcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->inlthmfunitcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : InvWhseLotTableMap::translateFieldName('Inltlandcost4', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltlandcost4 = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : InvWhseLotTableMap::translateFieldName('Inltdsetunitcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->inltdsetunitcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : InvWhseLotTableMap::translateFieldName('Inltlandcost5', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltlandcost5 = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : InvWhseLotTableMap::translateFieldName('Inltnumericfiller', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->inltnumericfiller = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : InvWhseLotTableMap::translateFieldName('Inlttariffcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inlttariffcost = (null !== $col) ? (string) $col : null;
@@ -2414,20 +2648,20 @@ abstract class InvWhseLot implements ActiveRecordInterface
         if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTBATCH)) {
             $modifiedColumns[':p' . $index++]  = 'InltBatch';
         }
-        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTLANDCOST1)) {
-            $modifiedColumns[':p' . $index++]  = 'InltLandCost1';
+        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTLANDCOST)) {
+            $modifiedColumns[':p' . $index++]  = 'InltLandCost';
         }
-        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTLANDCOST2)) {
-            $modifiedColumns[':p' . $index++]  = 'InltLandCost2';
+        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTMPFUNITCOST)) {
+            $modifiedColumns[':p' . $index++]  = 'InltMpfUnitCost';
         }
-        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTLANDCOST3)) {
-            $modifiedColumns[':p' . $index++]  = 'InltLandCost3';
+        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTHMFUNITCOST)) {
+            $modifiedColumns[':p' . $index++]  = 'InltHmfUnitCost';
         }
-        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTLANDCOST4)) {
-            $modifiedColumns[':p' . $index++]  = 'InltLandCost4';
+        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTDSETUNITCOST)) {
+            $modifiedColumns[':p' . $index++]  = 'InltDsetUnitCost';
         }
-        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTLANDCOST5)) {
-            $modifiedColumns[':p' . $index++]  = 'InltLandCost5';
+        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTNUMERICFILLER)) {
+            $modifiedColumns[':p' . $index++]  = 'InltNumericFiller';
         }
         if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTTARIFFCOST)) {
             $modifiedColumns[':p' . $index++]  = 'InltTariffCost';
@@ -2554,20 +2788,20 @@ abstract class InvWhseLot implements ActiveRecordInterface
                     case 'InltBatch':
                         $stmt->bindValue($identifier, $this->inltbatch, PDO::PARAM_STR);
                         break;
-                    case 'InltLandCost1':
-                        $stmt->bindValue($identifier, $this->inltlandcost1, PDO::PARAM_STR);
+                    case 'InltLandCost':
+                        $stmt->bindValue($identifier, $this->inltlandcost, PDO::PARAM_STR);
                         break;
-                    case 'InltLandCost2':
-                        $stmt->bindValue($identifier, $this->inltlandcost2, PDO::PARAM_STR);
+                    case 'InltMpfUnitCost':
+                        $stmt->bindValue($identifier, $this->inltmpfunitcost, PDO::PARAM_STR);
                         break;
-                    case 'InltLandCost3':
-                        $stmt->bindValue($identifier, $this->inltlandcost3, PDO::PARAM_STR);
+                    case 'InltHmfUnitCost':
+                        $stmt->bindValue($identifier, $this->inlthmfunitcost, PDO::PARAM_STR);
                         break;
-                    case 'InltLandCost4':
-                        $stmt->bindValue($identifier, $this->inltlandcost4, PDO::PARAM_STR);
+                    case 'InltDsetUnitCost':
+                        $stmt->bindValue($identifier, $this->inltdsetunitcost, PDO::PARAM_STR);
                         break;
-                    case 'InltLandCost5':
-                        $stmt->bindValue($identifier, $this->inltlandcost5, PDO::PARAM_STR);
+                    case 'InltNumericFiller':
+                        $stmt->bindValue($identifier, $this->inltnumericfiller, PDO::PARAM_STR);
                         break;
                     case 'InltTariffCost':
                         $stmt->bindValue($identifier, $this->inlttariffcost, PDO::PARAM_STR);
@@ -2739,19 +2973,19 @@ abstract class InvWhseLot implements ActiveRecordInterface
                 return $this->getInltbatch();
                 break;
             case 16:
-                return $this->getInltlandcost1();
+                return $this->getInltlandcost();
                 break;
             case 17:
-                return $this->getInltlandcost2();
+                return $this->getInltmpfunitcost();
                 break;
             case 18:
-                return $this->getInltlandcost3();
+                return $this->getInlthmfunitcost();
                 break;
             case 19:
-                return $this->getInltlandcost4();
+                return $this->getInltdsetunitcost();
                 break;
             case 20:
-                return $this->getInltlandcost5();
+                return $this->getInltnumericfiller();
                 break;
             case 21:
                 return $this->getInlttariffcost();
@@ -2865,11 +3099,11 @@ abstract class InvWhseLot implements ActiveRecordInterface
             $keys[13] => $this->getInltinship(),
             $keys[14] => $this->getInltlotref(),
             $keys[15] => $this->getInltbatch(),
-            $keys[16] => $this->getInltlandcost1(),
-            $keys[17] => $this->getInltlandcost2(),
-            $keys[18] => $this->getInltlandcost3(),
-            $keys[19] => $this->getInltlandcost4(),
-            $keys[20] => $this->getInltlandcost5(),
+            $keys[16] => $this->getInltlandcost(),
+            $keys[17] => $this->getInltmpfunitcost(),
+            $keys[18] => $this->getInlthmfunitcost(),
+            $keys[19] => $this->getInltdsetunitcost(),
+            $keys[20] => $this->getInltnumericfiller(),
             $keys[21] => $this->getInlttariffcost(),
             $keys[22] => $this->getInltshopcost(),
             $keys[23] => $this->getInltisscodfsqty(),
@@ -2933,7 +3167,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
 
                 switch ($keyType) {
                     case TableMap::TYPE_CAMELNAME:
-                        $key = 'InvLotMaster';
+                        $key = 'invLotMaster';
                         break;
                     case TableMap::TYPE_FIELDNAME:
                         $key = 'inv_lot_mast';
@@ -3027,19 +3261,19 @@ abstract class InvWhseLot implements ActiveRecordInterface
                 $this->setInltbatch($value);
                 break;
             case 16:
-                $this->setInltlandcost1($value);
+                $this->setInltlandcost($value);
                 break;
             case 17:
-                $this->setInltlandcost2($value);
+                $this->setInltmpfunitcost($value);
                 break;
             case 18:
-                $this->setInltlandcost3($value);
+                $this->setInlthmfunitcost($value);
                 break;
             case 19:
-                $this->setInltlandcost4($value);
+                $this->setInltdsetunitcost($value);
                 break;
             case 20:
-                $this->setInltlandcost5($value);
+                $this->setInltnumericfiller($value);
                 break;
             case 21:
                 $this->setInlttariffcost($value);
@@ -3182,19 +3416,19 @@ abstract class InvWhseLot implements ActiveRecordInterface
             $this->setInltbatch($arr[$keys[15]]);
         }
         if (array_key_exists($keys[16], $arr)) {
-            $this->setInltlandcost1($arr[$keys[16]]);
+            $this->setInltlandcost($arr[$keys[16]]);
         }
         if (array_key_exists($keys[17], $arr)) {
-            $this->setInltlandcost2($arr[$keys[17]]);
+            $this->setInltmpfunitcost($arr[$keys[17]]);
         }
         if (array_key_exists($keys[18], $arr)) {
-            $this->setInltlandcost3($arr[$keys[18]]);
+            $this->setInlthmfunitcost($arr[$keys[18]]);
         }
         if (array_key_exists($keys[19], $arr)) {
-            $this->setInltlandcost4($arr[$keys[19]]);
+            $this->setInltdsetunitcost($arr[$keys[19]]);
         }
         if (array_key_exists($keys[20], $arr)) {
-            $this->setInltlandcost5($arr[$keys[20]]);
+            $this->setInltnumericfiller($arr[$keys[20]]);
         }
         if (array_key_exists($keys[21], $arr)) {
             $this->setInlttariffcost($arr[$keys[21]]);
@@ -3351,20 +3585,20 @@ abstract class InvWhseLot implements ActiveRecordInterface
         if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTBATCH)) {
             $criteria->add(InvWhseLotTableMap::COL_INLTBATCH, $this->inltbatch);
         }
-        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTLANDCOST1)) {
-            $criteria->add(InvWhseLotTableMap::COL_INLTLANDCOST1, $this->inltlandcost1);
+        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTLANDCOST)) {
+            $criteria->add(InvWhseLotTableMap::COL_INLTLANDCOST, $this->inltlandcost);
         }
-        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTLANDCOST2)) {
-            $criteria->add(InvWhseLotTableMap::COL_INLTLANDCOST2, $this->inltlandcost2);
+        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTMPFUNITCOST)) {
+            $criteria->add(InvWhseLotTableMap::COL_INLTMPFUNITCOST, $this->inltmpfunitcost);
         }
-        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTLANDCOST3)) {
-            $criteria->add(InvWhseLotTableMap::COL_INLTLANDCOST3, $this->inltlandcost3);
+        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTHMFUNITCOST)) {
+            $criteria->add(InvWhseLotTableMap::COL_INLTHMFUNITCOST, $this->inlthmfunitcost);
         }
-        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTLANDCOST4)) {
-            $criteria->add(InvWhseLotTableMap::COL_INLTLANDCOST4, $this->inltlandcost4);
+        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTDSETUNITCOST)) {
+            $criteria->add(InvWhseLotTableMap::COL_INLTDSETUNITCOST, $this->inltdsetunitcost);
         }
-        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTLANDCOST5)) {
-            $criteria->add(InvWhseLotTableMap::COL_INLTLANDCOST5, $this->inltlandcost5);
+        if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTNUMERICFILLER)) {
+            $criteria->add(InvWhseLotTableMap::COL_INLTNUMERICFILLER, $this->inltnumericfiller);
         }
         if ($this->isColumnModified(InvWhseLotTableMap::COL_INLTTARIFFCOST)) {
             $criteria->add(InvWhseLotTableMap::COL_INLTTARIFFCOST, $this->inlttariffcost);
@@ -3571,11 +3805,11 @@ abstract class InvWhseLot implements ActiveRecordInterface
         $copyObj->setInltinship($this->getInltinship());
         $copyObj->setInltlotref($this->getInltlotref());
         $copyObj->setInltbatch($this->getInltbatch());
-        $copyObj->setInltlandcost1($this->getInltlandcost1());
-        $copyObj->setInltlandcost2($this->getInltlandcost2());
-        $copyObj->setInltlandcost3($this->getInltlandcost3());
-        $copyObj->setInltlandcost4($this->getInltlandcost4());
-        $copyObj->setInltlandcost5($this->getInltlandcost5());
+        $copyObj->setInltlandcost($this->getInltlandcost());
+        $copyObj->setInltmpfunitcost($this->getInltmpfunitcost());
+        $copyObj->setInlthmfunitcost($this->getInlthmfunitcost());
+        $copyObj->setInltdsetunitcost($this->getInltdsetunitcost());
+        $copyObj->setInltnumericfiller($this->getInltnumericfiller());
         $copyObj->setInlttariffcost($this->getInlttariffcost());
         $copyObj->setInltshopcost($this->getInltshopcost());
         $copyObj->setInltisscodfsqty($this->getInltisscodfsqty());
@@ -3816,11 +4050,11 @@ abstract class InvWhseLot implements ActiveRecordInterface
         $this->inltinship = null;
         $this->inltlotref = null;
         $this->inltbatch = null;
-        $this->inltlandcost1 = null;
-        $this->inltlandcost2 = null;
-        $this->inltlandcost3 = null;
-        $this->inltlandcost4 = null;
-        $this->inltlandcost5 = null;
+        $this->inltlandcost = null;
+        $this->inltmpfunitcost = null;
+        $this->inlthmfunitcost = null;
+        $this->inltdsetunitcost = null;
+        $this->inltnumericfiller = null;
         $this->inlttariffcost = null;
         $this->inltshopcost = null;
         $this->inltisscodfsqty = null;
@@ -3887,7 +4121,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }
@@ -3911,7 +4145,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
+            // return parent::preInsert($con);
         }
         return true;
     }
@@ -3935,7 +4169,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
+            // return parent::preUpdate($con);
         }
         return true;
     }
@@ -3959,7 +4193,7 @@ abstract class InvWhseLot implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
+            // return parent::preDelete($con);
         }
         return true;
     }

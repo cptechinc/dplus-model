@@ -36,11 +36,11 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvWhseLotQuery orderByInltinship($order = Criteria::ASC) Order by the InltInShip column
  * @method     ChildInvWhseLotQuery orderByInltlotref($order = Criteria::ASC) Order by the InltLotRef column
  * @method     ChildInvWhseLotQuery orderByInltbatch($order = Criteria::ASC) Order by the InltBatch column
- * @method     ChildInvWhseLotQuery orderByInltlandcost1($order = Criteria::ASC) Order by the InltLandCost1 column
- * @method     ChildInvWhseLotQuery orderByInltlandcost2($order = Criteria::ASC) Order by the InltLandCost2 column
- * @method     ChildInvWhseLotQuery orderByInltlandcost3($order = Criteria::ASC) Order by the InltLandCost3 column
- * @method     ChildInvWhseLotQuery orderByInltlandcost4($order = Criteria::ASC) Order by the InltLandCost4 column
- * @method     ChildInvWhseLotQuery orderByInltlandcost5($order = Criteria::ASC) Order by the InltLandCost5 column
+ * @method     ChildInvWhseLotQuery orderByInltlandcost($order = Criteria::ASC) Order by the InltLandCost column
+ * @method     ChildInvWhseLotQuery orderByInltmpfunitcost($order = Criteria::ASC) Order by the InltMpfUnitCost column
+ * @method     ChildInvWhseLotQuery orderByInlthmfunitcost($order = Criteria::ASC) Order by the InltHmfUnitCost column
+ * @method     ChildInvWhseLotQuery orderByInltdsetunitcost($order = Criteria::ASC) Order by the InltDsetUnitCost column
+ * @method     ChildInvWhseLotQuery orderByInltnumericfiller($order = Criteria::ASC) Order by the InltNumericFiller column
  * @method     ChildInvWhseLotQuery orderByInlttariffcost($order = Criteria::ASC) Order by the InltTariffCost column
  * @method     ChildInvWhseLotQuery orderByInltshopcost($order = Criteria::ASC) Order by the InltShopCost column
  * @method     ChildInvWhseLotQuery orderByInltisscodfsqty($order = Criteria::ASC) Order by the InltIsscoDfsQty column
@@ -80,11 +80,11 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvWhseLotQuery groupByInltinship() Group by the InltInShip column
  * @method     ChildInvWhseLotQuery groupByInltlotref() Group by the InltLotRef column
  * @method     ChildInvWhseLotQuery groupByInltbatch() Group by the InltBatch column
- * @method     ChildInvWhseLotQuery groupByInltlandcost1() Group by the InltLandCost1 column
- * @method     ChildInvWhseLotQuery groupByInltlandcost2() Group by the InltLandCost2 column
- * @method     ChildInvWhseLotQuery groupByInltlandcost3() Group by the InltLandCost3 column
- * @method     ChildInvWhseLotQuery groupByInltlandcost4() Group by the InltLandCost4 column
- * @method     ChildInvWhseLotQuery groupByInltlandcost5() Group by the InltLandCost5 column
+ * @method     ChildInvWhseLotQuery groupByInltlandcost() Group by the InltLandCost column
+ * @method     ChildInvWhseLotQuery groupByInltmpfunitcost() Group by the InltMpfUnitCost column
+ * @method     ChildInvWhseLotQuery groupByInlthmfunitcost() Group by the InltHmfUnitCost column
+ * @method     ChildInvWhseLotQuery groupByInltdsetunitcost() Group by the InltDsetUnitCost column
+ * @method     ChildInvWhseLotQuery groupByInltnumericfiller() Group by the InltNumericFiller column
  * @method     ChildInvWhseLotQuery groupByInlttariffcost() Group by the InltTariffCost column
  * @method     ChildInvWhseLotQuery groupByInltshopcost() Group by the InltShopCost column
  * @method     ChildInvWhseLotQuery groupByInltisscodfsqty() Group by the InltIsscoDfsQty column
@@ -167,11 +167,11 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvWhseLot findOneByInltinship(string $InltInShip) Return the first ChildInvWhseLot filtered by the InltInShip column
  * @method     ChildInvWhseLot findOneByInltlotref(string $InltLotRef) Return the first ChildInvWhseLot filtered by the InltLotRef column
  * @method     ChildInvWhseLot findOneByInltbatch(string $InltBatch) Return the first ChildInvWhseLot filtered by the InltBatch column
- * @method     ChildInvWhseLot findOneByInltlandcost1(string $InltLandCost1) Return the first ChildInvWhseLot filtered by the InltLandCost1 column
- * @method     ChildInvWhseLot findOneByInltlandcost2(string $InltLandCost2) Return the first ChildInvWhseLot filtered by the InltLandCost2 column
- * @method     ChildInvWhseLot findOneByInltlandcost3(string $InltLandCost3) Return the first ChildInvWhseLot filtered by the InltLandCost3 column
- * @method     ChildInvWhseLot findOneByInltlandcost4(string $InltLandCost4) Return the first ChildInvWhseLot filtered by the InltLandCost4 column
- * @method     ChildInvWhseLot findOneByInltlandcost5(string $InltLandCost5) Return the first ChildInvWhseLot filtered by the InltLandCost5 column
+ * @method     ChildInvWhseLot findOneByInltlandcost(string $InltLandCost) Return the first ChildInvWhseLot filtered by the InltLandCost column
+ * @method     ChildInvWhseLot findOneByInltmpfunitcost(string $InltMpfUnitCost) Return the first ChildInvWhseLot filtered by the InltMpfUnitCost column
+ * @method     ChildInvWhseLot findOneByInlthmfunitcost(string $InltHmfUnitCost) Return the first ChildInvWhseLot filtered by the InltHmfUnitCost column
+ * @method     ChildInvWhseLot findOneByInltdsetunitcost(string $InltDsetUnitCost) Return the first ChildInvWhseLot filtered by the InltDsetUnitCost column
+ * @method     ChildInvWhseLot findOneByInltnumericfiller(string $InltNumericFiller) Return the first ChildInvWhseLot filtered by the InltNumericFiller column
  * @method     ChildInvWhseLot findOneByInlttariffcost(string $InltTariffCost) Return the first ChildInvWhseLot filtered by the InltTariffCost column
  * @method     ChildInvWhseLot findOneByInltshopcost(string $InltShopCost) Return the first ChildInvWhseLot filtered by the InltShopCost column
  * @method     ChildInvWhseLot findOneByInltisscodfsqty(string $InltIsscoDfsQty) Return the first ChildInvWhseLot filtered by the InltIsscoDfsQty column
@@ -214,11 +214,11 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvWhseLot requireOneByInltinship(string $InltInShip) Return the first ChildInvWhseLot filtered by the InltInShip column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvWhseLot requireOneByInltlotref(string $InltLotRef) Return the first ChildInvWhseLot filtered by the InltLotRef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvWhseLot requireOneByInltbatch(string $InltBatch) Return the first ChildInvWhseLot filtered by the InltBatch column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvWhseLot requireOneByInltlandcost1(string $InltLandCost1) Return the first ChildInvWhseLot filtered by the InltLandCost1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvWhseLot requireOneByInltlandcost2(string $InltLandCost2) Return the first ChildInvWhseLot filtered by the InltLandCost2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvWhseLot requireOneByInltlandcost3(string $InltLandCost3) Return the first ChildInvWhseLot filtered by the InltLandCost3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvWhseLot requireOneByInltlandcost4(string $InltLandCost4) Return the first ChildInvWhseLot filtered by the InltLandCost4 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvWhseLot requireOneByInltlandcost5(string $InltLandCost5) Return the first ChildInvWhseLot filtered by the InltLandCost5 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltlandcost(string $InltLandCost) Return the first ChildInvWhseLot filtered by the InltLandCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltmpfunitcost(string $InltMpfUnitCost) Return the first ChildInvWhseLot filtered by the InltMpfUnitCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInlthmfunitcost(string $InltHmfUnitCost) Return the first ChildInvWhseLot filtered by the InltHmfUnitCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltdsetunitcost(string $InltDsetUnitCost) Return the first ChildInvWhseLot filtered by the InltDsetUnitCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltnumericfiller(string $InltNumericFiller) Return the first ChildInvWhseLot filtered by the InltNumericFiller column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvWhseLot requireOneByInlttariffcost(string $InltTariffCost) Return the first ChildInvWhseLot filtered by the InltTariffCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvWhseLot requireOneByInltshopcost(string $InltShopCost) Return the first ChildInvWhseLot filtered by the InltShopCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvWhseLot requireOneByInltisscodfsqty(string $InltIsscoDfsQty) Return the first ChildInvWhseLot filtered by the InltIsscoDfsQty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -259,11 +259,11 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvWhseLot[]|ObjectCollection findByInltinship(string $InltInShip) Return ChildInvWhseLot objects filtered by the InltInShip column
  * @method     ChildInvWhseLot[]|ObjectCollection findByInltlotref(string $InltLotRef) Return ChildInvWhseLot objects filtered by the InltLotRef column
  * @method     ChildInvWhseLot[]|ObjectCollection findByInltbatch(string $InltBatch) Return ChildInvWhseLot objects filtered by the InltBatch column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltlandcost1(string $InltLandCost1) Return ChildInvWhseLot objects filtered by the InltLandCost1 column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltlandcost2(string $InltLandCost2) Return ChildInvWhseLot objects filtered by the InltLandCost2 column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltlandcost3(string $InltLandCost3) Return ChildInvWhseLot objects filtered by the InltLandCost3 column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltlandcost4(string $InltLandCost4) Return ChildInvWhseLot objects filtered by the InltLandCost4 column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltlandcost5(string $InltLandCost5) Return ChildInvWhseLot objects filtered by the InltLandCost5 column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltlandcost(string $InltLandCost) Return ChildInvWhseLot objects filtered by the InltLandCost column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltmpfunitcost(string $InltMpfUnitCost) Return ChildInvWhseLot objects filtered by the InltMpfUnitCost column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInlthmfunitcost(string $InltHmfUnitCost) Return ChildInvWhseLot objects filtered by the InltHmfUnitCost column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltdsetunitcost(string $InltDsetUnitCost) Return ChildInvWhseLot objects filtered by the InltDsetUnitCost column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltnumericfiller(string $InltNumericFiller) Return ChildInvWhseLot objects filtered by the InltNumericFiller column
  * @method     ChildInvWhseLot[]|ObjectCollection findByInlttariffcost(string $InltTariffCost) Return ChildInvWhseLot objects filtered by the InltTariffCost column
  * @method     ChildInvWhseLot[]|ObjectCollection findByInltshopcost(string $InltShopCost) Return ChildInvWhseLot objects filtered by the InltShopCost column
  * @method     ChildInvWhseLot[]|ObjectCollection findByInltisscodfsqty(string $InltIsscoDfsQty) Return ChildInvWhseLot objects filtered by the InltIsscoDfsQty column
@@ -384,7 +384,7 @@ abstract class InvWhseLotQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT InitItemNbr, IntbWhse, InltLotSer, InltBin, InltDate, InltDateWrit, InltCost, InltOnHand, InltResv, InltShip, InltAllo, InltFabAllo, InltInTran, InltInShip, InltLotRef, InltBatch, InltLandCost1, InltLandCost2, InltLandCost3, InltLandCost4, InltLandCost5, InltTariffCost, InltShopCost, InltIsscoDfsQty, InltHeadMark, InltCtry, InltRvalOrigCost, InltRvalPct, InltUnitWght, InltDestWhse, InltCntrQty, InltQtyPerRoll, InltTareWght, InltQcReasonCd, InltCert, InltCureDate, InltExpireDateCd, InltExpireDate, InltOrigBin, InltShopItem, DateUpdtd, TimeUpdtd, dummy FROM inv_inv_lot WHERE InitItemNbr = :p0 AND IntbWhse = :p1 AND InltLotSer = :p2 AND InltBin = :p3';
+        $sql = 'SELECT InitItemNbr, IntbWhse, InltLotSer, InltBin, InltDate, InltDateWrit, InltCost, InltOnHand, InltResv, InltShip, InltAllo, InltFabAllo, InltInTran, InltInShip, InltLotRef, InltBatch, InltLandCost, InltMpfUnitCost, InltHmfUnitCost, InltDsetUnitCost, InltNumericFiller, InltTariffCost, InltShopCost, InltIsscoDfsQty, InltHeadMark, InltCtry, InltRvalOrigCost, InltRvalPct, InltUnitWght, InltDestWhse, InltCntrQty, InltQtyPerRoll, InltTareWght, InltQcReasonCd, InltCert, InltCureDate, InltExpireDateCd, InltExpireDate, InltOrigBin, InltShopItem, DateUpdtd, TimeUpdtd, dummy FROM inv_inv_lot WHERE InitItemNbr = :p0 AND IntbWhse = :p1 AND InltLotSer = :p2 AND InltBin = :p3';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -1023,16 +1023,16 @@ abstract class InvWhseLotQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the InltLandCost1 column
+     * Filter the query on the InltLandCost column
      *
      * Example usage:
      * <code>
-     * $query->filterByInltlandcost1(1234); // WHERE InltLandCost1 = 1234
-     * $query->filterByInltlandcost1(array(12, 34)); // WHERE InltLandCost1 IN (12, 34)
-     * $query->filterByInltlandcost1(array('min' => 12)); // WHERE InltLandCost1 > 12
+     * $query->filterByInltlandcost(1234); // WHERE InltLandCost = 1234
+     * $query->filterByInltlandcost(array(12, 34)); // WHERE InltLandCost IN (12, 34)
+     * $query->filterByInltlandcost(array('min' => 12)); // WHERE InltLandCost > 12
      * </code>
      *
-     * @param     mixed $inltlandcost1 The value to use as filter.
+     * @param     mixed $inltlandcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
@@ -1040,16 +1040,16 @@ abstract class InvWhseLotQuery extends ModelCriteria
      *
      * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
-    public function filterByInltlandcost1($inltlandcost1 = null, $comparison = null)
+    public function filterByInltlandcost($inltlandcost = null, $comparison = null)
     {
-        if (is_array($inltlandcost1)) {
+        if (is_array($inltlandcost)) {
             $useMinMax = false;
-            if (isset($inltlandcost1['min'])) {
-                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST1, $inltlandcost1['min'], Criteria::GREATER_EQUAL);
+            if (isset($inltlandcost['min'])) {
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST, $inltlandcost['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
-            if (isset($inltlandcost1['max'])) {
-                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST1, $inltlandcost1['max'], Criteria::LESS_EQUAL);
+            if (isset($inltlandcost['max'])) {
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST, $inltlandcost['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1060,20 +1060,20 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST1, $inltlandcost1, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST, $inltlandcost, $comparison);
     }
 
     /**
-     * Filter the query on the InltLandCost2 column
+     * Filter the query on the InltMpfUnitCost column
      *
      * Example usage:
      * <code>
-     * $query->filterByInltlandcost2(1234); // WHERE InltLandCost2 = 1234
-     * $query->filterByInltlandcost2(array(12, 34)); // WHERE InltLandCost2 IN (12, 34)
-     * $query->filterByInltlandcost2(array('min' => 12)); // WHERE InltLandCost2 > 12
+     * $query->filterByInltmpfunitcost(1234); // WHERE InltMpfUnitCost = 1234
+     * $query->filterByInltmpfunitcost(array(12, 34)); // WHERE InltMpfUnitCost IN (12, 34)
+     * $query->filterByInltmpfunitcost(array('min' => 12)); // WHERE InltMpfUnitCost > 12
      * </code>
      *
-     * @param     mixed $inltlandcost2 The value to use as filter.
+     * @param     mixed $inltmpfunitcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
@@ -1081,16 +1081,16 @@ abstract class InvWhseLotQuery extends ModelCriteria
      *
      * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
-    public function filterByInltlandcost2($inltlandcost2 = null, $comparison = null)
+    public function filterByInltmpfunitcost($inltmpfunitcost = null, $comparison = null)
     {
-        if (is_array($inltlandcost2)) {
+        if (is_array($inltmpfunitcost)) {
             $useMinMax = false;
-            if (isset($inltlandcost2['min'])) {
-                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST2, $inltlandcost2['min'], Criteria::GREATER_EQUAL);
+            if (isset($inltmpfunitcost['min'])) {
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTMPFUNITCOST, $inltmpfunitcost['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
-            if (isset($inltlandcost2['max'])) {
-                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST2, $inltlandcost2['max'], Criteria::LESS_EQUAL);
+            if (isset($inltmpfunitcost['max'])) {
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTMPFUNITCOST, $inltmpfunitcost['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1101,20 +1101,20 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST2, $inltlandcost2, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTMPFUNITCOST, $inltmpfunitcost, $comparison);
     }
 
     /**
-     * Filter the query on the InltLandCost3 column
+     * Filter the query on the InltHmfUnitCost column
      *
      * Example usage:
      * <code>
-     * $query->filterByInltlandcost3(1234); // WHERE InltLandCost3 = 1234
-     * $query->filterByInltlandcost3(array(12, 34)); // WHERE InltLandCost3 IN (12, 34)
-     * $query->filterByInltlandcost3(array('min' => 12)); // WHERE InltLandCost3 > 12
+     * $query->filterByInlthmfunitcost(1234); // WHERE InltHmfUnitCost = 1234
+     * $query->filterByInlthmfunitcost(array(12, 34)); // WHERE InltHmfUnitCost IN (12, 34)
+     * $query->filterByInlthmfunitcost(array('min' => 12)); // WHERE InltHmfUnitCost > 12
      * </code>
      *
-     * @param     mixed $inltlandcost3 The value to use as filter.
+     * @param     mixed $inlthmfunitcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
@@ -1122,16 +1122,16 @@ abstract class InvWhseLotQuery extends ModelCriteria
      *
      * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
-    public function filterByInltlandcost3($inltlandcost3 = null, $comparison = null)
+    public function filterByInlthmfunitcost($inlthmfunitcost = null, $comparison = null)
     {
-        if (is_array($inltlandcost3)) {
+        if (is_array($inlthmfunitcost)) {
             $useMinMax = false;
-            if (isset($inltlandcost3['min'])) {
-                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST3, $inltlandcost3['min'], Criteria::GREATER_EQUAL);
+            if (isset($inlthmfunitcost['min'])) {
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTHMFUNITCOST, $inlthmfunitcost['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
-            if (isset($inltlandcost3['max'])) {
-                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST3, $inltlandcost3['max'], Criteria::LESS_EQUAL);
+            if (isset($inlthmfunitcost['max'])) {
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTHMFUNITCOST, $inlthmfunitcost['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1142,20 +1142,20 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST3, $inltlandcost3, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTHMFUNITCOST, $inlthmfunitcost, $comparison);
     }
 
     /**
-     * Filter the query on the InltLandCost4 column
+     * Filter the query on the InltDsetUnitCost column
      *
      * Example usage:
      * <code>
-     * $query->filterByInltlandcost4(1234); // WHERE InltLandCost4 = 1234
-     * $query->filterByInltlandcost4(array(12, 34)); // WHERE InltLandCost4 IN (12, 34)
-     * $query->filterByInltlandcost4(array('min' => 12)); // WHERE InltLandCost4 > 12
+     * $query->filterByInltdsetunitcost(1234); // WHERE InltDsetUnitCost = 1234
+     * $query->filterByInltdsetunitcost(array(12, 34)); // WHERE InltDsetUnitCost IN (12, 34)
+     * $query->filterByInltdsetunitcost(array('min' => 12)); // WHERE InltDsetUnitCost > 12
      * </code>
      *
-     * @param     mixed $inltlandcost4 The value to use as filter.
+     * @param     mixed $inltdsetunitcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
@@ -1163,16 +1163,16 @@ abstract class InvWhseLotQuery extends ModelCriteria
      *
      * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
-    public function filterByInltlandcost4($inltlandcost4 = null, $comparison = null)
+    public function filterByInltdsetunitcost($inltdsetunitcost = null, $comparison = null)
     {
-        if (is_array($inltlandcost4)) {
+        if (is_array($inltdsetunitcost)) {
             $useMinMax = false;
-            if (isset($inltlandcost4['min'])) {
-                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST4, $inltlandcost4['min'], Criteria::GREATER_EQUAL);
+            if (isset($inltdsetunitcost['min'])) {
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDSETUNITCOST, $inltdsetunitcost['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
-            if (isset($inltlandcost4['max'])) {
-                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST4, $inltlandcost4['max'], Criteria::LESS_EQUAL);
+            if (isset($inltdsetunitcost['max'])) {
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDSETUNITCOST, $inltdsetunitcost['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1183,20 +1183,20 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST4, $inltlandcost4, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDSETUNITCOST, $inltdsetunitcost, $comparison);
     }
 
     /**
-     * Filter the query on the InltLandCost5 column
+     * Filter the query on the InltNumericFiller column
      *
      * Example usage:
      * <code>
-     * $query->filterByInltlandcost5(1234); // WHERE InltLandCost5 = 1234
-     * $query->filterByInltlandcost5(array(12, 34)); // WHERE InltLandCost5 IN (12, 34)
-     * $query->filterByInltlandcost5(array('min' => 12)); // WHERE InltLandCost5 > 12
+     * $query->filterByInltnumericfiller(1234); // WHERE InltNumericFiller = 1234
+     * $query->filterByInltnumericfiller(array(12, 34)); // WHERE InltNumericFiller IN (12, 34)
+     * $query->filterByInltnumericfiller(array('min' => 12)); // WHERE InltNumericFiller > 12
      * </code>
      *
-     * @param     mixed $inltlandcost5 The value to use as filter.
+     * @param     mixed $inltnumericfiller The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
@@ -1204,16 +1204,16 @@ abstract class InvWhseLotQuery extends ModelCriteria
      *
      * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
-    public function filterByInltlandcost5($inltlandcost5 = null, $comparison = null)
+    public function filterByInltnumericfiller($inltnumericfiller = null, $comparison = null)
     {
-        if (is_array($inltlandcost5)) {
+        if (is_array($inltnumericfiller)) {
             $useMinMax = false;
-            if (isset($inltlandcost5['min'])) {
-                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST5, $inltlandcost5['min'], Criteria::GREATER_EQUAL);
+            if (isset($inltnumericfiller['min'])) {
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTNUMERICFILLER, $inltnumericfiller['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
-            if (isset($inltlandcost5['max'])) {
-                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST5, $inltlandcost5['max'], Criteria::LESS_EQUAL);
+            if (isset($inltnumericfiller['max'])) {
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTNUMERICFILLER, $inltnumericfiller['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1224,7 +1224,7 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST5, $inltlandcost5, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTNUMERICFILLER, $inltnumericfiller, $comparison);
     }
 
     /**
@@ -2078,19 +2078,19 @@ abstract class InvWhseLotQuery extends ModelCriteria
     /**
      * Filter the query by a related \InvLotMaster object
      *
-     * @param \InvLotMaster $InvLotMaster The related object to use as filter
+     * @param \InvLotMaster $invLotMaster The related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
      * @return ChildInvWhseLotQuery The current query, for fluid interface
      */
-    public function filterByInvLotMaster($InvLotMaster, $comparison = null)
+    public function filterByInvLotMaster($invLotMaster, $comparison = null)
     {
-        if ($InvLotMaster instanceof \InvLotMaster) {
+        if ($invLotMaster instanceof \InvLotMaster) {
             return $this
-                ->addUsingAlias(InvWhseLotTableMap::COL_INITITEMNBR, $InvLotMaster->getInititemnbr(), $comparison)
-                ->addUsingAlias(InvWhseLotTableMap::COL_INLTLOTSER, $InvLotMaster->getLotmlotnbr(), $comparison);
+                ->addUsingAlias(InvWhseLotTableMap::COL_INITITEMNBR, $invLotMaster->getInititemnbr(), $comparison)
+                ->addUsingAlias(InvWhseLotTableMap::COL_INLTLOTSER, $invLotMaster->getLotmlotnbr(), $comparison);
         } else {
             throw new PropelException('filterByInvLotMaster() only accepts arguments of type \InvLotMaster');
         }
