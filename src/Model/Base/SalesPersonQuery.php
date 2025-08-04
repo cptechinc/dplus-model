@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ar_saleper1' table.
- *
- *
+ * Base class that represents a query for the `ar_saleper1` table.
  *
  * @method     ChildSalesPersonQuery orderByArspsaleper1($order = Criteria::ASC) Order by the ArspSalePer1 column
  * @method     ChildSalesPersonQuery orderByArspname($order = Criteria::ASC) Order by the ArspName column
@@ -126,34 +125,34 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingDayRepQuery|\BookingSummaryRepQuery|\BookingQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildSalesPerson findOne(ConnectionInterface $con = null) Return the first ChildSalesPerson matching the query
- * @method     ChildSalesPerson findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSalesPerson matching the query, or a new ChildSalesPerson object populated from the query conditions when no match is found
+ * @method     ChildSalesPerson|null findOne(?ConnectionInterface $con = null) Return the first ChildSalesPerson matching the query
+ * @method     ChildSalesPerson findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildSalesPerson matching the query, or a new ChildSalesPerson object populated from the query conditions when no match is found
  *
- * @method     ChildSalesPerson findOneByArspsaleper1(string $ArspSalePer1) Return the first ChildSalesPerson filtered by the ArspSalePer1 column
- * @method     ChildSalesPerson findOneByArspname(string $ArspName) Return the first ChildSalesPerson filtered by the ArspName column
- * @method     ChildSalesPerson findOneByArspmtdsale(string $ArspMtdSale) Return the first ChildSalesPerson filtered by the ArspMtdSale column
- * @method     ChildSalesPerson findOneByArspytdsale(string $ArspYtdSale) Return the first ChildSalesPerson filtered by the ArspYtdSale column
- * @method     ChildSalesPerson findOneByArspltdsale(string $ArspLtdSale) Return the first ChildSalesPerson filtered by the ArspLtdSale column
- * @method     ChildSalesPerson findOneByArsplastsaledate(string $ArspLastSaleDate) Return the first ChildSalesPerson filtered by the ArspLastSaleDate column
- * @method     ChildSalesPerson findOneByArspmtdcommearn(string $ArspMtdCommEarn) Return the first ChildSalesPerson filtered by the ArspMtdCommEarn column
- * @method     ChildSalesPerson findOneByArspytdcommearn(string $ArspYtdCommEarn) Return the first ChildSalesPerson filtered by the ArspYtdCommEarn column
- * @method     ChildSalesPerson findOneByArspltdcommearn(string $ArspLtdCommEarn) Return the first ChildSalesPerson filtered by the ArspLtdCommEarn column
- * @method     ChildSalesPerson findOneByArspmtdcommpaid(string $ArspMtdCommPaid) Return the first ChildSalesPerson filtered by the ArspMtdCommPaid column
- * @method     ChildSalesPerson findOneByArspytdcommpaid(string $ArspYtdCommPaid) Return the first ChildSalesPerson filtered by the ArspYtdCommPaid column
- * @method     ChildSalesPerson findOneByArspltdcommpaid(string $ArspLtdCommPaid) Return the first ChildSalesPerson filtered by the ArspLtdCommPaid column
- * @method     ChildSalesPerson findOneByArspcommcycle(string $ArspCommCycle) Return the first ChildSalesPerson filtered by the ArspCommCycle column
- * @method     ChildSalesPerson findOneByArspgrup(string $ArspGrup) Return the first ChildSalesPerson filtered by the ArspGrup column
- * @method     ChildSalesPerson findOneByArsplogin(string $ArspLogin) Return the first ChildSalesPerson filtered by the ArspLogin column
- * @method     ChildSalesPerson findOneByArspmgr(string $ArspMgr) Return the first ChildSalesPerson filtered by the ArspMgr column
- * @method     ChildSalesPerson findOneByArspvendid(string $ArspVendId) Return the first ChildSalesPerson filtered by the ArspVendId column
- * @method     ChildSalesPerson findOneByArsprestrictaccess(string $ArspRestrictAccess) Return the first ChildSalesPerson filtered by the ArspRestrictAccess column
- * @method     ChildSalesPerson findOneByArspemailaddr(string $ArspEmailAddr) Return the first ChildSalesPerson filtered by the ArspEmailAddr column
- * @method     ChildSalesPerson findOneByDateupdtd(string $DateUpdtd) Return the first ChildSalesPerson filtered by the DateUpdtd column
- * @method     ChildSalesPerson findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesPerson filtered by the TimeUpdtd column
- * @method     ChildSalesPerson findOneByDummy(string $dummy) Return the first ChildSalesPerson filtered by the dummy column *
-
- * @method     ChildSalesPerson requirePk($key, ConnectionInterface $con = null) Return the ChildSalesPerson by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesPerson requireOne(ConnectionInterface $con = null) Return the first ChildSalesPerson matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesPerson|null findOneByArspsaleper1(string $ArspSalePer1) Return the first ChildSalesPerson filtered by the ArspSalePer1 column
+ * @method     ChildSalesPerson|null findOneByArspname(string $ArspName) Return the first ChildSalesPerson filtered by the ArspName column
+ * @method     ChildSalesPerson|null findOneByArspmtdsale(string $ArspMtdSale) Return the first ChildSalesPerson filtered by the ArspMtdSale column
+ * @method     ChildSalesPerson|null findOneByArspytdsale(string $ArspYtdSale) Return the first ChildSalesPerson filtered by the ArspYtdSale column
+ * @method     ChildSalesPerson|null findOneByArspltdsale(string $ArspLtdSale) Return the first ChildSalesPerson filtered by the ArspLtdSale column
+ * @method     ChildSalesPerson|null findOneByArsplastsaledate(string $ArspLastSaleDate) Return the first ChildSalesPerson filtered by the ArspLastSaleDate column
+ * @method     ChildSalesPerson|null findOneByArspmtdcommearn(string $ArspMtdCommEarn) Return the first ChildSalesPerson filtered by the ArspMtdCommEarn column
+ * @method     ChildSalesPerson|null findOneByArspytdcommearn(string $ArspYtdCommEarn) Return the first ChildSalesPerson filtered by the ArspYtdCommEarn column
+ * @method     ChildSalesPerson|null findOneByArspltdcommearn(string $ArspLtdCommEarn) Return the first ChildSalesPerson filtered by the ArspLtdCommEarn column
+ * @method     ChildSalesPerson|null findOneByArspmtdcommpaid(string $ArspMtdCommPaid) Return the first ChildSalesPerson filtered by the ArspMtdCommPaid column
+ * @method     ChildSalesPerson|null findOneByArspytdcommpaid(string $ArspYtdCommPaid) Return the first ChildSalesPerson filtered by the ArspYtdCommPaid column
+ * @method     ChildSalesPerson|null findOneByArspltdcommpaid(string $ArspLtdCommPaid) Return the first ChildSalesPerson filtered by the ArspLtdCommPaid column
+ * @method     ChildSalesPerson|null findOneByArspcommcycle(string $ArspCommCycle) Return the first ChildSalesPerson filtered by the ArspCommCycle column
+ * @method     ChildSalesPerson|null findOneByArspgrup(string $ArspGrup) Return the first ChildSalesPerson filtered by the ArspGrup column
+ * @method     ChildSalesPerson|null findOneByArsplogin(string $ArspLogin) Return the first ChildSalesPerson filtered by the ArspLogin column
+ * @method     ChildSalesPerson|null findOneByArspmgr(string $ArspMgr) Return the first ChildSalesPerson filtered by the ArspMgr column
+ * @method     ChildSalesPerson|null findOneByArspvendid(string $ArspVendId) Return the first ChildSalesPerson filtered by the ArspVendId column
+ * @method     ChildSalesPerson|null findOneByArsprestrictaccess(string $ArspRestrictAccess) Return the first ChildSalesPerson filtered by the ArspRestrictAccess column
+ * @method     ChildSalesPerson|null findOneByArspemailaddr(string $ArspEmailAddr) Return the first ChildSalesPerson filtered by the ArspEmailAddr column
+ * @method     ChildSalesPerson|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildSalesPerson filtered by the DateUpdtd column
+ * @method     ChildSalesPerson|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesPerson filtered by the TimeUpdtd column
+ * @method     ChildSalesPerson|null findOneByDummy(string $dummy) Return the first ChildSalesPerson filtered by the dummy column
+ *
+ * @method     ChildSalesPerson requirePk($key, ?ConnectionInterface $con = null) Return the ChildSalesPerson by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesPerson requireOne(?ConnectionInterface $con = null) Return the first ChildSalesPerson matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildSalesPerson requireOneByArspsaleper1(string $ArspSalePer1) Return the first ChildSalesPerson filtered by the ArspSalePer1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesPerson requireOneByArspname(string $ArspName) Return the first ChildSalesPerson filtered by the ArspName column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -178,31 +177,56 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesPerson requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesPerson filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesPerson requireOneByDummy(string $dummy) Return the first ChildSalesPerson filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildSalesPerson[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildSalesPerson objects based on current ModelCriteria
- * @method     ChildSalesPerson[]|ObjectCollection findByArspsaleper1(string $ArspSalePer1) Return ChildSalesPerson objects filtered by the ArspSalePer1 column
- * @method     ChildSalesPerson[]|ObjectCollection findByArspname(string $ArspName) Return ChildSalesPerson objects filtered by the ArspName column
- * @method     ChildSalesPerson[]|ObjectCollection findByArspmtdsale(string $ArspMtdSale) Return ChildSalesPerson objects filtered by the ArspMtdSale column
- * @method     ChildSalesPerson[]|ObjectCollection findByArspytdsale(string $ArspYtdSale) Return ChildSalesPerson objects filtered by the ArspYtdSale column
- * @method     ChildSalesPerson[]|ObjectCollection findByArspltdsale(string $ArspLtdSale) Return ChildSalesPerson objects filtered by the ArspLtdSale column
- * @method     ChildSalesPerson[]|ObjectCollection findByArsplastsaledate(string $ArspLastSaleDate) Return ChildSalesPerson objects filtered by the ArspLastSaleDate column
- * @method     ChildSalesPerson[]|ObjectCollection findByArspmtdcommearn(string $ArspMtdCommEarn) Return ChildSalesPerson objects filtered by the ArspMtdCommEarn column
- * @method     ChildSalesPerson[]|ObjectCollection findByArspytdcommearn(string $ArspYtdCommEarn) Return ChildSalesPerson objects filtered by the ArspYtdCommEarn column
- * @method     ChildSalesPerson[]|ObjectCollection findByArspltdcommearn(string $ArspLtdCommEarn) Return ChildSalesPerson objects filtered by the ArspLtdCommEarn column
- * @method     ChildSalesPerson[]|ObjectCollection findByArspmtdcommpaid(string $ArspMtdCommPaid) Return ChildSalesPerson objects filtered by the ArspMtdCommPaid column
- * @method     ChildSalesPerson[]|ObjectCollection findByArspytdcommpaid(string $ArspYtdCommPaid) Return ChildSalesPerson objects filtered by the ArspYtdCommPaid column
- * @method     ChildSalesPerson[]|ObjectCollection findByArspltdcommpaid(string $ArspLtdCommPaid) Return ChildSalesPerson objects filtered by the ArspLtdCommPaid column
- * @method     ChildSalesPerson[]|ObjectCollection findByArspcommcycle(string $ArspCommCycle) Return ChildSalesPerson objects filtered by the ArspCommCycle column
- * @method     ChildSalesPerson[]|ObjectCollection findByArspgrup(string $ArspGrup) Return ChildSalesPerson objects filtered by the ArspGrup column
- * @method     ChildSalesPerson[]|ObjectCollection findByArsplogin(string $ArspLogin) Return ChildSalesPerson objects filtered by the ArspLogin column
- * @method     ChildSalesPerson[]|ObjectCollection findByArspmgr(string $ArspMgr) Return ChildSalesPerson objects filtered by the ArspMgr column
- * @method     ChildSalesPerson[]|ObjectCollection findByArspvendid(string $ArspVendId) Return ChildSalesPerson objects filtered by the ArspVendId column
- * @method     ChildSalesPerson[]|ObjectCollection findByArsprestrictaccess(string $ArspRestrictAccess) Return ChildSalesPerson objects filtered by the ArspRestrictAccess column
- * @method     ChildSalesPerson[]|ObjectCollection findByArspemailaddr(string $ArspEmailAddr) Return ChildSalesPerson objects filtered by the ArspEmailAddr column
- * @method     ChildSalesPerson[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildSalesPerson objects filtered by the DateUpdtd column
- * @method     ChildSalesPerson[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildSalesPerson objects filtered by the TimeUpdtd column
- * @method     ChildSalesPerson[]|ObjectCollection findByDummy(string $dummy) Return ChildSalesPerson objects filtered by the dummy column
- * @method     ChildSalesPerson[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildSalesPerson[]|Collection find(?ConnectionInterface $con = null) Return ChildSalesPerson objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> find(?ConnectionInterface $con = null) Return ChildSalesPerson objects based on current ModelCriteria
  *
+ * @method     ChildSalesPerson[]|Collection findByArspsaleper1(string|array<string> $ArspSalePer1) Return ChildSalesPerson objects filtered by the ArspSalePer1 column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArspsaleper1(string|array<string> $ArspSalePer1) Return ChildSalesPerson objects filtered by the ArspSalePer1 column
+ * @method     ChildSalesPerson[]|Collection findByArspname(string|array<string> $ArspName) Return ChildSalesPerson objects filtered by the ArspName column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArspname(string|array<string> $ArspName) Return ChildSalesPerson objects filtered by the ArspName column
+ * @method     ChildSalesPerson[]|Collection findByArspmtdsale(string|array<string> $ArspMtdSale) Return ChildSalesPerson objects filtered by the ArspMtdSale column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArspmtdsale(string|array<string> $ArspMtdSale) Return ChildSalesPerson objects filtered by the ArspMtdSale column
+ * @method     ChildSalesPerson[]|Collection findByArspytdsale(string|array<string> $ArspYtdSale) Return ChildSalesPerson objects filtered by the ArspYtdSale column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArspytdsale(string|array<string> $ArspYtdSale) Return ChildSalesPerson objects filtered by the ArspYtdSale column
+ * @method     ChildSalesPerson[]|Collection findByArspltdsale(string|array<string> $ArspLtdSale) Return ChildSalesPerson objects filtered by the ArspLtdSale column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArspltdsale(string|array<string> $ArspLtdSale) Return ChildSalesPerson objects filtered by the ArspLtdSale column
+ * @method     ChildSalesPerson[]|Collection findByArsplastsaledate(string|array<string> $ArspLastSaleDate) Return ChildSalesPerson objects filtered by the ArspLastSaleDate column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArsplastsaledate(string|array<string> $ArspLastSaleDate) Return ChildSalesPerson objects filtered by the ArspLastSaleDate column
+ * @method     ChildSalesPerson[]|Collection findByArspmtdcommearn(string|array<string> $ArspMtdCommEarn) Return ChildSalesPerson objects filtered by the ArspMtdCommEarn column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArspmtdcommearn(string|array<string> $ArspMtdCommEarn) Return ChildSalesPerson objects filtered by the ArspMtdCommEarn column
+ * @method     ChildSalesPerson[]|Collection findByArspytdcommearn(string|array<string> $ArspYtdCommEarn) Return ChildSalesPerson objects filtered by the ArspYtdCommEarn column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArspytdcommearn(string|array<string> $ArspYtdCommEarn) Return ChildSalesPerson objects filtered by the ArspYtdCommEarn column
+ * @method     ChildSalesPerson[]|Collection findByArspltdcommearn(string|array<string> $ArspLtdCommEarn) Return ChildSalesPerson objects filtered by the ArspLtdCommEarn column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArspltdcommearn(string|array<string> $ArspLtdCommEarn) Return ChildSalesPerson objects filtered by the ArspLtdCommEarn column
+ * @method     ChildSalesPerson[]|Collection findByArspmtdcommpaid(string|array<string> $ArspMtdCommPaid) Return ChildSalesPerson objects filtered by the ArspMtdCommPaid column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArspmtdcommpaid(string|array<string> $ArspMtdCommPaid) Return ChildSalesPerson objects filtered by the ArspMtdCommPaid column
+ * @method     ChildSalesPerson[]|Collection findByArspytdcommpaid(string|array<string> $ArspYtdCommPaid) Return ChildSalesPerson objects filtered by the ArspYtdCommPaid column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArspytdcommpaid(string|array<string> $ArspYtdCommPaid) Return ChildSalesPerson objects filtered by the ArspYtdCommPaid column
+ * @method     ChildSalesPerson[]|Collection findByArspltdcommpaid(string|array<string> $ArspLtdCommPaid) Return ChildSalesPerson objects filtered by the ArspLtdCommPaid column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArspltdcommpaid(string|array<string> $ArspLtdCommPaid) Return ChildSalesPerson objects filtered by the ArspLtdCommPaid column
+ * @method     ChildSalesPerson[]|Collection findByArspcommcycle(string|array<string> $ArspCommCycle) Return ChildSalesPerson objects filtered by the ArspCommCycle column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArspcommcycle(string|array<string> $ArspCommCycle) Return ChildSalesPerson objects filtered by the ArspCommCycle column
+ * @method     ChildSalesPerson[]|Collection findByArspgrup(string|array<string> $ArspGrup) Return ChildSalesPerson objects filtered by the ArspGrup column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArspgrup(string|array<string> $ArspGrup) Return ChildSalesPerson objects filtered by the ArspGrup column
+ * @method     ChildSalesPerson[]|Collection findByArsplogin(string|array<string> $ArspLogin) Return ChildSalesPerson objects filtered by the ArspLogin column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArsplogin(string|array<string> $ArspLogin) Return ChildSalesPerson objects filtered by the ArspLogin column
+ * @method     ChildSalesPerson[]|Collection findByArspmgr(string|array<string> $ArspMgr) Return ChildSalesPerson objects filtered by the ArspMgr column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArspmgr(string|array<string> $ArspMgr) Return ChildSalesPerson objects filtered by the ArspMgr column
+ * @method     ChildSalesPerson[]|Collection findByArspvendid(string|array<string> $ArspVendId) Return ChildSalesPerson objects filtered by the ArspVendId column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArspvendid(string|array<string> $ArspVendId) Return ChildSalesPerson objects filtered by the ArspVendId column
+ * @method     ChildSalesPerson[]|Collection findByArsprestrictaccess(string|array<string> $ArspRestrictAccess) Return ChildSalesPerson objects filtered by the ArspRestrictAccess column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArsprestrictaccess(string|array<string> $ArspRestrictAccess) Return ChildSalesPerson objects filtered by the ArspRestrictAccess column
+ * @method     ChildSalesPerson[]|Collection findByArspemailaddr(string|array<string> $ArspEmailAddr) Return ChildSalesPerson objects filtered by the ArspEmailAddr column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByArspemailaddr(string|array<string> $ArspEmailAddr) Return ChildSalesPerson objects filtered by the ArspEmailAddr column
+ * @method     ChildSalesPerson[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSalesPerson objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSalesPerson objects filtered by the DateUpdtd column
+ * @method     ChildSalesPerson[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSalesPerson objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSalesPerson objects filtered by the TimeUpdtd column
+ * @method     ChildSalesPerson[]|Collection findByDummy(string|array<string> $dummy) Return ChildSalesPerson objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildSalesPerson> findByDummy(string|array<string> $dummy) Return ChildSalesPerson objects filtered by the dummy column
+ *
+ * @method     ChildSalesPerson[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildSalesPerson> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class SalesPersonQuery extends ModelCriteria
 {
@@ -211,9 +235,9 @@ abstract class SalesPersonQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\SalesPersonQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\SalesPerson', $modelAlias = null)
     {
@@ -223,12 +247,12 @@ abstract class SalesPersonQuery extends ModelCriteria
     /**
      * Returns a new ChildSalesPersonQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildSalesPersonQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildSalesPersonQuery) {
             return $criteria;
@@ -258,7 +282,7 @@ abstract class SalesPersonQuery extends ModelCriteria
      *
      * @return ChildSalesPerson|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -290,8 +314,8 @@ abstract class SalesPersonQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -323,8 +347,8 @@ abstract class SalesPersonQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildSalesPerson|array|mixed the result, formatted by the current formatter
      */
@@ -344,12 +368,12 @@ abstract class SalesPersonQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -366,27 +390,31 @@ abstract class SalesPersonQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPSALEPER1, $key, Criteria::EQUAL);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPSALEPER1, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPSALEPER1, $keys, Criteria::IN);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPSALEPER1, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -396,14 +424,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * <code>
      * $query->filterByArspsaleper1('fooValue');   // WHERE ArspSalePer1 = 'fooValue'
      * $query->filterByArspsaleper1('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer1 LIKE '%fooValue%'
+     * $query->filterByArspsaleper1(['foo', 'bar']); // WHERE ArspSalePer1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspsaleper1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspsaleper1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspsaleper1($arspsaleper1 = null, $comparison = null)
+    public function filterByArspsaleper1($arspsaleper1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspsaleper1)) {
@@ -411,7 +440,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPSALEPER1, $arspsaleper1, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPSALEPER1, $arspsaleper1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -421,14 +452,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * <code>
      * $query->filterByArspname('fooValue');   // WHERE ArspName = 'fooValue'
      * $query->filterByArspname('%fooValue%', Criteria::LIKE); // WHERE ArspName LIKE '%fooValue%'
+     * $query->filterByArspname(['foo', 'bar']); // WHERE ArspName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspname($arspname = null, $comparison = null)
+    public function filterByArspname($arspname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspname)) {
@@ -436,7 +468,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPNAME, $arspname, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPNAME, $arspname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -449,15 +483,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * $query->filterByArspmtdsale(array('min' => 12)); // WHERE ArspMtdSale > 12
      * </code>
      *
-     * @param     mixed $arspmtdsale The value to use as filter.
+     * @param mixed $arspmtdsale The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspmtdsale($arspmtdsale = null, $comparison = null)
+    public function filterByArspmtdsale($arspmtdsale = null, ?string $comparison = null)
     {
         if (is_array($arspmtdsale)) {
             $useMinMax = false;
@@ -477,7 +511,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPMTDSALE, $arspmtdsale, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPMTDSALE, $arspmtdsale, $comparison);
+
+        return $this;
     }
 
     /**
@@ -490,15 +526,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * $query->filterByArspytdsale(array('min' => 12)); // WHERE ArspYtdSale > 12
      * </code>
      *
-     * @param     mixed $arspytdsale The value to use as filter.
+     * @param mixed $arspytdsale The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspytdsale($arspytdsale = null, $comparison = null)
+    public function filterByArspytdsale($arspytdsale = null, ?string $comparison = null)
     {
         if (is_array($arspytdsale)) {
             $useMinMax = false;
@@ -518,7 +554,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPYTDSALE, $arspytdsale, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPYTDSALE, $arspytdsale, $comparison);
+
+        return $this;
     }
 
     /**
@@ -531,15 +569,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * $query->filterByArspltdsale(array('min' => 12)); // WHERE ArspLtdSale > 12
      * </code>
      *
-     * @param     mixed $arspltdsale The value to use as filter.
+     * @param mixed $arspltdsale The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspltdsale($arspltdsale = null, $comparison = null)
+    public function filterByArspltdsale($arspltdsale = null, ?string $comparison = null)
     {
         if (is_array($arspltdsale)) {
             $useMinMax = false;
@@ -559,7 +597,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPLTDSALE, $arspltdsale, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPLTDSALE, $arspltdsale, $comparison);
+
+        return $this;
     }
 
     /**
@@ -569,14 +609,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * <code>
      * $query->filterByArsplastsaledate('fooValue');   // WHERE ArspLastSaleDate = 'fooValue'
      * $query->filterByArsplastsaledate('%fooValue%', Criteria::LIKE); // WHERE ArspLastSaleDate LIKE '%fooValue%'
+     * $query->filterByArsplastsaledate(['foo', 'bar']); // WHERE ArspLastSaleDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arsplastsaledate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arsplastsaledate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArsplastsaledate($arsplastsaledate = null, $comparison = null)
+    public function filterByArsplastsaledate($arsplastsaledate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arsplastsaledate)) {
@@ -584,7 +625,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPLASTSALEDATE, $arsplastsaledate, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPLASTSALEDATE, $arsplastsaledate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -597,15 +640,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * $query->filterByArspmtdcommearn(array('min' => 12)); // WHERE ArspMtdCommEarn > 12
      * </code>
      *
-     * @param     mixed $arspmtdcommearn The value to use as filter.
+     * @param mixed $arspmtdcommearn The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspmtdcommearn($arspmtdcommearn = null, $comparison = null)
+    public function filterByArspmtdcommearn($arspmtdcommearn = null, ?string $comparison = null)
     {
         if (is_array($arspmtdcommearn)) {
             $useMinMax = false;
@@ -625,7 +668,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPMTDCOMMEARN, $arspmtdcommearn, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPMTDCOMMEARN, $arspmtdcommearn, $comparison);
+
+        return $this;
     }
 
     /**
@@ -638,15 +683,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * $query->filterByArspytdcommearn(array('min' => 12)); // WHERE ArspYtdCommEarn > 12
      * </code>
      *
-     * @param     mixed $arspytdcommearn The value to use as filter.
+     * @param mixed $arspytdcommearn The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspytdcommearn($arspytdcommearn = null, $comparison = null)
+    public function filterByArspytdcommearn($arspytdcommearn = null, ?string $comparison = null)
     {
         if (is_array($arspytdcommearn)) {
             $useMinMax = false;
@@ -666,7 +711,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPYTDCOMMEARN, $arspytdcommearn, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPYTDCOMMEARN, $arspytdcommearn, $comparison);
+
+        return $this;
     }
 
     /**
@@ -679,15 +726,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * $query->filterByArspltdcommearn(array('min' => 12)); // WHERE ArspLtdCommEarn > 12
      * </code>
      *
-     * @param     mixed $arspltdcommearn The value to use as filter.
+     * @param mixed $arspltdcommearn The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspltdcommearn($arspltdcommearn = null, $comparison = null)
+    public function filterByArspltdcommearn($arspltdcommearn = null, ?string $comparison = null)
     {
         if (is_array($arspltdcommearn)) {
             $useMinMax = false;
@@ -707,7 +754,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPLTDCOMMEARN, $arspltdcommearn, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPLTDCOMMEARN, $arspltdcommearn, $comparison);
+
+        return $this;
     }
 
     /**
@@ -720,15 +769,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * $query->filterByArspmtdcommpaid(array('min' => 12)); // WHERE ArspMtdCommPaid > 12
      * </code>
      *
-     * @param     mixed $arspmtdcommpaid The value to use as filter.
+     * @param mixed $arspmtdcommpaid The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspmtdcommpaid($arspmtdcommpaid = null, $comparison = null)
+    public function filterByArspmtdcommpaid($arspmtdcommpaid = null, ?string $comparison = null)
     {
         if (is_array($arspmtdcommpaid)) {
             $useMinMax = false;
@@ -748,7 +797,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPMTDCOMMPAID, $arspmtdcommpaid, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPMTDCOMMPAID, $arspmtdcommpaid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -761,15 +812,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * $query->filterByArspytdcommpaid(array('min' => 12)); // WHERE ArspYtdCommPaid > 12
      * </code>
      *
-     * @param     mixed $arspytdcommpaid The value to use as filter.
+     * @param mixed $arspytdcommpaid The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspytdcommpaid($arspytdcommpaid = null, $comparison = null)
+    public function filterByArspytdcommpaid($arspytdcommpaid = null, ?string $comparison = null)
     {
         if (is_array($arspytdcommpaid)) {
             $useMinMax = false;
@@ -789,7 +840,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPYTDCOMMPAID, $arspytdcommpaid, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPYTDCOMMPAID, $arspytdcommpaid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -802,15 +855,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * $query->filterByArspltdcommpaid(array('min' => 12)); // WHERE ArspLtdCommPaid > 12
      * </code>
      *
-     * @param     mixed $arspltdcommpaid The value to use as filter.
+     * @param mixed $arspltdcommpaid The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspltdcommpaid($arspltdcommpaid = null, $comparison = null)
+    public function filterByArspltdcommpaid($arspltdcommpaid = null, ?string $comparison = null)
     {
         if (is_array($arspltdcommpaid)) {
             $useMinMax = false;
@@ -830,7 +883,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPLTDCOMMPAID, $arspltdcommpaid, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPLTDCOMMPAID, $arspltdcommpaid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -840,14 +895,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * <code>
      * $query->filterByArspcommcycle('fooValue');   // WHERE ArspCommCycle = 'fooValue'
      * $query->filterByArspcommcycle('%fooValue%', Criteria::LIKE); // WHERE ArspCommCycle LIKE '%fooValue%'
+     * $query->filterByArspcommcycle(['foo', 'bar']); // WHERE ArspCommCycle IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspcommcycle The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspcommcycle The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspcommcycle($arspcommcycle = null, $comparison = null)
+    public function filterByArspcommcycle($arspcommcycle = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspcommcycle)) {
@@ -855,7 +911,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPCOMMCYCLE, $arspcommcycle, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPCOMMCYCLE, $arspcommcycle, $comparison);
+
+        return $this;
     }
 
     /**
@@ -865,14 +923,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * <code>
      * $query->filterByArspgrup('fooValue');   // WHERE ArspGrup = 'fooValue'
      * $query->filterByArspgrup('%fooValue%', Criteria::LIKE); // WHERE ArspGrup LIKE '%fooValue%'
+     * $query->filterByArspgrup(['foo', 'bar']); // WHERE ArspGrup IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspgrup The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspgrup The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspgrup($arspgrup = null, $comparison = null)
+    public function filterByArspgrup($arspgrup = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspgrup)) {
@@ -880,7 +939,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPGRUP, $arspgrup, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPGRUP, $arspgrup, $comparison);
+
+        return $this;
     }
 
     /**
@@ -890,14 +951,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * <code>
      * $query->filterByArsplogin('fooValue');   // WHERE ArspLogin = 'fooValue'
      * $query->filterByArsplogin('%fooValue%', Criteria::LIKE); // WHERE ArspLogin LIKE '%fooValue%'
+     * $query->filterByArsplogin(['foo', 'bar']); // WHERE ArspLogin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arsplogin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arsplogin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArsplogin($arsplogin = null, $comparison = null)
+    public function filterByArsplogin($arsplogin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arsplogin)) {
@@ -905,7 +967,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPLOGIN, $arsplogin, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPLOGIN, $arsplogin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -915,14 +979,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * <code>
      * $query->filterByArspmgr('fooValue');   // WHERE ArspMgr = 'fooValue'
      * $query->filterByArspmgr('%fooValue%', Criteria::LIKE); // WHERE ArspMgr LIKE '%fooValue%'
+     * $query->filterByArspmgr(['foo', 'bar']); // WHERE ArspMgr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspmgr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspmgr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspmgr($arspmgr = null, $comparison = null)
+    public function filterByArspmgr($arspmgr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspmgr)) {
@@ -930,7 +995,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPMGR, $arspmgr, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPMGR, $arspmgr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -940,14 +1007,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * <code>
      * $query->filterByArspvendid('fooValue');   // WHERE ArspVendId = 'fooValue'
      * $query->filterByArspvendid('%fooValue%', Criteria::LIKE); // WHERE ArspVendId LIKE '%fooValue%'
+     * $query->filterByArspvendid(['foo', 'bar']); // WHERE ArspVendId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspvendid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspvendid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspvendid($arspvendid = null, $comparison = null)
+    public function filterByArspvendid($arspvendid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspvendid)) {
@@ -955,7 +1023,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPVENDID, $arspvendid, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPVENDID, $arspvendid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -965,14 +1035,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * <code>
      * $query->filterByArsprestrictaccess('fooValue');   // WHERE ArspRestrictAccess = 'fooValue'
      * $query->filterByArsprestrictaccess('%fooValue%', Criteria::LIKE); // WHERE ArspRestrictAccess LIKE '%fooValue%'
+     * $query->filterByArsprestrictaccess(['foo', 'bar']); // WHERE ArspRestrictAccess IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arsprestrictaccess The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arsprestrictaccess The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArsprestrictaccess($arsprestrictaccess = null, $comparison = null)
+    public function filterByArsprestrictaccess($arsprestrictaccess = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arsprestrictaccess)) {
@@ -980,7 +1051,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPRESTRICTACCESS, $arsprestrictaccess, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPRESTRICTACCESS, $arsprestrictaccess, $comparison);
+
+        return $this;
     }
 
     /**
@@ -990,14 +1063,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * <code>
      * $query->filterByArspemailaddr('fooValue');   // WHERE ArspEmailAddr = 'fooValue'
      * $query->filterByArspemailaddr('%fooValue%', Criteria::LIKE); // WHERE ArspEmailAddr LIKE '%fooValue%'
+     * $query->filterByArspemailaddr(['foo', 'bar']); // WHERE ArspEmailAddr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspemailaddr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspemailaddr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspemailaddr($arspemailaddr = null, $comparison = null)
+    public function filterByArspemailaddr($arspemailaddr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspemailaddr)) {
@@ -1005,7 +1079,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_ARSPEMAILADDR, $arspemailaddr, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_ARSPEMAILADDR, $arspemailaddr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1015,14 +1091,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1030,7 +1107,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1040,14 +1119,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1055,7 +1135,9 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1065,14 +1147,15 @@ abstract class SalesPersonQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1080,27 +1163,33 @@ abstract class SalesPersonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesPersonTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(SalesPersonTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \BookingDayCustomer object
      *
      * @param \BookingDayCustomer|ObjectCollection $bookingDayCustomer the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBookingDayCustomer($bookingDayCustomer, $comparison = null)
+    public function filterByBookingDayCustomer($bookingDayCustomer, ?string $comparison = null)
     {
         if ($bookingDayCustomer instanceof \BookingDayCustomer) {
-            return $this
+            $this
                 ->addUsingAlias(SalesPersonTableMap::COL_ARSPSALEPER1, $bookingDayCustomer->getArspsaleper1(), $comparison);
+
+            return $this;
         } elseif ($bookingDayCustomer instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useBookingDayCustomerQuery()
                 ->filterByPrimaryKeys($bookingDayCustomer->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByBookingDayCustomer() only accepts arguments of type \BookingDayCustomer or Collection');
         }
@@ -1109,12 +1198,12 @@ abstract class SalesPersonQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the BookingDayCustomer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinBookingDayCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinBookingDayCustomer(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('BookingDayCustomer');
@@ -1143,9 +1232,9 @@ abstract class SalesPersonQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \BookingDayCustomerQuery A secondary query class using the current class as primary query
      */
@@ -1157,23 +1246,123 @@ abstract class SalesPersonQuery extends ModelCriteria
     }
 
     /**
+     * Use the BookingDayCustomer relation BookingDayCustomer object
+     *
+     * @param callable(\BookingDayCustomerQuery):\BookingDayCustomerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withBookingDayCustomerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useBookingDayCustomerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to BookingDayCustomer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \BookingDayCustomerQuery The inner query object of the EXISTS statement
+     */
+    public function useBookingDayCustomerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \BookingDayCustomerQuery */
+        $q = $this->useExistsQuery('BookingDayCustomer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDayCustomer table for a NOT EXISTS query.
+     *
+     * @see useBookingDayCustomerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \BookingDayCustomerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useBookingDayCustomerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingDayCustomerQuery */
+        $q = $this->useExistsQuery('BookingDayCustomer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDayCustomer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \BookingDayCustomerQuery The inner query object of the IN statement
+     */
+    public function useInBookingDayCustomerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \BookingDayCustomerQuery */
+        $q = $this->useInQuery('BookingDayCustomer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDayCustomer table for a NOT IN query.
+     *
+     * @see useBookingDayCustomerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \BookingDayCustomerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInBookingDayCustomerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingDayCustomerQuery */
+        $q = $this->useInQuery('BookingDayCustomer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \BookingDayDetail object
      *
      * @param \BookingDayDetail|ObjectCollection $bookingDayDetail the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBookingDayDetail($bookingDayDetail, $comparison = null)
+    public function filterByBookingDayDetail($bookingDayDetail, ?string $comparison = null)
     {
         if ($bookingDayDetail instanceof \BookingDayDetail) {
-            return $this
+            $this
                 ->addUsingAlias(SalesPersonTableMap::COL_ARSPSALEPER1, $bookingDayDetail->getArspsaleper1(), $comparison);
+
+            return $this;
         } elseif ($bookingDayDetail instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useBookingDayDetailQuery()
                 ->filterByPrimaryKeys($bookingDayDetail->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByBookingDayDetail() only accepts arguments of type \BookingDayDetail or Collection');
         }
@@ -1182,12 +1371,12 @@ abstract class SalesPersonQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the BookingDayDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinBookingDayDetail($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinBookingDayDetail(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('BookingDayDetail');
@@ -1216,9 +1405,9 @@ abstract class SalesPersonQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \BookingDayDetailQuery A secondary query class using the current class as primary query
      */
@@ -1230,23 +1419,123 @@ abstract class SalesPersonQuery extends ModelCriteria
     }
 
     /**
+     * Use the BookingDayDetail relation BookingDayDetail object
+     *
+     * @param callable(\BookingDayDetailQuery):\BookingDayDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withBookingDayDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useBookingDayDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to BookingDayDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \BookingDayDetailQuery The inner query object of the EXISTS statement
+     */
+    public function useBookingDayDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \BookingDayDetailQuery */
+        $q = $this->useExistsQuery('BookingDayDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDayDetail table for a NOT EXISTS query.
+     *
+     * @see useBookingDayDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \BookingDayDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useBookingDayDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingDayDetailQuery */
+        $q = $this->useExistsQuery('BookingDayDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDayDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \BookingDayDetailQuery The inner query object of the IN statement
+     */
+    public function useInBookingDayDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \BookingDayDetailQuery */
+        $q = $this->useInQuery('BookingDayDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDayDetail table for a NOT IN query.
+     *
+     * @see useBookingDayDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \BookingDayDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInBookingDayDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingDayDetailQuery */
+        $q = $this->useInQuery('BookingDayDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \BookingDayRep object
      *
      * @param \BookingDayRep|ObjectCollection $bookingDayRep the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBookingDayRep($bookingDayRep, $comparison = null)
+    public function filterByBookingDayRep($bookingDayRep, ?string $comparison = null)
     {
         if ($bookingDayRep instanceof \BookingDayRep) {
-            return $this
+            $this
                 ->addUsingAlias(SalesPersonTableMap::COL_ARSPSALEPER1, $bookingDayRep->getArspsaleper1(), $comparison);
+
+            return $this;
         } elseif ($bookingDayRep instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useBookingDayRepQuery()
                 ->filterByPrimaryKeys($bookingDayRep->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByBookingDayRep() only accepts arguments of type \BookingDayRep or Collection');
         }
@@ -1255,12 +1544,12 @@ abstract class SalesPersonQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the BookingDayRep relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinBookingDayRep($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinBookingDayRep(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('BookingDayRep');
@@ -1289,9 +1578,9 @@ abstract class SalesPersonQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \BookingDayRepQuery A secondary query class using the current class as primary query
      */
@@ -1303,23 +1592,123 @@ abstract class SalesPersonQuery extends ModelCriteria
     }
 
     /**
+     * Use the BookingDayRep relation BookingDayRep object
+     *
+     * @param callable(\BookingDayRepQuery):\BookingDayRepQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withBookingDayRepQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useBookingDayRepQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to BookingDayRep table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \BookingDayRepQuery The inner query object of the EXISTS statement
+     */
+    public function useBookingDayRepExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \BookingDayRepQuery */
+        $q = $this->useExistsQuery('BookingDayRep', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDayRep table for a NOT EXISTS query.
+     *
+     * @see useBookingDayRepExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \BookingDayRepQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useBookingDayRepNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingDayRepQuery */
+        $q = $this->useExistsQuery('BookingDayRep', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDayRep table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \BookingDayRepQuery The inner query object of the IN statement
+     */
+    public function useInBookingDayRepQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \BookingDayRepQuery */
+        $q = $this->useInQuery('BookingDayRep', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDayRep table for a NOT IN query.
+     *
+     * @see useBookingDayRepInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \BookingDayRepQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInBookingDayRepQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingDayRepQuery */
+        $q = $this->useInQuery('BookingDayRep', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \BookingSummaryRep object
      *
      * @param \BookingSummaryRep|ObjectCollection $bookingSummaryRep the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBookingSummaryRep($bookingSummaryRep, $comparison = null)
+    public function filterByBookingSummaryRep($bookingSummaryRep, ?string $comparison = null)
     {
         if ($bookingSummaryRep instanceof \BookingSummaryRep) {
-            return $this
+            $this
                 ->addUsingAlias(SalesPersonTableMap::COL_ARSPSALEPER1, $bookingSummaryRep->getArspsaleper1(), $comparison);
+
+            return $this;
         } elseif ($bookingSummaryRep instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useBookingSummaryRepQuery()
                 ->filterByPrimaryKeys($bookingSummaryRep->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByBookingSummaryRep() only accepts arguments of type \BookingSummaryRep or Collection');
         }
@@ -1328,12 +1717,12 @@ abstract class SalesPersonQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the BookingSummaryRep relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinBookingSummaryRep($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinBookingSummaryRep(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('BookingSummaryRep');
@@ -1362,9 +1751,9 @@ abstract class SalesPersonQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \BookingSummaryRepQuery A secondary query class using the current class as primary query
      */
@@ -1376,23 +1765,123 @@ abstract class SalesPersonQuery extends ModelCriteria
     }
 
     /**
+     * Use the BookingSummaryRep relation BookingSummaryRep object
+     *
+     * @param callable(\BookingSummaryRepQuery):\BookingSummaryRepQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withBookingSummaryRepQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useBookingSummaryRepQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to BookingSummaryRep table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \BookingSummaryRepQuery The inner query object of the EXISTS statement
+     */
+    public function useBookingSummaryRepExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \BookingSummaryRepQuery */
+        $q = $this->useExistsQuery('BookingSummaryRep', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingSummaryRep table for a NOT EXISTS query.
+     *
+     * @see useBookingSummaryRepExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \BookingSummaryRepQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useBookingSummaryRepNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingSummaryRepQuery */
+        $q = $this->useExistsQuery('BookingSummaryRep', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingSummaryRep table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \BookingSummaryRepQuery The inner query object of the IN statement
+     */
+    public function useInBookingSummaryRepQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \BookingSummaryRepQuery */
+        $q = $this->useInQuery('BookingSummaryRep', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingSummaryRep table for a NOT IN query.
+     *
+     * @see useBookingSummaryRepInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \BookingSummaryRepQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInBookingSummaryRepQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingSummaryRepQuery */
+        $q = $this->useInQuery('BookingSummaryRep', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \Booking object
      *
      * @param \Booking|ObjectCollection $booking the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBooking($booking, $comparison = null)
+    public function filterByBooking($booking, ?string $comparison = null)
     {
         if ($booking instanceof \Booking) {
-            return $this
+            $this
                 ->addUsingAlias(SalesPersonTableMap::COL_ARSPSALEPER1, $booking->getArspsaleper1(), $comparison);
+
+            return $this;
         } elseif ($booking instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useBookingQuery()
                 ->filterByPrimaryKeys($booking->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByBooking() only accepts arguments of type \Booking or Collection');
         }
@@ -1401,12 +1890,12 @@ abstract class SalesPersonQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Booking relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinBooking($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinBooking(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Booking');
@@ -1435,9 +1924,9 @@ abstract class SalesPersonQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \BookingQuery A secondary query class using the current class as primary query
      */
@@ -1449,11 +1938,107 @@ abstract class SalesPersonQuery extends ModelCriteria
     }
 
     /**
+     * Use the Booking relation Booking object
+     *
+     * @param callable(\BookingQuery):\BookingQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withBookingQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useBookingQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Booking table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \BookingQuery The inner query object of the EXISTS statement
+     */
+    public function useBookingExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \BookingQuery */
+        $q = $this->useExistsQuery('Booking', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Booking table for a NOT EXISTS query.
+     *
+     * @see useBookingExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \BookingQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useBookingNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingQuery */
+        $q = $this->useExistsQuery('Booking', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Booking table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \BookingQuery The inner query object of the IN statement
+     */
+    public function useInBookingQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \BookingQuery */
+        $q = $this->useInQuery('Booking', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Booking table for a NOT IN query.
+     *
+     * @see useBookingInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \BookingQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInBookingQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingQuery */
+        $q = $this->useInQuery('Booking', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildSalesPerson $salesPerson Object to remove from the list of results
+     * @param ChildSalesPerson $salesPerson Object to remove from the list of results
      *
-     * @return $this|ChildSalesPersonQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($salesPerson = null)
     {
@@ -1470,7 +2055,7 @@ abstract class SalesPersonQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesPersonTableMap::DATABASE_NAME);
@@ -1495,12 +2080,12 @@ abstract class SalesPersonQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesPersonTableMap::DATABASE_NAME);
@@ -1525,4 +2110,4 @@ abstract class SalesPersonQuery extends ModelCriteria
         });
     }
 
-} // SalesPersonQuery
+}

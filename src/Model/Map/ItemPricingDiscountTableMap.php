@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ItemPricingDiscountTableMap extends TableMap
 {
@@ -34,259 +33,555 @@ class ItemPricingDiscountTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ItemPricingDiscountTableMap';
+    public const CLASS_NAME = '.Map.ItemPricingDiscountTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'so_price_discount';
+    public const TABLE_NAME = 'so_price_discount';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ItemPricingDiscount';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ItemPricingDiscount';
+    public const OM_CLASS = '\\ItemPricingDiscount';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ItemPricingDiscount';
+    public const CLASS_DEFAULT = 'ItemPricingDiscount';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 35;
+    public const NUM_COLUMNS = 35;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 35;
+    public const NUM_HYDRATE_COLUMNS = 35;
 
     /**
      * the column name for the OepcType field
      */
-    const COL_OEPCTYPE = 'so_price_discount.OepcType';
+    public const COL_OEPCTYPE = 'so_price_discount.OepcType';
 
     /**
      * the column name for the OepcTblType field
      */
-    const COL_OEPCTBLTYPE = 'so_price_discount.OepcTblType';
+    public const COL_OEPCTBLTYPE = 'so_price_discount.OepcTblType';
 
     /**
      * the column name for the OepcStrtDate field
      */
-    const COL_OEPCSTRTDATE = 'so_price_discount.OepcStrtDate';
+    public const COL_OEPCSTRTDATE = 'so_price_discount.OepcStrtDate';
 
     /**
      * the column name for the OepcCustId field
      */
-    const COL_OEPCCUSTID = 'so_price_discount.OepcCustId';
+    public const COL_OEPCCUSTID = 'so_price_discount.OepcCustId';
 
     /**
      * the column name for the OepcCustCode field
      */
-    const COL_OEPCCUSTCODE = 'so_price_discount.OepcCustCode';
+    public const COL_OEPCCUSTCODE = 'so_price_discount.OepcCustCode';
 
     /**
      * the column name for the OepcItemNbr field
      */
-    const COL_OEPCITEMNBR = 'so_price_discount.OepcItemNbr';
+    public const COL_OEPCITEMNBR = 'so_price_discount.OepcItemNbr';
 
     /**
      * the column name for the OepcItemGrup field
      */
-    const COL_OEPCITEMGRUP = 'so_price_discount.OepcItemGrup';
+    public const COL_OEPCITEMGRUP = 'so_price_discount.OepcItemGrup';
 
     /**
      * the column name for the OepcSp field
      */
-    const COL_OEPCSP = 'so_price_discount.OepcSp';
+    public const COL_OEPCSP = 'so_price_discount.OepcSp';
 
     /**
      * the column name for the OepcMeth field
      */
-    const COL_OEPCMETH = 'so_price_discount.OepcMeth';
+    public const COL_OEPCMETH = 'so_price_discount.OepcMeth';
 
     /**
      * the column name for the OepcCode field
      */
-    const COL_OEPCCODE = 'so_price_discount.OepcCode';
+    public const COL_OEPCCODE = 'so_price_discount.OepcCode';
 
     /**
      * the column name for the OepcPcnt field
      */
-    const COL_OEPCPCNT = 'so_price_discount.OepcPcnt';
+    public const COL_OEPCPCNT = 'so_price_discount.OepcPcnt';
 
     /**
      * the column name for the OepcPricBase field
      */
-    const COL_OEPCPRICBASE = 'so_price_discount.OepcPricBase';
+    public const COL_OEPCPRICBASE = 'so_price_discount.OepcPricBase';
 
     /**
      * the column name for the OepcPricUnit1 field
      */
-    const COL_OEPCPRICUNIT1 = 'so_price_discount.OepcPricUnit1';
+    public const COL_OEPCPRICUNIT1 = 'so_price_discount.OepcPricUnit1';
 
     /**
      * the column name for the OepcPricPric1 field
      */
-    const COL_OEPCPRICPRIC1 = 'so_price_discount.OepcPricPric1';
+    public const COL_OEPCPRICPRIC1 = 'so_price_discount.OepcPricPric1';
 
     /**
      * the column name for the OepcPricUom1 field
      */
-    const COL_OEPCPRICUOM1 = 'so_price_discount.OepcPricUom1';
+    public const COL_OEPCPRICUOM1 = 'so_price_discount.OepcPricUom1';
 
     /**
      * the column name for the OepcPricUnit2 field
      */
-    const COL_OEPCPRICUNIT2 = 'so_price_discount.OepcPricUnit2';
+    public const COL_OEPCPRICUNIT2 = 'so_price_discount.OepcPricUnit2';
 
     /**
      * the column name for the OepcPricPric2 field
      */
-    const COL_OEPCPRICPRIC2 = 'so_price_discount.OepcPricPric2';
+    public const COL_OEPCPRICPRIC2 = 'so_price_discount.OepcPricPric2';
 
     /**
      * the column name for the OepcPricUom2 field
      */
-    const COL_OEPCPRICUOM2 = 'so_price_discount.OepcPricUom2';
+    public const COL_OEPCPRICUOM2 = 'so_price_discount.OepcPricUom2';
 
     /**
      * the column name for the OepcPricUnit3 field
      */
-    const COL_OEPCPRICUNIT3 = 'so_price_discount.OepcPricUnit3';
+    public const COL_OEPCPRICUNIT3 = 'so_price_discount.OepcPricUnit3';
 
     /**
      * the column name for the OepcPricPric3 field
      */
-    const COL_OEPCPRICPRIC3 = 'so_price_discount.OepcPricPric3';
+    public const COL_OEPCPRICPRIC3 = 'so_price_discount.OepcPricPric3';
 
     /**
      * the column name for the OepcPricUom3 field
      */
-    const COL_OEPCPRICUOM3 = 'so_price_discount.OepcPricUom3';
+    public const COL_OEPCPRICUOM3 = 'so_price_discount.OepcPricUom3';
 
     /**
      * the column name for the OepcPricUnit4 field
      */
-    const COL_OEPCPRICUNIT4 = 'so_price_discount.OepcPricUnit4';
+    public const COL_OEPCPRICUNIT4 = 'so_price_discount.OepcPricUnit4';
 
     /**
      * the column name for the OepcPricPric4 field
      */
-    const COL_OEPCPRICPRIC4 = 'so_price_discount.OepcPricPric4';
+    public const COL_OEPCPRICPRIC4 = 'so_price_discount.OepcPricPric4';
 
     /**
      * the column name for the OepcPricUom4 field
      */
-    const COL_OEPCPRICUOM4 = 'so_price_discount.OepcPricUom4';
+    public const COL_OEPCPRICUOM4 = 'so_price_discount.OepcPricUom4';
 
     /**
      * the column name for the OepcPricUnit5 field
      */
-    const COL_OEPCPRICUNIT5 = 'so_price_discount.OepcPricUnit5';
+    public const COL_OEPCPRICUNIT5 = 'so_price_discount.OepcPricUnit5';
 
     /**
      * the column name for the OepcPricPric5 field
      */
-    const COL_OEPCPRICPRIC5 = 'so_price_discount.OepcPricPric5';
+    public const COL_OEPCPRICPRIC5 = 'so_price_discount.OepcPricPric5';
 
     /**
      * the column name for the OepcPricUom5 field
      */
-    const COL_OEPCPRICUOM5 = 'so_price_discount.OepcPricUom5';
+    public const COL_OEPCPRICUOM5 = 'so_price_discount.OepcPricUom5';
 
     /**
      * the column name for the OepcStanCost field
      */
-    const COL_OEPCSTANCOST = 'so_price_discount.OepcStanCost';
+    public const COL_OEPCSTANCOST = 'so_price_discount.OepcStanCost';
 
     /**
      * the column name for the OepcEndDate field
      */
-    const COL_OEPCENDDATE = 'so_price_discount.OepcEndDate';
+    public const COL_OEPCENDDATE = 'so_price_discount.OepcEndDate';
 
     /**
      * the column name for the OepcQtyBrk field
      */
-    const COL_OEPCQTYBRK = 'so_price_discount.OepcQtyBrk';
+    public const COL_OEPCQTYBRK = 'so_price_discount.OepcQtyBrk';
 
     /**
      * the column name for the OepcContCost field
      */
-    const COL_OEPCCONTCOST = 'so_price_discount.OepcContCost';
+    public const COL_OEPCCONTCOST = 'so_price_discount.OepcContCost';
 
     /**
      * the column name for the OepcLastChgDate field
      */
-    const COL_OEPCLASTCHGDATE = 'so_price_discount.OepcLastChgDate';
+    public const COL_OEPCLASTCHGDATE = 'so_price_discount.OepcLastChgDate';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'so_price_discount.DateUpdtd';
+    public const COL_DATEUPDTD = 'so_price_discount.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'so_price_discount.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'so_price_discount.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'so_price_discount.dummy';
+    public const COL_DUMMY = 'so_price_discount.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Oepctype', 'Oepctbltype', 'Oepcstrtdate', 'Oepccustid', 'Oepccustcode', 'Oepcitemnbr', 'Oepcitemgrup', 'Oepcsp', 'Oepcmeth', 'Oepccode', 'Oepcpcnt', 'Oepcpricbase', 'Oepcpricunit1', 'Oepcpricpric1', 'Oepcpricuom1', 'Oepcpricunit2', 'Oepcpricpric2', 'Oepcpricuom2', 'Oepcpricunit3', 'Oepcpricpric3', 'Oepcpricuom3', 'Oepcpricunit4', 'Oepcpricpric4', 'Oepcpricuom4', 'Oepcpricunit5', 'Oepcpricpric5', 'Oepcpricuom5', 'Oepcstancost', 'Oepcenddate', 'Oepcqtybrk', 'Oepccontcost', 'Oepclastchgdate', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('oepctype', 'oepctbltype', 'oepcstrtdate', 'oepccustid', 'oepccustcode', 'oepcitemnbr', 'oepcitemgrup', 'oepcsp', 'oepcmeth', 'oepccode', 'oepcpcnt', 'oepcpricbase', 'oepcpricunit1', 'oepcpricpric1', 'oepcpricuom1', 'oepcpricunit2', 'oepcpricpric2', 'oepcpricuom2', 'oepcpricunit3', 'oepcpricpric3', 'oepcpricuom3', 'oepcpricunit4', 'oepcpricpric4', 'oepcpricuom4', 'oepcpricunit5', 'oepcpricpric5', 'oepcpricuom5', 'oepcstancost', 'oepcenddate', 'oepcqtybrk', 'oepccontcost', 'oepclastchgdate', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemPricingDiscountTableMap::COL_OEPCTYPE, ItemPricingDiscountTableMap::COL_OEPCTBLTYPE, ItemPricingDiscountTableMap::COL_OEPCSTRTDATE, ItemPricingDiscountTableMap::COL_OEPCCUSTID, ItemPricingDiscountTableMap::COL_OEPCCUSTCODE, ItemPricingDiscountTableMap::COL_OEPCITEMNBR, ItemPricingDiscountTableMap::COL_OEPCITEMGRUP, ItemPricingDiscountTableMap::COL_OEPCSP, ItemPricingDiscountTableMap::COL_OEPCMETH, ItemPricingDiscountTableMap::COL_OEPCCODE, ItemPricingDiscountTableMap::COL_OEPCPCNT, ItemPricingDiscountTableMap::COL_OEPCPRICBASE, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT1, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC1, ItemPricingDiscountTableMap::COL_OEPCPRICUOM1, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT2, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC2, ItemPricingDiscountTableMap::COL_OEPCPRICUOM2, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT3, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC3, ItemPricingDiscountTableMap::COL_OEPCPRICUOM3, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT4, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC4, ItemPricingDiscountTableMap::COL_OEPCPRICUOM4, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT5, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC5, ItemPricingDiscountTableMap::COL_OEPCPRICUOM5, ItemPricingDiscountTableMap::COL_OEPCSTANCOST, ItemPricingDiscountTableMap::COL_OEPCENDDATE, ItemPricingDiscountTableMap::COL_OEPCQTYBRK, ItemPricingDiscountTableMap::COL_OEPCCONTCOST, ItemPricingDiscountTableMap::COL_OEPCLASTCHGDATE, ItemPricingDiscountTableMap::COL_DATEUPDTD, ItemPricingDiscountTableMap::COL_TIMEUPDTD, ItemPricingDiscountTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('OepcType', 'OepcTblType', 'OepcStrtDate', 'OepcCustId', 'OepcCustCode', 'OepcItemNbr', 'OepcItemGrup', 'OepcSp', 'OepcMeth', 'OepcCode', 'OepcPcnt', 'OepcPricBase', 'OepcPricUnit1', 'OepcPricPric1', 'OepcPricUom1', 'OepcPricUnit2', 'OepcPricPric2', 'OepcPricUom2', 'OepcPricUnit3', 'OepcPricPric3', 'OepcPricUom3', 'OepcPricUnit4', 'OepcPricPric4', 'OepcPricUom4', 'OepcPricUnit5', 'OepcPricPric5', 'OepcPricUom5', 'OepcStanCost', 'OepcEndDate', 'OepcQtyBrk', 'OepcContCost', 'OepcLastChgDate', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Oepctype', 'Oepctbltype', 'Oepcstrtdate', 'Oepccustid', 'Oepccustcode', 'Oepcitemnbr', 'Oepcitemgrup', 'Oepcsp', 'Oepcmeth', 'Oepccode', 'Oepcpcnt', 'Oepcpricbase', 'Oepcpricunit1', 'Oepcpricpric1', 'Oepcpricuom1', 'Oepcpricunit2', 'Oepcpricpric2', 'Oepcpricuom2', 'Oepcpricunit3', 'Oepcpricpric3', 'Oepcpricuom3', 'Oepcpricunit4', 'Oepcpricpric4', 'Oepcpricuom4', 'Oepcpricunit5', 'Oepcpricpric5', 'Oepcpricuom5', 'Oepcstancost', 'Oepcenddate', 'Oepcqtybrk', 'Oepccontcost', 'Oepclastchgdate', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['oepctype', 'oepctbltype', 'oepcstrtdate', 'oepccustid', 'oepccustcode', 'oepcitemnbr', 'oepcitemgrup', 'oepcsp', 'oepcmeth', 'oepccode', 'oepcpcnt', 'oepcpricbase', 'oepcpricunit1', 'oepcpricpric1', 'oepcpricuom1', 'oepcpricunit2', 'oepcpricpric2', 'oepcpricuom2', 'oepcpricunit3', 'oepcpricpric3', 'oepcpricuom3', 'oepcpricunit4', 'oepcpricpric4', 'oepcpricuom4', 'oepcpricunit5', 'oepcpricpric5', 'oepcpricuom5', 'oepcstancost', 'oepcenddate', 'oepcqtybrk', 'oepccontcost', 'oepclastchgdate', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ItemPricingDiscountTableMap::COL_OEPCTYPE, ItemPricingDiscountTableMap::COL_OEPCTBLTYPE, ItemPricingDiscountTableMap::COL_OEPCSTRTDATE, ItemPricingDiscountTableMap::COL_OEPCCUSTID, ItemPricingDiscountTableMap::COL_OEPCCUSTCODE, ItemPricingDiscountTableMap::COL_OEPCITEMNBR, ItemPricingDiscountTableMap::COL_OEPCITEMGRUP, ItemPricingDiscountTableMap::COL_OEPCSP, ItemPricingDiscountTableMap::COL_OEPCMETH, ItemPricingDiscountTableMap::COL_OEPCCODE, ItemPricingDiscountTableMap::COL_OEPCPCNT, ItemPricingDiscountTableMap::COL_OEPCPRICBASE, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT1, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC1, ItemPricingDiscountTableMap::COL_OEPCPRICUOM1, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT2, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC2, ItemPricingDiscountTableMap::COL_OEPCPRICUOM2, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT3, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC3, ItemPricingDiscountTableMap::COL_OEPCPRICUOM3, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT4, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC4, ItemPricingDiscountTableMap::COL_OEPCPRICUOM4, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT5, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC5, ItemPricingDiscountTableMap::COL_OEPCPRICUOM5, ItemPricingDiscountTableMap::COL_OEPCSTANCOST, ItemPricingDiscountTableMap::COL_OEPCENDDATE, ItemPricingDiscountTableMap::COL_OEPCQTYBRK, ItemPricingDiscountTableMap::COL_OEPCCONTCOST, ItemPricingDiscountTableMap::COL_OEPCLASTCHGDATE, ItemPricingDiscountTableMap::COL_DATEUPDTD, ItemPricingDiscountTableMap::COL_TIMEUPDTD, ItemPricingDiscountTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['OepcType', 'OepcTblType', 'OepcStrtDate', 'OepcCustId', 'OepcCustCode', 'OepcItemNbr', 'OepcItemGrup', 'OepcSp', 'OepcMeth', 'OepcCode', 'OepcPcnt', 'OepcPricBase', 'OepcPricUnit1', 'OepcPricPric1', 'OepcPricUom1', 'OepcPricUnit2', 'OepcPricPric2', 'OepcPricUom2', 'OepcPricUnit3', 'OepcPricPric3', 'OepcPricUom3', 'OepcPricUnit4', 'OepcPricPric4', 'OepcPricUom4', 'OepcPricUnit5', 'OepcPricPric5', 'OepcPricUom5', 'OepcStanCost', 'OepcEndDate', 'OepcQtyBrk', 'OepcContCost', 'OepcLastChgDate', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Oepctype' => 0, 'Oepctbltype' => 1, 'Oepcstrtdate' => 2, 'Oepccustid' => 3, 'Oepccustcode' => 4, 'Oepcitemnbr' => 5, 'Oepcitemgrup' => 6, 'Oepcsp' => 7, 'Oepcmeth' => 8, 'Oepccode' => 9, 'Oepcpcnt' => 10, 'Oepcpricbase' => 11, 'Oepcpricunit1' => 12, 'Oepcpricpric1' => 13, 'Oepcpricuom1' => 14, 'Oepcpricunit2' => 15, 'Oepcpricpric2' => 16, 'Oepcpricuom2' => 17, 'Oepcpricunit3' => 18, 'Oepcpricpric3' => 19, 'Oepcpricuom3' => 20, 'Oepcpricunit4' => 21, 'Oepcpricpric4' => 22, 'Oepcpricuom4' => 23, 'Oepcpricunit5' => 24, 'Oepcpricpric5' => 25, 'Oepcpricuom5' => 26, 'Oepcstancost' => 27, 'Oepcenddate' => 28, 'Oepcqtybrk' => 29, 'Oepccontcost' => 30, 'Oepclastchgdate' => 31, 'Dateupdtd' => 32, 'Timeupdtd' => 33, 'Dummy' => 34, ),
-        self::TYPE_CAMELNAME     => array('oepctype' => 0, 'oepctbltype' => 1, 'oepcstrtdate' => 2, 'oepccustid' => 3, 'oepccustcode' => 4, 'oepcitemnbr' => 5, 'oepcitemgrup' => 6, 'oepcsp' => 7, 'oepcmeth' => 8, 'oepccode' => 9, 'oepcpcnt' => 10, 'oepcpricbase' => 11, 'oepcpricunit1' => 12, 'oepcpricpric1' => 13, 'oepcpricuom1' => 14, 'oepcpricunit2' => 15, 'oepcpricpric2' => 16, 'oepcpricuom2' => 17, 'oepcpricunit3' => 18, 'oepcpricpric3' => 19, 'oepcpricuom3' => 20, 'oepcpricunit4' => 21, 'oepcpricpric4' => 22, 'oepcpricuom4' => 23, 'oepcpricunit5' => 24, 'oepcpricpric5' => 25, 'oepcpricuom5' => 26, 'oepcstancost' => 27, 'oepcenddate' => 28, 'oepcqtybrk' => 29, 'oepccontcost' => 30, 'oepclastchgdate' => 31, 'dateupdtd' => 32, 'timeupdtd' => 33, 'dummy' => 34, ),
-        self::TYPE_COLNAME       => array(ItemPricingDiscountTableMap::COL_OEPCTYPE => 0, ItemPricingDiscountTableMap::COL_OEPCTBLTYPE => 1, ItemPricingDiscountTableMap::COL_OEPCSTRTDATE => 2, ItemPricingDiscountTableMap::COL_OEPCCUSTID => 3, ItemPricingDiscountTableMap::COL_OEPCCUSTCODE => 4, ItemPricingDiscountTableMap::COL_OEPCITEMNBR => 5, ItemPricingDiscountTableMap::COL_OEPCITEMGRUP => 6, ItemPricingDiscountTableMap::COL_OEPCSP => 7, ItemPricingDiscountTableMap::COL_OEPCMETH => 8, ItemPricingDiscountTableMap::COL_OEPCCODE => 9, ItemPricingDiscountTableMap::COL_OEPCPCNT => 10, ItemPricingDiscountTableMap::COL_OEPCPRICBASE => 11, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT1 => 12, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC1 => 13, ItemPricingDiscountTableMap::COL_OEPCPRICUOM1 => 14, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT2 => 15, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC2 => 16, ItemPricingDiscountTableMap::COL_OEPCPRICUOM2 => 17, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT3 => 18, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC3 => 19, ItemPricingDiscountTableMap::COL_OEPCPRICUOM3 => 20, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT4 => 21, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC4 => 22, ItemPricingDiscountTableMap::COL_OEPCPRICUOM4 => 23, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT5 => 24, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC5 => 25, ItemPricingDiscountTableMap::COL_OEPCPRICUOM5 => 26, ItemPricingDiscountTableMap::COL_OEPCSTANCOST => 27, ItemPricingDiscountTableMap::COL_OEPCENDDATE => 28, ItemPricingDiscountTableMap::COL_OEPCQTYBRK => 29, ItemPricingDiscountTableMap::COL_OEPCCONTCOST => 30, ItemPricingDiscountTableMap::COL_OEPCLASTCHGDATE => 31, ItemPricingDiscountTableMap::COL_DATEUPDTD => 32, ItemPricingDiscountTableMap::COL_TIMEUPDTD => 33, ItemPricingDiscountTableMap::COL_DUMMY => 34, ),
-        self::TYPE_FIELDNAME     => array('OepcType' => 0, 'OepcTblType' => 1, 'OepcStrtDate' => 2, 'OepcCustId' => 3, 'OepcCustCode' => 4, 'OepcItemNbr' => 5, 'OepcItemGrup' => 6, 'OepcSp' => 7, 'OepcMeth' => 8, 'OepcCode' => 9, 'OepcPcnt' => 10, 'OepcPricBase' => 11, 'OepcPricUnit1' => 12, 'OepcPricPric1' => 13, 'OepcPricUom1' => 14, 'OepcPricUnit2' => 15, 'OepcPricPric2' => 16, 'OepcPricUom2' => 17, 'OepcPricUnit3' => 18, 'OepcPricPric3' => 19, 'OepcPricUom3' => 20, 'OepcPricUnit4' => 21, 'OepcPricPric4' => 22, 'OepcPricUom4' => 23, 'OepcPricUnit5' => 24, 'OepcPricPric5' => 25, 'OepcPricUom5' => 26, 'OepcStanCost' => 27, 'OepcEndDate' => 28, 'OepcQtyBrk' => 29, 'OepcContCost' => 30, 'OepcLastChgDate' => 31, 'DateUpdtd' => 32, 'TimeUpdtd' => 33, 'dummy' => 34, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Oepctype' => 0, 'Oepctbltype' => 1, 'Oepcstrtdate' => 2, 'Oepccustid' => 3, 'Oepccustcode' => 4, 'Oepcitemnbr' => 5, 'Oepcitemgrup' => 6, 'Oepcsp' => 7, 'Oepcmeth' => 8, 'Oepccode' => 9, 'Oepcpcnt' => 10, 'Oepcpricbase' => 11, 'Oepcpricunit1' => 12, 'Oepcpricpric1' => 13, 'Oepcpricuom1' => 14, 'Oepcpricunit2' => 15, 'Oepcpricpric2' => 16, 'Oepcpricuom2' => 17, 'Oepcpricunit3' => 18, 'Oepcpricpric3' => 19, 'Oepcpricuom3' => 20, 'Oepcpricunit4' => 21, 'Oepcpricpric4' => 22, 'Oepcpricuom4' => 23, 'Oepcpricunit5' => 24, 'Oepcpricpric5' => 25, 'Oepcpricuom5' => 26, 'Oepcstancost' => 27, 'Oepcenddate' => 28, 'Oepcqtybrk' => 29, 'Oepccontcost' => 30, 'Oepclastchgdate' => 31, 'Dateupdtd' => 32, 'Timeupdtd' => 33, 'Dummy' => 34, ],
+        self::TYPE_CAMELNAME     => ['oepctype' => 0, 'oepctbltype' => 1, 'oepcstrtdate' => 2, 'oepccustid' => 3, 'oepccustcode' => 4, 'oepcitemnbr' => 5, 'oepcitemgrup' => 6, 'oepcsp' => 7, 'oepcmeth' => 8, 'oepccode' => 9, 'oepcpcnt' => 10, 'oepcpricbase' => 11, 'oepcpricunit1' => 12, 'oepcpricpric1' => 13, 'oepcpricuom1' => 14, 'oepcpricunit2' => 15, 'oepcpricpric2' => 16, 'oepcpricuom2' => 17, 'oepcpricunit3' => 18, 'oepcpricpric3' => 19, 'oepcpricuom3' => 20, 'oepcpricunit4' => 21, 'oepcpricpric4' => 22, 'oepcpricuom4' => 23, 'oepcpricunit5' => 24, 'oepcpricpric5' => 25, 'oepcpricuom5' => 26, 'oepcstancost' => 27, 'oepcenddate' => 28, 'oepcqtybrk' => 29, 'oepccontcost' => 30, 'oepclastchgdate' => 31, 'dateupdtd' => 32, 'timeupdtd' => 33, 'dummy' => 34, ],
+        self::TYPE_COLNAME       => [ItemPricingDiscountTableMap::COL_OEPCTYPE => 0, ItemPricingDiscountTableMap::COL_OEPCTBLTYPE => 1, ItemPricingDiscountTableMap::COL_OEPCSTRTDATE => 2, ItemPricingDiscountTableMap::COL_OEPCCUSTID => 3, ItemPricingDiscountTableMap::COL_OEPCCUSTCODE => 4, ItemPricingDiscountTableMap::COL_OEPCITEMNBR => 5, ItemPricingDiscountTableMap::COL_OEPCITEMGRUP => 6, ItemPricingDiscountTableMap::COL_OEPCSP => 7, ItemPricingDiscountTableMap::COL_OEPCMETH => 8, ItemPricingDiscountTableMap::COL_OEPCCODE => 9, ItemPricingDiscountTableMap::COL_OEPCPCNT => 10, ItemPricingDiscountTableMap::COL_OEPCPRICBASE => 11, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT1 => 12, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC1 => 13, ItemPricingDiscountTableMap::COL_OEPCPRICUOM1 => 14, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT2 => 15, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC2 => 16, ItemPricingDiscountTableMap::COL_OEPCPRICUOM2 => 17, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT3 => 18, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC3 => 19, ItemPricingDiscountTableMap::COL_OEPCPRICUOM3 => 20, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT4 => 21, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC4 => 22, ItemPricingDiscountTableMap::COL_OEPCPRICUOM4 => 23, ItemPricingDiscountTableMap::COL_OEPCPRICUNIT5 => 24, ItemPricingDiscountTableMap::COL_OEPCPRICPRIC5 => 25, ItemPricingDiscountTableMap::COL_OEPCPRICUOM5 => 26, ItemPricingDiscountTableMap::COL_OEPCSTANCOST => 27, ItemPricingDiscountTableMap::COL_OEPCENDDATE => 28, ItemPricingDiscountTableMap::COL_OEPCQTYBRK => 29, ItemPricingDiscountTableMap::COL_OEPCCONTCOST => 30, ItemPricingDiscountTableMap::COL_OEPCLASTCHGDATE => 31, ItemPricingDiscountTableMap::COL_DATEUPDTD => 32, ItemPricingDiscountTableMap::COL_TIMEUPDTD => 33, ItemPricingDiscountTableMap::COL_DUMMY => 34, ],
+        self::TYPE_FIELDNAME     => ['OepcType' => 0, 'OepcTblType' => 1, 'OepcStrtDate' => 2, 'OepcCustId' => 3, 'OepcCustCode' => 4, 'OepcItemNbr' => 5, 'OepcItemGrup' => 6, 'OepcSp' => 7, 'OepcMeth' => 8, 'OepcCode' => 9, 'OepcPcnt' => 10, 'OepcPricBase' => 11, 'OepcPricUnit1' => 12, 'OepcPricPric1' => 13, 'OepcPricUom1' => 14, 'OepcPricUnit2' => 15, 'OepcPricPric2' => 16, 'OepcPricUom2' => 17, 'OepcPricUnit3' => 18, 'OepcPricPric3' => 19, 'OepcPricUom3' => 20, 'OepcPricUnit4' => 21, 'OepcPricPric4' => 22, 'OepcPricUom4' => 23, 'OepcPricUnit5' => 24, 'OepcPricPric5' => 25, 'OepcPricUom5' => 26, 'OepcStanCost' => 27, 'OepcEndDate' => 28, 'OepcQtyBrk' => 29, 'OepcContCost' => 30, 'OepcLastChgDate' => 31, 'DateUpdtd' => 32, 'TimeUpdtd' => 33, 'dummy' => 34, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Oepctype' => 'OEPCTYPE',
+        'ItemPricingDiscount.Oepctype' => 'OEPCTYPE',
+        'oepctype' => 'OEPCTYPE',
+        'itemPricingDiscount.oepctype' => 'OEPCTYPE',
+        'ItemPricingDiscountTableMap::COL_OEPCTYPE' => 'OEPCTYPE',
+        'COL_OEPCTYPE' => 'OEPCTYPE',
+        'OepcType' => 'OEPCTYPE',
+        'so_price_discount.OepcType' => 'OEPCTYPE',
+        'Oepctbltype' => 'OEPCTBLTYPE',
+        'ItemPricingDiscount.Oepctbltype' => 'OEPCTBLTYPE',
+        'oepctbltype' => 'OEPCTBLTYPE',
+        'itemPricingDiscount.oepctbltype' => 'OEPCTBLTYPE',
+        'ItemPricingDiscountTableMap::COL_OEPCTBLTYPE' => 'OEPCTBLTYPE',
+        'COL_OEPCTBLTYPE' => 'OEPCTBLTYPE',
+        'OepcTblType' => 'OEPCTBLTYPE',
+        'so_price_discount.OepcTblType' => 'OEPCTBLTYPE',
+        'Oepcstrtdate' => 'OEPCSTRTDATE',
+        'ItemPricingDiscount.Oepcstrtdate' => 'OEPCSTRTDATE',
+        'oepcstrtdate' => 'OEPCSTRTDATE',
+        'itemPricingDiscount.oepcstrtdate' => 'OEPCSTRTDATE',
+        'ItemPricingDiscountTableMap::COL_OEPCSTRTDATE' => 'OEPCSTRTDATE',
+        'COL_OEPCSTRTDATE' => 'OEPCSTRTDATE',
+        'OepcStrtDate' => 'OEPCSTRTDATE',
+        'so_price_discount.OepcStrtDate' => 'OEPCSTRTDATE',
+        'Oepccustid' => 'OEPCCUSTID',
+        'ItemPricingDiscount.Oepccustid' => 'OEPCCUSTID',
+        'oepccustid' => 'OEPCCUSTID',
+        'itemPricingDiscount.oepccustid' => 'OEPCCUSTID',
+        'ItemPricingDiscountTableMap::COL_OEPCCUSTID' => 'OEPCCUSTID',
+        'COL_OEPCCUSTID' => 'OEPCCUSTID',
+        'OepcCustId' => 'OEPCCUSTID',
+        'so_price_discount.OepcCustId' => 'OEPCCUSTID',
+        'Oepccustcode' => 'OEPCCUSTCODE',
+        'ItemPricingDiscount.Oepccustcode' => 'OEPCCUSTCODE',
+        'oepccustcode' => 'OEPCCUSTCODE',
+        'itemPricingDiscount.oepccustcode' => 'OEPCCUSTCODE',
+        'ItemPricingDiscountTableMap::COL_OEPCCUSTCODE' => 'OEPCCUSTCODE',
+        'COL_OEPCCUSTCODE' => 'OEPCCUSTCODE',
+        'OepcCustCode' => 'OEPCCUSTCODE',
+        'so_price_discount.OepcCustCode' => 'OEPCCUSTCODE',
+        'Oepcitemnbr' => 'OEPCITEMNBR',
+        'ItemPricingDiscount.Oepcitemnbr' => 'OEPCITEMNBR',
+        'oepcitemnbr' => 'OEPCITEMNBR',
+        'itemPricingDiscount.oepcitemnbr' => 'OEPCITEMNBR',
+        'ItemPricingDiscountTableMap::COL_OEPCITEMNBR' => 'OEPCITEMNBR',
+        'COL_OEPCITEMNBR' => 'OEPCITEMNBR',
+        'OepcItemNbr' => 'OEPCITEMNBR',
+        'so_price_discount.OepcItemNbr' => 'OEPCITEMNBR',
+        'Oepcitemgrup' => 'OEPCITEMGRUP',
+        'ItemPricingDiscount.Oepcitemgrup' => 'OEPCITEMGRUP',
+        'oepcitemgrup' => 'OEPCITEMGRUP',
+        'itemPricingDiscount.oepcitemgrup' => 'OEPCITEMGRUP',
+        'ItemPricingDiscountTableMap::COL_OEPCITEMGRUP' => 'OEPCITEMGRUP',
+        'COL_OEPCITEMGRUP' => 'OEPCITEMGRUP',
+        'OepcItemGrup' => 'OEPCITEMGRUP',
+        'so_price_discount.OepcItemGrup' => 'OEPCITEMGRUP',
+        'Oepcsp' => 'OEPCSP',
+        'ItemPricingDiscount.Oepcsp' => 'OEPCSP',
+        'oepcsp' => 'OEPCSP',
+        'itemPricingDiscount.oepcsp' => 'OEPCSP',
+        'ItemPricingDiscountTableMap::COL_OEPCSP' => 'OEPCSP',
+        'COL_OEPCSP' => 'OEPCSP',
+        'OepcSp' => 'OEPCSP',
+        'so_price_discount.OepcSp' => 'OEPCSP',
+        'Oepcmeth' => 'OEPCMETH',
+        'ItemPricingDiscount.Oepcmeth' => 'OEPCMETH',
+        'oepcmeth' => 'OEPCMETH',
+        'itemPricingDiscount.oepcmeth' => 'OEPCMETH',
+        'ItemPricingDiscountTableMap::COL_OEPCMETH' => 'OEPCMETH',
+        'COL_OEPCMETH' => 'OEPCMETH',
+        'OepcMeth' => 'OEPCMETH',
+        'so_price_discount.OepcMeth' => 'OEPCMETH',
+        'Oepccode' => 'OEPCCODE',
+        'ItemPricingDiscount.Oepccode' => 'OEPCCODE',
+        'oepccode' => 'OEPCCODE',
+        'itemPricingDiscount.oepccode' => 'OEPCCODE',
+        'ItemPricingDiscountTableMap::COL_OEPCCODE' => 'OEPCCODE',
+        'COL_OEPCCODE' => 'OEPCCODE',
+        'OepcCode' => 'OEPCCODE',
+        'so_price_discount.OepcCode' => 'OEPCCODE',
+        'Oepcpcnt' => 'OEPCPCNT',
+        'ItemPricingDiscount.Oepcpcnt' => 'OEPCPCNT',
+        'oepcpcnt' => 'OEPCPCNT',
+        'itemPricingDiscount.oepcpcnt' => 'OEPCPCNT',
+        'ItemPricingDiscountTableMap::COL_OEPCPCNT' => 'OEPCPCNT',
+        'COL_OEPCPCNT' => 'OEPCPCNT',
+        'OepcPcnt' => 'OEPCPCNT',
+        'so_price_discount.OepcPcnt' => 'OEPCPCNT',
+        'Oepcpricbase' => 'OEPCPRICBASE',
+        'ItemPricingDiscount.Oepcpricbase' => 'OEPCPRICBASE',
+        'oepcpricbase' => 'OEPCPRICBASE',
+        'itemPricingDiscount.oepcpricbase' => 'OEPCPRICBASE',
+        'ItemPricingDiscountTableMap::COL_OEPCPRICBASE' => 'OEPCPRICBASE',
+        'COL_OEPCPRICBASE' => 'OEPCPRICBASE',
+        'OepcPricBase' => 'OEPCPRICBASE',
+        'so_price_discount.OepcPricBase' => 'OEPCPRICBASE',
+        'Oepcpricunit1' => 'OEPCPRICUNIT1',
+        'ItemPricingDiscount.Oepcpricunit1' => 'OEPCPRICUNIT1',
+        'oepcpricunit1' => 'OEPCPRICUNIT1',
+        'itemPricingDiscount.oepcpricunit1' => 'OEPCPRICUNIT1',
+        'ItemPricingDiscountTableMap::COL_OEPCPRICUNIT1' => 'OEPCPRICUNIT1',
+        'COL_OEPCPRICUNIT1' => 'OEPCPRICUNIT1',
+        'OepcPricUnit1' => 'OEPCPRICUNIT1',
+        'so_price_discount.OepcPricUnit1' => 'OEPCPRICUNIT1',
+        'Oepcpricpric1' => 'OEPCPRICPRIC1',
+        'ItemPricingDiscount.Oepcpricpric1' => 'OEPCPRICPRIC1',
+        'oepcpricpric1' => 'OEPCPRICPRIC1',
+        'itemPricingDiscount.oepcpricpric1' => 'OEPCPRICPRIC1',
+        'ItemPricingDiscountTableMap::COL_OEPCPRICPRIC1' => 'OEPCPRICPRIC1',
+        'COL_OEPCPRICPRIC1' => 'OEPCPRICPRIC1',
+        'OepcPricPric1' => 'OEPCPRICPRIC1',
+        'so_price_discount.OepcPricPric1' => 'OEPCPRICPRIC1',
+        'Oepcpricuom1' => 'OEPCPRICUOM1',
+        'ItemPricingDiscount.Oepcpricuom1' => 'OEPCPRICUOM1',
+        'oepcpricuom1' => 'OEPCPRICUOM1',
+        'itemPricingDiscount.oepcpricuom1' => 'OEPCPRICUOM1',
+        'ItemPricingDiscountTableMap::COL_OEPCPRICUOM1' => 'OEPCPRICUOM1',
+        'COL_OEPCPRICUOM1' => 'OEPCPRICUOM1',
+        'OepcPricUom1' => 'OEPCPRICUOM1',
+        'so_price_discount.OepcPricUom1' => 'OEPCPRICUOM1',
+        'Oepcpricunit2' => 'OEPCPRICUNIT2',
+        'ItemPricingDiscount.Oepcpricunit2' => 'OEPCPRICUNIT2',
+        'oepcpricunit2' => 'OEPCPRICUNIT2',
+        'itemPricingDiscount.oepcpricunit2' => 'OEPCPRICUNIT2',
+        'ItemPricingDiscountTableMap::COL_OEPCPRICUNIT2' => 'OEPCPRICUNIT2',
+        'COL_OEPCPRICUNIT2' => 'OEPCPRICUNIT2',
+        'OepcPricUnit2' => 'OEPCPRICUNIT2',
+        'so_price_discount.OepcPricUnit2' => 'OEPCPRICUNIT2',
+        'Oepcpricpric2' => 'OEPCPRICPRIC2',
+        'ItemPricingDiscount.Oepcpricpric2' => 'OEPCPRICPRIC2',
+        'oepcpricpric2' => 'OEPCPRICPRIC2',
+        'itemPricingDiscount.oepcpricpric2' => 'OEPCPRICPRIC2',
+        'ItemPricingDiscountTableMap::COL_OEPCPRICPRIC2' => 'OEPCPRICPRIC2',
+        'COL_OEPCPRICPRIC2' => 'OEPCPRICPRIC2',
+        'OepcPricPric2' => 'OEPCPRICPRIC2',
+        'so_price_discount.OepcPricPric2' => 'OEPCPRICPRIC2',
+        'Oepcpricuom2' => 'OEPCPRICUOM2',
+        'ItemPricingDiscount.Oepcpricuom2' => 'OEPCPRICUOM2',
+        'oepcpricuom2' => 'OEPCPRICUOM2',
+        'itemPricingDiscount.oepcpricuom2' => 'OEPCPRICUOM2',
+        'ItemPricingDiscountTableMap::COL_OEPCPRICUOM2' => 'OEPCPRICUOM2',
+        'COL_OEPCPRICUOM2' => 'OEPCPRICUOM2',
+        'OepcPricUom2' => 'OEPCPRICUOM2',
+        'so_price_discount.OepcPricUom2' => 'OEPCPRICUOM2',
+        'Oepcpricunit3' => 'OEPCPRICUNIT3',
+        'ItemPricingDiscount.Oepcpricunit3' => 'OEPCPRICUNIT3',
+        'oepcpricunit3' => 'OEPCPRICUNIT3',
+        'itemPricingDiscount.oepcpricunit3' => 'OEPCPRICUNIT3',
+        'ItemPricingDiscountTableMap::COL_OEPCPRICUNIT3' => 'OEPCPRICUNIT3',
+        'COL_OEPCPRICUNIT3' => 'OEPCPRICUNIT3',
+        'OepcPricUnit3' => 'OEPCPRICUNIT3',
+        'so_price_discount.OepcPricUnit3' => 'OEPCPRICUNIT3',
+        'Oepcpricpric3' => 'OEPCPRICPRIC3',
+        'ItemPricingDiscount.Oepcpricpric3' => 'OEPCPRICPRIC3',
+        'oepcpricpric3' => 'OEPCPRICPRIC3',
+        'itemPricingDiscount.oepcpricpric3' => 'OEPCPRICPRIC3',
+        'ItemPricingDiscountTableMap::COL_OEPCPRICPRIC3' => 'OEPCPRICPRIC3',
+        'COL_OEPCPRICPRIC3' => 'OEPCPRICPRIC3',
+        'OepcPricPric3' => 'OEPCPRICPRIC3',
+        'so_price_discount.OepcPricPric3' => 'OEPCPRICPRIC3',
+        'Oepcpricuom3' => 'OEPCPRICUOM3',
+        'ItemPricingDiscount.Oepcpricuom3' => 'OEPCPRICUOM3',
+        'oepcpricuom3' => 'OEPCPRICUOM3',
+        'itemPricingDiscount.oepcpricuom3' => 'OEPCPRICUOM3',
+        'ItemPricingDiscountTableMap::COL_OEPCPRICUOM3' => 'OEPCPRICUOM3',
+        'COL_OEPCPRICUOM3' => 'OEPCPRICUOM3',
+        'OepcPricUom3' => 'OEPCPRICUOM3',
+        'so_price_discount.OepcPricUom3' => 'OEPCPRICUOM3',
+        'Oepcpricunit4' => 'OEPCPRICUNIT4',
+        'ItemPricingDiscount.Oepcpricunit4' => 'OEPCPRICUNIT4',
+        'oepcpricunit4' => 'OEPCPRICUNIT4',
+        'itemPricingDiscount.oepcpricunit4' => 'OEPCPRICUNIT4',
+        'ItemPricingDiscountTableMap::COL_OEPCPRICUNIT4' => 'OEPCPRICUNIT4',
+        'COL_OEPCPRICUNIT4' => 'OEPCPRICUNIT4',
+        'OepcPricUnit4' => 'OEPCPRICUNIT4',
+        'so_price_discount.OepcPricUnit4' => 'OEPCPRICUNIT4',
+        'Oepcpricpric4' => 'OEPCPRICPRIC4',
+        'ItemPricingDiscount.Oepcpricpric4' => 'OEPCPRICPRIC4',
+        'oepcpricpric4' => 'OEPCPRICPRIC4',
+        'itemPricingDiscount.oepcpricpric4' => 'OEPCPRICPRIC4',
+        'ItemPricingDiscountTableMap::COL_OEPCPRICPRIC4' => 'OEPCPRICPRIC4',
+        'COL_OEPCPRICPRIC4' => 'OEPCPRICPRIC4',
+        'OepcPricPric4' => 'OEPCPRICPRIC4',
+        'so_price_discount.OepcPricPric4' => 'OEPCPRICPRIC4',
+        'Oepcpricuom4' => 'OEPCPRICUOM4',
+        'ItemPricingDiscount.Oepcpricuom4' => 'OEPCPRICUOM4',
+        'oepcpricuom4' => 'OEPCPRICUOM4',
+        'itemPricingDiscount.oepcpricuom4' => 'OEPCPRICUOM4',
+        'ItemPricingDiscountTableMap::COL_OEPCPRICUOM4' => 'OEPCPRICUOM4',
+        'COL_OEPCPRICUOM4' => 'OEPCPRICUOM4',
+        'OepcPricUom4' => 'OEPCPRICUOM4',
+        'so_price_discount.OepcPricUom4' => 'OEPCPRICUOM4',
+        'Oepcpricunit5' => 'OEPCPRICUNIT5',
+        'ItemPricingDiscount.Oepcpricunit5' => 'OEPCPRICUNIT5',
+        'oepcpricunit5' => 'OEPCPRICUNIT5',
+        'itemPricingDiscount.oepcpricunit5' => 'OEPCPRICUNIT5',
+        'ItemPricingDiscountTableMap::COL_OEPCPRICUNIT5' => 'OEPCPRICUNIT5',
+        'COL_OEPCPRICUNIT5' => 'OEPCPRICUNIT5',
+        'OepcPricUnit5' => 'OEPCPRICUNIT5',
+        'so_price_discount.OepcPricUnit5' => 'OEPCPRICUNIT5',
+        'Oepcpricpric5' => 'OEPCPRICPRIC5',
+        'ItemPricingDiscount.Oepcpricpric5' => 'OEPCPRICPRIC5',
+        'oepcpricpric5' => 'OEPCPRICPRIC5',
+        'itemPricingDiscount.oepcpricpric5' => 'OEPCPRICPRIC5',
+        'ItemPricingDiscountTableMap::COL_OEPCPRICPRIC5' => 'OEPCPRICPRIC5',
+        'COL_OEPCPRICPRIC5' => 'OEPCPRICPRIC5',
+        'OepcPricPric5' => 'OEPCPRICPRIC5',
+        'so_price_discount.OepcPricPric5' => 'OEPCPRICPRIC5',
+        'Oepcpricuom5' => 'OEPCPRICUOM5',
+        'ItemPricingDiscount.Oepcpricuom5' => 'OEPCPRICUOM5',
+        'oepcpricuom5' => 'OEPCPRICUOM5',
+        'itemPricingDiscount.oepcpricuom5' => 'OEPCPRICUOM5',
+        'ItemPricingDiscountTableMap::COL_OEPCPRICUOM5' => 'OEPCPRICUOM5',
+        'COL_OEPCPRICUOM5' => 'OEPCPRICUOM5',
+        'OepcPricUom5' => 'OEPCPRICUOM5',
+        'so_price_discount.OepcPricUom5' => 'OEPCPRICUOM5',
+        'Oepcstancost' => 'OEPCSTANCOST',
+        'ItemPricingDiscount.Oepcstancost' => 'OEPCSTANCOST',
+        'oepcstancost' => 'OEPCSTANCOST',
+        'itemPricingDiscount.oepcstancost' => 'OEPCSTANCOST',
+        'ItemPricingDiscountTableMap::COL_OEPCSTANCOST' => 'OEPCSTANCOST',
+        'COL_OEPCSTANCOST' => 'OEPCSTANCOST',
+        'OepcStanCost' => 'OEPCSTANCOST',
+        'so_price_discount.OepcStanCost' => 'OEPCSTANCOST',
+        'Oepcenddate' => 'OEPCENDDATE',
+        'ItemPricingDiscount.Oepcenddate' => 'OEPCENDDATE',
+        'oepcenddate' => 'OEPCENDDATE',
+        'itemPricingDiscount.oepcenddate' => 'OEPCENDDATE',
+        'ItemPricingDiscountTableMap::COL_OEPCENDDATE' => 'OEPCENDDATE',
+        'COL_OEPCENDDATE' => 'OEPCENDDATE',
+        'OepcEndDate' => 'OEPCENDDATE',
+        'so_price_discount.OepcEndDate' => 'OEPCENDDATE',
+        'Oepcqtybrk' => 'OEPCQTYBRK',
+        'ItemPricingDiscount.Oepcqtybrk' => 'OEPCQTYBRK',
+        'oepcqtybrk' => 'OEPCQTYBRK',
+        'itemPricingDiscount.oepcqtybrk' => 'OEPCQTYBRK',
+        'ItemPricingDiscountTableMap::COL_OEPCQTYBRK' => 'OEPCQTYBRK',
+        'COL_OEPCQTYBRK' => 'OEPCQTYBRK',
+        'OepcQtyBrk' => 'OEPCQTYBRK',
+        'so_price_discount.OepcQtyBrk' => 'OEPCQTYBRK',
+        'Oepccontcost' => 'OEPCCONTCOST',
+        'ItemPricingDiscount.Oepccontcost' => 'OEPCCONTCOST',
+        'oepccontcost' => 'OEPCCONTCOST',
+        'itemPricingDiscount.oepccontcost' => 'OEPCCONTCOST',
+        'ItemPricingDiscountTableMap::COL_OEPCCONTCOST' => 'OEPCCONTCOST',
+        'COL_OEPCCONTCOST' => 'OEPCCONTCOST',
+        'OepcContCost' => 'OEPCCONTCOST',
+        'so_price_discount.OepcContCost' => 'OEPCCONTCOST',
+        'Oepclastchgdate' => 'OEPCLASTCHGDATE',
+        'ItemPricingDiscount.Oepclastchgdate' => 'OEPCLASTCHGDATE',
+        'oepclastchgdate' => 'OEPCLASTCHGDATE',
+        'itemPricingDiscount.oepclastchgdate' => 'OEPCLASTCHGDATE',
+        'ItemPricingDiscountTableMap::COL_OEPCLASTCHGDATE' => 'OEPCLASTCHGDATE',
+        'COL_OEPCLASTCHGDATE' => 'OEPCLASTCHGDATE',
+        'OepcLastChgDate' => 'OEPCLASTCHGDATE',
+        'so_price_discount.OepcLastChgDate' => 'OEPCLASTCHGDATE',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ItemPricingDiscount.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'itemPricingDiscount.dateupdtd' => 'DATEUPDTD',
+        'ItemPricingDiscountTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'so_price_discount.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ItemPricingDiscount.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'itemPricingDiscount.timeupdtd' => 'TIMEUPDTD',
+        'ItemPricingDiscountTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'so_price_discount.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ItemPricingDiscount.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'itemPricingDiscount.dummy' => 'DUMMY',
+        'ItemPricingDiscountTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'so_price_discount.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('so_price_discount');
@@ -331,12 +626,14 @@ class ItemPricingDiscountTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -352,7 +649,7 @@ class ItemPricingDiscountTableMap extends TableMap
     1 => ':ArcuCustId',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -363,9 +660,11 @@ class ItemPricingDiscountTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \ItemPricingDiscount $obj A \ItemPricingDiscount object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(ItemPricingDiscount $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -384,8 +683,10 @@ class ItemPricingDiscountTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \ItemPricingDiscount object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \ItemPricingDiscount) {
@@ -413,14 +714,14 @@ class ItemPricingDiscountTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Oepctype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Oepctbltype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Oepcstrtdate', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Oepccustid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Oepccustcode', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Oepcitemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Oepcitemgrup', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 7 + $offset : static::translateFieldName('Oepcsp', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -435,14 +736,14 @@ class ItemPricingDiscountTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -498,10 +799,10 @@ class ItemPricingDiscountTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ItemPricingDiscountTableMap::CLASS_DEFAULT : ItemPricingDiscountTableMap::OM_CLASS;
     }
@@ -509,17 +810,17 @@ class ItemPricingDiscountTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ItemPricingDiscount object, last column rank)
+     * @return array (ItemPricingDiscount object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ItemPricingDiscountTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ItemPricingDiscountTableMap::getInstanceFromPool($key))) {
@@ -535,7 +836,7 @@ class ItemPricingDiscountTableMap extends TableMap
             ItemPricingDiscountTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -543,13 +844,13 @@ class ItemPricingDiscountTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -579,12 +880,13 @@ class ItemPricingDiscountTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ItemPricingDiscountTableMap::COL_OEPCTYPE);
@@ -662,40 +964,118 @@ class ItemPricingDiscountTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCTYPE);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCTBLTYPE);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCSTRTDATE);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCCUSTID);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCCUSTCODE);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCITEMNBR);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCITEMGRUP);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCSP);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCMETH);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCCODE);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPCNT);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPRICBASE);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPRICUNIT1);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPRICPRIC1);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPRICUOM1);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPRICUNIT2);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPRICPRIC2);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPRICUOM2);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPRICUNIT3);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPRICPRIC3);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPRICUOM3);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPRICUNIT4);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPRICPRIC4);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPRICUOM4);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPRICUNIT5);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPRICPRIC5);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCPRICUOM5);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCSTANCOST);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCENDDATE);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCQTYBRK);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCCONTCOST);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_OEPCLASTCHGDATE);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ItemPricingDiscountTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.OepcType');
+            $criteria->removeSelectColumn($alias . '.OepcTblType');
+            $criteria->removeSelectColumn($alias . '.OepcStrtDate');
+            $criteria->removeSelectColumn($alias . '.OepcCustId');
+            $criteria->removeSelectColumn($alias . '.OepcCustCode');
+            $criteria->removeSelectColumn($alias . '.OepcItemNbr');
+            $criteria->removeSelectColumn($alias . '.OepcItemGrup');
+            $criteria->removeSelectColumn($alias . '.OepcSp');
+            $criteria->removeSelectColumn($alias . '.OepcMeth');
+            $criteria->removeSelectColumn($alias . '.OepcCode');
+            $criteria->removeSelectColumn($alias . '.OepcPcnt');
+            $criteria->removeSelectColumn($alias . '.OepcPricBase');
+            $criteria->removeSelectColumn($alias . '.OepcPricUnit1');
+            $criteria->removeSelectColumn($alias . '.OepcPricPric1');
+            $criteria->removeSelectColumn($alias . '.OepcPricUom1');
+            $criteria->removeSelectColumn($alias . '.OepcPricUnit2');
+            $criteria->removeSelectColumn($alias . '.OepcPricPric2');
+            $criteria->removeSelectColumn($alias . '.OepcPricUom2');
+            $criteria->removeSelectColumn($alias . '.OepcPricUnit3');
+            $criteria->removeSelectColumn($alias . '.OepcPricPric3');
+            $criteria->removeSelectColumn($alias . '.OepcPricUom3');
+            $criteria->removeSelectColumn($alias . '.OepcPricUnit4');
+            $criteria->removeSelectColumn($alias . '.OepcPricPric4');
+            $criteria->removeSelectColumn($alias . '.OepcPricUom4');
+            $criteria->removeSelectColumn($alias . '.OepcPricUnit5');
+            $criteria->removeSelectColumn($alias . '.OepcPricPric5');
+            $criteria->removeSelectColumn($alias . '.OepcPricUom5');
+            $criteria->removeSelectColumn($alias . '.OepcStanCost');
+            $criteria->removeSelectColumn($alias . '.OepcEndDate');
+            $criteria->removeSelectColumn($alias . '.OepcQtyBrk');
+            $criteria->removeSelectColumn($alias . '.OepcContCost');
+            $criteria->removeSelectColumn($alias . '.OepcLastChgDate');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ItemPricingDiscountTableMap::DATABASE_NAME)->getTable(ItemPricingDiscountTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ItemPricingDiscountTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ItemPricingDiscountTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ItemPricingDiscountTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ItemPricingDiscount or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ItemPricingDiscount object or primary key or array of primary keys
+     * @param mixed $values Criteria or ItemPricingDiscount object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemPricingDiscountTableMap::DATABASE_NAME);
@@ -713,7 +1093,7 @@ class ItemPricingDiscountTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(ItemPricingDiscountTableMap::COL_OEPCTYPE, $value[0]);
@@ -747,7 +1127,7 @@ class ItemPricingDiscountTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ItemPricingDiscountQuery::create()->doDeleteAll($con);
     }
@@ -755,13 +1135,13 @@ class ItemPricingDiscountTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ItemPricingDiscount or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ItemPricingDiscount object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ItemPricingDiscount object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemPricingDiscountTableMap::DATABASE_NAME);
@@ -784,7 +1164,4 @@ class ItemPricingDiscountTableMap extends TableMap
         });
     }
 
-} // ItemPricingDiscountTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ItemPricingDiscountTableMap::buildTableMap();
+}

@@ -10,14 +10,12 @@ use Map\SoRgaCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'so_rgas_code' table.
- *
- *
+ * Base class that represents a query for the `so_rgas_code` table.
  *
  * @method     ChildSoRgaCodeQuery orderByOetbrgascode($order = Criteria::ASC) Order by the OetbRgasCode column
  * @method     ChildSoRgaCodeQuery orderByOetbrgasdesc($order = Criteria::ASC) Order by the OetbRgasDesc column
@@ -43,19 +41,19 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSoRgaCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildSoRgaCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildSoRgaCode findOne(ConnectionInterface $con = null) Return the first ChildSoRgaCode matching the query
- * @method     ChildSoRgaCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSoRgaCode matching the query, or a new ChildSoRgaCode object populated from the query conditions when no match is found
+ * @method     ChildSoRgaCode|null findOne(?ConnectionInterface $con = null) Return the first ChildSoRgaCode matching the query
+ * @method     ChildSoRgaCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildSoRgaCode matching the query, or a new ChildSoRgaCode object populated from the query conditions when no match is found
  *
- * @method     ChildSoRgaCode findOneByOetbrgascode(string $OetbRgasCode) Return the first ChildSoRgaCode filtered by the OetbRgasCode column
- * @method     ChildSoRgaCode findOneByOetbrgasdesc(string $OetbRgasDesc) Return the first ChildSoRgaCode filtered by the OetbRgasDesc column
- * @method     ChildSoRgaCode findOneByOetbrgaswhse(string $OetbRgasWhse) Return the first ChildSoRgaCode filtered by the OetbRgasWhse column
- * @method     ChildSoRgaCode findOneByOetbrgasshipacctnbr(string $OetbRgasShipAcctNbr) Return the first ChildSoRgaCode filtered by the OetbRgasShipAcctNbr column
- * @method     ChildSoRgaCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildSoRgaCode filtered by the DateUpdtd column
- * @method     ChildSoRgaCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSoRgaCode filtered by the TimeUpdtd column
- * @method     ChildSoRgaCode findOneByDummy(string $dummy) Return the first ChildSoRgaCode filtered by the dummy column *
-
- * @method     ChildSoRgaCode requirePk($key, ConnectionInterface $con = null) Return the ChildSoRgaCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSoRgaCode requireOne(ConnectionInterface $con = null) Return the first ChildSoRgaCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSoRgaCode|null findOneByOetbrgascode(string $OetbRgasCode) Return the first ChildSoRgaCode filtered by the OetbRgasCode column
+ * @method     ChildSoRgaCode|null findOneByOetbrgasdesc(string $OetbRgasDesc) Return the first ChildSoRgaCode filtered by the OetbRgasDesc column
+ * @method     ChildSoRgaCode|null findOneByOetbrgaswhse(string $OetbRgasWhse) Return the first ChildSoRgaCode filtered by the OetbRgasWhse column
+ * @method     ChildSoRgaCode|null findOneByOetbrgasshipacctnbr(string $OetbRgasShipAcctNbr) Return the first ChildSoRgaCode filtered by the OetbRgasShipAcctNbr column
+ * @method     ChildSoRgaCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildSoRgaCode filtered by the DateUpdtd column
+ * @method     ChildSoRgaCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSoRgaCode filtered by the TimeUpdtd column
+ * @method     ChildSoRgaCode|null findOneByDummy(string $dummy) Return the first ChildSoRgaCode filtered by the dummy column
+ *
+ * @method     ChildSoRgaCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildSoRgaCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSoRgaCode requireOne(?ConnectionInterface $con = null) Return the first ChildSoRgaCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildSoRgaCode requireOneByOetbrgascode(string $OetbRgasCode) Return the first ChildSoRgaCode filtered by the OetbRgasCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoRgaCode requireOneByOetbrgasdesc(string $OetbRgasDesc) Return the first ChildSoRgaCode filtered by the OetbRgasDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -65,16 +63,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSoRgaCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSoRgaCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoRgaCode requireOneByDummy(string $dummy) Return the first ChildSoRgaCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildSoRgaCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildSoRgaCode objects based on current ModelCriteria
- * @method     ChildSoRgaCode[]|ObjectCollection findByOetbrgascode(string $OetbRgasCode) Return ChildSoRgaCode objects filtered by the OetbRgasCode column
- * @method     ChildSoRgaCode[]|ObjectCollection findByOetbrgasdesc(string $OetbRgasDesc) Return ChildSoRgaCode objects filtered by the OetbRgasDesc column
- * @method     ChildSoRgaCode[]|ObjectCollection findByOetbrgaswhse(string $OetbRgasWhse) Return ChildSoRgaCode objects filtered by the OetbRgasWhse column
- * @method     ChildSoRgaCode[]|ObjectCollection findByOetbrgasshipacctnbr(string $OetbRgasShipAcctNbr) Return ChildSoRgaCode objects filtered by the OetbRgasShipAcctNbr column
- * @method     ChildSoRgaCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildSoRgaCode objects filtered by the DateUpdtd column
- * @method     ChildSoRgaCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildSoRgaCode objects filtered by the TimeUpdtd column
- * @method     ChildSoRgaCode[]|ObjectCollection findByDummy(string $dummy) Return ChildSoRgaCode objects filtered by the dummy column
- * @method     ChildSoRgaCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildSoRgaCode[]|Collection find(?ConnectionInterface $con = null) Return ChildSoRgaCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildSoRgaCode> find(?ConnectionInterface $con = null) Return ChildSoRgaCode objects based on current ModelCriteria
  *
+ * @method     ChildSoRgaCode[]|Collection findByOetbrgascode(string|array<string> $OetbRgasCode) Return ChildSoRgaCode objects filtered by the OetbRgasCode column
+ * @psalm-method Collection&\Traversable<ChildSoRgaCode> findByOetbrgascode(string|array<string> $OetbRgasCode) Return ChildSoRgaCode objects filtered by the OetbRgasCode column
+ * @method     ChildSoRgaCode[]|Collection findByOetbrgasdesc(string|array<string> $OetbRgasDesc) Return ChildSoRgaCode objects filtered by the OetbRgasDesc column
+ * @psalm-method Collection&\Traversable<ChildSoRgaCode> findByOetbrgasdesc(string|array<string> $OetbRgasDesc) Return ChildSoRgaCode objects filtered by the OetbRgasDesc column
+ * @method     ChildSoRgaCode[]|Collection findByOetbrgaswhse(string|array<string> $OetbRgasWhse) Return ChildSoRgaCode objects filtered by the OetbRgasWhse column
+ * @psalm-method Collection&\Traversable<ChildSoRgaCode> findByOetbrgaswhse(string|array<string> $OetbRgasWhse) Return ChildSoRgaCode objects filtered by the OetbRgasWhse column
+ * @method     ChildSoRgaCode[]|Collection findByOetbrgasshipacctnbr(string|array<string> $OetbRgasShipAcctNbr) Return ChildSoRgaCode objects filtered by the OetbRgasShipAcctNbr column
+ * @psalm-method Collection&\Traversable<ChildSoRgaCode> findByOetbrgasshipacctnbr(string|array<string> $OetbRgasShipAcctNbr) Return ChildSoRgaCode objects filtered by the OetbRgasShipAcctNbr column
+ * @method     ChildSoRgaCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSoRgaCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSoRgaCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSoRgaCode objects filtered by the DateUpdtd column
+ * @method     ChildSoRgaCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSoRgaCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSoRgaCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSoRgaCode objects filtered by the TimeUpdtd column
+ * @method     ChildSoRgaCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildSoRgaCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildSoRgaCode> findByDummy(string|array<string> $dummy) Return ChildSoRgaCode objects filtered by the dummy column
+ *
+ * @method     ChildSoRgaCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildSoRgaCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class SoRgaCodeQuery extends ModelCriteria
 {
@@ -83,9 +91,9 @@ abstract class SoRgaCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\SoRgaCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\SoRgaCode', $modelAlias = null)
     {
@@ -95,12 +103,12 @@ abstract class SoRgaCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildSoRgaCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildSoRgaCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildSoRgaCodeQuery) {
             return $criteria;
@@ -130,7 +138,7 @@ abstract class SoRgaCodeQuery extends ModelCriteria
      *
      * @return ChildSoRgaCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -162,8 +170,8 @@ abstract class SoRgaCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -195,8 +203,8 @@ abstract class SoRgaCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildSoRgaCode|array|mixed the result, formatted by the current formatter
      */
@@ -216,12 +224,12 @@ abstract class SoRgaCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -238,27 +246,31 @@ abstract class SoRgaCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildSoRgaCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(SoRgaCodeTableMap::COL_OETBRGASCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(SoRgaCodeTableMap::COL_OETBRGASCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildSoRgaCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(SoRgaCodeTableMap::COL_OETBRGASCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(SoRgaCodeTableMap::COL_OETBRGASCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -268,14 +280,15 @@ abstract class SoRgaCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOetbrgascode('fooValue');   // WHERE OetbRgasCode = 'fooValue'
      * $query->filterByOetbrgascode('%fooValue%', Criteria::LIKE); // WHERE OetbRgasCode LIKE '%fooValue%'
+     * $query->filterByOetbrgascode(['foo', 'bar']); // WHERE OetbRgasCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetbrgascode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetbrgascode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoRgaCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetbrgascode($oetbrgascode = null, $comparison = null)
+    public function filterByOetbrgascode($oetbrgascode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetbrgascode)) {
@@ -283,7 +296,9 @@ abstract class SoRgaCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoRgaCodeTableMap::COL_OETBRGASCODE, $oetbrgascode, $comparison);
+        $this->addUsingAlias(SoRgaCodeTableMap::COL_OETBRGASCODE, $oetbrgascode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -293,14 +308,15 @@ abstract class SoRgaCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOetbrgasdesc('fooValue');   // WHERE OetbRgasDesc = 'fooValue'
      * $query->filterByOetbrgasdesc('%fooValue%', Criteria::LIKE); // WHERE OetbRgasDesc LIKE '%fooValue%'
+     * $query->filterByOetbrgasdesc(['foo', 'bar']); // WHERE OetbRgasDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetbrgasdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetbrgasdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoRgaCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetbrgasdesc($oetbrgasdesc = null, $comparison = null)
+    public function filterByOetbrgasdesc($oetbrgasdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetbrgasdesc)) {
@@ -308,7 +324,9 @@ abstract class SoRgaCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoRgaCodeTableMap::COL_OETBRGASDESC, $oetbrgasdesc, $comparison);
+        $this->addUsingAlias(SoRgaCodeTableMap::COL_OETBRGASDESC, $oetbrgasdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -318,14 +336,15 @@ abstract class SoRgaCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOetbrgaswhse('fooValue');   // WHERE OetbRgasWhse = 'fooValue'
      * $query->filterByOetbrgaswhse('%fooValue%', Criteria::LIKE); // WHERE OetbRgasWhse LIKE '%fooValue%'
+     * $query->filterByOetbrgaswhse(['foo', 'bar']); // WHERE OetbRgasWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetbrgaswhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetbrgaswhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoRgaCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetbrgaswhse($oetbrgaswhse = null, $comparison = null)
+    public function filterByOetbrgaswhse($oetbrgaswhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetbrgaswhse)) {
@@ -333,7 +352,9 @@ abstract class SoRgaCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoRgaCodeTableMap::COL_OETBRGASWHSE, $oetbrgaswhse, $comparison);
+        $this->addUsingAlias(SoRgaCodeTableMap::COL_OETBRGASWHSE, $oetbrgaswhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -343,14 +364,15 @@ abstract class SoRgaCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByOetbrgasshipacctnbr('fooValue');   // WHERE OetbRgasShipAcctNbr = 'fooValue'
      * $query->filterByOetbrgasshipacctnbr('%fooValue%', Criteria::LIKE); // WHERE OetbRgasShipAcctNbr LIKE '%fooValue%'
+     * $query->filterByOetbrgasshipacctnbr(['foo', 'bar']); // WHERE OetbRgasShipAcctNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetbrgasshipacctnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetbrgasshipacctnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoRgaCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetbrgasshipacctnbr($oetbrgasshipacctnbr = null, $comparison = null)
+    public function filterByOetbrgasshipacctnbr($oetbrgasshipacctnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetbrgasshipacctnbr)) {
@@ -358,7 +380,9 @@ abstract class SoRgaCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoRgaCodeTableMap::COL_OETBRGASSHIPACCTNBR, $oetbrgasshipacctnbr, $comparison);
+        $this->addUsingAlias(SoRgaCodeTableMap::COL_OETBRGASSHIPACCTNBR, $oetbrgasshipacctnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -368,14 +392,15 @@ abstract class SoRgaCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoRgaCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -383,7 +408,9 @@ abstract class SoRgaCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoRgaCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(SoRgaCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -393,14 +420,15 @@ abstract class SoRgaCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoRgaCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -408,7 +436,9 @@ abstract class SoRgaCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoRgaCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(SoRgaCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -418,14 +448,15 @@ abstract class SoRgaCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoRgaCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -433,15 +464,17 @@ abstract class SoRgaCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoRgaCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(SoRgaCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildSoRgaCode $soRgaCode Object to remove from the list of results
+     * @param ChildSoRgaCode $soRgaCode Object to remove from the list of results
      *
-     * @return $this|ChildSoRgaCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($soRgaCode = null)
     {
@@ -458,7 +491,7 @@ abstract class SoRgaCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoRgaCodeTableMap::DATABASE_NAME);
@@ -483,12 +516,12 @@ abstract class SoRgaCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoRgaCodeTableMap::DATABASE_NAME);
@@ -513,4 +546,4 @@ abstract class SoRgaCodeQuery extends ModelCriteria
         });
     }
 
-} // SoRgaCodeQuery
+}

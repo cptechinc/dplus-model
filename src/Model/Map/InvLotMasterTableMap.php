@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class InvLotMasterTableMap extends TableMap
 {
@@ -34,179 +33,347 @@ class InvLotMasterTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.InvLotMasterTableMap';
+    public const CLASS_NAME = '.Map.InvLotMasterTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'inv_lot_mast';
+    public const TABLE_NAME = 'inv_lot_mast';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'InvLotMaster';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\InvLotMaster';
+    public const OM_CLASS = '\\InvLotMaster';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'InvLotMaster';
+    public const CLASS_DEFAULT = 'InvLotMaster';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 19;
+    public const NUM_COLUMNS = 19;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 19;
+    public const NUM_HYDRATE_COLUMNS = 19;
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'inv_lot_mast.InitItemNbr';
+    public const COL_INITITEMNBR = 'inv_lot_mast.InitItemNbr';
 
     /**
      * the column name for the LotmLotNbr field
      */
-    const COL_LOTMLOTNBR = 'inv_lot_mast.LotmLotNbr';
+    public const COL_LOTMLOTNBR = 'inv_lot_mast.LotmLotNbr';
 
     /**
      * the column name for the LotmLotRef field
      */
-    const COL_LOTMLOTREF = 'inv_lot_mast.LotmLotRef';
+    public const COL_LOTMLOTREF = 'inv_lot_mast.LotmLotRef';
 
     /**
      * the column name for the LotmFrstActDate field
      */
-    const COL_LOTMFRSTACTDATE = 'inv_lot_mast.LotmFrstActDate';
+    public const COL_LOTMFRSTACTDATE = 'inv_lot_mast.LotmFrstActDate';
 
     /**
      * the column name for the LotmImagYn field
      */
-    const COL_LOTMIMAGYN = 'inv_lot_mast.LotmImagYn';
+    public const COL_LOTMIMAGYN = 'inv_lot_mast.LotmImagYn';
 
     /**
      * the column name for the LotmUnitWght field
      */
-    const COL_LOTMUNITWGHT = 'inv_lot_mast.LotmUnitWght';
+    public const COL_LOTMUNITWGHT = 'inv_lot_mast.LotmUnitWght';
 
     /**
      * the column name for the LotmRevision field
      */
-    const COL_LOTMREVISION = 'inv_lot_mast.LotmRevision';
+    public const COL_LOTMREVISION = 'inv_lot_mast.LotmRevision';
 
     /**
      * the column name for the LotmCtry field
      */
-    const COL_LOTMCTRY = 'inv_lot_mast.LotmCtry';
+    public const COL_LOTMCTRY = 'inv_lot_mast.LotmCtry';
 
     /**
      * the column name for the LotmCOfC field
      */
-    const COL_LOTMCOFC = 'inv_lot_mast.LotmCOfC';
+    public const COL_LOTMCOFC = 'inv_lot_mast.LotmCOfC';
 
     /**
      * the column name for the LotmCreateDate field
      */
-    const COL_LOTMCREATEDATE = 'inv_lot_mast.LotmCreateDate';
+    public const COL_LOTMCREATEDATE = 'inv_lot_mast.LotmCreateDate';
 
     /**
      * the column name for the LotmCreateTime field
      */
-    const COL_LOTMCREATETIME = 'inv_lot_mast.LotmCreateTime';
+    public const COL_LOTMCREATETIME = 'inv_lot_mast.LotmCreateTime';
 
     /**
      * the column name for the LotmVendId field
      */
-    const COL_LOTMVENDID = 'inv_lot_mast.LotmVendId';
+    public const COL_LOTMVENDID = 'inv_lot_mast.LotmVendId';
 
     /**
      * the column name for the LotmExpireDate field
      */
-    const COL_LOTMEXPIREDATE = 'inv_lot_mast.LotmExpireDate';
+    public const COL_LOTMEXPIREDATE = 'inv_lot_mast.LotmExpireDate';
 
     /**
      * the column name for the LotmUnitCost field
      */
-    const COL_LOTMUNITCOST = 'inv_lot_mast.LotmUnitCost';
+    public const COL_LOTMUNITCOST = 'inv_lot_mast.LotmUnitCost';
 
     /**
      * the column name for the LotmCntrQty field
      */
-    const COL_LOTMCNTRQTY = 'inv_lot_mast.LotmCntrQty';
+    public const COL_LOTMCNTRQTY = 'inv_lot_mast.LotmCntrQty';
 
     /**
      * the column name for the LotmSrcCd field
      */
-    const COL_LOTMSRCCD = 'inv_lot_mast.LotmSrcCd';
+    public const COL_LOTMSRCCD = 'inv_lot_mast.LotmSrcCd';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'inv_lot_mast.DateUpdtd';
+    public const COL_DATEUPDTD = 'inv_lot_mast.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'inv_lot_mast.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'inv_lot_mast.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'inv_lot_mast.dummy';
+    public const COL_DUMMY = 'inv_lot_mast.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr', 'Lotmlotnbr', 'Lotmlotref', 'Lotmfrstactdate', 'Lotmimagyn', 'Lotmunitwght', 'Lotmrevision', 'Lotmctry', 'Lotmcofc', 'Lotmcreatedate', 'Lotmcreatetime', 'Lotmvendid', 'Lotmexpiredate', 'Lotmunitcost', 'Lotmcntrqty', 'Lotmsrccd', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('inititemnbr', 'lotmlotnbr', 'lotmlotref', 'lotmfrstactdate', 'lotmimagyn', 'lotmunitwght', 'lotmrevision', 'lotmctry', 'lotmcofc', 'lotmcreatedate', 'lotmcreatetime', 'lotmvendid', 'lotmexpiredate', 'lotmunitcost', 'lotmcntrqty', 'lotmsrccd', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvLotMasterTableMap::COL_INITITEMNBR, InvLotMasterTableMap::COL_LOTMLOTNBR, InvLotMasterTableMap::COL_LOTMLOTREF, InvLotMasterTableMap::COL_LOTMFRSTACTDATE, InvLotMasterTableMap::COL_LOTMIMAGYN, InvLotMasterTableMap::COL_LOTMUNITWGHT, InvLotMasterTableMap::COL_LOTMREVISION, InvLotMasterTableMap::COL_LOTMCTRY, InvLotMasterTableMap::COL_LOTMCOFC, InvLotMasterTableMap::COL_LOTMCREATEDATE, InvLotMasterTableMap::COL_LOTMCREATETIME, InvLotMasterTableMap::COL_LOTMVENDID, InvLotMasterTableMap::COL_LOTMEXPIREDATE, InvLotMasterTableMap::COL_LOTMUNITCOST, InvLotMasterTableMap::COL_LOTMCNTRQTY, InvLotMasterTableMap::COL_LOTMSRCCD, InvLotMasterTableMap::COL_DATEUPDTD, InvLotMasterTableMap::COL_TIMEUPDTD, InvLotMasterTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr', 'LotmLotNbr', 'LotmLotRef', 'LotmFrstActDate', 'LotmImagYn', 'LotmUnitWght', 'LotmRevision', 'LotmCtry', 'LotmCOfC', 'LotmCreateDate', 'LotmCreateTime', 'LotmVendId', 'LotmExpireDate', 'LotmUnitCost', 'LotmCntrQty', 'LotmSrcCd', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Inititemnbr', 'Lotmlotnbr', 'Lotmlotref', 'Lotmfrstactdate', 'Lotmimagyn', 'Lotmunitwght', 'Lotmrevision', 'Lotmctry', 'Lotmcofc', 'Lotmcreatedate', 'Lotmcreatetime', 'Lotmvendid', 'Lotmexpiredate', 'Lotmunitcost', 'Lotmcntrqty', 'Lotmsrccd', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['inititemnbr', 'lotmlotnbr', 'lotmlotref', 'lotmfrstactdate', 'lotmimagyn', 'lotmunitwght', 'lotmrevision', 'lotmctry', 'lotmcofc', 'lotmcreatedate', 'lotmcreatetime', 'lotmvendid', 'lotmexpiredate', 'lotmunitcost', 'lotmcntrqty', 'lotmsrccd', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [InvLotMasterTableMap::COL_INITITEMNBR, InvLotMasterTableMap::COL_LOTMLOTNBR, InvLotMasterTableMap::COL_LOTMLOTREF, InvLotMasterTableMap::COL_LOTMFRSTACTDATE, InvLotMasterTableMap::COL_LOTMIMAGYN, InvLotMasterTableMap::COL_LOTMUNITWGHT, InvLotMasterTableMap::COL_LOTMREVISION, InvLotMasterTableMap::COL_LOTMCTRY, InvLotMasterTableMap::COL_LOTMCOFC, InvLotMasterTableMap::COL_LOTMCREATEDATE, InvLotMasterTableMap::COL_LOTMCREATETIME, InvLotMasterTableMap::COL_LOTMVENDID, InvLotMasterTableMap::COL_LOTMEXPIREDATE, InvLotMasterTableMap::COL_LOTMUNITCOST, InvLotMasterTableMap::COL_LOTMCNTRQTY, InvLotMasterTableMap::COL_LOTMSRCCD, InvLotMasterTableMap::COL_DATEUPDTD, InvLotMasterTableMap::COL_TIMEUPDTD, InvLotMasterTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['InitItemNbr', 'LotmLotNbr', 'LotmLotRef', 'LotmFrstActDate', 'LotmImagYn', 'LotmUnitWght', 'LotmRevision', 'LotmCtry', 'LotmCOfC', 'LotmCreateDate', 'LotmCreateTime', 'LotmVendId', 'LotmExpireDate', 'LotmUnitCost', 'LotmCntrQty', 'LotmSrcCd', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Lotmlotnbr' => 1, 'Lotmlotref' => 2, 'Lotmfrstactdate' => 3, 'Lotmimagyn' => 4, 'Lotmunitwght' => 5, 'Lotmrevision' => 6, 'Lotmctry' => 7, 'Lotmcofc' => 8, 'Lotmcreatedate' => 9, 'Lotmcreatetime' => 10, 'Lotmvendid' => 11, 'Lotmexpiredate' => 12, 'Lotmunitcost' => 13, 'Lotmcntrqty' => 14, 'Lotmsrccd' => 15, 'Dateupdtd' => 16, 'Timeupdtd' => 17, 'Dummy' => 18, ),
-        self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'lotmlotnbr' => 1, 'lotmlotref' => 2, 'lotmfrstactdate' => 3, 'lotmimagyn' => 4, 'lotmunitwght' => 5, 'lotmrevision' => 6, 'lotmctry' => 7, 'lotmcofc' => 8, 'lotmcreatedate' => 9, 'lotmcreatetime' => 10, 'lotmvendid' => 11, 'lotmexpiredate' => 12, 'lotmunitcost' => 13, 'lotmcntrqty' => 14, 'lotmsrccd' => 15, 'dateupdtd' => 16, 'timeupdtd' => 17, 'dummy' => 18, ),
-        self::TYPE_COLNAME       => array(InvLotMasterTableMap::COL_INITITEMNBR => 0, InvLotMasterTableMap::COL_LOTMLOTNBR => 1, InvLotMasterTableMap::COL_LOTMLOTREF => 2, InvLotMasterTableMap::COL_LOTMFRSTACTDATE => 3, InvLotMasterTableMap::COL_LOTMIMAGYN => 4, InvLotMasterTableMap::COL_LOTMUNITWGHT => 5, InvLotMasterTableMap::COL_LOTMREVISION => 6, InvLotMasterTableMap::COL_LOTMCTRY => 7, InvLotMasterTableMap::COL_LOTMCOFC => 8, InvLotMasterTableMap::COL_LOTMCREATEDATE => 9, InvLotMasterTableMap::COL_LOTMCREATETIME => 10, InvLotMasterTableMap::COL_LOTMVENDID => 11, InvLotMasterTableMap::COL_LOTMEXPIREDATE => 12, InvLotMasterTableMap::COL_LOTMUNITCOST => 13, InvLotMasterTableMap::COL_LOTMCNTRQTY => 14, InvLotMasterTableMap::COL_LOTMSRCCD => 15, InvLotMasterTableMap::COL_DATEUPDTD => 16, InvLotMasterTableMap::COL_TIMEUPDTD => 17, InvLotMasterTableMap::COL_DUMMY => 18, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'LotmLotNbr' => 1, 'LotmLotRef' => 2, 'LotmFrstActDate' => 3, 'LotmImagYn' => 4, 'LotmUnitWght' => 5, 'LotmRevision' => 6, 'LotmCtry' => 7, 'LotmCOfC' => 8, 'LotmCreateDate' => 9, 'LotmCreateTime' => 10, 'LotmVendId' => 11, 'LotmExpireDate' => 12, 'LotmUnitCost' => 13, 'LotmCntrQty' => 14, 'LotmSrcCd' => 15, 'DateUpdtd' => 16, 'TimeUpdtd' => 17, 'dummy' => 18, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Inititemnbr' => 0, 'Lotmlotnbr' => 1, 'Lotmlotref' => 2, 'Lotmfrstactdate' => 3, 'Lotmimagyn' => 4, 'Lotmunitwght' => 5, 'Lotmrevision' => 6, 'Lotmctry' => 7, 'Lotmcofc' => 8, 'Lotmcreatedate' => 9, 'Lotmcreatetime' => 10, 'Lotmvendid' => 11, 'Lotmexpiredate' => 12, 'Lotmunitcost' => 13, 'Lotmcntrqty' => 14, 'Lotmsrccd' => 15, 'Dateupdtd' => 16, 'Timeupdtd' => 17, 'Dummy' => 18, ],
+        self::TYPE_CAMELNAME     => ['inititemnbr' => 0, 'lotmlotnbr' => 1, 'lotmlotref' => 2, 'lotmfrstactdate' => 3, 'lotmimagyn' => 4, 'lotmunitwght' => 5, 'lotmrevision' => 6, 'lotmctry' => 7, 'lotmcofc' => 8, 'lotmcreatedate' => 9, 'lotmcreatetime' => 10, 'lotmvendid' => 11, 'lotmexpiredate' => 12, 'lotmunitcost' => 13, 'lotmcntrqty' => 14, 'lotmsrccd' => 15, 'dateupdtd' => 16, 'timeupdtd' => 17, 'dummy' => 18, ],
+        self::TYPE_COLNAME       => [InvLotMasterTableMap::COL_INITITEMNBR => 0, InvLotMasterTableMap::COL_LOTMLOTNBR => 1, InvLotMasterTableMap::COL_LOTMLOTREF => 2, InvLotMasterTableMap::COL_LOTMFRSTACTDATE => 3, InvLotMasterTableMap::COL_LOTMIMAGYN => 4, InvLotMasterTableMap::COL_LOTMUNITWGHT => 5, InvLotMasterTableMap::COL_LOTMREVISION => 6, InvLotMasterTableMap::COL_LOTMCTRY => 7, InvLotMasterTableMap::COL_LOTMCOFC => 8, InvLotMasterTableMap::COL_LOTMCREATEDATE => 9, InvLotMasterTableMap::COL_LOTMCREATETIME => 10, InvLotMasterTableMap::COL_LOTMVENDID => 11, InvLotMasterTableMap::COL_LOTMEXPIREDATE => 12, InvLotMasterTableMap::COL_LOTMUNITCOST => 13, InvLotMasterTableMap::COL_LOTMCNTRQTY => 14, InvLotMasterTableMap::COL_LOTMSRCCD => 15, InvLotMasterTableMap::COL_DATEUPDTD => 16, InvLotMasterTableMap::COL_TIMEUPDTD => 17, InvLotMasterTableMap::COL_DUMMY => 18, ],
+        self::TYPE_FIELDNAME     => ['InitItemNbr' => 0, 'LotmLotNbr' => 1, 'LotmLotRef' => 2, 'LotmFrstActDate' => 3, 'LotmImagYn' => 4, 'LotmUnitWght' => 5, 'LotmRevision' => 6, 'LotmCtry' => 7, 'LotmCOfC' => 8, 'LotmCreateDate' => 9, 'LotmCreateTime' => 10, 'LotmVendId' => 11, 'LotmExpireDate' => 12, 'LotmUnitCost' => 13, 'LotmCntrQty' => 14, 'LotmSrcCd' => 15, 'DateUpdtd' => 16, 'TimeUpdtd' => 17, 'dummy' => 18, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Inititemnbr' => 'INITITEMNBR',
+        'InvLotMaster.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'invLotMaster.inititemnbr' => 'INITITEMNBR',
+        'InvLotMasterTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'inv_lot_mast.InitItemNbr' => 'INITITEMNBR',
+        'Lotmlotnbr' => 'LOTMLOTNBR',
+        'InvLotMaster.Lotmlotnbr' => 'LOTMLOTNBR',
+        'lotmlotnbr' => 'LOTMLOTNBR',
+        'invLotMaster.lotmlotnbr' => 'LOTMLOTNBR',
+        'InvLotMasterTableMap::COL_LOTMLOTNBR' => 'LOTMLOTNBR',
+        'COL_LOTMLOTNBR' => 'LOTMLOTNBR',
+        'LotmLotNbr' => 'LOTMLOTNBR',
+        'inv_lot_mast.LotmLotNbr' => 'LOTMLOTNBR',
+        'Lotmlotref' => 'LOTMLOTREF',
+        'InvLotMaster.Lotmlotref' => 'LOTMLOTREF',
+        'lotmlotref' => 'LOTMLOTREF',
+        'invLotMaster.lotmlotref' => 'LOTMLOTREF',
+        'InvLotMasterTableMap::COL_LOTMLOTREF' => 'LOTMLOTREF',
+        'COL_LOTMLOTREF' => 'LOTMLOTREF',
+        'LotmLotRef' => 'LOTMLOTREF',
+        'inv_lot_mast.LotmLotRef' => 'LOTMLOTREF',
+        'Lotmfrstactdate' => 'LOTMFRSTACTDATE',
+        'InvLotMaster.Lotmfrstactdate' => 'LOTMFRSTACTDATE',
+        'lotmfrstactdate' => 'LOTMFRSTACTDATE',
+        'invLotMaster.lotmfrstactdate' => 'LOTMFRSTACTDATE',
+        'InvLotMasterTableMap::COL_LOTMFRSTACTDATE' => 'LOTMFRSTACTDATE',
+        'COL_LOTMFRSTACTDATE' => 'LOTMFRSTACTDATE',
+        'LotmFrstActDate' => 'LOTMFRSTACTDATE',
+        'inv_lot_mast.LotmFrstActDate' => 'LOTMFRSTACTDATE',
+        'Lotmimagyn' => 'LOTMIMAGYN',
+        'InvLotMaster.Lotmimagyn' => 'LOTMIMAGYN',
+        'lotmimagyn' => 'LOTMIMAGYN',
+        'invLotMaster.lotmimagyn' => 'LOTMIMAGYN',
+        'InvLotMasterTableMap::COL_LOTMIMAGYN' => 'LOTMIMAGYN',
+        'COL_LOTMIMAGYN' => 'LOTMIMAGYN',
+        'LotmImagYn' => 'LOTMIMAGYN',
+        'inv_lot_mast.LotmImagYn' => 'LOTMIMAGYN',
+        'Lotmunitwght' => 'LOTMUNITWGHT',
+        'InvLotMaster.Lotmunitwght' => 'LOTMUNITWGHT',
+        'lotmunitwght' => 'LOTMUNITWGHT',
+        'invLotMaster.lotmunitwght' => 'LOTMUNITWGHT',
+        'InvLotMasterTableMap::COL_LOTMUNITWGHT' => 'LOTMUNITWGHT',
+        'COL_LOTMUNITWGHT' => 'LOTMUNITWGHT',
+        'LotmUnitWght' => 'LOTMUNITWGHT',
+        'inv_lot_mast.LotmUnitWght' => 'LOTMUNITWGHT',
+        'Lotmrevision' => 'LOTMREVISION',
+        'InvLotMaster.Lotmrevision' => 'LOTMREVISION',
+        'lotmrevision' => 'LOTMREVISION',
+        'invLotMaster.lotmrevision' => 'LOTMREVISION',
+        'InvLotMasterTableMap::COL_LOTMREVISION' => 'LOTMREVISION',
+        'COL_LOTMREVISION' => 'LOTMREVISION',
+        'LotmRevision' => 'LOTMREVISION',
+        'inv_lot_mast.LotmRevision' => 'LOTMREVISION',
+        'Lotmctry' => 'LOTMCTRY',
+        'InvLotMaster.Lotmctry' => 'LOTMCTRY',
+        'lotmctry' => 'LOTMCTRY',
+        'invLotMaster.lotmctry' => 'LOTMCTRY',
+        'InvLotMasterTableMap::COL_LOTMCTRY' => 'LOTMCTRY',
+        'COL_LOTMCTRY' => 'LOTMCTRY',
+        'LotmCtry' => 'LOTMCTRY',
+        'inv_lot_mast.LotmCtry' => 'LOTMCTRY',
+        'Lotmcofc' => 'LOTMCOFC',
+        'InvLotMaster.Lotmcofc' => 'LOTMCOFC',
+        'lotmcofc' => 'LOTMCOFC',
+        'invLotMaster.lotmcofc' => 'LOTMCOFC',
+        'InvLotMasterTableMap::COL_LOTMCOFC' => 'LOTMCOFC',
+        'COL_LOTMCOFC' => 'LOTMCOFC',
+        'LotmCOfC' => 'LOTMCOFC',
+        'inv_lot_mast.LotmCOfC' => 'LOTMCOFC',
+        'Lotmcreatedate' => 'LOTMCREATEDATE',
+        'InvLotMaster.Lotmcreatedate' => 'LOTMCREATEDATE',
+        'lotmcreatedate' => 'LOTMCREATEDATE',
+        'invLotMaster.lotmcreatedate' => 'LOTMCREATEDATE',
+        'InvLotMasterTableMap::COL_LOTMCREATEDATE' => 'LOTMCREATEDATE',
+        'COL_LOTMCREATEDATE' => 'LOTMCREATEDATE',
+        'LotmCreateDate' => 'LOTMCREATEDATE',
+        'inv_lot_mast.LotmCreateDate' => 'LOTMCREATEDATE',
+        'Lotmcreatetime' => 'LOTMCREATETIME',
+        'InvLotMaster.Lotmcreatetime' => 'LOTMCREATETIME',
+        'lotmcreatetime' => 'LOTMCREATETIME',
+        'invLotMaster.lotmcreatetime' => 'LOTMCREATETIME',
+        'InvLotMasterTableMap::COL_LOTMCREATETIME' => 'LOTMCREATETIME',
+        'COL_LOTMCREATETIME' => 'LOTMCREATETIME',
+        'LotmCreateTime' => 'LOTMCREATETIME',
+        'inv_lot_mast.LotmCreateTime' => 'LOTMCREATETIME',
+        'Lotmvendid' => 'LOTMVENDID',
+        'InvLotMaster.Lotmvendid' => 'LOTMVENDID',
+        'lotmvendid' => 'LOTMVENDID',
+        'invLotMaster.lotmvendid' => 'LOTMVENDID',
+        'InvLotMasterTableMap::COL_LOTMVENDID' => 'LOTMVENDID',
+        'COL_LOTMVENDID' => 'LOTMVENDID',
+        'LotmVendId' => 'LOTMVENDID',
+        'inv_lot_mast.LotmVendId' => 'LOTMVENDID',
+        'Lotmexpiredate' => 'LOTMEXPIREDATE',
+        'InvLotMaster.Lotmexpiredate' => 'LOTMEXPIREDATE',
+        'lotmexpiredate' => 'LOTMEXPIREDATE',
+        'invLotMaster.lotmexpiredate' => 'LOTMEXPIREDATE',
+        'InvLotMasterTableMap::COL_LOTMEXPIREDATE' => 'LOTMEXPIREDATE',
+        'COL_LOTMEXPIREDATE' => 'LOTMEXPIREDATE',
+        'LotmExpireDate' => 'LOTMEXPIREDATE',
+        'inv_lot_mast.LotmExpireDate' => 'LOTMEXPIREDATE',
+        'Lotmunitcost' => 'LOTMUNITCOST',
+        'InvLotMaster.Lotmunitcost' => 'LOTMUNITCOST',
+        'lotmunitcost' => 'LOTMUNITCOST',
+        'invLotMaster.lotmunitcost' => 'LOTMUNITCOST',
+        'InvLotMasterTableMap::COL_LOTMUNITCOST' => 'LOTMUNITCOST',
+        'COL_LOTMUNITCOST' => 'LOTMUNITCOST',
+        'LotmUnitCost' => 'LOTMUNITCOST',
+        'inv_lot_mast.LotmUnitCost' => 'LOTMUNITCOST',
+        'Lotmcntrqty' => 'LOTMCNTRQTY',
+        'InvLotMaster.Lotmcntrqty' => 'LOTMCNTRQTY',
+        'lotmcntrqty' => 'LOTMCNTRQTY',
+        'invLotMaster.lotmcntrqty' => 'LOTMCNTRQTY',
+        'InvLotMasterTableMap::COL_LOTMCNTRQTY' => 'LOTMCNTRQTY',
+        'COL_LOTMCNTRQTY' => 'LOTMCNTRQTY',
+        'LotmCntrQty' => 'LOTMCNTRQTY',
+        'inv_lot_mast.LotmCntrQty' => 'LOTMCNTRQTY',
+        'Lotmsrccd' => 'LOTMSRCCD',
+        'InvLotMaster.Lotmsrccd' => 'LOTMSRCCD',
+        'lotmsrccd' => 'LOTMSRCCD',
+        'invLotMaster.lotmsrccd' => 'LOTMSRCCD',
+        'InvLotMasterTableMap::COL_LOTMSRCCD' => 'LOTMSRCCD',
+        'COL_LOTMSRCCD' => 'LOTMSRCCD',
+        'LotmSrcCd' => 'LOTMSRCCD',
+        'inv_lot_mast.LotmSrcCd' => 'LOTMSRCCD',
+        'Dateupdtd' => 'DATEUPDTD',
+        'InvLotMaster.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'invLotMaster.dateupdtd' => 'DATEUPDTD',
+        'InvLotMasterTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'inv_lot_mast.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'InvLotMaster.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'invLotMaster.timeupdtd' => 'TIMEUPDTD',
+        'InvLotMasterTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'inv_lot_mast.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'InvLotMaster.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'invLotMaster.dummy' => 'DUMMY',
+        'InvLotMasterTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'inv_lot_mast.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('inv_lot_mast');
@@ -235,12 +402,14 @@ class InvLotMasterTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -333,7 +502,7 @@ class InvLotMasterTableMap extends TableMap
     1 => ':LotmLotNbr',
   ),
 ), null, null, 'SoPickedLotserials', false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -344,9 +513,11 @@ class InvLotMasterTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \InvLotMaster $obj A \InvLotMaster object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(InvLotMaster $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -365,8 +536,10 @@ class InvLotMasterTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \InvLotMaster object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \InvLotMaster) {
@@ -394,14 +567,14 @@ class InvLotMasterTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Lotmlotnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -416,14 +589,14 @@ class InvLotMasterTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -449,10 +622,10 @@ class InvLotMasterTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? InvLotMasterTableMap::CLASS_DEFAULT : InvLotMasterTableMap::OM_CLASS;
     }
@@ -460,17 +633,17 @@ class InvLotMasterTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (InvLotMaster object, last column rank)
+     * @return array (InvLotMaster object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = InvLotMasterTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = InvLotMasterTableMap::getInstanceFromPool($key))) {
@@ -486,7 +659,7 @@ class InvLotMasterTableMap extends TableMap
             InvLotMasterTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -494,13 +667,13 @@ class InvLotMasterTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -530,12 +703,13 @@ class InvLotMasterTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(InvLotMasterTableMap::COL_INITITEMNBR);
@@ -581,40 +755,86 @@ class InvLotMasterTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_LOTMLOTNBR);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_LOTMLOTREF);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_LOTMFRSTACTDATE);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_LOTMIMAGYN);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_LOTMUNITWGHT);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_LOTMREVISION);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_LOTMCTRY);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_LOTMCOFC);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_LOTMCREATEDATE);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_LOTMCREATETIME);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_LOTMVENDID);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_LOTMEXPIREDATE);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_LOTMUNITCOST);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_LOTMCNTRQTY);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_LOTMSRCCD);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(InvLotMasterTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.LotmLotNbr');
+            $criteria->removeSelectColumn($alias . '.LotmLotRef');
+            $criteria->removeSelectColumn($alias . '.LotmFrstActDate');
+            $criteria->removeSelectColumn($alias . '.LotmImagYn');
+            $criteria->removeSelectColumn($alias . '.LotmUnitWght');
+            $criteria->removeSelectColumn($alias . '.LotmRevision');
+            $criteria->removeSelectColumn($alias . '.LotmCtry');
+            $criteria->removeSelectColumn($alias . '.LotmCOfC');
+            $criteria->removeSelectColumn($alias . '.LotmCreateDate');
+            $criteria->removeSelectColumn($alias . '.LotmCreateTime');
+            $criteria->removeSelectColumn($alias . '.LotmVendId');
+            $criteria->removeSelectColumn($alias . '.LotmExpireDate');
+            $criteria->removeSelectColumn($alias . '.LotmUnitCost');
+            $criteria->removeSelectColumn($alias . '.LotmCntrQty');
+            $criteria->removeSelectColumn($alias . '.LotmSrcCd');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(InvLotMasterTableMap::DATABASE_NAME)->getTable(InvLotMasterTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvLotMasterTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(InvLotMasterTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new InvLotMasterTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a InvLotMaster or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or InvLotMaster object or primary key or array of primary keys
+     * @param mixed $values Criteria or InvLotMaster object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvLotMasterTableMap::DATABASE_NAME);
@@ -632,7 +852,7 @@ class InvLotMasterTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(InvLotMasterTableMap::COL_INITITEMNBR, $value[0]);
@@ -660,7 +880,7 @@ class InvLotMasterTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return InvLotMasterQuery::create()->doDeleteAll($con);
     }
@@ -668,13 +888,13 @@ class InvLotMasterTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a InvLotMaster or Criteria object.
      *
-     * @param mixed               $criteria Criteria or InvLotMaster object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or InvLotMaster object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvLotMasterTableMap::DATABASE_NAME);
@@ -697,7 +917,4 @@ class InvLotMasterTableMap extends TableMap
         });
     }
 
-} // InvLotMasterTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-InvLotMasterTableMap::buildTableMap();
+}

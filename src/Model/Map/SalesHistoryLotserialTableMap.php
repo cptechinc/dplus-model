@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class SalesHistoryLotserialTableMap extends TableMap
 {
@@ -34,219 +33,451 @@ class SalesHistoryLotserialTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.SalesHistoryLotserialTableMap';
+    public const CLASS_NAME = '.Map.SalesHistoryLotserialTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'so_lot_ser_hist';
+    public const TABLE_NAME = 'so_lot_ser_hist';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'SalesHistoryLotserial';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\SalesHistoryLotserial';
+    public const OM_CLASS = '\\SalesHistoryLotserial';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'SalesHistoryLotserial';
+    public const CLASS_DEFAULT = 'SalesHistoryLotserial';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 27;
+    public const NUM_COLUMNS = 27;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 27;
+    public const NUM_HYDRATE_COLUMNS = 27;
 
     /**
      * the column name for the OehhNbr field
      */
-    const COL_OEHHNBR = 'so_lot_ser_hist.OehhNbr';
+    public const COL_OEHHNBR = 'so_lot_ser_hist.OehhNbr';
 
     /**
      * the column name for the OedhLine field
      */
-    const COL_OEDHLINE = 'so_lot_ser_hist.OedhLine';
+    public const COL_OEDHLINE = 'so_lot_ser_hist.OedhLine';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'so_lot_ser_hist.InitItemNbr';
+    public const COL_INITITEMNBR = 'so_lot_ser_hist.InitItemNbr';
 
     /**
      * the column name for the OeshTag field
      */
-    const COL_OESHTAG = 'so_lot_ser_hist.OeshTag';
+    public const COL_OESHTAG = 'so_lot_ser_hist.OeshTag';
 
     /**
      * the column name for the OeshLotSer field
      */
-    const COL_OESHLOTSER = 'so_lot_ser_hist.OeshLotSer';
+    public const COL_OESHLOTSER = 'so_lot_ser_hist.OeshLotSer';
 
     /**
      * the column name for the OeshBin field
      */
-    const COL_OESHBIN = 'so_lot_ser_hist.OeshBin';
+    public const COL_OESHBIN = 'so_lot_ser_hist.OeshBin';
 
     /**
      * the column name for the OeshPlltNbr field
      */
-    const COL_OESHPLLTNBR = 'so_lot_ser_hist.OeshPlltNbr';
+    public const COL_OESHPLLTNBR = 'so_lot_ser_hist.OeshPlltNbr';
 
     /**
      * the column name for the OeshCrtnNbr field
      */
-    const COL_OESHCRTNNBR = 'so_lot_ser_hist.OeshCrtnNbr';
+    public const COL_OESHCRTNNBR = 'so_lot_ser_hist.OeshCrtnNbr';
 
     /**
      * the column name for the OeshYear field
      */
-    const COL_OESHYEAR = 'so_lot_ser_hist.OeshYear';
+    public const COL_OESHYEAR = 'so_lot_ser_hist.OeshYear';
 
     /**
      * the column name for the OeshQtyShip field
      */
-    const COL_OESHQTYSHIP = 'so_lot_ser_hist.OeshQtyShip';
+    public const COL_OESHQTYSHIP = 'so_lot_ser_hist.OeshQtyShip';
 
     /**
      * the column name for the OeshCntrQty field
      */
-    const COL_OESHCNTRQTY = 'so_lot_ser_hist.OeshCntrQty';
+    public const COL_OESHCNTRQTY = 'so_lot_ser_hist.OeshCntrQty';
 
     /**
      * the column name for the OeshSpecOrdr field
      */
-    const COL_OESHSPECORDR = 'so_lot_ser_hist.OeshSpecOrdr';
+    public const COL_OESHSPECORDR = 'so_lot_ser_hist.OeshSpecOrdr';
 
     /**
      * the column name for the OeshLotRef field
      */
-    const COL_OESHLOTREF = 'so_lot_ser_hist.OeshLotRef';
+    public const COL_OESHLOTREF = 'so_lot_ser_hist.OeshLotRef';
 
     /**
      * the column name for the OeshBatch field
      */
-    const COL_OESHBATCH = 'so_lot_ser_hist.OeshBatch';
+    public const COL_OESHBATCH = 'so_lot_ser_hist.OeshBatch';
 
     /**
      * the column name for the OeshCureDate field
      */
-    const COL_OESHCUREDATE = 'so_lot_ser_hist.OeshCureDate';
+    public const COL_OESHCUREDATE = 'so_lot_ser_hist.OeshCureDate';
 
     /**
      * the column name for the OeshAcStatus field
      */
-    const COL_OESHACSTATUS = 'so_lot_ser_hist.OeshAcStatus';
+    public const COL_OESHACSTATUS = 'so_lot_ser_hist.OeshAcStatus';
 
     /**
      * the column name for the OeshTestLot field
      */
-    const COL_OESHTESTLOT = 'so_lot_ser_hist.OeshTestLot';
+    public const COL_OESHTESTLOT = 'so_lot_ser_hist.OeshTestLot';
 
     /**
      * the column name for the OeshPlltType field
      */
-    const COL_OESHPLLTTYPE = 'so_lot_ser_hist.OeshPlltType';
+    public const COL_OESHPLLTTYPE = 'so_lot_ser_hist.OeshPlltType';
 
     /**
      * the column name for the OeshTareWght field
      */
-    const COL_OESHTAREWGHT = 'so_lot_ser_hist.OeshTareWght';
+    public const COL_OESHTAREWGHT = 'so_lot_ser_hist.OeshTareWght';
 
     /**
      * the column name for the OeshUseUp field
      */
-    const COL_OESHUSEUP = 'so_lot_ser_hist.OeshUseUp';
+    public const COL_OESHUSEUP = 'so_lot_ser_hist.OeshUseUp';
 
     /**
      * the column name for the OeshLblPrtd field
      */
-    const COL_OESHLBLPRTD = 'so_lot_ser_hist.OeshLblPrtd';
+    public const COL_OESHLBLPRTD = 'so_lot_ser_hist.OeshLblPrtd';
 
     /**
      * the column name for the OeshOrigBin field
      */
-    const COL_OESHORIGBIN = 'so_lot_ser_hist.OeshOrigBin';
+    public const COL_OESHORIGBIN = 'so_lot_ser_hist.OeshOrigBin';
 
     /**
      * the column name for the OeshActvDate field
      */
-    const COL_OESHACTVDATE = 'so_lot_ser_hist.OeshActvDate';
+    public const COL_OESHACTVDATE = 'so_lot_ser_hist.OeshActvDate';
 
     /**
      * the column name for the OeshPlltID field
      */
-    const COL_OESHPLLTID = 'so_lot_ser_hist.OeshPlltID';
+    public const COL_OESHPLLTID = 'so_lot_ser_hist.OeshPlltID';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'so_lot_ser_hist.DateUpdtd';
+    public const COL_DATEUPDTD = 'so_lot_ser_hist.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'so_lot_ser_hist.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'so_lot_ser_hist.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'so_lot_ser_hist.dummy';
+    public const COL_DUMMY = 'so_lot_ser_hist.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Oehhnbr', 'Oedhline', 'Inititemnbr', 'Oeshtag', 'Oeshlotser', 'Oeshbin', 'Oeshplltnbr', 'Oeshcrtnnbr', 'Oeshyear', 'Oeshqtyship', 'Oeshcntrqty', 'Oeshspecordr', 'Oeshlotref', 'Oeshbatch', 'Oeshcuredate', 'Oeshacstatus', 'Oeshtestlot', 'Oeshpllttype', 'Oeshtarewght', 'Oeshuseup', 'Oeshlblprtd', 'Oeshorigbin', 'Oeshactvdate', 'Oeshplltid', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('oehhnbr', 'oedhline', 'inititemnbr', 'oeshtag', 'oeshlotser', 'oeshbin', 'oeshplltnbr', 'oeshcrtnnbr', 'oeshyear', 'oeshqtyship', 'oeshcntrqty', 'oeshspecordr', 'oeshlotref', 'oeshbatch', 'oeshcuredate', 'oeshacstatus', 'oeshtestlot', 'oeshpllttype', 'oeshtarewght', 'oeshuseup', 'oeshlblprtd', 'oeshorigbin', 'oeshactvdate', 'oeshplltid', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(SalesHistoryLotserialTableMap::COL_OEHHNBR, SalesHistoryLotserialTableMap::COL_OEDHLINE, SalesHistoryLotserialTableMap::COL_INITITEMNBR, SalesHistoryLotserialTableMap::COL_OESHTAG, SalesHistoryLotserialTableMap::COL_OESHLOTSER, SalesHistoryLotserialTableMap::COL_OESHBIN, SalesHistoryLotserialTableMap::COL_OESHPLLTNBR, SalesHistoryLotserialTableMap::COL_OESHCRTNNBR, SalesHistoryLotserialTableMap::COL_OESHYEAR, SalesHistoryLotserialTableMap::COL_OESHQTYSHIP, SalesHistoryLotserialTableMap::COL_OESHCNTRQTY, SalesHistoryLotserialTableMap::COL_OESHSPECORDR, SalesHistoryLotserialTableMap::COL_OESHLOTREF, SalesHistoryLotserialTableMap::COL_OESHBATCH, SalesHistoryLotserialTableMap::COL_OESHCUREDATE, SalesHistoryLotserialTableMap::COL_OESHACSTATUS, SalesHistoryLotserialTableMap::COL_OESHTESTLOT, SalesHistoryLotserialTableMap::COL_OESHPLLTTYPE, SalesHistoryLotserialTableMap::COL_OESHTAREWGHT, SalesHistoryLotserialTableMap::COL_OESHUSEUP, SalesHistoryLotserialTableMap::COL_OESHLBLPRTD, SalesHistoryLotserialTableMap::COL_OESHORIGBIN, SalesHistoryLotserialTableMap::COL_OESHACTVDATE, SalesHistoryLotserialTableMap::COL_OESHPLLTID, SalesHistoryLotserialTableMap::COL_DATEUPDTD, SalesHistoryLotserialTableMap::COL_TIMEUPDTD, SalesHistoryLotserialTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('OehhNbr', 'OedhLine', 'InitItemNbr', 'OeshTag', 'OeshLotSer', 'OeshBin', 'OeshPlltNbr', 'OeshCrtnNbr', 'OeshYear', 'OeshQtyShip', 'OeshCntrQty', 'OeshSpecOrdr', 'OeshLotRef', 'OeshBatch', 'OeshCureDate', 'OeshAcStatus', 'OeshTestLot', 'OeshPlltType', 'OeshTareWght', 'OeshUseUp', 'OeshLblPrtd', 'OeshOrigBin', 'OeshActvDate', 'OeshPlltID', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Oehhnbr', 'Oedhline', 'Inititemnbr', 'Oeshtag', 'Oeshlotser', 'Oeshbin', 'Oeshplltnbr', 'Oeshcrtnnbr', 'Oeshyear', 'Oeshqtyship', 'Oeshcntrqty', 'Oeshspecordr', 'Oeshlotref', 'Oeshbatch', 'Oeshcuredate', 'Oeshacstatus', 'Oeshtestlot', 'Oeshpllttype', 'Oeshtarewght', 'Oeshuseup', 'Oeshlblprtd', 'Oeshorigbin', 'Oeshactvdate', 'Oeshplltid', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['oehhnbr', 'oedhline', 'inititemnbr', 'oeshtag', 'oeshlotser', 'oeshbin', 'oeshplltnbr', 'oeshcrtnnbr', 'oeshyear', 'oeshqtyship', 'oeshcntrqty', 'oeshspecordr', 'oeshlotref', 'oeshbatch', 'oeshcuredate', 'oeshacstatus', 'oeshtestlot', 'oeshpllttype', 'oeshtarewght', 'oeshuseup', 'oeshlblprtd', 'oeshorigbin', 'oeshactvdate', 'oeshplltid', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [SalesHistoryLotserialTableMap::COL_OEHHNBR, SalesHistoryLotserialTableMap::COL_OEDHLINE, SalesHistoryLotserialTableMap::COL_INITITEMNBR, SalesHistoryLotserialTableMap::COL_OESHTAG, SalesHistoryLotserialTableMap::COL_OESHLOTSER, SalesHistoryLotserialTableMap::COL_OESHBIN, SalesHistoryLotserialTableMap::COL_OESHPLLTNBR, SalesHistoryLotserialTableMap::COL_OESHCRTNNBR, SalesHistoryLotserialTableMap::COL_OESHYEAR, SalesHistoryLotserialTableMap::COL_OESHQTYSHIP, SalesHistoryLotserialTableMap::COL_OESHCNTRQTY, SalesHistoryLotserialTableMap::COL_OESHSPECORDR, SalesHistoryLotserialTableMap::COL_OESHLOTREF, SalesHistoryLotserialTableMap::COL_OESHBATCH, SalesHistoryLotserialTableMap::COL_OESHCUREDATE, SalesHistoryLotserialTableMap::COL_OESHACSTATUS, SalesHistoryLotserialTableMap::COL_OESHTESTLOT, SalesHistoryLotserialTableMap::COL_OESHPLLTTYPE, SalesHistoryLotserialTableMap::COL_OESHTAREWGHT, SalesHistoryLotserialTableMap::COL_OESHUSEUP, SalesHistoryLotserialTableMap::COL_OESHLBLPRTD, SalesHistoryLotserialTableMap::COL_OESHORIGBIN, SalesHistoryLotserialTableMap::COL_OESHACTVDATE, SalesHistoryLotserialTableMap::COL_OESHPLLTID, SalesHistoryLotserialTableMap::COL_DATEUPDTD, SalesHistoryLotserialTableMap::COL_TIMEUPDTD, SalesHistoryLotserialTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['OehhNbr', 'OedhLine', 'InitItemNbr', 'OeshTag', 'OeshLotSer', 'OeshBin', 'OeshPlltNbr', 'OeshCrtnNbr', 'OeshYear', 'OeshQtyShip', 'OeshCntrQty', 'OeshSpecOrdr', 'OeshLotRef', 'OeshBatch', 'OeshCureDate', 'OeshAcStatus', 'OeshTestLot', 'OeshPlltType', 'OeshTareWght', 'OeshUseUp', 'OeshLblPrtd', 'OeshOrigBin', 'OeshActvDate', 'OeshPlltID', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Oehhnbr' => 0, 'Oedhline' => 1, 'Inititemnbr' => 2, 'Oeshtag' => 3, 'Oeshlotser' => 4, 'Oeshbin' => 5, 'Oeshplltnbr' => 6, 'Oeshcrtnnbr' => 7, 'Oeshyear' => 8, 'Oeshqtyship' => 9, 'Oeshcntrqty' => 10, 'Oeshspecordr' => 11, 'Oeshlotref' => 12, 'Oeshbatch' => 13, 'Oeshcuredate' => 14, 'Oeshacstatus' => 15, 'Oeshtestlot' => 16, 'Oeshpllttype' => 17, 'Oeshtarewght' => 18, 'Oeshuseup' => 19, 'Oeshlblprtd' => 20, 'Oeshorigbin' => 21, 'Oeshactvdate' => 22, 'Oeshplltid' => 23, 'Dateupdtd' => 24, 'Timeupdtd' => 25, 'Dummy' => 26, ),
-        self::TYPE_CAMELNAME     => array('oehhnbr' => 0, 'oedhline' => 1, 'inititemnbr' => 2, 'oeshtag' => 3, 'oeshlotser' => 4, 'oeshbin' => 5, 'oeshplltnbr' => 6, 'oeshcrtnnbr' => 7, 'oeshyear' => 8, 'oeshqtyship' => 9, 'oeshcntrqty' => 10, 'oeshspecordr' => 11, 'oeshlotref' => 12, 'oeshbatch' => 13, 'oeshcuredate' => 14, 'oeshacstatus' => 15, 'oeshtestlot' => 16, 'oeshpllttype' => 17, 'oeshtarewght' => 18, 'oeshuseup' => 19, 'oeshlblprtd' => 20, 'oeshorigbin' => 21, 'oeshactvdate' => 22, 'oeshplltid' => 23, 'dateupdtd' => 24, 'timeupdtd' => 25, 'dummy' => 26, ),
-        self::TYPE_COLNAME       => array(SalesHistoryLotserialTableMap::COL_OEHHNBR => 0, SalesHistoryLotserialTableMap::COL_OEDHLINE => 1, SalesHistoryLotserialTableMap::COL_INITITEMNBR => 2, SalesHistoryLotserialTableMap::COL_OESHTAG => 3, SalesHistoryLotserialTableMap::COL_OESHLOTSER => 4, SalesHistoryLotserialTableMap::COL_OESHBIN => 5, SalesHistoryLotserialTableMap::COL_OESHPLLTNBR => 6, SalesHistoryLotserialTableMap::COL_OESHCRTNNBR => 7, SalesHistoryLotserialTableMap::COL_OESHYEAR => 8, SalesHistoryLotserialTableMap::COL_OESHQTYSHIP => 9, SalesHistoryLotserialTableMap::COL_OESHCNTRQTY => 10, SalesHistoryLotserialTableMap::COL_OESHSPECORDR => 11, SalesHistoryLotserialTableMap::COL_OESHLOTREF => 12, SalesHistoryLotserialTableMap::COL_OESHBATCH => 13, SalesHistoryLotserialTableMap::COL_OESHCUREDATE => 14, SalesHistoryLotserialTableMap::COL_OESHACSTATUS => 15, SalesHistoryLotserialTableMap::COL_OESHTESTLOT => 16, SalesHistoryLotserialTableMap::COL_OESHPLLTTYPE => 17, SalesHistoryLotserialTableMap::COL_OESHTAREWGHT => 18, SalesHistoryLotserialTableMap::COL_OESHUSEUP => 19, SalesHistoryLotserialTableMap::COL_OESHLBLPRTD => 20, SalesHistoryLotserialTableMap::COL_OESHORIGBIN => 21, SalesHistoryLotserialTableMap::COL_OESHACTVDATE => 22, SalesHistoryLotserialTableMap::COL_OESHPLLTID => 23, SalesHistoryLotserialTableMap::COL_DATEUPDTD => 24, SalesHistoryLotserialTableMap::COL_TIMEUPDTD => 25, SalesHistoryLotserialTableMap::COL_DUMMY => 26, ),
-        self::TYPE_FIELDNAME     => array('OehhNbr' => 0, 'OedhLine' => 1, 'InitItemNbr' => 2, 'OeshTag' => 3, 'OeshLotSer' => 4, 'OeshBin' => 5, 'OeshPlltNbr' => 6, 'OeshCrtnNbr' => 7, 'OeshYear' => 8, 'OeshQtyShip' => 9, 'OeshCntrQty' => 10, 'OeshSpecOrdr' => 11, 'OeshLotRef' => 12, 'OeshBatch' => 13, 'OeshCureDate' => 14, 'OeshAcStatus' => 15, 'OeshTestLot' => 16, 'OeshPlltType' => 17, 'OeshTareWght' => 18, 'OeshUseUp' => 19, 'OeshLblPrtd' => 20, 'OeshOrigBin' => 21, 'OeshActvDate' => 22, 'OeshPlltID' => 23, 'DateUpdtd' => 24, 'TimeUpdtd' => 25, 'dummy' => 26, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Oehhnbr' => 0, 'Oedhline' => 1, 'Inititemnbr' => 2, 'Oeshtag' => 3, 'Oeshlotser' => 4, 'Oeshbin' => 5, 'Oeshplltnbr' => 6, 'Oeshcrtnnbr' => 7, 'Oeshyear' => 8, 'Oeshqtyship' => 9, 'Oeshcntrqty' => 10, 'Oeshspecordr' => 11, 'Oeshlotref' => 12, 'Oeshbatch' => 13, 'Oeshcuredate' => 14, 'Oeshacstatus' => 15, 'Oeshtestlot' => 16, 'Oeshpllttype' => 17, 'Oeshtarewght' => 18, 'Oeshuseup' => 19, 'Oeshlblprtd' => 20, 'Oeshorigbin' => 21, 'Oeshactvdate' => 22, 'Oeshplltid' => 23, 'Dateupdtd' => 24, 'Timeupdtd' => 25, 'Dummy' => 26, ],
+        self::TYPE_CAMELNAME     => ['oehhnbr' => 0, 'oedhline' => 1, 'inititemnbr' => 2, 'oeshtag' => 3, 'oeshlotser' => 4, 'oeshbin' => 5, 'oeshplltnbr' => 6, 'oeshcrtnnbr' => 7, 'oeshyear' => 8, 'oeshqtyship' => 9, 'oeshcntrqty' => 10, 'oeshspecordr' => 11, 'oeshlotref' => 12, 'oeshbatch' => 13, 'oeshcuredate' => 14, 'oeshacstatus' => 15, 'oeshtestlot' => 16, 'oeshpllttype' => 17, 'oeshtarewght' => 18, 'oeshuseup' => 19, 'oeshlblprtd' => 20, 'oeshorigbin' => 21, 'oeshactvdate' => 22, 'oeshplltid' => 23, 'dateupdtd' => 24, 'timeupdtd' => 25, 'dummy' => 26, ],
+        self::TYPE_COLNAME       => [SalesHistoryLotserialTableMap::COL_OEHHNBR => 0, SalesHistoryLotserialTableMap::COL_OEDHLINE => 1, SalesHistoryLotserialTableMap::COL_INITITEMNBR => 2, SalesHistoryLotserialTableMap::COL_OESHTAG => 3, SalesHistoryLotserialTableMap::COL_OESHLOTSER => 4, SalesHistoryLotserialTableMap::COL_OESHBIN => 5, SalesHistoryLotserialTableMap::COL_OESHPLLTNBR => 6, SalesHistoryLotserialTableMap::COL_OESHCRTNNBR => 7, SalesHistoryLotserialTableMap::COL_OESHYEAR => 8, SalesHistoryLotserialTableMap::COL_OESHQTYSHIP => 9, SalesHistoryLotserialTableMap::COL_OESHCNTRQTY => 10, SalesHistoryLotserialTableMap::COL_OESHSPECORDR => 11, SalesHistoryLotserialTableMap::COL_OESHLOTREF => 12, SalesHistoryLotserialTableMap::COL_OESHBATCH => 13, SalesHistoryLotserialTableMap::COL_OESHCUREDATE => 14, SalesHistoryLotserialTableMap::COL_OESHACSTATUS => 15, SalesHistoryLotserialTableMap::COL_OESHTESTLOT => 16, SalesHistoryLotserialTableMap::COL_OESHPLLTTYPE => 17, SalesHistoryLotserialTableMap::COL_OESHTAREWGHT => 18, SalesHistoryLotserialTableMap::COL_OESHUSEUP => 19, SalesHistoryLotserialTableMap::COL_OESHLBLPRTD => 20, SalesHistoryLotserialTableMap::COL_OESHORIGBIN => 21, SalesHistoryLotserialTableMap::COL_OESHACTVDATE => 22, SalesHistoryLotserialTableMap::COL_OESHPLLTID => 23, SalesHistoryLotserialTableMap::COL_DATEUPDTD => 24, SalesHistoryLotserialTableMap::COL_TIMEUPDTD => 25, SalesHistoryLotserialTableMap::COL_DUMMY => 26, ],
+        self::TYPE_FIELDNAME     => ['OehhNbr' => 0, 'OedhLine' => 1, 'InitItemNbr' => 2, 'OeshTag' => 3, 'OeshLotSer' => 4, 'OeshBin' => 5, 'OeshPlltNbr' => 6, 'OeshCrtnNbr' => 7, 'OeshYear' => 8, 'OeshQtyShip' => 9, 'OeshCntrQty' => 10, 'OeshSpecOrdr' => 11, 'OeshLotRef' => 12, 'OeshBatch' => 13, 'OeshCureDate' => 14, 'OeshAcStatus' => 15, 'OeshTestLot' => 16, 'OeshPlltType' => 17, 'OeshTareWght' => 18, 'OeshUseUp' => 19, 'OeshLblPrtd' => 20, 'OeshOrigBin' => 21, 'OeshActvDate' => 22, 'OeshPlltID' => 23, 'DateUpdtd' => 24, 'TimeUpdtd' => 25, 'dummy' => 26, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Oehhnbr' => 'OEHHNBR',
+        'SalesHistoryLotserial.Oehhnbr' => 'OEHHNBR',
+        'oehhnbr' => 'OEHHNBR',
+        'salesHistoryLotserial.oehhnbr' => 'OEHHNBR',
+        'SalesHistoryLotserialTableMap::COL_OEHHNBR' => 'OEHHNBR',
+        'COL_OEHHNBR' => 'OEHHNBR',
+        'OehhNbr' => 'OEHHNBR',
+        'so_lot_ser_hist.OehhNbr' => 'OEHHNBR',
+        'Oedhline' => 'OEDHLINE',
+        'SalesHistoryLotserial.Oedhline' => 'OEDHLINE',
+        'oedhline' => 'OEDHLINE',
+        'salesHistoryLotserial.oedhline' => 'OEDHLINE',
+        'SalesHistoryLotserialTableMap::COL_OEDHLINE' => 'OEDHLINE',
+        'COL_OEDHLINE' => 'OEDHLINE',
+        'OedhLine' => 'OEDHLINE',
+        'so_lot_ser_hist.OedhLine' => 'OEDHLINE',
+        'Inititemnbr' => 'INITITEMNBR',
+        'SalesHistoryLotserial.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'salesHistoryLotserial.inititemnbr' => 'INITITEMNBR',
+        'SalesHistoryLotserialTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'so_lot_ser_hist.InitItemNbr' => 'INITITEMNBR',
+        'Oeshtag' => 'OESHTAG',
+        'SalesHistoryLotserial.Oeshtag' => 'OESHTAG',
+        'oeshtag' => 'OESHTAG',
+        'salesHistoryLotserial.oeshtag' => 'OESHTAG',
+        'SalesHistoryLotserialTableMap::COL_OESHTAG' => 'OESHTAG',
+        'COL_OESHTAG' => 'OESHTAG',
+        'OeshTag' => 'OESHTAG',
+        'so_lot_ser_hist.OeshTag' => 'OESHTAG',
+        'Oeshlotser' => 'OESHLOTSER',
+        'SalesHistoryLotserial.Oeshlotser' => 'OESHLOTSER',
+        'oeshlotser' => 'OESHLOTSER',
+        'salesHistoryLotserial.oeshlotser' => 'OESHLOTSER',
+        'SalesHistoryLotserialTableMap::COL_OESHLOTSER' => 'OESHLOTSER',
+        'COL_OESHLOTSER' => 'OESHLOTSER',
+        'OeshLotSer' => 'OESHLOTSER',
+        'so_lot_ser_hist.OeshLotSer' => 'OESHLOTSER',
+        'Oeshbin' => 'OESHBIN',
+        'SalesHistoryLotserial.Oeshbin' => 'OESHBIN',
+        'oeshbin' => 'OESHBIN',
+        'salesHistoryLotserial.oeshbin' => 'OESHBIN',
+        'SalesHistoryLotserialTableMap::COL_OESHBIN' => 'OESHBIN',
+        'COL_OESHBIN' => 'OESHBIN',
+        'OeshBin' => 'OESHBIN',
+        'so_lot_ser_hist.OeshBin' => 'OESHBIN',
+        'Oeshplltnbr' => 'OESHPLLTNBR',
+        'SalesHistoryLotserial.Oeshplltnbr' => 'OESHPLLTNBR',
+        'oeshplltnbr' => 'OESHPLLTNBR',
+        'salesHistoryLotserial.oeshplltnbr' => 'OESHPLLTNBR',
+        'SalesHistoryLotserialTableMap::COL_OESHPLLTNBR' => 'OESHPLLTNBR',
+        'COL_OESHPLLTNBR' => 'OESHPLLTNBR',
+        'OeshPlltNbr' => 'OESHPLLTNBR',
+        'so_lot_ser_hist.OeshPlltNbr' => 'OESHPLLTNBR',
+        'Oeshcrtnnbr' => 'OESHCRTNNBR',
+        'SalesHistoryLotserial.Oeshcrtnnbr' => 'OESHCRTNNBR',
+        'oeshcrtnnbr' => 'OESHCRTNNBR',
+        'salesHistoryLotserial.oeshcrtnnbr' => 'OESHCRTNNBR',
+        'SalesHistoryLotserialTableMap::COL_OESHCRTNNBR' => 'OESHCRTNNBR',
+        'COL_OESHCRTNNBR' => 'OESHCRTNNBR',
+        'OeshCrtnNbr' => 'OESHCRTNNBR',
+        'so_lot_ser_hist.OeshCrtnNbr' => 'OESHCRTNNBR',
+        'Oeshyear' => 'OESHYEAR',
+        'SalesHistoryLotserial.Oeshyear' => 'OESHYEAR',
+        'oeshyear' => 'OESHYEAR',
+        'salesHistoryLotserial.oeshyear' => 'OESHYEAR',
+        'SalesHistoryLotserialTableMap::COL_OESHYEAR' => 'OESHYEAR',
+        'COL_OESHYEAR' => 'OESHYEAR',
+        'OeshYear' => 'OESHYEAR',
+        'so_lot_ser_hist.OeshYear' => 'OESHYEAR',
+        'Oeshqtyship' => 'OESHQTYSHIP',
+        'SalesHistoryLotserial.Oeshqtyship' => 'OESHQTYSHIP',
+        'oeshqtyship' => 'OESHQTYSHIP',
+        'salesHistoryLotserial.oeshqtyship' => 'OESHQTYSHIP',
+        'SalesHistoryLotserialTableMap::COL_OESHQTYSHIP' => 'OESHQTYSHIP',
+        'COL_OESHQTYSHIP' => 'OESHQTYSHIP',
+        'OeshQtyShip' => 'OESHQTYSHIP',
+        'so_lot_ser_hist.OeshQtyShip' => 'OESHQTYSHIP',
+        'Oeshcntrqty' => 'OESHCNTRQTY',
+        'SalesHistoryLotserial.Oeshcntrqty' => 'OESHCNTRQTY',
+        'oeshcntrqty' => 'OESHCNTRQTY',
+        'salesHistoryLotserial.oeshcntrqty' => 'OESHCNTRQTY',
+        'SalesHistoryLotserialTableMap::COL_OESHCNTRQTY' => 'OESHCNTRQTY',
+        'COL_OESHCNTRQTY' => 'OESHCNTRQTY',
+        'OeshCntrQty' => 'OESHCNTRQTY',
+        'so_lot_ser_hist.OeshCntrQty' => 'OESHCNTRQTY',
+        'Oeshspecordr' => 'OESHSPECORDR',
+        'SalesHistoryLotserial.Oeshspecordr' => 'OESHSPECORDR',
+        'oeshspecordr' => 'OESHSPECORDR',
+        'salesHistoryLotserial.oeshspecordr' => 'OESHSPECORDR',
+        'SalesHistoryLotserialTableMap::COL_OESHSPECORDR' => 'OESHSPECORDR',
+        'COL_OESHSPECORDR' => 'OESHSPECORDR',
+        'OeshSpecOrdr' => 'OESHSPECORDR',
+        'so_lot_ser_hist.OeshSpecOrdr' => 'OESHSPECORDR',
+        'Oeshlotref' => 'OESHLOTREF',
+        'SalesHistoryLotserial.Oeshlotref' => 'OESHLOTREF',
+        'oeshlotref' => 'OESHLOTREF',
+        'salesHistoryLotserial.oeshlotref' => 'OESHLOTREF',
+        'SalesHistoryLotserialTableMap::COL_OESHLOTREF' => 'OESHLOTREF',
+        'COL_OESHLOTREF' => 'OESHLOTREF',
+        'OeshLotRef' => 'OESHLOTREF',
+        'so_lot_ser_hist.OeshLotRef' => 'OESHLOTREF',
+        'Oeshbatch' => 'OESHBATCH',
+        'SalesHistoryLotserial.Oeshbatch' => 'OESHBATCH',
+        'oeshbatch' => 'OESHBATCH',
+        'salesHistoryLotserial.oeshbatch' => 'OESHBATCH',
+        'SalesHistoryLotserialTableMap::COL_OESHBATCH' => 'OESHBATCH',
+        'COL_OESHBATCH' => 'OESHBATCH',
+        'OeshBatch' => 'OESHBATCH',
+        'so_lot_ser_hist.OeshBatch' => 'OESHBATCH',
+        'Oeshcuredate' => 'OESHCUREDATE',
+        'SalesHistoryLotserial.Oeshcuredate' => 'OESHCUREDATE',
+        'oeshcuredate' => 'OESHCUREDATE',
+        'salesHistoryLotserial.oeshcuredate' => 'OESHCUREDATE',
+        'SalesHistoryLotserialTableMap::COL_OESHCUREDATE' => 'OESHCUREDATE',
+        'COL_OESHCUREDATE' => 'OESHCUREDATE',
+        'OeshCureDate' => 'OESHCUREDATE',
+        'so_lot_ser_hist.OeshCureDate' => 'OESHCUREDATE',
+        'Oeshacstatus' => 'OESHACSTATUS',
+        'SalesHistoryLotserial.Oeshacstatus' => 'OESHACSTATUS',
+        'oeshacstatus' => 'OESHACSTATUS',
+        'salesHistoryLotserial.oeshacstatus' => 'OESHACSTATUS',
+        'SalesHistoryLotserialTableMap::COL_OESHACSTATUS' => 'OESHACSTATUS',
+        'COL_OESHACSTATUS' => 'OESHACSTATUS',
+        'OeshAcStatus' => 'OESHACSTATUS',
+        'so_lot_ser_hist.OeshAcStatus' => 'OESHACSTATUS',
+        'Oeshtestlot' => 'OESHTESTLOT',
+        'SalesHistoryLotserial.Oeshtestlot' => 'OESHTESTLOT',
+        'oeshtestlot' => 'OESHTESTLOT',
+        'salesHistoryLotserial.oeshtestlot' => 'OESHTESTLOT',
+        'SalesHistoryLotserialTableMap::COL_OESHTESTLOT' => 'OESHTESTLOT',
+        'COL_OESHTESTLOT' => 'OESHTESTLOT',
+        'OeshTestLot' => 'OESHTESTLOT',
+        'so_lot_ser_hist.OeshTestLot' => 'OESHTESTLOT',
+        'Oeshpllttype' => 'OESHPLLTTYPE',
+        'SalesHistoryLotserial.Oeshpllttype' => 'OESHPLLTTYPE',
+        'oeshpllttype' => 'OESHPLLTTYPE',
+        'salesHistoryLotserial.oeshpllttype' => 'OESHPLLTTYPE',
+        'SalesHistoryLotserialTableMap::COL_OESHPLLTTYPE' => 'OESHPLLTTYPE',
+        'COL_OESHPLLTTYPE' => 'OESHPLLTTYPE',
+        'OeshPlltType' => 'OESHPLLTTYPE',
+        'so_lot_ser_hist.OeshPlltType' => 'OESHPLLTTYPE',
+        'Oeshtarewght' => 'OESHTAREWGHT',
+        'SalesHistoryLotserial.Oeshtarewght' => 'OESHTAREWGHT',
+        'oeshtarewght' => 'OESHTAREWGHT',
+        'salesHistoryLotserial.oeshtarewght' => 'OESHTAREWGHT',
+        'SalesHistoryLotserialTableMap::COL_OESHTAREWGHT' => 'OESHTAREWGHT',
+        'COL_OESHTAREWGHT' => 'OESHTAREWGHT',
+        'OeshTareWght' => 'OESHTAREWGHT',
+        'so_lot_ser_hist.OeshTareWght' => 'OESHTAREWGHT',
+        'Oeshuseup' => 'OESHUSEUP',
+        'SalesHistoryLotserial.Oeshuseup' => 'OESHUSEUP',
+        'oeshuseup' => 'OESHUSEUP',
+        'salesHistoryLotserial.oeshuseup' => 'OESHUSEUP',
+        'SalesHistoryLotserialTableMap::COL_OESHUSEUP' => 'OESHUSEUP',
+        'COL_OESHUSEUP' => 'OESHUSEUP',
+        'OeshUseUp' => 'OESHUSEUP',
+        'so_lot_ser_hist.OeshUseUp' => 'OESHUSEUP',
+        'Oeshlblprtd' => 'OESHLBLPRTD',
+        'SalesHistoryLotserial.Oeshlblprtd' => 'OESHLBLPRTD',
+        'oeshlblprtd' => 'OESHLBLPRTD',
+        'salesHistoryLotserial.oeshlblprtd' => 'OESHLBLPRTD',
+        'SalesHistoryLotserialTableMap::COL_OESHLBLPRTD' => 'OESHLBLPRTD',
+        'COL_OESHLBLPRTD' => 'OESHLBLPRTD',
+        'OeshLblPrtd' => 'OESHLBLPRTD',
+        'so_lot_ser_hist.OeshLblPrtd' => 'OESHLBLPRTD',
+        'Oeshorigbin' => 'OESHORIGBIN',
+        'SalesHistoryLotserial.Oeshorigbin' => 'OESHORIGBIN',
+        'oeshorigbin' => 'OESHORIGBIN',
+        'salesHistoryLotserial.oeshorigbin' => 'OESHORIGBIN',
+        'SalesHistoryLotserialTableMap::COL_OESHORIGBIN' => 'OESHORIGBIN',
+        'COL_OESHORIGBIN' => 'OESHORIGBIN',
+        'OeshOrigBin' => 'OESHORIGBIN',
+        'so_lot_ser_hist.OeshOrigBin' => 'OESHORIGBIN',
+        'Oeshactvdate' => 'OESHACTVDATE',
+        'SalesHistoryLotserial.Oeshactvdate' => 'OESHACTVDATE',
+        'oeshactvdate' => 'OESHACTVDATE',
+        'salesHistoryLotserial.oeshactvdate' => 'OESHACTVDATE',
+        'SalesHistoryLotserialTableMap::COL_OESHACTVDATE' => 'OESHACTVDATE',
+        'COL_OESHACTVDATE' => 'OESHACTVDATE',
+        'OeshActvDate' => 'OESHACTVDATE',
+        'so_lot_ser_hist.OeshActvDate' => 'OESHACTVDATE',
+        'Oeshplltid' => 'OESHPLLTID',
+        'SalesHistoryLotserial.Oeshplltid' => 'OESHPLLTID',
+        'oeshplltid' => 'OESHPLLTID',
+        'salesHistoryLotserial.oeshplltid' => 'OESHPLLTID',
+        'SalesHistoryLotserialTableMap::COL_OESHPLLTID' => 'OESHPLLTID',
+        'COL_OESHPLLTID' => 'OESHPLLTID',
+        'OeshPlltID' => 'OESHPLLTID',
+        'so_lot_ser_hist.OeshPlltID' => 'OESHPLLTID',
+        'Dateupdtd' => 'DATEUPDTD',
+        'SalesHistoryLotserial.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'salesHistoryLotserial.dateupdtd' => 'DATEUPDTD',
+        'SalesHistoryLotserialTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'so_lot_ser_hist.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'SalesHistoryLotserial.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'salesHistoryLotserial.timeupdtd' => 'TIMEUPDTD',
+        'SalesHistoryLotserialTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'so_lot_ser_hist.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'SalesHistoryLotserial.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'salesHistoryLotserial.dummy' => 'DUMMY',
+        'SalesHistoryLotserialTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'so_lot_ser_hist.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('so_lot_ser_hist');
@@ -266,7 +497,7 @@ class SalesHistoryLotserialTableMap extends TableMap
         $this->addPrimaryKey('OeshPlltNbr', 'Oeshplltnbr', 'INTEGER', true, 4, 0);
         $this->addPrimaryKey('OeshCrtnNbr', 'Oeshcrtnnbr', 'INTEGER', true, 4, 0);
         $this->addColumn('OeshYear', 'Oeshyear', 'CHAR', true, 4, '');
-        $this->addColumn('OeshQtyShip', 'Oeshqtyship', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OeshQtyShip', 'Oeshqtyship', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('OeshCntrQty', 'Oeshcntrqty', 'DECIMAL', true, 20, 0);
         $this->addColumn('OeshSpecOrdr', 'Oeshspecordr', 'CHAR', true, null, '');
         $this->addColumn('OeshLotRef', 'Oeshlotref', 'VARCHAR', true, 20, '');
@@ -275,7 +506,7 @@ class SalesHistoryLotserialTableMap extends TableMap
         $this->addColumn('OeshAcStatus', 'Oeshacstatus', 'VARCHAR', true, 4, '');
         $this->addColumn('OeshTestLot', 'Oeshtestlot', 'VARCHAR', true, 4, '');
         $this->addColumn('OeshPlltType', 'Oeshpllttype', 'CHAR', true, null, '');
-        $this->addColumn('OeshTareWght', 'Oeshtarewght', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OeshTareWght', 'Oeshtarewght', 'DECIMAL', true, 20, 0.000);
         $this->addColumn('OeshUseUp', 'Oeshuseup', 'CHAR', true, null, '');
         $this->addColumn('OeshLblPrtd', 'Oeshlblprtd', 'CHAR', true, null, '');
         $this->addColumn('OeshOrigBin', 'Oeshorigbin', 'VARCHAR', true, 8, '');
@@ -284,12 +515,14 @@ class SalesHistoryLotserialTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('SalesHistory', '\\SalesHistory', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -317,7 +550,7 @@ class SalesHistoryLotserialTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -328,9 +561,11 @@ class SalesHistoryLotserialTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \SalesHistoryLotserial $obj A \SalesHistoryLotserial object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(SalesHistoryLotserial $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -349,8 +584,10 @@ class SalesHistoryLotserialTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \SalesHistoryLotserial object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \SalesHistoryLotserial) {
@@ -378,14 +615,14 @@ class SalesHistoryLotserialTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Oehhnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Oedhline', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Oeshtag', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Oeshlotser', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Oeshbin', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Oeshplltnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 7 + $offset : static::translateFieldName('Oeshcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -400,14 +637,14 @@ class SalesHistoryLotserialTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -463,10 +700,10 @@ class SalesHistoryLotserialTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? SalesHistoryLotserialTableMap::CLASS_DEFAULT : SalesHistoryLotserialTableMap::OM_CLASS;
     }
@@ -474,17 +711,17 @@ class SalesHistoryLotserialTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (SalesHistoryLotserial object, last column rank)
+     * @return array (SalesHistoryLotserial object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = SalesHistoryLotserialTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = SalesHistoryLotserialTableMap::getInstanceFromPool($key))) {
@@ -500,7 +737,7 @@ class SalesHistoryLotserialTableMap extends TableMap
             SalesHistoryLotserialTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -508,13 +745,13 @@ class SalesHistoryLotserialTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -544,12 +781,13 @@ class SalesHistoryLotserialTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(SalesHistoryLotserialTableMap::COL_OEHHNBR);
@@ -611,40 +849,102 @@ class SalesHistoryLotserialTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OEHHNBR);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OEDHLINE);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHTAG);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHLOTSER);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHBIN);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHPLLTNBR);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHCRTNNBR);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHYEAR);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHQTYSHIP);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHCNTRQTY);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHSPECORDR);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHLOTREF);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHBATCH);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHCUREDATE);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHACSTATUS);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHTESTLOT);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHPLLTTYPE);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHTAREWGHT);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHUSEUP);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHLBLPRTD);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHORIGBIN);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHACTVDATE);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_OESHPLLTID);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(SalesHistoryLotserialTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.OehhNbr');
+            $criteria->removeSelectColumn($alias . '.OedhLine');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.OeshTag');
+            $criteria->removeSelectColumn($alias . '.OeshLotSer');
+            $criteria->removeSelectColumn($alias . '.OeshBin');
+            $criteria->removeSelectColumn($alias . '.OeshPlltNbr');
+            $criteria->removeSelectColumn($alias . '.OeshCrtnNbr');
+            $criteria->removeSelectColumn($alias . '.OeshYear');
+            $criteria->removeSelectColumn($alias . '.OeshQtyShip');
+            $criteria->removeSelectColumn($alias . '.OeshCntrQty');
+            $criteria->removeSelectColumn($alias . '.OeshSpecOrdr');
+            $criteria->removeSelectColumn($alias . '.OeshLotRef');
+            $criteria->removeSelectColumn($alias . '.OeshBatch');
+            $criteria->removeSelectColumn($alias . '.OeshCureDate');
+            $criteria->removeSelectColumn($alias . '.OeshAcStatus');
+            $criteria->removeSelectColumn($alias . '.OeshTestLot');
+            $criteria->removeSelectColumn($alias . '.OeshPlltType');
+            $criteria->removeSelectColumn($alias . '.OeshTareWght');
+            $criteria->removeSelectColumn($alias . '.OeshUseUp');
+            $criteria->removeSelectColumn($alias . '.OeshLblPrtd');
+            $criteria->removeSelectColumn($alias . '.OeshOrigBin');
+            $criteria->removeSelectColumn($alias . '.OeshActvDate');
+            $criteria->removeSelectColumn($alias . '.OeshPlltID');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(SalesHistoryLotserialTableMap::DATABASE_NAME)->getTable(SalesHistoryLotserialTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(SalesHistoryLotserialTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(SalesHistoryLotserialTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new SalesHistoryLotserialTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a SalesHistoryLotserial or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or SalesHistoryLotserial object or primary key or array of primary keys
+     * @param mixed $values Criteria or SalesHistoryLotserial object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesHistoryLotserialTableMap::DATABASE_NAME);
@@ -662,7 +962,7 @@ class SalesHistoryLotserialTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(SalesHistoryLotserialTableMap::COL_OEHHNBR, $value[0]);
@@ -696,7 +996,7 @@ class SalesHistoryLotserialTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return SalesHistoryLotserialQuery::create()->doDeleteAll($con);
     }
@@ -704,13 +1004,13 @@ class SalesHistoryLotserialTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a SalesHistoryLotserial or Criteria object.
      *
-     * @param mixed               $criteria Criteria or SalesHistoryLotserial object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or SalesHistoryLotserial object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesHistoryLotserialTableMap::DATABASE_NAME);
@@ -733,7 +1033,4 @@ class SalesHistoryLotserialTableMap extends TableMap
         });
     }
 
-} // SalesHistoryLotserialTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-SalesHistoryLotserialTableMap::buildTableMap();
+}

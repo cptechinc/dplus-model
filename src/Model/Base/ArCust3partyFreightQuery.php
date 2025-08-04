@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ar_3party' table.
- *
- *
+ * Base class that represents a query for the `ar_3party` table.
  *
  * @method     ChildArCust3partyFreightQuery orderByArcucustid($order = Criteria::ASC) Order by the ArcuCustId column
  * @method     ChildArCust3partyFreightQuery orderByAr3pacctnbr($order = Criteria::ASC) Order by the Ar3pAcctNbr column
@@ -82,32 +81,32 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \CustomerQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildArCust3partyFreight findOne(ConnectionInterface $con = null) Return the first ChildArCust3partyFreight matching the query
- * @method     ChildArCust3partyFreight findOneOrCreate(ConnectionInterface $con = null) Return the first ChildArCust3partyFreight matching the query, or a new ChildArCust3partyFreight object populated from the query conditions when no match is found
+ * @method     ChildArCust3partyFreight|null findOne(?ConnectionInterface $con = null) Return the first ChildArCust3partyFreight matching the query
+ * @method     ChildArCust3partyFreight findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildArCust3partyFreight matching the query, or a new ChildArCust3partyFreight object populated from the query conditions when no match is found
  *
- * @method     ChildArCust3partyFreight findOneByArcucustid(string $ArcuCustId) Return the first ChildArCust3partyFreight filtered by the ArcuCustId column
- * @method     ChildArCust3partyFreight findOneByAr3pacctnbr(string $Ar3pAcctNbr) Return the first ChildArCust3partyFreight filtered by the Ar3pAcctNbr column
- * @method     ChildArCust3partyFreight findOneByAr3pname(string $Ar3pName) Return the first ChildArCust3partyFreight filtered by the Ar3pName column
- * @method     ChildArCust3partyFreight findOneByAr3padr1(string $Ar3pAdr1) Return the first ChildArCust3partyFreight filtered by the Ar3pAdr1 column
- * @method     ChildArCust3partyFreight findOneByAr3padr2(string $Ar3pAdr2) Return the first ChildArCust3partyFreight filtered by the Ar3pAdr2 column
- * @method     ChildArCust3partyFreight findOneByAr3padr3(string $Ar3pAdr3) Return the first ChildArCust3partyFreight filtered by the Ar3pAdr3 column
- * @method     ChildArCust3partyFreight findOneByAr3pctry(string $Ar3pCtry) Return the first ChildArCust3partyFreight filtered by the Ar3pCtry column
- * @method     ChildArCust3partyFreight findOneByAr3pcity(string $Ar3pCity) Return the first ChildArCust3partyFreight filtered by the Ar3pCity column
- * @method     ChildArCust3partyFreight findOneByAr3pstat(string $Ar3pStat) Return the first ChildArCust3partyFreight filtered by the Ar3pStat column
- * @method     ChildArCust3partyFreight findOneByAr3pzipcode(string $Ar3pZipCode) Return the first ChildArCust3partyFreight filtered by the Ar3pZipCode column
- * @method     ChildArCust3partyFreight findOneByAr3pintl(string $Ar3pIntl) Return the first ChildArCust3partyFreight filtered by the Ar3pIntl column
- * @method     ChildArCust3partyFreight findOneByAr3ptelenbr(string $Ar3pTeleNbr) Return the first ChildArCust3partyFreight filtered by the Ar3pTeleNbr column
- * @method     ChildArCust3partyFreight findOneByAr3pteleext(string $Ar3pTeleExt) Return the first ChildArCust3partyFreight filtered by the Ar3pTeleExt column
- * @method     ChildArCust3partyFreight findOneByAr3pitelnbr(string $Ar3pItelNbr) Return the first ChildArCust3partyFreight filtered by the Ar3pItelNbr column
- * @method     ChildArCust3partyFreight findOneByAr3pitelext(string $Ar3pItelExt) Return the first ChildArCust3partyFreight filtered by the Ar3pItelExt column
- * @method     ChildArCust3partyFreight findOneByAr3pfaxnbr(string $Ar3pFaxNbr) Return the first ChildArCust3partyFreight filtered by the Ar3pFaxNbr column
- * @method     ChildArCust3partyFreight findOneByAr3pifaxnbr(string $Ar3pIfaxNbr) Return the first ChildArCust3partyFreight filtered by the Ar3pIfaxNbr column
- * @method     ChildArCust3partyFreight findOneByDateupdtd(string $DateUpdtd) Return the first ChildArCust3partyFreight filtered by the DateUpdtd column
- * @method     ChildArCust3partyFreight findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCust3partyFreight filtered by the TimeUpdtd column
- * @method     ChildArCust3partyFreight findOneByDummy(string $dummy) Return the first ChildArCust3partyFreight filtered by the dummy column *
-
- * @method     ChildArCust3partyFreight requirePk($key, ConnectionInterface $con = null) Return the ChildArCust3partyFreight by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildArCust3partyFreight requireOne(ConnectionInterface $con = null) Return the first ChildArCust3partyFreight matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCust3partyFreight|null findOneByArcucustid(string $ArcuCustId) Return the first ChildArCust3partyFreight filtered by the ArcuCustId column
+ * @method     ChildArCust3partyFreight|null findOneByAr3pacctnbr(string $Ar3pAcctNbr) Return the first ChildArCust3partyFreight filtered by the Ar3pAcctNbr column
+ * @method     ChildArCust3partyFreight|null findOneByAr3pname(string $Ar3pName) Return the first ChildArCust3partyFreight filtered by the Ar3pName column
+ * @method     ChildArCust3partyFreight|null findOneByAr3padr1(string $Ar3pAdr1) Return the first ChildArCust3partyFreight filtered by the Ar3pAdr1 column
+ * @method     ChildArCust3partyFreight|null findOneByAr3padr2(string $Ar3pAdr2) Return the first ChildArCust3partyFreight filtered by the Ar3pAdr2 column
+ * @method     ChildArCust3partyFreight|null findOneByAr3padr3(string $Ar3pAdr3) Return the first ChildArCust3partyFreight filtered by the Ar3pAdr3 column
+ * @method     ChildArCust3partyFreight|null findOneByAr3pctry(string $Ar3pCtry) Return the first ChildArCust3partyFreight filtered by the Ar3pCtry column
+ * @method     ChildArCust3partyFreight|null findOneByAr3pcity(string $Ar3pCity) Return the first ChildArCust3partyFreight filtered by the Ar3pCity column
+ * @method     ChildArCust3partyFreight|null findOneByAr3pstat(string $Ar3pStat) Return the first ChildArCust3partyFreight filtered by the Ar3pStat column
+ * @method     ChildArCust3partyFreight|null findOneByAr3pzipcode(string $Ar3pZipCode) Return the first ChildArCust3partyFreight filtered by the Ar3pZipCode column
+ * @method     ChildArCust3partyFreight|null findOneByAr3pintl(string $Ar3pIntl) Return the first ChildArCust3partyFreight filtered by the Ar3pIntl column
+ * @method     ChildArCust3partyFreight|null findOneByAr3ptelenbr(string $Ar3pTeleNbr) Return the first ChildArCust3partyFreight filtered by the Ar3pTeleNbr column
+ * @method     ChildArCust3partyFreight|null findOneByAr3pteleext(string $Ar3pTeleExt) Return the first ChildArCust3partyFreight filtered by the Ar3pTeleExt column
+ * @method     ChildArCust3partyFreight|null findOneByAr3pitelnbr(string $Ar3pItelNbr) Return the first ChildArCust3partyFreight filtered by the Ar3pItelNbr column
+ * @method     ChildArCust3partyFreight|null findOneByAr3pitelext(string $Ar3pItelExt) Return the first ChildArCust3partyFreight filtered by the Ar3pItelExt column
+ * @method     ChildArCust3partyFreight|null findOneByAr3pfaxnbr(string $Ar3pFaxNbr) Return the first ChildArCust3partyFreight filtered by the Ar3pFaxNbr column
+ * @method     ChildArCust3partyFreight|null findOneByAr3pifaxnbr(string $Ar3pIfaxNbr) Return the first ChildArCust3partyFreight filtered by the Ar3pIfaxNbr column
+ * @method     ChildArCust3partyFreight|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildArCust3partyFreight filtered by the DateUpdtd column
+ * @method     ChildArCust3partyFreight|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCust3partyFreight filtered by the TimeUpdtd column
+ * @method     ChildArCust3partyFreight|null findOneByDummy(string $dummy) Return the first ChildArCust3partyFreight filtered by the dummy column
+ *
+ * @method     ChildArCust3partyFreight requirePk($key, ?ConnectionInterface $con = null) Return the ChildArCust3partyFreight by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCust3partyFreight requireOne(?ConnectionInterface $con = null) Return the first ChildArCust3partyFreight matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildArCust3partyFreight requireOneByArcucustid(string $ArcuCustId) Return the first ChildArCust3partyFreight filtered by the ArcuCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArCust3partyFreight requireOneByAr3pacctnbr(string $Ar3pAcctNbr) Return the first ChildArCust3partyFreight filtered by the Ar3pAcctNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -130,29 +129,52 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArCust3partyFreight requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCust3partyFreight filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArCust3partyFreight requireOneByDummy(string $dummy) Return the first ChildArCust3partyFreight filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildArCust3partyFreight[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArCust3partyFreight objects based on current ModelCriteria
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByArcucustid(string $ArcuCustId) Return ChildArCust3partyFreight objects filtered by the ArcuCustId column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByAr3pacctnbr(string $Ar3pAcctNbr) Return ChildArCust3partyFreight objects filtered by the Ar3pAcctNbr column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByAr3pname(string $Ar3pName) Return ChildArCust3partyFreight objects filtered by the Ar3pName column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByAr3padr1(string $Ar3pAdr1) Return ChildArCust3partyFreight objects filtered by the Ar3pAdr1 column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByAr3padr2(string $Ar3pAdr2) Return ChildArCust3partyFreight objects filtered by the Ar3pAdr2 column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByAr3padr3(string $Ar3pAdr3) Return ChildArCust3partyFreight objects filtered by the Ar3pAdr3 column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByAr3pctry(string $Ar3pCtry) Return ChildArCust3partyFreight objects filtered by the Ar3pCtry column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByAr3pcity(string $Ar3pCity) Return ChildArCust3partyFreight objects filtered by the Ar3pCity column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByAr3pstat(string $Ar3pStat) Return ChildArCust3partyFreight objects filtered by the Ar3pStat column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByAr3pzipcode(string $Ar3pZipCode) Return ChildArCust3partyFreight objects filtered by the Ar3pZipCode column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByAr3pintl(string $Ar3pIntl) Return ChildArCust3partyFreight objects filtered by the Ar3pIntl column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByAr3ptelenbr(string $Ar3pTeleNbr) Return ChildArCust3partyFreight objects filtered by the Ar3pTeleNbr column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByAr3pteleext(string $Ar3pTeleExt) Return ChildArCust3partyFreight objects filtered by the Ar3pTeleExt column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByAr3pitelnbr(string $Ar3pItelNbr) Return ChildArCust3partyFreight objects filtered by the Ar3pItelNbr column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByAr3pitelext(string $Ar3pItelExt) Return ChildArCust3partyFreight objects filtered by the Ar3pItelExt column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByAr3pfaxnbr(string $Ar3pFaxNbr) Return ChildArCust3partyFreight objects filtered by the Ar3pFaxNbr column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByAr3pifaxnbr(string $Ar3pIfaxNbr) Return ChildArCust3partyFreight objects filtered by the Ar3pIfaxNbr column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArCust3partyFreight objects filtered by the DateUpdtd column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArCust3partyFreight objects filtered by the TimeUpdtd column
- * @method     ChildArCust3partyFreight[]|ObjectCollection findByDummy(string $dummy) Return ChildArCust3partyFreight objects filtered by the dummy column
- * @method     ChildArCust3partyFreight[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildArCust3partyFreight[]|Collection find(?ConnectionInterface $con = null) Return ChildArCust3partyFreight objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> find(?ConnectionInterface $con = null) Return ChildArCust3partyFreight objects based on current ModelCriteria
  *
+ * @method     ChildArCust3partyFreight[]|Collection findByArcucustid(string|array<string> $ArcuCustId) Return ChildArCust3partyFreight objects filtered by the ArcuCustId column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByArcucustid(string|array<string> $ArcuCustId) Return ChildArCust3partyFreight objects filtered by the ArcuCustId column
+ * @method     ChildArCust3partyFreight[]|Collection findByAr3pacctnbr(string|array<string> $Ar3pAcctNbr) Return ChildArCust3partyFreight objects filtered by the Ar3pAcctNbr column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByAr3pacctnbr(string|array<string> $Ar3pAcctNbr) Return ChildArCust3partyFreight objects filtered by the Ar3pAcctNbr column
+ * @method     ChildArCust3partyFreight[]|Collection findByAr3pname(string|array<string> $Ar3pName) Return ChildArCust3partyFreight objects filtered by the Ar3pName column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByAr3pname(string|array<string> $Ar3pName) Return ChildArCust3partyFreight objects filtered by the Ar3pName column
+ * @method     ChildArCust3partyFreight[]|Collection findByAr3padr1(string|array<string> $Ar3pAdr1) Return ChildArCust3partyFreight objects filtered by the Ar3pAdr1 column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByAr3padr1(string|array<string> $Ar3pAdr1) Return ChildArCust3partyFreight objects filtered by the Ar3pAdr1 column
+ * @method     ChildArCust3partyFreight[]|Collection findByAr3padr2(string|array<string> $Ar3pAdr2) Return ChildArCust3partyFreight objects filtered by the Ar3pAdr2 column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByAr3padr2(string|array<string> $Ar3pAdr2) Return ChildArCust3partyFreight objects filtered by the Ar3pAdr2 column
+ * @method     ChildArCust3partyFreight[]|Collection findByAr3padr3(string|array<string> $Ar3pAdr3) Return ChildArCust3partyFreight objects filtered by the Ar3pAdr3 column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByAr3padr3(string|array<string> $Ar3pAdr3) Return ChildArCust3partyFreight objects filtered by the Ar3pAdr3 column
+ * @method     ChildArCust3partyFreight[]|Collection findByAr3pctry(string|array<string> $Ar3pCtry) Return ChildArCust3partyFreight objects filtered by the Ar3pCtry column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByAr3pctry(string|array<string> $Ar3pCtry) Return ChildArCust3partyFreight objects filtered by the Ar3pCtry column
+ * @method     ChildArCust3partyFreight[]|Collection findByAr3pcity(string|array<string> $Ar3pCity) Return ChildArCust3partyFreight objects filtered by the Ar3pCity column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByAr3pcity(string|array<string> $Ar3pCity) Return ChildArCust3partyFreight objects filtered by the Ar3pCity column
+ * @method     ChildArCust3partyFreight[]|Collection findByAr3pstat(string|array<string> $Ar3pStat) Return ChildArCust3partyFreight objects filtered by the Ar3pStat column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByAr3pstat(string|array<string> $Ar3pStat) Return ChildArCust3partyFreight objects filtered by the Ar3pStat column
+ * @method     ChildArCust3partyFreight[]|Collection findByAr3pzipcode(string|array<string> $Ar3pZipCode) Return ChildArCust3partyFreight objects filtered by the Ar3pZipCode column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByAr3pzipcode(string|array<string> $Ar3pZipCode) Return ChildArCust3partyFreight objects filtered by the Ar3pZipCode column
+ * @method     ChildArCust3partyFreight[]|Collection findByAr3pintl(string|array<string> $Ar3pIntl) Return ChildArCust3partyFreight objects filtered by the Ar3pIntl column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByAr3pintl(string|array<string> $Ar3pIntl) Return ChildArCust3partyFreight objects filtered by the Ar3pIntl column
+ * @method     ChildArCust3partyFreight[]|Collection findByAr3ptelenbr(string|array<string> $Ar3pTeleNbr) Return ChildArCust3partyFreight objects filtered by the Ar3pTeleNbr column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByAr3ptelenbr(string|array<string> $Ar3pTeleNbr) Return ChildArCust3partyFreight objects filtered by the Ar3pTeleNbr column
+ * @method     ChildArCust3partyFreight[]|Collection findByAr3pteleext(string|array<string> $Ar3pTeleExt) Return ChildArCust3partyFreight objects filtered by the Ar3pTeleExt column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByAr3pteleext(string|array<string> $Ar3pTeleExt) Return ChildArCust3partyFreight objects filtered by the Ar3pTeleExt column
+ * @method     ChildArCust3partyFreight[]|Collection findByAr3pitelnbr(string|array<string> $Ar3pItelNbr) Return ChildArCust3partyFreight objects filtered by the Ar3pItelNbr column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByAr3pitelnbr(string|array<string> $Ar3pItelNbr) Return ChildArCust3partyFreight objects filtered by the Ar3pItelNbr column
+ * @method     ChildArCust3partyFreight[]|Collection findByAr3pitelext(string|array<string> $Ar3pItelExt) Return ChildArCust3partyFreight objects filtered by the Ar3pItelExt column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByAr3pitelext(string|array<string> $Ar3pItelExt) Return ChildArCust3partyFreight objects filtered by the Ar3pItelExt column
+ * @method     ChildArCust3partyFreight[]|Collection findByAr3pfaxnbr(string|array<string> $Ar3pFaxNbr) Return ChildArCust3partyFreight objects filtered by the Ar3pFaxNbr column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByAr3pfaxnbr(string|array<string> $Ar3pFaxNbr) Return ChildArCust3partyFreight objects filtered by the Ar3pFaxNbr column
+ * @method     ChildArCust3partyFreight[]|Collection findByAr3pifaxnbr(string|array<string> $Ar3pIfaxNbr) Return ChildArCust3partyFreight objects filtered by the Ar3pIfaxNbr column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByAr3pifaxnbr(string|array<string> $Ar3pIfaxNbr) Return ChildArCust3partyFreight objects filtered by the Ar3pIfaxNbr column
+ * @method     ChildArCust3partyFreight[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArCust3partyFreight objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArCust3partyFreight objects filtered by the DateUpdtd column
+ * @method     ChildArCust3partyFreight[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArCust3partyFreight objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArCust3partyFreight objects filtered by the TimeUpdtd column
+ * @method     ChildArCust3partyFreight[]|Collection findByDummy(string|array<string> $dummy) Return ChildArCust3partyFreight objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildArCust3partyFreight> findByDummy(string|array<string> $dummy) Return ChildArCust3partyFreight objects filtered by the dummy column
+ *
+ * @method     ChildArCust3partyFreight[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildArCust3partyFreight> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ArCust3partyFreightQuery extends ModelCriteria
 {
@@ -161,9 +183,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ArCust3partyFreightQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ArCust3partyFreight', $modelAlias = null)
     {
@@ -173,12 +195,12 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
     /**
      * Returns a new ChildArCust3partyFreightQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildArCust3partyFreightQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildArCust3partyFreightQuery) {
             return $criteria;
@@ -208,7 +230,7 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      *
      * @return ChildArCust3partyFreight|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -240,8 +262,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -274,8 +296,8 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildArCust3partyFreight|array|mixed the result, formatted by the current formatter
      */
@@ -295,12 +317,12 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -317,9 +339,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -332,14 +354,16 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(ArCust3partyFreightTableMap::COL_ARCUCUSTID, $key[0], Criteria::EQUAL);
@@ -358,14 +382,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByArcucustid('fooValue');   // WHERE ArcuCustId = 'fooValue'
      * $query->filterByArcucustid('%fooValue%', Criteria::LIKE); // WHERE ArcuCustId LIKE '%fooValue%'
+     * $query->filterByArcucustid(['foo', 'bar']); // WHERE ArcuCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcucustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcucustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcucustid($arcucustid = null, $comparison = null)
+    public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcucustid)) {
@@ -373,7 +398,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -383,14 +410,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByAr3pacctnbr('fooValue');   // WHERE Ar3pAcctNbr = 'fooValue'
      * $query->filterByAr3pacctnbr('%fooValue%', Criteria::LIKE); // WHERE Ar3pAcctNbr LIKE '%fooValue%'
+     * $query->filterByAr3pacctnbr(['foo', 'bar']); // WHERE Ar3pAcctNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ar3pacctnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ar3pacctnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAr3pacctnbr($ar3pacctnbr = null, $comparison = null)
+    public function filterByAr3pacctnbr($ar3pacctnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ar3pacctnbr)) {
@@ -398,7 +426,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PACCTNBR, $ar3pacctnbr, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PACCTNBR, $ar3pacctnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -408,14 +438,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByAr3pname('fooValue');   // WHERE Ar3pName = 'fooValue'
      * $query->filterByAr3pname('%fooValue%', Criteria::LIKE); // WHERE Ar3pName LIKE '%fooValue%'
+     * $query->filterByAr3pname(['foo', 'bar']); // WHERE Ar3pName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ar3pname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ar3pname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAr3pname($ar3pname = null, $comparison = null)
+    public function filterByAr3pname($ar3pname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ar3pname)) {
@@ -423,7 +454,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PNAME, $ar3pname, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PNAME, $ar3pname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -433,14 +466,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByAr3padr1('fooValue');   // WHERE Ar3pAdr1 = 'fooValue'
      * $query->filterByAr3padr1('%fooValue%', Criteria::LIKE); // WHERE Ar3pAdr1 LIKE '%fooValue%'
+     * $query->filterByAr3padr1(['foo', 'bar']); // WHERE Ar3pAdr1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ar3padr1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ar3padr1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAr3padr1($ar3padr1 = null, $comparison = null)
+    public function filterByAr3padr1($ar3padr1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ar3padr1)) {
@@ -448,7 +482,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PADR1, $ar3padr1, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PADR1, $ar3padr1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -458,14 +494,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByAr3padr2('fooValue');   // WHERE Ar3pAdr2 = 'fooValue'
      * $query->filterByAr3padr2('%fooValue%', Criteria::LIKE); // WHERE Ar3pAdr2 LIKE '%fooValue%'
+     * $query->filterByAr3padr2(['foo', 'bar']); // WHERE Ar3pAdr2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ar3padr2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ar3padr2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAr3padr2($ar3padr2 = null, $comparison = null)
+    public function filterByAr3padr2($ar3padr2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ar3padr2)) {
@@ -473,7 +510,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PADR2, $ar3padr2, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PADR2, $ar3padr2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -483,14 +522,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByAr3padr3('fooValue');   // WHERE Ar3pAdr3 = 'fooValue'
      * $query->filterByAr3padr3('%fooValue%', Criteria::LIKE); // WHERE Ar3pAdr3 LIKE '%fooValue%'
+     * $query->filterByAr3padr3(['foo', 'bar']); // WHERE Ar3pAdr3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ar3padr3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ar3padr3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAr3padr3($ar3padr3 = null, $comparison = null)
+    public function filterByAr3padr3($ar3padr3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ar3padr3)) {
@@ -498,7 +538,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PADR3, $ar3padr3, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PADR3, $ar3padr3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -508,14 +550,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByAr3pctry('fooValue');   // WHERE Ar3pCtry = 'fooValue'
      * $query->filterByAr3pctry('%fooValue%', Criteria::LIKE); // WHERE Ar3pCtry LIKE '%fooValue%'
+     * $query->filterByAr3pctry(['foo', 'bar']); // WHERE Ar3pCtry IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ar3pctry The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ar3pctry The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAr3pctry($ar3pctry = null, $comparison = null)
+    public function filterByAr3pctry($ar3pctry = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ar3pctry)) {
@@ -523,7 +566,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PCTRY, $ar3pctry, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PCTRY, $ar3pctry, $comparison);
+
+        return $this;
     }
 
     /**
@@ -533,14 +578,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByAr3pcity('fooValue');   // WHERE Ar3pCity = 'fooValue'
      * $query->filterByAr3pcity('%fooValue%', Criteria::LIKE); // WHERE Ar3pCity LIKE '%fooValue%'
+     * $query->filterByAr3pcity(['foo', 'bar']); // WHERE Ar3pCity IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ar3pcity The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ar3pcity The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAr3pcity($ar3pcity = null, $comparison = null)
+    public function filterByAr3pcity($ar3pcity = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ar3pcity)) {
@@ -548,7 +594,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PCITY, $ar3pcity, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PCITY, $ar3pcity, $comparison);
+
+        return $this;
     }
 
     /**
@@ -558,14 +606,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByAr3pstat('fooValue');   // WHERE Ar3pStat = 'fooValue'
      * $query->filterByAr3pstat('%fooValue%', Criteria::LIKE); // WHERE Ar3pStat LIKE '%fooValue%'
+     * $query->filterByAr3pstat(['foo', 'bar']); // WHERE Ar3pStat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ar3pstat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ar3pstat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAr3pstat($ar3pstat = null, $comparison = null)
+    public function filterByAr3pstat($ar3pstat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ar3pstat)) {
@@ -573,7 +622,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PSTAT, $ar3pstat, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PSTAT, $ar3pstat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -583,14 +634,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByAr3pzipcode('fooValue');   // WHERE Ar3pZipCode = 'fooValue'
      * $query->filterByAr3pzipcode('%fooValue%', Criteria::LIKE); // WHERE Ar3pZipCode LIKE '%fooValue%'
+     * $query->filterByAr3pzipcode(['foo', 'bar']); // WHERE Ar3pZipCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ar3pzipcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ar3pzipcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAr3pzipcode($ar3pzipcode = null, $comparison = null)
+    public function filterByAr3pzipcode($ar3pzipcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ar3pzipcode)) {
@@ -598,7 +650,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PZIPCODE, $ar3pzipcode, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PZIPCODE, $ar3pzipcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -608,14 +662,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByAr3pintl('fooValue');   // WHERE Ar3pIntl = 'fooValue'
      * $query->filterByAr3pintl('%fooValue%', Criteria::LIKE); // WHERE Ar3pIntl LIKE '%fooValue%'
+     * $query->filterByAr3pintl(['foo', 'bar']); // WHERE Ar3pIntl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ar3pintl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ar3pintl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAr3pintl($ar3pintl = null, $comparison = null)
+    public function filterByAr3pintl($ar3pintl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ar3pintl)) {
@@ -623,7 +678,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PINTL, $ar3pintl, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PINTL, $ar3pintl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -633,14 +690,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByAr3ptelenbr('fooValue');   // WHERE Ar3pTeleNbr = 'fooValue'
      * $query->filterByAr3ptelenbr('%fooValue%', Criteria::LIKE); // WHERE Ar3pTeleNbr LIKE '%fooValue%'
+     * $query->filterByAr3ptelenbr(['foo', 'bar']); // WHERE Ar3pTeleNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ar3ptelenbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ar3ptelenbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAr3ptelenbr($ar3ptelenbr = null, $comparison = null)
+    public function filterByAr3ptelenbr($ar3ptelenbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ar3ptelenbr)) {
@@ -648,7 +706,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PTELENBR, $ar3ptelenbr, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PTELENBR, $ar3ptelenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -658,14 +718,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByAr3pteleext('fooValue');   // WHERE Ar3pTeleExt = 'fooValue'
      * $query->filterByAr3pteleext('%fooValue%', Criteria::LIKE); // WHERE Ar3pTeleExt LIKE '%fooValue%'
+     * $query->filterByAr3pteleext(['foo', 'bar']); // WHERE Ar3pTeleExt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ar3pteleext The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ar3pteleext The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAr3pteleext($ar3pteleext = null, $comparison = null)
+    public function filterByAr3pteleext($ar3pteleext = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ar3pteleext)) {
@@ -673,7 +734,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PTELEEXT, $ar3pteleext, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PTELEEXT, $ar3pteleext, $comparison);
+
+        return $this;
     }
 
     /**
@@ -683,14 +746,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByAr3pitelnbr('fooValue');   // WHERE Ar3pItelNbr = 'fooValue'
      * $query->filterByAr3pitelnbr('%fooValue%', Criteria::LIKE); // WHERE Ar3pItelNbr LIKE '%fooValue%'
+     * $query->filterByAr3pitelnbr(['foo', 'bar']); // WHERE Ar3pItelNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ar3pitelnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ar3pitelnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAr3pitelnbr($ar3pitelnbr = null, $comparison = null)
+    public function filterByAr3pitelnbr($ar3pitelnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ar3pitelnbr)) {
@@ -698,7 +762,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PITELNBR, $ar3pitelnbr, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PITELNBR, $ar3pitelnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -708,14 +774,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByAr3pitelext('fooValue');   // WHERE Ar3pItelExt = 'fooValue'
      * $query->filterByAr3pitelext('%fooValue%', Criteria::LIKE); // WHERE Ar3pItelExt LIKE '%fooValue%'
+     * $query->filterByAr3pitelext(['foo', 'bar']); // WHERE Ar3pItelExt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ar3pitelext The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ar3pitelext The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAr3pitelext($ar3pitelext = null, $comparison = null)
+    public function filterByAr3pitelext($ar3pitelext = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ar3pitelext)) {
@@ -723,7 +790,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PITELEXT, $ar3pitelext, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PITELEXT, $ar3pitelext, $comparison);
+
+        return $this;
     }
 
     /**
@@ -733,14 +802,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByAr3pfaxnbr('fooValue');   // WHERE Ar3pFaxNbr = 'fooValue'
      * $query->filterByAr3pfaxnbr('%fooValue%', Criteria::LIKE); // WHERE Ar3pFaxNbr LIKE '%fooValue%'
+     * $query->filterByAr3pfaxnbr(['foo', 'bar']); // WHERE Ar3pFaxNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ar3pfaxnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ar3pfaxnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAr3pfaxnbr($ar3pfaxnbr = null, $comparison = null)
+    public function filterByAr3pfaxnbr($ar3pfaxnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ar3pfaxnbr)) {
@@ -748,7 +818,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PFAXNBR, $ar3pfaxnbr, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PFAXNBR, $ar3pfaxnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -758,14 +830,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByAr3pifaxnbr('fooValue');   // WHERE Ar3pIfaxNbr = 'fooValue'
      * $query->filterByAr3pifaxnbr('%fooValue%', Criteria::LIKE); // WHERE Ar3pIfaxNbr LIKE '%fooValue%'
+     * $query->filterByAr3pifaxnbr(['foo', 'bar']); // WHERE Ar3pIfaxNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $ar3pifaxnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $ar3pifaxnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAr3pifaxnbr($ar3pifaxnbr = null, $comparison = null)
+    public function filterByAr3pifaxnbr($ar3pifaxnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($ar3pifaxnbr)) {
@@ -773,7 +846,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PIFAXNBR, $ar3pifaxnbr, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_AR3PIFAXNBR, $ar3pifaxnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -783,14 +858,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -798,7 +874,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -808,14 +886,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -823,7 +902,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -833,14 +914,15 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -848,20 +930,22 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArCust3partyFreightTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ArCust3partyFreightTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \Customer object
      *
      * @param \Customer|ObjectCollection $customer The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomer($customer, $comparison = null)
+    public function filterByCustomer($customer, ?string $comparison = null)
     {
         if ($customer instanceof \Customer) {
             return $this
@@ -871,8 +955,10 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ArCust3partyFreightTableMap::COL_ARCUCUSTID, $customer->toKeyValue('PrimaryKey', 'Arcucustid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByCustomer() only accepts arguments of type \Customer or Collection');
         }
@@ -881,12 +967,12 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Customer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCustomer(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Customer');
@@ -915,9 +1001,9 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CustomerQuery A secondary query class using the current class as primary query
      */
@@ -929,11 +1015,107 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
     }
 
     /**
+     * Use the Customer relation Customer object
+     *
+     * @param callable(\CustomerQuery):\CustomerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCustomerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useCustomerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Customer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CustomerQuery The inner query object of the EXISTS statement
+     */
+    public function useCustomerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT EXISTS query.
+     *
+     * @see useCustomerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCustomerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CustomerQuery The inner query object of the IN statement
+     */
+    public function useInCustomerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT IN query.
+     *
+     * @see useCustomerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCustomerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildArCust3partyFreight $arCust3partyFreight Object to remove from the list of results
+     * @param ChildArCust3partyFreight $arCust3partyFreight Object to remove from the list of results
      *
-     * @return $this|ChildArCust3partyFreightQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($arCust3partyFreight = null)
     {
@@ -952,7 +1134,7 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCust3partyFreightTableMap::DATABASE_NAME);
@@ -977,12 +1159,12 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArCust3partyFreightTableMap::DATABASE_NAME);
@@ -1007,4 +1189,4 @@ abstract class ArCust3partyFreightQuery extends ModelCriteria
         });
     }
 
-} // ArCust3partyFreightQuery
+}

@@ -29,19 +29,21 @@ abstract class ConfigPo implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\ConfigPoTableMap';
+    public const TABLE_MAP = '\\Map\\ConfigPoTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -50,14 +52,14 @@ abstract class ConfigPo implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the potbconfkey field.
@@ -807,7 +809,7 @@ abstract class ConfigPo implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
@@ -817,7 +819,7 @@ abstract class ConfigPo implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->potbconfkey = 1;
         $this->potbconfsortpo = 'N';
@@ -926,9 +928,9 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -936,10 +938,10 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -948,7 +950,7 @@ abstract class ConfigPo implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -958,9 +960,9 @@ abstract class ConfigPo implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -969,45 +971,43 @@ abstract class ConfigPo implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -1016,10 +1016,10 @@ abstract class ConfigPo implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>ConfigPo</code>, delegates to
      * <code>equals(ConfigPo)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -1041,7 +1041,7 @@ abstract class ConfigPo implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -1049,10 +1049,10 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -1060,15 +1060,15 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -1077,12 +1077,12 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|ConfigPo The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -1092,13 +1092,13 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -1109,24 +1109,27 @@ abstract class ConfigPo implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -2074,8 +2077,8 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Set the value of [potbconfkey] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfkey($v)
     {
@@ -2089,13 +2092,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfkey()
+    }
 
     /**
      * Set the value of [potbconfsortpo] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfsortpo($v)
     {
@@ -2109,13 +2112,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfsortpo()
+    }
 
     /**
      * Set the value of [potbconfcancorrshpdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfcancorrshpdate($v)
     {
@@ -2129,13 +2132,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfcancorrshpdate()
+    }
 
     /**
      * Set the value of [potbconfackoretadate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfackoretadate($v)
     {
@@ -2149,13 +2152,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfackoretadate()
+    }
 
     /**
      * Set the value of [potbconfeditshipdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfeditshipdate($v)
     {
@@ -2169,13 +2172,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfeditshipdate()
+    }
 
     /**
      * Set the value of [potbconfeditexptdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfeditexptdate($v)
     {
@@ -2189,13 +2192,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfeditexptdate()
+    }
 
     /**
      * Set the value of [potbconfeditcancdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfeditcancdate($v)
     {
@@ -2209,13 +2212,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfeditcancdate()
+    }
 
     /**
      * Set the value of [potbconfeditackdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfeditackdate($v)
     {
@@ -2229,13 +2232,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfeditackdate()
+    }
 
     /**
      * Set the value of [potbconfexptdatedef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfexptdatedef($v)
     {
@@ -2249,13 +2252,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfexptdatedef()
+    }
 
     /**
      * Set the value of [potbconfheadgetdef] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfheadgetdef($v)
     {
@@ -2269,13 +2272,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfheadgetdef()
+    }
 
     /**
      * Set the value of [potbconfreseq] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfreseq($v)
     {
@@ -2289,13 +2292,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfreseq()
+    }
 
     /**
      * Set the value of [potbconfforcevxref] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfforcevxref($v)
     {
@@ -2309,13 +2312,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfforcevxref()
+    }
 
     /**
      * Set the value of [potbconfqtydue] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfqtydue($v)
     {
@@ -2329,13 +2332,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfqtydue()
+    }
 
     /**
      * Set the value of [potbconfwarndup] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfwarndup($v)
     {
@@ -2349,13 +2352,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfwarndup()
+    }
 
     /**
      * Set the value of [potbconfforceporef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfforceporef($v)
     {
@@ -2369,13 +2372,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfforceporef()
+    }
 
     /**
      * Set the value of [potbconfdestwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfdestwhse($v)
     {
@@ -2389,13 +2392,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfdestwhse()
+    }
 
     /**
      * Set the value of [potbconfeditpoitemnotes] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfeditpoitemnotes($v)
     {
@@ -2409,13 +2412,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfeditpoitemnotes()
+    }
 
     /**
      * Set the value of [potbconfloadpovxmnotes] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfloadpovxmnotes($v)
     {
@@ -2429,13 +2432,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfloadpovxmnotes()
+    }
 
     /**
      * Set the value of [potbconfepoupdlastcost] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfepoupdlastcost($v)
     {
@@ -2449,13 +2452,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfepoupdlastcost()
+    }
 
     /**
      * Set the value of [potbconfrecall] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfrecall($v)
     {
@@ -2469,13 +2472,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfrecall()
+    }
 
     /**
      * Set the value of [potbconfrecallask] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfrecallask($v)
     {
@@ -2489,13 +2492,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfrecallask()
+    }
 
     /**
      * Set the value of [potbconfreceivecost] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfreceivecost($v)
     {
@@ -2509,13 +2512,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfreceivecost()
+    }
 
     /**
      * Set the value of [potbconfprocvari] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfprocvari($v)
     {
@@ -2529,13 +2532,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfprocvari()
+    }
 
     /**
      * Set the value of [potbconfcostrcvryacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfcostrcvryacct($v)
     {
@@ -2549,13 +2552,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfcostrcvryacct()
+    }
 
     /**
      * Set the value of [potbconfinvtyvariacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfinvtyvariacct($v)
     {
@@ -2569,13 +2572,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfinvtyvariacct()
+    }
 
     /**
      * Set the value of [potbconfallowchgcost] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfallowchgcost($v)
     {
@@ -2589,13 +2592,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfallowchgcost()
+    }
 
     /**
      * Set the value of [potbconfwarnrcptqty] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfwarnrcptqty($v)
     {
@@ -2609,13 +2612,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfwarnrcptqty()
+    }
 
     /**
      * Set the value of [potbconferdispdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconferdispdate($v)
     {
@@ -2629,13 +2632,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconferdispdate()
+    }
 
     /**
      * Set the value of [potbconfprovidelpo] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfprovidelpo($v)
     {
@@ -2649,13 +2652,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfprovidelpo()
+    }
 
     /**
      * Set the value of [potbconfwarndiffwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfwarndiffwhse($v)
     {
@@ -2669,13 +2672,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfwarndiffwhse()
+    }
 
     /**
      * Set the value of [potbconfallocrcvd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfallocrcvd($v)
     {
@@ -2689,13 +2692,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfallocrcvd()
+    }
 
     /**
      * Set the value of [potbconfaskclose] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfaskclose($v)
     {
@@ -2709,13 +2712,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfaskclose()
+    }
 
     /**
      * Set the value of [potbconferadd2po] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconferadd2po($v)
     {
@@ -2729,13 +2732,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconferadd2po()
+    }
 
     /**
      * Set the value of [potbconftariffglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconftariffglacct($v)
     {
@@ -2749,13 +2752,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconftariffglacct()
+    }
 
     /**
      * Set the value of [potbconfshopglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfshopglacct($v)
     {
@@ -2769,13 +2772,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfshopglacct()
+    }
 
     /**
      * Set the value of [potbconfshoprate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfshoprate($v)
     {
@@ -2789,13 +2792,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfshoprate()
+    }
 
     /**
      * Set the value of [potbconfuseprime] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfuseprime($v)
     {
@@ -2809,13 +2812,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfuseprime()
+    }
 
     /**
      * Set the value of [potbconfusewatch] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfusewatch($v)
     {
@@ -2829,13 +2832,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfusewatch()
+    }
 
     /**
      * Set the value of [potbconfprtpowsugg] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfprtpowsugg($v)
     {
@@ -2849,13 +2852,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfprtpowsugg()
+    }
 
     /**
      * Set the value of [potbconfpowslctyes] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfpowslctyes($v)
     {
@@ -2869,13 +2872,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfpowslctyes()
+    }
 
     /**
      * Set the value of [potbconfpowgvendrpt] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfpowgvendrpt($v)
     {
@@ -2889,13 +2892,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfpowgvendrpt()
+    }
 
     /**
      * Set the value of [potbconfpowgwipstatus] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfpowgwipstatus($v)
     {
@@ -2909,13 +2912,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfpowgwipstatus()
+    }
 
     /**
      * Set the value of [potbconfpowgwipautogen] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfpowgwipautogen($v)
     {
@@ -2929,13 +2932,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfpowgwipautogen()
+    }
 
     /**
      * Set the value of [potbconfbuyercontrol] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfbuyercontrol($v)
     {
@@ -2949,13 +2952,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfbuyercontrol()
+    }
 
     /**
      * Set the value of [potbconfpowgoqmethod] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfpowgoqmethod($v)
     {
@@ -2969,13 +2972,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfpowgoqmethod()
+    }
 
     /**
      * Set the value of [potbconffxpo] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconffxpo($v)
     {
@@ -2989,13 +2992,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconffxpo()
+    }
 
     /**
      * Set the value of [potbconffxinv] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconffxinv($v)
     {
@@ -3009,13 +3012,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconffxinv()
+    }
 
     /**
      * Set the value of [potbconfupdatevendcost] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfupdatevendcost($v)
     {
@@ -3029,13 +3032,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfupdatevendcost()
+    }
 
     /**
      * Set the value of [potbconfaskupdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfaskupdate($v)
     {
@@ -3049,13 +3052,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfaskupdate()
+    }
 
     /**
      * Set the value of [potbconfvxmroundpos] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfvxmroundpos($v)
     {
@@ -3069,13 +3072,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfvxmroundpos()
+    }
 
     /**
      * Set the value of [potbconfxrefmaint] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfxrefmaint($v)
     {
@@ -3089,13 +3092,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfxrefmaint()
+    }
 
     /**
      * Set the value of [potbconfuseidopts] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfuseidopts($v)
     {
@@ -3109,13 +3112,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfuseidopts()
+    }
 
     /**
      * Set the value of [potbconfsrchvxmfirst] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfsrchvxmfirst($v)
     {
@@ -3129,13 +3132,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfsrchvxmfirst()
+    }
 
     /**
      * Set the value of [potbconfopenlineonly] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfopenlineonly($v)
     {
@@ -3149,13 +3152,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfopenlineonly()
+    }
 
     /**
      * Set the value of [potbconfitemdesc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfitemdesc($v)
     {
@@ -3169,13 +3172,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfitemdesc()
+    }
 
     /**
      * Set the value of [potbconfopenbalonly] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfopenbalonly($v)
     {
@@ -3189,13 +3192,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfopenbalonly()
+    }
 
     /**
      * Set the value of [potbconfprtwhsedtl] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfprtwhsedtl($v)
     {
@@ -3209,13 +3212,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfprtwhsedtl()
+    }
 
     /**
      * Set the value of [potbconfautorcpt] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfautorcpt($v)
     {
@@ -3229,13 +3232,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfautorcpt()
+    }
 
     /**
      * Set the value of [potbconfdispitemcost] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfdispitemcost($v)
     {
@@ -3249,13 +3252,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfdispitemcost()
+    }
 
     /**
      * Set the value of [potbconfdispcaseqty] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfdispcaseqty($v)
     {
@@ -3269,13 +3272,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfdispcaseqty()
+    }
 
     /**
      * Set the value of [potbconfonetwoline] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfonetwoline($v)
     {
@@ -3289,13 +3292,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfonetwoline()
+    }
 
     /**
      * Set the value of [potbconfuseordras] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfuseordras($v)
     {
@@ -3309,13 +3312,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfuseordras()
+    }
 
     /**
      * Set the value of [potbconfaprvvendonly] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfaprvvendonly($v)
     {
@@ -3329,13 +3332,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfaprvvendonly()
+    }
 
     /**
      * Set the value of [potbconfusefab] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfusefab($v)
     {
@@ -3349,13 +3352,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfusefab()
+    }
 
     /**
      * Set the value of [potbconfshowitem] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfshowitem($v)
     {
@@ -3369,13 +3372,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfshowitem()
+    }
 
     /**
      * Set the value of [potbconfscrapacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfscrapacct($v)
     {
@@ -3389,13 +3392,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfscrapacct()
+    }
 
     /**
      * Set the value of [potbconfscrapvaripct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfscrapvaripct($v)
     {
@@ -3409,13 +3412,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfscrapvaripct()
+    }
 
     /**
      * Set the value of [potbconflifofifo] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconflifofifo($v)
     {
@@ -3429,13 +3432,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconflifofifo()
+    }
 
     /**
      * Set the value of [potbconffabbomorkit] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconffabbomorkit($v)
     {
@@ -3449,13 +3452,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconffabbomorkit()
+    }
 
     /**
      * Set the value of [potbconfallocepoer] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfallocepoer($v)
     {
@@ -3469,13 +3472,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfallocepoer()
+    }
 
     /**
      * Set the value of [potbconffabprealloc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconffabprealloc($v)
     {
@@ -3489,13 +3492,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconffabprealloc()
+    }
 
     /**
      * Set the value of [potbconfforcefabepo] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfforcefabepo($v)
     {
@@ -3509,13 +3512,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfforcefabepo()
+    }
 
     /**
      * Set the value of [potbconfpreviewcomplist] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfpreviewcomplist($v)
     {
@@ -3529,13 +3532,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfpreviewcomplist()
+    }
 
     /**
      * Set the value of [potbconfnegcompusage] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfnegcompusage($v)
     {
@@ -3549,13 +3552,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfnegcompusage()
+    }
 
     /**
      * Set the value of [potbconfautoselectcomp] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfautoselectcomp($v)
     {
@@ -3569,13 +3572,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfautoselectcomp()
+    }
 
     /**
      * Set the value of [potbconfbinfromvendor] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfbinfromvendor($v)
     {
@@ -3589,13 +3592,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfbinfromvendor()
+    }
 
     /**
      * Set the value of [potbconfdfltstckcd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfdfltstckcd($v)
     {
@@ -3609,13 +3612,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfdfltstckcd()
+    }
 
     /**
      * Set the value of [potbconfuseremain] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfuseremain($v)
     {
@@ -3629,13 +3632,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfuseremain()
+    }
 
     /**
      * Set the value of [potbconfsamecompcost] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfsamecompcost($v)
     {
@@ -3649,13 +3652,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfsamecompcost()
+    }
 
     /**
      * Set the value of [potbconfpasscode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfpasscode($v)
     {
@@ -3669,13 +3672,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfpasscode()
+    }
 
     /**
      * Set the value of [potbconfuselandcost] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfuselandcost($v)
     {
@@ -3689,13 +3692,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfuselandcost()
+    }
 
     /**
      * Set the value of [potbconfbaselandamtqty] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfbaselandamtqty($v)
     {
@@ -3709,13 +3712,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfbaselandamtqty()
+    }
 
     /**
      * Set the value of [potbconfwarnlandiner] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfwarnlandiner($v)
     {
@@ -3729,13 +3732,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfwarnlandiner()
+    }
 
     /**
      * Set the value of [potbconflandamtmultwght] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconflandamtmultwght($v)
     {
@@ -3749,13 +3752,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconflandamtmultwght()
+    }
 
     /**
      * Set the value of [potbconflanderedit] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconflanderedit($v)
     {
@@ -3769,13 +3772,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconflanderedit()
+    }
 
     /**
      * Set the value of [potbconfhistcmplfab] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconfhistcmplfab($v)
     {
@@ -3789,13 +3792,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconfhistcmplfab()
+    }
 
     /**
      * Set the value of [potbconflandglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotbconflandglacct($v)
     {
@@ -3809,13 +3812,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotbconflandglacct()
+    }
 
     /**
      * Set the value of [potblandmpfglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotblandmpfglacct($v)
     {
@@ -3829,13 +3832,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotblandmpfglacct()
+    }
 
     /**
      * Set the value of [potblandhmfglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotblandhmfglacct($v)
     {
@@ -3849,13 +3852,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotblandhmfglacct()
+    }
 
     /**
      * Set the value of [potblanddsetglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setPotblanddsetglacct($v)
     {
@@ -3869,13 +3872,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPotblanddsetglacct()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -3889,13 +3892,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -3909,13 +3912,13 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigPo The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -3929,7 +3932,7 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -3937,9 +3940,9 @@ abstract class ConfigPo implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->potbconfkey !== 1) {
                 return false;
@@ -4315,7 +4318,7 @@ abstract class ConfigPo implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -4325,17 +4328,17 @@ abstract class ConfigPo implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -4617,8 +4620,8 @@ abstract class ConfigPo implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : ConfigPoTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -4643,23 +4646,24 @@ abstract class ConfigPo implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -4692,13 +4696,13 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see ConfigPo::setDeleted()
      * @see ConfigPo::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -4728,12 +4732,12 @@ abstract class ConfigPo implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -4778,12 +4782,12 @@ abstract class ConfigPo implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -4805,19 +4809,19 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -5114,282 +5118,375 @@ abstract class ConfigPo implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'PotbConfKey':
                         $stmt->bindValue($identifier, $this->potbconfkey, PDO::PARAM_INT);
+
                         break;
                     case 'PotbConfSortPo':
                         $stmt->bindValue($identifier, $this->potbconfsortpo, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfCancOrRshpDate':
                         $stmt->bindValue($identifier, $this->potbconfcancorrshpdate, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfAckOrEtaDate':
                         $stmt->bindValue($identifier, $this->potbconfackoretadate, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfEditShipDate':
                         $stmt->bindValue($identifier, $this->potbconfeditshipdate, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfEditExptDate':
                         $stmt->bindValue($identifier, $this->potbconfeditexptdate, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfEditCancDate':
                         $stmt->bindValue($identifier, $this->potbconfeditcancdate, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfEditAckDate':
                         $stmt->bindValue($identifier, $this->potbconfeditackdate, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfExptDateDef':
                         $stmt->bindValue($identifier, $this->potbconfexptdatedef, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfHeadGetDef':
                         $stmt->bindValue($identifier, $this->potbconfheadgetdef, PDO::PARAM_INT);
+
                         break;
                     case 'PotbConfReseq':
                         $stmt->bindValue($identifier, $this->potbconfreseq, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfForceVxref':
                         $stmt->bindValue($identifier, $this->potbconfforcevxref, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfQtyDue':
                         $stmt->bindValue($identifier, $this->potbconfqtydue, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfWarnDup':
                         $stmt->bindValue($identifier, $this->potbconfwarndup, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfForcePoRef':
                         $stmt->bindValue($identifier, $this->potbconfforceporef, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfDestWhse':
                         $stmt->bindValue($identifier, $this->potbconfdestwhse, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfEditPoItemNotes':
                         $stmt->bindValue($identifier, $this->potbconfeditpoitemnotes, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfLoadPoVxmNotes':
                         $stmt->bindValue($identifier, $this->potbconfloadpovxmnotes, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfEpoUpdLastCost':
                         $stmt->bindValue($identifier, $this->potbconfepoupdlastcost, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfRecAll':
                         $stmt->bindValue($identifier, $this->potbconfrecall, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfRecAllAsk':
                         $stmt->bindValue($identifier, $this->potbconfrecallask, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfReceiveCost':
                         $stmt->bindValue($identifier, $this->potbconfreceivecost, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfProcVari':
                         $stmt->bindValue($identifier, $this->potbconfprocvari, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfCostRcvryAcct':
                         $stmt->bindValue($identifier, $this->potbconfcostrcvryacct, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfInvtyVariAcct':
                         $stmt->bindValue($identifier, $this->potbconfinvtyvariacct, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfAllowChgCost':
                         $stmt->bindValue($identifier, $this->potbconfallowchgcost, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfWarnRcptQty':
                         $stmt->bindValue($identifier, $this->potbconfwarnrcptqty, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfErDispDate':
                         $stmt->bindValue($identifier, $this->potbconferdispdate, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfProvideLpo':
                         $stmt->bindValue($identifier, $this->potbconfprovidelpo, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfWarnDiffWhse':
                         $stmt->bindValue($identifier, $this->potbconfwarndiffwhse, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfAllocRcvd':
                         $stmt->bindValue($identifier, $this->potbconfallocrcvd, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfAskClose':
                         $stmt->bindValue($identifier, $this->potbconfaskclose, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfErAdd2Po':
                         $stmt->bindValue($identifier, $this->potbconferadd2po, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfTariffGlAcct':
                         $stmt->bindValue($identifier, $this->potbconftariffglacct, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfShopGlAcct':
                         $stmt->bindValue($identifier, $this->potbconfshopglacct, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfShopRate':
                         $stmt->bindValue($identifier, $this->potbconfshoprate, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfUsePrime':
                         $stmt->bindValue($identifier, $this->potbconfuseprime, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfUseWatch':
                         $stmt->bindValue($identifier, $this->potbconfusewatch, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfPrtPowSugg':
                         $stmt->bindValue($identifier, $this->potbconfprtpowsugg, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfPowSlctYes':
                         $stmt->bindValue($identifier, $this->potbconfpowslctyes, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfPowgVendRpt':
                         $stmt->bindValue($identifier, $this->potbconfpowgvendrpt, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfPowgWipStatus':
                         $stmt->bindValue($identifier, $this->potbconfpowgwipstatus, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfPowgWipAutoGen':
                         $stmt->bindValue($identifier, $this->potbconfpowgwipautogen, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfBuyerControl':
                         $stmt->bindValue($identifier, $this->potbconfbuyercontrol, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfPowgOqMethod':
                         $stmt->bindValue($identifier, $this->potbconfpowgoqmethod, PDO::PARAM_INT);
+
                         break;
                     case 'PotbConfFxPo':
                         $stmt->bindValue($identifier, $this->potbconffxpo, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfFxInv':
                         $stmt->bindValue($identifier, $this->potbconffxinv, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfUpDateVendCost':
                         $stmt->bindValue($identifier, $this->potbconfupdatevendcost, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfAskUpDate':
                         $stmt->bindValue($identifier, $this->potbconfaskupdate, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfVxmRoundPos':
                         $stmt->bindValue($identifier, $this->potbconfvxmroundpos, PDO::PARAM_INT);
+
                         break;
                     case 'PotbConfXrefMaint':
                         $stmt->bindValue($identifier, $this->potbconfxrefmaint, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfUseIdOpts':
                         $stmt->bindValue($identifier, $this->potbconfuseidopts, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfSrchVxmFirst':
                         $stmt->bindValue($identifier, $this->potbconfsrchvxmfirst, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfOpenLineOnly':
                         $stmt->bindValue($identifier, $this->potbconfopenlineonly, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfItemDesc':
                         $stmt->bindValue($identifier, $this->potbconfitemdesc, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfOpenBalOnly':
                         $stmt->bindValue($identifier, $this->potbconfopenbalonly, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfPrtWhseDtl':
                         $stmt->bindValue($identifier, $this->potbconfprtwhsedtl, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfAutoRcpt':
                         $stmt->bindValue($identifier, $this->potbconfautorcpt, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfDispItemCost':
                         $stmt->bindValue($identifier, $this->potbconfdispitemcost, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfDispCaseQty':
                         $stmt->bindValue($identifier, $this->potbconfdispcaseqty, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfOneTwoLine':
                         $stmt->bindValue($identifier, $this->potbconfonetwoline, PDO::PARAM_INT);
+
                         break;
                     case 'PotbConfUseOrdrAs':
                         $stmt->bindValue($identifier, $this->potbconfuseordras, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfAprvVendOnly':
                         $stmt->bindValue($identifier, $this->potbconfaprvvendonly, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfUseFab':
                         $stmt->bindValue($identifier, $this->potbconfusefab, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfShowItem':
                         $stmt->bindValue($identifier, $this->potbconfshowitem, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfScrapAcct':
                         $stmt->bindValue($identifier, $this->potbconfscrapacct, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfScrapVariPct':
                         $stmt->bindValue($identifier, $this->potbconfscrapvaripct, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfLifoFifo':
                         $stmt->bindValue($identifier, $this->potbconflifofifo, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfFabBomOrKit':
                         $stmt->bindValue($identifier, $this->potbconffabbomorkit, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfAllocEpoEr':
                         $stmt->bindValue($identifier, $this->potbconfallocepoer, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfFabPrealloc':
                         $stmt->bindValue($identifier, $this->potbconffabprealloc, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfForceFabEpo':
                         $stmt->bindValue($identifier, $this->potbconfforcefabepo, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfPreviewCompList':
                         $stmt->bindValue($identifier, $this->potbconfpreviewcomplist, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfNegCompUsage':
                         $stmt->bindValue($identifier, $this->potbconfnegcompusage, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfAutoSelectComp':
                         $stmt->bindValue($identifier, $this->potbconfautoselectcomp, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfBinFromVendor':
                         $stmt->bindValue($identifier, $this->potbconfbinfromvendor, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfDfltStckCd':
                         $stmt->bindValue($identifier, $this->potbconfdfltstckcd, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfUseRemain':
                         $stmt->bindValue($identifier, $this->potbconfuseremain, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfSameCompCost':
                         $stmt->bindValue($identifier, $this->potbconfsamecompcost, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfPassCode':
                         $stmt->bindValue($identifier, $this->potbconfpasscode, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfUseLandCost':
                         $stmt->bindValue($identifier, $this->potbconfuselandcost, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfBaseLandAmtQty':
                         $stmt->bindValue($identifier, $this->potbconfbaselandamtqty, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfWarnLandInEr':
                         $stmt->bindValue($identifier, $this->potbconfwarnlandiner, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfLandAmtMultWght':
                         $stmt->bindValue($identifier, $this->potbconflandamtmultwght, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfLandErEdit':
                         $stmt->bindValue($identifier, $this->potbconflanderedit, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfHistCmplFab':
                         $stmt->bindValue($identifier, $this->potbconfhistcmplfab, PDO::PARAM_STR);
+
                         break;
                     case 'PotbConfLandGlAcct':
                         $stmt->bindValue($identifier, $this->potbconflandglacct, PDO::PARAM_STR);
+
                         break;
                     case 'PotbLandMpfGlAcct':
                         $stmt->bindValue($identifier, $this->potblandmpfglacct, PDO::PARAM_STR);
+
                         break;
                     case 'PotbLandHmfGlAcct':
                         $stmt->bindValue($identifier, $this->potblandhmfglacct, PDO::PARAM_STR);
+
                         break;
                     case 'PotbLandDsetGlAcct':
                         $stmt->bindValue($identifier, $this->potblanddsetglacct, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -5405,12 +5502,12 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -5421,14 +5518,14 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ConfigPoTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -5440,294 +5537,293 @@ abstract class ConfigPo implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getPotbconfkey();
-                break;
+
             case 1:
                 return $this->getPotbconfsortpo();
-                break;
+
             case 2:
                 return $this->getPotbconfcancorrshpdate();
-                break;
+
             case 3:
                 return $this->getPotbconfackoretadate();
-                break;
+
             case 4:
                 return $this->getPotbconfeditshipdate();
-                break;
+
             case 5:
                 return $this->getPotbconfeditexptdate();
-                break;
+
             case 6:
                 return $this->getPotbconfeditcancdate();
-                break;
+
             case 7:
                 return $this->getPotbconfeditackdate();
-                break;
+
             case 8:
                 return $this->getPotbconfexptdatedef();
-                break;
+
             case 9:
                 return $this->getPotbconfheadgetdef();
-                break;
+
             case 10:
                 return $this->getPotbconfreseq();
-                break;
+
             case 11:
                 return $this->getPotbconfforcevxref();
-                break;
+
             case 12:
                 return $this->getPotbconfqtydue();
-                break;
+
             case 13:
                 return $this->getPotbconfwarndup();
-                break;
+
             case 14:
                 return $this->getPotbconfforceporef();
-                break;
+
             case 15:
                 return $this->getPotbconfdestwhse();
-                break;
+
             case 16:
                 return $this->getPotbconfeditpoitemnotes();
-                break;
+
             case 17:
                 return $this->getPotbconfloadpovxmnotes();
-                break;
+
             case 18:
                 return $this->getPotbconfepoupdlastcost();
-                break;
+
             case 19:
                 return $this->getPotbconfrecall();
-                break;
+
             case 20:
                 return $this->getPotbconfrecallask();
-                break;
+
             case 21:
                 return $this->getPotbconfreceivecost();
-                break;
+
             case 22:
                 return $this->getPotbconfprocvari();
-                break;
+
             case 23:
                 return $this->getPotbconfcostrcvryacct();
-                break;
+
             case 24:
                 return $this->getPotbconfinvtyvariacct();
-                break;
+
             case 25:
                 return $this->getPotbconfallowchgcost();
-                break;
+
             case 26:
                 return $this->getPotbconfwarnrcptqty();
-                break;
+
             case 27:
                 return $this->getPotbconferdispdate();
-                break;
+
             case 28:
                 return $this->getPotbconfprovidelpo();
-                break;
+
             case 29:
                 return $this->getPotbconfwarndiffwhse();
-                break;
+
             case 30:
                 return $this->getPotbconfallocrcvd();
-                break;
+
             case 31:
                 return $this->getPotbconfaskclose();
-                break;
+
             case 32:
                 return $this->getPotbconferadd2po();
-                break;
+
             case 33:
                 return $this->getPotbconftariffglacct();
-                break;
+
             case 34:
                 return $this->getPotbconfshopglacct();
-                break;
+
             case 35:
                 return $this->getPotbconfshoprate();
-                break;
+
             case 36:
                 return $this->getPotbconfuseprime();
-                break;
+
             case 37:
                 return $this->getPotbconfusewatch();
-                break;
+
             case 38:
                 return $this->getPotbconfprtpowsugg();
-                break;
+
             case 39:
                 return $this->getPotbconfpowslctyes();
-                break;
+
             case 40:
                 return $this->getPotbconfpowgvendrpt();
-                break;
+
             case 41:
                 return $this->getPotbconfpowgwipstatus();
-                break;
+
             case 42:
                 return $this->getPotbconfpowgwipautogen();
-                break;
+
             case 43:
                 return $this->getPotbconfbuyercontrol();
-                break;
+
             case 44:
                 return $this->getPotbconfpowgoqmethod();
-                break;
+
             case 45:
                 return $this->getPotbconffxpo();
-                break;
+
             case 46:
                 return $this->getPotbconffxinv();
-                break;
+
             case 47:
                 return $this->getPotbconfupdatevendcost();
-                break;
+
             case 48:
                 return $this->getPotbconfaskupdate();
-                break;
+
             case 49:
                 return $this->getPotbconfvxmroundpos();
-                break;
+
             case 50:
                 return $this->getPotbconfxrefmaint();
-                break;
+
             case 51:
                 return $this->getPotbconfuseidopts();
-                break;
+
             case 52:
                 return $this->getPotbconfsrchvxmfirst();
-                break;
+
             case 53:
                 return $this->getPotbconfopenlineonly();
-                break;
+
             case 54:
                 return $this->getPotbconfitemdesc();
-                break;
+
             case 55:
                 return $this->getPotbconfopenbalonly();
-                break;
+
             case 56:
                 return $this->getPotbconfprtwhsedtl();
-                break;
+
             case 57:
                 return $this->getPotbconfautorcpt();
-                break;
+
             case 58:
                 return $this->getPotbconfdispitemcost();
-                break;
+
             case 59:
                 return $this->getPotbconfdispcaseqty();
-                break;
+
             case 60:
                 return $this->getPotbconfonetwoline();
-                break;
+
             case 61:
                 return $this->getPotbconfuseordras();
-                break;
+
             case 62:
                 return $this->getPotbconfaprvvendonly();
-                break;
+
             case 63:
                 return $this->getPotbconfusefab();
-                break;
+
             case 64:
                 return $this->getPotbconfshowitem();
-                break;
+
             case 65:
                 return $this->getPotbconfscrapacct();
-                break;
+
             case 66:
                 return $this->getPotbconfscrapvaripct();
-                break;
+
             case 67:
                 return $this->getPotbconflifofifo();
-                break;
+
             case 68:
                 return $this->getPotbconffabbomorkit();
-                break;
+
             case 69:
                 return $this->getPotbconfallocepoer();
-                break;
+
             case 70:
                 return $this->getPotbconffabprealloc();
-                break;
+
             case 71:
                 return $this->getPotbconfforcefabepo();
-                break;
+
             case 72:
                 return $this->getPotbconfpreviewcomplist();
-                break;
+
             case 73:
                 return $this->getPotbconfnegcompusage();
-                break;
+
             case 74:
                 return $this->getPotbconfautoselectcomp();
-                break;
+
             case 75:
                 return $this->getPotbconfbinfromvendor();
-                break;
+
             case 76:
                 return $this->getPotbconfdfltstckcd();
-                break;
+
             case 77:
                 return $this->getPotbconfuseremain();
-                break;
+
             case 78:
                 return $this->getPotbconfsamecompcost();
-                break;
+
             case 79:
                 return $this->getPotbconfpasscode();
-                break;
+
             case 80:
                 return $this->getPotbconfuselandcost();
-                break;
+
             case 81:
                 return $this->getPotbconfbaselandamtqty();
-                break;
+
             case 82:
                 return $this->getPotbconfwarnlandiner();
-                break;
+
             case 83:
                 return $this->getPotbconflandamtmultwght();
-                break;
+
             case 84:
                 return $this->getPotbconflanderedit();
-                break;
+
             case 85:
                 return $this->getPotbconfhistcmplfab();
-                break;
+
             case 86:
                 return $this->getPotbconflandglacct();
-                break;
+
             case 87:
                 return $this->getPotblandmpfglacct();
-                break;
+
             case 88:
                 return $this->getPotblandhmfglacct();
-                break;
+
             case 89:
                 return $this->getPotblanddsetglacct();
-                break;
+
             case 90:
                 return $this->getDateupdtd();
-                break;
+
             case 91:
                 return $this->getTimeupdtd();
-                break;
+
             case 92:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -5737,23 +5833,22 @@ abstract class ConfigPo implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = []): array
     {
-
         if (isset($alreadyDumpedObjects['ConfigPo'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['ConfigPo'][$this->hashCode()] = true;
         $keys = ConfigPoTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getPotbconfkey(),
             $keys[1] => $this->getPotbconfsortpo(),
             $keys[2] => $this->getPotbconfcancorrshpdate(),
@@ -5847,7 +5942,7 @@ abstract class ConfigPo implements ActiveRecordInterface
             $keys[90] => $this->getDateupdtd(),
             $keys[91] => $this->getTimeupdtd(),
             $keys[92] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -5860,30 +5955,32 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\ConfigPo
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ConfigPoTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\ConfigPo
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -6183,11 +6280,11 @@ abstract class ConfigPo implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = ConfigPoTableMap::getFieldNames($keyType);
 
@@ -6470,6 +6567,8 @@ abstract class ConfigPo implements ActiveRecordInterface
         if (array_key_exists($keys[92], $arr)) {
             $this->setDummy($arr[$keys[92]]);
         }
+
+        return $this;
     }
 
      /**
@@ -6489,9 +6588,9 @@ abstract class ConfigPo implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\ConfigPo The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -6505,9 +6604,9 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(ConfigPoTableMap::DATABASE_NAME);
 
@@ -6798,13 +6897,13 @@ abstract class ConfigPo implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildConfigPoQuery::create();
         $criteria->add(ConfigPoTableMap::COL_POTBCONFKEY, $this->potbconfkey);
@@ -6816,7 +6915,7 @@ abstract class ConfigPo implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -6846,19 +6945,20 @@ abstract class ConfigPo implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (potbconfkey column).
      *
-     * @param       int $key Primary key.
+     * @param int|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?int $key = null): void
     {
         $this->setPotbconfkey($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getPotbconfkey();
     }
@@ -6869,12 +6969,13 @@ abstract class ConfigPo implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \ConfigPo (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \ConfigPo (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setPotbconfkey($this->getPotbconfkey());
         $copyObj->setPotbconfsortpo($this->getPotbconfsortpo());
@@ -6982,11 +7083,11 @@ abstract class ConfigPo implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \ConfigPo Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -7000,6 +7101,8 @@ abstract class ConfigPo implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -7102,6 +7205,8 @@ abstract class ConfigPo implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -7110,13 +7215,15 @@ abstract class ConfigPo implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
         } // if ($deep)
 
+        return $this;
     }
 
     /**
@@ -7131,99 +7238,79 @@ abstract class ConfigPo implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // return parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // return parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // return parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // return parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -7233,7 +7320,7 @@ abstract class ConfigPo implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -7253,15 +7340,18 @@ abstract class ConfigPo implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

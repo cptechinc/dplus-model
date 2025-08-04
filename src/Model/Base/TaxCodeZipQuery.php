@@ -10,14 +10,12 @@ use Map\TaxCodeZipTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ar_cust_txzp' table.
- *
- *
+ * Base class that represents a query for the `ar_cust_txzp` table.
  *
  * @method     ChildTaxCodeZipQuery orderByArtbzipcode($order = Criteria::ASC) Order by the ArtbZipCode column
  * @method     ChildTaxCodeZipQuery orderByArtbtxzptaxcode($order = Criteria::ASC) Order by the ArtbTxzpTaxCode column
@@ -39,17 +37,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildTaxCodeZipQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildTaxCodeZipQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildTaxCodeZip findOne(ConnectionInterface $con = null) Return the first ChildTaxCodeZip matching the query
- * @method     ChildTaxCodeZip findOneOrCreate(ConnectionInterface $con = null) Return the first ChildTaxCodeZip matching the query, or a new ChildTaxCodeZip object populated from the query conditions when no match is found
+ * @method     ChildTaxCodeZip|null findOne(?ConnectionInterface $con = null) Return the first ChildTaxCodeZip matching the query
+ * @method     ChildTaxCodeZip findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildTaxCodeZip matching the query, or a new ChildTaxCodeZip object populated from the query conditions when no match is found
  *
- * @method     ChildTaxCodeZip findOneByArtbzipcode(string $ArtbZipCode) Return the first ChildTaxCodeZip filtered by the ArtbZipCode column
- * @method     ChildTaxCodeZip findOneByArtbtxzptaxcode(string $ArtbTxzpTaxCode) Return the first ChildTaxCodeZip filtered by the ArtbTxzpTaxCode column
- * @method     ChildTaxCodeZip findOneByDateupdtd(string $DateUpdtd) Return the first ChildTaxCodeZip filtered by the DateUpdtd column
- * @method     ChildTaxCodeZip findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildTaxCodeZip filtered by the TimeUpdtd column
- * @method     ChildTaxCodeZip findOneByDummy(string $dummy) Return the first ChildTaxCodeZip filtered by the dummy column *
-
- * @method     ChildTaxCodeZip requirePk($key, ConnectionInterface $con = null) Return the ChildTaxCodeZip by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeZip requireOne(ConnectionInterface $con = null) Return the first ChildTaxCodeZip matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildTaxCodeZip|null findOneByArtbzipcode(string $ArtbZipCode) Return the first ChildTaxCodeZip filtered by the ArtbZipCode column
+ * @method     ChildTaxCodeZip|null findOneByArtbtxzptaxcode(string $ArtbTxzpTaxCode) Return the first ChildTaxCodeZip filtered by the ArtbTxzpTaxCode column
+ * @method     ChildTaxCodeZip|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildTaxCodeZip filtered by the DateUpdtd column
+ * @method     ChildTaxCodeZip|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildTaxCodeZip filtered by the TimeUpdtd column
+ * @method     ChildTaxCodeZip|null findOneByDummy(string $dummy) Return the first ChildTaxCodeZip filtered by the dummy column
+ *
+ * @method     ChildTaxCodeZip requirePk($key, ?ConnectionInterface $con = null) Return the ChildTaxCodeZip by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildTaxCodeZip requireOne(?ConnectionInterface $con = null) Return the first ChildTaxCodeZip matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildTaxCodeZip requireOneByArtbzipcode(string $ArtbZipCode) Return the first ChildTaxCodeZip filtered by the ArtbZipCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildTaxCodeZip requireOneByArtbtxzptaxcode(string $ArtbTxzpTaxCode) Return the first ChildTaxCodeZip filtered by the ArtbTxzpTaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -57,14 +55,22 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildTaxCodeZip requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildTaxCodeZip filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildTaxCodeZip requireOneByDummy(string $dummy) Return the first ChildTaxCodeZip filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildTaxCodeZip[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildTaxCodeZip objects based on current ModelCriteria
- * @method     ChildTaxCodeZip[]|ObjectCollection findByArtbzipcode(string $ArtbZipCode) Return ChildTaxCodeZip objects filtered by the ArtbZipCode column
- * @method     ChildTaxCodeZip[]|ObjectCollection findByArtbtxzptaxcode(string $ArtbTxzpTaxCode) Return ChildTaxCodeZip objects filtered by the ArtbTxzpTaxCode column
- * @method     ChildTaxCodeZip[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildTaxCodeZip objects filtered by the DateUpdtd column
- * @method     ChildTaxCodeZip[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildTaxCodeZip objects filtered by the TimeUpdtd column
- * @method     ChildTaxCodeZip[]|ObjectCollection findByDummy(string $dummy) Return ChildTaxCodeZip objects filtered by the dummy column
- * @method     ChildTaxCodeZip[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildTaxCodeZip[]|Collection find(?ConnectionInterface $con = null) Return ChildTaxCodeZip objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildTaxCodeZip> find(?ConnectionInterface $con = null) Return ChildTaxCodeZip objects based on current ModelCriteria
  *
+ * @method     ChildTaxCodeZip[]|Collection findByArtbzipcode(string|array<string> $ArtbZipCode) Return ChildTaxCodeZip objects filtered by the ArtbZipCode column
+ * @psalm-method Collection&\Traversable<ChildTaxCodeZip> findByArtbzipcode(string|array<string> $ArtbZipCode) Return ChildTaxCodeZip objects filtered by the ArtbZipCode column
+ * @method     ChildTaxCodeZip[]|Collection findByArtbtxzptaxcode(string|array<string> $ArtbTxzpTaxCode) Return ChildTaxCodeZip objects filtered by the ArtbTxzpTaxCode column
+ * @psalm-method Collection&\Traversable<ChildTaxCodeZip> findByArtbtxzptaxcode(string|array<string> $ArtbTxzpTaxCode) Return ChildTaxCodeZip objects filtered by the ArtbTxzpTaxCode column
+ * @method     ChildTaxCodeZip[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildTaxCodeZip objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildTaxCodeZip> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildTaxCodeZip objects filtered by the DateUpdtd column
+ * @method     ChildTaxCodeZip[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildTaxCodeZip objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildTaxCodeZip> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildTaxCodeZip objects filtered by the TimeUpdtd column
+ * @method     ChildTaxCodeZip[]|Collection findByDummy(string|array<string> $dummy) Return ChildTaxCodeZip objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildTaxCodeZip> findByDummy(string|array<string> $dummy) Return ChildTaxCodeZip objects filtered by the dummy column
+ *
+ * @method     ChildTaxCodeZip[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildTaxCodeZip> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class TaxCodeZipQuery extends ModelCriteria
 {
@@ -73,9 +79,9 @@ abstract class TaxCodeZipQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\TaxCodeZipQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\TaxCodeZip', $modelAlias = null)
     {
@@ -85,12 +91,12 @@ abstract class TaxCodeZipQuery extends ModelCriteria
     /**
      * Returns a new ChildTaxCodeZipQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildTaxCodeZipQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildTaxCodeZipQuery) {
             return $criteria;
@@ -120,7 +126,7 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      *
      * @return ChildTaxCodeZip|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -152,8 +158,8 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -185,8 +191,8 @@ abstract class TaxCodeZipQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildTaxCodeZip|array|mixed the result, formatted by the current formatter
      */
@@ -206,12 +212,12 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -228,27 +234,31 @@ abstract class TaxCodeZipQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildTaxCodeZipQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(TaxCodeZipTableMap::COL_ARTBZIPCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(TaxCodeZipTableMap::COL_ARTBZIPCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildTaxCodeZipQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(TaxCodeZipTableMap::COL_ARTBZIPCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(TaxCodeZipTableMap::COL_ARTBZIPCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -258,14 +268,15 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbzipcode('fooValue');   // WHERE ArtbZipCode = 'fooValue'
      * $query->filterByArtbzipcode('%fooValue%', Criteria::LIKE); // WHERE ArtbZipCode LIKE '%fooValue%'
+     * $query->filterByArtbzipcode(['foo', 'bar']); // WHERE ArtbZipCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbzipcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbzipcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeZipQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbzipcode($artbzipcode = null, $comparison = null)
+    public function filterByArtbzipcode($artbzipcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbzipcode)) {
@@ -273,7 +284,9 @@ abstract class TaxCodeZipQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeZipTableMap::COL_ARTBZIPCODE, $artbzipcode, $comparison);
+        $this->addUsingAlias(TaxCodeZipTableMap::COL_ARTBZIPCODE, $artbzipcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -283,14 +296,15 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbtxzptaxcode('fooValue');   // WHERE ArtbTxzpTaxCode = 'fooValue'
      * $query->filterByArtbtxzptaxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbTxzpTaxCode LIKE '%fooValue%'
+     * $query->filterByArtbtxzptaxcode(['foo', 'bar']); // WHERE ArtbTxzpTaxCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbtxzptaxcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbtxzptaxcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeZipQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbtxzptaxcode($artbtxzptaxcode = null, $comparison = null)
+    public function filterByArtbtxzptaxcode($artbtxzptaxcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbtxzptaxcode)) {
@@ -298,7 +312,9 @@ abstract class TaxCodeZipQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeZipTableMap::COL_ARTBTXZPTAXCODE, $artbtxzptaxcode, $comparison);
+        $this->addUsingAlias(TaxCodeZipTableMap::COL_ARTBTXZPTAXCODE, $artbtxzptaxcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -308,14 +324,15 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeZipQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -323,7 +340,9 @@ abstract class TaxCodeZipQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeZipTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(TaxCodeZipTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -333,14 +352,15 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeZipQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -348,7 +368,9 @@ abstract class TaxCodeZipQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeZipTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(TaxCodeZipTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -358,14 +380,15 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeZipQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -373,15 +396,17 @@ abstract class TaxCodeZipQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeZipTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(TaxCodeZipTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildTaxCodeZip $taxCodeZip Object to remove from the list of results
+     * @param ChildTaxCodeZip $taxCodeZip Object to remove from the list of results
      *
-     * @return $this|ChildTaxCodeZipQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($taxCodeZip = null)
     {
@@ -398,7 +423,7 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(TaxCodeZipTableMap::DATABASE_NAME);
@@ -423,12 +448,12 @@ abstract class TaxCodeZipQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(TaxCodeZipTableMap::DATABASE_NAME);
@@ -453,4 +478,4 @@ abstract class TaxCodeZipQuery extends ModelCriteria
         });
     }
 
-} // TaxCodeZipQuery
+}

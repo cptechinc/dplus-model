@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_item_2_item' table.
- *
- *
+ * Base class that represents a query for the `inv_item_2_item` table.
  *
  * @method     ChildInvItem2ItemQuery orderByI2imstritemid($order = Criteria::ASC) Order by the I2iMstrItemId column
  * @method     ChildInvItem2ItemQuery orderByI2ichilditemid($order = Criteria::ASC) Order by the I2iChildItemId column
@@ -62,20 +61,20 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvItem2ItemQuery rightJoinWithItemMasterItemRelatedByI2ichilditemid() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItemRelatedByI2ichilditemid relation
  * @method     ChildInvItem2ItemQuery innerJoinWithItemMasterItemRelatedByI2ichilditemid() Adds a INNER JOIN clause and with to the query using the ItemMasterItemRelatedByI2ichilditemid relation
  *
- * @method     \ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ItemMasterItemQuery|\ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildInvItem2Item findOne(ConnectionInterface $con = null) Return the first ChildInvItem2Item matching the query
- * @method     ChildInvItem2Item findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvItem2Item matching the query, or a new ChildInvItem2Item object populated from the query conditions when no match is found
+ * @method     ChildInvItem2Item|null findOne(?ConnectionInterface $con = null) Return the first ChildInvItem2Item matching the query
+ * @method     ChildInvItem2Item findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildInvItem2Item matching the query, or a new ChildInvItem2Item object populated from the query conditions when no match is found
  *
- * @method     ChildInvItem2Item findOneByI2imstritemid(string $I2iMstrItemId) Return the first ChildInvItem2Item filtered by the I2iMstrItemId column
- * @method     ChildInvItem2Item findOneByI2ichilditemid(string $I2iChildItemId) Return the first ChildInvItem2Item filtered by the I2iChildItemId column
- * @method     ChildInvItem2Item findOneByI2isupplywhse(string $I2iSupplyWhse) Return the first ChildInvItem2Item filtered by the I2iSupplyWhse column
- * @method     ChildInvItem2Item findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvItem2Item filtered by the DateUpdtd column
- * @method     ChildInvItem2Item findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvItem2Item filtered by the TimeUpdtd column
- * @method     ChildInvItem2Item findOneByDummy(string $dummy) Return the first ChildInvItem2Item filtered by the dummy column *
-
- * @method     ChildInvItem2Item requirePk($key, ConnectionInterface $con = null) Return the ChildInvItem2Item by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvItem2Item requireOne(ConnectionInterface $con = null) Return the first ChildInvItem2Item matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvItem2Item|null findOneByI2imstritemid(string $I2iMstrItemId) Return the first ChildInvItem2Item filtered by the I2iMstrItemId column
+ * @method     ChildInvItem2Item|null findOneByI2ichilditemid(string $I2iChildItemId) Return the first ChildInvItem2Item filtered by the I2iChildItemId column
+ * @method     ChildInvItem2Item|null findOneByI2isupplywhse(string $I2iSupplyWhse) Return the first ChildInvItem2Item filtered by the I2iSupplyWhse column
+ * @method     ChildInvItem2Item|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvItem2Item filtered by the DateUpdtd column
+ * @method     ChildInvItem2Item|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvItem2Item filtered by the TimeUpdtd column
+ * @method     ChildInvItem2Item|null findOneByDummy(string $dummy) Return the first ChildInvItem2Item filtered by the dummy column
+ *
+ * @method     ChildInvItem2Item requirePk($key, ?ConnectionInterface $con = null) Return the ChildInvItem2Item by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvItem2Item requireOne(?ConnectionInterface $con = null) Return the first ChildInvItem2Item matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildInvItem2Item requireOneByI2imstritemid(string $I2iMstrItemId) Return the first ChildInvItem2Item filtered by the I2iMstrItemId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvItem2Item requireOneByI2ichilditemid(string $I2iChildItemId) Return the first ChildInvItem2Item filtered by the I2iChildItemId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -84,15 +83,24 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvItem2Item requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvItem2Item filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvItem2Item requireOneByDummy(string $dummy) Return the first ChildInvItem2Item filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInvItem2Item[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvItem2Item objects based on current ModelCriteria
- * @method     ChildInvItem2Item[]|ObjectCollection findByI2imstritemid(string $I2iMstrItemId) Return ChildInvItem2Item objects filtered by the I2iMstrItemId column
- * @method     ChildInvItem2Item[]|ObjectCollection findByI2ichilditemid(string $I2iChildItemId) Return ChildInvItem2Item objects filtered by the I2iChildItemId column
- * @method     ChildInvItem2Item[]|ObjectCollection findByI2isupplywhse(string $I2iSupplyWhse) Return ChildInvItem2Item objects filtered by the I2iSupplyWhse column
- * @method     ChildInvItem2Item[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvItem2Item objects filtered by the DateUpdtd column
- * @method     ChildInvItem2Item[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvItem2Item objects filtered by the TimeUpdtd column
- * @method     ChildInvItem2Item[]|ObjectCollection findByDummy(string $dummy) Return ChildInvItem2Item objects filtered by the dummy column
- * @method     ChildInvItem2Item[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvItem2Item[]|Collection find(?ConnectionInterface $con = null) Return ChildInvItem2Item objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildInvItem2Item> find(?ConnectionInterface $con = null) Return ChildInvItem2Item objects based on current ModelCriteria
  *
+ * @method     ChildInvItem2Item[]|Collection findByI2imstritemid(string|array<string> $I2iMstrItemId) Return ChildInvItem2Item objects filtered by the I2iMstrItemId column
+ * @psalm-method Collection&\Traversable<ChildInvItem2Item> findByI2imstritemid(string|array<string> $I2iMstrItemId) Return ChildInvItem2Item objects filtered by the I2iMstrItemId column
+ * @method     ChildInvItem2Item[]|Collection findByI2ichilditemid(string|array<string> $I2iChildItemId) Return ChildInvItem2Item objects filtered by the I2iChildItemId column
+ * @psalm-method Collection&\Traversable<ChildInvItem2Item> findByI2ichilditemid(string|array<string> $I2iChildItemId) Return ChildInvItem2Item objects filtered by the I2iChildItemId column
+ * @method     ChildInvItem2Item[]|Collection findByI2isupplywhse(string|array<string> $I2iSupplyWhse) Return ChildInvItem2Item objects filtered by the I2iSupplyWhse column
+ * @psalm-method Collection&\Traversable<ChildInvItem2Item> findByI2isupplywhse(string|array<string> $I2iSupplyWhse) Return ChildInvItem2Item objects filtered by the I2iSupplyWhse column
+ * @method     ChildInvItem2Item[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvItem2Item objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvItem2Item> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvItem2Item objects filtered by the DateUpdtd column
+ * @method     ChildInvItem2Item[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvItem2Item objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvItem2Item> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvItem2Item objects filtered by the TimeUpdtd column
+ * @method     ChildInvItem2Item[]|Collection findByDummy(string|array<string> $dummy) Return ChildInvItem2Item objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildInvItem2Item> findByDummy(string|array<string> $dummy) Return ChildInvItem2Item objects filtered by the dummy column
+ *
+ * @method     ChildInvItem2Item[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildInvItem2Item> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class InvItem2ItemQuery extends ModelCriteria
 {
@@ -101,9 +109,9 @@ abstract class InvItem2ItemQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\InvItem2ItemQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\InvItem2Item', $modelAlias = null)
     {
@@ -113,12 +121,12 @@ abstract class InvItem2ItemQuery extends ModelCriteria
     /**
      * Returns a new ChildInvItem2ItemQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildInvItem2ItemQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildInvItem2ItemQuery) {
             return $criteria;
@@ -148,7 +156,7 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      *
      * @return ChildInvItem2Item|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -180,8 +188,8 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -214,8 +222,8 @@ abstract class InvItem2ItemQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildInvItem2Item|array|mixed the result, formatted by the current formatter
      */
@@ -235,12 +243,12 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -257,9 +265,9 @@ abstract class InvItem2ItemQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildInvItem2ItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -272,14 +280,16 @@ abstract class InvItem2ItemQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildInvItem2ItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(InvItem2ItemTableMap::COL_I2IMSTRITEMID, $key[0], Criteria::EQUAL);
@@ -298,14 +308,15 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      * <code>
      * $query->filterByI2imstritemid('fooValue');   // WHERE I2iMstrItemId = 'fooValue'
      * $query->filterByI2imstritemid('%fooValue%', Criteria::LIKE); // WHERE I2iMstrItemId LIKE '%fooValue%'
+     * $query->filterByI2imstritemid(['foo', 'bar']); // WHERE I2iMstrItemId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $i2imstritemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $i2imstritemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvItem2ItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByI2imstritemid($i2imstritemid = null, $comparison = null)
+    public function filterByI2imstritemid($i2imstritemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($i2imstritemid)) {
@@ -313,7 +324,9 @@ abstract class InvItem2ItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvItem2ItemTableMap::COL_I2IMSTRITEMID, $i2imstritemid, $comparison);
+        $this->addUsingAlias(InvItem2ItemTableMap::COL_I2IMSTRITEMID, $i2imstritemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -323,14 +336,15 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      * <code>
      * $query->filterByI2ichilditemid('fooValue');   // WHERE I2iChildItemId = 'fooValue'
      * $query->filterByI2ichilditemid('%fooValue%', Criteria::LIKE); // WHERE I2iChildItemId LIKE '%fooValue%'
+     * $query->filterByI2ichilditemid(['foo', 'bar']); // WHERE I2iChildItemId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $i2ichilditemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $i2ichilditemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvItem2ItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByI2ichilditemid($i2ichilditemid = null, $comparison = null)
+    public function filterByI2ichilditemid($i2ichilditemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($i2ichilditemid)) {
@@ -338,7 +352,9 @@ abstract class InvItem2ItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvItem2ItemTableMap::COL_I2ICHILDITEMID, $i2ichilditemid, $comparison);
+        $this->addUsingAlias(InvItem2ItemTableMap::COL_I2ICHILDITEMID, $i2ichilditemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -348,14 +364,15 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      * <code>
      * $query->filterByI2isupplywhse('fooValue');   // WHERE I2iSupplyWhse = 'fooValue'
      * $query->filterByI2isupplywhse('%fooValue%', Criteria::LIKE); // WHERE I2iSupplyWhse LIKE '%fooValue%'
+     * $query->filterByI2isupplywhse(['foo', 'bar']); // WHERE I2iSupplyWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $i2isupplywhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $i2isupplywhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvItem2ItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByI2isupplywhse($i2isupplywhse = null, $comparison = null)
+    public function filterByI2isupplywhse($i2isupplywhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($i2isupplywhse)) {
@@ -363,7 +380,9 @@ abstract class InvItem2ItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvItem2ItemTableMap::COL_I2ISUPPLYWHSE, $i2isupplywhse, $comparison);
+        $this->addUsingAlias(InvItem2ItemTableMap::COL_I2ISUPPLYWHSE, $i2isupplywhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -373,14 +392,15 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvItem2ItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -388,7 +408,9 @@ abstract class InvItem2ItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvItem2ItemTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(InvItem2ItemTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -398,14 +420,15 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvItem2ItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -413,7 +436,9 @@ abstract class InvItem2ItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvItem2ItemTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(InvItem2ItemTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -423,14 +448,15 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvItem2ItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -438,20 +464,22 @@ abstract class InvItem2ItemQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvItem2ItemTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(InvItem2ItemTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvItem2ItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItemRelatedByI2imstritemid($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItemRelatedByI2imstritemid($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -461,8 +489,10 @@ abstract class InvItem2ItemQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(InvItem2ItemTableMap::COL_I2IMSTRITEMID, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItemRelatedByI2imstritemid() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -471,12 +501,12 @@ abstract class InvItem2ItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItemRelatedByI2imstritemid relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvItem2ItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItemRelatedByI2imstritemid($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemMasterItemRelatedByI2imstritemid(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItemRelatedByI2imstritemid');
@@ -505,9 +535,9 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -519,16 +549,112 @@ abstract class InvItem2ItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItemRelatedByI2imstritemid relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemRelatedByI2imstritemidQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemRelatedByI2imstritemidQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemMasterItemRelatedByI2imstritemid relation to the ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemRelatedByI2imstritemidExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItemRelatedByI2imstritemid', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the ItemMasterItemRelatedByI2imstritemid relation to the ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemRelatedByI2imstritemidExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemRelatedByI2imstritemidNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItemRelatedByI2imstritemid', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the ItemMasterItemRelatedByI2imstritemid relation to the ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemRelatedByI2imstritemidQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItemRelatedByI2imstritemid', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the ItemMasterItemRelatedByI2imstritemid relation to the ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemRelatedByI2imstritemidInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemRelatedByI2imstritemidQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItemRelatedByI2imstritemid', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvItem2ItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItemRelatedByI2ichilditemid($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItemRelatedByI2ichilditemid($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -538,8 +664,10 @@ abstract class InvItem2ItemQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(InvItem2ItemTableMap::COL_I2ICHILDITEMID, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItemRelatedByI2ichilditemid() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -548,12 +676,12 @@ abstract class InvItem2ItemQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItemRelatedByI2ichilditemid relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvItem2ItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItemRelatedByI2ichilditemid($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemMasterItemRelatedByI2ichilditemid(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItemRelatedByI2ichilditemid');
@@ -582,9 +710,9 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -596,11 +724,107 @@ abstract class InvItem2ItemQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItemRelatedByI2ichilditemid relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemRelatedByI2ichilditemidQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemRelatedByI2ichilditemidQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemMasterItemRelatedByI2ichilditemid relation to the ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemRelatedByI2ichilditemidExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItemRelatedByI2ichilditemid', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the ItemMasterItemRelatedByI2ichilditemid relation to the ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemRelatedByI2ichilditemidExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemRelatedByI2ichilditemidNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItemRelatedByI2ichilditemid', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the ItemMasterItemRelatedByI2ichilditemid relation to the ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemRelatedByI2ichilditemidQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItemRelatedByI2ichilditemid', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the ItemMasterItemRelatedByI2ichilditemid relation to the ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemRelatedByI2ichilditemidInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemRelatedByI2ichilditemidQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItemRelatedByI2ichilditemid', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildInvItem2Item $invItem2Item Object to remove from the list of results
+     * @param ChildInvItem2Item $invItem2Item Object to remove from the list of results
      *
-     * @return $this|ChildInvItem2ItemQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($invItem2Item = null)
     {
@@ -619,7 +843,7 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvItem2ItemTableMap::DATABASE_NAME);
@@ -644,12 +868,12 @@ abstract class InvItem2ItemQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvItem2ItemTableMap::DATABASE_NAME);
@@ -674,4 +898,4 @@ abstract class InvItem2ItemQuery extends ModelCriteria
         });
     }
 
-} // InvItem2ItemQuery
+}

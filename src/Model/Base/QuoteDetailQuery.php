@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'quote_detail' table.
- *
- *
+ * Base class that represents a query for the `quote_detail` table.
  *
  * @method     ChildQuoteDetailQuery orderByQthdid($order = Criteria::ASC) Order by the QthdId column
  * @method     ChildQuoteDetailQuery orderByQtdtline($order = Criteria::ASC) Order by the QtdtLine column
@@ -234,108 +233,108 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \QuoteQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildQuoteDetail findOne(ConnectionInterface $con = null) Return the first ChildQuoteDetail matching the query
- * @method     ChildQuoteDetail findOneOrCreate(ConnectionInterface $con = null) Return the first ChildQuoteDetail matching the query, or a new ChildQuoteDetail object populated from the query conditions when no match is found
+ * @method     ChildQuoteDetail|null findOne(?ConnectionInterface $con = null) Return the first ChildQuoteDetail matching the query
+ * @method     ChildQuoteDetail findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildQuoteDetail matching the query, or a new ChildQuoteDetail object populated from the query conditions when no match is found
  *
- * @method     ChildQuoteDetail findOneByQthdid(string $QthdId) Return the first ChildQuoteDetail filtered by the QthdId column
- * @method     ChildQuoteDetail findOneByQtdtline(int $QtdtLine) Return the first ChildQuoteDetail filtered by the QtdtLine column
- * @method     ChildQuoteDetail findOneByInititemnbr(string $InitItemNbr) Return the first ChildQuoteDetail filtered by the InitItemNbr column
- * @method     ChildQuoteDetail findOneByQtdtdesc(string $QtdtDesc) Return the first ChildQuoteDetail filtered by the QtdtDesc column
- * @method     ChildQuoteDetail findOneByQtdtdesc2(string $QtdtDesc2) Return the first ChildQuoteDetail filtered by the QtdtDesc2 column
- * @method     ChildQuoteDetail findOneByQtdtcustcrssref(string $QtdtCustCrssRef) Return the first ChildQuoteDetail filtered by the QtdtCustCrssRef column
- * @method     ChildQuoteDetail findOneByIntbwhse(string $IntbWhse) Return the first ChildQuoteDetail filtered by the IntbWhse column
- * @method     ChildQuoteDetail findOneByQtdtrqstdate(string $QtdtRqstDate) Return the first ChildQuoteDetail filtered by the QtdtRqstDate column
- * @method     ChildQuoteDetail findOneByQtdtspecordr(string $QtdtSpecOrdr) Return the first ChildQuoteDetail filtered by the QtdtSpecOrdr column
- * @method     ChildQuoteDetail findOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildQuoteDetail filtered by the ArtbCtaxCode column
- * @method     ChildQuoteDetail findOneByQtdtqtyord(string $QtdtQtyOrd) Return the first ChildQuoteDetail filtered by the QtdtQtyOrd column
- * @method     ChildQuoteDetail findOneByQtdtpric(string $QtdtPric) Return the first ChildQuoteDetail filtered by the QtdtPric column
- * @method     ChildQuoteDetail findOneByQtdtcost(string $QtdtCost) Return the first ChildQuoteDetail filtered by the QtdtCost column
- * @method     ChildQuoteDetail findOneByQtdttaxpcttot(string $QtdtTaxPctTot) Return the first ChildQuoteDetail filtered by the QtdtTaxPctTot column
- * @method     ChildQuoteDetail findOneByQtdtprictot(string $QtdtPricTot) Return the first ChildQuoteDetail filtered by the QtdtPricTot column
- * @method     ChildQuoteDetail findOneByQtdtcosttot(string $QtdtCostTot) Return the first ChildQuoteDetail filtered by the QtdtCostTot column
- * @method     ChildQuoteDetail findOneByQtdtwghttot(string $QtdtWghtTot) Return the first ChildQuoteDetail filtered by the QtdtWghtTot column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxcode1(string $QtdtMstrTaxCode1) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode1 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxpct1(string $QtdtMstrTaxPct1) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct1 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxcode2(string $QtdtMstrTaxCode2) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode2 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxpct2(string $QtdtMstrTaxPct2) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct2 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxcode3(string $QtdtMstrTaxCode3) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode3 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxpct3(string $QtdtMstrTaxPct3) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct3 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxcode4(string $QtdtMstrTaxCode4) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode4 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxpct4(string $QtdtMstrTaxPct4) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct4 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxcode5(string $QtdtMstrTaxCode5) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode5 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxpct5(string $QtdtMstrTaxPct5) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct5 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxcode6(string $QtdtMstrTaxCode6) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode6 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxpct6(string $QtdtMstrTaxPct6) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct6 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxcode7(string $QtdtMstrTaxCode7) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode7 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxpct7(string $QtdtMstrTaxPct7) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct7 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxcode8(string $QtdtMstrTaxCode8) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode8 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxpct8(string $QtdtMstrTaxPct8) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct8 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxcode9(string $QtdtMstrTaxCode9) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode9 column
- * @method     ChildQuoteDetail findOneByQtdtmstrtaxpct9(string $QtdtMstrTaxPct9) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct9 column
- * @method     ChildQuoteDetail findOneByIntbuomsale(string $IntbUomSale) Return the first ChildQuoteDetail filtered by the IntbUomSale column
- * @method     ChildQuoteDetail findOneByIntbuompur(string $IntbUomPur) Return the first ChildQuoteDetail filtered by the IntbUomPur column
- * @method     ChildQuoteDetail findOneByQtdtquotind1(string $QtdtQuotInd1) Return the first ChildQuoteDetail filtered by the QtdtQuotInd1 column
- * @method     ChildQuoteDetail findOneByQtdtquotunit1(int $QtdtQuotUnit1) Return the first ChildQuoteDetail filtered by the QtdtQuotUnit1 column
- * @method     ChildQuoteDetail findOneByQtdtquotpric1(string $QtdtQuotPric1) Return the first ChildQuoteDetail filtered by the QtdtQuotPric1 column
- * @method     ChildQuoteDetail findOneByQtdtquotcost1(string $QtdtQuotCost1) Return the first ChildQuoteDetail filtered by the QtdtQuotCost1 column
- * @method     ChildQuoteDetail findOneByQtdtquotmkupmarg1(string $QtdtQuotMkupMarg1) Return the first ChildQuoteDetail filtered by the QtdtQuotMkupMarg1 column
- * @method     ChildQuoteDetail findOneByQtdtquotind2(string $QtdtQuotInd2) Return the first ChildQuoteDetail filtered by the QtdtQuotInd2 column
- * @method     ChildQuoteDetail findOneByQtdtquotunit2(int $QtdtQuotUnit2) Return the first ChildQuoteDetail filtered by the QtdtQuotUnit2 column
- * @method     ChildQuoteDetail findOneByQtdtquotpric2(string $QtdtQuotPric2) Return the first ChildQuoteDetail filtered by the QtdtQuotPric2 column
- * @method     ChildQuoteDetail findOneByQtdtquotcost2(string $QtdtQuotCost2) Return the first ChildQuoteDetail filtered by the QtdtQuotCost2 column
- * @method     ChildQuoteDetail findOneByQtdtquotmkupmarg2(string $QtdtQuotMkupMarg2) Return the first ChildQuoteDetail filtered by the QtdtQuotMkupMarg2 column
- * @method     ChildQuoteDetail findOneByQtdtquotind3(string $QtdtQuotInd3) Return the first ChildQuoteDetail filtered by the QtdtQuotInd3 column
- * @method     ChildQuoteDetail findOneByQtdtquotunit3(int $QtdtQuotUnit3) Return the first ChildQuoteDetail filtered by the QtdtQuotUnit3 column
- * @method     ChildQuoteDetail findOneByQtdtquotpric3(string $QtdtQuotPric3) Return the first ChildQuoteDetail filtered by the QtdtQuotPric3 column
- * @method     ChildQuoteDetail findOneByQtdtquotcost3(string $QtdtQuotCost3) Return the first ChildQuoteDetail filtered by the QtdtQuotCost3 column
- * @method     ChildQuoteDetail findOneByQtdtquotmkupmarg3(string $QtdtQuotMkupMarg3) Return the first ChildQuoteDetail filtered by the QtdtQuotMkupMarg3 column
- * @method     ChildQuoteDetail findOneByQtdtquotind4(string $QtdtQuotInd4) Return the first ChildQuoteDetail filtered by the QtdtQuotInd4 column
- * @method     ChildQuoteDetail findOneByQtdtquotunit4(int $QtdtQuotUnit4) Return the first ChildQuoteDetail filtered by the QtdtQuotUnit4 column
- * @method     ChildQuoteDetail findOneByQtdtquotpric4(string $QtdtQuotPric4) Return the first ChildQuoteDetail filtered by the QtdtQuotPric4 column
- * @method     ChildQuoteDetail findOneByQtdtquotcost4(string $QtdtQuotCost4) Return the first ChildQuoteDetail filtered by the QtdtQuotCost4 column
- * @method     ChildQuoteDetail findOneByQtdtquotmkupmarg4(string $QtdtQuotMkupMarg4) Return the first ChildQuoteDetail filtered by the QtdtQuotMkupMarg4 column
- * @method     ChildQuoteDetail findOneByQtdtquotind5(string $QtdtQuotInd5) Return the first ChildQuoteDetail filtered by the QtdtQuotInd5 column
- * @method     ChildQuoteDetail findOneByQtdtquotunit5(int $QtdtQuotUnit5) Return the first ChildQuoteDetail filtered by the QtdtQuotUnit5 column
- * @method     ChildQuoteDetail findOneByQtdtquotpric5(string $QtdtQuotPric5) Return the first ChildQuoteDetail filtered by the QtdtQuotPric5 column
- * @method     ChildQuoteDetail findOneByQtdtquotcost5(string $QtdtQuotCost5) Return the first ChildQuoteDetail filtered by the QtdtQuotCost5 column
- * @method     ChildQuoteDetail findOneByQtdtquotmkupmarg5(string $QtdtQuotMkupMarg5) Return the first ChildQuoteDetail filtered by the QtdtQuotMkupMarg5 column
- * @method     ChildQuoteDetail findOneByQtdtquotind6(string $QtdtQuotInd6) Return the first ChildQuoteDetail filtered by the QtdtQuotInd6 column
- * @method     ChildQuoteDetail findOneByQtdtquotunit6(int $QtdtQuotUnit6) Return the first ChildQuoteDetail filtered by the QtdtQuotUnit6 column
- * @method     ChildQuoteDetail findOneByQtdtquotpric6(string $QtdtQuotPric6) Return the first ChildQuoteDetail filtered by the QtdtQuotPric6 column
- * @method     ChildQuoteDetail findOneByQtdtquotcost6(string $QtdtQuotCost6) Return the first ChildQuoteDetail filtered by the QtdtQuotCost6 column
- * @method     ChildQuoteDetail findOneByQtdtquotmkupmarg6(string $QtdtQuotMkupMarg6) Return the first ChildQuoteDetail filtered by the QtdtQuotMkupMarg6 column
- * @method     ChildQuoteDetail findOneByQtdtasstcode(string $QtdtAsstCode) Return the first ChildQuoteDetail filtered by the QtdtAsstCode column
- * @method     ChildQuoteDetail findOneByQtdtasstqty(string $QtdtAsstQty) Return the first ChildQuoteDetail filtered by the QtdtAsstQty column
- * @method     ChildQuoteDetail findOneByQtdtlistpric(string $QtdtListPric) Return the first ChildQuoteDetail filtered by the QtdtListPric column
- * @method     ChildQuoteDetail findOneByQtdtstancost(string $QtdtStanCost) Return the first ChildQuoteDetail filtered by the QtdtStanCost column
- * @method     ChildQuoteDetail findOneByQtdtvenditemjob(string $QtdtVendItemJob) Return the first ChildQuoteDetail filtered by the QtdtVendItemJob column
- * @method     ChildQuoteDetail findOneByApvevendid(string $ApveVendId) Return the first ChildQuoteDetail filtered by the ApveVendId column
- * @method     ChildQuoteDetail findOneByQtdtnsitemgrup(string $QtdtNsItemGrup) Return the first ChildQuoteDetail filtered by the QtdtNsItemGrup column
- * @method     ChildQuoteDetail findOneByQtdtusecode(string $QtdtUseCode) Return the first ChildQuoteDetail filtered by the QtdtUseCode column
- * @method     ChildQuoteDetail findOneByQtdtpickflag(string $QtdtPickFlag) Return the first ChildQuoteDetail filtered by the QtdtPickFlag column
- * @method     ChildQuoteDetail findOneByQtdtstatus(string $QtdtStatus) Return the first ChildQuoteDetail filtered by the QtdtStatus column
- * @method     ChildQuoteDetail findOneByOetblsslcode(string $OetbLsslCode) Return the first ChildQuoteDetail filtered by the OetbLsslCode column
- * @method     ChildQuoteDetail findOneByQtdtlostdate(string $QtdtLostDate) Return the first ChildQuoteDetail filtered by the QtdtLostDate column
- * @method     ChildQuoteDetail findOneByQtdtlostposted(string $QtdtLostPosted) Return the first ChildQuoteDetail filtered by the QtdtLostPosted column
- * @method     ChildQuoteDetail findOneByQtdtleaddays(int $QtdtLeadDays) Return the first ChildQuoteDetail filtered by the QtdtLeadDays column
- * @method     ChildQuoteDetail findOneByQtdtordrdiscpct(string $QtdtOrdrDiscPct) Return the first ChildQuoteDetail filtered by the QtdtOrdrDiscPct column
- * @method     ChildQuoteDetail findOneByQtdtquotdiscpct1(string $QtdtQuotDiscPct1) Return the first ChildQuoteDetail filtered by the QtdtQuotDiscPct1 column
- * @method     ChildQuoteDetail findOneByQtdtmtrcreqd(string $QtdtMtrcReqd) Return the first ChildQuoteDetail filtered by the QtdtMtrcReqd column
- * @method     ChildQuoteDetail findOneByQtdtcofcreqd(string $QtdtCofcReqd) Return the first ChildQuoteDetail filtered by the QtdtCofcReqd column
- * @method     ChildQuoteDetail findOneByQtdtmnfrid(string $QtdtMnfrId) Return the first ChildQuoteDetail filtered by the QtdtMnfrId column
- * @method     ChildQuoteDetail findOneByQtdtmnfritemid(string $QtdtMnfrItemId) Return the first ChildQuoteDetail filtered by the QtdtMnfrItemId column
- * @method     ChildQuoteDetail findOneByQtdtlmordrnbr(string $QtdtLmOrdrNbr) Return the first ChildQuoteDetail filtered by the QtdtLmOrdrNbr column
- * @method     ChildQuoteDetail findOneByQtdtlmordrdate(string $QtdtLmOrdrDate) Return the first ChildQuoteDetail filtered by the QtdtLmOrdrDate column
- * @method     ChildQuoteDetail findOneByQtdtspecitemcode(string $QtdtSpecItemCode) Return the first ChildQuoteDetail filtered by the QtdtSpecItemCode column
- * @method     ChildQuoteDetail findOneByQtdtacsalepgm(string $QtdtAcSalePgm) Return the first ChildQuoteDetail filtered by the QtdtAcSalePgm column
- * @method     ChildQuoteDetail findOneByQtdtnsvendshipfr(string $QtdtNsVendShipfr) Return the first ChildQuoteDetail filtered by the QtdtNsVendShipfr column
- * @method     ChildQuoteDetail findOneByQtdtprntmnfrnote(string $QtdtPrntMnfrNote) Return the first ChildQuoteDetail filtered by the QtdtPrntMnfrNote column
- * @method     ChildQuoteDetail findOneByDateupdtd(string $DateUpdtd) Return the first ChildQuoteDetail filtered by the DateUpdtd column
- * @method     ChildQuoteDetail findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildQuoteDetail filtered by the TimeUpdtd column
- * @method     ChildQuoteDetail findOneByDummy(string $dummy) Return the first ChildQuoteDetail filtered by the dummy column *
-
- * @method     ChildQuoteDetail requirePk($key, ConnectionInterface $con = null) Return the ChildQuoteDetail by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildQuoteDetail requireOne(ConnectionInterface $con = null) Return the first ChildQuoteDetail matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildQuoteDetail|null findOneByQthdid(string $QthdId) Return the first ChildQuoteDetail filtered by the QthdId column
+ * @method     ChildQuoteDetail|null findOneByQtdtline(int $QtdtLine) Return the first ChildQuoteDetail filtered by the QtdtLine column
+ * @method     ChildQuoteDetail|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildQuoteDetail filtered by the InitItemNbr column
+ * @method     ChildQuoteDetail|null findOneByQtdtdesc(string $QtdtDesc) Return the first ChildQuoteDetail filtered by the QtdtDesc column
+ * @method     ChildQuoteDetail|null findOneByQtdtdesc2(string $QtdtDesc2) Return the first ChildQuoteDetail filtered by the QtdtDesc2 column
+ * @method     ChildQuoteDetail|null findOneByQtdtcustcrssref(string $QtdtCustCrssRef) Return the first ChildQuoteDetail filtered by the QtdtCustCrssRef column
+ * @method     ChildQuoteDetail|null findOneByIntbwhse(string $IntbWhse) Return the first ChildQuoteDetail filtered by the IntbWhse column
+ * @method     ChildQuoteDetail|null findOneByQtdtrqstdate(string $QtdtRqstDate) Return the first ChildQuoteDetail filtered by the QtdtRqstDate column
+ * @method     ChildQuoteDetail|null findOneByQtdtspecordr(string $QtdtSpecOrdr) Return the first ChildQuoteDetail filtered by the QtdtSpecOrdr column
+ * @method     ChildQuoteDetail|null findOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildQuoteDetail filtered by the ArtbCtaxCode column
+ * @method     ChildQuoteDetail|null findOneByQtdtqtyord(string $QtdtQtyOrd) Return the first ChildQuoteDetail filtered by the QtdtQtyOrd column
+ * @method     ChildQuoteDetail|null findOneByQtdtpric(string $QtdtPric) Return the first ChildQuoteDetail filtered by the QtdtPric column
+ * @method     ChildQuoteDetail|null findOneByQtdtcost(string $QtdtCost) Return the first ChildQuoteDetail filtered by the QtdtCost column
+ * @method     ChildQuoteDetail|null findOneByQtdttaxpcttot(string $QtdtTaxPctTot) Return the first ChildQuoteDetail filtered by the QtdtTaxPctTot column
+ * @method     ChildQuoteDetail|null findOneByQtdtprictot(string $QtdtPricTot) Return the first ChildQuoteDetail filtered by the QtdtPricTot column
+ * @method     ChildQuoteDetail|null findOneByQtdtcosttot(string $QtdtCostTot) Return the first ChildQuoteDetail filtered by the QtdtCostTot column
+ * @method     ChildQuoteDetail|null findOneByQtdtwghttot(string $QtdtWghtTot) Return the first ChildQuoteDetail filtered by the QtdtWghtTot column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxcode1(string $QtdtMstrTaxCode1) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode1 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxpct1(string $QtdtMstrTaxPct1) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct1 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxcode2(string $QtdtMstrTaxCode2) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode2 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxpct2(string $QtdtMstrTaxPct2) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct2 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxcode3(string $QtdtMstrTaxCode3) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode3 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxpct3(string $QtdtMstrTaxPct3) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct3 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxcode4(string $QtdtMstrTaxCode4) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode4 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxpct4(string $QtdtMstrTaxPct4) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct4 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxcode5(string $QtdtMstrTaxCode5) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode5 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxpct5(string $QtdtMstrTaxPct5) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct5 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxcode6(string $QtdtMstrTaxCode6) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode6 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxpct6(string $QtdtMstrTaxPct6) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct6 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxcode7(string $QtdtMstrTaxCode7) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode7 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxpct7(string $QtdtMstrTaxPct7) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct7 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxcode8(string $QtdtMstrTaxCode8) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode8 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxpct8(string $QtdtMstrTaxPct8) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct8 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxcode9(string $QtdtMstrTaxCode9) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxCode9 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmstrtaxpct9(string $QtdtMstrTaxPct9) Return the first ChildQuoteDetail filtered by the QtdtMstrTaxPct9 column
+ * @method     ChildQuoteDetail|null findOneByIntbuomsale(string $IntbUomSale) Return the first ChildQuoteDetail filtered by the IntbUomSale column
+ * @method     ChildQuoteDetail|null findOneByIntbuompur(string $IntbUomPur) Return the first ChildQuoteDetail filtered by the IntbUomPur column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotind1(string $QtdtQuotInd1) Return the first ChildQuoteDetail filtered by the QtdtQuotInd1 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotunit1(int $QtdtQuotUnit1) Return the first ChildQuoteDetail filtered by the QtdtQuotUnit1 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotpric1(string $QtdtQuotPric1) Return the first ChildQuoteDetail filtered by the QtdtQuotPric1 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotcost1(string $QtdtQuotCost1) Return the first ChildQuoteDetail filtered by the QtdtQuotCost1 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotmkupmarg1(string $QtdtQuotMkupMarg1) Return the first ChildQuoteDetail filtered by the QtdtQuotMkupMarg1 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotind2(string $QtdtQuotInd2) Return the first ChildQuoteDetail filtered by the QtdtQuotInd2 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotunit2(int $QtdtQuotUnit2) Return the first ChildQuoteDetail filtered by the QtdtQuotUnit2 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotpric2(string $QtdtQuotPric2) Return the first ChildQuoteDetail filtered by the QtdtQuotPric2 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotcost2(string $QtdtQuotCost2) Return the first ChildQuoteDetail filtered by the QtdtQuotCost2 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotmkupmarg2(string $QtdtQuotMkupMarg2) Return the first ChildQuoteDetail filtered by the QtdtQuotMkupMarg2 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotind3(string $QtdtQuotInd3) Return the first ChildQuoteDetail filtered by the QtdtQuotInd3 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotunit3(int $QtdtQuotUnit3) Return the first ChildQuoteDetail filtered by the QtdtQuotUnit3 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotpric3(string $QtdtQuotPric3) Return the first ChildQuoteDetail filtered by the QtdtQuotPric3 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotcost3(string $QtdtQuotCost3) Return the first ChildQuoteDetail filtered by the QtdtQuotCost3 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotmkupmarg3(string $QtdtQuotMkupMarg3) Return the first ChildQuoteDetail filtered by the QtdtQuotMkupMarg3 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotind4(string $QtdtQuotInd4) Return the first ChildQuoteDetail filtered by the QtdtQuotInd4 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotunit4(int $QtdtQuotUnit4) Return the first ChildQuoteDetail filtered by the QtdtQuotUnit4 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotpric4(string $QtdtQuotPric4) Return the first ChildQuoteDetail filtered by the QtdtQuotPric4 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotcost4(string $QtdtQuotCost4) Return the first ChildQuoteDetail filtered by the QtdtQuotCost4 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotmkupmarg4(string $QtdtQuotMkupMarg4) Return the first ChildQuoteDetail filtered by the QtdtQuotMkupMarg4 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotind5(string $QtdtQuotInd5) Return the first ChildQuoteDetail filtered by the QtdtQuotInd5 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotunit5(int $QtdtQuotUnit5) Return the first ChildQuoteDetail filtered by the QtdtQuotUnit5 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotpric5(string $QtdtQuotPric5) Return the first ChildQuoteDetail filtered by the QtdtQuotPric5 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotcost5(string $QtdtQuotCost5) Return the first ChildQuoteDetail filtered by the QtdtQuotCost5 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotmkupmarg5(string $QtdtQuotMkupMarg5) Return the first ChildQuoteDetail filtered by the QtdtQuotMkupMarg5 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotind6(string $QtdtQuotInd6) Return the first ChildQuoteDetail filtered by the QtdtQuotInd6 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotunit6(int $QtdtQuotUnit6) Return the first ChildQuoteDetail filtered by the QtdtQuotUnit6 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotpric6(string $QtdtQuotPric6) Return the first ChildQuoteDetail filtered by the QtdtQuotPric6 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotcost6(string $QtdtQuotCost6) Return the first ChildQuoteDetail filtered by the QtdtQuotCost6 column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotmkupmarg6(string $QtdtQuotMkupMarg6) Return the first ChildQuoteDetail filtered by the QtdtQuotMkupMarg6 column
+ * @method     ChildQuoteDetail|null findOneByQtdtasstcode(string $QtdtAsstCode) Return the first ChildQuoteDetail filtered by the QtdtAsstCode column
+ * @method     ChildQuoteDetail|null findOneByQtdtasstqty(string $QtdtAsstQty) Return the first ChildQuoteDetail filtered by the QtdtAsstQty column
+ * @method     ChildQuoteDetail|null findOneByQtdtlistpric(string $QtdtListPric) Return the first ChildQuoteDetail filtered by the QtdtListPric column
+ * @method     ChildQuoteDetail|null findOneByQtdtstancost(string $QtdtStanCost) Return the first ChildQuoteDetail filtered by the QtdtStanCost column
+ * @method     ChildQuoteDetail|null findOneByQtdtvenditemjob(string $QtdtVendItemJob) Return the first ChildQuoteDetail filtered by the QtdtVendItemJob column
+ * @method     ChildQuoteDetail|null findOneByApvevendid(string $ApveVendId) Return the first ChildQuoteDetail filtered by the ApveVendId column
+ * @method     ChildQuoteDetail|null findOneByQtdtnsitemgrup(string $QtdtNsItemGrup) Return the first ChildQuoteDetail filtered by the QtdtNsItemGrup column
+ * @method     ChildQuoteDetail|null findOneByQtdtusecode(string $QtdtUseCode) Return the first ChildQuoteDetail filtered by the QtdtUseCode column
+ * @method     ChildQuoteDetail|null findOneByQtdtpickflag(string $QtdtPickFlag) Return the first ChildQuoteDetail filtered by the QtdtPickFlag column
+ * @method     ChildQuoteDetail|null findOneByQtdtstatus(string $QtdtStatus) Return the first ChildQuoteDetail filtered by the QtdtStatus column
+ * @method     ChildQuoteDetail|null findOneByOetblsslcode(string $OetbLsslCode) Return the first ChildQuoteDetail filtered by the OetbLsslCode column
+ * @method     ChildQuoteDetail|null findOneByQtdtlostdate(string $QtdtLostDate) Return the first ChildQuoteDetail filtered by the QtdtLostDate column
+ * @method     ChildQuoteDetail|null findOneByQtdtlostposted(string $QtdtLostPosted) Return the first ChildQuoteDetail filtered by the QtdtLostPosted column
+ * @method     ChildQuoteDetail|null findOneByQtdtleaddays(int $QtdtLeadDays) Return the first ChildQuoteDetail filtered by the QtdtLeadDays column
+ * @method     ChildQuoteDetail|null findOneByQtdtordrdiscpct(string $QtdtOrdrDiscPct) Return the first ChildQuoteDetail filtered by the QtdtOrdrDiscPct column
+ * @method     ChildQuoteDetail|null findOneByQtdtquotdiscpct1(string $QtdtQuotDiscPct1) Return the first ChildQuoteDetail filtered by the QtdtQuotDiscPct1 column
+ * @method     ChildQuoteDetail|null findOneByQtdtmtrcreqd(string $QtdtMtrcReqd) Return the first ChildQuoteDetail filtered by the QtdtMtrcReqd column
+ * @method     ChildQuoteDetail|null findOneByQtdtcofcreqd(string $QtdtCofcReqd) Return the first ChildQuoteDetail filtered by the QtdtCofcReqd column
+ * @method     ChildQuoteDetail|null findOneByQtdtmnfrid(string $QtdtMnfrId) Return the first ChildQuoteDetail filtered by the QtdtMnfrId column
+ * @method     ChildQuoteDetail|null findOneByQtdtmnfritemid(string $QtdtMnfrItemId) Return the first ChildQuoteDetail filtered by the QtdtMnfrItemId column
+ * @method     ChildQuoteDetail|null findOneByQtdtlmordrnbr(string $QtdtLmOrdrNbr) Return the first ChildQuoteDetail filtered by the QtdtLmOrdrNbr column
+ * @method     ChildQuoteDetail|null findOneByQtdtlmordrdate(string $QtdtLmOrdrDate) Return the first ChildQuoteDetail filtered by the QtdtLmOrdrDate column
+ * @method     ChildQuoteDetail|null findOneByQtdtspecitemcode(string $QtdtSpecItemCode) Return the first ChildQuoteDetail filtered by the QtdtSpecItemCode column
+ * @method     ChildQuoteDetail|null findOneByQtdtacsalepgm(string $QtdtAcSalePgm) Return the first ChildQuoteDetail filtered by the QtdtAcSalePgm column
+ * @method     ChildQuoteDetail|null findOneByQtdtnsvendshipfr(string $QtdtNsVendShipfr) Return the first ChildQuoteDetail filtered by the QtdtNsVendShipfr column
+ * @method     ChildQuoteDetail|null findOneByQtdtprntmnfrnote(string $QtdtPrntMnfrNote) Return the first ChildQuoteDetail filtered by the QtdtPrntMnfrNote column
+ * @method     ChildQuoteDetail|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildQuoteDetail filtered by the DateUpdtd column
+ * @method     ChildQuoteDetail|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildQuoteDetail filtered by the TimeUpdtd column
+ * @method     ChildQuoteDetail|null findOneByDummy(string $dummy) Return the first ChildQuoteDetail filtered by the dummy column
+ *
+ * @method     ChildQuoteDetail requirePk($key, ?ConnectionInterface $con = null) Return the ChildQuoteDetail by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildQuoteDetail requireOne(?ConnectionInterface $con = null) Return the first ChildQuoteDetail matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildQuoteDetail requireOneByQthdid(string $QthdId) Return the first ChildQuoteDetail filtered by the QthdId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildQuoteDetail requireOneByQtdtline(int $QtdtLine) Return the first ChildQuoteDetail filtered by the QtdtLine column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -434,105 +433,204 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildQuoteDetail requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildQuoteDetail filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildQuoteDetail requireOneByDummy(string $dummy) Return the first ChildQuoteDetail filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildQuoteDetail[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildQuoteDetail objects based on current ModelCriteria
- * @method     ChildQuoteDetail[]|ObjectCollection findByQthdid(string $QthdId) Return ChildQuoteDetail objects filtered by the QthdId column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtline(int $QtdtLine) Return ChildQuoteDetail objects filtered by the QtdtLine column
- * @method     ChildQuoteDetail[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildQuoteDetail objects filtered by the InitItemNbr column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtdesc(string $QtdtDesc) Return ChildQuoteDetail objects filtered by the QtdtDesc column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtdesc2(string $QtdtDesc2) Return ChildQuoteDetail objects filtered by the QtdtDesc2 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtcustcrssref(string $QtdtCustCrssRef) Return ChildQuoteDetail objects filtered by the QtdtCustCrssRef column
- * @method     ChildQuoteDetail[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildQuoteDetail objects filtered by the IntbWhse column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtrqstdate(string $QtdtRqstDate) Return ChildQuoteDetail objects filtered by the QtdtRqstDate column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtspecordr(string $QtdtSpecOrdr) Return ChildQuoteDetail objects filtered by the QtdtSpecOrdr column
- * @method     ChildQuoteDetail[]|ObjectCollection findByArtbctaxcode(string $ArtbCtaxCode) Return ChildQuoteDetail objects filtered by the ArtbCtaxCode column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtqtyord(string $QtdtQtyOrd) Return ChildQuoteDetail objects filtered by the QtdtQtyOrd column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtpric(string $QtdtPric) Return ChildQuoteDetail objects filtered by the QtdtPric column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtcost(string $QtdtCost) Return ChildQuoteDetail objects filtered by the QtdtCost column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdttaxpcttot(string $QtdtTaxPctTot) Return ChildQuoteDetail objects filtered by the QtdtTaxPctTot column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtprictot(string $QtdtPricTot) Return ChildQuoteDetail objects filtered by the QtdtPricTot column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtcosttot(string $QtdtCostTot) Return ChildQuoteDetail objects filtered by the QtdtCostTot column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtwghttot(string $QtdtWghtTot) Return ChildQuoteDetail objects filtered by the QtdtWghtTot column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxcode1(string $QtdtMstrTaxCode1) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode1 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxpct1(string $QtdtMstrTaxPct1) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct1 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxcode2(string $QtdtMstrTaxCode2) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode2 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxpct2(string $QtdtMstrTaxPct2) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct2 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxcode3(string $QtdtMstrTaxCode3) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode3 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxpct3(string $QtdtMstrTaxPct3) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct3 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxcode4(string $QtdtMstrTaxCode4) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode4 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxpct4(string $QtdtMstrTaxPct4) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct4 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxcode5(string $QtdtMstrTaxCode5) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode5 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxpct5(string $QtdtMstrTaxPct5) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct5 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxcode6(string $QtdtMstrTaxCode6) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode6 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxpct6(string $QtdtMstrTaxPct6) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct6 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxcode7(string $QtdtMstrTaxCode7) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode7 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxpct7(string $QtdtMstrTaxPct7) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct7 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxcode8(string $QtdtMstrTaxCode8) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode8 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxpct8(string $QtdtMstrTaxPct8) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct8 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxcode9(string $QtdtMstrTaxCode9) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode9 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmstrtaxpct9(string $QtdtMstrTaxPct9) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct9 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByIntbuomsale(string $IntbUomSale) Return ChildQuoteDetail objects filtered by the IntbUomSale column
- * @method     ChildQuoteDetail[]|ObjectCollection findByIntbuompur(string $IntbUomPur) Return ChildQuoteDetail objects filtered by the IntbUomPur column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotind1(string $QtdtQuotInd1) Return ChildQuoteDetail objects filtered by the QtdtQuotInd1 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotunit1(int $QtdtQuotUnit1) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit1 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotpric1(string $QtdtQuotPric1) Return ChildQuoteDetail objects filtered by the QtdtQuotPric1 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotcost1(string $QtdtQuotCost1) Return ChildQuoteDetail objects filtered by the QtdtQuotCost1 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotmkupmarg1(string $QtdtQuotMkupMarg1) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg1 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotind2(string $QtdtQuotInd2) Return ChildQuoteDetail objects filtered by the QtdtQuotInd2 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotunit2(int $QtdtQuotUnit2) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit2 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotpric2(string $QtdtQuotPric2) Return ChildQuoteDetail objects filtered by the QtdtQuotPric2 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotcost2(string $QtdtQuotCost2) Return ChildQuoteDetail objects filtered by the QtdtQuotCost2 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotmkupmarg2(string $QtdtQuotMkupMarg2) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg2 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotind3(string $QtdtQuotInd3) Return ChildQuoteDetail objects filtered by the QtdtQuotInd3 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotunit3(int $QtdtQuotUnit3) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit3 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotpric3(string $QtdtQuotPric3) Return ChildQuoteDetail objects filtered by the QtdtQuotPric3 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotcost3(string $QtdtQuotCost3) Return ChildQuoteDetail objects filtered by the QtdtQuotCost3 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotmkupmarg3(string $QtdtQuotMkupMarg3) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg3 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotind4(string $QtdtQuotInd4) Return ChildQuoteDetail objects filtered by the QtdtQuotInd4 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotunit4(int $QtdtQuotUnit4) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit4 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotpric4(string $QtdtQuotPric4) Return ChildQuoteDetail objects filtered by the QtdtQuotPric4 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotcost4(string $QtdtQuotCost4) Return ChildQuoteDetail objects filtered by the QtdtQuotCost4 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotmkupmarg4(string $QtdtQuotMkupMarg4) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg4 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotind5(string $QtdtQuotInd5) Return ChildQuoteDetail objects filtered by the QtdtQuotInd5 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotunit5(int $QtdtQuotUnit5) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit5 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotpric5(string $QtdtQuotPric5) Return ChildQuoteDetail objects filtered by the QtdtQuotPric5 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotcost5(string $QtdtQuotCost5) Return ChildQuoteDetail objects filtered by the QtdtQuotCost5 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotmkupmarg5(string $QtdtQuotMkupMarg5) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg5 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotind6(string $QtdtQuotInd6) Return ChildQuoteDetail objects filtered by the QtdtQuotInd6 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotunit6(int $QtdtQuotUnit6) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit6 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotpric6(string $QtdtQuotPric6) Return ChildQuoteDetail objects filtered by the QtdtQuotPric6 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotcost6(string $QtdtQuotCost6) Return ChildQuoteDetail objects filtered by the QtdtQuotCost6 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotmkupmarg6(string $QtdtQuotMkupMarg6) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg6 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtasstcode(string $QtdtAsstCode) Return ChildQuoteDetail objects filtered by the QtdtAsstCode column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtasstqty(string $QtdtAsstQty) Return ChildQuoteDetail objects filtered by the QtdtAsstQty column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtlistpric(string $QtdtListPric) Return ChildQuoteDetail objects filtered by the QtdtListPric column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtstancost(string $QtdtStanCost) Return ChildQuoteDetail objects filtered by the QtdtStanCost column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtvenditemjob(string $QtdtVendItemJob) Return ChildQuoteDetail objects filtered by the QtdtVendItemJob column
- * @method     ChildQuoteDetail[]|ObjectCollection findByApvevendid(string $ApveVendId) Return ChildQuoteDetail objects filtered by the ApveVendId column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtnsitemgrup(string $QtdtNsItemGrup) Return ChildQuoteDetail objects filtered by the QtdtNsItemGrup column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtusecode(string $QtdtUseCode) Return ChildQuoteDetail objects filtered by the QtdtUseCode column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtpickflag(string $QtdtPickFlag) Return ChildQuoteDetail objects filtered by the QtdtPickFlag column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtstatus(string $QtdtStatus) Return ChildQuoteDetail objects filtered by the QtdtStatus column
- * @method     ChildQuoteDetail[]|ObjectCollection findByOetblsslcode(string $OetbLsslCode) Return ChildQuoteDetail objects filtered by the OetbLsslCode column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtlostdate(string $QtdtLostDate) Return ChildQuoteDetail objects filtered by the QtdtLostDate column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtlostposted(string $QtdtLostPosted) Return ChildQuoteDetail objects filtered by the QtdtLostPosted column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtleaddays(int $QtdtLeadDays) Return ChildQuoteDetail objects filtered by the QtdtLeadDays column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtordrdiscpct(string $QtdtOrdrDiscPct) Return ChildQuoteDetail objects filtered by the QtdtOrdrDiscPct column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtquotdiscpct1(string $QtdtQuotDiscPct1) Return ChildQuoteDetail objects filtered by the QtdtQuotDiscPct1 column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmtrcreqd(string $QtdtMtrcReqd) Return ChildQuoteDetail objects filtered by the QtdtMtrcReqd column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtcofcreqd(string $QtdtCofcReqd) Return ChildQuoteDetail objects filtered by the QtdtCofcReqd column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmnfrid(string $QtdtMnfrId) Return ChildQuoteDetail objects filtered by the QtdtMnfrId column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtmnfritemid(string $QtdtMnfrItemId) Return ChildQuoteDetail objects filtered by the QtdtMnfrItemId column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtlmordrnbr(string $QtdtLmOrdrNbr) Return ChildQuoteDetail objects filtered by the QtdtLmOrdrNbr column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtlmordrdate(string $QtdtLmOrdrDate) Return ChildQuoteDetail objects filtered by the QtdtLmOrdrDate column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtspecitemcode(string $QtdtSpecItemCode) Return ChildQuoteDetail objects filtered by the QtdtSpecItemCode column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtacsalepgm(string $QtdtAcSalePgm) Return ChildQuoteDetail objects filtered by the QtdtAcSalePgm column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtnsvendshipfr(string $QtdtNsVendShipfr) Return ChildQuoteDetail objects filtered by the QtdtNsVendShipfr column
- * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtprntmnfrnote(string $QtdtPrntMnfrNote) Return ChildQuoteDetail objects filtered by the QtdtPrntMnfrNote column
- * @method     ChildQuoteDetail[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildQuoteDetail objects filtered by the DateUpdtd column
- * @method     ChildQuoteDetail[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildQuoteDetail objects filtered by the TimeUpdtd column
- * @method     ChildQuoteDetail[]|ObjectCollection findByDummy(string $dummy) Return ChildQuoteDetail objects filtered by the dummy column
- * @method     ChildQuoteDetail[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildQuoteDetail[]|Collection find(?ConnectionInterface $con = null) Return ChildQuoteDetail objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> find(?ConnectionInterface $con = null) Return ChildQuoteDetail objects based on current ModelCriteria
  *
+ * @method     ChildQuoteDetail[]|Collection findByQthdid(string|array<string> $QthdId) Return ChildQuoteDetail objects filtered by the QthdId column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQthdid(string|array<string> $QthdId) Return ChildQuoteDetail objects filtered by the QthdId column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtline(int|array<int> $QtdtLine) Return ChildQuoteDetail objects filtered by the QtdtLine column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtline(int|array<int> $QtdtLine) Return ChildQuoteDetail objects filtered by the QtdtLine column
+ * @method     ChildQuoteDetail[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildQuoteDetail objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildQuoteDetail objects filtered by the InitItemNbr column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtdesc(string|array<string> $QtdtDesc) Return ChildQuoteDetail objects filtered by the QtdtDesc column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtdesc(string|array<string> $QtdtDesc) Return ChildQuoteDetail objects filtered by the QtdtDesc column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtdesc2(string|array<string> $QtdtDesc2) Return ChildQuoteDetail objects filtered by the QtdtDesc2 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtdesc2(string|array<string> $QtdtDesc2) Return ChildQuoteDetail objects filtered by the QtdtDesc2 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtcustcrssref(string|array<string> $QtdtCustCrssRef) Return ChildQuoteDetail objects filtered by the QtdtCustCrssRef column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtcustcrssref(string|array<string> $QtdtCustCrssRef) Return ChildQuoteDetail objects filtered by the QtdtCustCrssRef column
+ * @method     ChildQuoteDetail[]|Collection findByIntbwhse(string|array<string> $IntbWhse) Return ChildQuoteDetail objects filtered by the IntbWhse column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByIntbwhse(string|array<string> $IntbWhse) Return ChildQuoteDetail objects filtered by the IntbWhse column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtrqstdate(string|array<string> $QtdtRqstDate) Return ChildQuoteDetail objects filtered by the QtdtRqstDate column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtrqstdate(string|array<string> $QtdtRqstDate) Return ChildQuoteDetail objects filtered by the QtdtRqstDate column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtspecordr(string|array<string> $QtdtSpecOrdr) Return ChildQuoteDetail objects filtered by the QtdtSpecOrdr column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtspecordr(string|array<string> $QtdtSpecOrdr) Return ChildQuoteDetail objects filtered by the QtdtSpecOrdr column
+ * @method     ChildQuoteDetail[]|Collection findByArtbctaxcode(string|array<string> $ArtbCtaxCode) Return ChildQuoteDetail objects filtered by the ArtbCtaxCode column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByArtbctaxcode(string|array<string> $ArtbCtaxCode) Return ChildQuoteDetail objects filtered by the ArtbCtaxCode column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtqtyord(string|array<string> $QtdtQtyOrd) Return ChildQuoteDetail objects filtered by the QtdtQtyOrd column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtqtyord(string|array<string> $QtdtQtyOrd) Return ChildQuoteDetail objects filtered by the QtdtQtyOrd column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtpric(string|array<string> $QtdtPric) Return ChildQuoteDetail objects filtered by the QtdtPric column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtpric(string|array<string> $QtdtPric) Return ChildQuoteDetail objects filtered by the QtdtPric column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtcost(string|array<string> $QtdtCost) Return ChildQuoteDetail objects filtered by the QtdtCost column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtcost(string|array<string> $QtdtCost) Return ChildQuoteDetail objects filtered by the QtdtCost column
+ * @method     ChildQuoteDetail[]|Collection findByQtdttaxpcttot(string|array<string> $QtdtTaxPctTot) Return ChildQuoteDetail objects filtered by the QtdtTaxPctTot column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdttaxpcttot(string|array<string> $QtdtTaxPctTot) Return ChildQuoteDetail objects filtered by the QtdtTaxPctTot column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtprictot(string|array<string> $QtdtPricTot) Return ChildQuoteDetail objects filtered by the QtdtPricTot column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtprictot(string|array<string> $QtdtPricTot) Return ChildQuoteDetail objects filtered by the QtdtPricTot column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtcosttot(string|array<string> $QtdtCostTot) Return ChildQuoteDetail objects filtered by the QtdtCostTot column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtcosttot(string|array<string> $QtdtCostTot) Return ChildQuoteDetail objects filtered by the QtdtCostTot column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtwghttot(string|array<string> $QtdtWghtTot) Return ChildQuoteDetail objects filtered by the QtdtWghtTot column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtwghttot(string|array<string> $QtdtWghtTot) Return ChildQuoteDetail objects filtered by the QtdtWghtTot column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxcode1(string|array<string> $QtdtMstrTaxCode1) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode1 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxcode1(string|array<string> $QtdtMstrTaxCode1) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode1 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxpct1(string|array<string> $QtdtMstrTaxPct1) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct1 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxpct1(string|array<string> $QtdtMstrTaxPct1) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct1 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxcode2(string|array<string> $QtdtMstrTaxCode2) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode2 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxcode2(string|array<string> $QtdtMstrTaxCode2) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode2 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxpct2(string|array<string> $QtdtMstrTaxPct2) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct2 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxpct2(string|array<string> $QtdtMstrTaxPct2) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct2 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxcode3(string|array<string> $QtdtMstrTaxCode3) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode3 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxcode3(string|array<string> $QtdtMstrTaxCode3) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode3 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxpct3(string|array<string> $QtdtMstrTaxPct3) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct3 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxpct3(string|array<string> $QtdtMstrTaxPct3) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct3 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxcode4(string|array<string> $QtdtMstrTaxCode4) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode4 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxcode4(string|array<string> $QtdtMstrTaxCode4) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode4 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxpct4(string|array<string> $QtdtMstrTaxPct4) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct4 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxpct4(string|array<string> $QtdtMstrTaxPct4) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct4 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxcode5(string|array<string> $QtdtMstrTaxCode5) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode5 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxcode5(string|array<string> $QtdtMstrTaxCode5) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode5 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxpct5(string|array<string> $QtdtMstrTaxPct5) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct5 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxpct5(string|array<string> $QtdtMstrTaxPct5) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct5 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxcode6(string|array<string> $QtdtMstrTaxCode6) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode6 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxcode6(string|array<string> $QtdtMstrTaxCode6) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode6 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxpct6(string|array<string> $QtdtMstrTaxPct6) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct6 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxpct6(string|array<string> $QtdtMstrTaxPct6) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct6 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxcode7(string|array<string> $QtdtMstrTaxCode7) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode7 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxcode7(string|array<string> $QtdtMstrTaxCode7) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode7 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxpct7(string|array<string> $QtdtMstrTaxPct7) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct7 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxpct7(string|array<string> $QtdtMstrTaxPct7) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct7 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxcode8(string|array<string> $QtdtMstrTaxCode8) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode8 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxcode8(string|array<string> $QtdtMstrTaxCode8) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode8 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxpct8(string|array<string> $QtdtMstrTaxPct8) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct8 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxpct8(string|array<string> $QtdtMstrTaxPct8) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct8 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxcode9(string|array<string> $QtdtMstrTaxCode9) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode9 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxcode9(string|array<string> $QtdtMstrTaxCode9) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxCode9 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmstrtaxpct9(string|array<string> $QtdtMstrTaxPct9) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct9 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmstrtaxpct9(string|array<string> $QtdtMstrTaxPct9) Return ChildQuoteDetail objects filtered by the QtdtMstrTaxPct9 column
+ * @method     ChildQuoteDetail[]|Collection findByIntbuomsale(string|array<string> $IntbUomSale) Return ChildQuoteDetail objects filtered by the IntbUomSale column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByIntbuomsale(string|array<string> $IntbUomSale) Return ChildQuoteDetail objects filtered by the IntbUomSale column
+ * @method     ChildQuoteDetail[]|Collection findByIntbuompur(string|array<string> $IntbUomPur) Return ChildQuoteDetail objects filtered by the IntbUomPur column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByIntbuompur(string|array<string> $IntbUomPur) Return ChildQuoteDetail objects filtered by the IntbUomPur column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotind1(string|array<string> $QtdtQuotInd1) Return ChildQuoteDetail objects filtered by the QtdtQuotInd1 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotind1(string|array<string> $QtdtQuotInd1) Return ChildQuoteDetail objects filtered by the QtdtQuotInd1 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotunit1(int|array<int> $QtdtQuotUnit1) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit1 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotunit1(int|array<int> $QtdtQuotUnit1) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit1 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotpric1(string|array<string> $QtdtQuotPric1) Return ChildQuoteDetail objects filtered by the QtdtQuotPric1 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotpric1(string|array<string> $QtdtQuotPric1) Return ChildQuoteDetail objects filtered by the QtdtQuotPric1 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotcost1(string|array<string> $QtdtQuotCost1) Return ChildQuoteDetail objects filtered by the QtdtQuotCost1 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotcost1(string|array<string> $QtdtQuotCost1) Return ChildQuoteDetail objects filtered by the QtdtQuotCost1 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotmkupmarg1(string|array<string> $QtdtQuotMkupMarg1) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg1 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotmkupmarg1(string|array<string> $QtdtQuotMkupMarg1) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg1 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotind2(string|array<string> $QtdtQuotInd2) Return ChildQuoteDetail objects filtered by the QtdtQuotInd2 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotind2(string|array<string> $QtdtQuotInd2) Return ChildQuoteDetail objects filtered by the QtdtQuotInd2 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotunit2(int|array<int> $QtdtQuotUnit2) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit2 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotunit2(int|array<int> $QtdtQuotUnit2) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit2 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotpric2(string|array<string> $QtdtQuotPric2) Return ChildQuoteDetail objects filtered by the QtdtQuotPric2 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotpric2(string|array<string> $QtdtQuotPric2) Return ChildQuoteDetail objects filtered by the QtdtQuotPric2 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotcost2(string|array<string> $QtdtQuotCost2) Return ChildQuoteDetail objects filtered by the QtdtQuotCost2 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotcost2(string|array<string> $QtdtQuotCost2) Return ChildQuoteDetail objects filtered by the QtdtQuotCost2 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotmkupmarg2(string|array<string> $QtdtQuotMkupMarg2) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg2 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotmkupmarg2(string|array<string> $QtdtQuotMkupMarg2) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg2 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotind3(string|array<string> $QtdtQuotInd3) Return ChildQuoteDetail objects filtered by the QtdtQuotInd3 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotind3(string|array<string> $QtdtQuotInd3) Return ChildQuoteDetail objects filtered by the QtdtQuotInd3 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotunit3(int|array<int> $QtdtQuotUnit3) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit3 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotunit3(int|array<int> $QtdtQuotUnit3) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit3 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotpric3(string|array<string> $QtdtQuotPric3) Return ChildQuoteDetail objects filtered by the QtdtQuotPric3 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotpric3(string|array<string> $QtdtQuotPric3) Return ChildQuoteDetail objects filtered by the QtdtQuotPric3 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotcost3(string|array<string> $QtdtQuotCost3) Return ChildQuoteDetail objects filtered by the QtdtQuotCost3 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotcost3(string|array<string> $QtdtQuotCost3) Return ChildQuoteDetail objects filtered by the QtdtQuotCost3 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotmkupmarg3(string|array<string> $QtdtQuotMkupMarg3) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg3 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotmkupmarg3(string|array<string> $QtdtQuotMkupMarg3) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg3 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotind4(string|array<string> $QtdtQuotInd4) Return ChildQuoteDetail objects filtered by the QtdtQuotInd4 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotind4(string|array<string> $QtdtQuotInd4) Return ChildQuoteDetail objects filtered by the QtdtQuotInd4 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotunit4(int|array<int> $QtdtQuotUnit4) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit4 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotunit4(int|array<int> $QtdtQuotUnit4) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit4 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotpric4(string|array<string> $QtdtQuotPric4) Return ChildQuoteDetail objects filtered by the QtdtQuotPric4 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotpric4(string|array<string> $QtdtQuotPric4) Return ChildQuoteDetail objects filtered by the QtdtQuotPric4 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotcost4(string|array<string> $QtdtQuotCost4) Return ChildQuoteDetail objects filtered by the QtdtQuotCost4 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotcost4(string|array<string> $QtdtQuotCost4) Return ChildQuoteDetail objects filtered by the QtdtQuotCost4 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotmkupmarg4(string|array<string> $QtdtQuotMkupMarg4) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg4 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotmkupmarg4(string|array<string> $QtdtQuotMkupMarg4) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg4 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotind5(string|array<string> $QtdtQuotInd5) Return ChildQuoteDetail objects filtered by the QtdtQuotInd5 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotind5(string|array<string> $QtdtQuotInd5) Return ChildQuoteDetail objects filtered by the QtdtQuotInd5 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotunit5(int|array<int> $QtdtQuotUnit5) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit5 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotunit5(int|array<int> $QtdtQuotUnit5) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit5 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotpric5(string|array<string> $QtdtQuotPric5) Return ChildQuoteDetail objects filtered by the QtdtQuotPric5 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotpric5(string|array<string> $QtdtQuotPric5) Return ChildQuoteDetail objects filtered by the QtdtQuotPric5 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotcost5(string|array<string> $QtdtQuotCost5) Return ChildQuoteDetail objects filtered by the QtdtQuotCost5 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotcost5(string|array<string> $QtdtQuotCost5) Return ChildQuoteDetail objects filtered by the QtdtQuotCost5 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotmkupmarg5(string|array<string> $QtdtQuotMkupMarg5) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg5 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotmkupmarg5(string|array<string> $QtdtQuotMkupMarg5) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg5 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotind6(string|array<string> $QtdtQuotInd6) Return ChildQuoteDetail objects filtered by the QtdtQuotInd6 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotind6(string|array<string> $QtdtQuotInd6) Return ChildQuoteDetail objects filtered by the QtdtQuotInd6 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotunit6(int|array<int> $QtdtQuotUnit6) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit6 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotunit6(int|array<int> $QtdtQuotUnit6) Return ChildQuoteDetail objects filtered by the QtdtQuotUnit6 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotpric6(string|array<string> $QtdtQuotPric6) Return ChildQuoteDetail objects filtered by the QtdtQuotPric6 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotpric6(string|array<string> $QtdtQuotPric6) Return ChildQuoteDetail objects filtered by the QtdtQuotPric6 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotcost6(string|array<string> $QtdtQuotCost6) Return ChildQuoteDetail objects filtered by the QtdtQuotCost6 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotcost6(string|array<string> $QtdtQuotCost6) Return ChildQuoteDetail objects filtered by the QtdtQuotCost6 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotmkupmarg6(string|array<string> $QtdtQuotMkupMarg6) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg6 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotmkupmarg6(string|array<string> $QtdtQuotMkupMarg6) Return ChildQuoteDetail objects filtered by the QtdtQuotMkupMarg6 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtasstcode(string|array<string> $QtdtAsstCode) Return ChildQuoteDetail objects filtered by the QtdtAsstCode column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtasstcode(string|array<string> $QtdtAsstCode) Return ChildQuoteDetail objects filtered by the QtdtAsstCode column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtasstqty(string|array<string> $QtdtAsstQty) Return ChildQuoteDetail objects filtered by the QtdtAsstQty column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtasstqty(string|array<string> $QtdtAsstQty) Return ChildQuoteDetail objects filtered by the QtdtAsstQty column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtlistpric(string|array<string> $QtdtListPric) Return ChildQuoteDetail objects filtered by the QtdtListPric column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtlistpric(string|array<string> $QtdtListPric) Return ChildQuoteDetail objects filtered by the QtdtListPric column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtstancost(string|array<string> $QtdtStanCost) Return ChildQuoteDetail objects filtered by the QtdtStanCost column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtstancost(string|array<string> $QtdtStanCost) Return ChildQuoteDetail objects filtered by the QtdtStanCost column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtvenditemjob(string|array<string> $QtdtVendItemJob) Return ChildQuoteDetail objects filtered by the QtdtVendItemJob column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtvenditemjob(string|array<string> $QtdtVendItemJob) Return ChildQuoteDetail objects filtered by the QtdtVendItemJob column
+ * @method     ChildQuoteDetail[]|Collection findByApvevendid(string|array<string> $ApveVendId) Return ChildQuoteDetail objects filtered by the ApveVendId column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByApvevendid(string|array<string> $ApveVendId) Return ChildQuoteDetail objects filtered by the ApveVendId column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtnsitemgrup(string|array<string> $QtdtNsItemGrup) Return ChildQuoteDetail objects filtered by the QtdtNsItemGrup column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtnsitemgrup(string|array<string> $QtdtNsItemGrup) Return ChildQuoteDetail objects filtered by the QtdtNsItemGrup column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtusecode(string|array<string> $QtdtUseCode) Return ChildQuoteDetail objects filtered by the QtdtUseCode column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtusecode(string|array<string> $QtdtUseCode) Return ChildQuoteDetail objects filtered by the QtdtUseCode column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtpickflag(string|array<string> $QtdtPickFlag) Return ChildQuoteDetail objects filtered by the QtdtPickFlag column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtpickflag(string|array<string> $QtdtPickFlag) Return ChildQuoteDetail objects filtered by the QtdtPickFlag column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtstatus(string|array<string> $QtdtStatus) Return ChildQuoteDetail objects filtered by the QtdtStatus column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtstatus(string|array<string> $QtdtStatus) Return ChildQuoteDetail objects filtered by the QtdtStatus column
+ * @method     ChildQuoteDetail[]|Collection findByOetblsslcode(string|array<string> $OetbLsslCode) Return ChildQuoteDetail objects filtered by the OetbLsslCode column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByOetblsslcode(string|array<string> $OetbLsslCode) Return ChildQuoteDetail objects filtered by the OetbLsslCode column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtlostdate(string|array<string> $QtdtLostDate) Return ChildQuoteDetail objects filtered by the QtdtLostDate column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtlostdate(string|array<string> $QtdtLostDate) Return ChildQuoteDetail objects filtered by the QtdtLostDate column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtlostposted(string|array<string> $QtdtLostPosted) Return ChildQuoteDetail objects filtered by the QtdtLostPosted column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtlostposted(string|array<string> $QtdtLostPosted) Return ChildQuoteDetail objects filtered by the QtdtLostPosted column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtleaddays(int|array<int> $QtdtLeadDays) Return ChildQuoteDetail objects filtered by the QtdtLeadDays column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtleaddays(int|array<int> $QtdtLeadDays) Return ChildQuoteDetail objects filtered by the QtdtLeadDays column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtordrdiscpct(string|array<string> $QtdtOrdrDiscPct) Return ChildQuoteDetail objects filtered by the QtdtOrdrDiscPct column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtordrdiscpct(string|array<string> $QtdtOrdrDiscPct) Return ChildQuoteDetail objects filtered by the QtdtOrdrDiscPct column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtquotdiscpct1(string|array<string> $QtdtQuotDiscPct1) Return ChildQuoteDetail objects filtered by the QtdtQuotDiscPct1 column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtquotdiscpct1(string|array<string> $QtdtQuotDiscPct1) Return ChildQuoteDetail objects filtered by the QtdtQuotDiscPct1 column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmtrcreqd(string|array<string> $QtdtMtrcReqd) Return ChildQuoteDetail objects filtered by the QtdtMtrcReqd column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmtrcreqd(string|array<string> $QtdtMtrcReqd) Return ChildQuoteDetail objects filtered by the QtdtMtrcReqd column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtcofcreqd(string|array<string> $QtdtCofcReqd) Return ChildQuoteDetail objects filtered by the QtdtCofcReqd column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtcofcreqd(string|array<string> $QtdtCofcReqd) Return ChildQuoteDetail objects filtered by the QtdtCofcReqd column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmnfrid(string|array<string> $QtdtMnfrId) Return ChildQuoteDetail objects filtered by the QtdtMnfrId column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmnfrid(string|array<string> $QtdtMnfrId) Return ChildQuoteDetail objects filtered by the QtdtMnfrId column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtmnfritemid(string|array<string> $QtdtMnfrItemId) Return ChildQuoteDetail objects filtered by the QtdtMnfrItemId column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtmnfritemid(string|array<string> $QtdtMnfrItemId) Return ChildQuoteDetail objects filtered by the QtdtMnfrItemId column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtlmordrnbr(string|array<string> $QtdtLmOrdrNbr) Return ChildQuoteDetail objects filtered by the QtdtLmOrdrNbr column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtlmordrnbr(string|array<string> $QtdtLmOrdrNbr) Return ChildQuoteDetail objects filtered by the QtdtLmOrdrNbr column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtlmordrdate(string|array<string> $QtdtLmOrdrDate) Return ChildQuoteDetail objects filtered by the QtdtLmOrdrDate column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtlmordrdate(string|array<string> $QtdtLmOrdrDate) Return ChildQuoteDetail objects filtered by the QtdtLmOrdrDate column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtspecitemcode(string|array<string> $QtdtSpecItemCode) Return ChildQuoteDetail objects filtered by the QtdtSpecItemCode column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtspecitemcode(string|array<string> $QtdtSpecItemCode) Return ChildQuoteDetail objects filtered by the QtdtSpecItemCode column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtacsalepgm(string|array<string> $QtdtAcSalePgm) Return ChildQuoteDetail objects filtered by the QtdtAcSalePgm column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtacsalepgm(string|array<string> $QtdtAcSalePgm) Return ChildQuoteDetail objects filtered by the QtdtAcSalePgm column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtnsvendshipfr(string|array<string> $QtdtNsVendShipfr) Return ChildQuoteDetail objects filtered by the QtdtNsVendShipfr column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtnsvendshipfr(string|array<string> $QtdtNsVendShipfr) Return ChildQuoteDetail objects filtered by the QtdtNsVendShipfr column
+ * @method     ChildQuoteDetail[]|Collection findByQtdtprntmnfrnote(string|array<string> $QtdtPrntMnfrNote) Return ChildQuoteDetail objects filtered by the QtdtPrntMnfrNote column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByQtdtprntmnfrnote(string|array<string> $QtdtPrntMnfrNote) Return ChildQuoteDetail objects filtered by the QtdtPrntMnfrNote column
+ * @method     ChildQuoteDetail[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildQuoteDetail objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildQuoteDetail objects filtered by the DateUpdtd column
+ * @method     ChildQuoteDetail[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildQuoteDetail objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildQuoteDetail objects filtered by the TimeUpdtd column
+ * @method     ChildQuoteDetail[]|Collection findByDummy(string|array<string> $dummy) Return ChildQuoteDetail objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildQuoteDetail> findByDummy(string|array<string> $dummy) Return ChildQuoteDetail objects filtered by the dummy column
+ *
+ * @method     ChildQuoteDetail[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildQuoteDetail> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class QuoteDetailQuery extends ModelCriteria
 {
@@ -541,9 +639,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\QuoteDetailQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\QuoteDetail', $modelAlias = null)
     {
@@ -553,12 +651,12 @@ abstract class QuoteDetailQuery extends ModelCriteria
     /**
      * Returns a new ChildQuoteDetailQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildQuoteDetailQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildQuoteDetailQuery) {
             return $criteria;
@@ -588,7 +686,7 @@ abstract class QuoteDetailQuery extends ModelCriteria
      *
      * @return ChildQuoteDetail|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -620,8 +718,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -654,8 +752,8 @@ abstract class QuoteDetailQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildQuoteDetail|array|mixed the result, formatted by the current formatter
      */
@@ -675,12 +773,12 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -697,9 +795,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -712,14 +810,16 @@ abstract class QuoteDetailQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(QuoteDetailTableMap::COL_QTHDID, $key[0], Criteria::EQUAL);
@@ -738,14 +838,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQthdid('fooValue');   // WHERE QthdId = 'fooValue'
      * $query->filterByQthdid('%fooValue%', Criteria::LIKE); // WHERE QthdId LIKE '%fooValue%'
+     * $query->filterByQthdid(['foo', 'bar']); // WHERE QthdId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qthdid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qthdid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQthdid($qthdid = null, $comparison = null)
+    public function filterByQthdid($qthdid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qthdid)) {
@@ -753,7 +854,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTHDID, $qthdid, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTHDID, $qthdid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -766,15 +869,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtline(array('min' => 12)); // WHERE QtdtLine > 12
      * </code>
      *
-     * @param     mixed $qtdtline The value to use as filter.
+     * @param mixed $qtdtline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtline($qtdtline = null, $comparison = null)
+    public function filterByQtdtline($qtdtline = null, ?string $comparison = null)
     {
         if (is_array($qtdtline)) {
             $useMinMax = false;
@@ -794,7 +897,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLINE, $qtdtline, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLINE, $qtdtline, $comparison);
+
+        return $this;
     }
 
     /**
@@ -804,14 +909,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -819,7 +925,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -829,14 +937,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtdesc('fooValue');   // WHERE QtdtDesc = 'fooValue'
      * $query->filterByQtdtdesc('%fooValue%', Criteria::LIKE); // WHERE QtdtDesc LIKE '%fooValue%'
+     * $query->filterByQtdtdesc(['foo', 'bar']); // WHERE QtdtDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtdesc($qtdtdesc = null, $comparison = null)
+    public function filterByQtdtdesc($qtdtdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtdesc)) {
@@ -844,7 +953,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTDESC, $qtdtdesc, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTDESC, $qtdtdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -854,14 +965,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtdesc2('fooValue');   // WHERE QtdtDesc2 = 'fooValue'
      * $query->filterByQtdtdesc2('%fooValue%', Criteria::LIKE); // WHERE QtdtDesc2 LIKE '%fooValue%'
+     * $query->filterByQtdtdesc2(['foo', 'bar']); // WHERE QtdtDesc2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtdesc2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtdesc2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtdesc2($qtdtdesc2 = null, $comparison = null)
+    public function filterByQtdtdesc2($qtdtdesc2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtdesc2)) {
@@ -869,7 +981,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTDESC2, $qtdtdesc2, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTDESC2, $qtdtdesc2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -879,14 +993,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtcustcrssref('fooValue');   // WHERE QtdtCustCrssRef = 'fooValue'
      * $query->filterByQtdtcustcrssref('%fooValue%', Criteria::LIKE); // WHERE QtdtCustCrssRef LIKE '%fooValue%'
+     * $query->filterByQtdtcustcrssref(['foo', 'bar']); // WHERE QtdtCustCrssRef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtcustcrssref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtcustcrssref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtcustcrssref($qtdtcustcrssref = null, $comparison = null)
+    public function filterByQtdtcustcrssref($qtdtcustcrssref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtcustcrssref)) {
@@ -894,7 +1009,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTCUSTCRSSREF, $qtdtcustcrssref, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTCUSTCRSSREF, $qtdtcustcrssref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -904,14 +1021,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhse('fooValue');   // WHERE IntbWhse = 'fooValue'
      * $query->filterByIntbwhse('%fooValue%', Criteria::LIKE); // WHERE IntbWhse LIKE '%fooValue%'
+     * $query->filterByIntbwhse(['foo', 'bar']); // WHERE IntbWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhse($intbwhse = null, $comparison = null)
+    public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhse)) {
@@ -919,7 +1037,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -929,14 +1049,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtrqstdate('fooValue');   // WHERE QtdtRqstDate = 'fooValue'
      * $query->filterByQtdtrqstdate('%fooValue%', Criteria::LIKE); // WHERE QtdtRqstDate LIKE '%fooValue%'
+     * $query->filterByQtdtrqstdate(['foo', 'bar']); // WHERE QtdtRqstDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtrqstdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtrqstdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtrqstdate($qtdtrqstdate = null, $comparison = null)
+    public function filterByQtdtrqstdate($qtdtrqstdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtrqstdate)) {
@@ -944,7 +1065,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTRQSTDATE, $qtdtrqstdate, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTRQSTDATE, $qtdtrqstdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -954,14 +1077,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtspecordr('fooValue');   // WHERE QtdtSpecOrdr = 'fooValue'
      * $query->filterByQtdtspecordr('%fooValue%', Criteria::LIKE); // WHERE QtdtSpecOrdr LIKE '%fooValue%'
+     * $query->filterByQtdtspecordr(['foo', 'bar']); // WHERE QtdtSpecOrdr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtspecordr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtspecordr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtspecordr($qtdtspecordr = null, $comparison = null)
+    public function filterByQtdtspecordr($qtdtspecordr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtspecordr)) {
@@ -969,7 +1093,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTSPECORDR, $qtdtspecordr, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTSPECORDR, $qtdtspecordr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -979,14 +1105,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbctaxcode('fooValue');   // WHERE ArtbCtaxCode = 'fooValue'
      * $query->filterByArtbctaxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbCtaxCode LIKE '%fooValue%'
+     * $query->filterByArtbctaxcode(['foo', 'bar']); // WHERE ArtbCtaxCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbctaxcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbctaxcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbctaxcode($artbctaxcode = null, $comparison = null)
+    public function filterByArtbctaxcode($artbctaxcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbctaxcode)) {
@@ -994,7 +1121,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_ARTBCTAXCODE, $artbctaxcode, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_ARTBCTAXCODE, $artbctaxcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1007,15 +1136,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtqtyord(array('min' => 12)); // WHERE QtdtQtyOrd > 12
      * </code>
      *
-     * @param     mixed $qtdtqtyord The value to use as filter.
+     * @param mixed $qtdtqtyord The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtqtyord($qtdtqtyord = null, $comparison = null)
+    public function filterByQtdtqtyord($qtdtqtyord = null, ?string $comparison = null)
     {
         if (is_array($qtdtqtyord)) {
             $useMinMax = false;
@@ -1035,7 +1164,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQTYORD, $qtdtqtyord, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQTYORD, $qtdtqtyord, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1048,15 +1179,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtpric(array('min' => 12)); // WHERE QtdtPric > 12
      * </code>
      *
-     * @param     mixed $qtdtpric The value to use as filter.
+     * @param mixed $qtdtpric The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtpric($qtdtpric = null, $comparison = null)
+    public function filterByQtdtpric($qtdtpric = null, ?string $comparison = null)
     {
         if (is_array($qtdtpric)) {
             $useMinMax = false;
@@ -1076,7 +1207,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTPRIC, $qtdtpric, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTPRIC, $qtdtpric, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1089,15 +1222,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtcost(array('min' => 12)); // WHERE QtdtCost > 12
      * </code>
      *
-     * @param     mixed $qtdtcost The value to use as filter.
+     * @param mixed $qtdtcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtcost($qtdtcost = null, $comparison = null)
+    public function filterByQtdtcost($qtdtcost = null, ?string $comparison = null)
     {
         if (is_array($qtdtcost)) {
             $useMinMax = false;
@@ -1117,7 +1250,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTCOST, $qtdtcost, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTCOST, $qtdtcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1130,15 +1265,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdttaxpcttot(array('min' => 12)); // WHERE QtdtTaxPctTot > 12
      * </code>
      *
-     * @param     mixed $qtdttaxpcttot The value to use as filter.
+     * @param mixed $qtdttaxpcttot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdttaxpcttot($qtdttaxpcttot = null, $comparison = null)
+    public function filterByQtdttaxpcttot($qtdttaxpcttot = null, ?string $comparison = null)
     {
         if (is_array($qtdttaxpcttot)) {
             $useMinMax = false;
@@ -1158,7 +1293,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTTAXPCTTOT, $qtdttaxpcttot, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTTAXPCTTOT, $qtdttaxpcttot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1171,15 +1308,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtprictot(array('min' => 12)); // WHERE QtdtPricTot > 12
      * </code>
      *
-     * @param     mixed $qtdtprictot The value to use as filter.
+     * @param mixed $qtdtprictot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtprictot($qtdtprictot = null, $comparison = null)
+    public function filterByQtdtprictot($qtdtprictot = null, ?string $comparison = null)
     {
         if (is_array($qtdtprictot)) {
             $useMinMax = false;
@@ -1199,7 +1336,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTPRICTOT, $qtdtprictot, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTPRICTOT, $qtdtprictot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1212,15 +1351,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtcosttot(array('min' => 12)); // WHERE QtdtCostTot > 12
      * </code>
      *
-     * @param     mixed $qtdtcosttot The value to use as filter.
+     * @param mixed $qtdtcosttot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtcosttot($qtdtcosttot = null, $comparison = null)
+    public function filterByQtdtcosttot($qtdtcosttot = null, ?string $comparison = null)
     {
         if (is_array($qtdtcosttot)) {
             $useMinMax = false;
@@ -1240,7 +1379,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTCOSTTOT, $qtdtcosttot, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTCOSTTOT, $qtdtcosttot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1253,15 +1394,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtwghttot(array('min' => 12)); // WHERE QtdtWghtTot > 12
      * </code>
      *
-     * @param     mixed $qtdtwghttot The value to use as filter.
+     * @param mixed $qtdtwghttot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtwghttot($qtdtwghttot = null, $comparison = null)
+    public function filterByQtdtwghttot($qtdtwghttot = null, ?string $comparison = null)
     {
         if (is_array($qtdtwghttot)) {
             $useMinMax = false;
@@ -1281,7 +1422,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTWGHTTOT, $qtdtwghttot, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTWGHTTOT, $qtdtwghttot, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1291,14 +1434,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtmstrtaxcode1('fooValue');   // WHERE QtdtMstrTaxCode1 = 'fooValue'
      * $query->filterByQtdtmstrtaxcode1('%fooValue%', Criteria::LIKE); // WHERE QtdtMstrTaxCode1 LIKE '%fooValue%'
+     * $query->filterByQtdtmstrtaxcode1(['foo', 'bar']); // WHERE QtdtMstrTaxCode1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtmstrtaxcode1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtmstrtaxcode1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxcode1($qtdtmstrtaxcode1 = null, $comparison = null)
+    public function filterByQtdtmstrtaxcode1($qtdtmstrtaxcode1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtmstrtaxcode1)) {
@@ -1306,7 +1450,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE1, $qtdtmstrtaxcode1, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE1, $qtdtmstrtaxcode1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1319,15 +1465,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtmstrtaxpct1(array('min' => 12)); // WHERE QtdtMstrTaxPct1 > 12
      * </code>
      *
-     * @param     mixed $qtdtmstrtaxpct1 The value to use as filter.
+     * @param mixed $qtdtmstrtaxpct1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxpct1($qtdtmstrtaxpct1 = null, $comparison = null)
+    public function filterByQtdtmstrtaxpct1($qtdtmstrtaxpct1 = null, ?string $comparison = null)
     {
         if (is_array($qtdtmstrtaxpct1)) {
             $useMinMax = false;
@@ -1347,7 +1493,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT1, $qtdtmstrtaxpct1, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT1, $qtdtmstrtaxpct1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1357,14 +1505,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtmstrtaxcode2('fooValue');   // WHERE QtdtMstrTaxCode2 = 'fooValue'
      * $query->filterByQtdtmstrtaxcode2('%fooValue%', Criteria::LIKE); // WHERE QtdtMstrTaxCode2 LIKE '%fooValue%'
+     * $query->filterByQtdtmstrtaxcode2(['foo', 'bar']); // WHERE QtdtMstrTaxCode2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtmstrtaxcode2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtmstrtaxcode2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxcode2($qtdtmstrtaxcode2 = null, $comparison = null)
+    public function filterByQtdtmstrtaxcode2($qtdtmstrtaxcode2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtmstrtaxcode2)) {
@@ -1372,7 +1521,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE2, $qtdtmstrtaxcode2, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE2, $qtdtmstrtaxcode2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1385,15 +1536,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtmstrtaxpct2(array('min' => 12)); // WHERE QtdtMstrTaxPct2 > 12
      * </code>
      *
-     * @param     mixed $qtdtmstrtaxpct2 The value to use as filter.
+     * @param mixed $qtdtmstrtaxpct2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxpct2($qtdtmstrtaxpct2 = null, $comparison = null)
+    public function filterByQtdtmstrtaxpct2($qtdtmstrtaxpct2 = null, ?string $comparison = null)
     {
         if (is_array($qtdtmstrtaxpct2)) {
             $useMinMax = false;
@@ -1413,7 +1564,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT2, $qtdtmstrtaxpct2, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT2, $qtdtmstrtaxpct2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1423,14 +1576,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtmstrtaxcode3('fooValue');   // WHERE QtdtMstrTaxCode3 = 'fooValue'
      * $query->filterByQtdtmstrtaxcode3('%fooValue%', Criteria::LIKE); // WHERE QtdtMstrTaxCode3 LIKE '%fooValue%'
+     * $query->filterByQtdtmstrtaxcode3(['foo', 'bar']); // WHERE QtdtMstrTaxCode3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtmstrtaxcode3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtmstrtaxcode3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxcode3($qtdtmstrtaxcode3 = null, $comparison = null)
+    public function filterByQtdtmstrtaxcode3($qtdtmstrtaxcode3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtmstrtaxcode3)) {
@@ -1438,7 +1592,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE3, $qtdtmstrtaxcode3, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE3, $qtdtmstrtaxcode3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1451,15 +1607,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtmstrtaxpct3(array('min' => 12)); // WHERE QtdtMstrTaxPct3 > 12
      * </code>
      *
-     * @param     mixed $qtdtmstrtaxpct3 The value to use as filter.
+     * @param mixed $qtdtmstrtaxpct3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxpct3($qtdtmstrtaxpct3 = null, $comparison = null)
+    public function filterByQtdtmstrtaxpct3($qtdtmstrtaxpct3 = null, ?string $comparison = null)
     {
         if (is_array($qtdtmstrtaxpct3)) {
             $useMinMax = false;
@@ -1479,7 +1635,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT3, $qtdtmstrtaxpct3, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT3, $qtdtmstrtaxpct3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1489,14 +1647,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtmstrtaxcode4('fooValue');   // WHERE QtdtMstrTaxCode4 = 'fooValue'
      * $query->filterByQtdtmstrtaxcode4('%fooValue%', Criteria::LIKE); // WHERE QtdtMstrTaxCode4 LIKE '%fooValue%'
+     * $query->filterByQtdtmstrtaxcode4(['foo', 'bar']); // WHERE QtdtMstrTaxCode4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtmstrtaxcode4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtmstrtaxcode4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxcode4($qtdtmstrtaxcode4 = null, $comparison = null)
+    public function filterByQtdtmstrtaxcode4($qtdtmstrtaxcode4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtmstrtaxcode4)) {
@@ -1504,7 +1663,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE4, $qtdtmstrtaxcode4, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE4, $qtdtmstrtaxcode4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1517,15 +1678,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtmstrtaxpct4(array('min' => 12)); // WHERE QtdtMstrTaxPct4 > 12
      * </code>
      *
-     * @param     mixed $qtdtmstrtaxpct4 The value to use as filter.
+     * @param mixed $qtdtmstrtaxpct4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxpct4($qtdtmstrtaxpct4 = null, $comparison = null)
+    public function filterByQtdtmstrtaxpct4($qtdtmstrtaxpct4 = null, ?string $comparison = null)
     {
         if (is_array($qtdtmstrtaxpct4)) {
             $useMinMax = false;
@@ -1545,7 +1706,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT4, $qtdtmstrtaxpct4, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT4, $qtdtmstrtaxpct4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1555,14 +1718,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtmstrtaxcode5('fooValue');   // WHERE QtdtMstrTaxCode5 = 'fooValue'
      * $query->filterByQtdtmstrtaxcode5('%fooValue%', Criteria::LIKE); // WHERE QtdtMstrTaxCode5 LIKE '%fooValue%'
+     * $query->filterByQtdtmstrtaxcode5(['foo', 'bar']); // WHERE QtdtMstrTaxCode5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtmstrtaxcode5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtmstrtaxcode5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxcode5($qtdtmstrtaxcode5 = null, $comparison = null)
+    public function filterByQtdtmstrtaxcode5($qtdtmstrtaxcode5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtmstrtaxcode5)) {
@@ -1570,7 +1734,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE5, $qtdtmstrtaxcode5, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE5, $qtdtmstrtaxcode5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1583,15 +1749,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtmstrtaxpct5(array('min' => 12)); // WHERE QtdtMstrTaxPct5 > 12
      * </code>
      *
-     * @param     mixed $qtdtmstrtaxpct5 The value to use as filter.
+     * @param mixed $qtdtmstrtaxpct5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxpct5($qtdtmstrtaxpct5 = null, $comparison = null)
+    public function filterByQtdtmstrtaxpct5($qtdtmstrtaxpct5 = null, ?string $comparison = null)
     {
         if (is_array($qtdtmstrtaxpct5)) {
             $useMinMax = false;
@@ -1611,7 +1777,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT5, $qtdtmstrtaxpct5, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT5, $qtdtmstrtaxpct5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1621,14 +1789,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtmstrtaxcode6('fooValue');   // WHERE QtdtMstrTaxCode6 = 'fooValue'
      * $query->filterByQtdtmstrtaxcode6('%fooValue%', Criteria::LIKE); // WHERE QtdtMstrTaxCode6 LIKE '%fooValue%'
+     * $query->filterByQtdtmstrtaxcode6(['foo', 'bar']); // WHERE QtdtMstrTaxCode6 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtmstrtaxcode6 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtmstrtaxcode6 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxcode6($qtdtmstrtaxcode6 = null, $comparison = null)
+    public function filterByQtdtmstrtaxcode6($qtdtmstrtaxcode6 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtmstrtaxcode6)) {
@@ -1636,7 +1805,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE6, $qtdtmstrtaxcode6, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE6, $qtdtmstrtaxcode6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1649,15 +1820,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtmstrtaxpct6(array('min' => 12)); // WHERE QtdtMstrTaxPct6 > 12
      * </code>
      *
-     * @param     mixed $qtdtmstrtaxpct6 The value to use as filter.
+     * @param mixed $qtdtmstrtaxpct6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxpct6($qtdtmstrtaxpct6 = null, $comparison = null)
+    public function filterByQtdtmstrtaxpct6($qtdtmstrtaxpct6 = null, ?string $comparison = null)
     {
         if (is_array($qtdtmstrtaxpct6)) {
             $useMinMax = false;
@@ -1677,7 +1848,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT6, $qtdtmstrtaxpct6, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT6, $qtdtmstrtaxpct6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1687,14 +1860,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtmstrtaxcode7('fooValue');   // WHERE QtdtMstrTaxCode7 = 'fooValue'
      * $query->filterByQtdtmstrtaxcode7('%fooValue%', Criteria::LIKE); // WHERE QtdtMstrTaxCode7 LIKE '%fooValue%'
+     * $query->filterByQtdtmstrtaxcode7(['foo', 'bar']); // WHERE QtdtMstrTaxCode7 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtmstrtaxcode7 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtmstrtaxcode7 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxcode7($qtdtmstrtaxcode7 = null, $comparison = null)
+    public function filterByQtdtmstrtaxcode7($qtdtmstrtaxcode7 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtmstrtaxcode7)) {
@@ -1702,7 +1876,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE7, $qtdtmstrtaxcode7, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE7, $qtdtmstrtaxcode7, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1715,15 +1891,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtmstrtaxpct7(array('min' => 12)); // WHERE QtdtMstrTaxPct7 > 12
      * </code>
      *
-     * @param     mixed $qtdtmstrtaxpct7 The value to use as filter.
+     * @param mixed $qtdtmstrtaxpct7 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxpct7($qtdtmstrtaxpct7 = null, $comparison = null)
+    public function filterByQtdtmstrtaxpct7($qtdtmstrtaxpct7 = null, ?string $comparison = null)
     {
         if (is_array($qtdtmstrtaxpct7)) {
             $useMinMax = false;
@@ -1743,7 +1919,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT7, $qtdtmstrtaxpct7, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT7, $qtdtmstrtaxpct7, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1753,14 +1931,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtmstrtaxcode8('fooValue');   // WHERE QtdtMstrTaxCode8 = 'fooValue'
      * $query->filterByQtdtmstrtaxcode8('%fooValue%', Criteria::LIKE); // WHERE QtdtMstrTaxCode8 LIKE '%fooValue%'
+     * $query->filterByQtdtmstrtaxcode8(['foo', 'bar']); // WHERE QtdtMstrTaxCode8 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtmstrtaxcode8 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtmstrtaxcode8 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxcode8($qtdtmstrtaxcode8 = null, $comparison = null)
+    public function filterByQtdtmstrtaxcode8($qtdtmstrtaxcode8 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtmstrtaxcode8)) {
@@ -1768,7 +1947,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE8, $qtdtmstrtaxcode8, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE8, $qtdtmstrtaxcode8, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1781,15 +1962,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtmstrtaxpct8(array('min' => 12)); // WHERE QtdtMstrTaxPct8 > 12
      * </code>
      *
-     * @param     mixed $qtdtmstrtaxpct8 The value to use as filter.
+     * @param mixed $qtdtmstrtaxpct8 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxpct8($qtdtmstrtaxpct8 = null, $comparison = null)
+    public function filterByQtdtmstrtaxpct8($qtdtmstrtaxpct8 = null, ?string $comparison = null)
     {
         if (is_array($qtdtmstrtaxpct8)) {
             $useMinMax = false;
@@ -1809,7 +1990,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT8, $qtdtmstrtaxpct8, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT8, $qtdtmstrtaxpct8, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1819,14 +2002,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtmstrtaxcode9('fooValue');   // WHERE QtdtMstrTaxCode9 = 'fooValue'
      * $query->filterByQtdtmstrtaxcode9('%fooValue%', Criteria::LIKE); // WHERE QtdtMstrTaxCode9 LIKE '%fooValue%'
+     * $query->filterByQtdtmstrtaxcode9(['foo', 'bar']); // WHERE QtdtMstrTaxCode9 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtmstrtaxcode9 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtmstrtaxcode9 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxcode9($qtdtmstrtaxcode9 = null, $comparison = null)
+    public function filterByQtdtmstrtaxcode9($qtdtmstrtaxcode9 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtmstrtaxcode9)) {
@@ -1834,7 +2018,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE9, $qtdtmstrtaxcode9, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXCODE9, $qtdtmstrtaxcode9, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1847,15 +2033,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtmstrtaxpct9(array('min' => 12)); // WHERE QtdtMstrTaxPct9 > 12
      * </code>
      *
-     * @param     mixed $qtdtmstrtaxpct9 The value to use as filter.
+     * @param mixed $qtdtmstrtaxpct9 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmstrtaxpct9($qtdtmstrtaxpct9 = null, $comparison = null)
+    public function filterByQtdtmstrtaxpct9($qtdtmstrtaxpct9 = null, ?string $comparison = null)
     {
         if (is_array($qtdtmstrtaxpct9)) {
             $useMinMax = false;
@@ -1875,7 +2061,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT9, $qtdtmstrtaxpct9, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMSTRTAXPCT9, $qtdtmstrtaxpct9, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1885,14 +2073,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbuomsale('fooValue');   // WHERE IntbUomSale = 'fooValue'
      * $query->filterByIntbuomsale('%fooValue%', Criteria::LIKE); // WHERE IntbUomSale LIKE '%fooValue%'
+     * $query->filterByIntbuomsale(['foo', 'bar']); // WHERE IntbUomSale IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbuomsale The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbuomsale The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbuomsale($intbuomsale = null, $comparison = null)
+    public function filterByIntbuomsale($intbuomsale = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbuomsale)) {
@@ -1900,7 +2089,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_INTBUOMSALE, $intbuomsale, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_INTBUOMSALE, $intbuomsale, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1910,14 +2101,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbuompur('fooValue');   // WHERE IntbUomPur = 'fooValue'
      * $query->filterByIntbuompur('%fooValue%', Criteria::LIKE); // WHERE IntbUomPur LIKE '%fooValue%'
+     * $query->filterByIntbuompur(['foo', 'bar']); // WHERE IntbUomPur IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbuompur The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbuompur The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbuompur($intbuompur = null, $comparison = null)
+    public function filterByIntbuompur($intbuompur = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbuompur)) {
@@ -1925,7 +2117,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_INTBUOMPUR, $intbuompur, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_INTBUOMPUR, $intbuompur, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1935,14 +2129,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtquotind1('fooValue');   // WHERE QtdtQuotInd1 = 'fooValue'
      * $query->filterByQtdtquotind1('%fooValue%', Criteria::LIKE); // WHERE QtdtQuotInd1 LIKE '%fooValue%'
+     * $query->filterByQtdtquotind1(['foo', 'bar']); // WHERE QtdtQuotInd1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtquotind1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtquotind1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotind1($qtdtquotind1 = null, $comparison = null)
+    public function filterByQtdtquotind1($qtdtquotind1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtquotind1)) {
@@ -1950,7 +2145,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND1, $qtdtquotind1, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND1, $qtdtquotind1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1963,15 +2160,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotunit1(array('min' => 12)); // WHERE QtdtQuotUnit1 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotunit1 The value to use as filter.
+     * @param mixed $qtdtquotunit1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotunit1($qtdtquotunit1 = null, $comparison = null)
+    public function filterByQtdtquotunit1($qtdtquotunit1 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotunit1)) {
             $useMinMax = false;
@@ -1991,7 +2188,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTUNIT1, $qtdtquotunit1, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTUNIT1, $qtdtquotunit1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2004,15 +2203,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotpric1(array('min' => 12)); // WHERE QtdtQuotPric1 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotpric1 The value to use as filter.
+     * @param mixed $qtdtquotpric1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotpric1($qtdtquotpric1 = null, $comparison = null)
+    public function filterByQtdtquotpric1($qtdtquotpric1 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotpric1)) {
             $useMinMax = false;
@@ -2032,7 +2231,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTPRIC1, $qtdtquotpric1, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTPRIC1, $qtdtquotpric1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2045,15 +2246,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotcost1(array('min' => 12)); // WHERE QtdtQuotCost1 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotcost1 The value to use as filter.
+     * @param mixed $qtdtquotcost1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotcost1($qtdtquotcost1 = null, $comparison = null)
+    public function filterByQtdtquotcost1($qtdtquotcost1 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotcost1)) {
             $useMinMax = false;
@@ -2073,7 +2274,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTCOST1, $qtdtquotcost1, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTCOST1, $qtdtquotcost1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2086,15 +2289,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotmkupmarg1(array('min' => 12)); // WHERE QtdtQuotMkupMarg1 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotmkupmarg1 The value to use as filter.
+     * @param mixed $qtdtquotmkupmarg1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotmkupmarg1($qtdtquotmkupmarg1 = null, $comparison = null)
+    public function filterByQtdtquotmkupmarg1($qtdtquotmkupmarg1 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotmkupmarg1)) {
             $useMinMax = false;
@@ -2114,7 +2317,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTMKUPMARG1, $qtdtquotmkupmarg1, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTMKUPMARG1, $qtdtquotmkupmarg1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2124,14 +2329,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtquotind2('fooValue');   // WHERE QtdtQuotInd2 = 'fooValue'
      * $query->filterByQtdtquotind2('%fooValue%', Criteria::LIKE); // WHERE QtdtQuotInd2 LIKE '%fooValue%'
+     * $query->filterByQtdtquotind2(['foo', 'bar']); // WHERE QtdtQuotInd2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtquotind2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtquotind2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotind2($qtdtquotind2 = null, $comparison = null)
+    public function filterByQtdtquotind2($qtdtquotind2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtquotind2)) {
@@ -2139,7 +2345,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND2, $qtdtquotind2, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND2, $qtdtquotind2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2152,15 +2360,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotunit2(array('min' => 12)); // WHERE QtdtQuotUnit2 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotunit2 The value to use as filter.
+     * @param mixed $qtdtquotunit2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotunit2($qtdtquotunit2 = null, $comparison = null)
+    public function filterByQtdtquotunit2($qtdtquotunit2 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotunit2)) {
             $useMinMax = false;
@@ -2180,7 +2388,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTUNIT2, $qtdtquotunit2, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTUNIT2, $qtdtquotunit2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2193,15 +2403,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotpric2(array('min' => 12)); // WHERE QtdtQuotPric2 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotpric2 The value to use as filter.
+     * @param mixed $qtdtquotpric2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotpric2($qtdtquotpric2 = null, $comparison = null)
+    public function filterByQtdtquotpric2($qtdtquotpric2 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotpric2)) {
             $useMinMax = false;
@@ -2221,7 +2431,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTPRIC2, $qtdtquotpric2, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTPRIC2, $qtdtquotpric2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2234,15 +2446,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotcost2(array('min' => 12)); // WHERE QtdtQuotCost2 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotcost2 The value to use as filter.
+     * @param mixed $qtdtquotcost2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotcost2($qtdtquotcost2 = null, $comparison = null)
+    public function filterByQtdtquotcost2($qtdtquotcost2 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotcost2)) {
             $useMinMax = false;
@@ -2262,7 +2474,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTCOST2, $qtdtquotcost2, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTCOST2, $qtdtquotcost2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2275,15 +2489,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotmkupmarg2(array('min' => 12)); // WHERE QtdtQuotMkupMarg2 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotmkupmarg2 The value to use as filter.
+     * @param mixed $qtdtquotmkupmarg2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotmkupmarg2($qtdtquotmkupmarg2 = null, $comparison = null)
+    public function filterByQtdtquotmkupmarg2($qtdtquotmkupmarg2 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotmkupmarg2)) {
             $useMinMax = false;
@@ -2303,7 +2517,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTMKUPMARG2, $qtdtquotmkupmarg2, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTMKUPMARG2, $qtdtquotmkupmarg2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2313,14 +2529,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtquotind3('fooValue');   // WHERE QtdtQuotInd3 = 'fooValue'
      * $query->filterByQtdtquotind3('%fooValue%', Criteria::LIKE); // WHERE QtdtQuotInd3 LIKE '%fooValue%'
+     * $query->filterByQtdtquotind3(['foo', 'bar']); // WHERE QtdtQuotInd3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtquotind3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtquotind3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotind3($qtdtquotind3 = null, $comparison = null)
+    public function filterByQtdtquotind3($qtdtquotind3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtquotind3)) {
@@ -2328,7 +2545,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND3, $qtdtquotind3, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND3, $qtdtquotind3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2341,15 +2560,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotunit3(array('min' => 12)); // WHERE QtdtQuotUnit3 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotunit3 The value to use as filter.
+     * @param mixed $qtdtquotunit3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotunit3($qtdtquotunit3 = null, $comparison = null)
+    public function filterByQtdtquotunit3($qtdtquotunit3 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotunit3)) {
             $useMinMax = false;
@@ -2369,7 +2588,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTUNIT3, $qtdtquotunit3, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTUNIT3, $qtdtquotunit3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2382,15 +2603,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotpric3(array('min' => 12)); // WHERE QtdtQuotPric3 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotpric3 The value to use as filter.
+     * @param mixed $qtdtquotpric3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotpric3($qtdtquotpric3 = null, $comparison = null)
+    public function filterByQtdtquotpric3($qtdtquotpric3 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotpric3)) {
             $useMinMax = false;
@@ -2410,7 +2631,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTPRIC3, $qtdtquotpric3, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTPRIC3, $qtdtquotpric3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2423,15 +2646,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotcost3(array('min' => 12)); // WHERE QtdtQuotCost3 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotcost3 The value to use as filter.
+     * @param mixed $qtdtquotcost3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotcost3($qtdtquotcost3 = null, $comparison = null)
+    public function filterByQtdtquotcost3($qtdtquotcost3 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotcost3)) {
             $useMinMax = false;
@@ -2451,7 +2674,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTCOST3, $qtdtquotcost3, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTCOST3, $qtdtquotcost3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2464,15 +2689,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotmkupmarg3(array('min' => 12)); // WHERE QtdtQuotMkupMarg3 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotmkupmarg3 The value to use as filter.
+     * @param mixed $qtdtquotmkupmarg3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotmkupmarg3($qtdtquotmkupmarg3 = null, $comparison = null)
+    public function filterByQtdtquotmkupmarg3($qtdtquotmkupmarg3 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotmkupmarg3)) {
             $useMinMax = false;
@@ -2492,7 +2717,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTMKUPMARG3, $qtdtquotmkupmarg3, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTMKUPMARG3, $qtdtquotmkupmarg3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2502,14 +2729,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtquotind4('fooValue');   // WHERE QtdtQuotInd4 = 'fooValue'
      * $query->filterByQtdtquotind4('%fooValue%', Criteria::LIKE); // WHERE QtdtQuotInd4 LIKE '%fooValue%'
+     * $query->filterByQtdtquotind4(['foo', 'bar']); // WHERE QtdtQuotInd4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtquotind4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtquotind4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotind4($qtdtquotind4 = null, $comparison = null)
+    public function filterByQtdtquotind4($qtdtquotind4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtquotind4)) {
@@ -2517,7 +2745,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND4, $qtdtquotind4, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND4, $qtdtquotind4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2530,15 +2760,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotunit4(array('min' => 12)); // WHERE QtdtQuotUnit4 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotunit4 The value to use as filter.
+     * @param mixed $qtdtquotunit4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotunit4($qtdtquotunit4 = null, $comparison = null)
+    public function filterByQtdtquotunit4($qtdtquotunit4 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotunit4)) {
             $useMinMax = false;
@@ -2558,7 +2788,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTUNIT4, $qtdtquotunit4, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTUNIT4, $qtdtquotunit4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2571,15 +2803,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotpric4(array('min' => 12)); // WHERE QtdtQuotPric4 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotpric4 The value to use as filter.
+     * @param mixed $qtdtquotpric4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotpric4($qtdtquotpric4 = null, $comparison = null)
+    public function filterByQtdtquotpric4($qtdtquotpric4 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotpric4)) {
             $useMinMax = false;
@@ -2599,7 +2831,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTPRIC4, $qtdtquotpric4, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTPRIC4, $qtdtquotpric4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2612,15 +2846,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotcost4(array('min' => 12)); // WHERE QtdtQuotCost4 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotcost4 The value to use as filter.
+     * @param mixed $qtdtquotcost4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotcost4($qtdtquotcost4 = null, $comparison = null)
+    public function filterByQtdtquotcost4($qtdtquotcost4 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotcost4)) {
             $useMinMax = false;
@@ -2640,7 +2874,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTCOST4, $qtdtquotcost4, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTCOST4, $qtdtquotcost4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2653,15 +2889,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotmkupmarg4(array('min' => 12)); // WHERE QtdtQuotMkupMarg4 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotmkupmarg4 The value to use as filter.
+     * @param mixed $qtdtquotmkupmarg4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotmkupmarg4($qtdtquotmkupmarg4 = null, $comparison = null)
+    public function filterByQtdtquotmkupmarg4($qtdtquotmkupmarg4 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotmkupmarg4)) {
             $useMinMax = false;
@@ -2681,7 +2917,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTMKUPMARG4, $qtdtquotmkupmarg4, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTMKUPMARG4, $qtdtquotmkupmarg4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2691,14 +2929,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtquotind5('fooValue');   // WHERE QtdtQuotInd5 = 'fooValue'
      * $query->filterByQtdtquotind5('%fooValue%', Criteria::LIKE); // WHERE QtdtQuotInd5 LIKE '%fooValue%'
+     * $query->filterByQtdtquotind5(['foo', 'bar']); // WHERE QtdtQuotInd5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtquotind5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtquotind5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotind5($qtdtquotind5 = null, $comparison = null)
+    public function filterByQtdtquotind5($qtdtquotind5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtquotind5)) {
@@ -2706,7 +2945,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND5, $qtdtquotind5, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND5, $qtdtquotind5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2719,15 +2960,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotunit5(array('min' => 12)); // WHERE QtdtQuotUnit5 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotunit5 The value to use as filter.
+     * @param mixed $qtdtquotunit5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotunit5($qtdtquotunit5 = null, $comparison = null)
+    public function filterByQtdtquotunit5($qtdtquotunit5 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotunit5)) {
             $useMinMax = false;
@@ -2747,7 +2988,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTUNIT5, $qtdtquotunit5, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTUNIT5, $qtdtquotunit5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2760,15 +3003,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotpric5(array('min' => 12)); // WHERE QtdtQuotPric5 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotpric5 The value to use as filter.
+     * @param mixed $qtdtquotpric5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotpric5($qtdtquotpric5 = null, $comparison = null)
+    public function filterByQtdtquotpric5($qtdtquotpric5 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotpric5)) {
             $useMinMax = false;
@@ -2788,7 +3031,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTPRIC5, $qtdtquotpric5, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTPRIC5, $qtdtquotpric5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2801,15 +3046,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotcost5(array('min' => 12)); // WHERE QtdtQuotCost5 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotcost5 The value to use as filter.
+     * @param mixed $qtdtquotcost5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotcost5($qtdtquotcost5 = null, $comparison = null)
+    public function filterByQtdtquotcost5($qtdtquotcost5 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotcost5)) {
             $useMinMax = false;
@@ -2829,7 +3074,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTCOST5, $qtdtquotcost5, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTCOST5, $qtdtquotcost5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2842,15 +3089,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotmkupmarg5(array('min' => 12)); // WHERE QtdtQuotMkupMarg5 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotmkupmarg5 The value to use as filter.
+     * @param mixed $qtdtquotmkupmarg5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotmkupmarg5($qtdtquotmkupmarg5 = null, $comparison = null)
+    public function filterByQtdtquotmkupmarg5($qtdtquotmkupmarg5 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotmkupmarg5)) {
             $useMinMax = false;
@@ -2870,7 +3117,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTMKUPMARG5, $qtdtquotmkupmarg5, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTMKUPMARG5, $qtdtquotmkupmarg5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2880,14 +3129,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtquotind6('fooValue');   // WHERE QtdtQuotInd6 = 'fooValue'
      * $query->filterByQtdtquotind6('%fooValue%', Criteria::LIKE); // WHERE QtdtQuotInd6 LIKE '%fooValue%'
+     * $query->filterByQtdtquotind6(['foo', 'bar']); // WHERE QtdtQuotInd6 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtquotind6 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtquotind6 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotind6($qtdtquotind6 = null, $comparison = null)
+    public function filterByQtdtquotind6($qtdtquotind6 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtquotind6)) {
@@ -2895,7 +3145,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND6, $qtdtquotind6, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTIND6, $qtdtquotind6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2908,15 +3160,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotunit6(array('min' => 12)); // WHERE QtdtQuotUnit6 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotunit6 The value to use as filter.
+     * @param mixed $qtdtquotunit6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotunit6($qtdtquotunit6 = null, $comparison = null)
+    public function filterByQtdtquotunit6($qtdtquotunit6 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotunit6)) {
             $useMinMax = false;
@@ -2936,7 +3188,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTUNIT6, $qtdtquotunit6, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTUNIT6, $qtdtquotunit6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2949,15 +3203,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotpric6(array('min' => 12)); // WHERE QtdtQuotPric6 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotpric6 The value to use as filter.
+     * @param mixed $qtdtquotpric6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotpric6($qtdtquotpric6 = null, $comparison = null)
+    public function filterByQtdtquotpric6($qtdtquotpric6 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotpric6)) {
             $useMinMax = false;
@@ -2977,7 +3231,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTPRIC6, $qtdtquotpric6, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTPRIC6, $qtdtquotpric6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2990,15 +3246,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotcost6(array('min' => 12)); // WHERE QtdtQuotCost6 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotcost6 The value to use as filter.
+     * @param mixed $qtdtquotcost6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotcost6($qtdtquotcost6 = null, $comparison = null)
+    public function filterByQtdtquotcost6($qtdtquotcost6 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotcost6)) {
             $useMinMax = false;
@@ -3018,7 +3274,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTCOST6, $qtdtquotcost6, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTCOST6, $qtdtquotcost6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3031,15 +3289,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotmkupmarg6(array('min' => 12)); // WHERE QtdtQuotMkupMarg6 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotmkupmarg6 The value to use as filter.
+     * @param mixed $qtdtquotmkupmarg6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotmkupmarg6($qtdtquotmkupmarg6 = null, $comparison = null)
+    public function filterByQtdtquotmkupmarg6($qtdtquotmkupmarg6 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotmkupmarg6)) {
             $useMinMax = false;
@@ -3059,7 +3317,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTMKUPMARG6, $qtdtquotmkupmarg6, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTMKUPMARG6, $qtdtquotmkupmarg6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3069,14 +3329,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtasstcode('fooValue');   // WHERE QtdtAsstCode = 'fooValue'
      * $query->filterByQtdtasstcode('%fooValue%', Criteria::LIKE); // WHERE QtdtAsstCode LIKE '%fooValue%'
+     * $query->filterByQtdtasstcode(['foo', 'bar']); // WHERE QtdtAsstCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtasstcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtasstcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtasstcode($qtdtasstcode = null, $comparison = null)
+    public function filterByQtdtasstcode($qtdtasstcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtasstcode)) {
@@ -3084,7 +3345,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTASSTCODE, $qtdtasstcode, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTASSTCODE, $qtdtasstcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3097,15 +3360,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtasstqty(array('min' => 12)); // WHERE QtdtAsstQty > 12
      * </code>
      *
-     * @param     mixed $qtdtasstqty The value to use as filter.
+     * @param mixed $qtdtasstqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtasstqty($qtdtasstqty = null, $comparison = null)
+    public function filterByQtdtasstqty($qtdtasstqty = null, ?string $comparison = null)
     {
         if (is_array($qtdtasstqty)) {
             $useMinMax = false;
@@ -3125,7 +3388,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTASSTQTY, $qtdtasstqty, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTASSTQTY, $qtdtasstqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3138,15 +3403,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtlistpric(array('min' => 12)); // WHERE QtdtListPric > 12
      * </code>
      *
-     * @param     mixed $qtdtlistpric The value to use as filter.
+     * @param mixed $qtdtlistpric The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtlistpric($qtdtlistpric = null, $comparison = null)
+    public function filterByQtdtlistpric($qtdtlistpric = null, ?string $comparison = null)
     {
         if (is_array($qtdtlistpric)) {
             $useMinMax = false;
@@ -3166,7 +3431,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLISTPRIC, $qtdtlistpric, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLISTPRIC, $qtdtlistpric, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3179,15 +3446,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtstancost(array('min' => 12)); // WHERE QtdtStanCost > 12
      * </code>
      *
-     * @param     mixed $qtdtstancost The value to use as filter.
+     * @param mixed $qtdtstancost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtstancost($qtdtstancost = null, $comparison = null)
+    public function filterByQtdtstancost($qtdtstancost = null, ?string $comparison = null)
     {
         if (is_array($qtdtstancost)) {
             $useMinMax = false;
@@ -3207,7 +3474,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTSTANCOST, $qtdtstancost, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTSTANCOST, $qtdtstancost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3217,14 +3486,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtvenditemjob('fooValue');   // WHERE QtdtVendItemJob = 'fooValue'
      * $query->filterByQtdtvenditemjob('%fooValue%', Criteria::LIKE); // WHERE QtdtVendItemJob LIKE '%fooValue%'
+     * $query->filterByQtdtvenditemjob(['foo', 'bar']); // WHERE QtdtVendItemJob IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtvenditemjob The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtvenditemjob The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtvenditemjob($qtdtvenditemjob = null, $comparison = null)
+    public function filterByQtdtvenditemjob($qtdtvenditemjob = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtvenditemjob)) {
@@ -3232,7 +3502,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTVENDITEMJOB, $qtdtvenditemjob, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTVENDITEMJOB, $qtdtvenditemjob, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3242,14 +3514,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByApvevendid('fooValue');   // WHERE ApveVendId = 'fooValue'
      * $query->filterByApvevendid('%fooValue%', Criteria::LIKE); // WHERE ApveVendId LIKE '%fooValue%'
+     * $query->filterByApvevendid(['foo', 'bar']); // WHERE ApveVendId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvevendid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvevendid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvevendid($apvevendid = null, $comparison = null)
+    public function filterByApvevendid($apvevendid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvevendid)) {
@@ -3257,7 +3530,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_APVEVENDID, $apvevendid, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_APVEVENDID, $apvevendid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3267,14 +3542,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtnsitemgrup('fooValue');   // WHERE QtdtNsItemGrup = 'fooValue'
      * $query->filterByQtdtnsitemgrup('%fooValue%', Criteria::LIKE); // WHERE QtdtNsItemGrup LIKE '%fooValue%'
+     * $query->filterByQtdtnsitemgrup(['foo', 'bar']); // WHERE QtdtNsItemGrup IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtnsitemgrup The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtnsitemgrup The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtnsitemgrup($qtdtnsitemgrup = null, $comparison = null)
+    public function filterByQtdtnsitemgrup($qtdtnsitemgrup = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtnsitemgrup)) {
@@ -3282,7 +3558,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTNSITEMGRUP, $qtdtnsitemgrup, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTNSITEMGRUP, $qtdtnsitemgrup, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3292,14 +3570,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtusecode('fooValue');   // WHERE QtdtUseCode = 'fooValue'
      * $query->filterByQtdtusecode('%fooValue%', Criteria::LIKE); // WHERE QtdtUseCode LIKE '%fooValue%'
+     * $query->filterByQtdtusecode(['foo', 'bar']); // WHERE QtdtUseCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtusecode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtusecode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtusecode($qtdtusecode = null, $comparison = null)
+    public function filterByQtdtusecode($qtdtusecode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtusecode)) {
@@ -3307,7 +3586,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTUSECODE, $qtdtusecode, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTUSECODE, $qtdtusecode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3317,14 +3598,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtpickflag('fooValue');   // WHERE QtdtPickFlag = 'fooValue'
      * $query->filterByQtdtpickflag('%fooValue%', Criteria::LIKE); // WHERE QtdtPickFlag LIKE '%fooValue%'
+     * $query->filterByQtdtpickflag(['foo', 'bar']); // WHERE QtdtPickFlag IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtpickflag The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtpickflag The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtpickflag($qtdtpickflag = null, $comparison = null)
+    public function filterByQtdtpickflag($qtdtpickflag = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtpickflag)) {
@@ -3332,7 +3614,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTPICKFLAG, $qtdtpickflag, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTPICKFLAG, $qtdtpickflag, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3342,14 +3626,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtstatus('fooValue');   // WHERE QtdtStatus = 'fooValue'
      * $query->filterByQtdtstatus('%fooValue%', Criteria::LIKE); // WHERE QtdtStatus LIKE '%fooValue%'
+     * $query->filterByQtdtstatus(['foo', 'bar']); // WHERE QtdtStatus IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtstatus The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtstatus The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtstatus($qtdtstatus = null, $comparison = null)
+    public function filterByQtdtstatus($qtdtstatus = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtstatus)) {
@@ -3357,7 +3642,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTSTATUS, $qtdtstatus, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTSTATUS, $qtdtstatus, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3367,14 +3654,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByOetblsslcode('fooValue');   // WHERE OetbLsslCode = 'fooValue'
      * $query->filterByOetblsslcode('%fooValue%', Criteria::LIKE); // WHERE OetbLsslCode LIKE '%fooValue%'
+     * $query->filterByOetblsslcode(['foo', 'bar']); // WHERE OetbLsslCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetblsslcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetblsslcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetblsslcode($oetblsslcode = null, $comparison = null)
+    public function filterByOetblsslcode($oetblsslcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetblsslcode)) {
@@ -3382,7 +3670,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_OETBLSSLCODE, $oetblsslcode, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_OETBLSSLCODE, $oetblsslcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3392,14 +3682,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtlostdate('fooValue');   // WHERE QtdtLostDate = 'fooValue'
      * $query->filterByQtdtlostdate('%fooValue%', Criteria::LIKE); // WHERE QtdtLostDate LIKE '%fooValue%'
+     * $query->filterByQtdtlostdate(['foo', 'bar']); // WHERE QtdtLostDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtlostdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtlostdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtlostdate($qtdtlostdate = null, $comparison = null)
+    public function filterByQtdtlostdate($qtdtlostdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtlostdate)) {
@@ -3407,7 +3698,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLOSTDATE, $qtdtlostdate, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLOSTDATE, $qtdtlostdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3417,14 +3710,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtlostposted('fooValue');   // WHERE QtdtLostPosted = 'fooValue'
      * $query->filterByQtdtlostposted('%fooValue%', Criteria::LIKE); // WHERE QtdtLostPosted LIKE '%fooValue%'
+     * $query->filterByQtdtlostposted(['foo', 'bar']); // WHERE QtdtLostPosted IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtlostposted The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtlostposted The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtlostposted($qtdtlostposted = null, $comparison = null)
+    public function filterByQtdtlostposted($qtdtlostposted = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtlostposted)) {
@@ -3432,7 +3726,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLOSTPOSTED, $qtdtlostposted, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLOSTPOSTED, $qtdtlostposted, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3445,15 +3741,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtleaddays(array('min' => 12)); // WHERE QtdtLeadDays > 12
      * </code>
      *
-     * @param     mixed $qtdtleaddays The value to use as filter.
+     * @param mixed $qtdtleaddays The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtleaddays($qtdtleaddays = null, $comparison = null)
+    public function filterByQtdtleaddays($qtdtleaddays = null, ?string $comparison = null)
     {
         if (is_array($qtdtleaddays)) {
             $useMinMax = false;
@@ -3473,7 +3769,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLEADDAYS, $qtdtleaddays, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLEADDAYS, $qtdtleaddays, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3486,15 +3784,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtordrdiscpct(array('min' => 12)); // WHERE QtdtOrdrDiscPct > 12
      * </code>
      *
-     * @param     mixed $qtdtordrdiscpct The value to use as filter.
+     * @param mixed $qtdtordrdiscpct The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtordrdiscpct($qtdtordrdiscpct = null, $comparison = null)
+    public function filterByQtdtordrdiscpct($qtdtordrdiscpct = null, ?string $comparison = null)
     {
         if (is_array($qtdtordrdiscpct)) {
             $useMinMax = false;
@@ -3514,7 +3812,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTORDRDISCPCT, $qtdtordrdiscpct, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTORDRDISCPCT, $qtdtordrdiscpct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3527,15 +3827,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * $query->filterByQtdtquotdiscpct1(array('min' => 12)); // WHERE QtdtQuotDiscPct1 > 12
      * </code>
      *
-     * @param     mixed $qtdtquotdiscpct1 The value to use as filter.
+     * @param mixed $qtdtquotdiscpct1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtquotdiscpct1($qtdtquotdiscpct1 = null, $comparison = null)
+    public function filterByQtdtquotdiscpct1($qtdtquotdiscpct1 = null, ?string $comparison = null)
     {
         if (is_array($qtdtquotdiscpct1)) {
             $useMinMax = false;
@@ -3555,7 +3855,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTDISCPCT1, $qtdtquotdiscpct1, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTQUOTDISCPCT1, $qtdtquotdiscpct1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3565,14 +3867,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtmtrcreqd('fooValue');   // WHERE QtdtMtrcReqd = 'fooValue'
      * $query->filterByQtdtmtrcreqd('%fooValue%', Criteria::LIKE); // WHERE QtdtMtrcReqd LIKE '%fooValue%'
+     * $query->filterByQtdtmtrcreqd(['foo', 'bar']); // WHERE QtdtMtrcReqd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtmtrcreqd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtmtrcreqd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmtrcreqd($qtdtmtrcreqd = null, $comparison = null)
+    public function filterByQtdtmtrcreqd($qtdtmtrcreqd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtmtrcreqd)) {
@@ -3580,7 +3883,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMTRCREQD, $qtdtmtrcreqd, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMTRCREQD, $qtdtmtrcreqd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3590,14 +3895,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtcofcreqd('fooValue');   // WHERE QtdtCofcReqd = 'fooValue'
      * $query->filterByQtdtcofcreqd('%fooValue%', Criteria::LIKE); // WHERE QtdtCofcReqd LIKE '%fooValue%'
+     * $query->filterByQtdtcofcreqd(['foo', 'bar']); // WHERE QtdtCofcReqd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtcofcreqd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtcofcreqd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtcofcreqd($qtdtcofcreqd = null, $comparison = null)
+    public function filterByQtdtcofcreqd($qtdtcofcreqd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtcofcreqd)) {
@@ -3605,7 +3911,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTCOFCREQD, $qtdtcofcreqd, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTCOFCREQD, $qtdtcofcreqd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3615,14 +3923,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtmnfrid('fooValue');   // WHERE QtdtMnfrId = 'fooValue'
      * $query->filterByQtdtmnfrid('%fooValue%', Criteria::LIKE); // WHERE QtdtMnfrId LIKE '%fooValue%'
+     * $query->filterByQtdtmnfrid(['foo', 'bar']); // WHERE QtdtMnfrId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtmnfrid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtmnfrid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmnfrid($qtdtmnfrid = null, $comparison = null)
+    public function filterByQtdtmnfrid($qtdtmnfrid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtmnfrid)) {
@@ -3630,7 +3939,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMNFRID, $qtdtmnfrid, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMNFRID, $qtdtmnfrid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3640,14 +3951,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtmnfritemid('fooValue');   // WHERE QtdtMnfrItemId = 'fooValue'
      * $query->filterByQtdtmnfritemid('%fooValue%', Criteria::LIKE); // WHERE QtdtMnfrItemId LIKE '%fooValue%'
+     * $query->filterByQtdtmnfritemid(['foo', 'bar']); // WHERE QtdtMnfrItemId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtmnfritemid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtmnfritemid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtmnfritemid($qtdtmnfritemid = null, $comparison = null)
+    public function filterByQtdtmnfritemid($qtdtmnfritemid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtmnfritemid)) {
@@ -3655,7 +3967,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMNFRITEMID, $qtdtmnfritemid, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTMNFRITEMID, $qtdtmnfritemid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3665,14 +3979,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtlmordrnbr('fooValue');   // WHERE QtdtLmOrdrNbr = 'fooValue'
      * $query->filterByQtdtlmordrnbr('%fooValue%', Criteria::LIKE); // WHERE QtdtLmOrdrNbr LIKE '%fooValue%'
+     * $query->filterByQtdtlmordrnbr(['foo', 'bar']); // WHERE QtdtLmOrdrNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtlmordrnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtlmordrnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtlmordrnbr($qtdtlmordrnbr = null, $comparison = null)
+    public function filterByQtdtlmordrnbr($qtdtlmordrnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtlmordrnbr)) {
@@ -3680,7 +3995,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLMORDRNBR, $qtdtlmordrnbr, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLMORDRNBR, $qtdtlmordrnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3690,14 +4007,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtlmordrdate('fooValue');   // WHERE QtdtLmOrdrDate = 'fooValue'
      * $query->filterByQtdtlmordrdate('%fooValue%', Criteria::LIKE); // WHERE QtdtLmOrdrDate LIKE '%fooValue%'
+     * $query->filterByQtdtlmordrdate(['foo', 'bar']); // WHERE QtdtLmOrdrDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtlmordrdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtlmordrdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtlmordrdate($qtdtlmordrdate = null, $comparison = null)
+    public function filterByQtdtlmordrdate($qtdtlmordrdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtlmordrdate)) {
@@ -3705,7 +4023,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLMORDRDATE, $qtdtlmordrdate, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTLMORDRDATE, $qtdtlmordrdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3715,14 +4035,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtspecitemcode('fooValue');   // WHERE QtdtSpecItemCode = 'fooValue'
      * $query->filterByQtdtspecitemcode('%fooValue%', Criteria::LIKE); // WHERE QtdtSpecItemCode LIKE '%fooValue%'
+     * $query->filterByQtdtspecitemcode(['foo', 'bar']); // WHERE QtdtSpecItemCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtspecitemcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtspecitemcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtspecitemcode($qtdtspecitemcode = null, $comparison = null)
+    public function filterByQtdtspecitemcode($qtdtspecitemcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtspecitemcode)) {
@@ -3730,7 +4051,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTSPECITEMCODE, $qtdtspecitemcode, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTSPECITEMCODE, $qtdtspecitemcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3740,14 +4063,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtacsalepgm('fooValue');   // WHERE QtdtAcSalePgm = 'fooValue'
      * $query->filterByQtdtacsalepgm('%fooValue%', Criteria::LIKE); // WHERE QtdtAcSalePgm LIKE '%fooValue%'
+     * $query->filterByQtdtacsalepgm(['foo', 'bar']); // WHERE QtdtAcSalePgm IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtacsalepgm The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtacsalepgm The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtacsalepgm($qtdtacsalepgm = null, $comparison = null)
+    public function filterByQtdtacsalepgm($qtdtacsalepgm = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtacsalepgm)) {
@@ -3755,7 +4079,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTACSALEPGM, $qtdtacsalepgm, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTACSALEPGM, $qtdtacsalepgm, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3765,14 +4091,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtnsvendshipfr('fooValue');   // WHERE QtdtNsVendShipfr = 'fooValue'
      * $query->filterByQtdtnsvendshipfr('%fooValue%', Criteria::LIKE); // WHERE QtdtNsVendShipfr LIKE '%fooValue%'
+     * $query->filterByQtdtnsvendshipfr(['foo', 'bar']); // WHERE QtdtNsVendShipfr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtnsvendshipfr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtnsvendshipfr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtnsvendshipfr($qtdtnsvendshipfr = null, $comparison = null)
+    public function filterByQtdtnsvendshipfr($qtdtnsvendshipfr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtnsvendshipfr)) {
@@ -3780,7 +4107,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTNSVENDSHIPFR, $qtdtnsvendshipfr, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTNSVENDSHIPFR, $qtdtnsvendshipfr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3790,14 +4119,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByQtdtprntmnfrnote('fooValue');   // WHERE QtdtPrntMnfrNote = 'fooValue'
      * $query->filterByQtdtprntmnfrnote('%fooValue%', Criteria::LIKE); // WHERE QtdtPrntMnfrNote LIKE '%fooValue%'
+     * $query->filterByQtdtprntmnfrnote(['foo', 'bar']); // WHERE QtdtPrntMnfrNote IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qtdtprntmnfrnote The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qtdtprntmnfrnote The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQtdtprntmnfrnote($qtdtprntmnfrnote = null, $comparison = null)
+    public function filterByQtdtprntmnfrnote($qtdtprntmnfrnote = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qtdtprntmnfrnote)) {
@@ -3805,7 +4135,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTPRNTMNFRNOTE, $qtdtprntmnfrnote, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_QTDTPRNTMNFRNOTE, $qtdtprntmnfrnote, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3815,14 +4147,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -3830,7 +4163,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3840,14 +4175,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -3855,7 +4191,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3865,14 +4203,15 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -3880,20 +4219,22 @@ abstract class QuoteDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(QuoteDetailTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \Quote object
      *
      * @param \Quote|ObjectCollection $quote The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQuote($quote, $comparison = null)
+    public function filterByQuote($quote, ?string $comparison = null)
     {
         if ($quote instanceof \Quote) {
             return $this
@@ -3903,8 +4244,10 @@ abstract class QuoteDetailQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(QuoteDetailTableMap::COL_QTHDID, $quote->toKeyValue('PrimaryKey', 'Qthdid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByQuote() only accepts arguments of type \Quote or Collection');
         }
@@ -3913,12 +4256,12 @@ abstract class QuoteDetailQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Quote relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinQuote($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinQuote(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Quote');
@@ -3947,9 +4290,9 @@ abstract class QuoteDetailQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \QuoteQuery A secondary query class using the current class as primary query
      */
@@ -3961,11 +4304,107 @@ abstract class QuoteDetailQuery extends ModelCriteria
     }
 
     /**
+     * Use the Quote relation Quote object
+     *
+     * @param callable(\QuoteQuery):\QuoteQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withQuoteQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useQuoteQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Quote table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \QuoteQuery The inner query object of the EXISTS statement
+     */
+    public function useQuoteExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \QuoteQuery */
+        $q = $this->useExistsQuery('Quote', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Quote table for a NOT EXISTS query.
+     *
+     * @see useQuoteExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \QuoteQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useQuoteNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \QuoteQuery */
+        $q = $this->useExistsQuery('Quote', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Quote table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \QuoteQuery The inner query object of the IN statement
+     */
+    public function useInQuoteQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \QuoteQuery */
+        $q = $this->useInQuery('Quote', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Quote table for a NOT IN query.
+     *
+     * @see useQuoteInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \QuoteQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInQuoteQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \QuoteQuery */
+        $q = $this->useInQuery('Quote', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildQuoteDetail $quoteDetail Object to remove from the list of results
+     * @param ChildQuoteDetail $quoteDetail Object to remove from the list of results
      *
-     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($quoteDetail = null)
     {
@@ -3984,7 +4423,7 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(QuoteDetailTableMap::DATABASE_NAME);
@@ -4009,12 +4448,12 @@ abstract class QuoteDetailQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(QuoteDetailTableMap::DATABASE_NAME);
@@ -4039,4 +4478,4 @@ abstract class QuoteDetailQuery extends ModelCriteria
         });
     }
 
-} // QuoteDetailQuery
+}

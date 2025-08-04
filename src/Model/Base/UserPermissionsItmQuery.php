@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_itm_perm' table.
- *
- *
+ * Base class that represents a query for the `inv_itm_perm` table.
  *
  * @method     ChildUserPermissionsItmQuery orderByItmpuserid($order = Criteria::ASC) Order by the ItmpUserId column
  * @method     ChildUserPermissionsItmQuery orderByItmpwhse($order = Criteria::ASC) Order by the ItmpWhse column
@@ -64,23 +63,23 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \DplusUserQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildUserPermissionsItm findOne(ConnectionInterface $con = null) Return the first ChildUserPermissionsItm matching the query
- * @method     ChildUserPermissionsItm findOneOrCreate(ConnectionInterface $con = null) Return the first ChildUserPermissionsItm matching the query, or a new ChildUserPermissionsItm object populated from the query conditions when no match is found
+ * @method     ChildUserPermissionsItm|null findOne(?ConnectionInterface $con = null) Return the first ChildUserPermissionsItm matching the query
+ * @method     ChildUserPermissionsItm findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildUserPermissionsItm matching the query, or a new ChildUserPermissionsItm object populated from the query conditions when no match is found
  *
- * @method     ChildUserPermissionsItm findOneByItmpuserid(string $ItmpUserId) Return the first ChildUserPermissionsItm filtered by the ItmpUserId column
- * @method     ChildUserPermissionsItm findOneByItmpwhse(string $ItmpWhse) Return the first ChildUserPermissionsItm filtered by the ItmpWhse column
- * @method     ChildUserPermissionsItm findOneByItmpprices(string $ItmpPrices) Return the first ChildUserPermissionsItm filtered by the ItmpPrices column
- * @method     ChildUserPermissionsItm findOneByItmpcosts(string $ItmpCosts) Return the first ChildUserPermissionsItm filtered by the ItmpCosts column
- * @method     ChildUserPermissionsItm findOneByItmpxrefs(string $ItmpXrefs) Return the first ChildUserPermissionsItm filtered by the ItmpXrefs column
- * @method     ChildUserPermissionsItm findOneByItmpmisc(string $ItmpMisc) Return the first ChildUserPermissionsItm filtered by the ItmpMisc column
- * @method     ChildUserPermissionsItm findOneByItmppkg(string $ItmpPkg) Return the first ChildUserPermissionsItm filtered by the ItmpPkg column
- * @method     ChildUserPermissionsItm findOneByItmpoptions(string $ItmpOptions) Return the first ChildUserPermissionsItm filtered by the ItmpOptions column
- * @method     ChildUserPermissionsItm findOneByDateupdtd(string $DateUpdtd) Return the first ChildUserPermissionsItm filtered by the DateUpdtd column
- * @method     ChildUserPermissionsItm findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildUserPermissionsItm filtered by the TimeUpdtd column
- * @method     ChildUserPermissionsItm findOneByDummy(string $dummy) Return the first ChildUserPermissionsItm filtered by the dummy column *
-
- * @method     ChildUserPermissionsItm requirePk($key, ConnectionInterface $con = null) Return the ChildUserPermissionsItm by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildUserPermissionsItm requireOne(ConnectionInterface $con = null) Return the first ChildUserPermissionsItm matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildUserPermissionsItm|null findOneByItmpuserid(string $ItmpUserId) Return the first ChildUserPermissionsItm filtered by the ItmpUserId column
+ * @method     ChildUserPermissionsItm|null findOneByItmpwhse(string $ItmpWhse) Return the first ChildUserPermissionsItm filtered by the ItmpWhse column
+ * @method     ChildUserPermissionsItm|null findOneByItmpprices(string $ItmpPrices) Return the first ChildUserPermissionsItm filtered by the ItmpPrices column
+ * @method     ChildUserPermissionsItm|null findOneByItmpcosts(string $ItmpCosts) Return the first ChildUserPermissionsItm filtered by the ItmpCosts column
+ * @method     ChildUserPermissionsItm|null findOneByItmpxrefs(string $ItmpXrefs) Return the first ChildUserPermissionsItm filtered by the ItmpXrefs column
+ * @method     ChildUserPermissionsItm|null findOneByItmpmisc(string $ItmpMisc) Return the first ChildUserPermissionsItm filtered by the ItmpMisc column
+ * @method     ChildUserPermissionsItm|null findOneByItmppkg(string $ItmpPkg) Return the first ChildUserPermissionsItm filtered by the ItmpPkg column
+ * @method     ChildUserPermissionsItm|null findOneByItmpoptions(string $ItmpOptions) Return the first ChildUserPermissionsItm filtered by the ItmpOptions column
+ * @method     ChildUserPermissionsItm|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildUserPermissionsItm filtered by the DateUpdtd column
+ * @method     ChildUserPermissionsItm|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildUserPermissionsItm filtered by the TimeUpdtd column
+ * @method     ChildUserPermissionsItm|null findOneByDummy(string $dummy) Return the first ChildUserPermissionsItm filtered by the dummy column
+ *
+ * @method     ChildUserPermissionsItm requirePk($key, ?ConnectionInterface $con = null) Return the ChildUserPermissionsItm by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildUserPermissionsItm requireOne(?ConnectionInterface $con = null) Return the first ChildUserPermissionsItm matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildUserPermissionsItm requireOneByItmpuserid(string $ItmpUserId) Return the first ChildUserPermissionsItm filtered by the ItmpUserId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildUserPermissionsItm requireOneByItmpwhse(string $ItmpWhse) Return the first ChildUserPermissionsItm filtered by the ItmpWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -94,20 +93,34 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildUserPermissionsItm requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildUserPermissionsItm filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildUserPermissionsItm requireOneByDummy(string $dummy) Return the first ChildUserPermissionsItm filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildUserPermissionsItm[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildUserPermissionsItm objects based on current ModelCriteria
- * @method     ChildUserPermissionsItm[]|ObjectCollection findByItmpuserid(string $ItmpUserId) Return ChildUserPermissionsItm objects filtered by the ItmpUserId column
- * @method     ChildUserPermissionsItm[]|ObjectCollection findByItmpwhse(string $ItmpWhse) Return ChildUserPermissionsItm objects filtered by the ItmpWhse column
- * @method     ChildUserPermissionsItm[]|ObjectCollection findByItmpprices(string $ItmpPrices) Return ChildUserPermissionsItm objects filtered by the ItmpPrices column
- * @method     ChildUserPermissionsItm[]|ObjectCollection findByItmpcosts(string $ItmpCosts) Return ChildUserPermissionsItm objects filtered by the ItmpCosts column
- * @method     ChildUserPermissionsItm[]|ObjectCollection findByItmpxrefs(string $ItmpXrefs) Return ChildUserPermissionsItm objects filtered by the ItmpXrefs column
- * @method     ChildUserPermissionsItm[]|ObjectCollection findByItmpmisc(string $ItmpMisc) Return ChildUserPermissionsItm objects filtered by the ItmpMisc column
- * @method     ChildUserPermissionsItm[]|ObjectCollection findByItmppkg(string $ItmpPkg) Return ChildUserPermissionsItm objects filtered by the ItmpPkg column
- * @method     ChildUserPermissionsItm[]|ObjectCollection findByItmpoptions(string $ItmpOptions) Return ChildUserPermissionsItm objects filtered by the ItmpOptions column
- * @method     ChildUserPermissionsItm[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildUserPermissionsItm objects filtered by the DateUpdtd column
- * @method     ChildUserPermissionsItm[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildUserPermissionsItm objects filtered by the TimeUpdtd column
- * @method     ChildUserPermissionsItm[]|ObjectCollection findByDummy(string $dummy) Return ChildUserPermissionsItm objects filtered by the dummy column
- * @method     ChildUserPermissionsItm[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildUserPermissionsItm[]|Collection find(?ConnectionInterface $con = null) Return ChildUserPermissionsItm objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildUserPermissionsItm> find(?ConnectionInterface $con = null) Return ChildUserPermissionsItm objects based on current ModelCriteria
  *
+ * @method     ChildUserPermissionsItm[]|Collection findByItmpuserid(string|array<string> $ItmpUserId) Return ChildUserPermissionsItm objects filtered by the ItmpUserId column
+ * @psalm-method Collection&\Traversable<ChildUserPermissionsItm> findByItmpuserid(string|array<string> $ItmpUserId) Return ChildUserPermissionsItm objects filtered by the ItmpUserId column
+ * @method     ChildUserPermissionsItm[]|Collection findByItmpwhse(string|array<string> $ItmpWhse) Return ChildUserPermissionsItm objects filtered by the ItmpWhse column
+ * @psalm-method Collection&\Traversable<ChildUserPermissionsItm> findByItmpwhse(string|array<string> $ItmpWhse) Return ChildUserPermissionsItm objects filtered by the ItmpWhse column
+ * @method     ChildUserPermissionsItm[]|Collection findByItmpprices(string|array<string> $ItmpPrices) Return ChildUserPermissionsItm objects filtered by the ItmpPrices column
+ * @psalm-method Collection&\Traversable<ChildUserPermissionsItm> findByItmpprices(string|array<string> $ItmpPrices) Return ChildUserPermissionsItm objects filtered by the ItmpPrices column
+ * @method     ChildUserPermissionsItm[]|Collection findByItmpcosts(string|array<string> $ItmpCosts) Return ChildUserPermissionsItm objects filtered by the ItmpCosts column
+ * @psalm-method Collection&\Traversable<ChildUserPermissionsItm> findByItmpcosts(string|array<string> $ItmpCosts) Return ChildUserPermissionsItm objects filtered by the ItmpCosts column
+ * @method     ChildUserPermissionsItm[]|Collection findByItmpxrefs(string|array<string> $ItmpXrefs) Return ChildUserPermissionsItm objects filtered by the ItmpXrefs column
+ * @psalm-method Collection&\Traversable<ChildUserPermissionsItm> findByItmpxrefs(string|array<string> $ItmpXrefs) Return ChildUserPermissionsItm objects filtered by the ItmpXrefs column
+ * @method     ChildUserPermissionsItm[]|Collection findByItmpmisc(string|array<string> $ItmpMisc) Return ChildUserPermissionsItm objects filtered by the ItmpMisc column
+ * @psalm-method Collection&\Traversable<ChildUserPermissionsItm> findByItmpmisc(string|array<string> $ItmpMisc) Return ChildUserPermissionsItm objects filtered by the ItmpMisc column
+ * @method     ChildUserPermissionsItm[]|Collection findByItmppkg(string|array<string> $ItmpPkg) Return ChildUserPermissionsItm objects filtered by the ItmpPkg column
+ * @psalm-method Collection&\Traversable<ChildUserPermissionsItm> findByItmppkg(string|array<string> $ItmpPkg) Return ChildUserPermissionsItm objects filtered by the ItmpPkg column
+ * @method     ChildUserPermissionsItm[]|Collection findByItmpoptions(string|array<string> $ItmpOptions) Return ChildUserPermissionsItm objects filtered by the ItmpOptions column
+ * @psalm-method Collection&\Traversable<ChildUserPermissionsItm> findByItmpoptions(string|array<string> $ItmpOptions) Return ChildUserPermissionsItm objects filtered by the ItmpOptions column
+ * @method     ChildUserPermissionsItm[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildUserPermissionsItm objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildUserPermissionsItm> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildUserPermissionsItm objects filtered by the DateUpdtd column
+ * @method     ChildUserPermissionsItm[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildUserPermissionsItm objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildUserPermissionsItm> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildUserPermissionsItm objects filtered by the TimeUpdtd column
+ * @method     ChildUserPermissionsItm[]|Collection findByDummy(string|array<string> $dummy) Return ChildUserPermissionsItm objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildUserPermissionsItm> findByDummy(string|array<string> $dummy) Return ChildUserPermissionsItm objects filtered by the dummy column
+ *
+ * @method     ChildUserPermissionsItm[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildUserPermissionsItm> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class UserPermissionsItmQuery extends ModelCriteria
 {
@@ -116,9 +129,9 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\UserPermissionsItmQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\UserPermissionsItm', $modelAlias = null)
     {
@@ -128,12 +141,12 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
     /**
      * Returns a new ChildUserPermissionsItmQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildUserPermissionsItmQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildUserPermissionsItmQuery) {
             return $criteria;
@@ -163,7 +176,7 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      *
      * @return ChildUserPermissionsItm|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -195,8 +208,8 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -228,8 +241,8 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildUserPermissionsItm|array|mixed the result, formatted by the current formatter
      */
@@ -249,12 +262,12 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -271,27 +284,31 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildUserPermissionsItmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPUSERID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPUSERID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildUserPermissionsItmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPUSERID, $keys, Criteria::IN);
+        $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPUSERID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -301,14 +318,15 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      * <code>
      * $query->filterByItmpuserid('fooValue');   // WHERE ItmpUserId = 'fooValue'
      * $query->filterByItmpuserid('%fooValue%', Criteria::LIKE); // WHERE ItmpUserId LIKE '%fooValue%'
+     * $query->filterByItmpuserid(['foo', 'bar']); // WHERE ItmpUserId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itmpuserid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itmpuserid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserPermissionsItmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItmpuserid($itmpuserid = null, $comparison = null)
+    public function filterByItmpuserid($itmpuserid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itmpuserid)) {
@@ -316,7 +334,9 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPUSERID, $itmpuserid, $comparison);
+        $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPUSERID, $itmpuserid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -326,14 +346,15 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      * <code>
      * $query->filterByItmpwhse('fooValue');   // WHERE ItmpWhse = 'fooValue'
      * $query->filterByItmpwhse('%fooValue%', Criteria::LIKE); // WHERE ItmpWhse LIKE '%fooValue%'
+     * $query->filterByItmpwhse(['foo', 'bar']); // WHERE ItmpWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itmpwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itmpwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserPermissionsItmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItmpwhse($itmpwhse = null, $comparison = null)
+    public function filterByItmpwhse($itmpwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itmpwhse)) {
@@ -341,7 +362,9 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPWHSE, $itmpwhse, $comparison);
+        $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPWHSE, $itmpwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -351,14 +374,15 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      * <code>
      * $query->filterByItmpprices('fooValue');   // WHERE ItmpPrices = 'fooValue'
      * $query->filterByItmpprices('%fooValue%', Criteria::LIKE); // WHERE ItmpPrices LIKE '%fooValue%'
+     * $query->filterByItmpprices(['foo', 'bar']); // WHERE ItmpPrices IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itmpprices The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itmpprices The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserPermissionsItmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItmpprices($itmpprices = null, $comparison = null)
+    public function filterByItmpprices($itmpprices = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itmpprices)) {
@@ -366,7 +390,9 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPPRICES, $itmpprices, $comparison);
+        $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPPRICES, $itmpprices, $comparison);
+
+        return $this;
     }
 
     /**
@@ -376,14 +402,15 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      * <code>
      * $query->filterByItmpcosts('fooValue');   // WHERE ItmpCosts = 'fooValue'
      * $query->filterByItmpcosts('%fooValue%', Criteria::LIKE); // WHERE ItmpCosts LIKE '%fooValue%'
+     * $query->filterByItmpcosts(['foo', 'bar']); // WHERE ItmpCosts IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itmpcosts The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itmpcosts The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserPermissionsItmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItmpcosts($itmpcosts = null, $comparison = null)
+    public function filterByItmpcosts($itmpcosts = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itmpcosts)) {
@@ -391,7 +418,9 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPCOSTS, $itmpcosts, $comparison);
+        $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPCOSTS, $itmpcosts, $comparison);
+
+        return $this;
     }
 
     /**
@@ -401,14 +430,15 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      * <code>
      * $query->filterByItmpxrefs('fooValue');   // WHERE ItmpXrefs = 'fooValue'
      * $query->filterByItmpxrefs('%fooValue%', Criteria::LIKE); // WHERE ItmpXrefs LIKE '%fooValue%'
+     * $query->filterByItmpxrefs(['foo', 'bar']); // WHERE ItmpXrefs IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itmpxrefs The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itmpxrefs The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserPermissionsItmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItmpxrefs($itmpxrefs = null, $comparison = null)
+    public function filterByItmpxrefs($itmpxrefs = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itmpxrefs)) {
@@ -416,7 +446,9 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPXREFS, $itmpxrefs, $comparison);
+        $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPXREFS, $itmpxrefs, $comparison);
+
+        return $this;
     }
 
     /**
@@ -426,14 +458,15 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      * <code>
      * $query->filterByItmpmisc('fooValue');   // WHERE ItmpMisc = 'fooValue'
      * $query->filterByItmpmisc('%fooValue%', Criteria::LIKE); // WHERE ItmpMisc LIKE '%fooValue%'
+     * $query->filterByItmpmisc(['foo', 'bar']); // WHERE ItmpMisc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itmpmisc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itmpmisc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserPermissionsItmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItmpmisc($itmpmisc = null, $comparison = null)
+    public function filterByItmpmisc($itmpmisc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itmpmisc)) {
@@ -441,7 +474,9 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPMISC, $itmpmisc, $comparison);
+        $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPMISC, $itmpmisc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -451,14 +486,15 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      * <code>
      * $query->filterByItmppkg('fooValue');   // WHERE ItmpPkg = 'fooValue'
      * $query->filterByItmppkg('%fooValue%', Criteria::LIKE); // WHERE ItmpPkg LIKE '%fooValue%'
+     * $query->filterByItmppkg(['foo', 'bar']); // WHERE ItmpPkg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itmppkg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itmppkg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserPermissionsItmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItmppkg($itmppkg = null, $comparison = null)
+    public function filterByItmppkg($itmppkg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itmppkg)) {
@@ -466,7 +502,9 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPPKG, $itmppkg, $comparison);
+        $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPPKG, $itmppkg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -476,14 +514,15 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      * <code>
      * $query->filterByItmpoptions('fooValue');   // WHERE ItmpOptions = 'fooValue'
      * $query->filterByItmpoptions('%fooValue%', Criteria::LIKE); // WHERE ItmpOptions LIKE '%fooValue%'
+     * $query->filterByItmpoptions(['foo', 'bar']); // WHERE ItmpOptions IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $itmpoptions The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $itmpoptions The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserPermissionsItmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItmpoptions($itmpoptions = null, $comparison = null)
+    public function filterByItmpoptions($itmpoptions = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($itmpoptions)) {
@@ -491,7 +530,9 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPOPTIONS, $itmpoptions, $comparison);
+        $this->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPOPTIONS, $itmpoptions, $comparison);
+
+        return $this;
     }
 
     /**
@@ -501,14 +542,15 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserPermissionsItmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -516,7 +558,9 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserPermissionsItmTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(UserPermissionsItmTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -526,14 +570,15 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserPermissionsItmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -541,7 +586,9 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserPermissionsItmTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(UserPermissionsItmTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -551,14 +598,15 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUserPermissionsItmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -566,20 +614,22 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UserPermissionsItmTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(UserPermissionsItmTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \DplusUser object
      *
      * @param \DplusUser|ObjectCollection $dplusUser The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildUserPermissionsItmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDplusUser($dplusUser, $comparison = null)
+    public function filterByDplusUser($dplusUser, ?string $comparison = null)
     {
         if ($dplusUser instanceof \DplusUser) {
             return $this
@@ -589,8 +639,10 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(UserPermissionsItmTableMap::COL_ITMPUSERID, $dplusUser->toKeyValue('PrimaryKey', 'Usrcid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByDplusUser() only accepts arguments of type \DplusUser or Collection');
         }
@@ -599,12 +651,12 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the DplusUser relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildUserPermissionsItmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinDplusUser($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinDplusUser(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('DplusUser');
@@ -633,9 +685,9 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \DplusUserQuery A secondary query class using the current class as primary query
      */
@@ -647,11 +699,107 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
     }
 
     /**
+     * Use the DplusUser relation DplusUser object
+     *
+     * @param callable(\DplusUserQuery):\DplusUserQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withDplusUserQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useDplusUserQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to DplusUser table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \DplusUserQuery The inner query object of the EXISTS statement
+     */
+    public function useDplusUserExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \DplusUserQuery */
+        $q = $this->useExistsQuery('DplusUser', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to DplusUser table for a NOT EXISTS query.
+     *
+     * @see useDplusUserExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \DplusUserQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useDplusUserNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \DplusUserQuery */
+        $q = $this->useExistsQuery('DplusUser', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to DplusUser table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \DplusUserQuery The inner query object of the IN statement
+     */
+    public function useInDplusUserQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \DplusUserQuery */
+        $q = $this->useInQuery('DplusUser', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to DplusUser table for a NOT IN query.
+     *
+     * @see useDplusUserInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \DplusUserQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInDplusUserQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \DplusUserQuery */
+        $q = $this->useInQuery('DplusUser', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildUserPermissionsItm $userPermissionsItm Object to remove from the list of results
+     * @param ChildUserPermissionsItm $userPermissionsItm Object to remove from the list of results
      *
-     * @return $this|ChildUserPermissionsItmQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($userPermissionsItm = null)
     {
@@ -668,7 +816,7 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(UserPermissionsItmTableMap::DATABASE_NAME);
@@ -693,12 +841,12 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(UserPermissionsItmTableMap::DATABASE_NAME);
@@ -723,4 +871,4 @@ abstract class UserPermissionsItmQuery extends ModelCriteria
         });
     }
 
-} // UserPermissionsItmQuery
+}

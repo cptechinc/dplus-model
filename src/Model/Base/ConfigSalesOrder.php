@@ -29,19 +29,21 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\ConfigSalesOrderTableMap';
+    public const TABLE_MAP = '\\Map\\ConfigSalesOrderTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -50,14 +52,14 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the oetbconfkey field.
@@ -1879,7 +1881,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
@@ -1889,7 +1891,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->oetbconfkey = 1;
         $this->oetbconfglifac = 'Y';
@@ -2132,9 +2134,9 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -2142,10 +2144,10 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -2154,7 +2156,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -2164,9 +2166,9 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -2175,45 +2177,43 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -2222,10 +2222,10 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>ConfigSalesOrder</code>, delegates to
      * <code>equals(ConfigSalesOrder)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -2247,7 +2247,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -2255,10 +2255,10 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -2266,15 +2266,15 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -2283,12 +2283,12 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|ConfigSalesOrder The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -2298,13 +2298,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -2315,24 +2315,27 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -4620,8 +4623,8 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Set the value of [oetbconfkey] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfkey($v)
     {
@@ -4635,13 +4638,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfkey()
+    }
 
     /**
      * Set the value of [oetbconfglifac] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfglifac($v)
     {
@@ -4655,13 +4658,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfglifac()
+    }
 
     /**
      * Set the value of [oetbconfinifac] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfinifac($v)
     {
@@ -4675,13 +4678,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfinifac()
+    }
 
     /**
      * Set the value of [oetbconfrelivty] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfrelivty($v)
     {
@@ -4695,13 +4698,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfrelivty()
+    }
 
     /**
      * Set the value of [oetbconfuseordrnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfuseordrnbr($v)
     {
@@ -4715,13 +4718,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfuseordrnbr()
+    }
 
     /**
      * Set the value of [oetbconfdefrqstdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfdefrqstdate($v)
     {
@@ -4735,13 +4738,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfdefrqstdate()
+    }
 
     /**
      * Set the value of [oetbconfusecancdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfusecancdate($v)
     {
@@ -4755,13 +4758,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfusecancdate()
+    }
 
     /**
      * Set the value of [oetbconfshowsp] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfshowsp($v)
     {
@@ -4775,13 +4778,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfshowsp()
+    }
 
     /**
      * Set the value of [oetbconfjrnlsort] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfjrnlsort($v)
     {
@@ -4795,13 +4798,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfjrnlsort()
+    }
 
     /**
      * Set the value of [oetbconfuseprepsoopt] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfuseprepsoopt($v)
     {
@@ -4815,13 +4818,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfuseprepsoopt()
+    }
 
     /**
      * Set the value of [oetbconfdispbillto] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfdispbillto($v)
     {
@@ -4835,13 +4838,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfdispbillto()
+    }
 
     /**
      * Set the value of [oetbconfslctflm] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfslctflm($v)
     {
@@ -4855,13 +4858,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfslctflm()
+    }
 
     /**
      * Set the value of [oetbcon3usestockpull] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3usestockpull($v)
     {
@@ -4875,13 +4878,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3usestockpull()
+    }
 
     /**
      * Set the value of [oetbconfqtytoship] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfqtytoship($v)
     {
@@ -4895,13 +4898,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfqtytoship()
+    }
 
     /**
      * Set the value of [oetbconfqtytoshipdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfqtytoshipdef($v)
     {
@@ -4915,13 +4918,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfqtytoshipdef()
+    }
 
     /**
      * Set the value of [oetbconfdfltordrqty] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfdfltordrqty($v)
     {
@@ -4935,13 +4938,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfdfltordrqty()
+    }
 
     /**
      * Set the value of [oetbconfallocqtytoship] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfallocqtytoship($v)
     {
@@ -4955,13 +4958,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfallocqtytoship()
+    }
 
     /**
      * Set the value of [oetbconfoverallocqts] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfoverallocqts($v)
     {
@@ -4975,13 +4978,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfoverallocqts()
+    }
 
     /**
      * Set the value of [oetbcon3completelotbin] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3completelotbin($v)
     {
@@ -4995,13 +4998,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3completelotbin()
+    }
 
     /**
      * Set the value of [oetbcon3rqtsopt] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3rqtsopt($v)
     {
@@ -5015,13 +5018,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3rqtsopt()
+    }
 
     /**
      * Set the value of [oetbcon2shipcomphold] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2shipcomphold($v)
     {
@@ -5035,13 +5038,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2shipcomphold()
+    }
 
     /**
      * Set the value of [oetbcon3usesaleforecast] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3usesaleforecast($v)
     {
@@ -5055,13 +5058,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3usesaleforecast()
+    }
 
     /**
      * Set the value of [oetbconfverfstopneg] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfverfstopneg($v)
     {
@@ -5075,13 +5078,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfverfstopneg()
+    }
 
     /**
      * Set the value of [oetbconfverfaudtrept] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfverfaudtrept($v)
     {
@@ -5095,13 +5098,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfverfaudtrept()
+    }
 
     /**
      * Set the value of [oetbconfagelevldisp] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfagelevldisp($v)
     {
@@ -5115,13 +5118,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfagelevldisp()
+    }
 
     /**
      * Set the value of [oetbconfagealltime] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfagealltime($v)
     {
@@ -5135,13 +5138,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfagealltime()
+    }
 
     /**
      * Set the value of [oetbconfageathold] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfageathold($v)
     {
@@ -5155,13 +5158,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfageathold()
+    }
 
     /**
      * Set the value of [oetbconfshowatlevl] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfshowatlevl($v)
     {
@@ -5175,13 +5178,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfshowatlevl()
+    }
 
     /**
      * Set the value of [oetbconfshowitem] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfshowitem($v)
     {
@@ -5195,13 +5198,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfshowitem()
+    }
 
     /**
      * Set the value of [oetbconfstoppnt] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfstoppnt($v)
     {
@@ -5215,13 +5218,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfstoppnt()
+    }
 
     /**
      * Set the value of [oetbconfpricwind] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfpricwind($v)
     {
@@ -5235,13 +5238,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfpricwind()
+    }
 
     /**
      * Set the value of [oetbconfshowcost] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfshowcost($v)
     {
@@ -5255,13 +5258,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfshowcost()
+    }
 
     /**
      * Set the value of [oetbconfcosttouse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfcosttouse($v)
     {
@@ -5275,13 +5278,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfcosttouse()
+    }
 
     /**
      * Set the value of [oetbconfshowmarg] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfshowmarg($v)
     {
@@ -5295,13 +5298,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfshowmarg()
+    }
 
     /**
      * Set the value of [oetbconffxoe] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconffxoe($v)
     {
@@ -5315,13 +5318,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconffxoe()
+    }
 
     /**
      * Set the value of [oetbconffxinv] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconffxinv($v)
     {
@@ -5335,13 +5338,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconffxinv()
+    }
 
     /**
      * Set the value of [oetbconfdispvia] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfdispvia($v)
     {
@@ -5355,13 +5358,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfdispvia()
+    }
 
     /**
      * Set the value of [oetbconfdispcaseqty] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfdispcaseqty($v)
     {
@@ -5375,13 +5378,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfdispcaseqty()
+    }
 
     /**
      * Set the value of [oetbconffrtin] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconffrtin($v)
     {
@@ -5395,13 +5398,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconffrtin()
+    }
 
     /**
      * Set the value of [oetbconffrtinglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconffrtinglacct($v)
     {
@@ -5415,13 +5418,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconffrtinglacct()
+    }
 
     /**
      * Set the value of [oetbconfmincharge] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfmincharge($v)
     {
@@ -5435,13 +5438,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfmincharge()
+    }
 
     /**
      * Set the value of [oetbconfminchrgglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfminchrgglacct($v)
     {
@@ -5455,13 +5458,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfminchrgglacct()
+    }
 
     /**
      * Set the value of [oetbconfdropshipchrg] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfdropshipchrg($v)
     {
@@ -5475,13 +5478,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfdropshipchrg()
+    }
 
     /**
      * Set the value of [oetbconfdropshpglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfdropshpglacct($v)
     {
@@ -5495,13 +5498,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfdropshpglacct()
+    }
 
     /**
      * Set the value of [oetbconfnontaxcustcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfnontaxcustcode($v)
     {
@@ -5515,13 +5518,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfnontaxcustcode()
+    }
 
     /**
      * Set the value of [oetbconfhstaxid] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfhstaxid($v)
     {
@@ -5535,13 +5538,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfhstaxid()
+    }
 
     /**
      * Set the value of [oetbconfhsfrtid] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfhsfrtid($v)
     {
@@ -5555,13 +5558,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfhsfrtid()
+    }
 
     /**
      * Set the value of [oetbconfhsmiscid] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfhsmiscid($v)
     {
@@ -5575,13 +5578,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfhsmiscid()
+    }
 
     /**
      * Set the value of [oetbcon2hscusdid] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2hscusdid($v)
     {
@@ -5595,13 +5598,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2hscusdid()
+    }
 
     /**
      * Set the value of [oetbcon3hsfrtinid] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3hsfrtinid($v)
     {
@@ -5615,13 +5618,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3hsfrtinid()
+    }
 
     /**
      * Set the value of [oetbcon3hsdropid] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3hsdropid($v)
     {
@@ -5635,13 +5638,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3hsdropid()
+    }
 
     /**
      * Set the value of [oetbcon3hsminordid] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3hsminordid($v)
     {
@@ -5655,13 +5658,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3hsminordid()
+    }
 
     /**
      * Set the value of [oetbconfheadgetdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfheadgetdef($v)
     {
@@ -5675,13 +5678,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfheadgetdef()
+    }
 
     /**
      * Set the value of [oetbconfitemgetdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfitemgetdef($v)
     {
@@ -5695,13 +5698,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfitemgetdef()
+    }
 
     /**
      * Set the value of [oetbconfautogetcust] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfautogetcust($v)
     {
@@ -5715,13 +5718,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfautogetcust()
+    }
 
     /**
      * Set the value of [oetbcon3autogetitem] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3autogetitem($v)
     {
@@ -5735,13 +5738,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3autogetitem()
+    }
 
     /**
      * Set the value of [oetbconfrqstheaddtl] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfrqstheaddtl($v)
     {
@@ -5755,13 +5758,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfrqstheaddtl()
+    }
 
     /**
      * Set the value of [oetbconfcancheaddtl] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfcancheaddtl($v)
     {
@@ -5775,13 +5778,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfcancheaddtl()
+    }
 
     /**
      * Set the value of [oetbconfuseinvcasship] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfuseinvcasship($v)
     {
@@ -5795,13 +5798,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfuseinvcasship()
+    }
 
     /**
      * Set the value of [oetbcon3usearrvdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3usearrvdate($v)
     {
@@ -5815,13 +5818,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3usearrvdate()
+    }
 
     /**
      * Set the value of [oetbconfseparatecred] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfseparatecred($v)
     {
@@ -5835,13 +5838,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfseparatecred()
+    }
 
     /**
      * Set the value of [oetbcon3applycredits] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3applycredits($v)
     {
@@ -5855,13 +5858,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3applycredits()
+    }
 
     /**
      * Set the value of [oetbconfwarnnotnew] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfwarnnotnew($v)
     {
@@ -5875,13 +5878,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfwarnnotnew()
+    }
 
     /**
      * Set the value of [oetbconfwarnbotozero] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfwarnbotozero($v)
     {
@@ -5895,13 +5898,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfwarnbotozero()
+    }
 
     /**
      * Set the value of [oetbcon2providerouting] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2providerouting($v)
     {
@@ -5915,13 +5918,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2providerouting()
+    }
 
     /**
      * Set the value of [oetbcon2srtrtbyrqstdte] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2srtrtbyrqstdte($v)
     {
@@ -5935,13 +5938,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2srtrtbyrqstdte()
+    }
 
     /**
      * Set the value of [oetbconfusesoreview] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfusesoreview($v)
     {
@@ -5955,13 +5958,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfusesoreview()
+    }
 
     /**
      * Set the value of [oetbconfpicknotedef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfpicknotedef($v)
     {
@@ -5975,13 +5978,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfpicknotedef()
+    }
 
     /**
      * Set the value of [oetbconfpacknotedef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfpacknotedef($v)
     {
@@ -5995,13 +5998,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfpacknotedef()
+    }
 
     /**
      * Set the value of [oetbconfpicksort] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfpicksort($v)
     {
@@ -6015,13 +6018,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfpicksort()
+    }
 
     /**
      * Set the value of [oetbconfpacksort] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfpacksort($v)
     {
@@ -6035,13 +6038,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfpacksort()
+    }
 
     /**
      * Set the value of [oetbconfprtpriconly] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfprtpriconly($v)
     {
@@ -6055,13 +6058,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfprtpriconly()
+    }
 
     /**
      * Set the value of [oetbconfprtneg] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfprtneg($v)
     {
@@ -6075,13 +6078,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfprtneg()
+    }
 
     /**
      * Set the value of [oetbcon2prtpackageinfo] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2prtpackageinfo($v)
     {
@@ -6095,13 +6098,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2prtpackageinfo()
+    }
 
     /**
      * Set the value of [oetbcon2innerpacklabel] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2innerpacklabel($v)
     {
@@ -6115,13 +6118,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2innerpacklabel()
+    }
 
     /**
      * Set the value of [oetbcon2outerpacklabel] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2outerpacklabel($v)
     {
@@ -6135,13 +6138,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2outerpacklabel()
+    }
 
     /**
      * Set the value of [oetbcon2shiptarelabel] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2shiptarelabel($v)
     {
@@ -6155,13 +6158,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2shiptarelabel()
+    }
 
     /**
      * Set the value of [oetbconfprtpick] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfprtpick($v)
     {
@@ -6175,13 +6178,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfprtpick()
+    }
 
     /**
      * Set the value of [oetbconfpicprioseq] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfpicprioseq($v)
     {
@@ -6195,13 +6198,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfpicprioseq()
+    }
 
     /**
      * Set the value of [oetbconfprtpack] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfprtpack($v)
     {
@@ -6215,13 +6218,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfprtpack()
+    }
 
     /**
      * Set the value of [oetbconfprtinv] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfprtinv($v)
     {
@@ -6235,13 +6238,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfprtinv()
+    }
 
     /**
      * Set the value of [oetbcon2prtcredmemo] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2prtcredmemo($v)
     {
@@ -6255,13 +6258,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2prtcredmemo()
+    }
 
     /**
      * Set the value of [oetbconfcrntdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfcrntdate($v)
     {
@@ -6275,13 +6278,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfcrntdate()
+    }
 
     /**
      * Set the value of [oetbconfmarkpicked] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfmarkpicked($v)
     {
@@ -6295,13 +6298,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfmarkpicked()
+    }
 
     /**
      * Set the value of [oetbconfshowunavail] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfshowunavail($v)
     {
@@ -6315,13 +6318,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfshowunavail()
+    }
 
     /**
      * Set the value of [oetbconfdecplaces] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfdecplaces($v)
     {
@@ -6335,13 +6338,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfdecplaces()
+    }
 
     /**
      * Set the value of [oetbconfwarndup] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfwarndup($v)
     {
@@ -6355,13 +6358,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfwarndup()
+    }
 
     /**
      * Set the value of [oetbconfdefpick] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfdefpick($v)
     {
@@ -6375,13 +6378,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfdefpick()
+    }
 
     /**
      * Set the value of [oetbconfdefpack] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfdefpack($v)
     {
@@ -6395,13 +6398,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfdefpack()
+    }
 
     /**
      * Set the value of [oetbconfdefinvc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfdefinvc($v)
     {
@@ -6415,13 +6418,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfdefinvc()
+    }
 
     /**
      * Set the value of [oetbconfdefack] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfdefack($v)
     {
@@ -6435,13 +6438,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfdefack()
+    }
 
     /**
      * Set the value of [oetbconfacksortopt] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfacksortopt($v)
     {
@@ -6455,13 +6458,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfacksortopt()
+    }
 
     /**
      * Set the value of [oetbconfreleasenbr] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfreleasenbr($v)
     {
@@ -6475,13 +6478,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfreleasenbr()
+    }
 
     /**
      * Set the value of [oetbconfpodetlinenbr] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfpodetlinenbr($v)
     {
@@ -6495,13 +6498,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfpodetlinenbr()
+    }
 
     /**
      * Set the value of [oetbconfdetlinebinnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfdetlinebinnbr($v)
     {
@@ -6515,13 +6518,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfdetlinebinnbr()
+    }
 
     /**
      * Set the value of [oetbconfsplitbywhse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfsplitbywhse($v)
     {
@@ -6535,13 +6538,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfsplitbywhse()
+    }
 
     /**
      * Set the value of [oetbcon3allowmultwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3allowmultwhse($v)
     {
@@ -6555,13 +6558,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3allowmultwhse()
+    }
 
     /**
      * Set the value of [oetbconfuseorigwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfuseorigwhse($v)
     {
@@ -6575,13 +6578,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfuseorigwhse()
+    }
 
     /**
      * Set the value of [oetbconfuseesosingle] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfuseesosingle($v)
     {
@@ -6595,13 +6598,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfuseesosingle()
+    }
 
     /**
      * Set the value of [oetbconfcreatepo] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfcreatepo($v)
     {
@@ -6615,13 +6618,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfcreatepo()
+    }
 
     /**
      * Set the value of [oetbconfbestprice] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfbestprice($v)
     {
@@ -6635,13 +6638,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfbestprice()
+    }
 
     /**
      * Set the value of [oetbconfesobacktonew] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfesobacktonew($v)
     {
@@ -6655,13 +6658,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfesobacktonew()
+    }
 
     /**
      * Set the value of [oetbconfpickprintdrop] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfpickprintdrop($v)
     {
@@ -6675,13 +6678,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfpickprintdrop()
+    }
 
     /**
      * Set the value of [oetbconfwarnmultpo] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfwarnmultpo($v)
     {
@@ -6695,13 +6698,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfwarnmultpo()
+    }
 
     /**
      * Set the value of [oetbconfalertitemquote] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfalertitemquote($v)
     {
@@ -6715,13 +6718,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfalertitemquote()
+    }
 
     /**
      * Set the value of [oetbcon3askchgprcwqty] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3askchgprcwqty($v)
     {
@@ -6735,13 +6738,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3askchgprcwqty()
+    }
 
     /**
      * Set the value of [oetbcon3tenqtybrks] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3tenqtybrks($v)
     {
@@ -6755,13 +6758,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3tenqtybrks()
+    }
 
     /**
      * Set the value of [oetbconfdecordrpric] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfdecordrpric($v)
     {
@@ -6775,13 +6778,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfdecordrpric()
+    }
 
     /**
      * Set the value of [oetbcon2provlostsales] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2provlostsales($v)
     {
@@ -6795,13 +6798,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2provlostsales()
+    }
 
     /**
      * Set the value of [oetbcon2askreasoncode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2askreasoncode($v)
     {
@@ -6815,13 +6818,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2askreasoncode()
+    }
 
     /**
      * Set the value of [oetbcon2defreasoncode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2defreasoncode($v)
     {
@@ -6835,13 +6838,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2defreasoncode()
+    }
 
     /**
      * Set the value of [oetbcon2bordcntl] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2bordcntl($v)
     {
@@ -6855,13 +6858,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2bordcntl()
+    }
 
     /**
      * Set the value of [oetbcon2defreabocode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2defreabocode($v)
     {
@@ -6875,13 +6878,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2defreabocode()
+    }
 
     /**
      * Set the value of [oetbcon2numdayssavls] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2numdayssavls($v)
     {
@@ -6895,13 +6898,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2numdayssavls()
+    }
 
     /**
      * Set the value of [oetbcon2callbacknotif] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2callbacknotif($v)
     {
@@ -6915,13 +6918,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2callbacknotif()
+    }
 
     /**
      * Set the value of [oetbcon2defdayswhenin] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2defdayswhenin($v)
     {
@@ -6935,13 +6938,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2defdayswhenin()
+    }
 
     /**
      * Set the value of [oetbcon2addsubsls] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2addsubsls($v)
     {
@@ -6955,13 +6958,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2addsubsls()
+    }
 
     /**
      * Set the value of [oetbcon2defreasubscode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2defreasubscode($v)
     {
@@ -6975,13 +6978,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2defreasubscode()
+    }
 
     /**
      * Set the value of [oetbcon2ordtypnorm] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2ordtypnorm($v)
     {
@@ -6995,13 +6998,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2ordtypnorm()
+    }
 
     /**
      * Set the value of [oetbcon2ordtyprep] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2ordtyprep($v)
     {
@@ -7015,13 +7018,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2ordtyprep()
+    }
 
     /**
      * Set the value of [oetbcon2ordtypserv] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2ordtypserv($v)
     {
@@ -7035,13 +7038,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2ordtypserv()
+    }
 
     /**
      * Set the value of [oetbcon2defordtyp] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2defordtyp($v)
     {
@@ -7055,13 +7058,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2defordtyp()
+    }
 
     /**
      * Set the value of [oetbconfchgpric] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfchgpric($v)
     {
@@ -7075,13 +7078,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfchgpric()
+    }
 
     /**
      * Set the value of [oetbcon2spordpricezero] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2spordpricezero($v)
     {
@@ -7095,13 +7098,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2spordpricezero()
+    }
 
     /**
      * Set the value of [oetbconfinactpricezero] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfinactpricezero($v)
     {
@@ -7115,13 +7118,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfinactpricezero()
+    }
 
     /**
      * Set the value of [oetbcon2reseq] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2reseq($v)
     {
@@ -7135,13 +7138,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2reseq()
+    }
 
     /**
      * Set the value of [oetbcon2reseqby] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2reseqby($v)
     {
@@ -7155,13 +7158,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2reseqby()
+    }
 
     /**
      * Set the value of [oetbcon2minqtysales] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2minqtysales($v)
     {
@@ -7175,13 +7178,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2minqtysales()
+    }
 
     /**
      * Set the value of [oetbcon2chgorder] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2chgorder($v)
     {
@@ -7195,13 +7198,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2chgorder()
+    }
 
     /**
      * Set the value of [oetbcon2vercomp] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2vercomp($v)
     {
@@ -7215,13 +7218,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2vercomp()
+    }
 
     /**
      * Set the value of [oetbcon2prtinv] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2prtinv($v)
     {
@@ -7235,13 +7238,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2prtinv()
+    }
 
     /**
      * Set the value of [oetbcon2dynamicpicktick] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2dynamicpicktick($v)
     {
@@ -7255,13 +7258,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2dynamicpicktick()
+    }
 
     /**
      * Set the value of [oetbcon2dynamicinvoice] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2dynamicinvoice($v)
     {
@@ -7275,13 +7278,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2dynamicinvoice()
+    }
 
     /**
      * Set the value of [oetbcon2edidefinvoice] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2edidefinvoice($v)
     {
@@ -7295,13 +7298,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2edidefinvoice()
+    }
 
     /**
      * Set the value of [oetbcon2allowccpick] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2allowccpick($v)
     {
@@ -7315,13 +7318,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2allowccpick()
+    }
 
     /**
      * Set the value of [oetbcon2autoccwind] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2autoccwind($v)
     {
@@ -7335,13 +7338,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2autoccwind()
+    }
 
     /**
      * Set the value of [oetbcon2autoccupdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2autoccupdate($v)
     {
@@ -7355,13 +7358,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2autoccupdate()
+    }
 
     /**
      * Set the value of [oetbcon2allowapvdccchg] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2allowapvdccchg($v)
     {
@@ -7375,13 +7378,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2allowapvdccchg()
+    }
 
     /**
      * Set the value of [oetbcon3apvdbckordclear] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3apvdbckordclear($v)
     {
@@ -7395,13 +7398,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3apvdbckordclear()
+    }
 
     /**
      * Set the value of [oetbcon2polwhichcost] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2polwhichcost($v)
     {
@@ -7415,13 +7418,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2polwhichcost()
+    }
 
     /**
      * Set the value of [oetbcon2revhazard] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2revhazard($v)
     {
@@ -7435,13 +7438,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2revhazard()
+    }
 
     /**
      * Set the value of [oetbcon2showdisclist] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2showdisclist($v)
     {
@@ -7455,13 +7458,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2showdisclist()
+    }
 
     /**
      * Set the value of [oetbcon2chglist] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2chglist($v)
     {
@@ -7475,13 +7478,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2chglist()
+    }
 
     /**
      * Set the value of [oetbcon2maillist] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2maillist($v)
     {
@@ -7495,13 +7498,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2maillist()
+    }
 
     /**
      * Set the value of [oetbcon2nameformat] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2nameformat($v)
     {
@@ -7515,13 +7518,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2nameformat()
+    }
 
     /**
      * Set the value of [oetbcon2mailidtype] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2mailidtype($v)
     {
@@ -7535,13 +7538,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2mailidtype()
+    }
 
     /**
      * Set the value of [oetbcon2cashdrawerpswd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2cashdrawerpswd($v)
     {
@@ -7555,13 +7558,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2cashdrawerpswd()
+    }
 
     /**
      * Set the value of [oetbcon2upsonline] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2upsonline($v)
     {
@@ -7575,13 +7578,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2upsonline()
+    }
 
     /**
      * Set the value of [oetbcon2picorver] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2picorver($v)
     {
@@ -7595,13 +7598,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2picorver()
+    }
 
     /**
      * Set the value of [oetbcon2combback] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2combback($v)
     {
@@ -7615,13 +7618,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2combback()
+    }
 
     /**
      * Set the value of [oetbcon2frtallowamt] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2frtallowamt($v)
     {
@@ -7635,13 +7638,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2frtallowamt()
+    }
 
     /**
      * Set the value of [oetbcon3shipmoreordered] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3shipmoreordered($v)
     {
@@ -7655,13 +7658,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3shipmoreordered()
+    }
 
     /**
      * Set the value of [oetbcon3warnshipmore] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3warnshipmore($v)
     {
@@ -7675,13 +7678,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3warnshipmore()
+    }
 
     /**
      * Set the value of [oetbcon3proformafromeso] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3proformafromeso($v)
     {
@@ -7695,13 +7698,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3proformafromeso()
+    }
 
     /**
      * Set the value of [oetbcon3pickpackcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3pickpackcode($v)
     {
@@ -7715,13 +7718,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3pickpackcode()
+    }
 
     /**
      * Set the value of [oetbcon2usedept] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2usedept($v)
     {
@@ -7735,13 +7738,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2usedept()
+    }
 
     /**
      * Set the value of [oetbcon2usedivision] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2usedivision($v)
     {
@@ -7755,13 +7758,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2usedivision()
+    }
 
     /**
      * Set the value of [oetbcon2defmfecode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2defmfecode($v)
     {
@@ -7775,13 +7778,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2defmfecode()
+    }
 
     /**
      * Set the value of [oetbcon2showavgcost] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2showavgcost($v)
     {
@@ -7795,13 +7798,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2showavgcost()
+    }
 
     /**
      * Set the value of [oetbcon2fedex] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2fedex($v)
     {
@@ -7815,13 +7818,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2fedex()
+    }
 
     /**
      * Set the value of [oetbcon3deffrghtgrup] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3deffrghtgrup($v)
     {
@@ -7835,13 +7838,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3deffrghtgrup()
+    }
 
     /**
      * Set the value of [oetbcon3upsmysqldbname] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3upsmysqldbname($v)
     {
@@ -7855,13 +7858,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3upsmysqldbname()
+    }
 
     /**
      * Set the value of [oetbconfuseoptcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfuseoptcode($v)
     {
@@ -7875,13 +7878,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfuseoptcode()
+    }
 
     /**
      * Set the value of [oetbconfscn4opt] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfscn4opt($v)
     {
@@ -7895,13 +7898,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfscn4opt()
+    }
 
     /**
      * Set the value of [oetbcon2takenbyuse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2takenbyuse($v)
     {
@@ -7915,13 +7918,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2takenbyuse()
+    }
 
     /**
      * Set the value of [oetbcon2takenbylogin] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2takenbylogin($v)
     {
@@ -7935,13 +7938,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2takenbylogin()
+    }
 
     /**
      * Set the value of [oetbcon2takenbyforce] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2takenbyforce($v)
     {
@@ -7955,13 +7958,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2takenbyforce()
+    }
 
     /**
      * Set the value of [oetbcon2pickedbyuse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2pickedbyuse($v)
     {
@@ -7975,13 +7978,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2pickedbyuse()
+    }
 
     /**
      * Set the value of [oetbcon2pickedbyforce] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2pickedbyforce($v)
     {
@@ -7995,13 +7998,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2pickedbyforce()
+    }
 
     /**
      * Set the value of [oetbcon2pickedbyproc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2pickedbyproc($v)
     {
@@ -8015,13 +8018,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2pickedbyproc()
+    }
 
     /**
      * Set the value of [oetbcon2packedbyuse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2packedbyuse($v)
     {
@@ -8035,13 +8038,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2packedbyuse()
+    }
 
     /**
      * Set the value of [oetbcon2packedbyforce] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2packedbyforce($v)
     {
@@ -8055,13 +8058,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2packedbyforce()
+    }
 
     /**
      * Set the value of [oetbcon2verifiedbyuse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2verifiedbyuse($v)
     {
@@ -8075,13 +8078,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2verifiedbyuse()
+    }
 
     /**
      * Set the value of [oetbcon2verifiedbylogin] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2verifiedbylogin($v)
     {
@@ -8095,13 +8098,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2verifiedbylogin()
+    }
 
     /**
      * Set the value of [oetbcon2verifiedbyforce] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2verifiedbyforce($v)
     {
@@ -8115,13 +8118,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2verifiedbyforce()
+    }
 
     /**
      * Set the value of [oetbconfoptlabl1] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfoptlabl1($v)
     {
@@ -8135,13 +8138,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfoptlabl1()
+    }
 
     /**
      * Set the value of [oetbcon2ucode1force] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2ucode1force($v)
     {
@@ -8155,13 +8158,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2ucode1force()
+    }
 
     /**
      * Set the value of [oetbconfoptlabl2] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfoptlabl2($v)
     {
@@ -8175,13 +8178,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfoptlabl2()
+    }
 
     /**
      * Set the value of [oetbcon2ucode2force] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2ucode2force($v)
     {
@@ -8195,13 +8198,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2ucode2force()
+    }
 
     /**
      * Set the value of [oetbconfoptlabl3] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfoptlabl3($v)
     {
@@ -8215,13 +8218,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfoptlabl3()
+    }
 
     /**
      * Set the value of [oetbcon2ucode3force] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2ucode3force($v)
     {
@@ -8235,13 +8238,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2ucode3force()
+    }
 
     /**
      * Set the value of [oetbconfoptlabl4] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfoptlabl4($v)
     {
@@ -8255,13 +8258,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfoptlabl4()
+    }
 
     /**
      * Set the value of [oetbcon2ucode4force] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2ucode4force($v)
     {
@@ -8275,13 +8278,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2ucode4force()
+    }
 
     /**
      * Set the value of [oetbconfverifyafterpack] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfverifyafterpack($v)
     {
@@ -8295,13 +8298,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfverifyafterpack()
+    }
 
     /**
      * Set the value of [oetbconfhistyrsback] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfhistyrsback($v)
     {
@@ -8315,13 +8318,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfhistyrsback()
+    }
 
     /**
      * Set the value of [oetbconfrqstcatlg] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfrqstcatlg($v)
     {
@@ -8335,13 +8338,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfrqstcatlg()
+    }
 
     /**
      * Set the value of [oetbcon2conpick] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2conpick($v)
     {
@@ -8355,13 +8358,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2conpick()
+    }
 
     /**
      * Set the value of [oetbcon2allowpick] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2allowpick($v)
     {
@@ -8375,13 +8378,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2allowpick()
+    }
 
     /**
      * Set the value of [oetbcon2combinesame] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2combinesame($v)
     {
@@ -8395,13 +8398,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2combinesame()
+    }
 
     /**
      * Set the value of [oetbcon3autovernitems] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3autovernitems($v)
     {
@@ -8415,13 +8418,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3autovernitems()
+    }
 
     /**
      * Set the value of [oetbcon2allowzeroqty] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2allowzeroqty($v)
     {
@@ -8435,13 +8438,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2allowzeroqty()
+    }
 
     /**
      * Set the value of [oetbcon2allowinvalidwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2allowinvalidwhse($v)
     {
@@ -8455,13 +8458,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2allowinvalidwhse()
+    }
 
     /**
      * Set the value of [oetbcon2showediinfo] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2showediinfo($v)
     {
@@ -8475,13 +8478,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2showediinfo()
+    }
 
     /**
      * Set the value of [oetbcon3esoshowquotlink] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3esoshowquotlink($v)
     {
@@ -8495,13 +8498,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3esoshowquotlink()
+    }
 
     /**
      * Set the value of [oetbcon3esoshowwiplink] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3esoshowwiplink($v)
     {
@@ -8515,13 +8518,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3esoshowwiplink()
+    }
 
     /**
      * Set the value of [oetbcon2addonsales] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2addonsales($v)
     {
@@ -8535,13 +8538,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2addonsales()
+    }
 
     /**
      * Set the value of [oetbcon2forcedbkord] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2forcedbkord($v)
     {
@@ -8555,13 +8558,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2forcedbkord()
+    }
 
     /**
      * Set the value of [oetbcon2updtprcdisc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2updtprcdisc($v)
     {
@@ -8575,13 +8578,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2updtprcdisc()
+    }
 
     /**
      * Set the value of [oetbcon2autopack] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2autopack($v)
     {
@@ -8595,13 +8598,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2autopack()
+    }
 
     /**
      * Set the value of [oetbcon2pickboprtzqts] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2pickboprtzqts($v)
     {
@@ -8615,13 +8618,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2pickboprtzqts()
+    }
 
     /**
      * Set the value of [oetbcon3pick00noship] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3pick00noship($v)
     {
@@ -8635,13 +8638,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3pick00noship()
+    }
 
     /**
      * Set the value of [oetbcon2standordlead] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2standordlead($v)
     {
@@ -8655,13 +8658,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2standordlead()
+    }
 
     /**
      * Set the value of [oetbcon2standordamnt] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2standordamnt($v)
     {
@@ -8675,13 +8678,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2standordamnt()
+    }
 
     /**
      * Set the value of [oetbcon2inactitemcntrl] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2inactitemcntrl($v)
     {
@@ -8695,13 +8698,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2inactitemcntrl()
+    }
 
     /**
      * Set the value of [oetbcon2useitemref] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon2useitemref($v)
     {
@@ -8715,13 +8718,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon2useitemref()
+    }
 
     /**
      * Set the value of [oetbcon3upsnaftarecords] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3upsnaftarecords($v)
     {
@@ -8735,13 +8738,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3upsnaftarecords()
+    }
 
     /**
      * Set the value of [oetbcon3soplotlikenorm] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3soplotlikenorm($v)
     {
@@ -8755,13 +8758,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3soplotlikenorm()
+    }
 
     /**
      * Set the value of [oetbconfdfltshipwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfdfltshipwhse($v)
     {
@@ -8775,13 +8778,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfdfltshipwhse()
+    }
 
     /**
      * Set the value of [oetbconfdfltorigwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfdfltorigwhse($v)
     {
@@ -8795,13 +8798,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfdfltorigwhse()
+    }
 
     /**
      * Set the value of [oetbconfinvcwithpack] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfinvcwithpack($v)
     {
@@ -8815,13 +8818,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfinvcwithpack()
+    }
 
     /**
      * Set the value of [oetbconfcarrycntrqty] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfcarrycntrqty($v)
     {
@@ -8835,13 +8838,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfcarrycntrqty()
+    }
 
     /**
      * Set the value of [oetbcon3useordras] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3useordras($v)
     {
@@ -8855,13 +8858,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3useordras()
+    }
 
     /**
      * Set the value of [oetbconfuseordrsource] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbconfuseordrsource($v)
     {
@@ -8875,13 +8878,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbconfuseordrsource()
+    }
 
     /**
      * Set the value of [oetbcon3ccprocessor] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3ccprocessor($v)
     {
@@ -8895,13 +8898,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3ccprocessor()
+    }
 
     /**
      * Set the value of [oetbcon3creditcardcap] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3creditcardcap($v)
     {
@@ -8915,13 +8918,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3creditcardcap()
+    }
 
     /**
      * Set the value of [oetbcon3keyorcccap] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3keyorcccap($v)
     {
@@ -8935,13 +8938,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3keyorcccap()
+    }
 
     /**
      * Set the value of [oetbcon3ccxoverlay] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3ccxoverlay($v)
     {
@@ -8955,13 +8958,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3ccxoverlay()
+    }
 
     /**
      * Set the value of [oetbcon3cctimeout] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3cctimeout($v)
     {
@@ -8975,13 +8978,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3cctimeout()
+    }
 
     /**
      * Set the value of [oetbcon3signaturecapture] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3signaturecapture($v)
     {
@@ -8995,13 +8998,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3signaturecapture()
+    }
 
     /**
      * Set the value of [oetbcon3ccpreapproval] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3ccpreapproval($v)
     {
@@ -9015,13 +9018,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3ccpreapproval()
+    }
 
     /**
      * Set the value of [oetbcon3forceccnbrentry] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3forceccnbrentry($v)
     {
@@ -9035,13 +9038,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3forceccnbrentry()
+    }
 
     /**
      * Set the value of [oetbcon3intritemnotes] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3intritemnotes($v)
     {
@@ -9055,13 +9058,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3intritemnotes()
+    }
 
     /**
      * Set the value of [oetbcon3mtrcert] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3mtrcert($v)
     {
@@ -9075,13 +9078,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3mtrcert()
+    }
 
     /**
      * Set the value of [oetbcon3cofccert] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOetbcon3cofccert($v)
     {
@@ -9095,13 +9098,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOetbcon3cofccert()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -9115,13 +9118,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -9135,13 +9138,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -9155,7 +9158,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -9163,9 +9166,9 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->oetbconfkey !== 1) {
                 return false;
@@ -10077,7 +10080,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -10087,17 +10090,17 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -10781,8 +10784,8 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 226 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -10807,23 +10810,24 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -10856,13 +10860,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see ConfigSalesOrder::setDeleted()
      * @see ConfigSalesOrder::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -10892,12 +10896,12 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -10942,12 +10946,12 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -10969,19 +10973,19 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -11680,684 +11684,911 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'OetbConfKey':
                         $stmt->bindValue($identifier, $this->oetbconfkey, PDO::PARAM_INT);
+
                         break;
                     case 'OetbConfGlIfac':
                         $stmt->bindValue($identifier, $this->oetbconfglifac, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfInIfac':
                         $stmt->bindValue($identifier, $this->oetbconfinifac, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfRelIvty':
                         $stmt->bindValue($identifier, $this->oetbconfrelivty, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfUseOrdrNbr':
                         $stmt->bindValue($identifier, $this->oetbconfuseordrnbr, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfDefRqstDate':
                         $stmt->bindValue($identifier, $this->oetbconfdefrqstdate, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfUseCancDate':
                         $stmt->bindValue($identifier, $this->oetbconfusecancdate, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfShowSp':
                         $stmt->bindValue($identifier, $this->oetbconfshowsp, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfJrnlSort':
                         $stmt->bindValue($identifier, $this->oetbconfjrnlsort, PDO::PARAM_INT);
+
                         break;
                     case 'OetbConfUsePrepSoOpt':
                         $stmt->bindValue($identifier, $this->oetbconfuseprepsoopt, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfDispBillTo':
                         $stmt->bindValue($identifier, $this->oetbconfdispbillto, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfSlctFlm':
                         $stmt->bindValue($identifier, $this->oetbconfslctflm, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3UseStockPull':
                         $stmt->bindValue($identifier, $this->oetbcon3usestockpull, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfQtyToShip':
                         $stmt->bindValue($identifier, $this->oetbconfqtytoship, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfQtyToShipDef':
                         $stmt->bindValue($identifier, $this->oetbconfqtytoshipdef, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfDfltOrdrQty':
                         $stmt->bindValue($identifier, $this->oetbconfdfltordrqty, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfAllocQtyToShip':
                         $stmt->bindValue($identifier, $this->oetbconfallocqtytoship, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfOverAllocQts':
                         $stmt->bindValue($identifier, $this->oetbconfoverallocqts, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3CompleteLotBin':
                         $stmt->bindValue($identifier, $this->oetbcon3completelotbin, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3RqtsOpt':
                         $stmt->bindValue($identifier, $this->oetbcon3rqtsopt, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2ShipCompHold':
                         $stmt->bindValue($identifier, $this->oetbcon2shipcomphold, PDO::PARAM_INT);
+
                         break;
                     case 'OetbCon3UseSaleForecast':
                         $stmt->bindValue($identifier, $this->oetbcon3usesaleforecast, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfVerfStopNeg':
                         $stmt->bindValue($identifier, $this->oetbconfverfstopneg, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfVerfAudtRept':
                         $stmt->bindValue($identifier, $this->oetbconfverfaudtrept, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfAgeLevlDisp':
                         $stmt->bindValue($identifier, $this->oetbconfagelevldisp, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfAgeAllTime':
                         $stmt->bindValue($identifier, $this->oetbconfagealltime, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfAgeAtHold':
                         $stmt->bindValue($identifier, $this->oetbconfageathold, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfShowAtLevl':
                         $stmt->bindValue($identifier, $this->oetbconfshowatlevl, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfShowItem':
                         $stmt->bindValue($identifier, $this->oetbconfshowitem, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfStopPnt':
                         $stmt->bindValue($identifier, $this->oetbconfstoppnt, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfPricWind':
                         $stmt->bindValue($identifier, $this->oetbconfpricwind, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfShowCost':
                         $stmt->bindValue($identifier, $this->oetbconfshowcost, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfCostToUse':
                         $stmt->bindValue($identifier, $this->oetbconfcosttouse, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfShowMarg':
                         $stmt->bindValue($identifier, $this->oetbconfshowmarg, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfFxOe':
                         $stmt->bindValue($identifier, $this->oetbconffxoe, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfFxInv':
                         $stmt->bindValue($identifier, $this->oetbconffxinv, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfDispVia':
                         $stmt->bindValue($identifier, $this->oetbconfdispvia, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfDispCaseQty':
                         $stmt->bindValue($identifier, $this->oetbconfdispcaseqty, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfFrtIn':
                         $stmt->bindValue($identifier, $this->oetbconffrtin, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfFrtInGlAcct':
                         $stmt->bindValue($identifier, $this->oetbconffrtinglacct, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfMinCharge':
                         $stmt->bindValue($identifier, $this->oetbconfmincharge, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfMinChrgGlAcct':
                         $stmt->bindValue($identifier, $this->oetbconfminchrgglacct, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfDropShipChrg':
                         $stmt->bindValue($identifier, $this->oetbconfdropshipchrg, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfDropShpGlAcct':
                         $stmt->bindValue($identifier, $this->oetbconfdropshpglacct, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfNonTaxCustCode':
                         $stmt->bindValue($identifier, $this->oetbconfnontaxcustcode, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfHsTaxId':
                         $stmt->bindValue($identifier, $this->oetbconfhstaxid, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfHsFrtId':
                         $stmt->bindValue($identifier, $this->oetbconfhsfrtid, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfHsMiscId':
                         $stmt->bindValue($identifier, $this->oetbconfhsmiscid, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2HsCusdId':
                         $stmt->bindValue($identifier, $this->oetbcon2hscusdid, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3HsFrtInId':
                         $stmt->bindValue($identifier, $this->oetbcon3hsfrtinid, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3HsDropId':
                         $stmt->bindValue($identifier, $this->oetbcon3hsdropid, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3HsMinordId':
                         $stmt->bindValue($identifier, $this->oetbcon3hsminordid, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfHeadGetDef':
                         $stmt->bindValue($identifier, $this->oetbconfheadgetdef, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfItemGetDef':
                         $stmt->bindValue($identifier, $this->oetbconfitemgetdef, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfAutoGetCust':
                         $stmt->bindValue($identifier, $this->oetbconfautogetcust, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3AutoGetItem':
                         $stmt->bindValue($identifier, $this->oetbcon3autogetitem, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfRqstHeadDtl':
                         $stmt->bindValue($identifier, $this->oetbconfrqstheaddtl, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfCancHeadDtl':
                         $stmt->bindValue($identifier, $this->oetbconfcancheaddtl, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfUseInvcAsShip':
                         $stmt->bindValue($identifier, $this->oetbconfuseinvcasship, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3UseArrvDate':
                         $stmt->bindValue($identifier, $this->oetbcon3usearrvdate, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfSeparateCred':
                         $stmt->bindValue($identifier, $this->oetbconfseparatecred, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3ApplyCredits':
                         $stmt->bindValue($identifier, $this->oetbcon3applycredits, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfWarnNotNew':
                         $stmt->bindValue($identifier, $this->oetbconfwarnnotnew, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfWarnBoToZero':
                         $stmt->bindValue($identifier, $this->oetbconfwarnbotozero, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2ProvideRouting':
                         $stmt->bindValue($identifier, $this->oetbcon2providerouting, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2SrtRtByRqstDte':
                         $stmt->bindValue($identifier, $this->oetbcon2srtrtbyrqstdte, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfUseSoReview':
                         $stmt->bindValue($identifier, $this->oetbconfusesoreview, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfPickNoteDef':
                         $stmt->bindValue($identifier, $this->oetbconfpicknotedef, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfPackNoteDef':
                         $stmt->bindValue($identifier, $this->oetbconfpacknotedef, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfPickSort':
                         $stmt->bindValue($identifier, $this->oetbconfpicksort, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfPackSort':
                         $stmt->bindValue($identifier, $this->oetbconfpacksort, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfPrtPricOnly':
                         $stmt->bindValue($identifier, $this->oetbconfprtpriconly, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfPrtNeg':
                         $stmt->bindValue($identifier, $this->oetbconfprtneg, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2PrtPackageInfo':
                         $stmt->bindValue($identifier, $this->oetbcon2prtpackageinfo, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2InnerPackLabel':
                         $stmt->bindValue($identifier, $this->oetbcon2innerpacklabel, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2OuterPackLabel':
                         $stmt->bindValue($identifier, $this->oetbcon2outerpacklabel, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2ShipTareLabel':
                         $stmt->bindValue($identifier, $this->oetbcon2shiptarelabel, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfPrtPick':
                         $stmt->bindValue($identifier, $this->oetbconfprtpick, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfPicPrioSeq':
                         $stmt->bindValue($identifier, $this->oetbconfpicprioseq, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfPrtPack':
                         $stmt->bindValue($identifier, $this->oetbconfprtpack, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfPrtInv':
                         $stmt->bindValue($identifier, $this->oetbconfprtinv, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2PrtCredMemo':
                         $stmt->bindValue($identifier, $this->oetbcon2prtcredmemo, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfCrntDate':
                         $stmt->bindValue($identifier, $this->oetbconfcrntdate, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfMarkPicked':
                         $stmt->bindValue($identifier, $this->oetbconfmarkpicked, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfShowUnavail':
                         $stmt->bindValue($identifier, $this->oetbconfshowunavail, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfDecPlaces':
                         $stmt->bindValue($identifier, $this->oetbconfdecplaces, PDO::PARAM_INT);
+
                         break;
                     case 'OetbConfWarnDup':
                         $stmt->bindValue($identifier, $this->oetbconfwarndup, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfDefPick':
                         $stmt->bindValue($identifier, $this->oetbconfdefpick, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfDefPack':
                         $stmt->bindValue($identifier, $this->oetbconfdefpack, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfDefInvc':
                         $stmt->bindValue($identifier, $this->oetbconfdefinvc, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfDefAck':
                         $stmt->bindValue($identifier, $this->oetbconfdefack, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfAckSortOpt':
                         $stmt->bindValue($identifier, $this->oetbconfacksortopt, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfReleaseNbr':
                         $stmt->bindValue($identifier, $this->oetbconfreleasenbr, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfPoDetLineNbr':
                         $stmt->bindValue($identifier, $this->oetbconfpodetlinenbr, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfDetLineBinNbr':
                         $stmt->bindValue($identifier, $this->oetbconfdetlinebinnbr, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfSplitByWhse':
                         $stmt->bindValue($identifier, $this->oetbconfsplitbywhse, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3AllowMultWhse':
                         $stmt->bindValue($identifier, $this->oetbcon3allowmultwhse, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfUseOrigWhse':
                         $stmt->bindValue($identifier, $this->oetbconfuseorigwhse, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfUseEsoSingle':
                         $stmt->bindValue($identifier, $this->oetbconfuseesosingle, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfCreatePo':
                         $stmt->bindValue($identifier, $this->oetbconfcreatepo, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfBestPrice':
                         $stmt->bindValue($identifier, $this->oetbconfbestprice, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfEsoBackToNew':
                         $stmt->bindValue($identifier, $this->oetbconfesobacktonew, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfPickPrintDrop':
                         $stmt->bindValue($identifier, $this->oetbconfpickprintdrop, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfWarnMultPo':
                         $stmt->bindValue($identifier, $this->oetbconfwarnmultpo, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfAlertItemQuote':
                         $stmt->bindValue($identifier, $this->oetbconfalertitemquote, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3AskChgPrcWQty':
                         $stmt->bindValue($identifier, $this->oetbcon3askchgprcwqty, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3TenQtyBrks':
                         $stmt->bindValue($identifier, $this->oetbcon3tenqtybrks, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfDecOrdrPric':
                         $stmt->bindValue($identifier, $this->oetbconfdecordrpric, PDO::PARAM_INT);
+
                         break;
                     case 'OetbCon2ProvLostSales':
                         $stmt->bindValue($identifier, $this->oetbcon2provlostsales, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2AskReasonCode':
                         $stmt->bindValue($identifier, $this->oetbcon2askreasoncode, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2DefReasonCode':
                         $stmt->bindValue($identifier, $this->oetbcon2defreasoncode, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2BordCntl':
                         $stmt->bindValue($identifier, $this->oetbcon2bordcntl, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2DefReaBoCode':
                         $stmt->bindValue($identifier, $this->oetbcon2defreabocode, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2NumDaysSavLs':
                         $stmt->bindValue($identifier, $this->oetbcon2numdayssavls, PDO::PARAM_INT);
+
                         break;
                     case 'OetbCon2CallBackNotif':
                         $stmt->bindValue($identifier, $this->oetbcon2callbacknotif, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2DefDaysWhenIn':
                         $stmt->bindValue($identifier, $this->oetbcon2defdayswhenin, PDO::PARAM_INT);
+
                         break;
                     case 'OetbCon2AddSubsLs':
                         $stmt->bindValue($identifier, $this->oetbcon2addsubsls, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2DefReaSubsCode':
                         $stmt->bindValue($identifier, $this->oetbcon2defreasubscode, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2OrdTypNorm':
                         $stmt->bindValue($identifier, $this->oetbcon2ordtypnorm, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2OrdTypRep':
                         $stmt->bindValue($identifier, $this->oetbcon2ordtyprep, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2OrdTypServ':
                         $stmt->bindValue($identifier, $this->oetbcon2ordtypserv, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2DefOrdTyp':
                         $stmt->bindValue($identifier, $this->oetbcon2defordtyp, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfChgPric':
                         $stmt->bindValue($identifier, $this->oetbconfchgpric, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2SpordPriceZero':
                         $stmt->bindValue($identifier, $this->oetbcon2spordpricezero, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfInactPriceZero':
                         $stmt->bindValue($identifier, $this->oetbconfinactpricezero, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2Reseq':
                         $stmt->bindValue($identifier, $this->oetbcon2reseq, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2ReseqBy':
                         $stmt->bindValue($identifier, $this->oetbcon2reseqby, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2MinQtySales':
                         $stmt->bindValue($identifier, $this->oetbcon2minqtysales, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2ChgOrder':
                         $stmt->bindValue($identifier, $this->oetbcon2chgorder, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2VerComp':
                         $stmt->bindValue($identifier, $this->oetbcon2vercomp, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2PrtInv':
                         $stmt->bindValue($identifier, $this->oetbcon2prtinv, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2DynamicPickTick':
                         $stmt->bindValue($identifier, $this->oetbcon2dynamicpicktick, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2DynamicInvoice':
                         $stmt->bindValue($identifier, $this->oetbcon2dynamicinvoice, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2EdiDefInvoice':
                         $stmt->bindValue($identifier, $this->oetbcon2edidefinvoice, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2AllowCcPick':
                         $stmt->bindValue($identifier, $this->oetbcon2allowccpick, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2AutoCcWind':
                         $stmt->bindValue($identifier, $this->oetbcon2autoccwind, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2AutoCcUpdate':
                         $stmt->bindValue($identifier, $this->oetbcon2autoccupdate, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2AllowApvdCcChg':
                         $stmt->bindValue($identifier, $this->oetbcon2allowapvdccchg, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3ApvdBckordClear':
                         $stmt->bindValue($identifier, $this->oetbcon3apvdbckordclear, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2PolWhichCost':
                         $stmt->bindValue($identifier, $this->oetbcon2polwhichcost, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2RevHazard':
                         $stmt->bindValue($identifier, $this->oetbcon2revhazard, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2ShowDiscList':
                         $stmt->bindValue($identifier, $this->oetbcon2showdisclist, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2ChgList':
                         $stmt->bindValue($identifier, $this->oetbcon2chglist, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2MailList':
                         $stmt->bindValue($identifier, $this->oetbcon2maillist, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2NameFormat':
                         $stmt->bindValue($identifier, $this->oetbcon2nameformat, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2MailIdType':
                         $stmt->bindValue($identifier, $this->oetbcon2mailidtype, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2CashDrawerPswd':
                         $stmt->bindValue($identifier, $this->oetbcon2cashdrawerpswd, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2UpsOnline':
                         $stmt->bindValue($identifier, $this->oetbcon2upsonline, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2PicOrVer':
                         $stmt->bindValue($identifier, $this->oetbcon2picorver, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2CombBack':
                         $stmt->bindValue($identifier, $this->oetbcon2combback, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2FrtAllowAmt':
                         $stmt->bindValue($identifier, $this->oetbcon2frtallowamt, PDO::PARAM_INT);
+
                         break;
                     case 'OetbCon3ShipMoreOrdered':
                         $stmt->bindValue($identifier, $this->oetbcon3shipmoreordered, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3WarnShipMore':
                         $stmt->bindValue($identifier, $this->oetbcon3warnshipmore, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3ProformaFromEso':
                         $stmt->bindValue($identifier, $this->oetbcon3proformafromeso, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3PickPackCode':
                         $stmt->bindValue($identifier, $this->oetbcon3pickpackcode, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2UseDept':
                         $stmt->bindValue($identifier, $this->oetbcon2usedept, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2UseDivision':
                         $stmt->bindValue($identifier, $this->oetbcon2usedivision, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2DefMfeCode':
                         $stmt->bindValue($identifier, $this->oetbcon2defmfecode, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2ShowAvgCost':
                         $stmt->bindValue($identifier, $this->oetbcon2showavgcost, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2FedEx':
                         $stmt->bindValue($identifier, $this->oetbcon2fedex, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3DefFrghtGrup':
                         $stmt->bindValue($identifier, $this->oetbcon3deffrghtgrup, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3UpsMysqlDbname':
                         $stmt->bindValue($identifier, $this->oetbcon3upsmysqldbname, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfUseOptCode':
                         $stmt->bindValue($identifier, $this->oetbconfuseoptcode, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfScn4Opt':
                         $stmt->bindValue($identifier, $this->oetbconfscn4opt, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2TakenByUse':
                         $stmt->bindValue($identifier, $this->oetbcon2takenbyuse, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2TakenByLogin':
                         $stmt->bindValue($identifier, $this->oetbcon2takenbylogin, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2TakenByForce':
                         $stmt->bindValue($identifier, $this->oetbcon2takenbyforce, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2PickedByUse':
                         $stmt->bindValue($identifier, $this->oetbcon2pickedbyuse, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2PickedByForce':
                         $stmt->bindValue($identifier, $this->oetbcon2pickedbyforce, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2PickedByProc':
                         $stmt->bindValue($identifier, $this->oetbcon2pickedbyproc, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2PackedByUse':
                         $stmt->bindValue($identifier, $this->oetbcon2packedbyuse, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2PackedByForce':
                         $stmt->bindValue($identifier, $this->oetbcon2packedbyforce, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2VerifiedByUse':
                         $stmt->bindValue($identifier, $this->oetbcon2verifiedbyuse, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2VerifiedByLogin':
                         $stmt->bindValue($identifier, $this->oetbcon2verifiedbylogin, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2VerifiedByForce':
                         $stmt->bindValue($identifier, $this->oetbcon2verifiedbyforce, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfOptLabl1':
                         $stmt->bindValue($identifier, $this->oetbconfoptlabl1, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2Ucode1Force':
                         $stmt->bindValue($identifier, $this->oetbcon2ucode1force, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfOptLabl2':
                         $stmt->bindValue($identifier, $this->oetbconfoptlabl2, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2Ucode2Force':
                         $stmt->bindValue($identifier, $this->oetbcon2ucode2force, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfOptLabl3':
                         $stmt->bindValue($identifier, $this->oetbconfoptlabl3, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2Ucode3Force':
                         $stmt->bindValue($identifier, $this->oetbcon2ucode3force, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfOptLabl4':
                         $stmt->bindValue($identifier, $this->oetbconfoptlabl4, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2Ucode4Force':
                         $stmt->bindValue($identifier, $this->oetbcon2ucode4force, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfVerifyAfterPack':
                         $stmt->bindValue($identifier, $this->oetbconfverifyafterpack, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfHistYrsBack':
                         $stmt->bindValue($identifier, $this->oetbconfhistyrsback, PDO::PARAM_INT);
+
                         break;
                     case 'OetbConfRqstCatlg':
                         $stmt->bindValue($identifier, $this->oetbconfrqstcatlg, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2ConPick':
                         $stmt->bindValue($identifier, $this->oetbcon2conpick, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2AllowPick':
                         $stmt->bindValue($identifier, $this->oetbcon2allowpick, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2CombineSame':
                         $stmt->bindValue($identifier, $this->oetbcon2combinesame, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3AutoVerNItems':
                         $stmt->bindValue($identifier, $this->oetbcon3autovernitems, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2AllowZeroQty':
                         $stmt->bindValue($identifier, $this->oetbcon2allowzeroqty, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2AllowInvalidWhse':
                         $stmt->bindValue($identifier, $this->oetbcon2allowinvalidwhse, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2ShowEdiInfo':
                         $stmt->bindValue($identifier, $this->oetbcon2showediinfo, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3EsoShowQuotLink':
                         $stmt->bindValue($identifier, $this->oetbcon3esoshowquotlink, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3EsoShowWipLink':
                         $stmt->bindValue($identifier, $this->oetbcon3esoshowwiplink, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2AddOnSales':
                         $stmt->bindValue($identifier, $this->oetbcon2addonsales, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2ForcedBkord':
                         $stmt->bindValue($identifier, $this->oetbcon2forcedbkord, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2UpdtPrcDisc':
                         $stmt->bindValue($identifier, $this->oetbcon2updtprcdisc, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2AutoPack':
                         $stmt->bindValue($identifier, $this->oetbcon2autopack, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2PickBoPrtZqts':
                         $stmt->bindValue($identifier, $this->oetbcon2pickboprtzqts, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3Pick00NoShip':
                         $stmt->bindValue($identifier, $this->oetbcon3pick00noship, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2StandOrdLead':
                         $stmt->bindValue($identifier, $this->oetbcon2standordlead, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2StandOrdAmnt':
                         $stmt->bindValue($identifier, $this->oetbcon2standordamnt, PDO::PARAM_INT);
+
                         break;
                     case 'OetbCon2InactItemCntrl':
                         $stmt->bindValue($identifier, $this->oetbcon2inactitemcntrl, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon2UseItemRef':
                         $stmt->bindValue($identifier, $this->oetbcon2useitemref, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3UpsNaftaRecords':
                         $stmt->bindValue($identifier, $this->oetbcon3upsnaftarecords, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3SopLotLikeNorm':
                         $stmt->bindValue($identifier, $this->oetbcon3soplotlikenorm, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfDfltShipWhse':
                         $stmt->bindValue($identifier, $this->oetbconfdfltshipwhse, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfDfltOrigWhse':
                         $stmt->bindValue($identifier, $this->oetbconfdfltorigwhse, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfInvcWithPack':
                         $stmt->bindValue($identifier, $this->oetbconfinvcwithpack, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfCarryCntrQty':
                         $stmt->bindValue($identifier, $this->oetbconfcarrycntrqty, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3UseOrdrAs':
                         $stmt->bindValue($identifier, $this->oetbcon3useordras, PDO::PARAM_STR);
+
                         break;
                     case 'OetbConfUseOrdrSource':
                         $stmt->bindValue($identifier, $this->oetbconfuseordrsource, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3CcProcessor':
                         $stmt->bindValue($identifier, $this->oetbcon3ccprocessor, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3CreditCardCap':
                         $stmt->bindValue($identifier, $this->oetbcon3creditcardcap, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3KeyOrCcCap':
                         $stmt->bindValue($identifier, $this->oetbcon3keyorcccap, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3CcXOverlay':
                         $stmt->bindValue($identifier, $this->oetbcon3ccxoverlay, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3CcTimeOut':
                         $stmt->bindValue($identifier, $this->oetbcon3cctimeout, PDO::PARAM_INT);
+
                         break;
                     case 'OetbCon3SignatureCapture':
                         $stmt->bindValue($identifier, $this->oetbcon3signaturecapture, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3CcPreapproval':
                         $stmt->bindValue($identifier, $this->oetbcon3ccpreapproval, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3ForceCcNbrEntry':
                         $stmt->bindValue($identifier, $this->oetbcon3forceccnbrentry, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3IntrItemNotes':
                         $stmt->bindValue($identifier, $this->oetbcon3intritemnotes, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3MtrCert':
                         $stmt->bindValue($identifier, $this->oetbcon3mtrcert, PDO::PARAM_STR);
+
                         break;
                     case 'OetbCon3CofcCert':
                         $stmt->bindValue($identifier, $this->oetbcon3cofccert, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -12373,12 +12604,12 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -12389,14 +12620,14 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ConfigSalesOrderTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -12408,696 +12639,695 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getOetbconfkey();
-                break;
+
             case 1:
                 return $this->getOetbconfglifac();
-                break;
+
             case 2:
                 return $this->getOetbconfinifac();
-                break;
+
             case 3:
                 return $this->getOetbconfrelivty();
-                break;
+
             case 4:
                 return $this->getOetbconfuseordrnbr();
-                break;
+
             case 5:
                 return $this->getOetbconfdefrqstdate();
-                break;
+
             case 6:
                 return $this->getOetbconfusecancdate();
-                break;
+
             case 7:
                 return $this->getOetbconfshowsp();
-                break;
+
             case 8:
                 return $this->getOetbconfjrnlsort();
-                break;
+
             case 9:
                 return $this->getOetbconfuseprepsoopt();
-                break;
+
             case 10:
                 return $this->getOetbconfdispbillto();
-                break;
+
             case 11:
                 return $this->getOetbconfslctflm();
-                break;
+
             case 12:
                 return $this->getOetbcon3usestockpull();
-                break;
+
             case 13:
                 return $this->getOetbconfqtytoship();
-                break;
+
             case 14:
                 return $this->getOetbconfqtytoshipdef();
-                break;
+
             case 15:
                 return $this->getOetbconfdfltordrqty();
-                break;
+
             case 16:
                 return $this->getOetbconfallocqtytoship();
-                break;
+
             case 17:
                 return $this->getOetbconfoverallocqts();
-                break;
+
             case 18:
                 return $this->getOetbcon3completelotbin();
-                break;
+
             case 19:
                 return $this->getOetbcon3rqtsopt();
-                break;
+
             case 20:
                 return $this->getOetbcon2shipcomphold();
-                break;
+
             case 21:
                 return $this->getOetbcon3usesaleforecast();
-                break;
+
             case 22:
                 return $this->getOetbconfverfstopneg();
-                break;
+
             case 23:
                 return $this->getOetbconfverfaudtrept();
-                break;
+
             case 24:
                 return $this->getOetbconfagelevldisp();
-                break;
+
             case 25:
                 return $this->getOetbconfagealltime();
-                break;
+
             case 26:
                 return $this->getOetbconfageathold();
-                break;
+
             case 27:
                 return $this->getOetbconfshowatlevl();
-                break;
+
             case 28:
                 return $this->getOetbconfshowitem();
-                break;
+
             case 29:
                 return $this->getOetbconfstoppnt();
-                break;
+
             case 30:
                 return $this->getOetbconfpricwind();
-                break;
+
             case 31:
                 return $this->getOetbconfshowcost();
-                break;
+
             case 32:
                 return $this->getOetbconfcosttouse();
-                break;
+
             case 33:
                 return $this->getOetbconfshowmarg();
-                break;
+
             case 34:
                 return $this->getOetbconffxoe();
-                break;
+
             case 35:
                 return $this->getOetbconffxinv();
-                break;
+
             case 36:
                 return $this->getOetbconfdispvia();
-                break;
+
             case 37:
                 return $this->getOetbconfdispcaseqty();
-                break;
+
             case 38:
                 return $this->getOetbconffrtin();
-                break;
+
             case 39:
                 return $this->getOetbconffrtinglacct();
-                break;
+
             case 40:
                 return $this->getOetbconfmincharge();
-                break;
+
             case 41:
                 return $this->getOetbconfminchrgglacct();
-                break;
+
             case 42:
                 return $this->getOetbconfdropshipchrg();
-                break;
+
             case 43:
                 return $this->getOetbconfdropshpglacct();
-                break;
+
             case 44:
                 return $this->getOetbconfnontaxcustcode();
-                break;
+
             case 45:
                 return $this->getOetbconfhstaxid();
-                break;
+
             case 46:
                 return $this->getOetbconfhsfrtid();
-                break;
+
             case 47:
                 return $this->getOetbconfhsmiscid();
-                break;
+
             case 48:
                 return $this->getOetbcon2hscusdid();
-                break;
+
             case 49:
                 return $this->getOetbcon3hsfrtinid();
-                break;
+
             case 50:
                 return $this->getOetbcon3hsdropid();
-                break;
+
             case 51:
                 return $this->getOetbcon3hsminordid();
-                break;
+
             case 52:
                 return $this->getOetbconfheadgetdef();
-                break;
+
             case 53:
                 return $this->getOetbconfitemgetdef();
-                break;
+
             case 54:
                 return $this->getOetbconfautogetcust();
-                break;
+
             case 55:
                 return $this->getOetbcon3autogetitem();
-                break;
+
             case 56:
                 return $this->getOetbconfrqstheaddtl();
-                break;
+
             case 57:
                 return $this->getOetbconfcancheaddtl();
-                break;
+
             case 58:
                 return $this->getOetbconfuseinvcasship();
-                break;
+
             case 59:
                 return $this->getOetbcon3usearrvdate();
-                break;
+
             case 60:
                 return $this->getOetbconfseparatecred();
-                break;
+
             case 61:
                 return $this->getOetbcon3applycredits();
-                break;
+
             case 62:
                 return $this->getOetbconfwarnnotnew();
-                break;
+
             case 63:
                 return $this->getOetbconfwarnbotozero();
-                break;
+
             case 64:
                 return $this->getOetbcon2providerouting();
-                break;
+
             case 65:
                 return $this->getOetbcon2srtrtbyrqstdte();
-                break;
+
             case 66:
                 return $this->getOetbconfusesoreview();
-                break;
+
             case 67:
                 return $this->getOetbconfpicknotedef();
-                break;
+
             case 68:
                 return $this->getOetbconfpacknotedef();
-                break;
+
             case 69:
                 return $this->getOetbconfpicksort();
-                break;
+
             case 70:
                 return $this->getOetbconfpacksort();
-                break;
+
             case 71:
                 return $this->getOetbconfprtpriconly();
-                break;
+
             case 72:
                 return $this->getOetbconfprtneg();
-                break;
+
             case 73:
                 return $this->getOetbcon2prtpackageinfo();
-                break;
+
             case 74:
                 return $this->getOetbcon2innerpacklabel();
-                break;
+
             case 75:
                 return $this->getOetbcon2outerpacklabel();
-                break;
+
             case 76:
                 return $this->getOetbcon2shiptarelabel();
-                break;
+
             case 77:
                 return $this->getOetbconfprtpick();
-                break;
+
             case 78:
                 return $this->getOetbconfpicprioseq();
-                break;
+
             case 79:
                 return $this->getOetbconfprtpack();
-                break;
+
             case 80:
                 return $this->getOetbconfprtinv();
-                break;
+
             case 81:
                 return $this->getOetbcon2prtcredmemo();
-                break;
+
             case 82:
                 return $this->getOetbconfcrntdate();
-                break;
+
             case 83:
                 return $this->getOetbconfmarkpicked();
-                break;
+
             case 84:
                 return $this->getOetbconfshowunavail();
-                break;
+
             case 85:
                 return $this->getOetbconfdecplaces();
-                break;
+
             case 86:
                 return $this->getOetbconfwarndup();
-                break;
+
             case 87:
                 return $this->getOetbconfdefpick();
-                break;
+
             case 88:
                 return $this->getOetbconfdefpack();
-                break;
+
             case 89:
                 return $this->getOetbconfdefinvc();
-                break;
+
             case 90:
                 return $this->getOetbconfdefack();
-                break;
+
             case 91:
                 return $this->getOetbconfacksortopt();
-                break;
+
             case 92:
                 return $this->getOetbconfreleasenbr();
-                break;
+
             case 93:
                 return $this->getOetbconfpodetlinenbr();
-                break;
+
             case 94:
                 return $this->getOetbconfdetlinebinnbr();
-                break;
+
             case 95:
                 return $this->getOetbconfsplitbywhse();
-                break;
+
             case 96:
                 return $this->getOetbcon3allowmultwhse();
-                break;
+
             case 97:
                 return $this->getOetbconfuseorigwhse();
-                break;
+
             case 98:
                 return $this->getOetbconfuseesosingle();
-                break;
+
             case 99:
                 return $this->getOetbconfcreatepo();
-                break;
+
             case 100:
                 return $this->getOetbconfbestprice();
-                break;
+
             case 101:
                 return $this->getOetbconfesobacktonew();
-                break;
+
             case 102:
                 return $this->getOetbconfpickprintdrop();
-                break;
+
             case 103:
                 return $this->getOetbconfwarnmultpo();
-                break;
+
             case 104:
                 return $this->getOetbconfalertitemquote();
-                break;
+
             case 105:
                 return $this->getOetbcon3askchgprcwqty();
-                break;
+
             case 106:
                 return $this->getOetbcon3tenqtybrks();
-                break;
+
             case 107:
                 return $this->getOetbconfdecordrpric();
-                break;
+
             case 108:
                 return $this->getOetbcon2provlostsales();
-                break;
+
             case 109:
                 return $this->getOetbcon2askreasoncode();
-                break;
+
             case 110:
                 return $this->getOetbcon2defreasoncode();
-                break;
+
             case 111:
                 return $this->getOetbcon2bordcntl();
-                break;
+
             case 112:
                 return $this->getOetbcon2defreabocode();
-                break;
+
             case 113:
                 return $this->getOetbcon2numdayssavls();
-                break;
+
             case 114:
                 return $this->getOetbcon2callbacknotif();
-                break;
+
             case 115:
                 return $this->getOetbcon2defdayswhenin();
-                break;
+
             case 116:
                 return $this->getOetbcon2addsubsls();
-                break;
+
             case 117:
                 return $this->getOetbcon2defreasubscode();
-                break;
+
             case 118:
                 return $this->getOetbcon2ordtypnorm();
-                break;
+
             case 119:
                 return $this->getOetbcon2ordtyprep();
-                break;
+
             case 120:
                 return $this->getOetbcon2ordtypserv();
-                break;
+
             case 121:
                 return $this->getOetbcon2defordtyp();
-                break;
+
             case 122:
                 return $this->getOetbconfchgpric();
-                break;
+
             case 123:
                 return $this->getOetbcon2spordpricezero();
-                break;
+
             case 124:
                 return $this->getOetbconfinactpricezero();
-                break;
+
             case 125:
                 return $this->getOetbcon2reseq();
-                break;
+
             case 126:
                 return $this->getOetbcon2reseqby();
-                break;
+
             case 127:
                 return $this->getOetbcon2minqtysales();
-                break;
+
             case 128:
                 return $this->getOetbcon2chgorder();
-                break;
+
             case 129:
                 return $this->getOetbcon2vercomp();
-                break;
+
             case 130:
                 return $this->getOetbcon2prtinv();
-                break;
+
             case 131:
                 return $this->getOetbcon2dynamicpicktick();
-                break;
+
             case 132:
                 return $this->getOetbcon2dynamicinvoice();
-                break;
+
             case 133:
                 return $this->getOetbcon2edidefinvoice();
-                break;
+
             case 134:
                 return $this->getOetbcon2allowccpick();
-                break;
+
             case 135:
                 return $this->getOetbcon2autoccwind();
-                break;
+
             case 136:
                 return $this->getOetbcon2autoccupdate();
-                break;
+
             case 137:
                 return $this->getOetbcon2allowapvdccchg();
-                break;
+
             case 138:
                 return $this->getOetbcon3apvdbckordclear();
-                break;
+
             case 139:
                 return $this->getOetbcon2polwhichcost();
-                break;
+
             case 140:
                 return $this->getOetbcon2revhazard();
-                break;
+
             case 141:
                 return $this->getOetbcon2showdisclist();
-                break;
+
             case 142:
                 return $this->getOetbcon2chglist();
-                break;
+
             case 143:
                 return $this->getOetbcon2maillist();
-                break;
+
             case 144:
                 return $this->getOetbcon2nameformat();
-                break;
+
             case 145:
                 return $this->getOetbcon2mailidtype();
-                break;
+
             case 146:
                 return $this->getOetbcon2cashdrawerpswd();
-                break;
+
             case 147:
                 return $this->getOetbcon2upsonline();
-                break;
+
             case 148:
                 return $this->getOetbcon2picorver();
-                break;
+
             case 149:
                 return $this->getOetbcon2combback();
-                break;
+
             case 150:
                 return $this->getOetbcon2frtallowamt();
-                break;
+
             case 151:
                 return $this->getOetbcon3shipmoreordered();
-                break;
+
             case 152:
                 return $this->getOetbcon3warnshipmore();
-                break;
+
             case 153:
                 return $this->getOetbcon3proformafromeso();
-                break;
+
             case 154:
                 return $this->getOetbcon3pickpackcode();
-                break;
+
             case 155:
                 return $this->getOetbcon2usedept();
-                break;
+
             case 156:
                 return $this->getOetbcon2usedivision();
-                break;
+
             case 157:
                 return $this->getOetbcon2defmfecode();
-                break;
+
             case 158:
                 return $this->getOetbcon2showavgcost();
-                break;
+
             case 159:
                 return $this->getOetbcon2fedex();
-                break;
+
             case 160:
                 return $this->getOetbcon3deffrghtgrup();
-                break;
+
             case 161:
                 return $this->getOetbcon3upsmysqldbname();
-                break;
+
             case 162:
                 return $this->getOetbconfuseoptcode();
-                break;
+
             case 163:
                 return $this->getOetbconfscn4opt();
-                break;
+
             case 164:
                 return $this->getOetbcon2takenbyuse();
-                break;
+
             case 165:
                 return $this->getOetbcon2takenbylogin();
-                break;
+
             case 166:
                 return $this->getOetbcon2takenbyforce();
-                break;
+
             case 167:
                 return $this->getOetbcon2pickedbyuse();
-                break;
+
             case 168:
                 return $this->getOetbcon2pickedbyforce();
-                break;
+
             case 169:
                 return $this->getOetbcon2pickedbyproc();
-                break;
+
             case 170:
                 return $this->getOetbcon2packedbyuse();
-                break;
+
             case 171:
                 return $this->getOetbcon2packedbyforce();
-                break;
+
             case 172:
                 return $this->getOetbcon2verifiedbyuse();
-                break;
+
             case 173:
                 return $this->getOetbcon2verifiedbylogin();
-                break;
+
             case 174:
                 return $this->getOetbcon2verifiedbyforce();
-                break;
+
             case 175:
                 return $this->getOetbconfoptlabl1();
-                break;
+
             case 176:
                 return $this->getOetbcon2ucode1force();
-                break;
+
             case 177:
                 return $this->getOetbconfoptlabl2();
-                break;
+
             case 178:
                 return $this->getOetbcon2ucode2force();
-                break;
+
             case 179:
                 return $this->getOetbconfoptlabl3();
-                break;
+
             case 180:
                 return $this->getOetbcon2ucode3force();
-                break;
+
             case 181:
                 return $this->getOetbconfoptlabl4();
-                break;
+
             case 182:
                 return $this->getOetbcon2ucode4force();
-                break;
+
             case 183:
                 return $this->getOetbconfverifyafterpack();
-                break;
+
             case 184:
                 return $this->getOetbconfhistyrsback();
-                break;
+
             case 185:
                 return $this->getOetbconfrqstcatlg();
-                break;
+
             case 186:
                 return $this->getOetbcon2conpick();
-                break;
+
             case 187:
                 return $this->getOetbcon2allowpick();
-                break;
+
             case 188:
                 return $this->getOetbcon2combinesame();
-                break;
+
             case 189:
                 return $this->getOetbcon3autovernitems();
-                break;
+
             case 190:
                 return $this->getOetbcon2allowzeroqty();
-                break;
+
             case 191:
                 return $this->getOetbcon2allowinvalidwhse();
-                break;
+
             case 192:
                 return $this->getOetbcon2showediinfo();
-                break;
+
             case 193:
                 return $this->getOetbcon3esoshowquotlink();
-                break;
+
             case 194:
                 return $this->getOetbcon3esoshowwiplink();
-                break;
+
             case 195:
                 return $this->getOetbcon2addonsales();
-                break;
+
             case 196:
                 return $this->getOetbcon2forcedbkord();
-                break;
+
             case 197:
                 return $this->getOetbcon2updtprcdisc();
-                break;
+
             case 198:
                 return $this->getOetbcon2autopack();
-                break;
+
             case 199:
                 return $this->getOetbcon2pickboprtzqts();
-                break;
+
             case 200:
                 return $this->getOetbcon3pick00noship();
-                break;
+
             case 201:
                 return $this->getOetbcon2standordlead();
-                break;
+
             case 202:
                 return $this->getOetbcon2standordamnt();
-                break;
+
             case 203:
                 return $this->getOetbcon2inactitemcntrl();
-                break;
+
             case 204:
                 return $this->getOetbcon2useitemref();
-                break;
+
             case 205:
                 return $this->getOetbcon3upsnaftarecords();
-                break;
+
             case 206:
                 return $this->getOetbcon3soplotlikenorm();
-                break;
+
             case 207:
                 return $this->getOetbconfdfltshipwhse();
-                break;
+
             case 208:
                 return $this->getOetbconfdfltorigwhse();
-                break;
+
             case 209:
                 return $this->getOetbconfinvcwithpack();
-                break;
+
             case 210:
                 return $this->getOetbconfcarrycntrqty();
-                break;
+
             case 211:
                 return $this->getOetbcon3useordras();
-                break;
+
             case 212:
                 return $this->getOetbconfuseordrsource();
-                break;
+
             case 213:
                 return $this->getOetbcon3ccprocessor();
-                break;
+
             case 214:
                 return $this->getOetbcon3creditcardcap();
-                break;
+
             case 215:
                 return $this->getOetbcon3keyorcccap();
-                break;
+
             case 216:
                 return $this->getOetbcon3ccxoverlay();
-                break;
+
             case 217:
                 return $this->getOetbcon3cctimeout();
-                break;
+
             case 218:
                 return $this->getOetbcon3signaturecapture();
-                break;
+
             case 219:
                 return $this->getOetbcon3ccpreapproval();
-                break;
+
             case 220:
                 return $this->getOetbcon3forceccnbrentry();
-                break;
+
             case 221:
                 return $this->getOetbcon3intritemnotes();
-                break;
+
             case 222:
                 return $this->getOetbcon3mtrcert();
-                break;
+
             case 223:
                 return $this->getOetbcon3cofccert();
-                break;
+
             case 224:
                 return $this->getDateupdtd();
-                break;
+
             case 225:
                 return $this->getTimeupdtd();
-                break;
+
             case 226:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -13107,23 +13337,22 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = []): array
     {
-
         if (isset($alreadyDumpedObjects['ConfigSalesOrder'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['ConfigSalesOrder'][$this->hashCode()] = true;
         $keys = ConfigSalesOrderTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getOetbconfkey(),
             $keys[1] => $this->getOetbconfglifac(),
             $keys[2] => $this->getOetbconfinifac(),
@@ -13351,7 +13580,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
             $keys[224] => $this->getDateupdtd(),
             $keys[225] => $this->getTimeupdtd(),
             $keys[226] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -13364,30 +13593,32 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\ConfigSalesOrder
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ConfigSalesOrderTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\ConfigSalesOrder
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -14089,11 +14320,11 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = ConfigSalesOrderTableMap::getFieldNames($keyType);
 
@@ -14778,6 +15009,8 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         if (array_key_exists($keys[226], $arr)) {
             $this->setDummy($arr[$keys[226]]);
         }
+
+        return $this;
     }
 
      /**
@@ -14797,9 +15030,9 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\ConfigSalesOrder The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -14813,9 +15046,9 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(ConfigSalesOrderTableMap::DATABASE_NAME);
 
@@ -15508,13 +15741,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildConfigSalesOrderQuery::create();
         $criteria->add(ConfigSalesOrderTableMap::COL_OETBCONFKEY, $this->oetbconfkey);
@@ -15526,7 +15759,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -15556,19 +15789,20 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (oetbconfkey column).
      *
-     * @param       int $key Primary key.
+     * @param int|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?int $key = null): void
     {
         $this->setOetbconfkey($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getOetbconfkey();
     }
@@ -15579,12 +15813,13 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \ConfigSalesOrder (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \ConfigSalesOrder (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setOetbconfkey($this->getOetbconfkey());
         $copyObj->setOetbconfglifac($this->getOetbconfglifac());
@@ -15826,11 +16061,11 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \ConfigSalesOrder Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -15844,6 +16079,8 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -16080,6 +16317,8 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -16088,13 +16327,15 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
         } // if ($deep)
 
+        return $this;
     }
 
     /**
@@ -16109,99 +16350,79 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // return parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // return parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // return parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // return parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -16211,7 +16432,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -16231,15 +16452,18 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ap_term_code' table.
- *
- *
+ * Base class that represents a query for the `ap_term_code` table.
  *
  * @method     ChildApTermsCodeQuery orderByAptmtermcode($order = Criteria::ASC) Order by the AptmTermCode column
  * @method     ChildApTermsCodeQuery orderByAptmtermdesc($order = Criteria::ASC) Order by the AptmTermDesc column
@@ -208,95 +207,95 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \VendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildApTermsCode findOne(ConnectionInterface $con = null) Return the first ChildApTermsCode matching the query
- * @method     ChildApTermsCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildApTermsCode matching the query, or a new ChildApTermsCode object populated from the query conditions when no match is found
+ * @method     ChildApTermsCode|null findOne(?ConnectionInterface $con = null) Return the first ChildApTermsCode matching the query
+ * @method     ChildApTermsCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildApTermsCode matching the query, or a new ChildApTermsCode object populated from the query conditions when no match is found
  *
- * @method     ChildApTermsCode findOneByAptmtermcode(string $AptmTermCode) Return the first ChildApTermsCode filtered by the AptmTermCode column
- * @method     ChildApTermsCode findOneByAptmtermdesc(string $AptmTermDesc) Return the first ChildApTermsCode filtered by the AptmTermDesc column
- * @method     ChildApTermsCode findOneByAptmmethod(string $AptmMethod) Return the first ChildApTermsCode filtered by the AptmMethod column
- * @method     ChildApTermsCode findOneByAptmexpiredate(string $AptmExpireDate) Return the first ChildApTermsCode filtered by the AptmExpireDate column
- * @method     ChildApTermsCode findOneByAptmsplit1(string $AptmSplit1) Return the first ChildApTermsCode filtered by the AptmSplit1 column
- * @method     ChildApTermsCode findOneByAptmorderpct1(string $AptmOrderPct1) Return the first ChildApTermsCode filtered by the AptmOrderPct1 column
- * @method     ChildApTermsCode findOneByAptmdiscpct1(string $AptmDiscPct1) Return the first ChildApTermsCode filtered by the AptmDiscPct1 column
- * @method     ChildApTermsCode findOneByAptmdiscdays1(int $AptmDiscDays1) Return the first ChildApTermsCode filtered by the AptmDiscDays1 column
- * @method     ChildApTermsCode findOneByAptmdiscday1(string $AptmDiscDay1) Return the first ChildApTermsCode filtered by the AptmDiscDay1 column
- * @method     ChildApTermsCode findOneByAptmdiscdate1(string $AptmDiscDate1) Return the first ChildApTermsCode filtered by the AptmDiscDate1 column
- * @method     ChildApTermsCode findOneByAptmduedays1(int $AptmDueDays1) Return the first ChildApTermsCode filtered by the AptmDueDays1 column
- * @method     ChildApTermsCode findOneByAptmdueday1(string $AptmDueDay1) Return the first ChildApTermsCode filtered by the AptmDueDay1 column
- * @method     ChildApTermsCode findOneByAptmplusmonths1(int $AptmPlusMonths1) Return the first ChildApTermsCode filtered by the AptmPlusMonths1 column
- * @method     ChildApTermsCode findOneByAptmduedate1(string $AptmDueDate1) Return the first ChildApTermsCode filtered by the AptmDueDate1 column
- * @method     ChildApTermsCode findOneByAptmplusyear1(string $AptmPlusYear1) Return the first ChildApTermsCode filtered by the AptmPlusYear1 column
- * @method     ChildApTermsCode findOneByAptmsplit2(string $AptmSplit2) Return the first ChildApTermsCode filtered by the AptmSplit2 column
- * @method     ChildApTermsCode findOneByAptmorderpct2(string $AptmOrderPct2) Return the first ChildApTermsCode filtered by the AptmOrderPct2 column
- * @method     ChildApTermsCode findOneByAptmdiscpct2(string $AptmDiscPct2) Return the first ChildApTermsCode filtered by the AptmDiscPct2 column
- * @method     ChildApTermsCode findOneByAptmdiscdays2(int $AptmDiscDays2) Return the first ChildApTermsCode filtered by the AptmDiscDays2 column
- * @method     ChildApTermsCode findOneByAptmdiscday2(string $AptmDiscDay2) Return the first ChildApTermsCode filtered by the AptmDiscDay2 column
- * @method     ChildApTermsCode findOneByAptmdiscdate2(string $AptmDiscDate2) Return the first ChildApTermsCode filtered by the AptmDiscDate2 column
- * @method     ChildApTermsCode findOneByAptmduedays2(int $AptmDueDays2) Return the first ChildApTermsCode filtered by the AptmDueDays2 column
- * @method     ChildApTermsCode findOneByAptmdueday2(string $AptmDueDay2) Return the first ChildApTermsCode filtered by the AptmDueDay2 column
- * @method     ChildApTermsCode findOneByAptmplusmonths2(int $AptmPlusMonths2) Return the first ChildApTermsCode filtered by the AptmPlusMonths2 column
- * @method     ChildApTermsCode findOneByAptmduedate2(string $AptmDueDate2) Return the first ChildApTermsCode filtered by the AptmDueDate2 column
- * @method     ChildApTermsCode findOneByAptmplusyear2(string $AptmPlusYear2) Return the first ChildApTermsCode filtered by the AptmPlusYear2 column
- * @method     ChildApTermsCode findOneByAptmsplit3(string $AptmSplit3) Return the first ChildApTermsCode filtered by the AptmSplit3 column
- * @method     ChildApTermsCode findOneByAptmorderpct3(string $AptmOrderPct3) Return the first ChildApTermsCode filtered by the AptmOrderPct3 column
- * @method     ChildApTermsCode findOneByAptmdiscpct3(string $AptmDiscPct3) Return the first ChildApTermsCode filtered by the AptmDiscPct3 column
- * @method     ChildApTermsCode findOneByAptmdiscdays3(int $AptmDiscDays3) Return the first ChildApTermsCode filtered by the AptmDiscDays3 column
- * @method     ChildApTermsCode findOneByAptmdiscday3(string $AptmDiscDay3) Return the first ChildApTermsCode filtered by the AptmDiscDay3 column
- * @method     ChildApTermsCode findOneByAptmdiscdate3(string $AptmDiscDate3) Return the first ChildApTermsCode filtered by the AptmDiscDate3 column
- * @method     ChildApTermsCode findOneByAptmduedays3(int $AptmDueDays3) Return the first ChildApTermsCode filtered by the AptmDueDays3 column
- * @method     ChildApTermsCode findOneByAptmdueday3(string $AptmDueDay3) Return the first ChildApTermsCode filtered by the AptmDueDay3 column
- * @method     ChildApTermsCode findOneByAptmplusmonths3(int $AptmPlusMonths3) Return the first ChildApTermsCode filtered by the AptmPlusMonths3 column
- * @method     ChildApTermsCode findOneByAptmduedate3(string $AptmDueDate3) Return the first ChildApTermsCode filtered by the AptmDueDate3 column
- * @method     ChildApTermsCode findOneByAptmplusyear3(string $AptmPlusYear3) Return the first ChildApTermsCode filtered by the AptmPlusYear3 column
- * @method     ChildApTermsCode findOneByAptmsplit4(string $AptmSplit4) Return the first ChildApTermsCode filtered by the AptmSplit4 column
- * @method     ChildApTermsCode findOneByAptmorderpct4(string $AptmOrderPct4) Return the first ChildApTermsCode filtered by the AptmOrderPct4 column
- * @method     ChildApTermsCode findOneByAptmdiscpct4(string $AptmDiscPct4) Return the first ChildApTermsCode filtered by the AptmDiscPct4 column
- * @method     ChildApTermsCode findOneByAptmdiscdays4(int $AptmDiscDays4) Return the first ChildApTermsCode filtered by the AptmDiscDays4 column
- * @method     ChildApTermsCode findOneByAptmdiscday4(string $AptmDiscDay4) Return the first ChildApTermsCode filtered by the AptmDiscDay4 column
- * @method     ChildApTermsCode findOneByAptmdiscdate4(string $AptmDiscDate4) Return the first ChildApTermsCode filtered by the AptmDiscDate4 column
- * @method     ChildApTermsCode findOneByAptmduedays4(int $AptmDueDays4) Return the first ChildApTermsCode filtered by the AptmDueDays4 column
- * @method     ChildApTermsCode findOneByAptmdueday4(string $AptmDueDay4) Return the first ChildApTermsCode filtered by the AptmDueDay4 column
- * @method     ChildApTermsCode findOneByAptmplusmonths4(int $AptmPlusMonths4) Return the first ChildApTermsCode filtered by the AptmPlusMonths4 column
- * @method     ChildApTermsCode findOneByAptmduedate4(string $AptmDueDate4) Return the first ChildApTermsCode filtered by the AptmDueDate4 column
- * @method     ChildApTermsCode findOneByAptmplusyear4(string $AptmPlusYear4) Return the first ChildApTermsCode filtered by the AptmPlusYear4 column
- * @method     ChildApTermsCode findOneByAptmsplit5(string $AptmSplit5) Return the first ChildApTermsCode filtered by the AptmSplit5 column
- * @method     ChildApTermsCode findOneByAptmorderpct5(string $AptmOrderPct5) Return the first ChildApTermsCode filtered by the AptmOrderPct5 column
- * @method     ChildApTermsCode findOneByAptmdiscpct5(string $AptmDiscPct5) Return the first ChildApTermsCode filtered by the AptmDiscPct5 column
- * @method     ChildApTermsCode findOneByAptmdiscdays5(int $AptmDiscDays5) Return the first ChildApTermsCode filtered by the AptmDiscDays5 column
- * @method     ChildApTermsCode findOneByAptmdiscday5(string $AptmDiscDay5) Return the first ChildApTermsCode filtered by the AptmDiscDay5 column
- * @method     ChildApTermsCode findOneByAptmdiscdate5(string $AptmDiscDate5) Return the first ChildApTermsCode filtered by the AptmDiscDate5 column
- * @method     ChildApTermsCode findOneByAptmduedays5(int $AptmDueDays5) Return the first ChildApTermsCode filtered by the AptmDueDays5 column
- * @method     ChildApTermsCode findOneByAptmdueday5(string $AptmDueDay5) Return the first ChildApTermsCode filtered by the AptmDueDay5 column
- * @method     ChildApTermsCode findOneByAptmplusmonths5(int $AptmPlusMonths5) Return the first ChildApTermsCode filtered by the AptmPlusMonths5 column
- * @method     ChildApTermsCode findOneByAptmduedate5(string $AptmDueDate5) Return the first ChildApTermsCode filtered by the AptmDueDate5 column
- * @method     ChildApTermsCode findOneByAptmplusyear5(string $AptmPlusYear5) Return the first ChildApTermsCode filtered by the AptmPlusYear5 column
- * @method     ChildApTermsCode findOneByAptmdayfrom1(int $AptmDayFrom1) Return the first ChildApTermsCode filtered by the AptmDayFrom1 column
- * @method     ChildApTermsCode findOneByAptmdaythru1(int $AptmDayThru1) Return the first ChildApTermsCode filtered by the AptmDayThru1 column
- * @method     ChildApTermsCode findOneByAptmeomdiscpct1(string $AptmEomDiscPct1) Return the first ChildApTermsCode filtered by the AptmEomDiscPct1 column
- * @method     ChildApTermsCode findOneByAptmeomdiscday1(int $AptmEomDiscDay1) Return the first ChildApTermsCode filtered by the AptmEomDiscDay1 column
- * @method     ChildApTermsCode findOneByAptmeomdiscmonths1(int $AptmEomDiscMonths1) Return the first ChildApTermsCode filtered by the AptmEomDiscMonths1 column
- * @method     ChildApTermsCode findOneByAptmeomdueday1(int $AptmEomDueDay1) Return the first ChildApTermsCode filtered by the AptmEomDueDay1 column
- * @method     ChildApTermsCode findOneByAptmeomplusmonths1(int $AptmEomPlusMonths1) Return the first ChildApTermsCode filtered by the AptmEomPlusMonths1 column
- * @method     ChildApTermsCode findOneByAptmdayfrom2(int $AptmDayFrom2) Return the first ChildApTermsCode filtered by the AptmDayFrom2 column
- * @method     ChildApTermsCode findOneByAptmdaythru2(int $AptmDayThru2) Return the first ChildApTermsCode filtered by the AptmDayThru2 column
- * @method     ChildApTermsCode findOneByAptmeomdiscpct2(string $AptmEomDiscPct2) Return the first ChildApTermsCode filtered by the AptmEomDiscPct2 column
- * @method     ChildApTermsCode findOneByAptmeomdiscday2(int $AptmEomDiscDay2) Return the first ChildApTermsCode filtered by the AptmEomDiscDay2 column
- * @method     ChildApTermsCode findOneByAptmeomdiscmonths2(int $AptmEomDiscMonths2) Return the first ChildApTermsCode filtered by the AptmEomDiscMonths2 column
- * @method     ChildApTermsCode findOneByAptmeomdueday2(int $AptmEomDueDay2) Return the first ChildApTermsCode filtered by the AptmEomDueDay2 column
- * @method     ChildApTermsCode findOneByAptmeomplusmonths2(int $AptmEomPlusMonths2) Return the first ChildApTermsCode filtered by the AptmEomPlusMonths2 column
- * @method     ChildApTermsCode findOneByAptmdayfrom3(int $AptmDayFrom3) Return the first ChildApTermsCode filtered by the AptmDayFrom3 column
- * @method     ChildApTermsCode findOneByAptmdaythru3(int $AptmDayThru3) Return the first ChildApTermsCode filtered by the AptmDayThru3 column
- * @method     ChildApTermsCode findOneByAptmeomdiscpct3(string $AptmEomDiscPct3) Return the first ChildApTermsCode filtered by the AptmEomDiscPct3 column
- * @method     ChildApTermsCode findOneByAptmeomdiscday3(int $AptmEomDiscDay3) Return the first ChildApTermsCode filtered by the AptmEomDiscDay3 column
- * @method     ChildApTermsCode findOneByAptmeomdiscmonths3(int $AptmEomDiscMonths3) Return the first ChildApTermsCode filtered by the AptmEomDiscMonths3 column
- * @method     ChildApTermsCode findOneByAptmeomdueday3(int $AptmEomDueDay3) Return the first ChildApTermsCode filtered by the AptmEomDueDay3 column
- * @method     ChildApTermsCode findOneByAptmeomplusmonths3(int $AptmEomPlusMonths3) Return the first ChildApTermsCode filtered by the AptmEomPlusMonths3 column
- * @method     ChildApTermsCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildApTermsCode filtered by the DateUpdtd column
- * @method     ChildApTermsCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildApTermsCode filtered by the TimeUpdtd column
- * @method     ChildApTermsCode findOneByDummy(string $dummy) Return the first ChildApTermsCode filtered by the dummy column *
-
- * @method     ChildApTermsCode requirePk($key, ConnectionInterface $con = null) Return the ChildApTermsCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildApTermsCode requireOne(ConnectionInterface $con = null) Return the first ChildApTermsCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildApTermsCode|null findOneByAptmtermcode(string $AptmTermCode) Return the first ChildApTermsCode filtered by the AptmTermCode column
+ * @method     ChildApTermsCode|null findOneByAptmtermdesc(string $AptmTermDesc) Return the first ChildApTermsCode filtered by the AptmTermDesc column
+ * @method     ChildApTermsCode|null findOneByAptmmethod(string $AptmMethod) Return the first ChildApTermsCode filtered by the AptmMethod column
+ * @method     ChildApTermsCode|null findOneByAptmexpiredate(string $AptmExpireDate) Return the first ChildApTermsCode filtered by the AptmExpireDate column
+ * @method     ChildApTermsCode|null findOneByAptmsplit1(string $AptmSplit1) Return the first ChildApTermsCode filtered by the AptmSplit1 column
+ * @method     ChildApTermsCode|null findOneByAptmorderpct1(string $AptmOrderPct1) Return the first ChildApTermsCode filtered by the AptmOrderPct1 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscpct1(string $AptmDiscPct1) Return the first ChildApTermsCode filtered by the AptmDiscPct1 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscdays1(int $AptmDiscDays1) Return the first ChildApTermsCode filtered by the AptmDiscDays1 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscday1(string $AptmDiscDay1) Return the first ChildApTermsCode filtered by the AptmDiscDay1 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscdate1(string $AptmDiscDate1) Return the first ChildApTermsCode filtered by the AptmDiscDate1 column
+ * @method     ChildApTermsCode|null findOneByAptmduedays1(int $AptmDueDays1) Return the first ChildApTermsCode filtered by the AptmDueDays1 column
+ * @method     ChildApTermsCode|null findOneByAptmdueday1(string $AptmDueDay1) Return the first ChildApTermsCode filtered by the AptmDueDay1 column
+ * @method     ChildApTermsCode|null findOneByAptmplusmonths1(int $AptmPlusMonths1) Return the first ChildApTermsCode filtered by the AptmPlusMonths1 column
+ * @method     ChildApTermsCode|null findOneByAptmduedate1(string $AptmDueDate1) Return the first ChildApTermsCode filtered by the AptmDueDate1 column
+ * @method     ChildApTermsCode|null findOneByAptmplusyear1(string $AptmPlusYear1) Return the first ChildApTermsCode filtered by the AptmPlusYear1 column
+ * @method     ChildApTermsCode|null findOneByAptmsplit2(string $AptmSplit2) Return the first ChildApTermsCode filtered by the AptmSplit2 column
+ * @method     ChildApTermsCode|null findOneByAptmorderpct2(string $AptmOrderPct2) Return the first ChildApTermsCode filtered by the AptmOrderPct2 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscpct2(string $AptmDiscPct2) Return the first ChildApTermsCode filtered by the AptmDiscPct2 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscdays2(int $AptmDiscDays2) Return the first ChildApTermsCode filtered by the AptmDiscDays2 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscday2(string $AptmDiscDay2) Return the first ChildApTermsCode filtered by the AptmDiscDay2 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscdate2(string $AptmDiscDate2) Return the first ChildApTermsCode filtered by the AptmDiscDate2 column
+ * @method     ChildApTermsCode|null findOneByAptmduedays2(int $AptmDueDays2) Return the first ChildApTermsCode filtered by the AptmDueDays2 column
+ * @method     ChildApTermsCode|null findOneByAptmdueday2(string $AptmDueDay2) Return the first ChildApTermsCode filtered by the AptmDueDay2 column
+ * @method     ChildApTermsCode|null findOneByAptmplusmonths2(int $AptmPlusMonths2) Return the first ChildApTermsCode filtered by the AptmPlusMonths2 column
+ * @method     ChildApTermsCode|null findOneByAptmduedate2(string $AptmDueDate2) Return the first ChildApTermsCode filtered by the AptmDueDate2 column
+ * @method     ChildApTermsCode|null findOneByAptmplusyear2(string $AptmPlusYear2) Return the first ChildApTermsCode filtered by the AptmPlusYear2 column
+ * @method     ChildApTermsCode|null findOneByAptmsplit3(string $AptmSplit3) Return the first ChildApTermsCode filtered by the AptmSplit3 column
+ * @method     ChildApTermsCode|null findOneByAptmorderpct3(string $AptmOrderPct3) Return the first ChildApTermsCode filtered by the AptmOrderPct3 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscpct3(string $AptmDiscPct3) Return the first ChildApTermsCode filtered by the AptmDiscPct3 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscdays3(int $AptmDiscDays3) Return the first ChildApTermsCode filtered by the AptmDiscDays3 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscday3(string $AptmDiscDay3) Return the first ChildApTermsCode filtered by the AptmDiscDay3 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscdate3(string $AptmDiscDate3) Return the first ChildApTermsCode filtered by the AptmDiscDate3 column
+ * @method     ChildApTermsCode|null findOneByAptmduedays3(int $AptmDueDays3) Return the first ChildApTermsCode filtered by the AptmDueDays3 column
+ * @method     ChildApTermsCode|null findOneByAptmdueday3(string $AptmDueDay3) Return the first ChildApTermsCode filtered by the AptmDueDay3 column
+ * @method     ChildApTermsCode|null findOneByAptmplusmonths3(int $AptmPlusMonths3) Return the first ChildApTermsCode filtered by the AptmPlusMonths3 column
+ * @method     ChildApTermsCode|null findOneByAptmduedate3(string $AptmDueDate3) Return the first ChildApTermsCode filtered by the AptmDueDate3 column
+ * @method     ChildApTermsCode|null findOneByAptmplusyear3(string $AptmPlusYear3) Return the first ChildApTermsCode filtered by the AptmPlusYear3 column
+ * @method     ChildApTermsCode|null findOneByAptmsplit4(string $AptmSplit4) Return the first ChildApTermsCode filtered by the AptmSplit4 column
+ * @method     ChildApTermsCode|null findOneByAptmorderpct4(string $AptmOrderPct4) Return the first ChildApTermsCode filtered by the AptmOrderPct4 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscpct4(string $AptmDiscPct4) Return the first ChildApTermsCode filtered by the AptmDiscPct4 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscdays4(int $AptmDiscDays4) Return the first ChildApTermsCode filtered by the AptmDiscDays4 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscday4(string $AptmDiscDay4) Return the first ChildApTermsCode filtered by the AptmDiscDay4 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscdate4(string $AptmDiscDate4) Return the first ChildApTermsCode filtered by the AptmDiscDate4 column
+ * @method     ChildApTermsCode|null findOneByAptmduedays4(int $AptmDueDays4) Return the first ChildApTermsCode filtered by the AptmDueDays4 column
+ * @method     ChildApTermsCode|null findOneByAptmdueday4(string $AptmDueDay4) Return the first ChildApTermsCode filtered by the AptmDueDay4 column
+ * @method     ChildApTermsCode|null findOneByAptmplusmonths4(int $AptmPlusMonths4) Return the first ChildApTermsCode filtered by the AptmPlusMonths4 column
+ * @method     ChildApTermsCode|null findOneByAptmduedate4(string $AptmDueDate4) Return the first ChildApTermsCode filtered by the AptmDueDate4 column
+ * @method     ChildApTermsCode|null findOneByAptmplusyear4(string $AptmPlusYear4) Return the first ChildApTermsCode filtered by the AptmPlusYear4 column
+ * @method     ChildApTermsCode|null findOneByAptmsplit5(string $AptmSplit5) Return the first ChildApTermsCode filtered by the AptmSplit5 column
+ * @method     ChildApTermsCode|null findOneByAptmorderpct5(string $AptmOrderPct5) Return the first ChildApTermsCode filtered by the AptmOrderPct5 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscpct5(string $AptmDiscPct5) Return the first ChildApTermsCode filtered by the AptmDiscPct5 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscdays5(int $AptmDiscDays5) Return the first ChildApTermsCode filtered by the AptmDiscDays5 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscday5(string $AptmDiscDay5) Return the first ChildApTermsCode filtered by the AptmDiscDay5 column
+ * @method     ChildApTermsCode|null findOneByAptmdiscdate5(string $AptmDiscDate5) Return the first ChildApTermsCode filtered by the AptmDiscDate5 column
+ * @method     ChildApTermsCode|null findOneByAptmduedays5(int $AptmDueDays5) Return the first ChildApTermsCode filtered by the AptmDueDays5 column
+ * @method     ChildApTermsCode|null findOneByAptmdueday5(string $AptmDueDay5) Return the first ChildApTermsCode filtered by the AptmDueDay5 column
+ * @method     ChildApTermsCode|null findOneByAptmplusmonths5(int $AptmPlusMonths5) Return the first ChildApTermsCode filtered by the AptmPlusMonths5 column
+ * @method     ChildApTermsCode|null findOneByAptmduedate5(string $AptmDueDate5) Return the first ChildApTermsCode filtered by the AptmDueDate5 column
+ * @method     ChildApTermsCode|null findOneByAptmplusyear5(string $AptmPlusYear5) Return the first ChildApTermsCode filtered by the AptmPlusYear5 column
+ * @method     ChildApTermsCode|null findOneByAptmdayfrom1(int $AptmDayFrom1) Return the first ChildApTermsCode filtered by the AptmDayFrom1 column
+ * @method     ChildApTermsCode|null findOneByAptmdaythru1(int $AptmDayThru1) Return the first ChildApTermsCode filtered by the AptmDayThru1 column
+ * @method     ChildApTermsCode|null findOneByAptmeomdiscpct1(string $AptmEomDiscPct1) Return the first ChildApTermsCode filtered by the AptmEomDiscPct1 column
+ * @method     ChildApTermsCode|null findOneByAptmeomdiscday1(int $AptmEomDiscDay1) Return the first ChildApTermsCode filtered by the AptmEomDiscDay1 column
+ * @method     ChildApTermsCode|null findOneByAptmeomdiscmonths1(int $AptmEomDiscMonths1) Return the first ChildApTermsCode filtered by the AptmEomDiscMonths1 column
+ * @method     ChildApTermsCode|null findOneByAptmeomdueday1(int $AptmEomDueDay1) Return the first ChildApTermsCode filtered by the AptmEomDueDay1 column
+ * @method     ChildApTermsCode|null findOneByAptmeomplusmonths1(int $AptmEomPlusMonths1) Return the first ChildApTermsCode filtered by the AptmEomPlusMonths1 column
+ * @method     ChildApTermsCode|null findOneByAptmdayfrom2(int $AptmDayFrom2) Return the first ChildApTermsCode filtered by the AptmDayFrom2 column
+ * @method     ChildApTermsCode|null findOneByAptmdaythru2(int $AptmDayThru2) Return the first ChildApTermsCode filtered by the AptmDayThru2 column
+ * @method     ChildApTermsCode|null findOneByAptmeomdiscpct2(string $AptmEomDiscPct2) Return the first ChildApTermsCode filtered by the AptmEomDiscPct2 column
+ * @method     ChildApTermsCode|null findOneByAptmeomdiscday2(int $AptmEomDiscDay2) Return the first ChildApTermsCode filtered by the AptmEomDiscDay2 column
+ * @method     ChildApTermsCode|null findOneByAptmeomdiscmonths2(int $AptmEomDiscMonths2) Return the first ChildApTermsCode filtered by the AptmEomDiscMonths2 column
+ * @method     ChildApTermsCode|null findOneByAptmeomdueday2(int $AptmEomDueDay2) Return the first ChildApTermsCode filtered by the AptmEomDueDay2 column
+ * @method     ChildApTermsCode|null findOneByAptmeomplusmonths2(int $AptmEomPlusMonths2) Return the first ChildApTermsCode filtered by the AptmEomPlusMonths2 column
+ * @method     ChildApTermsCode|null findOneByAptmdayfrom3(int $AptmDayFrom3) Return the first ChildApTermsCode filtered by the AptmDayFrom3 column
+ * @method     ChildApTermsCode|null findOneByAptmdaythru3(int $AptmDayThru3) Return the first ChildApTermsCode filtered by the AptmDayThru3 column
+ * @method     ChildApTermsCode|null findOneByAptmeomdiscpct3(string $AptmEomDiscPct3) Return the first ChildApTermsCode filtered by the AptmEomDiscPct3 column
+ * @method     ChildApTermsCode|null findOneByAptmeomdiscday3(int $AptmEomDiscDay3) Return the first ChildApTermsCode filtered by the AptmEomDiscDay3 column
+ * @method     ChildApTermsCode|null findOneByAptmeomdiscmonths3(int $AptmEomDiscMonths3) Return the first ChildApTermsCode filtered by the AptmEomDiscMonths3 column
+ * @method     ChildApTermsCode|null findOneByAptmeomdueday3(int $AptmEomDueDay3) Return the first ChildApTermsCode filtered by the AptmEomDueDay3 column
+ * @method     ChildApTermsCode|null findOneByAptmeomplusmonths3(int $AptmEomPlusMonths3) Return the first ChildApTermsCode filtered by the AptmEomPlusMonths3 column
+ * @method     ChildApTermsCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildApTermsCode filtered by the DateUpdtd column
+ * @method     ChildApTermsCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildApTermsCode filtered by the TimeUpdtd column
+ * @method     ChildApTermsCode|null findOneByDummy(string $dummy) Return the first ChildApTermsCode filtered by the dummy column
+ *
+ * @method     ChildApTermsCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildApTermsCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildApTermsCode requireOne(?ConnectionInterface $con = null) Return the first ChildApTermsCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildApTermsCode requireOneByAptmtermcode(string $AptmTermCode) Return the first ChildApTermsCode filtered by the AptmTermCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildApTermsCode requireOneByAptmtermdesc(string $AptmTermDesc) Return the first ChildApTermsCode filtered by the AptmTermDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -382,92 +381,178 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildApTermsCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildApTermsCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildApTermsCode requireOneByDummy(string $dummy) Return the first ChildApTermsCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildApTermsCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildApTermsCode objects based on current ModelCriteria
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmtermcode(string $AptmTermCode) Return ChildApTermsCode objects filtered by the AptmTermCode column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmtermdesc(string $AptmTermDesc) Return ChildApTermsCode objects filtered by the AptmTermDesc column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmmethod(string $AptmMethod) Return ChildApTermsCode objects filtered by the AptmMethod column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmexpiredate(string $AptmExpireDate) Return ChildApTermsCode objects filtered by the AptmExpireDate column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmsplit1(string $AptmSplit1) Return ChildApTermsCode objects filtered by the AptmSplit1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmorderpct1(string $AptmOrderPct1) Return ChildApTermsCode objects filtered by the AptmOrderPct1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscpct1(string $AptmDiscPct1) Return ChildApTermsCode objects filtered by the AptmDiscPct1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscdays1(int $AptmDiscDays1) Return ChildApTermsCode objects filtered by the AptmDiscDays1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscday1(string $AptmDiscDay1) Return ChildApTermsCode objects filtered by the AptmDiscDay1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscdate1(string $AptmDiscDate1) Return ChildApTermsCode objects filtered by the AptmDiscDate1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmduedays1(int $AptmDueDays1) Return ChildApTermsCode objects filtered by the AptmDueDays1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdueday1(string $AptmDueDay1) Return ChildApTermsCode objects filtered by the AptmDueDay1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmplusmonths1(int $AptmPlusMonths1) Return ChildApTermsCode objects filtered by the AptmPlusMonths1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmduedate1(string $AptmDueDate1) Return ChildApTermsCode objects filtered by the AptmDueDate1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmplusyear1(string $AptmPlusYear1) Return ChildApTermsCode objects filtered by the AptmPlusYear1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmsplit2(string $AptmSplit2) Return ChildApTermsCode objects filtered by the AptmSplit2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmorderpct2(string $AptmOrderPct2) Return ChildApTermsCode objects filtered by the AptmOrderPct2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscpct2(string $AptmDiscPct2) Return ChildApTermsCode objects filtered by the AptmDiscPct2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscdays2(int $AptmDiscDays2) Return ChildApTermsCode objects filtered by the AptmDiscDays2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscday2(string $AptmDiscDay2) Return ChildApTermsCode objects filtered by the AptmDiscDay2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscdate2(string $AptmDiscDate2) Return ChildApTermsCode objects filtered by the AptmDiscDate2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmduedays2(int $AptmDueDays2) Return ChildApTermsCode objects filtered by the AptmDueDays2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdueday2(string $AptmDueDay2) Return ChildApTermsCode objects filtered by the AptmDueDay2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmplusmonths2(int $AptmPlusMonths2) Return ChildApTermsCode objects filtered by the AptmPlusMonths2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmduedate2(string $AptmDueDate2) Return ChildApTermsCode objects filtered by the AptmDueDate2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmplusyear2(string $AptmPlusYear2) Return ChildApTermsCode objects filtered by the AptmPlusYear2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmsplit3(string $AptmSplit3) Return ChildApTermsCode objects filtered by the AptmSplit3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmorderpct3(string $AptmOrderPct3) Return ChildApTermsCode objects filtered by the AptmOrderPct3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscpct3(string $AptmDiscPct3) Return ChildApTermsCode objects filtered by the AptmDiscPct3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscdays3(int $AptmDiscDays3) Return ChildApTermsCode objects filtered by the AptmDiscDays3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscday3(string $AptmDiscDay3) Return ChildApTermsCode objects filtered by the AptmDiscDay3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscdate3(string $AptmDiscDate3) Return ChildApTermsCode objects filtered by the AptmDiscDate3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmduedays3(int $AptmDueDays3) Return ChildApTermsCode objects filtered by the AptmDueDays3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdueday3(string $AptmDueDay3) Return ChildApTermsCode objects filtered by the AptmDueDay3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmplusmonths3(int $AptmPlusMonths3) Return ChildApTermsCode objects filtered by the AptmPlusMonths3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmduedate3(string $AptmDueDate3) Return ChildApTermsCode objects filtered by the AptmDueDate3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmplusyear3(string $AptmPlusYear3) Return ChildApTermsCode objects filtered by the AptmPlusYear3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmsplit4(string $AptmSplit4) Return ChildApTermsCode objects filtered by the AptmSplit4 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmorderpct4(string $AptmOrderPct4) Return ChildApTermsCode objects filtered by the AptmOrderPct4 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscpct4(string $AptmDiscPct4) Return ChildApTermsCode objects filtered by the AptmDiscPct4 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscdays4(int $AptmDiscDays4) Return ChildApTermsCode objects filtered by the AptmDiscDays4 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscday4(string $AptmDiscDay4) Return ChildApTermsCode objects filtered by the AptmDiscDay4 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscdate4(string $AptmDiscDate4) Return ChildApTermsCode objects filtered by the AptmDiscDate4 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmduedays4(int $AptmDueDays4) Return ChildApTermsCode objects filtered by the AptmDueDays4 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdueday4(string $AptmDueDay4) Return ChildApTermsCode objects filtered by the AptmDueDay4 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmplusmonths4(int $AptmPlusMonths4) Return ChildApTermsCode objects filtered by the AptmPlusMonths4 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmduedate4(string $AptmDueDate4) Return ChildApTermsCode objects filtered by the AptmDueDate4 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmplusyear4(string $AptmPlusYear4) Return ChildApTermsCode objects filtered by the AptmPlusYear4 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmsplit5(string $AptmSplit5) Return ChildApTermsCode objects filtered by the AptmSplit5 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmorderpct5(string $AptmOrderPct5) Return ChildApTermsCode objects filtered by the AptmOrderPct5 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscpct5(string $AptmDiscPct5) Return ChildApTermsCode objects filtered by the AptmDiscPct5 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscdays5(int $AptmDiscDays5) Return ChildApTermsCode objects filtered by the AptmDiscDays5 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscday5(string $AptmDiscDay5) Return ChildApTermsCode objects filtered by the AptmDiscDay5 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdiscdate5(string $AptmDiscDate5) Return ChildApTermsCode objects filtered by the AptmDiscDate5 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmduedays5(int $AptmDueDays5) Return ChildApTermsCode objects filtered by the AptmDueDays5 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdueday5(string $AptmDueDay5) Return ChildApTermsCode objects filtered by the AptmDueDay5 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmplusmonths5(int $AptmPlusMonths5) Return ChildApTermsCode objects filtered by the AptmPlusMonths5 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmduedate5(string $AptmDueDate5) Return ChildApTermsCode objects filtered by the AptmDueDate5 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmplusyear5(string $AptmPlusYear5) Return ChildApTermsCode objects filtered by the AptmPlusYear5 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdayfrom1(int $AptmDayFrom1) Return ChildApTermsCode objects filtered by the AptmDayFrom1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdaythru1(int $AptmDayThru1) Return ChildApTermsCode objects filtered by the AptmDayThru1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmeomdiscpct1(string $AptmEomDiscPct1) Return ChildApTermsCode objects filtered by the AptmEomDiscPct1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmeomdiscday1(int $AptmEomDiscDay1) Return ChildApTermsCode objects filtered by the AptmEomDiscDay1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmeomdiscmonths1(int $AptmEomDiscMonths1) Return ChildApTermsCode objects filtered by the AptmEomDiscMonths1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmeomdueday1(int $AptmEomDueDay1) Return ChildApTermsCode objects filtered by the AptmEomDueDay1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmeomplusmonths1(int $AptmEomPlusMonths1) Return ChildApTermsCode objects filtered by the AptmEomPlusMonths1 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdayfrom2(int $AptmDayFrom2) Return ChildApTermsCode objects filtered by the AptmDayFrom2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdaythru2(int $AptmDayThru2) Return ChildApTermsCode objects filtered by the AptmDayThru2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmeomdiscpct2(string $AptmEomDiscPct2) Return ChildApTermsCode objects filtered by the AptmEomDiscPct2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmeomdiscday2(int $AptmEomDiscDay2) Return ChildApTermsCode objects filtered by the AptmEomDiscDay2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmeomdiscmonths2(int $AptmEomDiscMonths2) Return ChildApTermsCode objects filtered by the AptmEomDiscMonths2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmeomdueday2(int $AptmEomDueDay2) Return ChildApTermsCode objects filtered by the AptmEomDueDay2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmeomplusmonths2(int $AptmEomPlusMonths2) Return ChildApTermsCode objects filtered by the AptmEomPlusMonths2 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdayfrom3(int $AptmDayFrom3) Return ChildApTermsCode objects filtered by the AptmDayFrom3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmdaythru3(int $AptmDayThru3) Return ChildApTermsCode objects filtered by the AptmDayThru3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmeomdiscpct3(string $AptmEomDiscPct3) Return ChildApTermsCode objects filtered by the AptmEomDiscPct3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmeomdiscday3(int $AptmEomDiscDay3) Return ChildApTermsCode objects filtered by the AptmEomDiscDay3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmeomdiscmonths3(int $AptmEomDiscMonths3) Return ChildApTermsCode objects filtered by the AptmEomDiscMonths3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmeomdueday3(int $AptmEomDueDay3) Return ChildApTermsCode objects filtered by the AptmEomDueDay3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByAptmeomplusmonths3(int $AptmEomPlusMonths3) Return ChildApTermsCode objects filtered by the AptmEomPlusMonths3 column
- * @method     ChildApTermsCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildApTermsCode objects filtered by the DateUpdtd column
- * @method     ChildApTermsCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildApTermsCode objects filtered by the TimeUpdtd column
- * @method     ChildApTermsCode[]|ObjectCollection findByDummy(string $dummy) Return ChildApTermsCode objects filtered by the dummy column
- * @method     ChildApTermsCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildApTermsCode[]|Collection find(?ConnectionInterface $con = null) Return ChildApTermsCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> find(?ConnectionInterface $con = null) Return ChildApTermsCode objects based on current ModelCriteria
  *
+ * @method     ChildApTermsCode[]|Collection findByAptmtermcode(string|array<string> $AptmTermCode) Return ChildApTermsCode objects filtered by the AptmTermCode column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmtermcode(string|array<string> $AptmTermCode) Return ChildApTermsCode objects filtered by the AptmTermCode column
+ * @method     ChildApTermsCode[]|Collection findByAptmtermdesc(string|array<string> $AptmTermDesc) Return ChildApTermsCode objects filtered by the AptmTermDesc column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmtermdesc(string|array<string> $AptmTermDesc) Return ChildApTermsCode objects filtered by the AptmTermDesc column
+ * @method     ChildApTermsCode[]|Collection findByAptmmethod(string|array<string> $AptmMethod) Return ChildApTermsCode objects filtered by the AptmMethod column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmmethod(string|array<string> $AptmMethod) Return ChildApTermsCode objects filtered by the AptmMethod column
+ * @method     ChildApTermsCode[]|Collection findByAptmexpiredate(string|array<string> $AptmExpireDate) Return ChildApTermsCode objects filtered by the AptmExpireDate column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmexpiredate(string|array<string> $AptmExpireDate) Return ChildApTermsCode objects filtered by the AptmExpireDate column
+ * @method     ChildApTermsCode[]|Collection findByAptmsplit1(string|array<string> $AptmSplit1) Return ChildApTermsCode objects filtered by the AptmSplit1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmsplit1(string|array<string> $AptmSplit1) Return ChildApTermsCode objects filtered by the AptmSplit1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmorderpct1(string|array<string> $AptmOrderPct1) Return ChildApTermsCode objects filtered by the AptmOrderPct1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmorderpct1(string|array<string> $AptmOrderPct1) Return ChildApTermsCode objects filtered by the AptmOrderPct1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscpct1(string|array<string> $AptmDiscPct1) Return ChildApTermsCode objects filtered by the AptmDiscPct1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscpct1(string|array<string> $AptmDiscPct1) Return ChildApTermsCode objects filtered by the AptmDiscPct1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscdays1(int|array<int> $AptmDiscDays1) Return ChildApTermsCode objects filtered by the AptmDiscDays1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscdays1(int|array<int> $AptmDiscDays1) Return ChildApTermsCode objects filtered by the AptmDiscDays1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscday1(string|array<string> $AptmDiscDay1) Return ChildApTermsCode objects filtered by the AptmDiscDay1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscday1(string|array<string> $AptmDiscDay1) Return ChildApTermsCode objects filtered by the AptmDiscDay1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscdate1(string|array<string> $AptmDiscDate1) Return ChildApTermsCode objects filtered by the AptmDiscDate1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscdate1(string|array<string> $AptmDiscDate1) Return ChildApTermsCode objects filtered by the AptmDiscDate1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmduedays1(int|array<int> $AptmDueDays1) Return ChildApTermsCode objects filtered by the AptmDueDays1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmduedays1(int|array<int> $AptmDueDays1) Return ChildApTermsCode objects filtered by the AptmDueDays1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdueday1(string|array<string> $AptmDueDay1) Return ChildApTermsCode objects filtered by the AptmDueDay1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdueday1(string|array<string> $AptmDueDay1) Return ChildApTermsCode objects filtered by the AptmDueDay1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmplusmonths1(int|array<int> $AptmPlusMonths1) Return ChildApTermsCode objects filtered by the AptmPlusMonths1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmplusmonths1(int|array<int> $AptmPlusMonths1) Return ChildApTermsCode objects filtered by the AptmPlusMonths1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmduedate1(string|array<string> $AptmDueDate1) Return ChildApTermsCode objects filtered by the AptmDueDate1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmduedate1(string|array<string> $AptmDueDate1) Return ChildApTermsCode objects filtered by the AptmDueDate1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmplusyear1(string|array<string> $AptmPlusYear1) Return ChildApTermsCode objects filtered by the AptmPlusYear1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmplusyear1(string|array<string> $AptmPlusYear1) Return ChildApTermsCode objects filtered by the AptmPlusYear1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmsplit2(string|array<string> $AptmSplit2) Return ChildApTermsCode objects filtered by the AptmSplit2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmsplit2(string|array<string> $AptmSplit2) Return ChildApTermsCode objects filtered by the AptmSplit2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmorderpct2(string|array<string> $AptmOrderPct2) Return ChildApTermsCode objects filtered by the AptmOrderPct2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmorderpct2(string|array<string> $AptmOrderPct2) Return ChildApTermsCode objects filtered by the AptmOrderPct2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscpct2(string|array<string> $AptmDiscPct2) Return ChildApTermsCode objects filtered by the AptmDiscPct2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscpct2(string|array<string> $AptmDiscPct2) Return ChildApTermsCode objects filtered by the AptmDiscPct2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscdays2(int|array<int> $AptmDiscDays2) Return ChildApTermsCode objects filtered by the AptmDiscDays2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscdays2(int|array<int> $AptmDiscDays2) Return ChildApTermsCode objects filtered by the AptmDiscDays2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscday2(string|array<string> $AptmDiscDay2) Return ChildApTermsCode objects filtered by the AptmDiscDay2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscday2(string|array<string> $AptmDiscDay2) Return ChildApTermsCode objects filtered by the AptmDiscDay2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscdate2(string|array<string> $AptmDiscDate2) Return ChildApTermsCode objects filtered by the AptmDiscDate2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscdate2(string|array<string> $AptmDiscDate2) Return ChildApTermsCode objects filtered by the AptmDiscDate2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmduedays2(int|array<int> $AptmDueDays2) Return ChildApTermsCode objects filtered by the AptmDueDays2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmduedays2(int|array<int> $AptmDueDays2) Return ChildApTermsCode objects filtered by the AptmDueDays2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdueday2(string|array<string> $AptmDueDay2) Return ChildApTermsCode objects filtered by the AptmDueDay2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdueday2(string|array<string> $AptmDueDay2) Return ChildApTermsCode objects filtered by the AptmDueDay2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmplusmonths2(int|array<int> $AptmPlusMonths2) Return ChildApTermsCode objects filtered by the AptmPlusMonths2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmplusmonths2(int|array<int> $AptmPlusMonths2) Return ChildApTermsCode objects filtered by the AptmPlusMonths2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmduedate2(string|array<string> $AptmDueDate2) Return ChildApTermsCode objects filtered by the AptmDueDate2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmduedate2(string|array<string> $AptmDueDate2) Return ChildApTermsCode objects filtered by the AptmDueDate2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmplusyear2(string|array<string> $AptmPlusYear2) Return ChildApTermsCode objects filtered by the AptmPlusYear2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmplusyear2(string|array<string> $AptmPlusYear2) Return ChildApTermsCode objects filtered by the AptmPlusYear2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmsplit3(string|array<string> $AptmSplit3) Return ChildApTermsCode objects filtered by the AptmSplit3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmsplit3(string|array<string> $AptmSplit3) Return ChildApTermsCode objects filtered by the AptmSplit3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmorderpct3(string|array<string> $AptmOrderPct3) Return ChildApTermsCode objects filtered by the AptmOrderPct3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmorderpct3(string|array<string> $AptmOrderPct3) Return ChildApTermsCode objects filtered by the AptmOrderPct3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscpct3(string|array<string> $AptmDiscPct3) Return ChildApTermsCode objects filtered by the AptmDiscPct3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscpct3(string|array<string> $AptmDiscPct3) Return ChildApTermsCode objects filtered by the AptmDiscPct3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscdays3(int|array<int> $AptmDiscDays3) Return ChildApTermsCode objects filtered by the AptmDiscDays3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscdays3(int|array<int> $AptmDiscDays3) Return ChildApTermsCode objects filtered by the AptmDiscDays3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscday3(string|array<string> $AptmDiscDay3) Return ChildApTermsCode objects filtered by the AptmDiscDay3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscday3(string|array<string> $AptmDiscDay3) Return ChildApTermsCode objects filtered by the AptmDiscDay3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscdate3(string|array<string> $AptmDiscDate3) Return ChildApTermsCode objects filtered by the AptmDiscDate3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscdate3(string|array<string> $AptmDiscDate3) Return ChildApTermsCode objects filtered by the AptmDiscDate3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmduedays3(int|array<int> $AptmDueDays3) Return ChildApTermsCode objects filtered by the AptmDueDays3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmduedays3(int|array<int> $AptmDueDays3) Return ChildApTermsCode objects filtered by the AptmDueDays3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdueday3(string|array<string> $AptmDueDay3) Return ChildApTermsCode objects filtered by the AptmDueDay3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdueday3(string|array<string> $AptmDueDay3) Return ChildApTermsCode objects filtered by the AptmDueDay3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmplusmonths3(int|array<int> $AptmPlusMonths3) Return ChildApTermsCode objects filtered by the AptmPlusMonths3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmplusmonths3(int|array<int> $AptmPlusMonths3) Return ChildApTermsCode objects filtered by the AptmPlusMonths3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmduedate3(string|array<string> $AptmDueDate3) Return ChildApTermsCode objects filtered by the AptmDueDate3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmduedate3(string|array<string> $AptmDueDate3) Return ChildApTermsCode objects filtered by the AptmDueDate3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmplusyear3(string|array<string> $AptmPlusYear3) Return ChildApTermsCode objects filtered by the AptmPlusYear3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmplusyear3(string|array<string> $AptmPlusYear3) Return ChildApTermsCode objects filtered by the AptmPlusYear3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmsplit4(string|array<string> $AptmSplit4) Return ChildApTermsCode objects filtered by the AptmSplit4 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmsplit4(string|array<string> $AptmSplit4) Return ChildApTermsCode objects filtered by the AptmSplit4 column
+ * @method     ChildApTermsCode[]|Collection findByAptmorderpct4(string|array<string> $AptmOrderPct4) Return ChildApTermsCode objects filtered by the AptmOrderPct4 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmorderpct4(string|array<string> $AptmOrderPct4) Return ChildApTermsCode objects filtered by the AptmOrderPct4 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscpct4(string|array<string> $AptmDiscPct4) Return ChildApTermsCode objects filtered by the AptmDiscPct4 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscpct4(string|array<string> $AptmDiscPct4) Return ChildApTermsCode objects filtered by the AptmDiscPct4 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscdays4(int|array<int> $AptmDiscDays4) Return ChildApTermsCode objects filtered by the AptmDiscDays4 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscdays4(int|array<int> $AptmDiscDays4) Return ChildApTermsCode objects filtered by the AptmDiscDays4 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscday4(string|array<string> $AptmDiscDay4) Return ChildApTermsCode objects filtered by the AptmDiscDay4 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscday4(string|array<string> $AptmDiscDay4) Return ChildApTermsCode objects filtered by the AptmDiscDay4 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscdate4(string|array<string> $AptmDiscDate4) Return ChildApTermsCode objects filtered by the AptmDiscDate4 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscdate4(string|array<string> $AptmDiscDate4) Return ChildApTermsCode objects filtered by the AptmDiscDate4 column
+ * @method     ChildApTermsCode[]|Collection findByAptmduedays4(int|array<int> $AptmDueDays4) Return ChildApTermsCode objects filtered by the AptmDueDays4 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmduedays4(int|array<int> $AptmDueDays4) Return ChildApTermsCode objects filtered by the AptmDueDays4 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdueday4(string|array<string> $AptmDueDay4) Return ChildApTermsCode objects filtered by the AptmDueDay4 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdueday4(string|array<string> $AptmDueDay4) Return ChildApTermsCode objects filtered by the AptmDueDay4 column
+ * @method     ChildApTermsCode[]|Collection findByAptmplusmonths4(int|array<int> $AptmPlusMonths4) Return ChildApTermsCode objects filtered by the AptmPlusMonths4 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmplusmonths4(int|array<int> $AptmPlusMonths4) Return ChildApTermsCode objects filtered by the AptmPlusMonths4 column
+ * @method     ChildApTermsCode[]|Collection findByAptmduedate4(string|array<string> $AptmDueDate4) Return ChildApTermsCode objects filtered by the AptmDueDate4 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmduedate4(string|array<string> $AptmDueDate4) Return ChildApTermsCode objects filtered by the AptmDueDate4 column
+ * @method     ChildApTermsCode[]|Collection findByAptmplusyear4(string|array<string> $AptmPlusYear4) Return ChildApTermsCode objects filtered by the AptmPlusYear4 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmplusyear4(string|array<string> $AptmPlusYear4) Return ChildApTermsCode objects filtered by the AptmPlusYear4 column
+ * @method     ChildApTermsCode[]|Collection findByAptmsplit5(string|array<string> $AptmSplit5) Return ChildApTermsCode objects filtered by the AptmSplit5 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmsplit5(string|array<string> $AptmSplit5) Return ChildApTermsCode objects filtered by the AptmSplit5 column
+ * @method     ChildApTermsCode[]|Collection findByAptmorderpct5(string|array<string> $AptmOrderPct5) Return ChildApTermsCode objects filtered by the AptmOrderPct5 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmorderpct5(string|array<string> $AptmOrderPct5) Return ChildApTermsCode objects filtered by the AptmOrderPct5 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscpct5(string|array<string> $AptmDiscPct5) Return ChildApTermsCode objects filtered by the AptmDiscPct5 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscpct5(string|array<string> $AptmDiscPct5) Return ChildApTermsCode objects filtered by the AptmDiscPct5 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscdays5(int|array<int> $AptmDiscDays5) Return ChildApTermsCode objects filtered by the AptmDiscDays5 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscdays5(int|array<int> $AptmDiscDays5) Return ChildApTermsCode objects filtered by the AptmDiscDays5 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscday5(string|array<string> $AptmDiscDay5) Return ChildApTermsCode objects filtered by the AptmDiscDay5 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscday5(string|array<string> $AptmDiscDay5) Return ChildApTermsCode objects filtered by the AptmDiscDay5 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdiscdate5(string|array<string> $AptmDiscDate5) Return ChildApTermsCode objects filtered by the AptmDiscDate5 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdiscdate5(string|array<string> $AptmDiscDate5) Return ChildApTermsCode objects filtered by the AptmDiscDate5 column
+ * @method     ChildApTermsCode[]|Collection findByAptmduedays5(int|array<int> $AptmDueDays5) Return ChildApTermsCode objects filtered by the AptmDueDays5 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmduedays5(int|array<int> $AptmDueDays5) Return ChildApTermsCode objects filtered by the AptmDueDays5 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdueday5(string|array<string> $AptmDueDay5) Return ChildApTermsCode objects filtered by the AptmDueDay5 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdueday5(string|array<string> $AptmDueDay5) Return ChildApTermsCode objects filtered by the AptmDueDay5 column
+ * @method     ChildApTermsCode[]|Collection findByAptmplusmonths5(int|array<int> $AptmPlusMonths5) Return ChildApTermsCode objects filtered by the AptmPlusMonths5 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmplusmonths5(int|array<int> $AptmPlusMonths5) Return ChildApTermsCode objects filtered by the AptmPlusMonths5 column
+ * @method     ChildApTermsCode[]|Collection findByAptmduedate5(string|array<string> $AptmDueDate5) Return ChildApTermsCode objects filtered by the AptmDueDate5 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmduedate5(string|array<string> $AptmDueDate5) Return ChildApTermsCode objects filtered by the AptmDueDate5 column
+ * @method     ChildApTermsCode[]|Collection findByAptmplusyear5(string|array<string> $AptmPlusYear5) Return ChildApTermsCode objects filtered by the AptmPlusYear5 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmplusyear5(string|array<string> $AptmPlusYear5) Return ChildApTermsCode objects filtered by the AptmPlusYear5 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdayfrom1(int|array<int> $AptmDayFrom1) Return ChildApTermsCode objects filtered by the AptmDayFrom1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdayfrom1(int|array<int> $AptmDayFrom1) Return ChildApTermsCode objects filtered by the AptmDayFrom1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdaythru1(int|array<int> $AptmDayThru1) Return ChildApTermsCode objects filtered by the AptmDayThru1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdaythru1(int|array<int> $AptmDayThru1) Return ChildApTermsCode objects filtered by the AptmDayThru1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmeomdiscpct1(string|array<string> $AptmEomDiscPct1) Return ChildApTermsCode objects filtered by the AptmEomDiscPct1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmeomdiscpct1(string|array<string> $AptmEomDiscPct1) Return ChildApTermsCode objects filtered by the AptmEomDiscPct1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmeomdiscday1(int|array<int> $AptmEomDiscDay1) Return ChildApTermsCode objects filtered by the AptmEomDiscDay1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmeomdiscday1(int|array<int> $AptmEomDiscDay1) Return ChildApTermsCode objects filtered by the AptmEomDiscDay1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmeomdiscmonths1(int|array<int> $AptmEomDiscMonths1) Return ChildApTermsCode objects filtered by the AptmEomDiscMonths1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmeomdiscmonths1(int|array<int> $AptmEomDiscMonths1) Return ChildApTermsCode objects filtered by the AptmEomDiscMonths1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmeomdueday1(int|array<int> $AptmEomDueDay1) Return ChildApTermsCode objects filtered by the AptmEomDueDay1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmeomdueday1(int|array<int> $AptmEomDueDay1) Return ChildApTermsCode objects filtered by the AptmEomDueDay1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmeomplusmonths1(int|array<int> $AptmEomPlusMonths1) Return ChildApTermsCode objects filtered by the AptmEomPlusMonths1 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmeomplusmonths1(int|array<int> $AptmEomPlusMonths1) Return ChildApTermsCode objects filtered by the AptmEomPlusMonths1 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdayfrom2(int|array<int> $AptmDayFrom2) Return ChildApTermsCode objects filtered by the AptmDayFrom2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdayfrom2(int|array<int> $AptmDayFrom2) Return ChildApTermsCode objects filtered by the AptmDayFrom2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdaythru2(int|array<int> $AptmDayThru2) Return ChildApTermsCode objects filtered by the AptmDayThru2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdaythru2(int|array<int> $AptmDayThru2) Return ChildApTermsCode objects filtered by the AptmDayThru2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmeomdiscpct2(string|array<string> $AptmEomDiscPct2) Return ChildApTermsCode objects filtered by the AptmEomDiscPct2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmeomdiscpct2(string|array<string> $AptmEomDiscPct2) Return ChildApTermsCode objects filtered by the AptmEomDiscPct2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmeomdiscday2(int|array<int> $AptmEomDiscDay2) Return ChildApTermsCode objects filtered by the AptmEomDiscDay2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmeomdiscday2(int|array<int> $AptmEomDiscDay2) Return ChildApTermsCode objects filtered by the AptmEomDiscDay2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmeomdiscmonths2(int|array<int> $AptmEomDiscMonths2) Return ChildApTermsCode objects filtered by the AptmEomDiscMonths2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmeomdiscmonths2(int|array<int> $AptmEomDiscMonths2) Return ChildApTermsCode objects filtered by the AptmEomDiscMonths2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmeomdueday2(int|array<int> $AptmEomDueDay2) Return ChildApTermsCode objects filtered by the AptmEomDueDay2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmeomdueday2(int|array<int> $AptmEomDueDay2) Return ChildApTermsCode objects filtered by the AptmEomDueDay2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmeomplusmonths2(int|array<int> $AptmEomPlusMonths2) Return ChildApTermsCode objects filtered by the AptmEomPlusMonths2 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmeomplusmonths2(int|array<int> $AptmEomPlusMonths2) Return ChildApTermsCode objects filtered by the AptmEomPlusMonths2 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdayfrom3(int|array<int> $AptmDayFrom3) Return ChildApTermsCode objects filtered by the AptmDayFrom3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdayfrom3(int|array<int> $AptmDayFrom3) Return ChildApTermsCode objects filtered by the AptmDayFrom3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmdaythru3(int|array<int> $AptmDayThru3) Return ChildApTermsCode objects filtered by the AptmDayThru3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmdaythru3(int|array<int> $AptmDayThru3) Return ChildApTermsCode objects filtered by the AptmDayThru3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmeomdiscpct3(string|array<string> $AptmEomDiscPct3) Return ChildApTermsCode objects filtered by the AptmEomDiscPct3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmeomdiscpct3(string|array<string> $AptmEomDiscPct3) Return ChildApTermsCode objects filtered by the AptmEomDiscPct3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmeomdiscday3(int|array<int> $AptmEomDiscDay3) Return ChildApTermsCode objects filtered by the AptmEomDiscDay3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmeomdiscday3(int|array<int> $AptmEomDiscDay3) Return ChildApTermsCode objects filtered by the AptmEomDiscDay3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmeomdiscmonths3(int|array<int> $AptmEomDiscMonths3) Return ChildApTermsCode objects filtered by the AptmEomDiscMonths3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmeomdiscmonths3(int|array<int> $AptmEomDiscMonths3) Return ChildApTermsCode objects filtered by the AptmEomDiscMonths3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmeomdueday3(int|array<int> $AptmEomDueDay3) Return ChildApTermsCode objects filtered by the AptmEomDueDay3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmeomdueday3(int|array<int> $AptmEomDueDay3) Return ChildApTermsCode objects filtered by the AptmEomDueDay3 column
+ * @method     ChildApTermsCode[]|Collection findByAptmeomplusmonths3(int|array<int> $AptmEomPlusMonths3) Return ChildApTermsCode objects filtered by the AptmEomPlusMonths3 column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByAptmeomplusmonths3(int|array<int> $AptmEomPlusMonths3) Return ChildApTermsCode objects filtered by the AptmEomPlusMonths3 column
+ * @method     ChildApTermsCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildApTermsCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildApTermsCode objects filtered by the DateUpdtd column
+ * @method     ChildApTermsCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildApTermsCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildApTermsCode objects filtered by the TimeUpdtd column
+ * @method     ChildApTermsCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildApTermsCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildApTermsCode> findByDummy(string|array<string> $dummy) Return ChildApTermsCode objects filtered by the dummy column
+ *
+ * @method     ChildApTermsCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildApTermsCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ApTermsCodeQuery extends ModelCriteria
 {
@@ -476,9 +561,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ApTermsCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ApTermsCode', $modelAlias = null)
     {
@@ -488,12 +573,12 @@ abstract class ApTermsCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildApTermsCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildApTermsCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildApTermsCodeQuery) {
             return $criteria;
@@ -523,7 +608,7 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      *
      * @return ChildApTermsCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -555,8 +640,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -588,8 +673,8 @@ abstract class ApTermsCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildApTermsCode|array|mixed the result, formatted by the current formatter
      */
@@ -609,12 +694,12 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -631,27 +716,31 @@ abstract class ApTermsCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMTERMCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMTERMCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMTERMCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMTERMCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -661,14 +750,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmtermcode('fooValue');   // WHERE AptmTermCode = 'fooValue'
      * $query->filterByAptmtermcode('%fooValue%', Criteria::LIKE); // WHERE AptmTermCode LIKE '%fooValue%'
+     * $query->filterByAptmtermcode(['foo', 'bar']); // WHERE AptmTermCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmtermcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmtermcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmtermcode($aptmtermcode = null, $comparison = null)
+    public function filterByAptmtermcode($aptmtermcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmtermcode)) {
@@ -676,7 +766,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMTERMCODE, $aptmtermcode, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMTERMCODE, $aptmtermcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -686,14 +778,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmtermdesc('fooValue');   // WHERE AptmTermDesc = 'fooValue'
      * $query->filterByAptmtermdesc('%fooValue%', Criteria::LIKE); // WHERE AptmTermDesc LIKE '%fooValue%'
+     * $query->filterByAptmtermdesc(['foo', 'bar']); // WHERE AptmTermDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmtermdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmtermdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmtermdesc($aptmtermdesc = null, $comparison = null)
+    public function filterByAptmtermdesc($aptmtermdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmtermdesc)) {
@@ -701,7 +794,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMTERMDESC, $aptmtermdesc, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMTERMDESC, $aptmtermdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -711,14 +806,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmmethod('fooValue');   // WHERE AptmMethod = 'fooValue'
      * $query->filterByAptmmethod('%fooValue%', Criteria::LIKE); // WHERE AptmMethod LIKE '%fooValue%'
+     * $query->filterByAptmmethod(['foo', 'bar']); // WHERE AptmMethod IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmmethod The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmmethod The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmmethod($aptmmethod = null, $comparison = null)
+    public function filterByAptmmethod($aptmmethod = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmmethod)) {
@@ -726,7 +822,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMMETHOD, $aptmmethod, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMMETHOD, $aptmmethod, $comparison);
+
+        return $this;
     }
 
     /**
@@ -736,14 +834,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmexpiredate('fooValue');   // WHERE AptmExpireDate = 'fooValue'
      * $query->filterByAptmexpiredate('%fooValue%', Criteria::LIKE); // WHERE AptmExpireDate LIKE '%fooValue%'
+     * $query->filterByAptmexpiredate(['foo', 'bar']); // WHERE AptmExpireDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmexpiredate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmexpiredate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmexpiredate($aptmexpiredate = null, $comparison = null)
+    public function filterByAptmexpiredate($aptmexpiredate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmexpiredate)) {
@@ -751,7 +850,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEXPIREDATE, $aptmexpiredate, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEXPIREDATE, $aptmexpiredate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -761,14 +862,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmsplit1('fooValue');   // WHERE AptmSplit1 = 'fooValue'
      * $query->filterByAptmsplit1('%fooValue%', Criteria::LIKE); // WHERE AptmSplit1 LIKE '%fooValue%'
+     * $query->filterByAptmsplit1(['foo', 'bar']); // WHERE AptmSplit1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmsplit1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmsplit1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmsplit1($aptmsplit1 = null, $comparison = null)
+    public function filterByAptmsplit1($aptmsplit1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmsplit1)) {
@@ -776,7 +878,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMSPLIT1, $aptmsplit1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMSPLIT1, $aptmsplit1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -789,15 +893,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmorderpct1(array('min' => 12)); // WHERE AptmOrderPct1 > 12
      * </code>
      *
-     * @param     mixed $aptmorderpct1 The value to use as filter.
+     * @param mixed $aptmorderpct1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmorderpct1($aptmorderpct1 = null, $comparison = null)
+    public function filterByAptmorderpct1($aptmorderpct1 = null, ?string $comparison = null)
     {
         if (is_array($aptmorderpct1)) {
             $useMinMax = false;
@@ -817,7 +921,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMORDERPCT1, $aptmorderpct1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMORDERPCT1, $aptmorderpct1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -830,15 +936,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmdiscpct1(array('min' => 12)); // WHERE AptmDiscPct1 > 12
      * </code>
      *
-     * @param     mixed $aptmdiscpct1 The value to use as filter.
+     * @param mixed $aptmdiscpct1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscpct1($aptmdiscpct1 = null, $comparison = null)
+    public function filterByAptmdiscpct1($aptmdiscpct1 = null, ?string $comparison = null)
     {
         if (is_array($aptmdiscpct1)) {
             $useMinMax = false;
@@ -858,7 +964,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCPCT1, $aptmdiscpct1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCPCT1, $aptmdiscpct1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -871,15 +979,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmdiscdays1(array('min' => 12)); // WHERE AptmDiscDays1 > 12
      * </code>
      *
-     * @param     mixed $aptmdiscdays1 The value to use as filter.
+     * @param mixed $aptmdiscdays1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscdays1($aptmdiscdays1 = null, $comparison = null)
+    public function filterByAptmdiscdays1($aptmdiscdays1 = null, ?string $comparison = null)
     {
         if (is_array($aptmdiscdays1)) {
             $useMinMax = false;
@@ -899,7 +1007,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAYS1, $aptmdiscdays1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAYS1, $aptmdiscdays1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -909,14 +1019,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmdiscday1('fooValue');   // WHERE AptmDiscDay1 = 'fooValue'
      * $query->filterByAptmdiscday1('%fooValue%', Criteria::LIKE); // WHERE AptmDiscDay1 LIKE '%fooValue%'
+     * $query->filterByAptmdiscday1(['foo', 'bar']); // WHERE AptmDiscDay1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmdiscday1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmdiscday1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscday1($aptmdiscday1 = null, $comparison = null)
+    public function filterByAptmdiscday1($aptmdiscday1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmdiscday1)) {
@@ -924,7 +1035,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAY1, $aptmdiscday1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAY1, $aptmdiscday1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -934,14 +1047,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmdiscdate1('fooValue');   // WHERE AptmDiscDate1 = 'fooValue'
      * $query->filterByAptmdiscdate1('%fooValue%', Criteria::LIKE); // WHERE AptmDiscDate1 LIKE '%fooValue%'
+     * $query->filterByAptmdiscdate1(['foo', 'bar']); // WHERE AptmDiscDate1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmdiscdate1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmdiscdate1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscdate1($aptmdiscdate1 = null, $comparison = null)
+    public function filterByAptmdiscdate1($aptmdiscdate1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmdiscdate1)) {
@@ -949,7 +1063,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDATE1, $aptmdiscdate1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDATE1, $aptmdiscdate1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -962,15 +1078,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmduedays1(array('min' => 12)); // WHERE AptmDueDays1 > 12
      * </code>
      *
-     * @param     mixed $aptmduedays1 The value to use as filter.
+     * @param mixed $aptmduedays1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmduedays1($aptmduedays1 = null, $comparison = null)
+    public function filterByAptmduedays1($aptmduedays1 = null, ?string $comparison = null)
     {
         if (is_array($aptmduedays1)) {
             $useMinMax = false;
@@ -990,7 +1106,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAYS1, $aptmduedays1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAYS1, $aptmduedays1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1000,14 +1118,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmdueday1('fooValue');   // WHERE AptmDueDay1 = 'fooValue'
      * $query->filterByAptmdueday1('%fooValue%', Criteria::LIKE); // WHERE AptmDueDay1 LIKE '%fooValue%'
+     * $query->filterByAptmdueday1(['foo', 'bar']); // WHERE AptmDueDay1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmdueday1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmdueday1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdueday1($aptmdueday1 = null, $comparison = null)
+    public function filterByAptmdueday1($aptmdueday1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmdueday1)) {
@@ -1015,7 +1134,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAY1, $aptmdueday1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAY1, $aptmdueday1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1028,15 +1149,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmplusmonths1(array('min' => 12)); // WHERE AptmPlusMonths1 > 12
      * </code>
      *
-     * @param     mixed $aptmplusmonths1 The value to use as filter.
+     * @param mixed $aptmplusmonths1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmplusmonths1($aptmplusmonths1 = null, $comparison = null)
+    public function filterByAptmplusmonths1($aptmplusmonths1 = null, ?string $comparison = null)
     {
         if (is_array($aptmplusmonths1)) {
             $useMinMax = false;
@@ -1056,7 +1177,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSMONTHS1, $aptmplusmonths1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSMONTHS1, $aptmplusmonths1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1066,14 +1189,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmduedate1('fooValue');   // WHERE AptmDueDate1 = 'fooValue'
      * $query->filterByAptmduedate1('%fooValue%', Criteria::LIKE); // WHERE AptmDueDate1 LIKE '%fooValue%'
+     * $query->filterByAptmduedate1(['foo', 'bar']); // WHERE AptmDueDate1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmduedate1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmduedate1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmduedate1($aptmduedate1 = null, $comparison = null)
+    public function filterByAptmduedate1($aptmduedate1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmduedate1)) {
@@ -1081,7 +1205,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDATE1, $aptmduedate1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDATE1, $aptmduedate1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1091,14 +1217,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmplusyear1('fooValue');   // WHERE AptmPlusYear1 = 'fooValue'
      * $query->filterByAptmplusyear1('%fooValue%', Criteria::LIKE); // WHERE AptmPlusYear1 LIKE '%fooValue%'
+     * $query->filterByAptmplusyear1(['foo', 'bar']); // WHERE AptmPlusYear1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmplusyear1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmplusyear1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmplusyear1($aptmplusyear1 = null, $comparison = null)
+    public function filterByAptmplusyear1($aptmplusyear1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmplusyear1)) {
@@ -1106,7 +1233,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSYEAR1, $aptmplusyear1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSYEAR1, $aptmplusyear1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1116,14 +1245,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmsplit2('fooValue');   // WHERE AptmSplit2 = 'fooValue'
      * $query->filterByAptmsplit2('%fooValue%', Criteria::LIKE); // WHERE AptmSplit2 LIKE '%fooValue%'
+     * $query->filterByAptmsplit2(['foo', 'bar']); // WHERE AptmSplit2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmsplit2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmsplit2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmsplit2($aptmsplit2 = null, $comparison = null)
+    public function filterByAptmsplit2($aptmsplit2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmsplit2)) {
@@ -1131,7 +1261,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMSPLIT2, $aptmsplit2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMSPLIT2, $aptmsplit2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1144,15 +1276,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmorderpct2(array('min' => 12)); // WHERE AptmOrderPct2 > 12
      * </code>
      *
-     * @param     mixed $aptmorderpct2 The value to use as filter.
+     * @param mixed $aptmorderpct2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmorderpct2($aptmorderpct2 = null, $comparison = null)
+    public function filterByAptmorderpct2($aptmorderpct2 = null, ?string $comparison = null)
     {
         if (is_array($aptmorderpct2)) {
             $useMinMax = false;
@@ -1172,7 +1304,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMORDERPCT2, $aptmorderpct2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMORDERPCT2, $aptmorderpct2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1185,15 +1319,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmdiscpct2(array('min' => 12)); // WHERE AptmDiscPct2 > 12
      * </code>
      *
-     * @param     mixed $aptmdiscpct2 The value to use as filter.
+     * @param mixed $aptmdiscpct2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscpct2($aptmdiscpct2 = null, $comparison = null)
+    public function filterByAptmdiscpct2($aptmdiscpct2 = null, ?string $comparison = null)
     {
         if (is_array($aptmdiscpct2)) {
             $useMinMax = false;
@@ -1213,7 +1347,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCPCT2, $aptmdiscpct2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCPCT2, $aptmdiscpct2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1226,15 +1362,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmdiscdays2(array('min' => 12)); // WHERE AptmDiscDays2 > 12
      * </code>
      *
-     * @param     mixed $aptmdiscdays2 The value to use as filter.
+     * @param mixed $aptmdiscdays2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscdays2($aptmdiscdays2 = null, $comparison = null)
+    public function filterByAptmdiscdays2($aptmdiscdays2 = null, ?string $comparison = null)
     {
         if (is_array($aptmdiscdays2)) {
             $useMinMax = false;
@@ -1254,7 +1390,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAYS2, $aptmdiscdays2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAYS2, $aptmdiscdays2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1264,14 +1402,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmdiscday2('fooValue');   // WHERE AptmDiscDay2 = 'fooValue'
      * $query->filterByAptmdiscday2('%fooValue%', Criteria::LIKE); // WHERE AptmDiscDay2 LIKE '%fooValue%'
+     * $query->filterByAptmdiscday2(['foo', 'bar']); // WHERE AptmDiscDay2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmdiscday2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmdiscday2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscday2($aptmdiscday2 = null, $comparison = null)
+    public function filterByAptmdiscday2($aptmdiscday2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmdiscday2)) {
@@ -1279,7 +1418,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAY2, $aptmdiscday2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAY2, $aptmdiscday2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1289,14 +1430,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmdiscdate2('fooValue');   // WHERE AptmDiscDate2 = 'fooValue'
      * $query->filterByAptmdiscdate2('%fooValue%', Criteria::LIKE); // WHERE AptmDiscDate2 LIKE '%fooValue%'
+     * $query->filterByAptmdiscdate2(['foo', 'bar']); // WHERE AptmDiscDate2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmdiscdate2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmdiscdate2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscdate2($aptmdiscdate2 = null, $comparison = null)
+    public function filterByAptmdiscdate2($aptmdiscdate2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmdiscdate2)) {
@@ -1304,7 +1446,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDATE2, $aptmdiscdate2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDATE2, $aptmdiscdate2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1317,15 +1461,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmduedays2(array('min' => 12)); // WHERE AptmDueDays2 > 12
      * </code>
      *
-     * @param     mixed $aptmduedays2 The value to use as filter.
+     * @param mixed $aptmduedays2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmduedays2($aptmduedays2 = null, $comparison = null)
+    public function filterByAptmduedays2($aptmduedays2 = null, ?string $comparison = null)
     {
         if (is_array($aptmduedays2)) {
             $useMinMax = false;
@@ -1345,7 +1489,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAYS2, $aptmduedays2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAYS2, $aptmduedays2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1355,14 +1501,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmdueday2('fooValue');   // WHERE AptmDueDay2 = 'fooValue'
      * $query->filterByAptmdueday2('%fooValue%', Criteria::LIKE); // WHERE AptmDueDay2 LIKE '%fooValue%'
+     * $query->filterByAptmdueday2(['foo', 'bar']); // WHERE AptmDueDay2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmdueday2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmdueday2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdueday2($aptmdueday2 = null, $comparison = null)
+    public function filterByAptmdueday2($aptmdueday2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmdueday2)) {
@@ -1370,7 +1517,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAY2, $aptmdueday2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAY2, $aptmdueday2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1383,15 +1532,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmplusmonths2(array('min' => 12)); // WHERE AptmPlusMonths2 > 12
      * </code>
      *
-     * @param     mixed $aptmplusmonths2 The value to use as filter.
+     * @param mixed $aptmplusmonths2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmplusmonths2($aptmplusmonths2 = null, $comparison = null)
+    public function filterByAptmplusmonths2($aptmplusmonths2 = null, ?string $comparison = null)
     {
         if (is_array($aptmplusmonths2)) {
             $useMinMax = false;
@@ -1411,7 +1560,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSMONTHS2, $aptmplusmonths2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSMONTHS2, $aptmplusmonths2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1421,14 +1572,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmduedate2('fooValue');   // WHERE AptmDueDate2 = 'fooValue'
      * $query->filterByAptmduedate2('%fooValue%', Criteria::LIKE); // WHERE AptmDueDate2 LIKE '%fooValue%'
+     * $query->filterByAptmduedate2(['foo', 'bar']); // WHERE AptmDueDate2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmduedate2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmduedate2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmduedate2($aptmduedate2 = null, $comparison = null)
+    public function filterByAptmduedate2($aptmduedate2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmduedate2)) {
@@ -1436,7 +1588,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDATE2, $aptmduedate2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDATE2, $aptmduedate2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1446,14 +1600,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmplusyear2('fooValue');   // WHERE AptmPlusYear2 = 'fooValue'
      * $query->filterByAptmplusyear2('%fooValue%', Criteria::LIKE); // WHERE AptmPlusYear2 LIKE '%fooValue%'
+     * $query->filterByAptmplusyear2(['foo', 'bar']); // WHERE AptmPlusYear2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmplusyear2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmplusyear2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmplusyear2($aptmplusyear2 = null, $comparison = null)
+    public function filterByAptmplusyear2($aptmplusyear2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmplusyear2)) {
@@ -1461,7 +1616,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSYEAR2, $aptmplusyear2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSYEAR2, $aptmplusyear2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1471,14 +1628,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmsplit3('fooValue');   // WHERE AptmSplit3 = 'fooValue'
      * $query->filterByAptmsplit3('%fooValue%', Criteria::LIKE); // WHERE AptmSplit3 LIKE '%fooValue%'
+     * $query->filterByAptmsplit3(['foo', 'bar']); // WHERE AptmSplit3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmsplit3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmsplit3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmsplit3($aptmsplit3 = null, $comparison = null)
+    public function filterByAptmsplit3($aptmsplit3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmsplit3)) {
@@ -1486,7 +1644,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMSPLIT3, $aptmsplit3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMSPLIT3, $aptmsplit3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1499,15 +1659,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmorderpct3(array('min' => 12)); // WHERE AptmOrderPct3 > 12
      * </code>
      *
-     * @param     mixed $aptmorderpct3 The value to use as filter.
+     * @param mixed $aptmorderpct3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmorderpct3($aptmorderpct3 = null, $comparison = null)
+    public function filterByAptmorderpct3($aptmorderpct3 = null, ?string $comparison = null)
     {
         if (is_array($aptmorderpct3)) {
             $useMinMax = false;
@@ -1527,7 +1687,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMORDERPCT3, $aptmorderpct3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMORDERPCT3, $aptmorderpct3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1540,15 +1702,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmdiscpct3(array('min' => 12)); // WHERE AptmDiscPct3 > 12
      * </code>
      *
-     * @param     mixed $aptmdiscpct3 The value to use as filter.
+     * @param mixed $aptmdiscpct3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscpct3($aptmdiscpct3 = null, $comparison = null)
+    public function filterByAptmdiscpct3($aptmdiscpct3 = null, ?string $comparison = null)
     {
         if (is_array($aptmdiscpct3)) {
             $useMinMax = false;
@@ -1568,7 +1730,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCPCT3, $aptmdiscpct3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCPCT3, $aptmdiscpct3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1581,15 +1745,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmdiscdays3(array('min' => 12)); // WHERE AptmDiscDays3 > 12
      * </code>
      *
-     * @param     mixed $aptmdiscdays3 The value to use as filter.
+     * @param mixed $aptmdiscdays3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscdays3($aptmdiscdays3 = null, $comparison = null)
+    public function filterByAptmdiscdays3($aptmdiscdays3 = null, ?string $comparison = null)
     {
         if (is_array($aptmdiscdays3)) {
             $useMinMax = false;
@@ -1609,7 +1773,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAYS3, $aptmdiscdays3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAYS3, $aptmdiscdays3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1619,14 +1785,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmdiscday3('fooValue');   // WHERE AptmDiscDay3 = 'fooValue'
      * $query->filterByAptmdiscday3('%fooValue%', Criteria::LIKE); // WHERE AptmDiscDay3 LIKE '%fooValue%'
+     * $query->filterByAptmdiscday3(['foo', 'bar']); // WHERE AptmDiscDay3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmdiscday3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmdiscday3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscday3($aptmdiscday3 = null, $comparison = null)
+    public function filterByAptmdiscday3($aptmdiscday3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmdiscday3)) {
@@ -1634,7 +1801,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAY3, $aptmdiscday3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAY3, $aptmdiscday3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1644,14 +1813,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmdiscdate3('fooValue');   // WHERE AptmDiscDate3 = 'fooValue'
      * $query->filterByAptmdiscdate3('%fooValue%', Criteria::LIKE); // WHERE AptmDiscDate3 LIKE '%fooValue%'
+     * $query->filterByAptmdiscdate3(['foo', 'bar']); // WHERE AptmDiscDate3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmdiscdate3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmdiscdate3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscdate3($aptmdiscdate3 = null, $comparison = null)
+    public function filterByAptmdiscdate3($aptmdiscdate3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmdiscdate3)) {
@@ -1659,7 +1829,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDATE3, $aptmdiscdate3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDATE3, $aptmdiscdate3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1672,15 +1844,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmduedays3(array('min' => 12)); // WHERE AptmDueDays3 > 12
      * </code>
      *
-     * @param     mixed $aptmduedays3 The value to use as filter.
+     * @param mixed $aptmduedays3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmduedays3($aptmduedays3 = null, $comparison = null)
+    public function filterByAptmduedays3($aptmduedays3 = null, ?string $comparison = null)
     {
         if (is_array($aptmduedays3)) {
             $useMinMax = false;
@@ -1700,7 +1872,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAYS3, $aptmduedays3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAYS3, $aptmduedays3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1710,14 +1884,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmdueday3('fooValue');   // WHERE AptmDueDay3 = 'fooValue'
      * $query->filterByAptmdueday3('%fooValue%', Criteria::LIKE); // WHERE AptmDueDay3 LIKE '%fooValue%'
+     * $query->filterByAptmdueday3(['foo', 'bar']); // WHERE AptmDueDay3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmdueday3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmdueday3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdueday3($aptmdueday3 = null, $comparison = null)
+    public function filterByAptmdueday3($aptmdueday3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmdueday3)) {
@@ -1725,7 +1900,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAY3, $aptmdueday3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAY3, $aptmdueday3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1738,15 +1915,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmplusmonths3(array('min' => 12)); // WHERE AptmPlusMonths3 > 12
      * </code>
      *
-     * @param     mixed $aptmplusmonths3 The value to use as filter.
+     * @param mixed $aptmplusmonths3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmplusmonths3($aptmplusmonths3 = null, $comparison = null)
+    public function filterByAptmplusmonths3($aptmplusmonths3 = null, ?string $comparison = null)
     {
         if (is_array($aptmplusmonths3)) {
             $useMinMax = false;
@@ -1766,7 +1943,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSMONTHS3, $aptmplusmonths3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSMONTHS3, $aptmplusmonths3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1776,14 +1955,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmduedate3('fooValue');   // WHERE AptmDueDate3 = 'fooValue'
      * $query->filterByAptmduedate3('%fooValue%', Criteria::LIKE); // WHERE AptmDueDate3 LIKE '%fooValue%'
+     * $query->filterByAptmduedate3(['foo', 'bar']); // WHERE AptmDueDate3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmduedate3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmduedate3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmduedate3($aptmduedate3 = null, $comparison = null)
+    public function filterByAptmduedate3($aptmduedate3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmduedate3)) {
@@ -1791,7 +1971,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDATE3, $aptmduedate3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDATE3, $aptmduedate3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1801,14 +1983,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmplusyear3('fooValue');   // WHERE AptmPlusYear3 = 'fooValue'
      * $query->filterByAptmplusyear3('%fooValue%', Criteria::LIKE); // WHERE AptmPlusYear3 LIKE '%fooValue%'
+     * $query->filterByAptmplusyear3(['foo', 'bar']); // WHERE AptmPlusYear3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmplusyear3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmplusyear3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmplusyear3($aptmplusyear3 = null, $comparison = null)
+    public function filterByAptmplusyear3($aptmplusyear3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmplusyear3)) {
@@ -1816,7 +1999,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSYEAR3, $aptmplusyear3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSYEAR3, $aptmplusyear3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1826,14 +2011,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmsplit4('fooValue');   // WHERE AptmSplit4 = 'fooValue'
      * $query->filterByAptmsplit4('%fooValue%', Criteria::LIKE); // WHERE AptmSplit4 LIKE '%fooValue%'
+     * $query->filterByAptmsplit4(['foo', 'bar']); // WHERE AptmSplit4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmsplit4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmsplit4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmsplit4($aptmsplit4 = null, $comparison = null)
+    public function filterByAptmsplit4($aptmsplit4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmsplit4)) {
@@ -1841,7 +2027,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMSPLIT4, $aptmsplit4, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMSPLIT4, $aptmsplit4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1854,15 +2042,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmorderpct4(array('min' => 12)); // WHERE AptmOrderPct4 > 12
      * </code>
      *
-     * @param     mixed $aptmorderpct4 The value to use as filter.
+     * @param mixed $aptmorderpct4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmorderpct4($aptmorderpct4 = null, $comparison = null)
+    public function filterByAptmorderpct4($aptmorderpct4 = null, ?string $comparison = null)
     {
         if (is_array($aptmorderpct4)) {
             $useMinMax = false;
@@ -1882,7 +2070,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMORDERPCT4, $aptmorderpct4, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMORDERPCT4, $aptmorderpct4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1895,15 +2085,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmdiscpct4(array('min' => 12)); // WHERE AptmDiscPct4 > 12
      * </code>
      *
-     * @param     mixed $aptmdiscpct4 The value to use as filter.
+     * @param mixed $aptmdiscpct4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscpct4($aptmdiscpct4 = null, $comparison = null)
+    public function filterByAptmdiscpct4($aptmdiscpct4 = null, ?string $comparison = null)
     {
         if (is_array($aptmdiscpct4)) {
             $useMinMax = false;
@@ -1923,7 +2113,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCPCT4, $aptmdiscpct4, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCPCT4, $aptmdiscpct4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1936,15 +2128,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmdiscdays4(array('min' => 12)); // WHERE AptmDiscDays4 > 12
      * </code>
      *
-     * @param     mixed $aptmdiscdays4 The value to use as filter.
+     * @param mixed $aptmdiscdays4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscdays4($aptmdiscdays4 = null, $comparison = null)
+    public function filterByAptmdiscdays4($aptmdiscdays4 = null, ?string $comparison = null)
     {
         if (is_array($aptmdiscdays4)) {
             $useMinMax = false;
@@ -1964,7 +2156,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAYS4, $aptmdiscdays4, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAYS4, $aptmdiscdays4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1974,14 +2168,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmdiscday4('fooValue');   // WHERE AptmDiscDay4 = 'fooValue'
      * $query->filterByAptmdiscday4('%fooValue%', Criteria::LIKE); // WHERE AptmDiscDay4 LIKE '%fooValue%'
+     * $query->filterByAptmdiscday4(['foo', 'bar']); // WHERE AptmDiscDay4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmdiscday4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmdiscday4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscday4($aptmdiscday4 = null, $comparison = null)
+    public function filterByAptmdiscday4($aptmdiscday4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmdiscday4)) {
@@ -1989,7 +2184,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAY4, $aptmdiscday4, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAY4, $aptmdiscday4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1999,14 +2196,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmdiscdate4('fooValue');   // WHERE AptmDiscDate4 = 'fooValue'
      * $query->filterByAptmdiscdate4('%fooValue%', Criteria::LIKE); // WHERE AptmDiscDate4 LIKE '%fooValue%'
+     * $query->filterByAptmdiscdate4(['foo', 'bar']); // WHERE AptmDiscDate4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmdiscdate4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmdiscdate4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscdate4($aptmdiscdate4 = null, $comparison = null)
+    public function filterByAptmdiscdate4($aptmdiscdate4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmdiscdate4)) {
@@ -2014,7 +2212,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDATE4, $aptmdiscdate4, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDATE4, $aptmdiscdate4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2027,15 +2227,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmduedays4(array('min' => 12)); // WHERE AptmDueDays4 > 12
      * </code>
      *
-     * @param     mixed $aptmduedays4 The value to use as filter.
+     * @param mixed $aptmduedays4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmduedays4($aptmduedays4 = null, $comparison = null)
+    public function filterByAptmduedays4($aptmduedays4 = null, ?string $comparison = null)
     {
         if (is_array($aptmduedays4)) {
             $useMinMax = false;
@@ -2055,7 +2255,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAYS4, $aptmduedays4, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAYS4, $aptmduedays4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2065,14 +2267,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmdueday4('fooValue');   // WHERE AptmDueDay4 = 'fooValue'
      * $query->filterByAptmdueday4('%fooValue%', Criteria::LIKE); // WHERE AptmDueDay4 LIKE '%fooValue%'
+     * $query->filterByAptmdueday4(['foo', 'bar']); // WHERE AptmDueDay4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmdueday4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmdueday4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdueday4($aptmdueday4 = null, $comparison = null)
+    public function filterByAptmdueday4($aptmdueday4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmdueday4)) {
@@ -2080,7 +2283,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAY4, $aptmdueday4, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAY4, $aptmdueday4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2093,15 +2298,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmplusmonths4(array('min' => 12)); // WHERE AptmPlusMonths4 > 12
      * </code>
      *
-     * @param     mixed $aptmplusmonths4 The value to use as filter.
+     * @param mixed $aptmplusmonths4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmplusmonths4($aptmplusmonths4 = null, $comparison = null)
+    public function filterByAptmplusmonths4($aptmplusmonths4 = null, ?string $comparison = null)
     {
         if (is_array($aptmplusmonths4)) {
             $useMinMax = false;
@@ -2121,7 +2326,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSMONTHS4, $aptmplusmonths4, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSMONTHS4, $aptmplusmonths4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2131,14 +2338,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmduedate4('fooValue');   // WHERE AptmDueDate4 = 'fooValue'
      * $query->filterByAptmduedate4('%fooValue%', Criteria::LIKE); // WHERE AptmDueDate4 LIKE '%fooValue%'
+     * $query->filterByAptmduedate4(['foo', 'bar']); // WHERE AptmDueDate4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmduedate4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmduedate4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmduedate4($aptmduedate4 = null, $comparison = null)
+    public function filterByAptmduedate4($aptmduedate4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmduedate4)) {
@@ -2146,7 +2354,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDATE4, $aptmduedate4, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDATE4, $aptmduedate4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2156,14 +2366,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmplusyear4('fooValue');   // WHERE AptmPlusYear4 = 'fooValue'
      * $query->filterByAptmplusyear4('%fooValue%', Criteria::LIKE); // WHERE AptmPlusYear4 LIKE '%fooValue%'
+     * $query->filterByAptmplusyear4(['foo', 'bar']); // WHERE AptmPlusYear4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmplusyear4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmplusyear4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmplusyear4($aptmplusyear4 = null, $comparison = null)
+    public function filterByAptmplusyear4($aptmplusyear4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmplusyear4)) {
@@ -2171,7 +2382,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSYEAR4, $aptmplusyear4, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSYEAR4, $aptmplusyear4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2181,14 +2394,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmsplit5('fooValue');   // WHERE AptmSplit5 = 'fooValue'
      * $query->filterByAptmsplit5('%fooValue%', Criteria::LIKE); // WHERE AptmSplit5 LIKE '%fooValue%'
+     * $query->filterByAptmsplit5(['foo', 'bar']); // WHERE AptmSplit5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmsplit5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmsplit5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmsplit5($aptmsplit5 = null, $comparison = null)
+    public function filterByAptmsplit5($aptmsplit5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmsplit5)) {
@@ -2196,7 +2410,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMSPLIT5, $aptmsplit5, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMSPLIT5, $aptmsplit5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2209,15 +2425,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmorderpct5(array('min' => 12)); // WHERE AptmOrderPct5 > 12
      * </code>
      *
-     * @param     mixed $aptmorderpct5 The value to use as filter.
+     * @param mixed $aptmorderpct5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmorderpct5($aptmorderpct5 = null, $comparison = null)
+    public function filterByAptmorderpct5($aptmorderpct5 = null, ?string $comparison = null)
     {
         if (is_array($aptmorderpct5)) {
             $useMinMax = false;
@@ -2237,7 +2453,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMORDERPCT5, $aptmorderpct5, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMORDERPCT5, $aptmorderpct5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2250,15 +2468,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmdiscpct5(array('min' => 12)); // WHERE AptmDiscPct5 > 12
      * </code>
      *
-     * @param     mixed $aptmdiscpct5 The value to use as filter.
+     * @param mixed $aptmdiscpct5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscpct5($aptmdiscpct5 = null, $comparison = null)
+    public function filterByAptmdiscpct5($aptmdiscpct5 = null, ?string $comparison = null)
     {
         if (is_array($aptmdiscpct5)) {
             $useMinMax = false;
@@ -2278,7 +2496,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCPCT5, $aptmdiscpct5, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCPCT5, $aptmdiscpct5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2291,15 +2511,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmdiscdays5(array('min' => 12)); // WHERE AptmDiscDays5 > 12
      * </code>
      *
-     * @param     mixed $aptmdiscdays5 The value to use as filter.
+     * @param mixed $aptmdiscdays5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscdays5($aptmdiscdays5 = null, $comparison = null)
+    public function filterByAptmdiscdays5($aptmdiscdays5 = null, ?string $comparison = null)
     {
         if (is_array($aptmdiscdays5)) {
             $useMinMax = false;
@@ -2319,7 +2539,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAYS5, $aptmdiscdays5, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAYS5, $aptmdiscdays5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2329,14 +2551,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmdiscday5('fooValue');   // WHERE AptmDiscDay5 = 'fooValue'
      * $query->filterByAptmdiscday5('%fooValue%', Criteria::LIKE); // WHERE AptmDiscDay5 LIKE '%fooValue%'
+     * $query->filterByAptmdiscday5(['foo', 'bar']); // WHERE AptmDiscDay5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmdiscday5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmdiscday5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscday5($aptmdiscday5 = null, $comparison = null)
+    public function filterByAptmdiscday5($aptmdiscday5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmdiscday5)) {
@@ -2344,7 +2567,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAY5, $aptmdiscday5, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDAY5, $aptmdiscday5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2354,14 +2579,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmdiscdate5('fooValue');   // WHERE AptmDiscDate5 = 'fooValue'
      * $query->filterByAptmdiscdate5('%fooValue%', Criteria::LIKE); // WHERE AptmDiscDate5 LIKE '%fooValue%'
+     * $query->filterByAptmdiscdate5(['foo', 'bar']); // WHERE AptmDiscDate5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmdiscdate5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmdiscdate5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdiscdate5($aptmdiscdate5 = null, $comparison = null)
+    public function filterByAptmdiscdate5($aptmdiscdate5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmdiscdate5)) {
@@ -2369,7 +2595,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDATE5, $aptmdiscdate5, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDISCDATE5, $aptmdiscdate5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2382,15 +2610,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmduedays5(array('min' => 12)); // WHERE AptmDueDays5 > 12
      * </code>
      *
-     * @param     mixed $aptmduedays5 The value to use as filter.
+     * @param mixed $aptmduedays5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmduedays5($aptmduedays5 = null, $comparison = null)
+    public function filterByAptmduedays5($aptmduedays5 = null, ?string $comparison = null)
     {
         if (is_array($aptmduedays5)) {
             $useMinMax = false;
@@ -2410,7 +2638,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAYS5, $aptmduedays5, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAYS5, $aptmduedays5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2420,14 +2650,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmdueday5('fooValue');   // WHERE AptmDueDay5 = 'fooValue'
      * $query->filterByAptmdueday5('%fooValue%', Criteria::LIKE); // WHERE AptmDueDay5 LIKE '%fooValue%'
+     * $query->filterByAptmdueday5(['foo', 'bar']); // WHERE AptmDueDay5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmdueday5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmdueday5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdueday5($aptmdueday5 = null, $comparison = null)
+    public function filterByAptmdueday5($aptmdueday5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmdueday5)) {
@@ -2435,7 +2666,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAY5, $aptmdueday5, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDAY5, $aptmdueday5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2448,15 +2681,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmplusmonths5(array('min' => 12)); // WHERE AptmPlusMonths5 > 12
      * </code>
      *
-     * @param     mixed $aptmplusmonths5 The value to use as filter.
+     * @param mixed $aptmplusmonths5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmplusmonths5($aptmplusmonths5 = null, $comparison = null)
+    public function filterByAptmplusmonths5($aptmplusmonths5 = null, ?string $comparison = null)
     {
         if (is_array($aptmplusmonths5)) {
             $useMinMax = false;
@@ -2476,7 +2709,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSMONTHS5, $aptmplusmonths5, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSMONTHS5, $aptmplusmonths5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2486,14 +2721,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmduedate5('fooValue');   // WHERE AptmDueDate5 = 'fooValue'
      * $query->filterByAptmduedate5('%fooValue%', Criteria::LIKE); // WHERE AptmDueDate5 LIKE '%fooValue%'
+     * $query->filterByAptmduedate5(['foo', 'bar']); // WHERE AptmDueDate5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmduedate5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmduedate5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmduedate5($aptmduedate5 = null, $comparison = null)
+    public function filterByAptmduedate5($aptmduedate5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmduedate5)) {
@@ -2501,7 +2737,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDATE5, $aptmduedate5, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDUEDATE5, $aptmduedate5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2511,14 +2749,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmplusyear5('fooValue');   // WHERE AptmPlusYear5 = 'fooValue'
      * $query->filterByAptmplusyear5('%fooValue%', Criteria::LIKE); // WHERE AptmPlusYear5 LIKE '%fooValue%'
+     * $query->filterByAptmplusyear5(['foo', 'bar']); // WHERE AptmPlusYear5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmplusyear5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmplusyear5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmplusyear5($aptmplusyear5 = null, $comparison = null)
+    public function filterByAptmplusyear5($aptmplusyear5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmplusyear5)) {
@@ -2526,7 +2765,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSYEAR5, $aptmplusyear5, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMPLUSYEAR5, $aptmplusyear5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2539,15 +2780,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmdayfrom1(array('min' => 12)); // WHERE AptmDayFrom1 > 12
      * </code>
      *
-     * @param     mixed $aptmdayfrom1 The value to use as filter.
+     * @param mixed $aptmdayfrom1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdayfrom1($aptmdayfrom1 = null, $comparison = null)
+    public function filterByAptmdayfrom1($aptmdayfrom1 = null, ?string $comparison = null)
     {
         if (is_array($aptmdayfrom1)) {
             $useMinMax = false;
@@ -2567,7 +2808,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDAYFROM1, $aptmdayfrom1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDAYFROM1, $aptmdayfrom1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2580,15 +2823,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmdaythru1(array('min' => 12)); // WHERE AptmDayThru1 > 12
      * </code>
      *
-     * @param     mixed $aptmdaythru1 The value to use as filter.
+     * @param mixed $aptmdaythru1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdaythru1($aptmdaythru1 = null, $comparison = null)
+    public function filterByAptmdaythru1($aptmdaythru1 = null, ?string $comparison = null)
     {
         if (is_array($aptmdaythru1)) {
             $useMinMax = false;
@@ -2608,7 +2851,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDAYTHRU1, $aptmdaythru1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDAYTHRU1, $aptmdaythru1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2621,15 +2866,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmeomdiscpct1(array('min' => 12)); // WHERE AptmEomDiscPct1 > 12
      * </code>
      *
-     * @param     mixed $aptmeomdiscpct1 The value to use as filter.
+     * @param mixed $aptmeomdiscpct1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmeomdiscpct1($aptmeomdiscpct1 = null, $comparison = null)
+    public function filterByAptmeomdiscpct1($aptmeomdiscpct1 = null, ?string $comparison = null)
     {
         if (is_array($aptmeomdiscpct1)) {
             $useMinMax = false;
@@ -2649,7 +2894,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCPCT1, $aptmeomdiscpct1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCPCT1, $aptmeomdiscpct1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2662,15 +2909,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmeomdiscday1(array('min' => 12)); // WHERE AptmEomDiscDay1 > 12
      * </code>
      *
-     * @param     mixed $aptmeomdiscday1 The value to use as filter.
+     * @param mixed $aptmeomdiscday1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmeomdiscday1($aptmeomdiscday1 = null, $comparison = null)
+    public function filterByAptmeomdiscday1($aptmeomdiscday1 = null, ?string $comparison = null)
     {
         if (is_array($aptmeomdiscday1)) {
             $useMinMax = false;
@@ -2690,7 +2937,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCDAY1, $aptmeomdiscday1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCDAY1, $aptmeomdiscday1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2703,15 +2952,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmeomdiscmonths1(array('min' => 12)); // WHERE AptmEomDiscMonths1 > 12
      * </code>
      *
-     * @param     mixed $aptmeomdiscmonths1 The value to use as filter.
+     * @param mixed $aptmeomdiscmonths1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmeomdiscmonths1($aptmeomdiscmonths1 = null, $comparison = null)
+    public function filterByAptmeomdiscmonths1($aptmeomdiscmonths1 = null, ?string $comparison = null)
     {
         if (is_array($aptmeomdiscmonths1)) {
             $useMinMax = false;
@@ -2731,7 +2980,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCMONTHS1, $aptmeomdiscmonths1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCMONTHS1, $aptmeomdiscmonths1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2744,15 +2995,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmeomdueday1(array('min' => 12)); // WHERE AptmEomDueDay1 > 12
      * </code>
      *
-     * @param     mixed $aptmeomdueday1 The value to use as filter.
+     * @param mixed $aptmeomdueday1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmeomdueday1($aptmeomdueday1 = null, $comparison = null)
+    public function filterByAptmeomdueday1($aptmeomdueday1 = null, ?string $comparison = null)
     {
         if (is_array($aptmeomdueday1)) {
             $useMinMax = false;
@@ -2772,7 +3023,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDUEDAY1, $aptmeomdueday1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDUEDAY1, $aptmeomdueday1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2785,15 +3038,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmeomplusmonths1(array('min' => 12)); // WHERE AptmEomPlusMonths1 > 12
      * </code>
      *
-     * @param     mixed $aptmeomplusmonths1 The value to use as filter.
+     * @param mixed $aptmeomplusmonths1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmeomplusmonths1($aptmeomplusmonths1 = null, $comparison = null)
+    public function filterByAptmeomplusmonths1($aptmeomplusmonths1 = null, ?string $comparison = null)
     {
         if (is_array($aptmeomplusmonths1)) {
             $useMinMax = false;
@@ -2813,7 +3066,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMPLUSMONTHS1, $aptmeomplusmonths1, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMPLUSMONTHS1, $aptmeomplusmonths1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2826,15 +3081,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmdayfrom2(array('min' => 12)); // WHERE AptmDayFrom2 > 12
      * </code>
      *
-     * @param     mixed $aptmdayfrom2 The value to use as filter.
+     * @param mixed $aptmdayfrom2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdayfrom2($aptmdayfrom2 = null, $comparison = null)
+    public function filterByAptmdayfrom2($aptmdayfrom2 = null, ?string $comparison = null)
     {
         if (is_array($aptmdayfrom2)) {
             $useMinMax = false;
@@ -2854,7 +3109,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDAYFROM2, $aptmdayfrom2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDAYFROM2, $aptmdayfrom2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2867,15 +3124,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmdaythru2(array('min' => 12)); // WHERE AptmDayThru2 > 12
      * </code>
      *
-     * @param     mixed $aptmdaythru2 The value to use as filter.
+     * @param mixed $aptmdaythru2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdaythru2($aptmdaythru2 = null, $comparison = null)
+    public function filterByAptmdaythru2($aptmdaythru2 = null, ?string $comparison = null)
     {
         if (is_array($aptmdaythru2)) {
             $useMinMax = false;
@@ -2895,7 +3152,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDAYTHRU2, $aptmdaythru2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDAYTHRU2, $aptmdaythru2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2908,15 +3167,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmeomdiscpct2(array('min' => 12)); // WHERE AptmEomDiscPct2 > 12
      * </code>
      *
-     * @param     mixed $aptmeomdiscpct2 The value to use as filter.
+     * @param mixed $aptmeomdiscpct2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmeomdiscpct2($aptmeomdiscpct2 = null, $comparison = null)
+    public function filterByAptmeomdiscpct2($aptmeomdiscpct2 = null, ?string $comparison = null)
     {
         if (is_array($aptmeomdiscpct2)) {
             $useMinMax = false;
@@ -2936,7 +3195,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCPCT2, $aptmeomdiscpct2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCPCT2, $aptmeomdiscpct2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2949,15 +3210,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmeomdiscday2(array('min' => 12)); // WHERE AptmEomDiscDay2 > 12
      * </code>
      *
-     * @param     mixed $aptmeomdiscday2 The value to use as filter.
+     * @param mixed $aptmeomdiscday2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmeomdiscday2($aptmeomdiscday2 = null, $comparison = null)
+    public function filterByAptmeomdiscday2($aptmeomdiscday2 = null, ?string $comparison = null)
     {
         if (is_array($aptmeomdiscday2)) {
             $useMinMax = false;
@@ -2977,7 +3238,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCDAY2, $aptmeomdiscday2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCDAY2, $aptmeomdiscday2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2990,15 +3253,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmeomdiscmonths2(array('min' => 12)); // WHERE AptmEomDiscMonths2 > 12
      * </code>
      *
-     * @param     mixed $aptmeomdiscmonths2 The value to use as filter.
+     * @param mixed $aptmeomdiscmonths2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmeomdiscmonths2($aptmeomdiscmonths2 = null, $comparison = null)
+    public function filterByAptmeomdiscmonths2($aptmeomdiscmonths2 = null, ?string $comparison = null)
     {
         if (is_array($aptmeomdiscmonths2)) {
             $useMinMax = false;
@@ -3018,7 +3281,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCMONTHS2, $aptmeomdiscmonths2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCMONTHS2, $aptmeomdiscmonths2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3031,15 +3296,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmeomdueday2(array('min' => 12)); // WHERE AptmEomDueDay2 > 12
      * </code>
      *
-     * @param     mixed $aptmeomdueday2 The value to use as filter.
+     * @param mixed $aptmeomdueday2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmeomdueday2($aptmeomdueday2 = null, $comparison = null)
+    public function filterByAptmeomdueday2($aptmeomdueday2 = null, ?string $comparison = null)
     {
         if (is_array($aptmeomdueday2)) {
             $useMinMax = false;
@@ -3059,7 +3324,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDUEDAY2, $aptmeomdueday2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDUEDAY2, $aptmeomdueday2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3072,15 +3339,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmeomplusmonths2(array('min' => 12)); // WHERE AptmEomPlusMonths2 > 12
      * </code>
      *
-     * @param     mixed $aptmeomplusmonths2 The value to use as filter.
+     * @param mixed $aptmeomplusmonths2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmeomplusmonths2($aptmeomplusmonths2 = null, $comparison = null)
+    public function filterByAptmeomplusmonths2($aptmeomplusmonths2 = null, ?string $comparison = null)
     {
         if (is_array($aptmeomplusmonths2)) {
             $useMinMax = false;
@@ -3100,7 +3367,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMPLUSMONTHS2, $aptmeomplusmonths2, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMPLUSMONTHS2, $aptmeomplusmonths2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3113,15 +3382,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmdayfrom3(array('min' => 12)); // WHERE AptmDayFrom3 > 12
      * </code>
      *
-     * @param     mixed $aptmdayfrom3 The value to use as filter.
+     * @param mixed $aptmdayfrom3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdayfrom3($aptmdayfrom3 = null, $comparison = null)
+    public function filterByAptmdayfrom3($aptmdayfrom3 = null, ?string $comparison = null)
     {
         if (is_array($aptmdayfrom3)) {
             $useMinMax = false;
@@ -3141,7 +3410,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDAYFROM3, $aptmdayfrom3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDAYFROM3, $aptmdayfrom3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3154,15 +3425,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmdaythru3(array('min' => 12)); // WHERE AptmDayThru3 > 12
      * </code>
      *
-     * @param     mixed $aptmdaythru3 The value to use as filter.
+     * @param mixed $aptmdaythru3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmdaythru3($aptmdaythru3 = null, $comparison = null)
+    public function filterByAptmdaythru3($aptmdaythru3 = null, ?string $comparison = null)
     {
         if (is_array($aptmdaythru3)) {
             $useMinMax = false;
@@ -3182,7 +3453,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDAYTHRU3, $aptmdaythru3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMDAYTHRU3, $aptmdaythru3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3195,15 +3468,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmeomdiscpct3(array('min' => 12)); // WHERE AptmEomDiscPct3 > 12
      * </code>
      *
-     * @param     mixed $aptmeomdiscpct3 The value to use as filter.
+     * @param mixed $aptmeomdiscpct3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmeomdiscpct3($aptmeomdiscpct3 = null, $comparison = null)
+    public function filterByAptmeomdiscpct3($aptmeomdiscpct3 = null, ?string $comparison = null)
     {
         if (is_array($aptmeomdiscpct3)) {
             $useMinMax = false;
@@ -3223,7 +3496,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCPCT3, $aptmeomdiscpct3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCPCT3, $aptmeomdiscpct3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3236,15 +3511,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmeomdiscday3(array('min' => 12)); // WHERE AptmEomDiscDay3 > 12
      * </code>
      *
-     * @param     mixed $aptmeomdiscday3 The value to use as filter.
+     * @param mixed $aptmeomdiscday3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmeomdiscday3($aptmeomdiscday3 = null, $comparison = null)
+    public function filterByAptmeomdiscday3($aptmeomdiscday3 = null, ?string $comparison = null)
     {
         if (is_array($aptmeomdiscday3)) {
             $useMinMax = false;
@@ -3264,7 +3539,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCDAY3, $aptmeomdiscday3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCDAY3, $aptmeomdiscday3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3277,15 +3554,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmeomdiscmonths3(array('min' => 12)); // WHERE AptmEomDiscMonths3 > 12
      * </code>
      *
-     * @param     mixed $aptmeomdiscmonths3 The value to use as filter.
+     * @param mixed $aptmeomdiscmonths3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmeomdiscmonths3($aptmeomdiscmonths3 = null, $comparison = null)
+    public function filterByAptmeomdiscmonths3($aptmeomdiscmonths3 = null, ?string $comparison = null)
     {
         if (is_array($aptmeomdiscmonths3)) {
             $useMinMax = false;
@@ -3305,7 +3582,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCMONTHS3, $aptmeomdiscmonths3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDISCMONTHS3, $aptmeomdiscmonths3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3318,15 +3597,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmeomdueday3(array('min' => 12)); // WHERE AptmEomDueDay3 > 12
      * </code>
      *
-     * @param     mixed $aptmeomdueday3 The value to use as filter.
+     * @param mixed $aptmeomdueday3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmeomdueday3($aptmeomdueday3 = null, $comparison = null)
+    public function filterByAptmeomdueday3($aptmeomdueday3 = null, ?string $comparison = null)
     {
         if (is_array($aptmeomdueday3)) {
             $useMinMax = false;
@@ -3346,7 +3625,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDUEDAY3, $aptmeomdueday3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMDUEDAY3, $aptmeomdueday3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3359,15 +3640,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * $query->filterByAptmeomplusmonths3(array('min' => 12)); // WHERE AptmEomPlusMonths3 > 12
      * </code>
      *
-     * @param     mixed $aptmeomplusmonths3 The value to use as filter.
+     * @param mixed $aptmeomplusmonths3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmeomplusmonths3($aptmeomplusmonths3 = null, $comparison = null)
+    public function filterByAptmeomplusmonths3($aptmeomplusmonths3 = null, ?string $comparison = null)
     {
         if (is_array($aptmeomplusmonths3)) {
             $useMinMax = false;
@@ -3387,7 +3668,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMPLUSMONTHS3, $aptmeomplusmonths3, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_APTMEOMPLUSMONTHS3, $aptmeomplusmonths3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3397,14 +3680,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -3412,7 +3696,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3422,14 +3708,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -3437,7 +3724,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3447,14 +3736,15 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -3462,27 +3752,33 @@ abstract class ApTermsCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApTermsCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ApTermsCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \Vendor object
      *
      * @param \Vendor|ObjectCollection $vendor the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVendor($vendor, $comparison = null)
+    public function filterByVendor($vendor, ?string $comparison = null)
     {
         if ($vendor instanceof \Vendor) {
-            return $this
+            $this
                 ->addUsingAlias(ApTermsCodeTableMap::COL_APTMTERMCODE, $vendor->getAptmtermcode(), $comparison);
+
+            return $this;
         } elseif ($vendor instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useVendorQuery()
                 ->filterByPrimaryKeys($vendor->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByVendor() only accepts arguments of type \Vendor or Collection');
         }
@@ -3491,12 +3787,12 @@ abstract class ApTermsCodeQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Vendor relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinVendor($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinVendor(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Vendor');
@@ -3525,9 +3821,9 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \VendorQuery A secondary query class using the current class as primary query
      */
@@ -3539,11 +3835,107 @@ abstract class ApTermsCodeQuery extends ModelCriteria
     }
 
     /**
+     * Use the Vendor relation Vendor object
+     *
+     * @param callable(\VendorQuery):\VendorQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withVendorQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useVendorQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Vendor table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \VendorQuery The inner query object of the EXISTS statement
+     */
+    public function useVendorExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useExistsQuery('Vendor', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Vendor table for a NOT EXISTS query.
+     *
+     * @see useVendorExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \VendorQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useVendorNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useExistsQuery('Vendor', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Vendor table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \VendorQuery The inner query object of the IN statement
+     */
+    public function useInVendorQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useInQuery('Vendor', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Vendor table for a NOT IN query.
+     *
+     * @see useVendorInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \VendorQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInVendorQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useInQuery('Vendor', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildApTermsCode $apTermsCode Object to remove from the list of results
+     * @param ChildApTermsCode $apTermsCode Object to remove from the list of results
      *
-     * @return $this|ChildApTermsCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($apTermsCode = null)
     {
@@ -3560,7 +3952,7 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApTermsCodeTableMap::DATABASE_NAME);
@@ -3585,12 +3977,12 @@ abstract class ApTermsCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApTermsCodeTableMap::DATABASE_NAME);
@@ -3615,4 +4007,4 @@ abstract class ApTermsCodeQuery extends ModelCriteria
         });
     }
 
-} // ApTermsCodeQuery
+}

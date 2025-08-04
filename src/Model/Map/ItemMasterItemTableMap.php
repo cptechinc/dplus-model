@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ItemMasterItemTableMap extends TableMap
 {
@@ -34,409 +33,944 @@ class ItemMasterItemTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ItemMasterItemTableMap';
+    public const CLASS_NAME = '.Map.ItemMasterItemTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'inv_item_mast';
+    public const TABLE_NAME = 'inv_item_mast';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ItemMasterItem';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ItemMasterItem';
+    public const OM_CLASS = '\\ItemMasterItem';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ItemMasterItem';
+    public const CLASS_DEFAULT = 'ItemMasterItem';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 65;
+    public const NUM_COLUMNS = 65;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 65;
+    public const NUM_HYDRATE_COLUMNS = 65;
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'inv_item_mast.InitItemNbr';
+    public const COL_INITITEMNBR = 'inv_item_mast.InitItemNbr';
 
     /**
      * the column name for the InitDesc1 field
      */
-    const COL_INITDESC1 = 'inv_item_mast.InitDesc1';
+    public const COL_INITDESC1 = 'inv_item_mast.InitDesc1';
 
     /**
      * the column name for the InitDesc2 field
      */
-    const COL_INITDESC2 = 'inv_item_mast.InitDesc2';
+    public const COL_INITDESC2 = 'inv_item_mast.InitDesc2';
 
     /**
      * the column name for the IntbGrup field
      */
-    const COL_INTBGRUP = 'inv_item_mast.IntbGrup';
+    public const COL_INTBGRUP = 'inv_item_mast.IntbGrup';
 
     /**
      * the column name for the InitFormatCode field
      */
-    const COL_INITFORMATCODE = 'inv_item_mast.InitFormatCode';
+    public const COL_INITFORMATCODE = 'inv_item_mast.InitFormatCode';
 
     /**
      * the column name for the InitSplit field
      */
-    const COL_INITSPLIT = 'inv_item_mast.InitSplit';
+    public const COL_INITSPLIT = 'inv_item_mast.InitSplit';
 
     /**
      * the column name for the InitSherDateCd field
      */
-    const COL_INITSHERDATECD = 'inv_item_mast.InitSherDateCd';
+    public const COL_INITSHERDATECD = 'inv_item_mast.InitSherDateCd';
 
     /**
      * the column name for the InitCoreYN field
      */
-    const COL_INITCOREYN = 'inv_item_mast.InitCoreYN';
+    public const COL_INITCOREYN = 'inv_item_mast.InitCoreYN';
 
     /**
      * the column name for the IntbUserCode1 field
      */
-    const COL_INTBUSERCODE1 = 'inv_item_mast.IntbUserCode1';
+    public const COL_INTBUSERCODE1 = 'inv_item_mast.IntbUserCode1';
 
     /**
      * the column name for the IntbUserCode2 field
      */
-    const COL_INTBUSERCODE2 = 'inv_item_mast.IntbUserCode2';
+    public const COL_INTBUSERCODE2 = 'inv_item_mast.IntbUserCode2';
 
     /**
      * the column name for the InitType field
      */
-    const COL_INITTYPE = 'inv_item_mast.InitType';
+    public const COL_INITTYPE = 'inv_item_mast.InitType';
 
     /**
      * the column name for the InitTax field
      */
-    const COL_INITTAX = 'inv_item_mast.InitTax';
+    public const COL_INITTAX = 'inv_item_mast.InitTax';
 
     /**
      * the column name for the InitRtlPric field
      */
-    const COL_INITRTLPRIC = 'inv_item_mast.InitRtlPric';
+    public const COL_INITRTLPRIC = 'inv_item_mast.InitRtlPric';
 
     /**
      * the column name for the InitStatChgd field
      */
-    const COL_INITSTATCHGD = 'inv_item_mast.InitStatChgd';
+    public const COL_INITSTATCHGD = 'inv_item_mast.InitStatChgd';
 
     /**
      * the column name for the InitSpecItemCd field
      */
-    const COL_INITSPECITEMCD = 'inv_item_mast.InitSpecItemCd';
+    public const COL_INITSPECITEMCD = 'inv_item_mast.InitSpecItemCd';
 
     /**
      * the column name for the InitWarrDays field
      */
-    const COL_INITWARRDAYS = 'inv_item_mast.InitWarrDays';
+    public const COL_INITWARRDAYS = 'inv_item_mast.InitWarrDays';
 
     /**
      * the column name for the IntbUomSale field
      */
-    const COL_INTBUOMSALE = 'inv_item_mast.IntbUomSale';
+    public const COL_INTBUOMSALE = 'inv_item_mast.IntbUomSale';
 
     /**
      * the column name for the InitWght field
      */
-    const COL_INITWGHT = 'inv_item_mast.InitWght';
+    public const COL_INITWGHT = 'inv_item_mast.InitWght';
 
     /**
      * the column name for the InitBord field
      */
-    const COL_INITBORD = 'inv_item_mast.InitBord';
+    public const COL_INITBORD = 'inv_item_mast.InitBord';
 
     /**
      * the column name for the InitBaseItemId field
      */
-    const COL_INITBASEITEMID = 'inv_item_mast.InitBaseItemId';
+    public const COL_INITBASEITEMID = 'inv_item_mast.InitBaseItemId';
 
     /**
      * the column name for the InitSpecificCust field
      */
-    const COL_INITSPECIFICCUST = 'inv_item_mast.InitSpecificCust';
+    public const COL_INITSPECIFICCUST = 'inv_item_mast.InitSpecificCust';
 
     /**
      * the column name for the InitGiveDisc field
      */
-    const COL_INITGIVEDISC = 'inv_item_mast.InitGiveDisc';
+    public const COL_INITGIVEDISC = 'inv_item_mast.InitGiveDisc';
 
     /**
      * the column name for the InitAsstCode field
      */
-    const COL_INITASSTCODE = 'inv_item_mast.InitAsstCode';
+    public const COL_INITASSTCODE = 'inv_item_mast.InitAsstCode';
 
     /**
      * the column name for the InitPricLastDate field
      */
-    const COL_INITPRICLASTDATE = 'inv_item_mast.InitPricLastDate';
+    public const COL_INITPRICLASTDATE = 'inv_item_mast.InitPricLastDate';
 
     /**
      * the column name for the IntbUomPur field
      */
-    const COL_INTBUOMPUR = 'inv_item_mast.IntbUomPur';
+    public const COL_INTBUOMPUR = 'inv_item_mast.IntbUomPur';
 
     /**
      * the column name for the InitStanCost field
      */
-    const COL_INITSTANCOST = 'inv_item_mast.InitStanCost';
+    public const COL_INITSTANCOST = 'inv_item_mast.InitStanCost';
 
     /**
      * the column name for the InitStanCostBase field
      */
-    const COL_INITSTANCOSTBASE = 'inv_item_mast.InitStanCostBase';
+    public const COL_INITSTANCOSTBASE = 'inv_item_mast.InitStanCostBase';
 
     /**
      * the column name for the InitStanCostLastDate field
      */
-    const COL_INITSTANCOSTLASTDATE = 'inv_item_mast.InitStanCostLastDate';
+    public const COL_INITSTANCOSTLASTDATE = 'inv_item_mast.InitStanCostLastDate';
 
     /**
      * the column name for the InitMinMarg field
      */
-    const COL_INITMINMARG = 'inv_item_mast.InitMinMarg';
+    public const COL_INITMINMARG = 'inv_item_mast.InitMinMarg';
 
     /**
      * the column name for the InitVendId field
      */
-    const COL_INITVENDID = 'inv_item_mast.InitVendId';
+    public const COL_INITVENDID = 'inv_item_mast.InitVendId';
 
     /**
      * the column name for the InitInspect field
      */
-    const COL_INITINSPECT = 'inv_item_mast.InitInspect';
+    public const COL_INITINSPECT = 'inv_item_mast.InitInspect';
 
     /**
      * the column name for the InitStockCode field
      */
-    const COL_INITSTOCKCODE = 'inv_item_mast.InitStockCode';
+    public const COL_INITSTOCKCODE = 'inv_item_mast.InitStockCode';
 
     /**
      * the column name for the InitSuprItemNbr field
      */
-    const COL_INITSUPRITEMNBR = 'inv_item_mast.InitSuprItemNbr';
+    public const COL_INITSUPRITEMNBR = 'inv_item_mast.InitSuprItemNbr';
 
     /**
      * the column name for the InitVendShipFrom field
      */
-    const COL_INITVENDSHIPFROM = 'inv_item_mast.InitVendShipFrom';
+    public const COL_INITVENDSHIPFROM = 'inv_item_mast.InitVendShipFrom';
 
     /**
      * the column name for the InitCntryOfOrigin field
      */
-    const COL_INITCNTRYOFORIGIN = 'inv_item_mast.InitCntryOfOrigin';
+    public const COL_INITCNTRYOFORIGIN = 'inv_item_mast.InitCntryOfOrigin';
 
     /**
      * the column name for the InitAsstQty field
      */
-    const COL_INITASSTQTY = 'inv_item_mast.InitAsstQty';
+    public const COL_INITASSTQTY = 'inv_item_mast.InitAsstQty';
 
     /**
      * the column name for the IntbTariffCode field
      */
-    const COL_INTBTARIFFCODE = 'inv_item_mast.IntbTariffCode';
+    public const COL_INTBTARIFFCODE = 'inv_item_mast.IntbTariffCode';
 
     /**
      * the column name for the InitPreference field
      */
-    const COL_INITPREFERENCE = 'inv_item_mast.InitPreference';
+    public const COL_INITPREFERENCE = 'inv_item_mast.InitPreference';
 
     /**
      * the column name for the InitProducer field
      */
-    const COL_INITPRODUCER = 'inv_item_mast.InitProducer';
+    public const COL_INITPRODUCER = 'inv_item_mast.InitProducer';
 
     /**
      * the column name for the InitDocumentation field
      */
-    const COL_INITDOCUMENTATION = 'inv_item_mast.InitDocumentation';
+    public const COL_INITDOCUMENTATION = 'inv_item_mast.InitDocumentation';
 
     /**
      * the column name for the InitPurchCrtnQty field
      */
-    const COL_INITPURCHCRTNQTY = 'inv_item_mast.InitPurchCrtnQty';
+    public const COL_INITPURCHCRTNQTY = 'inv_item_mast.InitPurchCrtnQty';
 
     /**
      * the column name for the AptbBuyrCode field
      */
-    const COL_APTBBUYRCODE = 'inv_item_mast.AptbBuyrCode';
+    public const COL_APTBBUYRCODE = 'inv_item_mast.AptbBuyrCode';
 
     /**
      * the column name for the InitLastCost field
      */
-    const COL_INITLASTCOST = 'inv_item_mast.InitLastCost';
+    public const COL_INITLASTCOST = 'inv_item_mast.InitLastCost';
 
     /**
      * the column name for the InitLiters field
      */
-    const COL_INITLITERS = 'inv_item_mast.InitLiters';
+    public const COL_INITLITERS = 'inv_item_mast.InitLiters';
 
     /**
      * the column name for the IntbMsdsCode field
      */
-    const COL_INTBMSDSCODE = 'inv_item_mast.IntbMsdsCode';
+    public const COL_INTBMSDSCODE = 'inv_item_mast.IntbMsdsCode';
 
     /**
      * the column name for the InitRequireFrt field
      */
-    const COL_INITREQUIREFRT = 'inv_item_mast.InitRequireFrt';
+    public const COL_INITREQUIREFRT = 'inv_item_mast.InitRequireFrt';
 
     /**
      * the column name for the InitMfrtCode field
      */
-    const COL_INITMFRTCODE = 'inv_item_mast.InitMfrtCode';
+    public const COL_INITMFRTCODE = 'inv_item_mast.InitMfrtCode';
 
     /**
      * the column name for the InitInnerPackQty field
      */
-    const COL_INITINNERPACKQTY = 'inv_item_mast.InitInnerPackQty';
+    public const COL_INITINNERPACKQTY = 'inv_item_mast.InitInnerPackQty';
 
     /**
      * the column name for the InitOuterPackQty field
      */
-    const COL_INITOUTERPACKQTY = 'inv_item_mast.InitOuterPackQty';
+    public const COL_INITOUTERPACKQTY = 'inv_item_mast.InitOuterPackQty';
 
     /**
      * the column name for the InitBaseStanCost field
      */
-    const COL_INITBASESTANCOST = 'inv_item_mast.InitBaseStanCost';
+    public const COL_INITBASESTANCOST = 'inv_item_mast.InitBaseStanCost';
 
     /**
      * the column name for the InitShipTareQty field
      */
-    const COL_INITSHIPTAREQTY = 'inv_item_mast.InitShipTareQty';
+    public const COL_INITSHIPTAREQTY = 'inv_item_mast.InitShipTareQty';
 
     /**
      * the column name for the InitWgItem field
      */
-    const COL_INITWGITEM = 'inv_item_mast.InitWgItem';
+    public const COL_INITWGITEM = 'inv_item_mast.InitWgItem';
 
     /**
      * the column name for the IntbPricGrup field
      */
-    const COL_INTBPRICGRUP = 'inv_item_mast.IntbPricGrup';
+    public const COL_INTBPRICGRUP = 'inv_item_mast.IntbPricGrup';
 
     /**
      * the column name for the IntbCommGrup field
      */
-    const COL_INTBCOMMGRUP = 'inv_item_mast.IntbCommGrup';
+    public const COL_INTBCOMMGRUP = 'inv_item_mast.IntbCommGrup';
 
     /**
      * the column name for the InitLastCostDate field
      */
-    const COL_INITLASTCOSTDATE = 'inv_item_mast.InitLastCostDate';
+    public const COL_INITLASTCOSTDATE = 'inv_item_mast.InitLastCostDate';
 
     /**
      * the column name for the InitQtyPerCase field
      */
-    const COL_INITQTYPERCASE = 'inv_item_mast.InitQtyPerCase';
+    public const COL_INITQTYPERCASE = 'inv_item_mast.InitQtyPerCase';
 
     /**
      * the column name for the InitRevision field
      */
-    const COL_INITREVISION = 'inv_item_mast.InitRevision';
+    public const COL_INITREVISION = 'inv_item_mast.InitRevision';
 
     /**
      * the column name for the InitCommSaleQty field
      */
-    const COL_INITCOMMSALEQTY = 'inv_item_mast.InitCommSaleQty';
+    public const COL_INITCOMMSALEQTY = 'inv_item_mast.InitCommSaleQty';
 
     /**
      * the column name for the InitCubes field
      */
-    const COL_INITCUBES = 'inv_item_mast.InitCubes';
+    public const COL_INITCUBES = 'inv_item_mast.InitCubes';
 
     /**
      * the column name for the InitTimeFence field
      */
-    const COL_INITTIMEFENCE = 'inv_item_mast.InitTimeFence';
+    public const COL_INITTIMEFENCE = 'inv_item_mast.InitTimeFence';
 
     /**
      * the column name for the InitSrvcMinChrg field
      */
-    const COL_INITSRVCMINCHRG = 'inv_item_mast.InitSrvcMinChrg';
+    public const COL_INITSRVCMINCHRG = 'inv_item_mast.InitSrvcMinChrg';
 
     /**
      * the column name for the InitMinMargBase field
      */
-    const COL_INITMINMARGBASE = 'inv_item_mast.InitMinMargBase';
+    public const COL_INITMINMARGBASE = 'inv_item_mast.InitMinMargBase';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'inv_item_mast.DateUpdtd';
+    public const COL_DATEUPDTD = 'inv_item_mast.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'inv_item_mast.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'inv_item_mast.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'inv_item_mast.dummy';
+    public const COL_DUMMY = 'inv_item_mast.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr', 'Initdesc1', 'Initdesc2', 'Intbgrup', 'Initformatcode', 'Initsplit', 'Initsherdatecd', 'Initcoreyn', 'Intbusercode1', 'Intbusercode2', 'Inittype', 'Inittax', 'Initrtlpric', 'Initstatchgd', 'Initspecitemcd', 'Initwarrdays', 'Intbuomsale', 'Initwght', 'Initbord', 'Initbaseitemid', 'Initspecificcust', 'Initgivedisc', 'Initasstcode', 'Initpriclastdate', 'Intbuompur', 'Initstancost', 'Initstancostbase', 'Initstancostlastdate', 'Initminmarg', 'Initvendid', 'Initinspect', 'Initstockcode', 'Initsupritemnbr', 'Initvendshipfrom', 'Initcntryoforigin', 'Initasstqty', 'Intbtariffcode', 'Initpreference', 'Initproducer', 'Initdocumentation', 'Initpurchcrtnqty', 'Aptbbuyrcode', 'Initlastcost', 'Initliters', 'Intbmsdscode', 'Initrequirefrt', 'Initmfrtcode', 'Initinnerpackqty', 'Initouterpackqty', 'Initbasestancost', 'Initshiptareqty', 'Initwgitem', 'Intbpricgrup', 'Intbcommgrup', 'Initlastcostdate', 'Initqtypercase', 'Initrevision', 'Initcommsaleqty', 'Initcubes', 'Inittimefence', 'Initsrvcminchrg', 'InitMinMargBase', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('inititemnbr', 'initdesc1', 'initdesc2', 'intbgrup', 'initformatcode', 'initsplit', 'initsherdatecd', 'initcoreyn', 'intbusercode1', 'intbusercode2', 'inittype', 'inittax', 'initrtlpric', 'initstatchgd', 'initspecitemcd', 'initwarrdays', 'intbuomsale', 'initwght', 'initbord', 'initbaseitemid', 'initspecificcust', 'initgivedisc', 'initasstcode', 'initpriclastdate', 'intbuompur', 'initstancost', 'initstancostbase', 'initstancostlastdate', 'initminmarg', 'initvendid', 'initinspect', 'initstockcode', 'initsupritemnbr', 'initvendshipfrom', 'initcntryoforigin', 'initasstqty', 'intbtariffcode', 'initpreference', 'initproducer', 'initdocumentation', 'initpurchcrtnqty', 'aptbbuyrcode', 'initlastcost', 'initliters', 'intbmsdscode', 'initrequirefrt', 'initmfrtcode', 'initinnerpackqty', 'initouterpackqty', 'initbasestancost', 'initshiptareqty', 'initwgitem', 'intbpricgrup', 'intbcommgrup', 'initlastcostdate', 'initqtypercase', 'initrevision', 'initcommsaleqty', 'initcubes', 'inittimefence', 'initsrvcminchrg', 'initMinMargBase', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemMasterItemTableMap::COL_INITITEMNBR, ItemMasterItemTableMap::COL_INITDESC1, ItemMasterItemTableMap::COL_INITDESC2, ItemMasterItemTableMap::COL_INTBGRUP, ItemMasterItemTableMap::COL_INITFORMATCODE, ItemMasterItemTableMap::COL_INITSPLIT, ItemMasterItemTableMap::COL_INITSHERDATECD, ItemMasterItemTableMap::COL_INITCOREYN, ItemMasterItemTableMap::COL_INTBUSERCODE1, ItemMasterItemTableMap::COL_INTBUSERCODE2, ItemMasterItemTableMap::COL_INITTYPE, ItemMasterItemTableMap::COL_INITTAX, ItemMasterItemTableMap::COL_INITRTLPRIC, ItemMasterItemTableMap::COL_INITSTATCHGD, ItemMasterItemTableMap::COL_INITSPECITEMCD, ItemMasterItemTableMap::COL_INITWARRDAYS, ItemMasterItemTableMap::COL_INTBUOMSALE, ItemMasterItemTableMap::COL_INITWGHT, ItemMasterItemTableMap::COL_INITBORD, ItemMasterItemTableMap::COL_INITBASEITEMID, ItemMasterItemTableMap::COL_INITSPECIFICCUST, ItemMasterItemTableMap::COL_INITGIVEDISC, ItemMasterItemTableMap::COL_INITASSTCODE, ItemMasterItemTableMap::COL_INITPRICLASTDATE, ItemMasterItemTableMap::COL_INTBUOMPUR, ItemMasterItemTableMap::COL_INITSTANCOST, ItemMasterItemTableMap::COL_INITSTANCOSTBASE, ItemMasterItemTableMap::COL_INITSTANCOSTLASTDATE, ItemMasterItemTableMap::COL_INITMINMARG, ItemMasterItemTableMap::COL_INITVENDID, ItemMasterItemTableMap::COL_INITINSPECT, ItemMasterItemTableMap::COL_INITSTOCKCODE, ItemMasterItemTableMap::COL_INITSUPRITEMNBR, ItemMasterItemTableMap::COL_INITVENDSHIPFROM, ItemMasterItemTableMap::COL_INITCNTRYOFORIGIN, ItemMasterItemTableMap::COL_INITASSTQTY, ItemMasterItemTableMap::COL_INTBTARIFFCODE, ItemMasterItemTableMap::COL_INITPREFERENCE, ItemMasterItemTableMap::COL_INITPRODUCER, ItemMasterItemTableMap::COL_INITDOCUMENTATION, ItemMasterItemTableMap::COL_INITPURCHCRTNQTY, ItemMasterItemTableMap::COL_APTBBUYRCODE, ItemMasterItemTableMap::COL_INITLASTCOST, ItemMasterItemTableMap::COL_INITLITERS, ItemMasterItemTableMap::COL_INTBMSDSCODE, ItemMasterItemTableMap::COL_INITREQUIREFRT, ItemMasterItemTableMap::COL_INITMFRTCODE, ItemMasterItemTableMap::COL_INITINNERPACKQTY, ItemMasterItemTableMap::COL_INITOUTERPACKQTY, ItemMasterItemTableMap::COL_INITBASESTANCOST, ItemMasterItemTableMap::COL_INITSHIPTAREQTY, ItemMasterItemTableMap::COL_INITWGITEM, ItemMasterItemTableMap::COL_INTBPRICGRUP, ItemMasterItemTableMap::COL_INTBCOMMGRUP, ItemMasterItemTableMap::COL_INITLASTCOSTDATE, ItemMasterItemTableMap::COL_INITQTYPERCASE, ItemMasterItemTableMap::COL_INITREVISION, ItemMasterItemTableMap::COL_INITCOMMSALEQTY, ItemMasterItemTableMap::COL_INITCUBES, ItemMasterItemTableMap::COL_INITTIMEFENCE, ItemMasterItemTableMap::COL_INITSRVCMINCHRG, ItemMasterItemTableMap::COL_INITMINMARGBASE, ItemMasterItemTableMap::COL_DATEUPDTD, ItemMasterItemTableMap::COL_TIMEUPDTD, ItemMasterItemTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr', 'InitDesc1', 'InitDesc2', 'IntbGrup', 'InitFormatCode', 'InitSplit', 'InitSherDateCd', 'InitCoreYN', 'IntbUserCode1', 'IntbUserCode2', 'InitType', 'InitTax', 'InitRtlPric', 'InitStatChgd', 'InitSpecItemCd', 'InitWarrDays', 'IntbUomSale', 'InitWght', 'InitBord', 'InitBaseItemId', 'InitSpecificCust', 'InitGiveDisc', 'InitAsstCode', 'InitPricLastDate', 'IntbUomPur', 'InitStanCost', 'InitStanCostBase', 'InitStanCostLastDate', 'InitMinMarg', 'InitVendId', 'InitInspect', 'InitStockCode', 'InitSuprItemNbr', 'InitVendShipFrom', 'InitCntryOfOrigin', 'InitAsstQty', 'IntbTariffCode', 'InitPreference', 'InitProducer', 'InitDocumentation', 'InitPurchCrtnQty', 'AptbBuyrCode', 'InitLastCost', 'InitLiters', 'IntbMsdsCode', 'InitRequireFrt', 'InitMfrtCode', 'InitInnerPackQty', 'InitOuterPackQty', 'InitBaseStanCost', 'InitShipTareQty', 'InitWgItem', 'IntbPricGrup', 'IntbCommGrup', 'InitLastCostDate', 'InitQtyPerCase', 'InitRevision', 'InitCommSaleQty', 'InitCubes', 'InitTimeFence', 'InitSrvcMinChrg', 'InitMinMargBase', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Inititemnbr', 'Initdesc1', 'Initdesc2', 'Intbgrup', 'Initformatcode', 'Initsplit', 'Initsherdatecd', 'Initcoreyn', 'Intbusercode1', 'Intbusercode2', 'Inittype', 'Inittax', 'Initrtlpric', 'Initstatchgd', 'Initspecitemcd', 'Initwarrdays', 'Intbuomsale', 'Initwght', 'Initbord', 'Initbaseitemid', 'Initspecificcust', 'Initgivedisc', 'Initasstcode', 'Initpriclastdate', 'Intbuompur', 'Initstancost', 'Initstancostbase', 'Initstancostlastdate', 'Initminmarg', 'Initvendid', 'Initinspect', 'Initstockcode', 'Initsupritemnbr', 'Initvendshipfrom', 'Initcntryoforigin', 'Initasstqty', 'Intbtariffcode', 'Initpreference', 'Initproducer', 'Initdocumentation', 'Initpurchcrtnqty', 'Aptbbuyrcode', 'Initlastcost', 'Initliters', 'Intbmsdscode', 'Initrequirefrt', 'Initmfrtcode', 'Initinnerpackqty', 'Initouterpackqty', 'Initbasestancost', 'Initshiptareqty', 'Initwgitem', 'Intbpricgrup', 'Intbcommgrup', 'Initlastcostdate', 'Initqtypercase', 'Initrevision', 'Initcommsaleqty', 'Initcubes', 'Inittimefence', 'Initsrvcminchrg', 'InitMinMargBase', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['inititemnbr', 'initdesc1', 'initdesc2', 'intbgrup', 'initformatcode', 'initsplit', 'initsherdatecd', 'initcoreyn', 'intbusercode1', 'intbusercode2', 'inittype', 'inittax', 'initrtlpric', 'initstatchgd', 'initspecitemcd', 'initwarrdays', 'intbuomsale', 'initwght', 'initbord', 'initbaseitemid', 'initspecificcust', 'initgivedisc', 'initasstcode', 'initpriclastdate', 'intbuompur', 'initstancost', 'initstancostbase', 'initstancostlastdate', 'initminmarg', 'initvendid', 'initinspect', 'initstockcode', 'initsupritemnbr', 'initvendshipfrom', 'initcntryoforigin', 'initasstqty', 'intbtariffcode', 'initpreference', 'initproducer', 'initdocumentation', 'initpurchcrtnqty', 'aptbbuyrcode', 'initlastcost', 'initliters', 'intbmsdscode', 'initrequirefrt', 'initmfrtcode', 'initinnerpackqty', 'initouterpackqty', 'initbasestancost', 'initshiptareqty', 'initwgitem', 'intbpricgrup', 'intbcommgrup', 'initlastcostdate', 'initqtypercase', 'initrevision', 'initcommsaleqty', 'initcubes', 'inittimefence', 'initsrvcminchrg', 'initMinMargBase', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ItemMasterItemTableMap::COL_INITITEMNBR, ItemMasterItemTableMap::COL_INITDESC1, ItemMasterItemTableMap::COL_INITDESC2, ItemMasterItemTableMap::COL_INTBGRUP, ItemMasterItemTableMap::COL_INITFORMATCODE, ItemMasterItemTableMap::COL_INITSPLIT, ItemMasterItemTableMap::COL_INITSHERDATECD, ItemMasterItemTableMap::COL_INITCOREYN, ItemMasterItemTableMap::COL_INTBUSERCODE1, ItemMasterItemTableMap::COL_INTBUSERCODE2, ItemMasterItemTableMap::COL_INITTYPE, ItemMasterItemTableMap::COL_INITTAX, ItemMasterItemTableMap::COL_INITRTLPRIC, ItemMasterItemTableMap::COL_INITSTATCHGD, ItemMasterItemTableMap::COL_INITSPECITEMCD, ItemMasterItemTableMap::COL_INITWARRDAYS, ItemMasterItemTableMap::COL_INTBUOMSALE, ItemMasterItemTableMap::COL_INITWGHT, ItemMasterItemTableMap::COL_INITBORD, ItemMasterItemTableMap::COL_INITBASEITEMID, ItemMasterItemTableMap::COL_INITSPECIFICCUST, ItemMasterItemTableMap::COL_INITGIVEDISC, ItemMasterItemTableMap::COL_INITASSTCODE, ItemMasterItemTableMap::COL_INITPRICLASTDATE, ItemMasterItemTableMap::COL_INTBUOMPUR, ItemMasterItemTableMap::COL_INITSTANCOST, ItemMasterItemTableMap::COL_INITSTANCOSTBASE, ItemMasterItemTableMap::COL_INITSTANCOSTLASTDATE, ItemMasterItemTableMap::COL_INITMINMARG, ItemMasterItemTableMap::COL_INITVENDID, ItemMasterItemTableMap::COL_INITINSPECT, ItemMasterItemTableMap::COL_INITSTOCKCODE, ItemMasterItemTableMap::COL_INITSUPRITEMNBR, ItemMasterItemTableMap::COL_INITVENDSHIPFROM, ItemMasterItemTableMap::COL_INITCNTRYOFORIGIN, ItemMasterItemTableMap::COL_INITASSTQTY, ItemMasterItemTableMap::COL_INTBTARIFFCODE, ItemMasterItemTableMap::COL_INITPREFERENCE, ItemMasterItemTableMap::COL_INITPRODUCER, ItemMasterItemTableMap::COL_INITDOCUMENTATION, ItemMasterItemTableMap::COL_INITPURCHCRTNQTY, ItemMasterItemTableMap::COL_APTBBUYRCODE, ItemMasterItemTableMap::COL_INITLASTCOST, ItemMasterItemTableMap::COL_INITLITERS, ItemMasterItemTableMap::COL_INTBMSDSCODE, ItemMasterItemTableMap::COL_INITREQUIREFRT, ItemMasterItemTableMap::COL_INITMFRTCODE, ItemMasterItemTableMap::COL_INITINNERPACKQTY, ItemMasterItemTableMap::COL_INITOUTERPACKQTY, ItemMasterItemTableMap::COL_INITBASESTANCOST, ItemMasterItemTableMap::COL_INITSHIPTAREQTY, ItemMasterItemTableMap::COL_INITWGITEM, ItemMasterItemTableMap::COL_INTBPRICGRUP, ItemMasterItemTableMap::COL_INTBCOMMGRUP, ItemMasterItemTableMap::COL_INITLASTCOSTDATE, ItemMasterItemTableMap::COL_INITQTYPERCASE, ItemMasterItemTableMap::COL_INITREVISION, ItemMasterItemTableMap::COL_INITCOMMSALEQTY, ItemMasterItemTableMap::COL_INITCUBES, ItemMasterItemTableMap::COL_INITTIMEFENCE, ItemMasterItemTableMap::COL_INITSRVCMINCHRG, ItemMasterItemTableMap::COL_INITMINMARGBASE, ItemMasterItemTableMap::COL_DATEUPDTD, ItemMasterItemTableMap::COL_TIMEUPDTD, ItemMasterItemTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['InitItemNbr', 'InitDesc1', 'InitDesc2', 'IntbGrup', 'InitFormatCode', 'InitSplit', 'InitSherDateCd', 'InitCoreYN', 'IntbUserCode1', 'IntbUserCode2', 'InitType', 'InitTax', 'InitRtlPric', 'InitStatChgd', 'InitSpecItemCd', 'InitWarrDays', 'IntbUomSale', 'InitWght', 'InitBord', 'InitBaseItemId', 'InitSpecificCust', 'InitGiveDisc', 'InitAsstCode', 'InitPricLastDate', 'IntbUomPur', 'InitStanCost', 'InitStanCostBase', 'InitStanCostLastDate', 'InitMinMarg', 'InitVendId', 'InitInspect', 'InitStockCode', 'InitSuprItemNbr', 'InitVendShipFrom', 'InitCntryOfOrigin', 'InitAsstQty', 'IntbTariffCode', 'InitPreference', 'InitProducer', 'InitDocumentation', 'InitPurchCrtnQty', 'AptbBuyrCode', 'InitLastCost', 'InitLiters', 'IntbMsdsCode', 'InitRequireFrt', 'InitMfrtCode', 'InitInnerPackQty', 'InitOuterPackQty', 'InitBaseStanCost', 'InitShipTareQty', 'InitWgItem', 'IntbPricGrup', 'IntbCommGrup', 'InitLastCostDate', 'InitQtyPerCase', 'InitRevision', 'InitCommSaleQty', 'InitCubes', 'InitTimeFence', 'InitSrvcMinChrg', 'InitMinMargBase', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Initdesc1' => 1, 'Initdesc2' => 2, 'Intbgrup' => 3, 'Initformatcode' => 4, 'Initsplit' => 5, 'Initsherdatecd' => 6, 'Initcoreyn' => 7, 'Intbusercode1' => 8, 'Intbusercode2' => 9, 'Inittype' => 10, 'Inittax' => 11, 'Initrtlpric' => 12, 'Initstatchgd' => 13, 'Initspecitemcd' => 14, 'Initwarrdays' => 15, 'Intbuomsale' => 16, 'Initwght' => 17, 'Initbord' => 18, 'Initbaseitemid' => 19, 'Initspecificcust' => 20, 'Initgivedisc' => 21, 'Initasstcode' => 22, 'Initpriclastdate' => 23, 'Intbuompur' => 24, 'Initstancost' => 25, 'Initstancostbase' => 26, 'Initstancostlastdate' => 27, 'Initminmarg' => 28, 'Initvendid' => 29, 'Initinspect' => 30, 'Initstockcode' => 31, 'Initsupritemnbr' => 32, 'Initvendshipfrom' => 33, 'Initcntryoforigin' => 34, 'Initasstqty' => 35, 'Intbtariffcode' => 36, 'Initpreference' => 37, 'Initproducer' => 38, 'Initdocumentation' => 39, 'Initpurchcrtnqty' => 40, 'Aptbbuyrcode' => 41, 'Initlastcost' => 42, 'Initliters' => 43, 'Intbmsdscode' => 44, 'Initrequirefrt' => 45, 'Initmfrtcode' => 46, 'Initinnerpackqty' => 47, 'Initouterpackqty' => 48, 'Initbasestancost' => 49, 'Initshiptareqty' => 50, 'Initwgitem' => 51, 'Intbpricgrup' => 52, 'Intbcommgrup' => 53, 'Initlastcostdate' => 54, 'Initqtypercase' => 55, 'Initrevision' => 56, 'Initcommsaleqty' => 57, 'Initcubes' => 58, 'Inittimefence' => 59, 'Initsrvcminchrg' => 60, 'InitMinMargBase' => 61, 'Dateupdtd' => 62, 'Timeupdtd' => 63, 'Dummy' => 64, ),
-        self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'initdesc1' => 1, 'initdesc2' => 2, 'intbgrup' => 3, 'initformatcode' => 4, 'initsplit' => 5, 'initsherdatecd' => 6, 'initcoreyn' => 7, 'intbusercode1' => 8, 'intbusercode2' => 9, 'inittype' => 10, 'inittax' => 11, 'initrtlpric' => 12, 'initstatchgd' => 13, 'initspecitemcd' => 14, 'initwarrdays' => 15, 'intbuomsale' => 16, 'initwght' => 17, 'initbord' => 18, 'initbaseitemid' => 19, 'initspecificcust' => 20, 'initgivedisc' => 21, 'initasstcode' => 22, 'initpriclastdate' => 23, 'intbuompur' => 24, 'initstancost' => 25, 'initstancostbase' => 26, 'initstancostlastdate' => 27, 'initminmarg' => 28, 'initvendid' => 29, 'initinspect' => 30, 'initstockcode' => 31, 'initsupritemnbr' => 32, 'initvendshipfrom' => 33, 'initcntryoforigin' => 34, 'initasstqty' => 35, 'intbtariffcode' => 36, 'initpreference' => 37, 'initproducer' => 38, 'initdocumentation' => 39, 'initpurchcrtnqty' => 40, 'aptbbuyrcode' => 41, 'initlastcost' => 42, 'initliters' => 43, 'intbmsdscode' => 44, 'initrequirefrt' => 45, 'initmfrtcode' => 46, 'initinnerpackqty' => 47, 'initouterpackqty' => 48, 'initbasestancost' => 49, 'initshiptareqty' => 50, 'initwgitem' => 51, 'intbpricgrup' => 52, 'intbcommgrup' => 53, 'initlastcostdate' => 54, 'initqtypercase' => 55, 'initrevision' => 56, 'initcommsaleqty' => 57, 'initcubes' => 58, 'inittimefence' => 59, 'initsrvcminchrg' => 60, 'initMinMargBase' => 61, 'dateupdtd' => 62, 'timeupdtd' => 63, 'dummy' => 64, ),
-        self::TYPE_COLNAME       => array(ItemMasterItemTableMap::COL_INITITEMNBR => 0, ItemMasterItemTableMap::COL_INITDESC1 => 1, ItemMasterItemTableMap::COL_INITDESC2 => 2, ItemMasterItemTableMap::COL_INTBGRUP => 3, ItemMasterItemTableMap::COL_INITFORMATCODE => 4, ItemMasterItemTableMap::COL_INITSPLIT => 5, ItemMasterItemTableMap::COL_INITSHERDATECD => 6, ItemMasterItemTableMap::COL_INITCOREYN => 7, ItemMasterItemTableMap::COL_INTBUSERCODE1 => 8, ItemMasterItemTableMap::COL_INTBUSERCODE2 => 9, ItemMasterItemTableMap::COL_INITTYPE => 10, ItemMasterItemTableMap::COL_INITTAX => 11, ItemMasterItemTableMap::COL_INITRTLPRIC => 12, ItemMasterItemTableMap::COL_INITSTATCHGD => 13, ItemMasterItemTableMap::COL_INITSPECITEMCD => 14, ItemMasterItemTableMap::COL_INITWARRDAYS => 15, ItemMasterItemTableMap::COL_INTBUOMSALE => 16, ItemMasterItemTableMap::COL_INITWGHT => 17, ItemMasterItemTableMap::COL_INITBORD => 18, ItemMasterItemTableMap::COL_INITBASEITEMID => 19, ItemMasterItemTableMap::COL_INITSPECIFICCUST => 20, ItemMasterItemTableMap::COL_INITGIVEDISC => 21, ItemMasterItemTableMap::COL_INITASSTCODE => 22, ItemMasterItemTableMap::COL_INITPRICLASTDATE => 23, ItemMasterItemTableMap::COL_INTBUOMPUR => 24, ItemMasterItemTableMap::COL_INITSTANCOST => 25, ItemMasterItemTableMap::COL_INITSTANCOSTBASE => 26, ItemMasterItemTableMap::COL_INITSTANCOSTLASTDATE => 27, ItemMasterItemTableMap::COL_INITMINMARG => 28, ItemMasterItemTableMap::COL_INITVENDID => 29, ItemMasterItemTableMap::COL_INITINSPECT => 30, ItemMasterItemTableMap::COL_INITSTOCKCODE => 31, ItemMasterItemTableMap::COL_INITSUPRITEMNBR => 32, ItemMasterItemTableMap::COL_INITVENDSHIPFROM => 33, ItemMasterItemTableMap::COL_INITCNTRYOFORIGIN => 34, ItemMasterItemTableMap::COL_INITASSTQTY => 35, ItemMasterItemTableMap::COL_INTBTARIFFCODE => 36, ItemMasterItemTableMap::COL_INITPREFERENCE => 37, ItemMasterItemTableMap::COL_INITPRODUCER => 38, ItemMasterItemTableMap::COL_INITDOCUMENTATION => 39, ItemMasterItemTableMap::COL_INITPURCHCRTNQTY => 40, ItemMasterItemTableMap::COL_APTBBUYRCODE => 41, ItemMasterItemTableMap::COL_INITLASTCOST => 42, ItemMasterItemTableMap::COL_INITLITERS => 43, ItemMasterItemTableMap::COL_INTBMSDSCODE => 44, ItemMasterItemTableMap::COL_INITREQUIREFRT => 45, ItemMasterItemTableMap::COL_INITMFRTCODE => 46, ItemMasterItemTableMap::COL_INITINNERPACKQTY => 47, ItemMasterItemTableMap::COL_INITOUTERPACKQTY => 48, ItemMasterItemTableMap::COL_INITBASESTANCOST => 49, ItemMasterItemTableMap::COL_INITSHIPTAREQTY => 50, ItemMasterItemTableMap::COL_INITWGITEM => 51, ItemMasterItemTableMap::COL_INTBPRICGRUP => 52, ItemMasterItemTableMap::COL_INTBCOMMGRUP => 53, ItemMasterItemTableMap::COL_INITLASTCOSTDATE => 54, ItemMasterItemTableMap::COL_INITQTYPERCASE => 55, ItemMasterItemTableMap::COL_INITREVISION => 56, ItemMasterItemTableMap::COL_INITCOMMSALEQTY => 57, ItemMasterItemTableMap::COL_INITCUBES => 58, ItemMasterItemTableMap::COL_INITTIMEFENCE => 59, ItemMasterItemTableMap::COL_INITSRVCMINCHRG => 60, ItemMasterItemTableMap::COL_INITMINMARGBASE => 61, ItemMasterItemTableMap::COL_DATEUPDTD => 62, ItemMasterItemTableMap::COL_TIMEUPDTD => 63, ItemMasterItemTableMap::COL_DUMMY => 64, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'InitDesc1' => 1, 'InitDesc2' => 2, 'IntbGrup' => 3, 'InitFormatCode' => 4, 'InitSplit' => 5, 'InitSherDateCd' => 6, 'InitCoreYN' => 7, 'IntbUserCode1' => 8, 'IntbUserCode2' => 9, 'InitType' => 10, 'InitTax' => 11, 'InitRtlPric' => 12, 'InitStatChgd' => 13, 'InitSpecItemCd' => 14, 'InitWarrDays' => 15, 'IntbUomSale' => 16, 'InitWght' => 17, 'InitBord' => 18, 'InitBaseItemId' => 19, 'InitSpecificCust' => 20, 'InitGiveDisc' => 21, 'InitAsstCode' => 22, 'InitPricLastDate' => 23, 'IntbUomPur' => 24, 'InitStanCost' => 25, 'InitStanCostBase' => 26, 'InitStanCostLastDate' => 27, 'InitMinMarg' => 28, 'InitVendId' => 29, 'InitInspect' => 30, 'InitStockCode' => 31, 'InitSuprItemNbr' => 32, 'InitVendShipFrom' => 33, 'InitCntryOfOrigin' => 34, 'InitAsstQty' => 35, 'IntbTariffCode' => 36, 'InitPreference' => 37, 'InitProducer' => 38, 'InitDocumentation' => 39, 'InitPurchCrtnQty' => 40, 'AptbBuyrCode' => 41, 'InitLastCost' => 42, 'InitLiters' => 43, 'IntbMsdsCode' => 44, 'InitRequireFrt' => 45, 'InitMfrtCode' => 46, 'InitInnerPackQty' => 47, 'InitOuterPackQty' => 48, 'InitBaseStanCost' => 49, 'InitShipTareQty' => 50, 'InitWgItem' => 51, 'IntbPricGrup' => 52, 'IntbCommGrup' => 53, 'InitLastCostDate' => 54, 'InitQtyPerCase' => 55, 'InitRevision' => 56, 'InitCommSaleQty' => 57, 'InitCubes' => 58, 'InitTimeFence' => 59, 'InitSrvcMinChrg' => 60, 'InitMinMargBase' => 61, 'DateUpdtd' => 62, 'TimeUpdtd' => 63, 'dummy' => 64, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Inititemnbr' => 0, 'Initdesc1' => 1, 'Initdesc2' => 2, 'Intbgrup' => 3, 'Initformatcode' => 4, 'Initsplit' => 5, 'Initsherdatecd' => 6, 'Initcoreyn' => 7, 'Intbusercode1' => 8, 'Intbusercode2' => 9, 'Inittype' => 10, 'Inittax' => 11, 'Initrtlpric' => 12, 'Initstatchgd' => 13, 'Initspecitemcd' => 14, 'Initwarrdays' => 15, 'Intbuomsale' => 16, 'Initwght' => 17, 'Initbord' => 18, 'Initbaseitemid' => 19, 'Initspecificcust' => 20, 'Initgivedisc' => 21, 'Initasstcode' => 22, 'Initpriclastdate' => 23, 'Intbuompur' => 24, 'Initstancost' => 25, 'Initstancostbase' => 26, 'Initstancostlastdate' => 27, 'Initminmarg' => 28, 'Initvendid' => 29, 'Initinspect' => 30, 'Initstockcode' => 31, 'Initsupritemnbr' => 32, 'Initvendshipfrom' => 33, 'Initcntryoforigin' => 34, 'Initasstqty' => 35, 'Intbtariffcode' => 36, 'Initpreference' => 37, 'Initproducer' => 38, 'Initdocumentation' => 39, 'Initpurchcrtnqty' => 40, 'Aptbbuyrcode' => 41, 'Initlastcost' => 42, 'Initliters' => 43, 'Intbmsdscode' => 44, 'Initrequirefrt' => 45, 'Initmfrtcode' => 46, 'Initinnerpackqty' => 47, 'Initouterpackqty' => 48, 'Initbasestancost' => 49, 'Initshiptareqty' => 50, 'Initwgitem' => 51, 'Intbpricgrup' => 52, 'Intbcommgrup' => 53, 'Initlastcostdate' => 54, 'Initqtypercase' => 55, 'Initrevision' => 56, 'Initcommsaleqty' => 57, 'Initcubes' => 58, 'Inittimefence' => 59, 'Initsrvcminchrg' => 60, 'InitMinMargBase' => 61, 'Dateupdtd' => 62, 'Timeupdtd' => 63, 'Dummy' => 64, ],
+        self::TYPE_CAMELNAME     => ['inititemnbr' => 0, 'initdesc1' => 1, 'initdesc2' => 2, 'intbgrup' => 3, 'initformatcode' => 4, 'initsplit' => 5, 'initsherdatecd' => 6, 'initcoreyn' => 7, 'intbusercode1' => 8, 'intbusercode2' => 9, 'inittype' => 10, 'inittax' => 11, 'initrtlpric' => 12, 'initstatchgd' => 13, 'initspecitemcd' => 14, 'initwarrdays' => 15, 'intbuomsale' => 16, 'initwght' => 17, 'initbord' => 18, 'initbaseitemid' => 19, 'initspecificcust' => 20, 'initgivedisc' => 21, 'initasstcode' => 22, 'initpriclastdate' => 23, 'intbuompur' => 24, 'initstancost' => 25, 'initstancostbase' => 26, 'initstancostlastdate' => 27, 'initminmarg' => 28, 'initvendid' => 29, 'initinspect' => 30, 'initstockcode' => 31, 'initsupritemnbr' => 32, 'initvendshipfrom' => 33, 'initcntryoforigin' => 34, 'initasstqty' => 35, 'intbtariffcode' => 36, 'initpreference' => 37, 'initproducer' => 38, 'initdocumentation' => 39, 'initpurchcrtnqty' => 40, 'aptbbuyrcode' => 41, 'initlastcost' => 42, 'initliters' => 43, 'intbmsdscode' => 44, 'initrequirefrt' => 45, 'initmfrtcode' => 46, 'initinnerpackqty' => 47, 'initouterpackqty' => 48, 'initbasestancost' => 49, 'initshiptareqty' => 50, 'initwgitem' => 51, 'intbpricgrup' => 52, 'intbcommgrup' => 53, 'initlastcostdate' => 54, 'initqtypercase' => 55, 'initrevision' => 56, 'initcommsaleqty' => 57, 'initcubes' => 58, 'inittimefence' => 59, 'initsrvcminchrg' => 60, 'initMinMargBase' => 61, 'dateupdtd' => 62, 'timeupdtd' => 63, 'dummy' => 64, ],
+        self::TYPE_COLNAME       => [ItemMasterItemTableMap::COL_INITITEMNBR => 0, ItemMasterItemTableMap::COL_INITDESC1 => 1, ItemMasterItemTableMap::COL_INITDESC2 => 2, ItemMasterItemTableMap::COL_INTBGRUP => 3, ItemMasterItemTableMap::COL_INITFORMATCODE => 4, ItemMasterItemTableMap::COL_INITSPLIT => 5, ItemMasterItemTableMap::COL_INITSHERDATECD => 6, ItemMasterItemTableMap::COL_INITCOREYN => 7, ItemMasterItemTableMap::COL_INTBUSERCODE1 => 8, ItemMasterItemTableMap::COL_INTBUSERCODE2 => 9, ItemMasterItemTableMap::COL_INITTYPE => 10, ItemMasterItemTableMap::COL_INITTAX => 11, ItemMasterItemTableMap::COL_INITRTLPRIC => 12, ItemMasterItemTableMap::COL_INITSTATCHGD => 13, ItemMasterItemTableMap::COL_INITSPECITEMCD => 14, ItemMasterItemTableMap::COL_INITWARRDAYS => 15, ItemMasterItemTableMap::COL_INTBUOMSALE => 16, ItemMasterItemTableMap::COL_INITWGHT => 17, ItemMasterItemTableMap::COL_INITBORD => 18, ItemMasterItemTableMap::COL_INITBASEITEMID => 19, ItemMasterItemTableMap::COL_INITSPECIFICCUST => 20, ItemMasterItemTableMap::COL_INITGIVEDISC => 21, ItemMasterItemTableMap::COL_INITASSTCODE => 22, ItemMasterItemTableMap::COL_INITPRICLASTDATE => 23, ItemMasterItemTableMap::COL_INTBUOMPUR => 24, ItemMasterItemTableMap::COL_INITSTANCOST => 25, ItemMasterItemTableMap::COL_INITSTANCOSTBASE => 26, ItemMasterItemTableMap::COL_INITSTANCOSTLASTDATE => 27, ItemMasterItemTableMap::COL_INITMINMARG => 28, ItemMasterItemTableMap::COL_INITVENDID => 29, ItemMasterItemTableMap::COL_INITINSPECT => 30, ItemMasterItemTableMap::COL_INITSTOCKCODE => 31, ItemMasterItemTableMap::COL_INITSUPRITEMNBR => 32, ItemMasterItemTableMap::COL_INITVENDSHIPFROM => 33, ItemMasterItemTableMap::COL_INITCNTRYOFORIGIN => 34, ItemMasterItemTableMap::COL_INITASSTQTY => 35, ItemMasterItemTableMap::COL_INTBTARIFFCODE => 36, ItemMasterItemTableMap::COL_INITPREFERENCE => 37, ItemMasterItemTableMap::COL_INITPRODUCER => 38, ItemMasterItemTableMap::COL_INITDOCUMENTATION => 39, ItemMasterItemTableMap::COL_INITPURCHCRTNQTY => 40, ItemMasterItemTableMap::COL_APTBBUYRCODE => 41, ItemMasterItemTableMap::COL_INITLASTCOST => 42, ItemMasterItemTableMap::COL_INITLITERS => 43, ItemMasterItemTableMap::COL_INTBMSDSCODE => 44, ItemMasterItemTableMap::COL_INITREQUIREFRT => 45, ItemMasterItemTableMap::COL_INITMFRTCODE => 46, ItemMasterItemTableMap::COL_INITINNERPACKQTY => 47, ItemMasterItemTableMap::COL_INITOUTERPACKQTY => 48, ItemMasterItemTableMap::COL_INITBASESTANCOST => 49, ItemMasterItemTableMap::COL_INITSHIPTAREQTY => 50, ItemMasterItemTableMap::COL_INITWGITEM => 51, ItemMasterItemTableMap::COL_INTBPRICGRUP => 52, ItemMasterItemTableMap::COL_INTBCOMMGRUP => 53, ItemMasterItemTableMap::COL_INITLASTCOSTDATE => 54, ItemMasterItemTableMap::COL_INITQTYPERCASE => 55, ItemMasterItemTableMap::COL_INITREVISION => 56, ItemMasterItemTableMap::COL_INITCOMMSALEQTY => 57, ItemMasterItemTableMap::COL_INITCUBES => 58, ItemMasterItemTableMap::COL_INITTIMEFENCE => 59, ItemMasterItemTableMap::COL_INITSRVCMINCHRG => 60, ItemMasterItemTableMap::COL_INITMINMARGBASE => 61, ItemMasterItemTableMap::COL_DATEUPDTD => 62, ItemMasterItemTableMap::COL_TIMEUPDTD => 63, ItemMasterItemTableMap::COL_DUMMY => 64, ],
+        self::TYPE_FIELDNAME     => ['InitItemNbr' => 0, 'InitDesc1' => 1, 'InitDesc2' => 2, 'IntbGrup' => 3, 'InitFormatCode' => 4, 'InitSplit' => 5, 'InitSherDateCd' => 6, 'InitCoreYN' => 7, 'IntbUserCode1' => 8, 'IntbUserCode2' => 9, 'InitType' => 10, 'InitTax' => 11, 'InitRtlPric' => 12, 'InitStatChgd' => 13, 'InitSpecItemCd' => 14, 'InitWarrDays' => 15, 'IntbUomSale' => 16, 'InitWght' => 17, 'InitBord' => 18, 'InitBaseItemId' => 19, 'InitSpecificCust' => 20, 'InitGiveDisc' => 21, 'InitAsstCode' => 22, 'InitPricLastDate' => 23, 'IntbUomPur' => 24, 'InitStanCost' => 25, 'InitStanCostBase' => 26, 'InitStanCostLastDate' => 27, 'InitMinMarg' => 28, 'InitVendId' => 29, 'InitInspect' => 30, 'InitStockCode' => 31, 'InitSuprItemNbr' => 32, 'InitVendShipFrom' => 33, 'InitCntryOfOrigin' => 34, 'InitAsstQty' => 35, 'IntbTariffCode' => 36, 'InitPreference' => 37, 'InitProducer' => 38, 'InitDocumentation' => 39, 'InitPurchCrtnQty' => 40, 'AptbBuyrCode' => 41, 'InitLastCost' => 42, 'InitLiters' => 43, 'IntbMsdsCode' => 44, 'InitRequireFrt' => 45, 'InitMfrtCode' => 46, 'InitInnerPackQty' => 47, 'InitOuterPackQty' => 48, 'InitBaseStanCost' => 49, 'InitShipTareQty' => 50, 'InitWgItem' => 51, 'IntbPricGrup' => 52, 'IntbCommGrup' => 53, 'InitLastCostDate' => 54, 'InitQtyPerCase' => 55, 'InitRevision' => 56, 'InitCommSaleQty' => 57, 'InitCubes' => 58, 'InitTimeFence' => 59, 'InitSrvcMinChrg' => 60, 'InitMinMargBase' => 61, 'DateUpdtd' => 62, 'TimeUpdtd' => 63, 'dummy' => 64, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Inititemnbr' => 'INITITEMNBR',
+        'ItemMasterItem.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'itemMasterItem.inititemnbr' => 'INITITEMNBR',
+        'ItemMasterItemTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'inv_item_mast.InitItemNbr' => 'INITITEMNBR',
+        'Initdesc1' => 'INITDESC1',
+        'ItemMasterItem.Initdesc1' => 'INITDESC1',
+        'initdesc1' => 'INITDESC1',
+        'itemMasterItem.initdesc1' => 'INITDESC1',
+        'ItemMasterItemTableMap::COL_INITDESC1' => 'INITDESC1',
+        'COL_INITDESC1' => 'INITDESC1',
+        'InitDesc1' => 'INITDESC1',
+        'inv_item_mast.InitDesc1' => 'INITDESC1',
+        'Initdesc2' => 'INITDESC2',
+        'ItemMasterItem.Initdesc2' => 'INITDESC2',
+        'initdesc2' => 'INITDESC2',
+        'itemMasterItem.initdesc2' => 'INITDESC2',
+        'ItemMasterItemTableMap::COL_INITDESC2' => 'INITDESC2',
+        'COL_INITDESC2' => 'INITDESC2',
+        'InitDesc2' => 'INITDESC2',
+        'inv_item_mast.InitDesc2' => 'INITDESC2',
+        'Intbgrup' => 'INTBGRUP',
+        'ItemMasterItem.Intbgrup' => 'INTBGRUP',
+        'intbgrup' => 'INTBGRUP',
+        'itemMasterItem.intbgrup' => 'INTBGRUP',
+        'ItemMasterItemTableMap::COL_INTBGRUP' => 'INTBGRUP',
+        'COL_INTBGRUP' => 'INTBGRUP',
+        'IntbGrup' => 'INTBGRUP',
+        'inv_item_mast.IntbGrup' => 'INTBGRUP',
+        'Initformatcode' => 'INITFORMATCODE',
+        'ItemMasterItem.Initformatcode' => 'INITFORMATCODE',
+        'initformatcode' => 'INITFORMATCODE',
+        'itemMasterItem.initformatcode' => 'INITFORMATCODE',
+        'ItemMasterItemTableMap::COL_INITFORMATCODE' => 'INITFORMATCODE',
+        'COL_INITFORMATCODE' => 'INITFORMATCODE',
+        'InitFormatCode' => 'INITFORMATCODE',
+        'inv_item_mast.InitFormatCode' => 'INITFORMATCODE',
+        'Initsplit' => 'INITSPLIT',
+        'ItemMasterItem.Initsplit' => 'INITSPLIT',
+        'initsplit' => 'INITSPLIT',
+        'itemMasterItem.initsplit' => 'INITSPLIT',
+        'ItemMasterItemTableMap::COL_INITSPLIT' => 'INITSPLIT',
+        'COL_INITSPLIT' => 'INITSPLIT',
+        'InitSplit' => 'INITSPLIT',
+        'inv_item_mast.InitSplit' => 'INITSPLIT',
+        'Initsherdatecd' => 'INITSHERDATECD',
+        'ItemMasterItem.Initsherdatecd' => 'INITSHERDATECD',
+        'initsherdatecd' => 'INITSHERDATECD',
+        'itemMasterItem.initsherdatecd' => 'INITSHERDATECD',
+        'ItemMasterItemTableMap::COL_INITSHERDATECD' => 'INITSHERDATECD',
+        'COL_INITSHERDATECD' => 'INITSHERDATECD',
+        'InitSherDateCd' => 'INITSHERDATECD',
+        'inv_item_mast.InitSherDateCd' => 'INITSHERDATECD',
+        'Initcoreyn' => 'INITCOREYN',
+        'ItemMasterItem.Initcoreyn' => 'INITCOREYN',
+        'initcoreyn' => 'INITCOREYN',
+        'itemMasterItem.initcoreyn' => 'INITCOREYN',
+        'ItemMasterItemTableMap::COL_INITCOREYN' => 'INITCOREYN',
+        'COL_INITCOREYN' => 'INITCOREYN',
+        'InitCoreYN' => 'INITCOREYN',
+        'inv_item_mast.InitCoreYN' => 'INITCOREYN',
+        'Intbusercode1' => 'INTBUSERCODE1',
+        'ItemMasterItem.Intbusercode1' => 'INTBUSERCODE1',
+        'intbusercode1' => 'INTBUSERCODE1',
+        'itemMasterItem.intbusercode1' => 'INTBUSERCODE1',
+        'ItemMasterItemTableMap::COL_INTBUSERCODE1' => 'INTBUSERCODE1',
+        'COL_INTBUSERCODE1' => 'INTBUSERCODE1',
+        'IntbUserCode1' => 'INTBUSERCODE1',
+        'inv_item_mast.IntbUserCode1' => 'INTBUSERCODE1',
+        'Intbusercode2' => 'INTBUSERCODE2',
+        'ItemMasterItem.Intbusercode2' => 'INTBUSERCODE2',
+        'intbusercode2' => 'INTBUSERCODE2',
+        'itemMasterItem.intbusercode2' => 'INTBUSERCODE2',
+        'ItemMasterItemTableMap::COL_INTBUSERCODE2' => 'INTBUSERCODE2',
+        'COL_INTBUSERCODE2' => 'INTBUSERCODE2',
+        'IntbUserCode2' => 'INTBUSERCODE2',
+        'inv_item_mast.IntbUserCode2' => 'INTBUSERCODE2',
+        'Inittype' => 'INITTYPE',
+        'ItemMasterItem.Inittype' => 'INITTYPE',
+        'inittype' => 'INITTYPE',
+        'itemMasterItem.inittype' => 'INITTYPE',
+        'ItemMasterItemTableMap::COL_INITTYPE' => 'INITTYPE',
+        'COL_INITTYPE' => 'INITTYPE',
+        'InitType' => 'INITTYPE',
+        'inv_item_mast.InitType' => 'INITTYPE',
+        'Inittax' => 'INITTAX',
+        'ItemMasterItem.Inittax' => 'INITTAX',
+        'inittax' => 'INITTAX',
+        'itemMasterItem.inittax' => 'INITTAX',
+        'ItemMasterItemTableMap::COL_INITTAX' => 'INITTAX',
+        'COL_INITTAX' => 'INITTAX',
+        'InitTax' => 'INITTAX',
+        'inv_item_mast.InitTax' => 'INITTAX',
+        'Initrtlpric' => 'INITRTLPRIC',
+        'ItemMasterItem.Initrtlpric' => 'INITRTLPRIC',
+        'initrtlpric' => 'INITRTLPRIC',
+        'itemMasterItem.initrtlpric' => 'INITRTLPRIC',
+        'ItemMasterItemTableMap::COL_INITRTLPRIC' => 'INITRTLPRIC',
+        'COL_INITRTLPRIC' => 'INITRTLPRIC',
+        'InitRtlPric' => 'INITRTLPRIC',
+        'inv_item_mast.InitRtlPric' => 'INITRTLPRIC',
+        'Initstatchgd' => 'INITSTATCHGD',
+        'ItemMasterItem.Initstatchgd' => 'INITSTATCHGD',
+        'initstatchgd' => 'INITSTATCHGD',
+        'itemMasterItem.initstatchgd' => 'INITSTATCHGD',
+        'ItemMasterItemTableMap::COL_INITSTATCHGD' => 'INITSTATCHGD',
+        'COL_INITSTATCHGD' => 'INITSTATCHGD',
+        'InitStatChgd' => 'INITSTATCHGD',
+        'inv_item_mast.InitStatChgd' => 'INITSTATCHGD',
+        'Initspecitemcd' => 'INITSPECITEMCD',
+        'ItemMasterItem.Initspecitemcd' => 'INITSPECITEMCD',
+        'initspecitemcd' => 'INITSPECITEMCD',
+        'itemMasterItem.initspecitemcd' => 'INITSPECITEMCD',
+        'ItemMasterItemTableMap::COL_INITSPECITEMCD' => 'INITSPECITEMCD',
+        'COL_INITSPECITEMCD' => 'INITSPECITEMCD',
+        'InitSpecItemCd' => 'INITSPECITEMCD',
+        'inv_item_mast.InitSpecItemCd' => 'INITSPECITEMCD',
+        'Initwarrdays' => 'INITWARRDAYS',
+        'ItemMasterItem.Initwarrdays' => 'INITWARRDAYS',
+        'initwarrdays' => 'INITWARRDAYS',
+        'itemMasterItem.initwarrdays' => 'INITWARRDAYS',
+        'ItemMasterItemTableMap::COL_INITWARRDAYS' => 'INITWARRDAYS',
+        'COL_INITWARRDAYS' => 'INITWARRDAYS',
+        'InitWarrDays' => 'INITWARRDAYS',
+        'inv_item_mast.InitWarrDays' => 'INITWARRDAYS',
+        'Intbuomsale' => 'INTBUOMSALE',
+        'ItemMasterItem.Intbuomsale' => 'INTBUOMSALE',
+        'intbuomsale' => 'INTBUOMSALE',
+        'itemMasterItem.intbuomsale' => 'INTBUOMSALE',
+        'ItemMasterItemTableMap::COL_INTBUOMSALE' => 'INTBUOMSALE',
+        'COL_INTBUOMSALE' => 'INTBUOMSALE',
+        'IntbUomSale' => 'INTBUOMSALE',
+        'inv_item_mast.IntbUomSale' => 'INTBUOMSALE',
+        'Initwght' => 'INITWGHT',
+        'ItemMasterItem.Initwght' => 'INITWGHT',
+        'initwght' => 'INITWGHT',
+        'itemMasterItem.initwght' => 'INITWGHT',
+        'ItemMasterItemTableMap::COL_INITWGHT' => 'INITWGHT',
+        'COL_INITWGHT' => 'INITWGHT',
+        'InitWght' => 'INITWGHT',
+        'inv_item_mast.InitWght' => 'INITWGHT',
+        'Initbord' => 'INITBORD',
+        'ItemMasterItem.Initbord' => 'INITBORD',
+        'initbord' => 'INITBORD',
+        'itemMasterItem.initbord' => 'INITBORD',
+        'ItemMasterItemTableMap::COL_INITBORD' => 'INITBORD',
+        'COL_INITBORD' => 'INITBORD',
+        'InitBord' => 'INITBORD',
+        'inv_item_mast.InitBord' => 'INITBORD',
+        'Initbaseitemid' => 'INITBASEITEMID',
+        'ItemMasterItem.Initbaseitemid' => 'INITBASEITEMID',
+        'initbaseitemid' => 'INITBASEITEMID',
+        'itemMasterItem.initbaseitemid' => 'INITBASEITEMID',
+        'ItemMasterItemTableMap::COL_INITBASEITEMID' => 'INITBASEITEMID',
+        'COL_INITBASEITEMID' => 'INITBASEITEMID',
+        'InitBaseItemId' => 'INITBASEITEMID',
+        'inv_item_mast.InitBaseItemId' => 'INITBASEITEMID',
+        'Initspecificcust' => 'INITSPECIFICCUST',
+        'ItemMasterItem.Initspecificcust' => 'INITSPECIFICCUST',
+        'initspecificcust' => 'INITSPECIFICCUST',
+        'itemMasterItem.initspecificcust' => 'INITSPECIFICCUST',
+        'ItemMasterItemTableMap::COL_INITSPECIFICCUST' => 'INITSPECIFICCUST',
+        'COL_INITSPECIFICCUST' => 'INITSPECIFICCUST',
+        'InitSpecificCust' => 'INITSPECIFICCUST',
+        'inv_item_mast.InitSpecificCust' => 'INITSPECIFICCUST',
+        'Initgivedisc' => 'INITGIVEDISC',
+        'ItemMasterItem.Initgivedisc' => 'INITGIVEDISC',
+        'initgivedisc' => 'INITGIVEDISC',
+        'itemMasterItem.initgivedisc' => 'INITGIVEDISC',
+        'ItemMasterItemTableMap::COL_INITGIVEDISC' => 'INITGIVEDISC',
+        'COL_INITGIVEDISC' => 'INITGIVEDISC',
+        'InitGiveDisc' => 'INITGIVEDISC',
+        'inv_item_mast.InitGiveDisc' => 'INITGIVEDISC',
+        'Initasstcode' => 'INITASSTCODE',
+        'ItemMasterItem.Initasstcode' => 'INITASSTCODE',
+        'initasstcode' => 'INITASSTCODE',
+        'itemMasterItem.initasstcode' => 'INITASSTCODE',
+        'ItemMasterItemTableMap::COL_INITASSTCODE' => 'INITASSTCODE',
+        'COL_INITASSTCODE' => 'INITASSTCODE',
+        'InitAsstCode' => 'INITASSTCODE',
+        'inv_item_mast.InitAsstCode' => 'INITASSTCODE',
+        'Initpriclastdate' => 'INITPRICLASTDATE',
+        'ItemMasterItem.Initpriclastdate' => 'INITPRICLASTDATE',
+        'initpriclastdate' => 'INITPRICLASTDATE',
+        'itemMasterItem.initpriclastdate' => 'INITPRICLASTDATE',
+        'ItemMasterItemTableMap::COL_INITPRICLASTDATE' => 'INITPRICLASTDATE',
+        'COL_INITPRICLASTDATE' => 'INITPRICLASTDATE',
+        'InitPricLastDate' => 'INITPRICLASTDATE',
+        'inv_item_mast.InitPricLastDate' => 'INITPRICLASTDATE',
+        'Intbuompur' => 'INTBUOMPUR',
+        'ItemMasterItem.Intbuompur' => 'INTBUOMPUR',
+        'intbuompur' => 'INTBUOMPUR',
+        'itemMasterItem.intbuompur' => 'INTBUOMPUR',
+        'ItemMasterItemTableMap::COL_INTBUOMPUR' => 'INTBUOMPUR',
+        'COL_INTBUOMPUR' => 'INTBUOMPUR',
+        'IntbUomPur' => 'INTBUOMPUR',
+        'inv_item_mast.IntbUomPur' => 'INTBUOMPUR',
+        'Initstancost' => 'INITSTANCOST',
+        'ItemMasterItem.Initstancost' => 'INITSTANCOST',
+        'initstancost' => 'INITSTANCOST',
+        'itemMasterItem.initstancost' => 'INITSTANCOST',
+        'ItemMasterItemTableMap::COL_INITSTANCOST' => 'INITSTANCOST',
+        'COL_INITSTANCOST' => 'INITSTANCOST',
+        'InitStanCost' => 'INITSTANCOST',
+        'inv_item_mast.InitStanCost' => 'INITSTANCOST',
+        'Initstancostbase' => 'INITSTANCOSTBASE',
+        'ItemMasterItem.Initstancostbase' => 'INITSTANCOSTBASE',
+        'initstancostbase' => 'INITSTANCOSTBASE',
+        'itemMasterItem.initstancostbase' => 'INITSTANCOSTBASE',
+        'ItemMasterItemTableMap::COL_INITSTANCOSTBASE' => 'INITSTANCOSTBASE',
+        'COL_INITSTANCOSTBASE' => 'INITSTANCOSTBASE',
+        'InitStanCostBase' => 'INITSTANCOSTBASE',
+        'inv_item_mast.InitStanCostBase' => 'INITSTANCOSTBASE',
+        'Initstancostlastdate' => 'INITSTANCOSTLASTDATE',
+        'ItemMasterItem.Initstancostlastdate' => 'INITSTANCOSTLASTDATE',
+        'initstancostlastdate' => 'INITSTANCOSTLASTDATE',
+        'itemMasterItem.initstancostlastdate' => 'INITSTANCOSTLASTDATE',
+        'ItemMasterItemTableMap::COL_INITSTANCOSTLASTDATE' => 'INITSTANCOSTLASTDATE',
+        'COL_INITSTANCOSTLASTDATE' => 'INITSTANCOSTLASTDATE',
+        'InitStanCostLastDate' => 'INITSTANCOSTLASTDATE',
+        'inv_item_mast.InitStanCostLastDate' => 'INITSTANCOSTLASTDATE',
+        'Initminmarg' => 'INITMINMARG',
+        'ItemMasterItem.Initminmarg' => 'INITMINMARG',
+        'initminmarg' => 'INITMINMARG',
+        'itemMasterItem.initminmarg' => 'INITMINMARG',
+        'ItemMasterItemTableMap::COL_INITMINMARG' => 'INITMINMARG',
+        'COL_INITMINMARG' => 'INITMINMARG',
+        'InitMinMarg' => 'INITMINMARG',
+        'inv_item_mast.InitMinMarg' => 'INITMINMARG',
+        'Initvendid' => 'INITVENDID',
+        'ItemMasterItem.Initvendid' => 'INITVENDID',
+        'initvendid' => 'INITVENDID',
+        'itemMasterItem.initvendid' => 'INITVENDID',
+        'ItemMasterItemTableMap::COL_INITVENDID' => 'INITVENDID',
+        'COL_INITVENDID' => 'INITVENDID',
+        'InitVendId' => 'INITVENDID',
+        'inv_item_mast.InitVendId' => 'INITVENDID',
+        'Initinspect' => 'INITINSPECT',
+        'ItemMasterItem.Initinspect' => 'INITINSPECT',
+        'initinspect' => 'INITINSPECT',
+        'itemMasterItem.initinspect' => 'INITINSPECT',
+        'ItemMasterItemTableMap::COL_INITINSPECT' => 'INITINSPECT',
+        'COL_INITINSPECT' => 'INITINSPECT',
+        'InitInspect' => 'INITINSPECT',
+        'inv_item_mast.InitInspect' => 'INITINSPECT',
+        'Initstockcode' => 'INITSTOCKCODE',
+        'ItemMasterItem.Initstockcode' => 'INITSTOCKCODE',
+        'initstockcode' => 'INITSTOCKCODE',
+        'itemMasterItem.initstockcode' => 'INITSTOCKCODE',
+        'ItemMasterItemTableMap::COL_INITSTOCKCODE' => 'INITSTOCKCODE',
+        'COL_INITSTOCKCODE' => 'INITSTOCKCODE',
+        'InitStockCode' => 'INITSTOCKCODE',
+        'inv_item_mast.InitStockCode' => 'INITSTOCKCODE',
+        'Initsupritemnbr' => 'INITSUPRITEMNBR',
+        'ItemMasterItem.Initsupritemnbr' => 'INITSUPRITEMNBR',
+        'initsupritemnbr' => 'INITSUPRITEMNBR',
+        'itemMasterItem.initsupritemnbr' => 'INITSUPRITEMNBR',
+        'ItemMasterItemTableMap::COL_INITSUPRITEMNBR' => 'INITSUPRITEMNBR',
+        'COL_INITSUPRITEMNBR' => 'INITSUPRITEMNBR',
+        'InitSuprItemNbr' => 'INITSUPRITEMNBR',
+        'inv_item_mast.InitSuprItemNbr' => 'INITSUPRITEMNBR',
+        'Initvendshipfrom' => 'INITVENDSHIPFROM',
+        'ItemMasterItem.Initvendshipfrom' => 'INITVENDSHIPFROM',
+        'initvendshipfrom' => 'INITVENDSHIPFROM',
+        'itemMasterItem.initvendshipfrom' => 'INITVENDSHIPFROM',
+        'ItemMasterItemTableMap::COL_INITVENDSHIPFROM' => 'INITVENDSHIPFROM',
+        'COL_INITVENDSHIPFROM' => 'INITVENDSHIPFROM',
+        'InitVendShipFrom' => 'INITVENDSHIPFROM',
+        'inv_item_mast.InitVendShipFrom' => 'INITVENDSHIPFROM',
+        'Initcntryoforigin' => 'INITCNTRYOFORIGIN',
+        'ItemMasterItem.Initcntryoforigin' => 'INITCNTRYOFORIGIN',
+        'initcntryoforigin' => 'INITCNTRYOFORIGIN',
+        'itemMasterItem.initcntryoforigin' => 'INITCNTRYOFORIGIN',
+        'ItemMasterItemTableMap::COL_INITCNTRYOFORIGIN' => 'INITCNTRYOFORIGIN',
+        'COL_INITCNTRYOFORIGIN' => 'INITCNTRYOFORIGIN',
+        'InitCntryOfOrigin' => 'INITCNTRYOFORIGIN',
+        'inv_item_mast.InitCntryOfOrigin' => 'INITCNTRYOFORIGIN',
+        'Initasstqty' => 'INITASSTQTY',
+        'ItemMasterItem.Initasstqty' => 'INITASSTQTY',
+        'initasstqty' => 'INITASSTQTY',
+        'itemMasterItem.initasstqty' => 'INITASSTQTY',
+        'ItemMasterItemTableMap::COL_INITASSTQTY' => 'INITASSTQTY',
+        'COL_INITASSTQTY' => 'INITASSTQTY',
+        'InitAsstQty' => 'INITASSTQTY',
+        'inv_item_mast.InitAsstQty' => 'INITASSTQTY',
+        'Intbtariffcode' => 'INTBTARIFFCODE',
+        'ItemMasterItem.Intbtariffcode' => 'INTBTARIFFCODE',
+        'intbtariffcode' => 'INTBTARIFFCODE',
+        'itemMasterItem.intbtariffcode' => 'INTBTARIFFCODE',
+        'ItemMasterItemTableMap::COL_INTBTARIFFCODE' => 'INTBTARIFFCODE',
+        'COL_INTBTARIFFCODE' => 'INTBTARIFFCODE',
+        'IntbTariffCode' => 'INTBTARIFFCODE',
+        'inv_item_mast.IntbTariffCode' => 'INTBTARIFFCODE',
+        'Initpreference' => 'INITPREFERENCE',
+        'ItemMasterItem.Initpreference' => 'INITPREFERENCE',
+        'initpreference' => 'INITPREFERENCE',
+        'itemMasterItem.initpreference' => 'INITPREFERENCE',
+        'ItemMasterItemTableMap::COL_INITPREFERENCE' => 'INITPREFERENCE',
+        'COL_INITPREFERENCE' => 'INITPREFERENCE',
+        'InitPreference' => 'INITPREFERENCE',
+        'inv_item_mast.InitPreference' => 'INITPREFERENCE',
+        'Initproducer' => 'INITPRODUCER',
+        'ItemMasterItem.Initproducer' => 'INITPRODUCER',
+        'initproducer' => 'INITPRODUCER',
+        'itemMasterItem.initproducer' => 'INITPRODUCER',
+        'ItemMasterItemTableMap::COL_INITPRODUCER' => 'INITPRODUCER',
+        'COL_INITPRODUCER' => 'INITPRODUCER',
+        'InitProducer' => 'INITPRODUCER',
+        'inv_item_mast.InitProducer' => 'INITPRODUCER',
+        'Initdocumentation' => 'INITDOCUMENTATION',
+        'ItemMasterItem.Initdocumentation' => 'INITDOCUMENTATION',
+        'initdocumentation' => 'INITDOCUMENTATION',
+        'itemMasterItem.initdocumentation' => 'INITDOCUMENTATION',
+        'ItemMasterItemTableMap::COL_INITDOCUMENTATION' => 'INITDOCUMENTATION',
+        'COL_INITDOCUMENTATION' => 'INITDOCUMENTATION',
+        'InitDocumentation' => 'INITDOCUMENTATION',
+        'inv_item_mast.InitDocumentation' => 'INITDOCUMENTATION',
+        'Initpurchcrtnqty' => 'INITPURCHCRTNQTY',
+        'ItemMasterItem.Initpurchcrtnqty' => 'INITPURCHCRTNQTY',
+        'initpurchcrtnqty' => 'INITPURCHCRTNQTY',
+        'itemMasterItem.initpurchcrtnqty' => 'INITPURCHCRTNQTY',
+        'ItemMasterItemTableMap::COL_INITPURCHCRTNQTY' => 'INITPURCHCRTNQTY',
+        'COL_INITPURCHCRTNQTY' => 'INITPURCHCRTNQTY',
+        'InitPurchCrtnQty' => 'INITPURCHCRTNQTY',
+        'inv_item_mast.InitPurchCrtnQty' => 'INITPURCHCRTNQTY',
+        'Aptbbuyrcode' => 'APTBBUYRCODE',
+        'ItemMasterItem.Aptbbuyrcode' => 'APTBBUYRCODE',
+        'aptbbuyrcode' => 'APTBBUYRCODE',
+        'itemMasterItem.aptbbuyrcode' => 'APTBBUYRCODE',
+        'ItemMasterItemTableMap::COL_APTBBUYRCODE' => 'APTBBUYRCODE',
+        'COL_APTBBUYRCODE' => 'APTBBUYRCODE',
+        'AptbBuyrCode' => 'APTBBUYRCODE',
+        'inv_item_mast.AptbBuyrCode' => 'APTBBUYRCODE',
+        'Initlastcost' => 'INITLASTCOST',
+        'ItemMasterItem.Initlastcost' => 'INITLASTCOST',
+        'initlastcost' => 'INITLASTCOST',
+        'itemMasterItem.initlastcost' => 'INITLASTCOST',
+        'ItemMasterItemTableMap::COL_INITLASTCOST' => 'INITLASTCOST',
+        'COL_INITLASTCOST' => 'INITLASTCOST',
+        'InitLastCost' => 'INITLASTCOST',
+        'inv_item_mast.InitLastCost' => 'INITLASTCOST',
+        'Initliters' => 'INITLITERS',
+        'ItemMasterItem.Initliters' => 'INITLITERS',
+        'initliters' => 'INITLITERS',
+        'itemMasterItem.initliters' => 'INITLITERS',
+        'ItemMasterItemTableMap::COL_INITLITERS' => 'INITLITERS',
+        'COL_INITLITERS' => 'INITLITERS',
+        'InitLiters' => 'INITLITERS',
+        'inv_item_mast.InitLiters' => 'INITLITERS',
+        'Intbmsdscode' => 'INTBMSDSCODE',
+        'ItemMasterItem.Intbmsdscode' => 'INTBMSDSCODE',
+        'intbmsdscode' => 'INTBMSDSCODE',
+        'itemMasterItem.intbmsdscode' => 'INTBMSDSCODE',
+        'ItemMasterItemTableMap::COL_INTBMSDSCODE' => 'INTBMSDSCODE',
+        'COL_INTBMSDSCODE' => 'INTBMSDSCODE',
+        'IntbMsdsCode' => 'INTBMSDSCODE',
+        'inv_item_mast.IntbMsdsCode' => 'INTBMSDSCODE',
+        'Initrequirefrt' => 'INITREQUIREFRT',
+        'ItemMasterItem.Initrequirefrt' => 'INITREQUIREFRT',
+        'initrequirefrt' => 'INITREQUIREFRT',
+        'itemMasterItem.initrequirefrt' => 'INITREQUIREFRT',
+        'ItemMasterItemTableMap::COL_INITREQUIREFRT' => 'INITREQUIREFRT',
+        'COL_INITREQUIREFRT' => 'INITREQUIREFRT',
+        'InitRequireFrt' => 'INITREQUIREFRT',
+        'inv_item_mast.InitRequireFrt' => 'INITREQUIREFRT',
+        'Initmfrtcode' => 'INITMFRTCODE',
+        'ItemMasterItem.Initmfrtcode' => 'INITMFRTCODE',
+        'initmfrtcode' => 'INITMFRTCODE',
+        'itemMasterItem.initmfrtcode' => 'INITMFRTCODE',
+        'ItemMasterItemTableMap::COL_INITMFRTCODE' => 'INITMFRTCODE',
+        'COL_INITMFRTCODE' => 'INITMFRTCODE',
+        'InitMfrtCode' => 'INITMFRTCODE',
+        'inv_item_mast.InitMfrtCode' => 'INITMFRTCODE',
+        'Initinnerpackqty' => 'INITINNERPACKQTY',
+        'ItemMasterItem.Initinnerpackqty' => 'INITINNERPACKQTY',
+        'initinnerpackqty' => 'INITINNERPACKQTY',
+        'itemMasterItem.initinnerpackqty' => 'INITINNERPACKQTY',
+        'ItemMasterItemTableMap::COL_INITINNERPACKQTY' => 'INITINNERPACKQTY',
+        'COL_INITINNERPACKQTY' => 'INITINNERPACKQTY',
+        'InitInnerPackQty' => 'INITINNERPACKQTY',
+        'inv_item_mast.InitInnerPackQty' => 'INITINNERPACKQTY',
+        'Initouterpackqty' => 'INITOUTERPACKQTY',
+        'ItemMasterItem.Initouterpackqty' => 'INITOUTERPACKQTY',
+        'initouterpackqty' => 'INITOUTERPACKQTY',
+        'itemMasterItem.initouterpackqty' => 'INITOUTERPACKQTY',
+        'ItemMasterItemTableMap::COL_INITOUTERPACKQTY' => 'INITOUTERPACKQTY',
+        'COL_INITOUTERPACKQTY' => 'INITOUTERPACKQTY',
+        'InitOuterPackQty' => 'INITOUTERPACKQTY',
+        'inv_item_mast.InitOuterPackQty' => 'INITOUTERPACKQTY',
+        'Initbasestancost' => 'INITBASESTANCOST',
+        'ItemMasterItem.Initbasestancost' => 'INITBASESTANCOST',
+        'initbasestancost' => 'INITBASESTANCOST',
+        'itemMasterItem.initbasestancost' => 'INITBASESTANCOST',
+        'ItemMasterItemTableMap::COL_INITBASESTANCOST' => 'INITBASESTANCOST',
+        'COL_INITBASESTANCOST' => 'INITBASESTANCOST',
+        'InitBaseStanCost' => 'INITBASESTANCOST',
+        'inv_item_mast.InitBaseStanCost' => 'INITBASESTANCOST',
+        'Initshiptareqty' => 'INITSHIPTAREQTY',
+        'ItemMasterItem.Initshiptareqty' => 'INITSHIPTAREQTY',
+        'initshiptareqty' => 'INITSHIPTAREQTY',
+        'itemMasterItem.initshiptareqty' => 'INITSHIPTAREQTY',
+        'ItemMasterItemTableMap::COL_INITSHIPTAREQTY' => 'INITSHIPTAREQTY',
+        'COL_INITSHIPTAREQTY' => 'INITSHIPTAREQTY',
+        'InitShipTareQty' => 'INITSHIPTAREQTY',
+        'inv_item_mast.InitShipTareQty' => 'INITSHIPTAREQTY',
+        'Initwgitem' => 'INITWGITEM',
+        'ItemMasterItem.Initwgitem' => 'INITWGITEM',
+        'initwgitem' => 'INITWGITEM',
+        'itemMasterItem.initwgitem' => 'INITWGITEM',
+        'ItemMasterItemTableMap::COL_INITWGITEM' => 'INITWGITEM',
+        'COL_INITWGITEM' => 'INITWGITEM',
+        'InitWgItem' => 'INITWGITEM',
+        'inv_item_mast.InitWgItem' => 'INITWGITEM',
+        'Intbpricgrup' => 'INTBPRICGRUP',
+        'ItemMasterItem.Intbpricgrup' => 'INTBPRICGRUP',
+        'intbpricgrup' => 'INTBPRICGRUP',
+        'itemMasterItem.intbpricgrup' => 'INTBPRICGRUP',
+        'ItemMasterItemTableMap::COL_INTBPRICGRUP' => 'INTBPRICGRUP',
+        'COL_INTBPRICGRUP' => 'INTBPRICGRUP',
+        'IntbPricGrup' => 'INTBPRICGRUP',
+        'inv_item_mast.IntbPricGrup' => 'INTBPRICGRUP',
+        'Intbcommgrup' => 'INTBCOMMGRUP',
+        'ItemMasterItem.Intbcommgrup' => 'INTBCOMMGRUP',
+        'intbcommgrup' => 'INTBCOMMGRUP',
+        'itemMasterItem.intbcommgrup' => 'INTBCOMMGRUP',
+        'ItemMasterItemTableMap::COL_INTBCOMMGRUP' => 'INTBCOMMGRUP',
+        'COL_INTBCOMMGRUP' => 'INTBCOMMGRUP',
+        'IntbCommGrup' => 'INTBCOMMGRUP',
+        'inv_item_mast.IntbCommGrup' => 'INTBCOMMGRUP',
+        'Initlastcostdate' => 'INITLASTCOSTDATE',
+        'ItemMasterItem.Initlastcostdate' => 'INITLASTCOSTDATE',
+        'initlastcostdate' => 'INITLASTCOSTDATE',
+        'itemMasterItem.initlastcostdate' => 'INITLASTCOSTDATE',
+        'ItemMasterItemTableMap::COL_INITLASTCOSTDATE' => 'INITLASTCOSTDATE',
+        'COL_INITLASTCOSTDATE' => 'INITLASTCOSTDATE',
+        'InitLastCostDate' => 'INITLASTCOSTDATE',
+        'inv_item_mast.InitLastCostDate' => 'INITLASTCOSTDATE',
+        'Initqtypercase' => 'INITQTYPERCASE',
+        'ItemMasterItem.Initqtypercase' => 'INITQTYPERCASE',
+        'initqtypercase' => 'INITQTYPERCASE',
+        'itemMasterItem.initqtypercase' => 'INITQTYPERCASE',
+        'ItemMasterItemTableMap::COL_INITQTYPERCASE' => 'INITQTYPERCASE',
+        'COL_INITQTYPERCASE' => 'INITQTYPERCASE',
+        'InitQtyPerCase' => 'INITQTYPERCASE',
+        'inv_item_mast.InitQtyPerCase' => 'INITQTYPERCASE',
+        'Initrevision' => 'INITREVISION',
+        'ItemMasterItem.Initrevision' => 'INITREVISION',
+        'initrevision' => 'INITREVISION',
+        'itemMasterItem.initrevision' => 'INITREVISION',
+        'ItemMasterItemTableMap::COL_INITREVISION' => 'INITREVISION',
+        'COL_INITREVISION' => 'INITREVISION',
+        'InitRevision' => 'INITREVISION',
+        'inv_item_mast.InitRevision' => 'INITREVISION',
+        'Initcommsaleqty' => 'INITCOMMSALEQTY',
+        'ItemMasterItem.Initcommsaleqty' => 'INITCOMMSALEQTY',
+        'initcommsaleqty' => 'INITCOMMSALEQTY',
+        'itemMasterItem.initcommsaleqty' => 'INITCOMMSALEQTY',
+        'ItemMasterItemTableMap::COL_INITCOMMSALEQTY' => 'INITCOMMSALEQTY',
+        'COL_INITCOMMSALEQTY' => 'INITCOMMSALEQTY',
+        'InitCommSaleQty' => 'INITCOMMSALEQTY',
+        'inv_item_mast.InitCommSaleQty' => 'INITCOMMSALEQTY',
+        'Initcubes' => 'INITCUBES',
+        'ItemMasterItem.Initcubes' => 'INITCUBES',
+        'initcubes' => 'INITCUBES',
+        'itemMasterItem.initcubes' => 'INITCUBES',
+        'ItemMasterItemTableMap::COL_INITCUBES' => 'INITCUBES',
+        'COL_INITCUBES' => 'INITCUBES',
+        'InitCubes' => 'INITCUBES',
+        'inv_item_mast.InitCubes' => 'INITCUBES',
+        'Inittimefence' => 'INITTIMEFENCE',
+        'ItemMasterItem.Inittimefence' => 'INITTIMEFENCE',
+        'inittimefence' => 'INITTIMEFENCE',
+        'itemMasterItem.inittimefence' => 'INITTIMEFENCE',
+        'ItemMasterItemTableMap::COL_INITTIMEFENCE' => 'INITTIMEFENCE',
+        'COL_INITTIMEFENCE' => 'INITTIMEFENCE',
+        'InitTimeFence' => 'INITTIMEFENCE',
+        'inv_item_mast.InitTimeFence' => 'INITTIMEFENCE',
+        'Initsrvcminchrg' => 'INITSRVCMINCHRG',
+        'ItemMasterItem.Initsrvcminchrg' => 'INITSRVCMINCHRG',
+        'initsrvcminchrg' => 'INITSRVCMINCHRG',
+        'itemMasterItem.initsrvcminchrg' => 'INITSRVCMINCHRG',
+        'ItemMasterItemTableMap::COL_INITSRVCMINCHRG' => 'INITSRVCMINCHRG',
+        'COL_INITSRVCMINCHRG' => 'INITSRVCMINCHRG',
+        'InitSrvcMinChrg' => 'INITSRVCMINCHRG',
+        'inv_item_mast.InitSrvcMinChrg' => 'INITSRVCMINCHRG',
+        'InitMinMargBase' => 'INITMINMARGBASE',
+        'ItemMasterItem.InitMinMargBase' => 'INITMINMARGBASE',
+        'initMinMargBase' => 'INITMINMARGBASE',
+        'itemMasterItem.initMinMargBase' => 'INITMINMARGBASE',
+        'ItemMasterItemTableMap::COL_INITMINMARGBASE' => 'INITMINMARGBASE',
+        'COL_INITMINMARGBASE' => 'INITMINMARGBASE',
+        'inv_item_mast.InitMinMargBase' => 'INITMINMARGBASE',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ItemMasterItem.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'itemMasterItem.dateupdtd' => 'DATEUPDTD',
+        'ItemMasterItemTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'inv_item_mast.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ItemMasterItem.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'itemMasterItem.timeupdtd' => 'TIMEUPDTD',
+        'ItemMasterItemTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'inv_item_mast.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ItemMasterItem.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'itemMasterItem.dummy' => 'DUMMY',
+        'ItemMasterItemTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'inv_item_mast.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('inv_item_mast');
@@ -511,12 +1045,14 @@ class ItemMasterItemTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('UnitofMeasureSale', '\\UnitofMeasureSale', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -882,7 +1418,7 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, 'ItemXrefVendors', false);
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -890,14 +1426,14 @@ class ItemMasterItemTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -912,14 +1448,14 @@ class ItemMasterItemTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
             $indexType == TableMap::TYPE_NUM
@@ -936,10 +1472,10 @@ class ItemMasterItemTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ItemMasterItemTableMap::CLASS_DEFAULT : ItemMasterItemTableMap::OM_CLASS;
     }
@@ -947,17 +1483,17 @@ class ItemMasterItemTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ItemMasterItem object, last column rank)
+     * @return array (ItemMasterItem object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ItemMasterItemTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ItemMasterItemTableMap::getInstanceFromPool($key))) {
@@ -973,7 +1509,7 @@ class ItemMasterItemTableMap extends TableMap
             ItemMasterItemTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -981,13 +1517,13 @@ class ItemMasterItemTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -1017,12 +1553,13 @@ class ItemMasterItemTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ItemMasterItemTableMap::COL_INITITEMNBR);
@@ -1160,40 +1697,178 @@ class ItemMasterItemTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITDESC1);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITDESC2);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INTBGRUP);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITFORMATCODE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITSPLIT);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITSHERDATECD);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITCOREYN);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INTBUSERCODE1);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INTBUSERCODE2);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITTYPE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITTAX);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITRTLPRIC);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITSTATCHGD);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITSPECITEMCD);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITWARRDAYS);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INTBUOMSALE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITWGHT);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITBORD);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITBASEITEMID);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITSPECIFICCUST);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITGIVEDISC);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITASSTCODE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITPRICLASTDATE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INTBUOMPUR);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITSTANCOST);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITSTANCOSTBASE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITSTANCOSTLASTDATE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITMINMARG);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITVENDID);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITINSPECT);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITSTOCKCODE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITSUPRITEMNBR);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITVENDSHIPFROM);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITCNTRYOFORIGIN);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITASSTQTY);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INTBTARIFFCODE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITPREFERENCE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITPRODUCER);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITDOCUMENTATION);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITPURCHCRTNQTY);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_APTBBUYRCODE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITLASTCOST);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITLITERS);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INTBMSDSCODE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITREQUIREFRT);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITMFRTCODE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITINNERPACKQTY);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITOUTERPACKQTY);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITBASESTANCOST);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITSHIPTAREQTY);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITWGITEM);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INTBPRICGRUP);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INTBCOMMGRUP);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITLASTCOSTDATE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITQTYPERCASE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITREVISION);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITCOMMSALEQTY);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITCUBES);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITTIMEFENCE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITSRVCMINCHRG);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_INITMINMARGBASE);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ItemMasterItemTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.InitDesc1');
+            $criteria->removeSelectColumn($alias . '.InitDesc2');
+            $criteria->removeSelectColumn($alias . '.IntbGrup');
+            $criteria->removeSelectColumn($alias . '.InitFormatCode');
+            $criteria->removeSelectColumn($alias . '.InitSplit');
+            $criteria->removeSelectColumn($alias . '.InitSherDateCd');
+            $criteria->removeSelectColumn($alias . '.InitCoreYN');
+            $criteria->removeSelectColumn($alias . '.IntbUserCode1');
+            $criteria->removeSelectColumn($alias . '.IntbUserCode2');
+            $criteria->removeSelectColumn($alias . '.InitType');
+            $criteria->removeSelectColumn($alias . '.InitTax');
+            $criteria->removeSelectColumn($alias . '.InitRtlPric');
+            $criteria->removeSelectColumn($alias . '.InitStatChgd');
+            $criteria->removeSelectColumn($alias . '.InitSpecItemCd');
+            $criteria->removeSelectColumn($alias . '.InitWarrDays');
+            $criteria->removeSelectColumn($alias . '.IntbUomSale');
+            $criteria->removeSelectColumn($alias . '.InitWght');
+            $criteria->removeSelectColumn($alias . '.InitBord');
+            $criteria->removeSelectColumn($alias . '.InitBaseItemId');
+            $criteria->removeSelectColumn($alias . '.InitSpecificCust');
+            $criteria->removeSelectColumn($alias . '.InitGiveDisc');
+            $criteria->removeSelectColumn($alias . '.InitAsstCode');
+            $criteria->removeSelectColumn($alias . '.InitPricLastDate');
+            $criteria->removeSelectColumn($alias . '.IntbUomPur');
+            $criteria->removeSelectColumn($alias . '.InitStanCost');
+            $criteria->removeSelectColumn($alias . '.InitStanCostBase');
+            $criteria->removeSelectColumn($alias . '.InitStanCostLastDate');
+            $criteria->removeSelectColumn($alias . '.InitMinMarg');
+            $criteria->removeSelectColumn($alias . '.InitVendId');
+            $criteria->removeSelectColumn($alias . '.InitInspect');
+            $criteria->removeSelectColumn($alias . '.InitStockCode');
+            $criteria->removeSelectColumn($alias . '.InitSuprItemNbr');
+            $criteria->removeSelectColumn($alias . '.InitVendShipFrom');
+            $criteria->removeSelectColumn($alias . '.InitCntryOfOrigin');
+            $criteria->removeSelectColumn($alias . '.InitAsstQty');
+            $criteria->removeSelectColumn($alias . '.IntbTariffCode');
+            $criteria->removeSelectColumn($alias . '.InitPreference');
+            $criteria->removeSelectColumn($alias . '.InitProducer');
+            $criteria->removeSelectColumn($alias . '.InitDocumentation');
+            $criteria->removeSelectColumn($alias . '.InitPurchCrtnQty');
+            $criteria->removeSelectColumn($alias . '.AptbBuyrCode');
+            $criteria->removeSelectColumn($alias . '.InitLastCost');
+            $criteria->removeSelectColumn($alias . '.InitLiters');
+            $criteria->removeSelectColumn($alias . '.IntbMsdsCode');
+            $criteria->removeSelectColumn($alias . '.InitRequireFrt');
+            $criteria->removeSelectColumn($alias . '.InitMfrtCode');
+            $criteria->removeSelectColumn($alias . '.InitInnerPackQty');
+            $criteria->removeSelectColumn($alias . '.InitOuterPackQty');
+            $criteria->removeSelectColumn($alias . '.InitBaseStanCost');
+            $criteria->removeSelectColumn($alias . '.InitShipTareQty');
+            $criteria->removeSelectColumn($alias . '.InitWgItem');
+            $criteria->removeSelectColumn($alias . '.IntbPricGrup');
+            $criteria->removeSelectColumn($alias . '.IntbCommGrup');
+            $criteria->removeSelectColumn($alias . '.InitLastCostDate');
+            $criteria->removeSelectColumn($alias . '.InitQtyPerCase');
+            $criteria->removeSelectColumn($alias . '.InitRevision');
+            $criteria->removeSelectColumn($alias . '.InitCommSaleQty');
+            $criteria->removeSelectColumn($alias . '.InitCubes');
+            $criteria->removeSelectColumn($alias . '.InitTimeFence');
+            $criteria->removeSelectColumn($alias . '.InitSrvcMinChrg');
+            $criteria->removeSelectColumn($alias . '.InitMinMargBase');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ItemMasterItemTableMap::DATABASE_NAME)->getTable(ItemMasterItemTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ItemMasterItemTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ItemMasterItemTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ItemMasterItemTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ItemMasterItem or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ItemMasterItem object or primary key or array of primary keys
+     * @param mixed $values Criteria or ItemMasterItem object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemMasterItemTableMap::DATABASE_NAME);
@@ -1229,7 +1904,7 @@ class ItemMasterItemTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ItemMasterItemQuery::create()->doDeleteAll($con);
     }
@@ -1237,13 +1912,13 @@ class ItemMasterItemTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ItemMasterItem or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ItemMasterItem object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ItemMasterItem object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemMasterItemTableMap::DATABASE_NAME);
@@ -1266,7 +1941,4 @@ class ItemMasterItemTableMap extends TableMap
         });
     }
 
-} // ItemMasterItemTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ItemMasterItemTableMap::buildTableMap();
+}

@@ -75,19 +75,21 @@ abstract class Vendor implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\VendorTableMap';
+    public const TABLE_MAP = '\\Map\\VendorTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -96,14 +98,14 @@ abstract class Vendor implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the apvevendid field.
@@ -116,1211 +118,1211 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvename field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvename;
 
     /**
      * The value for the apveadr1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveadr1;
 
     /**
      * The value for the apveadr2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveadr2;
 
     /**
      * The value for the apveadr3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveadr3;
 
     /**
      * The value for the apvectry field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvectry;
 
     /**
      * The value for the apvecity field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvecity;
 
     /**
      * The value for the apvestat field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvestat;
 
     /**
      * The value for the apvezipcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvezipcode;
 
     /**
      * The value for the apvepayname field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepayname;
 
     /**
      * The value for the apvepayadr1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepayadr1;
 
     /**
      * The value for the apvepayadr2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepayadr2;
 
     /**
      * The value for the apvepayadr3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepayadr3;
 
     /**
      * The value for the apvepayctry field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepayctry;
 
     /**
      * The value for the apvepaycity field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepaycity;
 
     /**
      * The value for the apvepaystat field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepaystat;
 
     /**
      * The value for the apvepayzipcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepayzipcode;
 
     /**
      * The value for the apvestatus field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvestatus;
 
     /**
      * The value for the apvetakeexpireddisc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvetakeexpireddisc;
 
     /**
      * The value for the apveprinthts field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveprinthts;
 
     /**
      * The value for the apvefabbin field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvefabbin;
 
     /**
      * The value for the apvelmprntbulk field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvelmprntbulk;
 
     /**
      * The value for the apveallowdropship field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveallowdropship;
 
     /**
      * The value for the aptbtypecode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbtypecode;
 
     /**
      * The value for the aptmtermcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmtermcode;
 
     /**
      * The value for the apvesviacode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvesviacode;
 
     /**
      * The value for the apveoldfob field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveoldfob;
 
     /**
      * The value for the apveleaddays field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveleaddays;
 
     /**
      * The value for the apveglacct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveglacct;
 
     /**
      * The value for the apve1099ssnbr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apve1099ssnbr;
 
     /**
      * The value for the apveminordrcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveminordrcode;
 
     /**
      * The value for the apveminordrvalue field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveminordrvalue;
 
     /**
      * The value for the apvepurmtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepurmtd;
 
     /**
      * The value for the apvepomtd field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepomtd;
 
     /**
      * The value for the apveinvcmtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvcmtd;
 
     /**
      * The value for the apveicntmtd field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicntmtd;
 
     /**
      * The value for the apvedateopen field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvedateopen;
 
     /**
      * The value for the apvelastpurdate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvelastpurdate;
 
     /**
      * The value for the apvepur24mo01 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo01;
 
     /**
      * The value for the apvepo24mo01 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo01;
 
     /**
      * The value for the apveinvc24mo01 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo01;
 
     /**
      * The value for the apveicnt24mo01 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo01;
 
     /**
      * The value for the apvepur24mo02 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo02;
 
     /**
      * The value for the apvepo24mo02 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo02;
 
     /**
      * The value for the apveinvc24mo02 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo02;
 
     /**
      * The value for the apveicnt24mo02 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo02;
 
     /**
      * The value for the apvepur24mo03 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo03;
 
     /**
      * The value for the apvepo24mo03 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo03;
 
     /**
      * The value for the apveinvc24mo03 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo03;
 
     /**
      * The value for the apveicnt24mo03 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo03;
 
     /**
      * The value for the apvepur24mo04 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo04;
 
     /**
      * The value for the apvepo24mo04 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo04;
 
     /**
      * The value for the apveinvc24mo04 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo04;
 
     /**
      * The value for the apveicnt24mo04 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo04;
 
     /**
      * The value for the apvepur24mo05 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo05;
 
     /**
      * The value for the apvepo24mo05 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo05;
 
     /**
      * The value for the apveinvc24mo05 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo05;
 
     /**
      * The value for the apveicnt24mo05 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo05;
 
     /**
      * The value for the apvepur24mo06 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo06;
 
     /**
      * The value for the apvepo24mo06 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo06;
 
     /**
      * The value for the apveinvc24mo06 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo06;
 
     /**
      * The value for the apveicnt24mo06 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo06;
 
     /**
      * The value for the apvepur24mo07 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo07;
 
     /**
      * The value for the apvepo24mo07 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo07;
 
     /**
      * The value for the apveinvc24mo07 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo07;
 
     /**
      * The value for the apveicnt24mo07 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo07;
 
     /**
      * The value for the apvepur24mo08 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo08;
 
     /**
      * The value for the apvepo24mo08 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo08;
 
     /**
      * The value for the apveinvc24mo08 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo08;
 
     /**
      * The value for the apveicnt24mo08 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo08;
 
     /**
      * The value for the apvepur24mo09 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo09;
 
     /**
      * The value for the apvepo24mo09 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo09;
 
     /**
      * The value for the apveinvc24mo09 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo09;
 
     /**
      * The value for the apveicnt24mo09 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo09;
 
     /**
      * The value for the apvepur24mo10 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo10;
 
     /**
      * The value for the apvepo24mo10 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo10;
 
     /**
      * The value for the apveinvc24mo10 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo10;
 
     /**
      * The value for the apveicnt24mo10 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo10;
 
     /**
      * The value for the apvepur24mo11 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo11;
 
     /**
      * The value for the apvepo24mo11 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo11;
 
     /**
      * The value for the apveinvc24mo11 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo11;
 
     /**
      * The value for the apveicnt24mo11 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo11;
 
     /**
      * The value for the apvepur24mo12 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo12;
 
     /**
      * The value for the apvepo24mo12 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo12;
 
     /**
      * The value for the apveinvc24mo12 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo12;
 
     /**
      * The value for the apveicnt24mo12 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo12;
 
     /**
      * The value for the apvepur24mo13 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo13;
 
     /**
      * The value for the apvepo24mo13 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo13;
 
     /**
      * The value for the apveinvc24mo13 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo13;
 
     /**
      * The value for the apveicnt24mo13 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo13;
 
     /**
      * The value for the apvepur24mo14 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo14;
 
     /**
      * The value for the apvepo24mo14 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo14;
 
     /**
      * The value for the apveinvc24mo14 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo14;
 
     /**
      * The value for the apveicnt24mo14 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo14;
 
     /**
      * The value for the apvepur24mo15 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo15;
 
     /**
      * The value for the apvepo24mo15 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo15;
 
     /**
      * The value for the apveinvc24mo15 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo15;
 
     /**
      * The value for the apveicnt24mo15 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo15;
 
     /**
      * The value for the apvepur24mo16 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo16;
 
     /**
      * The value for the apvepo24mo16 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo16;
 
     /**
      * The value for the apveinvc24mo16 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo16;
 
     /**
      * The value for the apveicnt24mo16 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo16;
 
     /**
      * The value for the apvepur24mo17 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo17;
 
     /**
      * The value for the apvepo24mo17 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo17;
 
     /**
      * The value for the apveinvc24mo17 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo17;
 
     /**
      * The value for the apveicnt24mo17 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo17;
 
     /**
      * The value for the apvepur24mo18 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo18;
 
     /**
      * The value for the apvepo24mo18 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo18;
 
     /**
      * The value for the apveinvc24mo18 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo18;
 
     /**
      * The value for the apveicnt24mo18 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo18;
 
     /**
      * The value for the apvepur24mo19 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo19;
 
     /**
      * The value for the apvepo24mo19 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo19;
 
     /**
      * The value for the apveinvc24mo19 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo19;
 
     /**
      * The value for the apveicnt24mo19 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo19;
 
     /**
      * The value for the apvepur24mo20 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo20;
 
     /**
      * The value for the apvepo24mo20 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo20;
 
     /**
      * The value for the apveinvc24mo20 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo20;
 
     /**
      * The value for the apveicnt24mo20 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo20;
 
     /**
      * The value for the apvepur24mo21 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo21;
 
     /**
      * The value for the apvepo24mo21 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo21;
 
     /**
      * The value for the apveinvc24mo21 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo21;
 
     /**
      * The value for the apveicnt24mo21 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo21;
 
     /**
      * The value for the apvepur24mo22 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo22;
 
     /**
      * The value for the apvepo24mo22 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo22;
 
     /**
      * The value for the apveinvc24mo22 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo22;
 
     /**
      * The value for the apveicnt24mo22 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo22;
 
     /**
      * The value for the apvepur24mo23 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo23;
 
     /**
      * The value for the apvepo24mo23 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo23;
 
     /**
      * The value for the apveinvc24mo23 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo23;
 
     /**
      * The value for the apveicnt24mo23 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo23;
 
     /**
      * The value for the apvepur24mo24 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepur24mo24;
 
     /**
      * The value for the apvepo24mo24 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepo24mo24;
 
     /**
      * The value for the apveinvc24mo24 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvc24mo24;
 
     /**
      * The value for the apveicnt24mo24 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicnt24mo24;
 
     /**
      * The value for the apvecrncy field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvecrncy;
 
     /**
      * The value for the apvefrtinamt field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvefrtinamt;
 
     /**
      * The value for the apveouracctnbr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveouracctnbr;
 
     /**
      * The value for the apvevenddisc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvevenddisc;
 
     /**
      * The value for the apvefob field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvefob;
 
     /**
      * The value for the apveroylpct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveroylpct;
 
     /**
      * The value for the apveprtpoeoru field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveprtpoeoru;
 
     /**
      * The value for the apvecomrate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvecomrate;
 
     /**
      * The value for the apveuselandonrcpt field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveuselandonrcpt;
 
     /**
      * The value for the apvebuyrwhse1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrwhse1;
 
     /**
      * The value for the apvebuyrcode1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrcode1;
 
     /**
      * The value for the apvebuyrwhse2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrwhse2;
 
     /**
      * The value for the apvebuyrcode2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrcode2;
 
     /**
      * The value for the apvebuyrwhse3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrwhse3;
 
     /**
      * The value for the apvebuyrcode3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrcode3;
 
     /**
      * The value for the apvebuyrwhse4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrwhse4;
 
     /**
      * The value for the apvebuyrcode4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrcode4;
 
     /**
      * The value for the apvebuyrwhse5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrwhse5;
 
     /**
      * The value for the apvebuyrcode5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrcode5;
 
     /**
      * The value for the apvebuyrwhse6 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrwhse6;
 
     /**
      * The value for the apvebuyrcode6 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrcode6;
 
     /**
      * The value for the apvebuyrwhse7 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrwhse7;
 
     /**
      * The value for the apvebuyrcode7 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrcode7;
 
     /**
      * The value for the apvebuyrwhse8 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrwhse8;
 
     /**
      * The value for the apvebuyrcode8 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrcode8;
 
     /**
      * The value for the apvebuyrwhse9 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrwhse9;
 
     /**
      * The value for the apvebuyrcode9 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrcode9;
 
     /**
      * The value for the apvebuyrwhse10 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrwhse10;
 
     /**
      * The value for the apvebuyrcode10 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvebuyrcode10;
 
     /**
      * The value for the apvelandcost field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvelandcost;
 
     /**
      * The value for the apvereleasenbr field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvereleasenbr;
 
     /**
      * The value for the apvescanstartpos field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvescanstartpos;
 
     /**
      * The value for the apvescanlength field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvescanlength;
 
     /**
      * The value for the apvepurytd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apvepurytd;
 
     /**
      * The value for the apvepoytd field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apvepoytd;
 
     /**
      * The value for the apveinvcytd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apveinvcytd;
 
     /**
      * The value for the apveicntytd field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apveicntytd;
 
     /**
      * The value for the dateupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dateupdtd;
 
     /**
      * The value for the timeupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $timeupdtd;
 
     /**
      * The value for the dummy field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
@@ -1346,72 +1348,84 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * @var        ObjectCollection|ChildApContact[] Collection to store aggregation of ChildApContact objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildApContact> Collection to store aggregation of ChildApContact objects.
      */
     protected $collApContacts;
     protected $collApContactsPartial;
 
     /**
      * @var        ObjectCollection|ChildApInvoiceDetail[] Collection to store aggregation of ChildApInvoiceDetail objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildApInvoiceDetail> Collection to store aggregation of ChildApInvoiceDetail objects.
      */
     protected $collApInvoiceDetails;
     protected $collApInvoiceDetailsPartial;
 
     /**
      * @var        ObjectCollection|ChildApInvoice[] Collection to store aggregation of ChildApInvoice objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildApInvoice> Collection to store aggregation of ChildApInvoice objects.
      */
     protected $collApInvoices;
     protected $collApInvoicesPartial;
 
     /**
      * @var        ObjectCollection|ChildVendorShipfrom[] Collection to store aggregation of ChildVendorShipfrom objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildVendorShipfrom> Collection to store aggregation of ChildVendorShipfrom objects.
      */
     protected $collVendorShipfroms;
     protected $collVendorShipfromsPartial;
 
     /**
      * @var        ObjectCollection|ChildInvNonstockItem[] Collection to store aggregation of ChildInvNonstockItem objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvNonstockItem> Collection to store aggregation of ChildInvNonstockItem objects.
      */
     protected $collInvNonstockItems;
     protected $collInvNonstockItemsPartial;
 
     /**
      * @var        ObjectCollection|ChildInvTransferOrder[] Collection to store aggregation of ChildInvTransferOrder objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferOrder> Collection to store aggregation of ChildInvTransferOrder objects.
      */
     protected $collInvTransferOrders;
     protected $collInvTransferOrdersPartial;
 
     /**
      * @var        ObjectCollection|ChildItemXrefKey[] Collection to store aggregation of ChildItemXrefKey objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefKey> Collection to store aggregation of ChildItemXrefKey objects.
      */
     protected $collItemXrefKeys;
     protected $collItemXrefKeysPartial;
 
     /**
      * @var        ObjectCollection|ChildItemXrefManufacturer[] Collection to store aggregation of ChildItemXrefManufacturer objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefManufacturer> Collection to store aggregation of ChildItemXrefManufacturer objects.
      */
     protected $collItemXrefManufacturers;
     protected $collItemXrefManufacturersPartial;
 
     /**
      * @var        ObjectCollection|ChildItemXrefVendorNoteDetail[] Collection to store aggregation of ChildItemXrefVendorNoteDetail objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendorNoteDetail> Collection to store aggregation of ChildItemXrefVendorNoteDetail objects.
      */
     protected $collItemXrefVendorNoteDetails;
     protected $collItemXrefVendorNoteDetailsPartial;
 
     /**
      * @var        ObjectCollection|ChildItemXrefVendorNoteInternal[] Collection to store aggregation of ChildItemXrefVendorNoteInternal objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendorNoteInternal> Collection to store aggregation of ChildItemXrefVendorNoteInternal objects.
      */
     protected $collItemXrefVendorNoteInternals;
     protected $collItemXrefVendorNoteInternalsPartial;
 
     /**
      * @var        ObjectCollection|ChildPurchaseOrder[] Collection to store aggregation of ChildPurchaseOrder objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrder> Collection to store aggregation of ChildPurchaseOrder objects.
      */
     protected $collPurchaseOrders;
     protected $collPurchaseOrdersPartial;
 
     /**
      * @var        ObjectCollection|ChildItemXrefVendor[] Collection to store aggregation of ChildItemXrefVendor objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendor> Collection to store aggregation of ChildItemXrefVendor objects.
      */
     protected $collItemXrefVendors;
     protected $collItemXrefVendorsPartial;
@@ -1420,79 +1434,91 @@ abstract class Vendor implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildApContact[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildApContact>
      */
     protected $apContactsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildApInvoiceDetail[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildApInvoiceDetail>
      */
     protected $apInvoiceDetailsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildApInvoice[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildApInvoice>
      */
     protected $apInvoicesScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildVendorShipfrom[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildVendorShipfrom>
      */
     protected $vendorShipfromsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvNonstockItem[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvNonstockItem>
      */
     protected $invNonstockItemsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferOrder[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferOrder>
      */
     protected $invTransferOrdersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefKey[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefKey>
      */
     protected $itemXrefKeysScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefManufacturer[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefManufacturer>
      */
     protected $itemXrefManufacturersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefVendorNoteDetail[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendorNoteDetail>
      */
     protected $itemXrefVendorNoteDetailsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefVendorNoteInternal[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendorNoteInternal>
      */
     protected $itemXrefVendorNoteInternalsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrder[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrder>
      */
     protected $purchaseOrdersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefVendor[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendor>
      */
     protected $itemXrefVendorsScheduledForDeletion = null;
 
@@ -1502,7 +1528,7 @@ abstract class Vendor implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->apvevendid = '';
     }
@@ -1519,9 +1545,9 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -1529,10 +1555,10 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -1541,7 +1567,7 @@ abstract class Vendor implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -1551,9 +1577,9 @@ abstract class Vendor implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -1562,45 +1588,43 @@ abstract class Vendor implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -1609,10 +1633,10 @@ abstract class Vendor implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>Vendor</code>, delegates to
      * <code>equals(Vendor)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -1634,7 +1658,7 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -1642,10 +1666,10 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -1653,15 +1677,15 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -1670,12 +1694,12 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|Vendor The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -1685,13 +1709,13 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -1702,24 +1726,27 @@ abstract class Vendor implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -1747,7 +1774,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvename] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvename()
     {
@@ -1757,7 +1784,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveadr1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveadr1()
     {
@@ -1767,7 +1794,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveadr2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveadr2()
     {
@@ -1777,7 +1804,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveadr3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveadr3()
     {
@@ -1787,7 +1814,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvectry] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvectry()
     {
@@ -1797,7 +1824,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvecity] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvecity()
     {
@@ -1807,7 +1834,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvestat] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvestat()
     {
@@ -1817,7 +1844,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvezipcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvezipcode()
     {
@@ -1827,7 +1854,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepayname] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepayname()
     {
@@ -1837,7 +1864,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepayadr1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepayadr1()
     {
@@ -1847,7 +1874,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepayadr2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepayadr2()
     {
@@ -1857,7 +1884,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepayadr3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepayadr3()
     {
@@ -1867,7 +1894,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepayctry] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepayctry()
     {
@@ -1877,7 +1904,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepaycity] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepaycity()
     {
@@ -1887,7 +1914,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepaystat] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepaystat()
     {
@@ -1897,7 +1924,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepayzipcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepayzipcode()
     {
@@ -1907,7 +1934,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvestatus] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvestatus()
     {
@@ -1917,7 +1944,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvetakeexpireddisc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvetakeexpireddisc()
     {
@@ -1927,7 +1954,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveprinthts] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveprinthts()
     {
@@ -1937,7 +1964,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvefabbin] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvefabbin()
     {
@@ -1947,7 +1974,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvelmprntbulk] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvelmprntbulk()
     {
@@ -1957,7 +1984,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveallowdropship] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveallowdropship()
     {
@@ -1967,7 +1994,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [aptbtypecode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbtypecode()
     {
@@ -1977,7 +2004,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [aptmtermcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmtermcode()
     {
@@ -1987,7 +2014,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvesviacode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvesviacode()
     {
@@ -1997,7 +2024,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveoldfob] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveoldfob()
     {
@@ -2007,7 +2034,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveleaddays] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveleaddays()
     {
@@ -2017,7 +2044,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveglacct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveglacct()
     {
@@ -2027,7 +2054,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apve1099ssnbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApve1099ssnbr()
     {
@@ -2037,7 +2064,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveminordrcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveminordrcode()
     {
@@ -2047,7 +2074,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveminordrvalue] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveminordrvalue()
     {
@@ -2057,7 +2084,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepurmtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepurmtd()
     {
@@ -2067,7 +2094,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepomtd] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepomtd()
     {
@@ -2077,7 +2104,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvcmtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvcmtd()
     {
@@ -2087,7 +2114,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicntmtd] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicntmtd()
     {
@@ -2097,7 +2124,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvedateopen] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvedateopen()
     {
@@ -2107,7 +2134,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvelastpurdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvelastpurdate()
     {
@@ -2117,7 +2144,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo01] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo01()
     {
@@ -2127,7 +2154,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo01] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo01()
     {
@@ -2137,7 +2164,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo01] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo01()
     {
@@ -2147,7 +2174,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo01] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo01()
     {
@@ -2157,7 +2184,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo02] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo02()
     {
@@ -2167,7 +2194,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo02] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo02()
     {
@@ -2177,7 +2204,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo02] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo02()
     {
@@ -2187,7 +2214,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo02] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo02()
     {
@@ -2197,7 +2224,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo03] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo03()
     {
@@ -2207,7 +2234,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo03] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo03()
     {
@@ -2217,7 +2244,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo03] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo03()
     {
@@ -2227,7 +2254,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo03] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo03()
     {
@@ -2237,7 +2264,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo04] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo04()
     {
@@ -2247,7 +2274,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo04] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo04()
     {
@@ -2257,7 +2284,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo04] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo04()
     {
@@ -2267,7 +2294,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo04] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo04()
     {
@@ -2277,7 +2304,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo05] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo05()
     {
@@ -2287,7 +2314,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo05] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo05()
     {
@@ -2297,7 +2324,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo05] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo05()
     {
@@ -2307,7 +2334,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo05] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo05()
     {
@@ -2317,7 +2344,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo06] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo06()
     {
@@ -2327,7 +2354,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo06] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo06()
     {
@@ -2337,7 +2364,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo06] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo06()
     {
@@ -2347,7 +2374,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo06] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo06()
     {
@@ -2357,7 +2384,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo07] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo07()
     {
@@ -2367,7 +2394,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo07] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo07()
     {
@@ -2377,7 +2404,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo07] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo07()
     {
@@ -2387,7 +2414,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo07] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo07()
     {
@@ -2397,7 +2424,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo08] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo08()
     {
@@ -2407,7 +2434,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo08] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo08()
     {
@@ -2417,7 +2444,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo08] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo08()
     {
@@ -2427,7 +2454,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo08] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo08()
     {
@@ -2437,7 +2464,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo09] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo09()
     {
@@ -2447,7 +2474,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo09] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo09()
     {
@@ -2457,7 +2484,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo09] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo09()
     {
@@ -2467,7 +2494,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo09] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo09()
     {
@@ -2477,7 +2504,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo10] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo10()
     {
@@ -2487,7 +2514,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo10] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo10()
     {
@@ -2497,7 +2524,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo10] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo10()
     {
@@ -2507,7 +2534,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo10] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo10()
     {
@@ -2517,7 +2544,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo11] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo11()
     {
@@ -2527,7 +2554,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo11] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo11()
     {
@@ -2537,7 +2564,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo11] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo11()
     {
@@ -2547,7 +2574,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo11] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo11()
     {
@@ -2557,7 +2584,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo12] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo12()
     {
@@ -2567,7 +2594,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo12] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo12()
     {
@@ -2577,7 +2604,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo12] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo12()
     {
@@ -2587,7 +2614,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo12] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo12()
     {
@@ -2597,7 +2624,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo13] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo13()
     {
@@ -2607,7 +2634,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo13] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo13()
     {
@@ -2617,7 +2644,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo13] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo13()
     {
@@ -2627,7 +2654,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo13] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo13()
     {
@@ -2637,7 +2664,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo14] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo14()
     {
@@ -2647,7 +2674,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo14] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo14()
     {
@@ -2657,7 +2684,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo14] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo14()
     {
@@ -2667,7 +2694,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo14] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo14()
     {
@@ -2677,7 +2704,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo15] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo15()
     {
@@ -2687,7 +2714,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo15] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo15()
     {
@@ -2697,7 +2724,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo15] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo15()
     {
@@ -2707,7 +2734,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo15] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo15()
     {
@@ -2717,7 +2744,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo16] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo16()
     {
@@ -2727,7 +2754,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo16] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo16()
     {
@@ -2737,7 +2764,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo16] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo16()
     {
@@ -2747,7 +2774,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo16] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo16()
     {
@@ -2757,7 +2784,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo17] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo17()
     {
@@ -2767,7 +2794,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo17] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo17()
     {
@@ -2777,7 +2804,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo17] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo17()
     {
@@ -2787,7 +2814,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo17] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo17()
     {
@@ -2797,7 +2824,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo18] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo18()
     {
@@ -2807,7 +2834,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo18] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo18()
     {
@@ -2817,7 +2844,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo18] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo18()
     {
@@ -2827,7 +2854,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo18] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo18()
     {
@@ -2837,7 +2864,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo19] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo19()
     {
@@ -2847,7 +2874,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo19] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo19()
     {
@@ -2857,7 +2884,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo19] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo19()
     {
@@ -2867,7 +2894,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo19] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo19()
     {
@@ -2877,7 +2904,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo20] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo20()
     {
@@ -2887,7 +2914,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo20] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo20()
     {
@@ -2897,7 +2924,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo20] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo20()
     {
@@ -2907,7 +2934,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo20] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo20()
     {
@@ -2917,7 +2944,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo21] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo21()
     {
@@ -2927,7 +2954,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo21] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo21()
     {
@@ -2937,7 +2964,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo21] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo21()
     {
@@ -2947,7 +2974,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo21] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo21()
     {
@@ -2957,7 +2984,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo22] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo22()
     {
@@ -2967,7 +2994,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo22] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo22()
     {
@@ -2977,7 +3004,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo22] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo22()
     {
@@ -2987,7 +3014,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo22] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo22()
     {
@@ -2997,7 +3024,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo23] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo23()
     {
@@ -3007,7 +3034,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo23] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo23()
     {
@@ -3017,7 +3044,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo23] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo23()
     {
@@ -3027,7 +3054,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo23] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo23()
     {
@@ -3037,7 +3064,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepur24mo24] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvepur24mo24()
     {
@@ -3047,7 +3074,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepo24mo24] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvepo24mo24()
     {
@@ -3057,7 +3084,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvc24mo24] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveinvc24mo24()
     {
@@ -3067,7 +3094,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicnt24mo24] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveicnt24mo24()
     {
@@ -3077,7 +3104,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvecrncy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvecrncy()
     {
@@ -3087,7 +3114,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvefrtinamt] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvefrtinamt()
     {
@@ -3097,7 +3124,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveouracctnbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveouracctnbr()
     {
@@ -3107,7 +3134,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvevenddisc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvevenddisc()
     {
@@ -3117,7 +3144,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvefob] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvefob()
     {
@@ -3127,7 +3154,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveroylpct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveroylpct()
     {
@@ -3137,7 +3164,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveprtpoeoru] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveprtpoeoru()
     {
@@ -3147,7 +3174,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvecomrate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvecomrate()
     {
@@ -3157,7 +3184,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveuselandonrcpt] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveuselandonrcpt()
     {
@@ -3167,7 +3194,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrwhse1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrwhse1()
     {
@@ -3177,7 +3204,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrcode1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrcode1()
     {
@@ -3187,7 +3214,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrwhse2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrwhse2()
     {
@@ -3197,7 +3224,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrcode2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrcode2()
     {
@@ -3207,7 +3234,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrwhse3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrwhse3()
     {
@@ -3217,7 +3244,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrcode3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrcode3()
     {
@@ -3227,7 +3254,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrwhse4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrwhse4()
     {
@@ -3237,7 +3264,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrcode4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrcode4()
     {
@@ -3247,7 +3274,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrwhse5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrwhse5()
     {
@@ -3257,7 +3284,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrcode5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrcode5()
     {
@@ -3267,7 +3294,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrwhse6] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrwhse6()
     {
@@ -3277,7 +3304,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrcode6] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrcode6()
     {
@@ -3287,7 +3314,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrwhse7] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrwhse7()
     {
@@ -3297,7 +3324,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrcode7] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrcode7()
     {
@@ -3307,7 +3334,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrwhse8] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrwhse8()
     {
@@ -3317,7 +3344,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrcode8] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrcode8()
     {
@@ -3327,7 +3354,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrwhse9] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrwhse9()
     {
@@ -3337,7 +3364,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrcode9] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrcode9()
     {
@@ -3347,7 +3374,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrwhse10] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrwhse10()
     {
@@ -3357,7 +3384,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvebuyrcode10] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvebuyrcode10()
     {
@@ -3367,7 +3394,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvelandcost] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvelandcost()
     {
@@ -3377,7 +3404,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvereleasenbr] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvereleasenbr()
     {
@@ -3387,7 +3414,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvescanstartpos] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvescanstartpos()
     {
@@ -3397,7 +3424,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvescanlength] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvescanlength()
     {
@@ -3407,7 +3434,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepurytd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApvePurYtd()
     {
@@ -3417,7 +3444,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apvepoytd] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApvePoYtd()
     {
@@ -3427,7 +3454,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveinvcytd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApveInvcYtd()
     {
@@ -3437,7 +3464,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [apveicntytd] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApveIcntYtd()
     {
@@ -3447,7 +3474,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [dateupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDateupdtd()
     {
@@ -3457,7 +3484,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [timeupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTimeupdtd()
     {
@@ -3467,7 +3494,7 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -3477,8 +3504,8 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Set the value of [apvevendid] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvevendid($v)
     {
@@ -3492,13 +3519,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvevendid()
+    }
 
     /**
      * Set the value of [apvename] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvename($v)
     {
@@ -3512,13 +3539,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvename()
+    }
 
     /**
      * Set the value of [apveadr1] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveadr1($v)
     {
@@ -3532,13 +3559,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveadr1()
+    }
 
     /**
      * Set the value of [apveadr2] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveadr2($v)
     {
@@ -3552,13 +3579,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveadr2()
+    }
 
     /**
      * Set the value of [apveadr3] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveadr3($v)
     {
@@ -3572,13 +3599,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveadr3()
+    }
 
     /**
      * Set the value of [apvectry] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvectry($v)
     {
@@ -3592,13 +3619,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvectry()
+    }
 
     /**
      * Set the value of [apvecity] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvecity($v)
     {
@@ -3612,13 +3639,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvecity()
+    }
 
     /**
      * Set the value of [apvestat] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvestat($v)
     {
@@ -3632,13 +3659,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvestat()
+    }
 
     /**
      * Set the value of [apvezipcode] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvezipcode($v)
     {
@@ -3652,13 +3679,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvezipcode()
+    }
 
     /**
      * Set the value of [apvepayname] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepayname($v)
     {
@@ -3672,13 +3699,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepayname()
+    }
 
     /**
      * Set the value of [apvepayadr1] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepayadr1($v)
     {
@@ -3692,13 +3719,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepayadr1()
+    }
 
     /**
      * Set the value of [apvepayadr2] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepayadr2($v)
     {
@@ -3712,13 +3739,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepayadr2()
+    }
 
     /**
      * Set the value of [apvepayadr3] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepayadr3($v)
     {
@@ -3732,13 +3759,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepayadr3()
+    }
 
     /**
      * Set the value of [apvepayctry] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepayctry($v)
     {
@@ -3752,13 +3779,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepayctry()
+    }
 
     /**
      * Set the value of [apvepaycity] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepaycity($v)
     {
@@ -3772,13 +3799,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepaycity()
+    }
 
     /**
      * Set the value of [apvepaystat] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepaystat($v)
     {
@@ -3792,13 +3819,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepaystat()
+    }
 
     /**
      * Set the value of [apvepayzipcode] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepayzipcode($v)
     {
@@ -3812,13 +3839,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepayzipcode()
+    }
 
     /**
      * Set the value of [apvestatus] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvestatus($v)
     {
@@ -3832,13 +3859,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvestatus()
+    }
 
     /**
      * Set the value of [apvetakeexpireddisc] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvetakeexpireddisc($v)
     {
@@ -3852,13 +3879,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvetakeexpireddisc()
+    }
 
     /**
      * Set the value of [apveprinthts] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveprinthts($v)
     {
@@ -3872,13 +3899,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveprinthts()
+    }
 
     /**
      * Set the value of [apvefabbin] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvefabbin($v)
     {
@@ -3892,13 +3919,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvefabbin()
+    }
 
     /**
      * Set the value of [apvelmprntbulk] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvelmprntbulk($v)
     {
@@ -3912,13 +3939,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvelmprntbulk()
+    }
 
     /**
      * Set the value of [apveallowdropship] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveallowdropship($v)
     {
@@ -3932,13 +3959,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveallowdropship()
+    }
 
     /**
      * Set the value of [aptbtypecode] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbtypecode($v)
     {
@@ -3956,13 +3983,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbtypecode()
+    }
 
     /**
      * Set the value of [aptmtermcode] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmtermcode($v)
     {
@@ -3980,13 +4007,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmtermcode()
+    }
 
     /**
      * Set the value of [apvesviacode] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvesviacode($v)
     {
@@ -4004,13 +4031,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvesviacode()
+    }
 
     /**
      * Set the value of [apveoldfob] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveoldfob($v)
     {
@@ -4024,13 +4051,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveoldfob()
+    }
 
     /**
      * Set the value of [apveleaddays] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveleaddays($v)
     {
@@ -4044,13 +4071,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveleaddays()
+    }
 
     /**
      * Set the value of [apveglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveglacct($v)
     {
@@ -4064,13 +4091,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveglacct()
+    }
 
     /**
      * Set the value of [apve1099ssnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApve1099ssnbr($v)
     {
@@ -4084,13 +4111,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApve1099ssnbr()
+    }
 
     /**
      * Set the value of [apveminordrcode] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveminordrcode($v)
     {
@@ -4104,13 +4131,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveminordrcode()
+    }
 
     /**
      * Set the value of [apveminordrvalue] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveminordrvalue($v)
     {
@@ -4124,13 +4151,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveminordrvalue()
+    }
 
     /**
      * Set the value of [apvepurmtd] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepurmtd($v)
     {
@@ -4144,13 +4171,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepurmtd()
+    }
 
     /**
      * Set the value of [apvepomtd] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepomtd($v)
     {
@@ -4164,13 +4191,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepomtd()
+    }
 
     /**
      * Set the value of [apveinvcmtd] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvcmtd($v)
     {
@@ -4184,13 +4211,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvcmtd()
+    }
 
     /**
      * Set the value of [apveicntmtd] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicntmtd($v)
     {
@@ -4204,13 +4231,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicntmtd()
+    }
 
     /**
      * Set the value of [apvedateopen] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvedateopen($v)
     {
@@ -4224,13 +4251,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvedateopen()
+    }
 
     /**
      * Set the value of [apvelastpurdate] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvelastpurdate($v)
     {
@@ -4244,13 +4271,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvelastpurdate()
+    }
 
     /**
      * Set the value of [apvepur24mo01] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo01($v)
     {
@@ -4264,13 +4291,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo01()
+    }
 
     /**
      * Set the value of [apvepo24mo01] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo01($v)
     {
@@ -4284,13 +4311,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo01()
+    }
 
     /**
      * Set the value of [apveinvc24mo01] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo01($v)
     {
@@ -4304,13 +4331,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo01()
+    }
 
     /**
      * Set the value of [apveicnt24mo01] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo01($v)
     {
@@ -4324,13 +4351,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo01()
+    }
 
     /**
      * Set the value of [apvepur24mo02] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo02($v)
     {
@@ -4344,13 +4371,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo02()
+    }
 
     /**
      * Set the value of [apvepo24mo02] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo02($v)
     {
@@ -4364,13 +4391,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo02()
+    }
 
     /**
      * Set the value of [apveinvc24mo02] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo02($v)
     {
@@ -4384,13 +4411,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo02()
+    }
 
     /**
      * Set the value of [apveicnt24mo02] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo02($v)
     {
@@ -4404,13 +4431,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo02()
+    }
 
     /**
      * Set the value of [apvepur24mo03] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo03($v)
     {
@@ -4424,13 +4451,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo03()
+    }
 
     /**
      * Set the value of [apvepo24mo03] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo03($v)
     {
@@ -4444,13 +4471,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo03()
+    }
 
     /**
      * Set the value of [apveinvc24mo03] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo03($v)
     {
@@ -4464,13 +4491,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo03()
+    }
 
     /**
      * Set the value of [apveicnt24mo03] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo03($v)
     {
@@ -4484,13 +4511,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo03()
+    }
 
     /**
      * Set the value of [apvepur24mo04] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo04($v)
     {
@@ -4504,13 +4531,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo04()
+    }
 
     /**
      * Set the value of [apvepo24mo04] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo04($v)
     {
@@ -4524,13 +4551,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo04()
+    }
 
     /**
      * Set the value of [apveinvc24mo04] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo04($v)
     {
@@ -4544,13 +4571,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo04()
+    }
 
     /**
      * Set the value of [apveicnt24mo04] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo04($v)
     {
@@ -4564,13 +4591,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo04()
+    }
 
     /**
      * Set the value of [apvepur24mo05] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo05($v)
     {
@@ -4584,13 +4611,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo05()
+    }
 
     /**
      * Set the value of [apvepo24mo05] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo05($v)
     {
@@ -4604,13 +4631,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo05()
+    }
 
     /**
      * Set the value of [apveinvc24mo05] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo05($v)
     {
@@ -4624,13 +4651,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo05()
+    }
 
     /**
      * Set the value of [apveicnt24mo05] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo05($v)
     {
@@ -4644,13 +4671,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo05()
+    }
 
     /**
      * Set the value of [apvepur24mo06] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo06($v)
     {
@@ -4664,13 +4691,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo06()
+    }
 
     /**
      * Set the value of [apvepo24mo06] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo06($v)
     {
@@ -4684,13 +4711,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo06()
+    }
 
     /**
      * Set the value of [apveinvc24mo06] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo06($v)
     {
@@ -4704,13 +4731,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo06()
+    }
 
     /**
      * Set the value of [apveicnt24mo06] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo06($v)
     {
@@ -4724,13 +4751,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo06()
+    }
 
     /**
      * Set the value of [apvepur24mo07] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo07($v)
     {
@@ -4744,13 +4771,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo07()
+    }
 
     /**
      * Set the value of [apvepo24mo07] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo07($v)
     {
@@ -4764,13 +4791,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo07()
+    }
 
     /**
      * Set the value of [apveinvc24mo07] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo07($v)
     {
@@ -4784,13 +4811,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo07()
+    }
 
     /**
      * Set the value of [apveicnt24mo07] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo07($v)
     {
@@ -4804,13 +4831,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo07()
+    }
 
     /**
      * Set the value of [apvepur24mo08] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo08($v)
     {
@@ -4824,13 +4851,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo08()
+    }
 
     /**
      * Set the value of [apvepo24mo08] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo08($v)
     {
@@ -4844,13 +4871,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo08()
+    }
 
     /**
      * Set the value of [apveinvc24mo08] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo08($v)
     {
@@ -4864,13 +4891,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo08()
+    }
 
     /**
      * Set the value of [apveicnt24mo08] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo08($v)
     {
@@ -4884,13 +4911,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo08()
+    }
 
     /**
      * Set the value of [apvepur24mo09] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo09($v)
     {
@@ -4904,13 +4931,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo09()
+    }
 
     /**
      * Set the value of [apvepo24mo09] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo09($v)
     {
@@ -4924,13 +4951,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo09()
+    }
 
     /**
      * Set the value of [apveinvc24mo09] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo09($v)
     {
@@ -4944,13 +4971,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo09()
+    }
 
     /**
      * Set the value of [apveicnt24mo09] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo09($v)
     {
@@ -4964,13 +4991,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo09()
+    }
 
     /**
      * Set the value of [apvepur24mo10] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo10($v)
     {
@@ -4984,13 +5011,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo10()
+    }
 
     /**
      * Set the value of [apvepo24mo10] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo10($v)
     {
@@ -5004,13 +5031,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo10()
+    }
 
     /**
      * Set the value of [apveinvc24mo10] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo10($v)
     {
@@ -5024,13 +5051,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo10()
+    }
 
     /**
      * Set the value of [apveicnt24mo10] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo10($v)
     {
@@ -5044,13 +5071,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo10()
+    }
 
     /**
      * Set the value of [apvepur24mo11] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo11($v)
     {
@@ -5064,13 +5091,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo11()
+    }
 
     /**
      * Set the value of [apvepo24mo11] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo11($v)
     {
@@ -5084,13 +5111,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo11()
+    }
 
     /**
      * Set the value of [apveinvc24mo11] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo11($v)
     {
@@ -5104,13 +5131,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo11()
+    }
 
     /**
      * Set the value of [apveicnt24mo11] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo11($v)
     {
@@ -5124,13 +5151,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo11()
+    }
 
     /**
      * Set the value of [apvepur24mo12] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo12($v)
     {
@@ -5144,13 +5171,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo12()
+    }
 
     /**
      * Set the value of [apvepo24mo12] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo12($v)
     {
@@ -5164,13 +5191,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo12()
+    }
 
     /**
      * Set the value of [apveinvc24mo12] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo12($v)
     {
@@ -5184,13 +5211,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo12()
+    }
 
     /**
      * Set the value of [apveicnt24mo12] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo12($v)
     {
@@ -5204,13 +5231,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo12()
+    }
 
     /**
      * Set the value of [apvepur24mo13] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo13($v)
     {
@@ -5224,13 +5251,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo13()
+    }
 
     /**
      * Set the value of [apvepo24mo13] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo13($v)
     {
@@ -5244,13 +5271,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo13()
+    }
 
     /**
      * Set the value of [apveinvc24mo13] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo13($v)
     {
@@ -5264,13 +5291,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo13()
+    }
 
     /**
      * Set the value of [apveicnt24mo13] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo13($v)
     {
@@ -5284,13 +5311,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo13()
+    }
 
     /**
      * Set the value of [apvepur24mo14] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo14($v)
     {
@@ -5304,13 +5331,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo14()
+    }
 
     /**
      * Set the value of [apvepo24mo14] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo14($v)
     {
@@ -5324,13 +5351,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo14()
+    }
 
     /**
      * Set the value of [apveinvc24mo14] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo14($v)
     {
@@ -5344,13 +5371,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo14()
+    }
 
     /**
      * Set the value of [apveicnt24mo14] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo14($v)
     {
@@ -5364,13 +5391,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo14()
+    }
 
     /**
      * Set the value of [apvepur24mo15] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo15($v)
     {
@@ -5384,13 +5411,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo15()
+    }
 
     /**
      * Set the value of [apvepo24mo15] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo15($v)
     {
@@ -5404,13 +5431,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo15()
+    }
 
     /**
      * Set the value of [apveinvc24mo15] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo15($v)
     {
@@ -5424,13 +5451,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo15()
+    }
 
     /**
      * Set the value of [apveicnt24mo15] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo15($v)
     {
@@ -5444,13 +5471,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo15()
+    }
 
     /**
      * Set the value of [apvepur24mo16] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo16($v)
     {
@@ -5464,13 +5491,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo16()
+    }
 
     /**
      * Set the value of [apvepo24mo16] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo16($v)
     {
@@ -5484,13 +5511,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo16()
+    }
 
     /**
      * Set the value of [apveinvc24mo16] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo16($v)
     {
@@ -5504,13 +5531,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo16()
+    }
 
     /**
      * Set the value of [apveicnt24mo16] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo16($v)
     {
@@ -5524,13 +5551,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo16()
+    }
 
     /**
      * Set the value of [apvepur24mo17] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo17($v)
     {
@@ -5544,13 +5571,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo17()
+    }
 
     /**
      * Set the value of [apvepo24mo17] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo17($v)
     {
@@ -5564,13 +5591,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo17()
+    }
 
     /**
      * Set the value of [apveinvc24mo17] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo17($v)
     {
@@ -5584,13 +5611,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo17()
+    }
 
     /**
      * Set the value of [apveicnt24mo17] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo17($v)
     {
@@ -5604,13 +5631,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo17()
+    }
 
     /**
      * Set the value of [apvepur24mo18] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo18($v)
     {
@@ -5624,13 +5651,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo18()
+    }
 
     /**
      * Set the value of [apvepo24mo18] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo18($v)
     {
@@ -5644,13 +5671,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo18()
+    }
 
     /**
      * Set the value of [apveinvc24mo18] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo18($v)
     {
@@ -5664,13 +5691,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo18()
+    }
 
     /**
      * Set the value of [apveicnt24mo18] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo18($v)
     {
@@ -5684,13 +5711,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo18()
+    }
 
     /**
      * Set the value of [apvepur24mo19] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo19($v)
     {
@@ -5704,13 +5731,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo19()
+    }
 
     /**
      * Set the value of [apvepo24mo19] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo19($v)
     {
@@ -5724,13 +5751,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo19()
+    }
 
     /**
      * Set the value of [apveinvc24mo19] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo19($v)
     {
@@ -5744,13 +5771,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo19()
+    }
 
     /**
      * Set the value of [apveicnt24mo19] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo19($v)
     {
@@ -5764,13 +5791,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo19()
+    }
 
     /**
      * Set the value of [apvepur24mo20] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo20($v)
     {
@@ -5784,13 +5811,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo20()
+    }
 
     /**
      * Set the value of [apvepo24mo20] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo20($v)
     {
@@ -5804,13 +5831,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo20()
+    }
 
     /**
      * Set the value of [apveinvc24mo20] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo20($v)
     {
@@ -5824,13 +5851,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo20()
+    }
 
     /**
      * Set the value of [apveicnt24mo20] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo20($v)
     {
@@ -5844,13 +5871,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo20()
+    }
 
     /**
      * Set the value of [apvepur24mo21] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo21($v)
     {
@@ -5864,13 +5891,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo21()
+    }
 
     /**
      * Set the value of [apvepo24mo21] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo21($v)
     {
@@ -5884,13 +5911,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo21()
+    }
 
     /**
      * Set the value of [apveinvc24mo21] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo21($v)
     {
@@ -5904,13 +5931,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo21()
+    }
 
     /**
      * Set the value of [apveicnt24mo21] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo21($v)
     {
@@ -5924,13 +5951,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo21()
+    }
 
     /**
      * Set the value of [apvepur24mo22] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo22($v)
     {
@@ -5944,13 +5971,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo22()
+    }
 
     /**
      * Set the value of [apvepo24mo22] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo22($v)
     {
@@ -5964,13 +5991,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo22()
+    }
 
     /**
      * Set the value of [apveinvc24mo22] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo22($v)
     {
@@ -5984,13 +6011,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo22()
+    }
 
     /**
      * Set the value of [apveicnt24mo22] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo22($v)
     {
@@ -6004,13 +6031,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo22()
+    }
 
     /**
      * Set the value of [apvepur24mo23] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo23($v)
     {
@@ -6024,13 +6051,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo23()
+    }
 
     /**
      * Set the value of [apvepo24mo23] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo23($v)
     {
@@ -6044,13 +6071,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo23()
+    }
 
     /**
      * Set the value of [apveinvc24mo23] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo23($v)
     {
@@ -6064,13 +6091,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo23()
+    }
 
     /**
      * Set the value of [apveicnt24mo23] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo23($v)
     {
@@ -6084,13 +6111,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo23()
+    }
 
     /**
      * Set the value of [apvepur24mo24] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepur24mo24($v)
     {
@@ -6104,13 +6131,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepur24mo24()
+    }
 
     /**
      * Set the value of [apvepo24mo24] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvepo24mo24($v)
     {
@@ -6124,13 +6151,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepo24mo24()
+    }
 
     /**
      * Set the value of [apveinvc24mo24] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveinvc24mo24($v)
     {
@@ -6144,13 +6171,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvc24mo24()
+    }
 
     /**
      * Set the value of [apveicnt24mo24] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveicnt24mo24($v)
     {
@@ -6164,13 +6191,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicnt24mo24()
+    }
 
     /**
      * Set the value of [apvecrncy] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvecrncy($v)
     {
@@ -6184,13 +6211,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvecrncy()
+    }
 
     /**
      * Set the value of [apvefrtinamt] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvefrtinamt($v)
     {
@@ -6204,13 +6231,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvefrtinamt()
+    }
 
     /**
      * Set the value of [apveouracctnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveouracctnbr($v)
     {
@@ -6224,13 +6251,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveouracctnbr()
+    }
 
     /**
      * Set the value of [apvevenddisc] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvevenddisc($v)
     {
@@ -6244,13 +6271,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvevenddisc()
+    }
 
     /**
      * Set the value of [apvefob] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvefob($v)
     {
@@ -6264,13 +6291,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvefob()
+    }
 
     /**
      * Set the value of [apveroylpct] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveroylpct($v)
     {
@@ -6284,13 +6311,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveroylpct()
+    }
 
     /**
      * Set the value of [apveprtpoeoru] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveprtpoeoru($v)
     {
@@ -6304,13 +6331,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveprtpoeoru()
+    }
 
     /**
      * Set the value of [apvecomrate] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvecomrate($v)
     {
@@ -6324,13 +6351,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvecomrate()
+    }
 
     /**
      * Set the value of [apveuselandonrcpt] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveuselandonrcpt($v)
     {
@@ -6344,13 +6371,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveuselandonrcpt()
+    }
 
     /**
      * Set the value of [apvebuyrwhse1] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrwhse1($v)
     {
@@ -6364,13 +6391,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrwhse1()
+    }
 
     /**
      * Set the value of [apvebuyrcode1] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrcode1($v)
     {
@@ -6388,13 +6415,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrcode1()
+    }
 
     /**
      * Set the value of [apvebuyrwhse2] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrwhse2($v)
     {
@@ -6408,13 +6435,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrwhse2()
+    }
 
     /**
      * Set the value of [apvebuyrcode2] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrcode2($v)
     {
@@ -6428,13 +6455,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrcode2()
+    }
 
     /**
      * Set the value of [apvebuyrwhse3] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrwhse3($v)
     {
@@ -6448,13 +6475,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrwhse3()
+    }
 
     /**
      * Set the value of [apvebuyrcode3] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrcode3($v)
     {
@@ -6468,13 +6495,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrcode3()
+    }
 
     /**
      * Set the value of [apvebuyrwhse4] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrwhse4($v)
     {
@@ -6488,13 +6515,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrwhse4()
+    }
 
     /**
      * Set the value of [apvebuyrcode4] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrcode4($v)
     {
@@ -6508,13 +6535,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrcode4()
+    }
 
     /**
      * Set the value of [apvebuyrwhse5] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrwhse5($v)
     {
@@ -6528,13 +6555,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrwhse5()
+    }
 
     /**
      * Set the value of [apvebuyrcode5] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrcode5($v)
     {
@@ -6548,13 +6575,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrcode5()
+    }
 
     /**
      * Set the value of [apvebuyrwhse6] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrwhse6($v)
     {
@@ -6568,13 +6595,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrwhse6()
+    }
 
     /**
      * Set the value of [apvebuyrcode6] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrcode6($v)
     {
@@ -6588,13 +6615,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrcode6()
+    }
 
     /**
      * Set the value of [apvebuyrwhse7] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrwhse7($v)
     {
@@ -6608,13 +6635,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrwhse7()
+    }
 
     /**
      * Set the value of [apvebuyrcode7] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrcode7($v)
     {
@@ -6628,13 +6655,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrcode7()
+    }
 
     /**
      * Set the value of [apvebuyrwhse8] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrwhse8($v)
     {
@@ -6648,13 +6675,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrwhse8()
+    }
 
     /**
      * Set the value of [apvebuyrcode8] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrcode8($v)
     {
@@ -6668,13 +6695,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrcode8()
+    }
 
     /**
      * Set the value of [apvebuyrwhse9] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrwhse9($v)
     {
@@ -6688,13 +6715,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrwhse9()
+    }
 
     /**
      * Set the value of [apvebuyrcode9] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrcode9($v)
     {
@@ -6708,13 +6735,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrcode9()
+    }
 
     /**
      * Set the value of [apvebuyrwhse10] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrwhse10($v)
     {
@@ -6728,13 +6755,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrwhse10()
+    }
 
     /**
      * Set the value of [apvebuyrcode10] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvebuyrcode10($v)
     {
@@ -6748,13 +6775,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvebuyrcode10()
+    }
 
     /**
      * Set the value of [apvelandcost] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvelandcost($v)
     {
@@ -6768,13 +6795,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvelandcost()
+    }
 
     /**
      * Set the value of [apvereleasenbr] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvereleasenbr($v)
     {
@@ -6788,13 +6815,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvereleasenbr()
+    }
 
     /**
      * Set the value of [apvescanstartpos] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvescanstartpos($v)
     {
@@ -6808,13 +6835,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvescanstartpos()
+    }
 
     /**
      * Set the value of [apvescanlength] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvescanlength($v)
     {
@@ -6828,13 +6855,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvescanlength()
+    }
 
     /**
      * Set the value of [apvepurytd] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvePurYtd($v)
     {
@@ -6848,13 +6875,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvePurYtd()
+    }
 
     /**
      * Set the value of [apvepoytd] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvePoYtd($v)
     {
@@ -6868,13 +6895,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvePoYtd()
+    }
 
     /**
      * Set the value of [apveinvcytd] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveInvcYtd($v)
     {
@@ -6888,13 +6915,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveInvcYtd()
+    }
 
     /**
      * Set the value of [apveicntytd] column.
      *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApveIcntYtd($v)
     {
@@ -6908,13 +6935,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveIcntYtd()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -6928,13 +6955,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -6948,13 +6975,13 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -6968,7 +6995,7 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -6976,9 +7003,9 @@ abstract class Vendor implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->apvevendid !== '') {
                 return false;
@@ -6986,7 +7013,7 @@ abstract class Vendor implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -6996,17 +7023,17 @@ abstract class Vendor implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -7531,8 +7558,8 @@ abstract class Vendor implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 173 + $startcol : VendorTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -7557,9 +7584,10 @@ abstract class Vendor implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
         if ($this->aApTypeCode !== null && $this->aptbtypecode !== $this->aApTypeCode->getAptbtypecode()) {
             $this->aApTypeCode = null;
@@ -7573,19 +7601,19 @@ abstract class Vendor implements ActiveRecordInterface
         if ($this->aApBuyer !== null && $this->apvebuyrcode1 !== $this->aApBuyer->getAptbbuyrcode()) {
             $this->aApBuyer = null;
         }
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -7646,13 +7674,13 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see Vendor::setDeleted()
      * @see Vendor::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -7682,12 +7710,12 @@ abstract class Vendor implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -7732,12 +7760,12 @@ abstract class Vendor implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -7999,19 +8027,19 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -8551,525 +8579,699 @@ abstract class Vendor implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'ApveVendId':
                         $stmt->bindValue($identifier, $this->apvevendid, PDO::PARAM_STR);
+
                         break;
                     case 'ApveName':
                         $stmt->bindValue($identifier, $this->apvename, PDO::PARAM_STR);
+
                         break;
                     case 'ApveAdr1':
                         $stmt->bindValue($identifier, $this->apveadr1, PDO::PARAM_STR);
+
                         break;
                     case 'ApveAdr2':
                         $stmt->bindValue($identifier, $this->apveadr2, PDO::PARAM_STR);
+
                         break;
                     case 'ApveAdr3':
                         $stmt->bindValue($identifier, $this->apveadr3, PDO::PARAM_STR);
+
                         break;
                     case 'ApveCtry':
                         $stmt->bindValue($identifier, $this->apvectry, PDO::PARAM_STR);
+
                         break;
                     case 'ApveCity':
                         $stmt->bindValue($identifier, $this->apvecity, PDO::PARAM_STR);
+
                         break;
                     case 'ApveStat':
                         $stmt->bindValue($identifier, $this->apvestat, PDO::PARAM_STR);
+
                         break;
                     case 'ApveZipCode':
                         $stmt->bindValue($identifier, $this->apvezipcode, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePayName':
                         $stmt->bindValue($identifier, $this->apvepayname, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePayAdr1':
                         $stmt->bindValue($identifier, $this->apvepayadr1, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePayAdr2':
                         $stmt->bindValue($identifier, $this->apvepayadr2, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePayAdr3':
                         $stmt->bindValue($identifier, $this->apvepayadr3, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePayCtry':
                         $stmt->bindValue($identifier, $this->apvepayctry, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePayCity':
                         $stmt->bindValue($identifier, $this->apvepaycity, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePayStat':
                         $stmt->bindValue($identifier, $this->apvepaystat, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePayZipCode':
                         $stmt->bindValue($identifier, $this->apvepayzipcode, PDO::PARAM_STR);
+
                         break;
                     case 'ApveStatus':
                         $stmt->bindValue($identifier, $this->apvestatus, PDO::PARAM_STR);
+
                         break;
                     case 'ApveTakeExpiredDisc':
                         $stmt->bindValue($identifier, $this->apvetakeexpireddisc, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePrintHts':
                         $stmt->bindValue($identifier, $this->apveprinthts, PDO::PARAM_STR);
+
                         break;
                     case 'ApveFabBin':
                         $stmt->bindValue($identifier, $this->apvefabbin, PDO::PARAM_STR);
+
                         break;
                     case 'ApveLmPrntBulk':
                         $stmt->bindValue($identifier, $this->apvelmprntbulk, PDO::PARAM_STR);
+
                         break;
                     case 'ApveAllowDropShip':
                         $stmt->bindValue($identifier, $this->apveallowdropship, PDO::PARAM_STR);
+
                         break;
                     case 'AptbTypeCode':
                         $stmt->bindValue($identifier, $this->aptbtypecode, PDO::PARAM_STR);
+
                         break;
                     case 'AptmTermCode':
                         $stmt->bindValue($identifier, $this->aptmtermcode, PDO::PARAM_STR);
+
                         break;
                     case 'ApveSviaCode':
                         $stmt->bindValue($identifier, $this->apvesviacode, PDO::PARAM_STR);
+
                         break;
                     case 'ApveOldFob':
                         $stmt->bindValue($identifier, $this->apveoldfob, PDO::PARAM_STR);
+
                         break;
                     case 'ApveLeadDays':
                         $stmt->bindValue($identifier, $this->apveleaddays, PDO::PARAM_INT);
+
                         break;
                     case 'ApveGlAcct':
                         $stmt->bindValue($identifier, $this->apveglacct, PDO::PARAM_STR);
+
                         break;
                     case 'Apve1099SsNbr':
                         $stmt->bindValue($identifier, $this->apve1099ssnbr, PDO::PARAM_STR);
+
                         break;
                     case 'ApveMinOrdrCode':
                         $stmt->bindValue($identifier, $this->apveminordrcode, PDO::PARAM_STR);
+
                         break;
                     case 'ApveMinOrdrValue':
                         $stmt->bindValue($identifier, $this->apveminordrvalue, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePurMtd':
                         $stmt->bindValue($identifier, $this->apvepurmtd, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePoMtd':
                         $stmt->bindValue($identifier, $this->apvepomtd, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvcMtd':
                         $stmt->bindValue($identifier, $this->apveinvcmtd, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcntMtd':
                         $stmt->bindValue($identifier, $this->apveicntmtd, PDO::PARAM_INT);
+
                         break;
                     case 'ApveDateOpen':
                         $stmt->bindValue($identifier, $this->apvedateopen, PDO::PARAM_STR);
+
                         break;
                     case 'ApveLastPurDate':
                         $stmt->bindValue($identifier, $this->apvelastpurdate, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePur24mo01':
                         $stmt->bindValue($identifier, $this->apvepur24mo01, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo01':
                         $stmt->bindValue($identifier, $this->apvepo24mo01, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo01':
                         $stmt->bindValue($identifier, $this->apveinvc24mo01, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo01':
                         $stmt->bindValue($identifier, $this->apveicnt24mo01, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo02':
                         $stmt->bindValue($identifier, $this->apvepur24mo02, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo02':
                         $stmt->bindValue($identifier, $this->apvepo24mo02, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo02':
                         $stmt->bindValue($identifier, $this->apveinvc24mo02, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo02':
                         $stmt->bindValue($identifier, $this->apveicnt24mo02, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo03':
                         $stmt->bindValue($identifier, $this->apvepur24mo03, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo03':
                         $stmt->bindValue($identifier, $this->apvepo24mo03, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo03':
                         $stmt->bindValue($identifier, $this->apveinvc24mo03, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo03':
                         $stmt->bindValue($identifier, $this->apveicnt24mo03, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo04':
                         $stmt->bindValue($identifier, $this->apvepur24mo04, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo04':
                         $stmt->bindValue($identifier, $this->apvepo24mo04, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo04':
                         $stmt->bindValue($identifier, $this->apveinvc24mo04, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo04':
                         $stmt->bindValue($identifier, $this->apveicnt24mo04, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo05':
                         $stmt->bindValue($identifier, $this->apvepur24mo05, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo05':
                         $stmt->bindValue($identifier, $this->apvepo24mo05, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo05':
                         $stmt->bindValue($identifier, $this->apveinvc24mo05, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo05':
                         $stmt->bindValue($identifier, $this->apveicnt24mo05, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo06':
                         $stmt->bindValue($identifier, $this->apvepur24mo06, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo06':
                         $stmt->bindValue($identifier, $this->apvepo24mo06, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo06':
                         $stmt->bindValue($identifier, $this->apveinvc24mo06, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo06':
                         $stmt->bindValue($identifier, $this->apveicnt24mo06, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo07':
                         $stmt->bindValue($identifier, $this->apvepur24mo07, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo07':
                         $stmt->bindValue($identifier, $this->apvepo24mo07, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo07':
                         $stmt->bindValue($identifier, $this->apveinvc24mo07, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo07':
                         $stmt->bindValue($identifier, $this->apveicnt24mo07, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo08':
                         $stmt->bindValue($identifier, $this->apvepur24mo08, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo08':
                         $stmt->bindValue($identifier, $this->apvepo24mo08, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo08':
                         $stmt->bindValue($identifier, $this->apveinvc24mo08, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo08':
                         $stmt->bindValue($identifier, $this->apveicnt24mo08, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo09':
                         $stmt->bindValue($identifier, $this->apvepur24mo09, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo09':
                         $stmt->bindValue($identifier, $this->apvepo24mo09, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo09':
                         $stmt->bindValue($identifier, $this->apveinvc24mo09, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo09':
                         $stmt->bindValue($identifier, $this->apveicnt24mo09, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo10':
                         $stmt->bindValue($identifier, $this->apvepur24mo10, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo10':
                         $stmt->bindValue($identifier, $this->apvepo24mo10, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo10':
                         $stmt->bindValue($identifier, $this->apveinvc24mo10, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo10':
                         $stmt->bindValue($identifier, $this->apveicnt24mo10, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo11':
                         $stmt->bindValue($identifier, $this->apvepur24mo11, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo11':
                         $stmt->bindValue($identifier, $this->apvepo24mo11, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo11':
                         $stmt->bindValue($identifier, $this->apveinvc24mo11, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo11':
                         $stmt->bindValue($identifier, $this->apveicnt24mo11, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo12':
                         $stmt->bindValue($identifier, $this->apvepur24mo12, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo12':
                         $stmt->bindValue($identifier, $this->apvepo24mo12, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo12':
                         $stmt->bindValue($identifier, $this->apveinvc24mo12, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo12':
                         $stmt->bindValue($identifier, $this->apveicnt24mo12, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo13':
                         $stmt->bindValue($identifier, $this->apvepur24mo13, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo13':
                         $stmt->bindValue($identifier, $this->apvepo24mo13, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo13':
                         $stmt->bindValue($identifier, $this->apveinvc24mo13, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo13':
                         $stmt->bindValue($identifier, $this->apveicnt24mo13, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo14':
                         $stmt->bindValue($identifier, $this->apvepur24mo14, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo14':
                         $stmt->bindValue($identifier, $this->apvepo24mo14, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo14':
                         $stmt->bindValue($identifier, $this->apveinvc24mo14, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo14':
                         $stmt->bindValue($identifier, $this->apveicnt24mo14, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo15':
                         $stmt->bindValue($identifier, $this->apvepur24mo15, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo15':
                         $stmt->bindValue($identifier, $this->apvepo24mo15, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo15':
                         $stmt->bindValue($identifier, $this->apveinvc24mo15, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo15':
                         $stmt->bindValue($identifier, $this->apveicnt24mo15, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo16':
                         $stmt->bindValue($identifier, $this->apvepur24mo16, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo16':
                         $stmt->bindValue($identifier, $this->apvepo24mo16, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo16':
                         $stmt->bindValue($identifier, $this->apveinvc24mo16, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo16':
                         $stmt->bindValue($identifier, $this->apveicnt24mo16, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo17':
                         $stmt->bindValue($identifier, $this->apvepur24mo17, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo17':
                         $stmt->bindValue($identifier, $this->apvepo24mo17, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo17':
                         $stmt->bindValue($identifier, $this->apveinvc24mo17, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo17':
                         $stmt->bindValue($identifier, $this->apveicnt24mo17, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo18':
                         $stmt->bindValue($identifier, $this->apvepur24mo18, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo18':
                         $stmt->bindValue($identifier, $this->apvepo24mo18, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo18':
                         $stmt->bindValue($identifier, $this->apveinvc24mo18, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo18':
                         $stmt->bindValue($identifier, $this->apveicnt24mo18, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo19':
                         $stmt->bindValue($identifier, $this->apvepur24mo19, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo19':
                         $stmt->bindValue($identifier, $this->apvepo24mo19, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo19':
                         $stmt->bindValue($identifier, $this->apveinvc24mo19, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo19':
                         $stmt->bindValue($identifier, $this->apveicnt24mo19, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo20':
                         $stmt->bindValue($identifier, $this->apvepur24mo20, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo20':
                         $stmt->bindValue($identifier, $this->apvepo24mo20, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo20':
                         $stmt->bindValue($identifier, $this->apveinvc24mo20, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo20':
                         $stmt->bindValue($identifier, $this->apveicnt24mo20, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo21':
                         $stmt->bindValue($identifier, $this->apvepur24mo21, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo21':
                         $stmt->bindValue($identifier, $this->apvepo24mo21, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo21':
                         $stmt->bindValue($identifier, $this->apveinvc24mo21, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo21':
                         $stmt->bindValue($identifier, $this->apveicnt24mo21, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo22':
                         $stmt->bindValue($identifier, $this->apvepur24mo22, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo22':
                         $stmt->bindValue($identifier, $this->apvepo24mo22, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo22':
                         $stmt->bindValue($identifier, $this->apveinvc24mo22, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo22':
                         $stmt->bindValue($identifier, $this->apveicnt24mo22, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo23':
                         $stmt->bindValue($identifier, $this->apvepur24mo23, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo23':
                         $stmt->bindValue($identifier, $this->apvepo24mo23, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo23':
                         $stmt->bindValue($identifier, $this->apveinvc24mo23, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo23':
                         $stmt->bindValue($identifier, $this->apveicnt24mo23, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePur24mo24':
                         $stmt->bindValue($identifier, $this->apvepur24mo24, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePo24mo24':
                         $stmt->bindValue($identifier, $this->apvepo24mo24, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvc24mo24':
                         $stmt->bindValue($identifier, $this->apveinvc24mo24, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcnt24mo24':
                         $stmt->bindValue($identifier, $this->apveicnt24mo24, PDO::PARAM_INT);
+
                         break;
                     case 'ApveCrncy':
                         $stmt->bindValue($identifier, $this->apvecrncy, PDO::PARAM_STR);
+
                         break;
                     case 'ApveFrtInAmt':
                         $stmt->bindValue($identifier, $this->apvefrtinamt, PDO::PARAM_STR);
+
                         break;
                     case 'ApveOurAcctNbr':
                         $stmt->bindValue($identifier, $this->apveouracctnbr, PDO::PARAM_STR);
+
                         break;
                     case 'ApveVendDisc':
                         $stmt->bindValue($identifier, $this->apvevenddisc, PDO::PARAM_STR);
+
                         break;
                     case 'ApveFob':
                         $stmt->bindValue($identifier, $this->apvefob, PDO::PARAM_STR);
+
                         break;
                     case 'ApveRoylPct':
                         $stmt->bindValue($identifier, $this->apveroylpct, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePrtPoEOrU':
                         $stmt->bindValue($identifier, $this->apveprtpoeoru, PDO::PARAM_STR);
+
                         break;
                     case 'ApveComRate':
                         $stmt->bindValue($identifier, $this->apvecomrate, PDO::PARAM_STR);
+
                         break;
                     case 'ApveUseLandOnRcpt':
                         $stmt->bindValue($identifier, $this->apveuselandonrcpt, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrWhse1':
                         $stmt->bindValue($identifier, $this->apvebuyrwhse1, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrCode1':
                         $stmt->bindValue($identifier, $this->apvebuyrcode1, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrWhse2':
                         $stmt->bindValue($identifier, $this->apvebuyrwhse2, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrCode2':
                         $stmt->bindValue($identifier, $this->apvebuyrcode2, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrWhse3':
                         $stmt->bindValue($identifier, $this->apvebuyrwhse3, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrCode3':
                         $stmt->bindValue($identifier, $this->apvebuyrcode3, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrWhse4':
                         $stmt->bindValue($identifier, $this->apvebuyrwhse4, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrCode4':
                         $stmt->bindValue($identifier, $this->apvebuyrcode4, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrWhse5':
                         $stmt->bindValue($identifier, $this->apvebuyrwhse5, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrCode5':
                         $stmt->bindValue($identifier, $this->apvebuyrcode5, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrWhse6':
                         $stmt->bindValue($identifier, $this->apvebuyrwhse6, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrCode6':
                         $stmt->bindValue($identifier, $this->apvebuyrcode6, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrWhse7':
                         $stmt->bindValue($identifier, $this->apvebuyrwhse7, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrCode7':
                         $stmt->bindValue($identifier, $this->apvebuyrcode7, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrWhse8':
                         $stmt->bindValue($identifier, $this->apvebuyrwhse8, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrCode8':
                         $stmt->bindValue($identifier, $this->apvebuyrcode8, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrWhse9':
                         $stmt->bindValue($identifier, $this->apvebuyrwhse9, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrCode9':
                         $stmt->bindValue($identifier, $this->apvebuyrcode9, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrWhse10':
                         $stmt->bindValue($identifier, $this->apvebuyrwhse10, PDO::PARAM_STR);
+
                         break;
                     case 'ApveBuyrCode10':
                         $stmt->bindValue($identifier, $this->apvebuyrcode10, PDO::PARAM_STR);
+
                         break;
                     case 'ApveLandCost':
                         $stmt->bindValue($identifier, $this->apvelandcost, PDO::PARAM_STR);
+
                         break;
                     case 'ApveReleaseNbr':
                         $stmt->bindValue($identifier, $this->apvereleasenbr, PDO::PARAM_INT);
+
                         break;
                     case 'ApveScanStartPos':
                         $stmt->bindValue($identifier, $this->apvescanstartpos, PDO::PARAM_INT);
+
                         break;
                     case 'ApveScanLength':
                         $stmt->bindValue($identifier, $this->apvescanlength, PDO::PARAM_INT);
+
                         break;
                     case 'ApvePurYtd':
                         $stmt->bindValue($identifier, $this->apvepurytd, PDO::PARAM_STR);
+
                         break;
                     case 'ApvePoYtd':
                         $stmt->bindValue($identifier, $this->apvepoytd, PDO::PARAM_INT);
+
                         break;
                     case 'ApveInvcYtd':
                         $stmt->bindValue($identifier, $this->apveinvcytd, PDO::PARAM_STR);
+
                         break;
                     case 'ApveIcntYtd':
                         $stmt->bindValue($identifier, $this->apveicntytd, PDO::PARAM_INT);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -9085,12 +9287,12 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -9101,14 +9303,14 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = VendorTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -9120,537 +9322,536 @@ abstract class Vendor implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getApvevendid();
-                break;
+
             case 1:
                 return $this->getApvename();
-                break;
+
             case 2:
                 return $this->getApveadr1();
-                break;
+
             case 3:
                 return $this->getApveadr2();
-                break;
+
             case 4:
                 return $this->getApveadr3();
-                break;
+
             case 5:
                 return $this->getApvectry();
-                break;
+
             case 6:
                 return $this->getApvecity();
-                break;
+
             case 7:
                 return $this->getApvestat();
-                break;
+
             case 8:
                 return $this->getApvezipcode();
-                break;
+
             case 9:
                 return $this->getApvepayname();
-                break;
+
             case 10:
                 return $this->getApvepayadr1();
-                break;
+
             case 11:
                 return $this->getApvepayadr2();
-                break;
+
             case 12:
                 return $this->getApvepayadr3();
-                break;
+
             case 13:
                 return $this->getApvepayctry();
-                break;
+
             case 14:
                 return $this->getApvepaycity();
-                break;
+
             case 15:
                 return $this->getApvepaystat();
-                break;
+
             case 16:
                 return $this->getApvepayzipcode();
-                break;
+
             case 17:
                 return $this->getApvestatus();
-                break;
+
             case 18:
                 return $this->getApvetakeexpireddisc();
-                break;
+
             case 19:
                 return $this->getApveprinthts();
-                break;
+
             case 20:
                 return $this->getApvefabbin();
-                break;
+
             case 21:
                 return $this->getApvelmprntbulk();
-                break;
+
             case 22:
                 return $this->getApveallowdropship();
-                break;
+
             case 23:
                 return $this->getAptbtypecode();
-                break;
+
             case 24:
                 return $this->getAptmtermcode();
-                break;
+
             case 25:
                 return $this->getApvesviacode();
-                break;
+
             case 26:
                 return $this->getApveoldfob();
-                break;
+
             case 27:
                 return $this->getApveleaddays();
-                break;
+
             case 28:
                 return $this->getApveglacct();
-                break;
+
             case 29:
                 return $this->getApve1099ssnbr();
-                break;
+
             case 30:
                 return $this->getApveminordrcode();
-                break;
+
             case 31:
                 return $this->getApveminordrvalue();
-                break;
+
             case 32:
                 return $this->getApvepurmtd();
-                break;
+
             case 33:
                 return $this->getApvepomtd();
-                break;
+
             case 34:
                 return $this->getApveinvcmtd();
-                break;
+
             case 35:
                 return $this->getApveicntmtd();
-                break;
+
             case 36:
                 return $this->getApvedateopen();
-                break;
+
             case 37:
                 return $this->getApvelastpurdate();
-                break;
+
             case 38:
                 return $this->getApvepur24mo01();
-                break;
+
             case 39:
                 return $this->getApvepo24mo01();
-                break;
+
             case 40:
                 return $this->getApveinvc24mo01();
-                break;
+
             case 41:
                 return $this->getApveicnt24mo01();
-                break;
+
             case 42:
                 return $this->getApvepur24mo02();
-                break;
+
             case 43:
                 return $this->getApvepo24mo02();
-                break;
+
             case 44:
                 return $this->getApveinvc24mo02();
-                break;
+
             case 45:
                 return $this->getApveicnt24mo02();
-                break;
+
             case 46:
                 return $this->getApvepur24mo03();
-                break;
+
             case 47:
                 return $this->getApvepo24mo03();
-                break;
+
             case 48:
                 return $this->getApveinvc24mo03();
-                break;
+
             case 49:
                 return $this->getApveicnt24mo03();
-                break;
+
             case 50:
                 return $this->getApvepur24mo04();
-                break;
+
             case 51:
                 return $this->getApvepo24mo04();
-                break;
+
             case 52:
                 return $this->getApveinvc24mo04();
-                break;
+
             case 53:
                 return $this->getApveicnt24mo04();
-                break;
+
             case 54:
                 return $this->getApvepur24mo05();
-                break;
+
             case 55:
                 return $this->getApvepo24mo05();
-                break;
+
             case 56:
                 return $this->getApveinvc24mo05();
-                break;
+
             case 57:
                 return $this->getApveicnt24mo05();
-                break;
+
             case 58:
                 return $this->getApvepur24mo06();
-                break;
+
             case 59:
                 return $this->getApvepo24mo06();
-                break;
+
             case 60:
                 return $this->getApveinvc24mo06();
-                break;
+
             case 61:
                 return $this->getApveicnt24mo06();
-                break;
+
             case 62:
                 return $this->getApvepur24mo07();
-                break;
+
             case 63:
                 return $this->getApvepo24mo07();
-                break;
+
             case 64:
                 return $this->getApveinvc24mo07();
-                break;
+
             case 65:
                 return $this->getApveicnt24mo07();
-                break;
+
             case 66:
                 return $this->getApvepur24mo08();
-                break;
+
             case 67:
                 return $this->getApvepo24mo08();
-                break;
+
             case 68:
                 return $this->getApveinvc24mo08();
-                break;
+
             case 69:
                 return $this->getApveicnt24mo08();
-                break;
+
             case 70:
                 return $this->getApvepur24mo09();
-                break;
+
             case 71:
                 return $this->getApvepo24mo09();
-                break;
+
             case 72:
                 return $this->getApveinvc24mo09();
-                break;
+
             case 73:
                 return $this->getApveicnt24mo09();
-                break;
+
             case 74:
                 return $this->getApvepur24mo10();
-                break;
+
             case 75:
                 return $this->getApvepo24mo10();
-                break;
+
             case 76:
                 return $this->getApveinvc24mo10();
-                break;
+
             case 77:
                 return $this->getApveicnt24mo10();
-                break;
+
             case 78:
                 return $this->getApvepur24mo11();
-                break;
+
             case 79:
                 return $this->getApvepo24mo11();
-                break;
+
             case 80:
                 return $this->getApveinvc24mo11();
-                break;
+
             case 81:
                 return $this->getApveicnt24mo11();
-                break;
+
             case 82:
                 return $this->getApvepur24mo12();
-                break;
+
             case 83:
                 return $this->getApvepo24mo12();
-                break;
+
             case 84:
                 return $this->getApveinvc24mo12();
-                break;
+
             case 85:
                 return $this->getApveicnt24mo12();
-                break;
+
             case 86:
                 return $this->getApvepur24mo13();
-                break;
+
             case 87:
                 return $this->getApvepo24mo13();
-                break;
+
             case 88:
                 return $this->getApveinvc24mo13();
-                break;
+
             case 89:
                 return $this->getApveicnt24mo13();
-                break;
+
             case 90:
                 return $this->getApvepur24mo14();
-                break;
+
             case 91:
                 return $this->getApvepo24mo14();
-                break;
+
             case 92:
                 return $this->getApveinvc24mo14();
-                break;
+
             case 93:
                 return $this->getApveicnt24mo14();
-                break;
+
             case 94:
                 return $this->getApvepur24mo15();
-                break;
+
             case 95:
                 return $this->getApvepo24mo15();
-                break;
+
             case 96:
                 return $this->getApveinvc24mo15();
-                break;
+
             case 97:
                 return $this->getApveicnt24mo15();
-                break;
+
             case 98:
                 return $this->getApvepur24mo16();
-                break;
+
             case 99:
                 return $this->getApvepo24mo16();
-                break;
+
             case 100:
                 return $this->getApveinvc24mo16();
-                break;
+
             case 101:
                 return $this->getApveicnt24mo16();
-                break;
+
             case 102:
                 return $this->getApvepur24mo17();
-                break;
+
             case 103:
                 return $this->getApvepo24mo17();
-                break;
+
             case 104:
                 return $this->getApveinvc24mo17();
-                break;
+
             case 105:
                 return $this->getApveicnt24mo17();
-                break;
+
             case 106:
                 return $this->getApvepur24mo18();
-                break;
+
             case 107:
                 return $this->getApvepo24mo18();
-                break;
+
             case 108:
                 return $this->getApveinvc24mo18();
-                break;
+
             case 109:
                 return $this->getApveicnt24mo18();
-                break;
+
             case 110:
                 return $this->getApvepur24mo19();
-                break;
+
             case 111:
                 return $this->getApvepo24mo19();
-                break;
+
             case 112:
                 return $this->getApveinvc24mo19();
-                break;
+
             case 113:
                 return $this->getApveicnt24mo19();
-                break;
+
             case 114:
                 return $this->getApvepur24mo20();
-                break;
+
             case 115:
                 return $this->getApvepo24mo20();
-                break;
+
             case 116:
                 return $this->getApveinvc24mo20();
-                break;
+
             case 117:
                 return $this->getApveicnt24mo20();
-                break;
+
             case 118:
                 return $this->getApvepur24mo21();
-                break;
+
             case 119:
                 return $this->getApvepo24mo21();
-                break;
+
             case 120:
                 return $this->getApveinvc24mo21();
-                break;
+
             case 121:
                 return $this->getApveicnt24mo21();
-                break;
+
             case 122:
                 return $this->getApvepur24mo22();
-                break;
+
             case 123:
                 return $this->getApvepo24mo22();
-                break;
+
             case 124:
                 return $this->getApveinvc24mo22();
-                break;
+
             case 125:
                 return $this->getApveicnt24mo22();
-                break;
+
             case 126:
                 return $this->getApvepur24mo23();
-                break;
+
             case 127:
                 return $this->getApvepo24mo23();
-                break;
+
             case 128:
                 return $this->getApveinvc24mo23();
-                break;
+
             case 129:
                 return $this->getApveicnt24mo23();
-                break;
+
             case 130:
                 return $this->getApvepur24mo24();
-                break;
+
             case 131:
                 return $this->getApvepo24mo24();
-                break;
+
             case 132:
                 return $this->getApveinvc24mo24();
-                break;
+
             case 133:
                 return $this->getApveicnt24mo24();
-                break;
+
             case 134:
                 return $this->getApvecrncy();
-                break;
+
             case 135:
                 return $this->getApvefrtinamt();
-                break;
+
             case 136:
                 return $this->getApveouracctnbr();
-                break;
+
             case 137:
                 return $this->getApvevenddisc();
-                break;
+
             case 138:
                 return $this->getApvefob();
-                break;
+
             case 139:
                 return $this->getApveroylpct();
-                break;
+
             case 140:
                 return $this->getApveprtpoeoru();
-                break;
+
             case 141:
                 return $this->getApvecomrate();
-                break;
+
             case 142:
                 return $this->getApveuselandonrcpt();
-                break;
+
             case 143:
                 return $this->getApvebuyrwhse1();
-                break;
+
             case 144:
                 return $this->getApvebuyrcode1();
-                break;
+
             case 145:
                 return $this->getApvebuyrwhse2();
-                break;
+
             case 146:
                 return $this->getApvebuyrcode2();
-                break;
+
             case 147:
                 return $this->getApvebuyrwhse3();
-                break;
+
             case 148:
                 return $this->getApvebuyrcode3();
-                break;
+
             case 149:
                 return $this->getApvebuyrwhse4();
-                break;
+
             case 150:
                 return $this->getApvebuyrcode4();
-                break;
+
             case 151:
                 return $this->getApvebuyrwhse5();
-                break;
+
             case 152:
                 return $this->getApvebuyrcode5();
-                break;
+
             case 153:
                 return $this->getApvebuyrwhse6();
-                break;
+
             case 154:
                 return $this->getApvebuyrcode6();
-                break;
+
             case 155:
                 return $this->getApvebuyrwhse7();
-                break;
+
             case 156:
                 return $this->getApvebuyrcode7();
-                break;
+
             case 157:
                 return $this->getApvebuyrwhse8();
-                break;
+
             case 158:
                 return $this->getApvebuyrcode8();
-                break;
+
             case 159:
                 return $this->getApvebuyrwhse9();
-                break;
+
             case 160:
                 return $this->getApvebuyrcode9();
-                break;
+
             case 161:
                 return $this->getApvebuyrwhse10();
-                break;
+
             case 162:
                 return $this->getApvebuyrcode10();
-                break;
+
             case 163:
                 return $this->getApvelandcost();
-                break;
+
             case 164:
                 return $this->getApvereleasenbr();
-                break;
+
             case 165:
                 return $this->getApvescanstartpos();
-                break;
+
             case 166:
                 return $this->getApvescanlength();
-                break;
+
             case 167:
                 return $this->getApvePurYtd();
-                break;
+
             case 168:
                 return $this->getApvePoYtd();
-                break;
+
             case 169:
                 return $this->getApveInvcYtd();
-                break;
+
             case 170:
                 return $this->getApveIcntYtd();
-                break;
+
             case 171:
                 return $this->getDateupdtd();
-                break;
+
             case 172:
                 return $this->getTimeupdtd();
-                break;
+
             case 173:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -9660,24 +9861,23 @@ abstract class Vendor implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
-     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = [], bool $includeForeignObjects = false): array
     {
-
         if (isset($alreadyDumpedObjects['Vendor'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['Vendor'][$this->hashCode()] = true;
         $keys = VendorTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getApvevendid(),
             $keys[1] => $this->getApvename(),
             $keys[2] => $this->getApveadr1(),
@@ -9852,7 +10052,7 @@ abstract class Vendor implements ActiveRecordInterface
             $keys[171] => $this->getDateupdtd(),
             $keys[172] => $this->getTimeupdtd(),
             $keys[173] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -10107,30 +10307,32 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\Vendor
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = VendorTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\Vendor
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -10673,11 +10875,11 @@ abstract class Vendor implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = VendorTableMap::getFieldNames($keyType);
 
@@ -11203,6 +11405,8 @@ abstract class Vendor implements ActiveRecordInterface
         if (array_key_exists($keys[173], $arr)) {
             $this->setDummy($arr[$keys[173]]);
         }
+
+        return $this;
     }
 
      /**
@@ -11222,9 +11426,9 @@ abstract class Vendor implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\Vendor The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -11238,9 +11442,9 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(VendorTableMap::DATABASE_NAME);
 
@@ -11774,13 +11978,13 @@ abstract class Vendor implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildVendorQuery::create();
         $criteria->add(VendorTableMap::COL_APVEVENDID, $this->apvevendid);
@@ -11792,7 +11996,7 @@ abstract class Vendor implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -11822,19 +12026,20 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (apvevendid column).
      *
-     * @param       string $key Primary key.
+     * @param string|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?string $key = null): void
     {
         $this->setApvevendid($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getApvevendid();
     }
@@ -11845,12 +12050,13 @@ abstract class Vendor implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \Vendor (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \Vendor (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setApvevendid($this->getApvevendid());
         $copyObj->setApvename($this->getApvename());
@@ -12119,11 +12325,11 @@ abstract class Vendor implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \Vendor Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -12136,9 +12342,9 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildApTypeCode object.
      *
-     * @param  ChildApTypeCode $v
-     * @return $this|\Vendor The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildApTypeCode|null $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setApTypeCode(ChildApTypeCode $v = null)
     {
@@ -12164,11 +12370,11 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the associated ChildApTypeCode object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildApTypeCode The associated ChildApTypeCode object.
-     * @throws PropelException
+     * @param ConnectionInterface $con Optional Connection object.
+     * @return ChildApTypeCode|null The associated ChildApTypeCode object.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getApTypeCode(ConnectionInterface $con = null)
+    public function getApTypeCode(?ConnectionInterface $con = null)
     {
         if ($this->aApTypeCode === null && (($this->aptbtypecode !== "" && $this->aptbtypecode !== null))) {
             $this->aApTypeCode = ChildApTypeCodeQuery::create()->findPk($this->aptbtypecode, $con);
@@ -12187,9 +12393,9 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildApTermsCode object.
      *
-     * @param  ChildApTermsCode $v
-     * @return $this|\Vendor The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildApTermsCode|null $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setApTermsCode(ChildApTermsCode $v = null)
     {
@@ -12215,11 +12421,11 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the associated ChildApTermsCode object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildApTermsCode The associated ChildApTermsCode object.
-     * @throws PropelException
+     * @param ConnectionInterface $con Optional Connection object.
+     * @return ChildApTermsCode|null The associated ChildApTermsCode object.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getApTermsCode(ConnectionInterface $con = null)
+    public function getApTermsCode(?ConnectionInterface $con = null)
     {
         if ($this->aApTermsCode === null && (($this->aptmtermcode !== "" && $this->aptmtermcode !== null))) {
             $this->aApTermsCode = ChildApTermsCodeQuery::create()->findPk($this->aptmtermcode, $con);
@@ -12238,9 +12444,9 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildShipvia object.
      *
-     * @param  ChildShipvia $v
-     * @return $this|\Vendor The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildShipvia|null $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setShipvia(ChildShipvia $v = null)
     {
@@ -12266,11 +12472,11 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the associated ChildShipvia object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildShipvia The associated ChildShipvia object.
-     * @throws PropelException
+     * @param ConnectionInterface $con Optional Connection object.
+     * @return ChildShipvia|null The associated ChildShipvia object.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getShipvia(ConnectionInterface $con = null)
+    public function getShipvia(?ConnectionInterface $con = null)
     {
         if ($this->aShipvia === null && (($this->apvesviacode !== "" && $this->apvesviacode !== null))) {
             $this->aShipvia = ChildShipviaQuery::create()->findPk($this->apvesviacode, $con);
@@ -12289,9 +12495,9 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildApBuyer object.
      *
-     * @param  ChildApBuyer $v
-     * @return $this|\Vendor The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildApBuyer|null $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setApBuyer(ChildApBuyer $v = null)
     {
@@ -12317,11 +12523,11 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Get the associated ChildApBuyer object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildApBuyer The associated ChildApBuyer object.
-     * @throws PropelException
+     * @param ConnectionInterface $con Optional Connection object.
+     * @return ChildApBuyer|null The associated ChildApBuyer object.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getApBuyer(ConnectionInterface $con = null)
+    public function getApBuyer(?ConnectionInterface $con = null)
     {
         if ($this->aApBuyer === null && (($this->apvebuyrcode1 !== "" && $this->apvebuyrcode1 !== null))) {
             $this->aApBuyer = ChildApBuyerQuery::create()->findPk($this->apvebuyrcode1, $con);
@@ -12343,56 +12549,56 @@ abstract class Vendor implements ActiveRecordInterface
      * Avoids crafting an 'init[$relationName]s' method name
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
-     * @param      string $relationName The name of the relation to initialize
+     * @param string $relationName The name of the relation to initialize
      * @return void
      */
-    public function initRelation($relationName)
+    public function initRelation($relationName): void
     {
-        if ('ApContact' == $relationName) {
+        if ('ApContact' === $relationName) {
             $this->initApContacts();
             return;
         }
-        if ('ApInvoiceDetail' == $relationName) {
+        if ('ApInvoiceDetail' === $relationName) {
             $this->initApInvoiceDetails();
             return;
         }
-        if ('ApInvoice' == $relationName) {
+        if ('ApInvoice' === $relationName) {
             $this->initApInvoices();
             return;
         }
-        if ('VendorShipfrom' == $relationName) {
+        if ('VendorShipfrom' === $relationName) {
             $this->initVendorShipfroms();
             return;
         }
-        if ('InvNonstockItem' == $relationName) {
+        if ('InvNonstockItem' === $relationName) {
             $this->initInvNonstockItems();
             return;
         }
-        if ('InvTransferOrder' == $relationName) {
+        if ('InvTransferOrder' === $relationName) {
             $this->initInvTransferOrders();
             return;
         }
-        if ('ItemXrefKey' == $relationName) {
+        if ('ItemXrefKey' === $relationName) {
             $this->initItemXrefKeys();
             return;
         }
-        if ('ItemXrefManufacturer' == $relationName) {
+        if ('ItemXrefManufacturer' === $relationName) {
             $this->initItemXrefManufacturers();
             return;
         }
-        if ('ItemXrefVendorNoteDetail' == $relationName) {
+        if ('ItemXrefVendorNoteDetail' === $relationName) {
             $this->initItemXrefVendorNoteDetails();
             return;
         }
-        if ('ItemXrefVendorNoteInternal' == $relationName) {
+        if ('ItemXrefVendorNoteInternal' === $relationName) {
             $this->initItemXrefVendorNoteInternals();
             return;
         }
-        if ('PurchaseOrder' == $relationName) {
+        if ('PurchaseOrder' === $relationName) {
             $this->initPurchaseOrders();
             return;
         }
-        if ('ItemXrefVendor' == $relationName) {
+        if ('ItemXrefVendor' === $relationName) {
             $this->initItemXrefVendors();
             return;
         }
@@ -12404,18 +12610,22 @@ abstract class Vendor implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addApContacts()
+     * @return $this
+     * @see addApContacts()
      */
     public function clearApContacts()
     {
         $this->collApContacts = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collApContacts collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialApContacts($v = true)
+    public function resetPartialApContacts($v = true): void
     {
         $this->collApContactsPartial = $v;
     }
@@ -12427,12 +12637,12 @@ abstract class Vendor implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initApContacts($overrideExisting = true)
+    public function initApContacts(bool $overrideExisting = true): void
     {
         if (null !== $this->collApContacts && !$overrideExisting) {
             return;
@@ -12453,18 +12663,28 @@ abstract class Vendor implements ActiveRecordInterface
      * If this ChildVendor is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildApContact[] List of ChildApContact objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildApContact> List of ChildApContact objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getApContacts(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getApContacts(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collApContactsPartial && !$this->isNew();
-        if (null === $this->collApContacts || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collApContacts) {
+        if (null === $this->collApContacts || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initApContacts();
+                if (null === $this->collApContacts) {
+                    $this->initApContacts();
+                } else {
+                    $collectionClassName = ApContactTableMap::getTableMap()->getCollectionClassName();
+
+                    $collApContacts = new $collectionClassName;
+                    $collApContacts->setModel('\ApContact');
+
+                    return $collApContacts;
+                }
             } else {
                 $collApContacts = ChildApContactQuery::create(null, $criteria)
                     ->filterByVendor($this)
@@ -12508,11 +12728,11 @@ abstract class Vendor implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $apContacts A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param Collection $apContacts A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setApContacts(Collection $apContacts, ConnectionInterface $con = null)
+    public function setApContacts(Collection $apContacts, ?ConnectionInterface $con = null)
     {
         /** @var ChildApContact[] $apContactsToDelete */
         $apContactsToDelete = $this->getApContacts(new Criteria(), $con)->diff($apContacts);
@@ -12541,13 +12761,13 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Returns the number of related ApContact objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ApContact objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ApContact objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countApContacts(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countApContacts(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collApContactsPartial && !$this->isNew();
         if (null === $this->collApContacts || null !== $criteria || $partial) {
@@ -12576,8 +12796,8 @@ abstract class Vendor implements ActiveRecordInterface
      * Method called to associate a ChildApContact object to this object
      * through the ChildApContact foreign key attribute.
      *
-     * @param  ChildApContact $l ChildApContact
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param ChildApContact $l ChildApContact
+     * @return $this The current object (for fluent API support)
      */
     public function addApContact(ChildApContact $l)
     {
@@ -12600,15 +12820,15 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * @param ChildApContact $apContact The ChildApContact object to add.
      */
-    protected function doAddApContact(ChildApContact $apContact)
+    protected function doAddApContact(ChildApContact $apContact): void
     {
         $this->collApContacts[]= $apContact;
         $apContact->setVendor($this);
     }
 
     /**
-     * @param  ChildApContact $apContact The ChildApContact object to remove.
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param ChildApContact $apContact The ChildApContact object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeApContact(ChildApContact $apContact)
     {
@@ -12632,18 +12852,22 @@ abstract class Vendor implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addApInvoiceDetails()
+     * @return $this
+     * @see addApInvoiceDetails()
      */
     public function clearApInvoiceDetails()
     {
         $this->collApInvoiceDetails = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collApInvoiceDetails collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialApInvoiceDetails($v = true)
+    public function resetPartialApInvoiceDetails($v = true): void
     {
         $this->collApInvoiceDetailsPartial = $v;
     }
@@ -12655,12 +12879,12 @@ abstract class Vendor implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initApInvoiceDetails($overrideExisting = true)
+    public function initApInvoiceDetails(bool $overrideExisting = true): void
     {
         if (null !== $this->collApInvoiceDetails && !$overrideExisting) {
             return;
@@ -12681,18 +12905,28 @@ abstract class Vendor implements ActiveRecordInterface
      * If this ChildVendor is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildApInvoiceDetail[] List of ChildApInvoiceDetail objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildApInvoiceDetail> List of ChildApInvoiceDetail objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getApInvoiceDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getApInvoiceDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collApInvoiceDetailsPartial && !$this->isNew();
-        if (null === $this->collApInvoiceDetails || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collApInvoiceDetails) {
+        if (null === $this->collApInvoiceDetails || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initApInvoiceDetails();
+                if (null === $this->collApInvoiceDetails) {
+                    $this->initApInvoiceDetails();
+                } else {
+                    $collectionClassName = ApInvoiceDetailTableMap::getTableMap()->getCollectionClassName();
+
+                    $collApInvoiceDetails = new $collectionClassName;
+                    $collApInvoiceDetails->setModel('\ApInvoiceDetail');
+
+                    return $collApInvoiceDetails;
+                }
             } else {
                 $collApInvoiceDetails = ChildApInvoiceDetailQuery::create(null, $criteria)
                     ->filterByVendor($this)
@@ -12736,11 +12970,11 @@ abstract class Vendor implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $apInvoiceDetails A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param Collection $apInvoiceDetails A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setApInvoiceDetails(Collection $apInvoiceDetails, ConnectionInterface $con = null)
+    public function setApInvoiceDetails(Collection $apInvoiceDetails, ?ConnectionInterface $con = null)
     {
         /** @var ChildApInvoiceDetail[] $apInvoiceDetailsToDelete */
         $apInvoiceDetailsToDelete = $this->getApInvoiceDetails(new Criteria(), $con)->diff($apInvoiceDetails);
@@ -12769,13 +13003,13 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Returns the number of related ApInvoiceDetail objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ApInvoiceDetail objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ApInvoiceDetail objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countApInvoiceDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countApInvoiceDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collApInvoiceDetailsPartial && !$this->isNew();
         if (null === $this->collApInvoiceDetails || null !== $criteria || $partial) {
@@ -12804,8 +13038,8 @@ abstract class Vendor implements ActiveRecordInterface
      * Method called to associate a ChildApInvoiceDetail object to this object
      * through the ChildApInvoiceDetail foreign key attribute.
      *
-     * @param  ChildApInvoiceDetail $l ChildApInvoiceDetail
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param ChildApInvoiceDetail $l ChildApInvoiceDetail
+     * @return $this The current object (for fluent API support)
      */
     public function addApInvoiceDetail(ChildApInvoiceDetail $l)
     {
@@ -12828,15 +13062,15 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * @param ChildApInvoiceDetail $apInvoiceDetail The ChildApInvoiceDetail object to add.
      */
-    protected function doAddApInvoiceDetail(ChildApInvoiceDetail $apInvoiceDetail)
+    protected function doAddApInvoiceDetail(ChildApInvoiceDetail $apInvoiceDetail): void
     {
         $this->collApInvoiceDetails[]= $apInvoiceDetail;
         $apInvoiceDetail->setVendor($this);
     }
 
     /**
-     * @param  ChildApInvoiceDetail $apInvoiceDetail The ChildApInvoiceDetail object to remove.
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param ChildApInvoiceDetail $apInvoiceDetail The ChildApInvoiceDetail object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeApInvoiceDetail(ChildApInvoiceDetail $apInvoiceDetail)
     {
@@ -12866,12 +13100,13 @@ abstract class Vendor implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Vendor.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildApInvoiceDetail[] List of ChildApInvoiceDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildApInvoiceDetail}> List of ChildApInvoiceDetail objects
      */
-    public function getApInvoiceDetailsJoinApInvoice(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getApInvoiceDetailsJoinApInvoice(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildApInvoiceDetailQuery::create(null, $criteria);
         $query->joinWith('ApInvoice', $joinBehavior);
@@ -12885,18 +13120,22 @@ abstract class Vendor implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addApInvoices()
+     * @return $this
+     * @see addApInvoices()
      */
     public function clearApInvoices()
     {
         $this->collApInvoices = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collApInvoices collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialApInvoices($v = true)
+    public function resetPartialApInvoices($v = true): void
     {
         $this->collApInvoicesPartial = $v;
     }
@@ -12908,12 +13147,12 @@ abstract class Vendor implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initApInvoices($overrideExisting = true)
+    public function initApInvoices(bool $overrideExisting = true): void
     {
         if (null !== $this->collApInvoices && !$overrideExisting) {
             return;
@@ -12934,18 +13173,28 @@ abstract class Vendor implements ActiveRecordInterface
      * If this ChildVendor is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildApInvoice[] List of ChildApInvoice objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildApInvoice> List of ChildApInvoice objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getApInvoices(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getApInvoices(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collApInvoicesPartial && !$this->isNew();
-        if (null === $this->collApInvoices || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collApInvoices) {
+        if (null === $this->collApInvoices || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initApInvoices();
+                if (null === $this->collApInvoices) {
+                    $this->initApInvoices();
+                } else {
+                    $collectionClassName = ApInvoiceTableMap::getTableMap()->getCollectionClassName();
+
+                    $collApInvoices = new $collectionClassName;
+                    $collApInvoices->setModel('\ApInvoice');
+
+                    return $collApInvoices;
+                }
             } else {
                 $collApInvoices = ChildApInvoiceQuery::create(null, $criteria)
                     ->filterByVendor($this)
@@ -12989,11 +13238,11 @@ abstract class Vendor implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $apInvoices A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param Collection $apInvoices A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setApInvoices(Collection $apInvoices, ConnectionInterface $con = null)
+    public function setApInvoices(Collection $apInvoices, ?ConnectionInterface $con = null)
     {
         /** @var ChildApInvoice[] $apInvoicesToDelete */
         $apInvoicesToDelete = $this->getApInvoices(new Criteria(), $con)->diff($apInvoices);
@@ -13022,13 +13271,13 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Returns the number of related ApInvoice objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ApInvoice objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ApInvoice objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countApInvoices(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countApInvoices(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collApInvoicesPartial && !$this->isNew();
         if (null === $this->collApInvoices || null !== $criteria || $partial) {
@@ -13057,8 +13306,8 @@ abstract class Vendor implements ActiveRecordInterface
      * Method called to associate a ChildApInvoice object to this object
      * through the ChildApInvoice foreign key attribute.
      *
-     * @param  ChildApInvoice $l ChildApInvoice
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param ChildApInvoice $l ChildApInvoice
+     * @return $this The current object (for fluent API support)
      */
     public function addApInvoice(ChildApInvoice $l)
     {
@@ -13081,15 +13330,15 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * @param ChildApInvoice $apInvoice The ChildApInvoice object to add.
      */
-    protected function doAddApInvoice(ChildApInvoice $apInvoice)
+    protected function doAddApInvoice(ChildApInvoice $apInvoice): void
     {
         $this->collApInvoices[]= $apInvoice;
         $apInvoice->setVendor($this);
     }
 
     /**
-     * @param  ChildApInvoice $apInvoice The ChildApInvoice object to remove.
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param ChildApInvoice $apInvoice The ChildApInvoice object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeApInvoice(ChildApInvoice $apInvoice)
     {
@@ -13119,12 +13368,13 @@ abstract class Vendor implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Vendor.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildApInvoice[] List of ChildApInvoice objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildApInvoice}> List of ChildApInvoice objects
      */
-    public function getApInvoicesJoinPurchaseOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getApInvoicesJoinPurchaseOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildApInvoiceQuery::create(null, $criteria);
         $query->joinWith('PurchaseOrder', $joinBehavior);
@@ -13138,18 +13388,22 @@ abstract class Vendor implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addVendorShipfroms()
+     * @return $this
+     * @see addVendorShipfroms()
      */
     public function clearVendorShipfroms()
     {
         $this->collVendorShipfroms = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collVendorShipfroms collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialVendorShipfroms($v = true)
+    public function resetPartialVendorShipfroms($v = true): void
     {
         $this->collVendorShipfromsPartial = $v;
     }
@@ -13161,12 +13415,12 @@ abstract class Vendor implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initVendorShipfroms($overrideExisting = true)
+    public function initVendorShipfroms(bool $overrideExisting = true): void
     {
         if (null !== $this->collVendorShipfroms && !$overrideExisting) {
             return;
@@ -13187,18 +13441,28 @@ abstract class Vendor implements ActiveRecordInterface
      * If this ChildVendor is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildVendorShipfrom[] List of ChildVendorShipfrom objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildVendorShipfrom> List of ChildVendorShipfrom objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVendorShipfroms(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getVendorShipfroms(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collVendorShipfromsPartial && !$this->isNew();
-        if (null === $this->collVendorShipfroms || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collVendorShipfroms) {
+        if (null === $this->collVendorShipfroms || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initVendorShipfroms();
+                if (null === $this->collVendorShipfroms) {
+                    $this->initVendorShipfroms();
+                } else {
+                    $collectionClassName = VendorShipfromTableMap::getTableMap()->getCollectionClassName();
+
+                    $collVendorShipfroms = new $collectionClassName;
+                    $collVendorShipfroms->setModel('\VendorShipfrom');
+
+                    return $collVendorShipfroms;
+                }
             } else {
                 $collVendorShipfroms = ChildVendorShipfromQuery::create(null, $criteria)
                     ->filterByVendor($this)
@@ -13242,11 +13506,11 @@ abstract class Vendor implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $vendorShipfroms A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param Collection $vendorShipfroms A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setVendorShipfroms(Collection $vendorShipfroms, ConnectionInterface $con = null)
+    public function setVendorShipfroms(Collection $vendorShipfroms, ?ConnectionInterface $con = null)
     {
         /** @var ChildVendorShipfrom[] $vendorShipfromsToDelete */
         $vendorShipfromsToDelete = $this->getVendorShipfroms(new Criteria(), $con)->diff($vendorShipfroms);
@@ -13275,13 +13539,13 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Returns the number of related VendorShipfrom objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related VendorShipfrom objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related VendorShipfrom objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countVendorShipfroms(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countVendorShipfroms(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collVendorShipfromsPartial && !$this->isNew();
         if (null === $this->collVendorShipfroms || null !== $criteria || $partial) {
@@ -13310,8 +13574,8 @@ abstract class Vendor implements ActiveRecordInterface
      * Method called to associate a ChildVendorShipfrom object to this object
      * through the ChildVendorShipfrom foreign key attribute.
      *
-     * @param  ChildVendorShipfrom $l ChildVendorShipfrom
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param ChildVendorShipfrom $l ChildVendorShipfrom
+     * @return $this The current object (for fluent API support)
      */
     public function addVendorShipfrom(ChildVendorShipfrom $l)
     {
@@ -13334,15 +13598,15 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * @param ChildVendorShipfrom $vendorShipfrom The ChildVendorShipfrom object to add.
      */
-    protected function doAddVendorShipfrom(ChildVendorShipfrom $vendorShipfrom)
+    protected function doAddVendorShipfrom(ChildVendorShipfrom $vendorShipfrom): void
     {
         $this->collVendorShipfroms[]= $vendorShipfrom;
         $vendorShipfrom->setVendor($this);
     }
 
     /**
-     * @param  ChildVendorShipfrom $vendorShipfrom The ChildVendorShipfrom object to remove.
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param ChildVendorShipfrom $vendorShipfrom The ChildVendorShipfrom object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeVendorShipfrom(ChildVendorShipfrom $vendorShipfrom)
     {
@@ -13372,12 +13636,13 @@ abstract class Vendor implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Vendor.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildVendorShipfrom[] List of ChildVendorShipfrom objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildVendorShipfrom}> List of ChildVendorShipfrom objects
      */
-    public function getVendorShipfromsJoinShipvia(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getVendorShipfromsJoinShipvia(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildVendorShipfromQuery::create(null, $criteria);
         $query->joinWith('Shipvia', $joinBehavior);
@@ -13391,18 +13656,22 @@ abstract class Vendor implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvNonstockItems()
+     * @return $this
+     * @see addInvNonstockItems()
      */
     public function clearInvNonstockItems()
     {
         $this->collInvNonstockItems = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvNonstockItems collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvNonstockItems($v = true)
+    public function resetPartialInvNonstockItems($v = true): void
     {
         $this->collInvNonstockItemsPartial = $v;
     }
@@ -13414,12 +13683,12 @@ abstract class Vendor implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvNonstockItems($overrideExisting = true)
+    public function initInvNonstockItems(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvNonstockItems && !$overrideExisting) {
             return;
@@ -13440,18 +13709,28 @@ abstract class Vendor implements ActiveRecordInterface
      * If this ChildVendor is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvNonstockItem[] List of ChildInvNonstockItem objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvNonstockItem> List of ChildInvNonstockItem objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvNonstockItems(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvNonstockItems(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvNonstockItemsPartial && !$this->isNew();
-        if (null === $this->collInvNonstockItems || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvNonstockItems) {
+        if (null === $this->collInvNonstockItems || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvNonstockItems();
+                if (null === $this->collInvNonstockItems) {
+                    $this->initInvNonstockItems();
+                } else {
+                    $collectionClassName = InvNonstockItemTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvNonstockItems = new $collectionClassName;
+                    $collInvNonstockItems->setModel('\InvNonstockItem');
+
+                    return $collInvNonstockItems;
+                }
             } else {
                 $collInvNonstockItems = ChildInvNonstockItemQuery::create(null, $criteria)
                     ->filterByVendor($this)
@@ -13495,11 +13774,11 @@ abstract class Vendor implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invNonstockItems A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param Collection $invNonstockItems A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvNonstockItems(Collection $invNonstockItems, ConnectionInterface $con = null)
+    public function setInvNonstockItems(Collection $invNonstockItems, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvNonstockItem[] $invNonstockItemsToDelete */
         $invNonstockItemsToDelete = $this->getInvNonstockItems(new Criteria(), $con)->diff($invNonstockItems);
@@ -13528,13 +13807,13 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Returns the number of related InvNonstockItem objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvNonstockItem objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvNonstockItem objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvNonstockItems(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvNonstockItems(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvNonstockItemsPartial && !$this->isNew();
         if (null === $this->collInvNonstockItems || null !== $criteria || $partial) {
@@ -13563,8 +13842,8 @@ abstract class Vendor implements ActiveRecordInterface
      * Method called to associate a ChildInvNonstockItem object to this object
      * through the ChildInvNonstockItem foreign key attribute.
      *
-     * @param  ChildInvNonstockItem $l ChildInvNonstockItem
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param ChildInvNonstockItem $l ChildInvNonstockItem
+     * @return $this The current object (for fluent API support)
      */
     public function addInvNonstockItem(ChildInvNonstockItem $l)
     {
@@ -13587,15 +13866,15 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * @param ChildInvNonstockItem $invNonstockItem The ChildInvNonstockItem object to add.
      */
-    protected function doAddInvNonstockItem(ChildInvNonstockItem $invNonstockItem)
+    protected function doAddInvNonstockItem(ChildInvNonstockItem $invNonstockItem): void
     {
         $this->collInvNonstockItems[]= $invNonstockItem;
         $invNonstockItem->setVendor($this);
     }
 
     /**
-     * @param  ChildInvNonstockItem $invNonstockItem The ChildInvNonstockItem object to remove.
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param ChildInvNonstockItem $invNonstockItem The ChildInvNonstockItem object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvNonstockItem(ChildInvNonstockItem $invNonstockItem)
     {
@@ -13619,18 +13898,22 @@ abstract class Vendor implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvTransferOrders()
+     * @return $this
+     * @see addInvTransferOrders()
      */
     public function clearInvTransferOrders()
     {
         $this->collInvTransferOrders = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvTransferOrders collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvTransferOrders($v = true)
+    public function resetPartialInvTransferOrders($v = true): void
     {
         $this->collInvTransferOrdersPartial = $v;
     }
@@ -13642,12 +13925,12 @@ abstract class Vendor implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvTransferOrders($overrideExisting = true)
+    public function initInvTransferOrders(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvTransferOrders && !$overrideExisting) {
             return;
@@ -13668,18 +13951,28 @@ abstract class Vendor implements ActiveRecordInterface
      * If this ChildVendor is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder> List of ChildInvTransferOrder objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvTransferOrders(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvTransferOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferOrdersPartial && !$this->isNew();
-        if (null === $this->collInvTransferOrders || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvTransferOrders) {
+        if (null === $this->collInvTransferOrders || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvTransferOrders();
+                if (null === $this->collInvTransferOrders) {
+                    $this->initInvTransferOrders();
+                } else {
+                    $collectionClassName = InvTransferOrderTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvTransferOrders = new $collectionClassName;
+                    $collInvTransferOrders->setModel('\InvTransferOrder');
+
+                    return $collInvTransferOrders;
+                }
             } else {
                 $collInvTransferOrders = ChildInvTransferOrderQuery::create(null, $criteria)
                     ->filterByVendor($this)
@@ -13723,11 +14016,11 @@ abstract class Vendor implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invTransferOrders A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param Collection $invTransferOrders A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvTransferOrders(Collection $invTransferOrders, ConnectionInterface $con = null)
+    public function setInvTransferOrders(Collection $invTransferOrders, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvTransferOrder[] $invTransferOrdersToDelete */
         $invTransferOrdersToDelete = $this->getInvTransferOrders(new Criteria(), $con)->diff($invTransferOrders);
@@ -13753,13 +14046,13 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Returns the number of related InvTransferOrder objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvTransferOrder objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvTransferOrder objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvTransferOrders(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvTransferOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferOrdersPartial && !$this->isNew();
         if (null === $this->collInvTransferOrders || null !== $criteria || $partial) {
@@ -13788,8 +14081,8 @@ abstract class Vendor implements ActiveRecordInterface
      * Method called to associate a ChildInvTransferOrder object to this object
      * through the ChildInvTransferOrder foreign key attribute.
      *
-     * @param  ChildInvTransferOrder $l ChildInvTransferOrder
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param ChildInvTransferOrder $l ChildInvTransferOrder
+     * @return $this The current object (for fluent API support)
      */
     public function addInvTransferOrder(ChildInvTransferOrder $l)
     {
@@ -13812,15 +14105,15 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * @param ChildInvTransferOrder $invTransferOrder The ChildInvTransferOrder object to add.
      */
-    protected function doAddInvTransferOrder(ChildInvTransferOrder $invTransferOrder)
+    protected function doAddInvTransferOrder(ChildInvTransferOrder $invTransferOrder): void
     {
         $this->collInvTransferOrders[]= $invTransferOrder;
         $invTransferOrder->setVendor($this);
     }
 
     /**
-     * @param  ChildInvTransferOrder $invTransferOrder The ChildInvTransferOrder object to remove.
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param ChildInvTransferOrder $invTransferOrder The ChildInvTransferOrder object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvTransferOrder(ChildInvTransferOrder $invTransferOrder)
     {
@@ -13850,12 +14143,13 @@ abstract class Vendor implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Vendor.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder}> List of ChildInvTransferOrder objects
      */
-    public function getInvTransferOrdersJoinWarehouseRelatedByIntbwhsefrom(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferOrdersJoinWarehouseRelatedByIntbwhsefrom(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferOrderQuery::create(null, $criteria);
         $query->joinWith('WarehouseRelatedByIntbwhsefrom', $joinBehavior);
@@ -13875,12 +14169,13 @@ abstract class Vendor implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Vendor.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder}> List of ChildInvTransferOrder objects
      */
-    public function getInvTransferOrdersJoinWarehouseRelatedByIntbwhseto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferOrdersJoinWarehouseRelatedByIntbwhseto(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferOrderQuery::create(null, $criteria);
         $query->joinWith('WarehouseRelatedByIntbwhseto', $joinBehavior);
@@ -13900,12 +14195,13 @@ abstract class Vendor implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Vendor.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder}> List of ChildInvTransferOrder objects
      */
-    public function getInvTransferOrdersJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferOrdersJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferOrderQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -13925,12 +14221,13 @@ abstract class Vendor implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Vendor.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder}> List of ChildInvTransferOrder objects
      */
-    public function getInvTransferOrdersJoinCustomerShipto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferOrdersJoinCustomerShipto(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferOrderQuery::create(null, $criteria);
         $query->joinWith('CustomerShipto', $joinBehavior);
@@ -13944,18 +14241,22 @@ abstract class Vendor implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemXrefKeys()
+     * @return $this
+     * @see addItemXrefKeys()
      */
     public function clearItemXrefKeys()
     {
         $this->collItemXrefKeys = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemXrefKeys collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemXrefKeys($v = true)
+    public function resetPartialItemXrefKeys($v = true): void
     {
         $this->collItemXrefKeysPartial = $v;
     }
@@ -13967,12 +14268,12 @@ abstract class Vendor implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemXrefKeys($overrideExisting = true)
+    public function initItemXrefKeys(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemXrefKeys && !$overrideExisting) {
             return;
@@ -13993,18 +14294,28 @@ abstract class Vendor implements ActiveRecordInterface
      * If this ChildVendor is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemXrefKey[] List of ChildItemXrefKey objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefKey> List of ChildItemXrefKey objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemXrefKeys(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemXrefKeys(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefKeysPartial && !$this->isNew();
-        if (null === $this->collItemXrefKeys || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemXrefKeys) {
+        if (null === $this->collItemXrefKeys || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemXrefKeys();
+                if (null === $this->collItemXrefKeys) {
+                    $this->initItemXrefKeys();
+                } else {
+                    $collectionClassName = ItemXrefKeyTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemXrefKeys = new $collectionClassName;
+                    $collItemXrefKeys->setModel('\ItemXrefKey');
+
+                    return $collItemXrefKeys;
+                }
             } else {
                 $collItemXrefKeys = ChildItemXrefKeyQuery::create(null, $criteria)
                     ->filterByVendor($this)
@@ -14048,11 +14359,11 @@ abstract class Vendor implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemXrefKeys A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param Collection $itemXrefKeys A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemXrefKeys(Collection $itemXrefKeys, ConnectionInterface $con = null)
+    public function setItemXrefKeys(Collection $itemXrefKeys, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemXrefKey[] $itemXrefKeysToDelete */
         $itemXrefKeysToDelete = $this->getItemXrefKeys(new Criteria(), $con)->diff($itemXrefKeys);
@@ -14081,13 +14392,13 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Returns the number of related ItemXrefKey objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemXrefKey objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemXrefKey objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemXrefKeys(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemXrefKeys(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefKeysPartial && !$this->isNew();
         if (null === $this->collItemXrefKeys || null !== $criteria || $partial) {
@@ -14116,8 +14427,8 @@ abstract class Vendor implements ActiveRecordInterface
      * Method called to associate a ChildItemXrefKey object to this object
      * through the ChildItemXrefKey foreign key attribute.
      *
-     * @param  ChildItemXrefKey $l ChildItemXrefKey
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param ChildItemXrefKey $l ChildItemXrefKey
+     * @return $this The current object (for fluent API support)
      */
     public function addItemXrefKey(ChildItemXrefKey $l)
     {
@@ -14140,15 +14451,15 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * @param ChildItemXrefKey $itemXrefKey The ChildItemXrefKey object to add.
      */
-    protected function doAddItemXrefKey(ChildItemXrefKey $itemXrefKey)
+    protected function doAddItemXrefKey(ChildItemXrefKey $itemXrefKey): void
     {
         $this->collItemXrefKeys[]= $itemXrefKey;
         $itemXrefKey->setVendor($this);
     }
 
     /**
-     * @param  ChildItemXrefKey $itemXrefKey The ChildItemXrefKey object to remove.
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param ChildItemXrefKey $itemXrefKey The ChildItemXrefKey object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemXrefKey(ChildItemXrefKey $itemXrefKey)
     {
@@ -14178,12 +14489,13 @@ abstract class Vendor implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Vendor.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemXrefKey[] List of ChildItemXrefKey objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefKey}> List of ChildItemXrefKey objects
      */
-    public function getItemXrefKeysJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemXrefKeysJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemXrefKeyQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -14203,12 +14515,13 @@ abstract class Vendor implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Vendor.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemXrefKey[] List of ChildItemXrefKey objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefKey}> List of ChildItemXrefKey objects
      */
-    public function getItemXrefKeysJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemXrefKeysJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemXrefKeyQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -14222,18 +14535,22 @@ abstract class Vendor implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemXrefManufacturers()
+     * @return $this
+     * @see addItemXrefManufacturers()
      */
     public function clearItemXrefManufacturers()
     {
         $this->collItemXrefManufacturers = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemXrefManufacturers collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemXrefManufacturers($v = true)
+    public function resetPartialItemXrefManufacturers($v = true): void
     {
         $this->collItemXrefManufacturersPartial = $v;
     }
@@ -14245,12 +14562,12 @@ abstract class Vendor implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemXrefManufacturers($overrideExisting = true)
+    public function initItemXrefManufacturers(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemXrefManufacturers && !$overrideExisting) {
             return;
@@ -14271,18 +14588,28 @@ abstract class Vendor implements ActiveRecordInterface
      * If this ChildVendor is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemXrefManufacturer[] List of ChildItemXrefManufacturer objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefManufacturer> List of ChildItemXrefManufacturer objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemXrefManufacturers(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemXrefManufacturers(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefManufacturersPartial && !$this->isNew();
-        if (null === $this->collItemXrefManufacturers || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemXrefManufacturers) {
+        if (null === $this->collItemXrefManufacturers || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemXrefManufacturers();
+                if (null === $this->collItemXrefManufacturers) {
+                    $this->initItemXrefManufacturers();
+                } else {
+                    $collectionClassName = ItemXrefManufacturerTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemXrefManufacturers = new $collectionClassName;
+                    $collItemXrefManufacturers->setModel('\ItemXrefManufacturer');
+
+                    return $collItemXrefManufacturers;
+                }
             } else {
                 $collItemXrefManufacturers = ChildItemXrefManufacturerQuery::create(null, $criteria)
                     ->filterByVendor($this)
@@ -14326,11 +14653,11 @@ abstract class Vendor implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemXrefManufacturers A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param Collection $itemXrefManufacturers A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemXrefManufacturers(Collection $itemXrefManufacturers, ConnectionInterface $con = null)
+    public function setItemXrefManufacturers(Collection $itemXrefManufacturers, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemXrefManufacturer[] $itemXrefManufacturersToDelete */
         $itemXrefManufacturersToDelete = $this->getItemXrefManufacturers(new Criteria(), $con)->diff($itemXrefManufacturers);
@@ -14359,13 +14686,13 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Returns the number of related ItemXrefManufacturer objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemXrefManufacturer objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemXrefManufacturer objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemXrefManufacturers(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemXrefManufacturers(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefManufacturersPartial && !$this->isNew();
         if (null === $this->collItemXrefManufacturers || null !== $criteria || $partial) {
@@ -14394,8 +14721,8 @@ abstract class Vendor implements ActiveRecordInterface
      * Method called to associate a ChildItemXrefManufacturer object to this object
      * through the ChildItemXrefManufacturer foreign key attribute.
      *
-     * @param  ChildItemXrefManufacturer $l ChildItemXrefManufacturer
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param ChildItemXrefManufacturer $l ChildItemXrefManufacturer
+     * @return $this The current object (for fluent API support)
      */
     public function addItemXrefManufacturer(ChildItemXrefManufacturer $l)
     {
@@ -14418,15 +14745,15 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * @param ChildItemXrefManufacturer $itemXrefManufacturer The ChildItemXrefManufacturer object to add.
      */
-    protected function doAddItemXrefManufacturer(ChildItemXrefManufacturer $itemXrefManufacturer)
+    protected function doAddItemXrefManufacturer(ChildItemXrefManufacturer $itemXrefManufacturer): void
     {
         $this->collItemXrefManufacturers[]= $itemXrefManufacturer;
         $itemXrefManufacturer->setVendor($this);
     }
 
     /**
-     * @param  ChildItemXrefManufacturer $itemXrefManufacturer The ChildItemXrefManufacturer object to remove.
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param ChildItemXrefManufacturer $itemXrefManufacturer The ChildItemXrefManufacturer object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemXrefManufacturer(ChildItemXrefManufacturer $itemXrefManufacturer)
     {
@@ -14456,12 +14783,13 @@ abstract class Vendor implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Vendor.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemXrefManufacturer[] List of ChildItemXrefManufacturer objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefManufacturer}> List of ChildItemXrefManufacturer objects
      */
-    public function getItemXrefManufacturersJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemXrefManufacturersJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemXrefManufacturerQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -14475,18 +14803,22 @@ abstract class Vendor implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemXrefVendorNoteDetails()
+     * @return $this
+     * @see addItemXrefVendorNoteDetails()
      */
     public function clearItemXrefVendorNoteDetails()
     {
         $this->collItemXrefVendorNoteDetails = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemXrefVendorNoteDetails collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemXrefVendorNoteDetails($v = true)
+    public function resetPartialItemXrefVendorNoteDetails($v = true): void
     {
         $this->collItemXrefVendorNoteDetailsPartial = $v;
     }
@@ -14498,12 +14830,12 @@ abstract class Vendor implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemXrefVendorNoteDetails($overrideExisting = true)
+    public function initItemXrefVendorNoteDetails(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemXrefVendorNoteDetails && !$overrideExisting) {
             return;
@@ -14524,18 +14856,28 @@ abstract class Vendor implements ActiveRecordInterface
      * If this ChildVendor is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemXrefVendorNoteDetail[] List of ChildItemXrefVendorNoteDetail objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefVendorNoteDetail> List of ChildItemXrefVendorNoteDetail objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemXrefVendorNoteDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemXrefVendorNoteDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefVendorNoteDetailsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendorNoteDetails || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemXrefVendorNoteDetails) {
+        if (null === $this->collItemXrefVendorNoteDetails || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemXrefVendorNoteDetails();
+                if (null === $this->collItemXrefVendorNoteDetails) {
+                    $this->initItemXrefVendorNoteDetails();
+                } else {
+                    $collectionClassName = ItemXrefVendorNoteDetailTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemXrefVendorNoteDetails = new $collectionClassName;
+                    $collItemXrefVendorNoteDetails->setModel('\ItemXrefVendorNoteDetail');
+
+                    return $collItemXrefVendorNoteDetails;
+                }
             } else {
                 $collItemXrefVendorNoteDetails = ChildItemXrefVendorNoteDetailQuery::create(null, $criteria)
                     ->filterByVendor($this)
@@ -14579,11 +14921,11 @@ abstract class Vendor implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemXrefVendorNoteDetails A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param Collection $itemXrefVendorNoteDetails A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemXrefVendorNoteDetails(Collection $itemXrefVendorNoteDetails, ConnectionInterface $con = null)
+    public function setItemXrefVendorNoteDetails(Collection $itemXrefVendorNoteDetails, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemXrefVendorNoteDetail[] $itemXrefVendorNoteDetailsToDelete */
         $itemXrefVendorNoteDetailsToDelete = $this->getItemXrefVendorNoteDetails(new Criteria(), $con)->diff($itemXrefVendorNoteDetails);
@@ -14609,13 +14951,13 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Returns the number of related ItemXrefVendorNoteDetail objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemXrefVendorNoteDetail objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemXrefVendorNoteDetail objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemXrefVendorNoteDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemXrefVendorNoteDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefVendorNoteDetailsPartial && !$this->isNew();
         if (null === $this->collItemXrefVendorNoteDetails || null !== $criteria || $partial) {
@@ -14644,8 +14986,8 @@ abstract class Vendor implements ActiveRecordInterface
      * Method called to associate a ChildItemXrefVendorNoteDetail object to this object
      * through the ChildItemXrefVendorNoteDetail foreign key attribute.
      *
-     * @param  ChildItemXrefVendorNoteDetail $l ChildItemXrefVendorNoteDetail
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param ChildItemXrefVendorNoteDetail $l ChildItemXrefVendorNoteDetail
+     * @return $this The current object (for fluent API support)
      */
     public function addItemXrefVendorNoteDetail(ChildItemXrefVendorNoteDetail $l)
     {
@@ -14668,15 +15010,15 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * @param ChildItemXrefVendorNoteDetail $itemXrefVendorNoteDetail The ChildItemXrefVendorNoteDetail object to add.
      */
-    protected function doAddItemXrefVendorNoteDetail(ChildItemXrefVendorNoteDetail $itemXrefVendorNoteDetail)
+    protected function doAddItemXrefVendorNoteDetail(ChildItemXrefVendorNoteDetail $itemXrefVendorNoteDetail): void
     {
         $this->collItemXrefVendorNoteDetails[]= $itemXrefVendorNoteDetail;
         $itemXrefVendorNoteDetail->setVendor($this);
     }
 
     /**
-     * @param  ChildItemXrefVendorNoteDetail $itemXrefVendorNoteDetail The ChildItemXrefVendorNoteDetail object to remove.
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param ChildItemXrefVendorNoteDetail $itemXrefVendorNoteDetail The ChildItemXrefVendorNoteDetail object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemXrefVendorNoteDetail(ChildItemXrefVendorNoteDetail $itemXrefVendorNoteDetail)
     {
@@ -14706,12 +15048,13 @@ abstract class Vendor implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Vendor.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemXrefVendorNoteDetail[] List of ChildItemXrefVendorNoteDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefVendorNoteDetail}> List of ChildItemXrefVendorNoteDetail objects
      */
-    public function getItemXrefVendorNoteDetailsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemXrefVendorNoteDetailsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemXrefVendorNoteDetailQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -14725,18 +15068,22 @@ abstract class Vendor implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemXrefVendorNoteInternals()
+     * @return $this
+     * @see addItemXrefVendorNoteInternals()
      */
     public function clearItemXrefVendorNoteInternals()
     {
         $this->collItemXrefVendorNoteInternals = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemXrefVendorNoteInternals collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemXrefVendorNoteInternals($v = true)
+    public function resetPartialItemXrefVendorNoteInternals($v = true): void
     {
         $this->collItemXrefVendorNoteInternalsPartial = $v;
     }
@@ -14748,12 +15095,12 @@ abstract class Vendor implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemXrefVendorNoteInternals($overrideExisting = true)
+    public function initItemXrefVendorNoteInternals(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemXrefVendorNoteInternals && !$overrideExisting) {
             return;
@@ -14774,18 +15121,28 @@ abstract class Vendor implements ActiveRecordInterface
      * If this ChildVendor is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemXrefVendorNoteInternal[] List of ChildItemXrefVendorNoteInternal objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefVendorNoteInternal> List of ChildItemXrefVendorNoteInternal objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemXrefVendorNoteInternals(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemXrefVendorNoteInternals(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefVendorNoteInternalsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendorNoteInternals || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemXrefVendorNoteInternals) {
+        if (null === $this->collItemXrefVendorNoteInternals || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemXrefVendorNoteInternals();
+                if (null === $this->collItemXrefVendorNoteInternals) {
+                    $this->initItemXrefVendorNoteInternals();
+                } else {
+                    $collectionClassName = ItemXrefVendorNoteInternalTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemXrefVendorNoteInternals = new $collectionClassName;
+                    $collItemXrefVendorNoteInternals->setModel('\ItemXrefVendorNoteInternal');
+
+                    return $collItemXrefVendorNoteInternals;
+                }
             } else {
                 $collItemXrefVendorNoteInternals = ChildItemXrefVendorNoteInternalQuery::create(null, $criteria)
                     ->filterByVendor($this)
@@ -14829,11 +15186,11 @@ abstract class Vendor implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemXrefVendorNoteInternals A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param Collection $itemXrefVendorNoteInternals A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemXrefVendorNoteInternals(Collection $itemXrefVendorNoteInternals, ConnectionInterface $con = null)
+    public function setItemXrefVendorNoteInternals(Collection $itemXrefVendorNoteInternals, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemXrefVendorNoteInternal[] $itemXrefVendorNoteInternalsToDelete */
         $itemXrefVendorNoteInternalsToDelete = $this->getItemXrefVendorNoteInternals(new Criteria(), $con)->diff($itemXrefVendorNoteInternals);
@@ -14859,13 +15216,13 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Returns the number of related ItemXrefVendorNoteInternal objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemXrefVendorNoteInternal objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemXrefVendorNoteInternal objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemXrefVendorNoteInternals(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemXrefVendorNoteInternals(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefVendorNoteInternalsPartial && !$this->isNew();
         if (null === $this->collItemXrefVendorNoteInternals || null !== $criteria || $partial) {
@@ -14894,8 +15251,8 @@ abstract class Vendor implements ActiveRecordInterface
      * Method called to associate a ChildItemXrefVendorNoteInternal object to this object
      * through the ChildItemXrefVendorNoteInternal foreign key attribute.
      *
-     * @param  ChildItemXrefVendorNoteInternal $l ChildItemXrefVendorNoteInternal
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param ChildItemXrefVendorNoteInternal $l ChildItemXrefVendorNoteInternal
+     * @return $this The current object (for fluent API support)
      */
     public function addItemXrefVendorNoteInternal(ChildItemXrefVendorNoteInternal $l)
     {
@@ -14918,15 +15275,15 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * @param ChildItemXrefVendorNoteInternal $itemXrefVendorNoteInternal The ChildItemXrefVendorNoteInternal object to add.
      */
-    protected function doAddItemXrefVendorNoteInternal(ChildItemXrefVendorNoteInternal $itemXrefVendorNoteInternal)
+    protected function doAddItemXrefVendorNoteInternal(ChildItemXrefVendorNoteInternal $itemXrefVendorNoteInternal): void
     {
         $this->collItemXrefVendorNoteInternals[]= $itemXrefVendorNoteInternal;
         $itemXrefVendorNoteInternal->setVendor($this);
     }
 
     /**
-     * @param  ChildItemXrefVendorNoteInternal $itemXrefVendorNoteInternal The ChildItemXrefVendorNoteInternal object to remove.
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param ChildItemXrefVendorNoteInternal $itemXrefVendorNoteInternal The ChildItemXrefVendorNoteInternal object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemXrefVendorNoteInternal(ChildItemXrefVendorNoteInternal $itemXrefVendorNoteInternal)
     {
@@ -14956,12 +15313,13 @@ abstract class Vendor implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Vendor.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemXrefVendorNoteInternal[] List of ChildItemXrefVendorNoteInternal objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefVendorNoteInternal}> List of ChildItemXrefVendorNoteInternal objects
      */
-    public function getItemXrefVendorNoteInternalsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemXrefVendorNoteInternalsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemXrefVendorNoteInternalQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -14975,18 +15333,22 @@ abstract class Vendor implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addPurchaseOrders()
+     * @return $this
+     * @see addPurchaseOrders()
      */
     public function clearPurchaseOrders()
     {
         $this->collPurchaseOrders = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collPurchaseOrders collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialPurchaseOrders($v = true)
+    public function resetPartialPurchaseOrders($v = true): void
     {
         $this->collPurchaseOrdersPartial = $v;
     }
@@ -14998,12 +15360,12 @@ abstract class Vendor implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initPurchaseOrders($overrideExisting = true)
+    public function initPurchaseOrders(bool $overrideExisting = true): void
     {
         if (null !== $this->collPurchaseOrders && !$overrideExisting) {
             return;
@@ -15024,18 +15386,28 @@ abstract class Vendor implements ActiveRecordInterface
      * If this ChildVendor is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildPurchaseOrder[] List of ChildPurchaseOrder objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrder> List of ChildPurchaseOrder objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getPurchaseOrders(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getPurchaseOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrdersPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrders || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collPurchaseOrders) {
+        if (null === $this->collPurchaseOrders || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initPurchaseOrders();
+                if (null === $this->collPurchaseOrders) {
+                    $this->initPurchaseOrders();
+                } else {
+                    $collectionClassName = PurchaseOrderTableMap::getTableMap()->getCollectionClassName();
+
+                    $collPurchaseOrders = new $collectionClassName;
+                    $collPurchaseOrders->setModel('\PurchaseOrder');
+
+                    return $collPurchaseOrders;
+                }
             } else {
                 $collPurchaseOrders = ChildPurchaseOrderQuery::create(null, $criteria)
                     ->filterByVendor($this)
@@ -15079,11 +15451,11 @@ abstract class Vendor implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $purchaseOrders A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param Collection $purchaseOrders A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setPurchaseOrders(Collection $purchaseOrders, ConnectionInterface $con = null)
+    public function setPurchaseOrders(Collection $purchaseOrders, ?ConnectionInterface $con = null)
     {
         /** @var ChildPurchaseOrder[] $purchaseOrdersToDelete */
         $purchaseOrdersToDelete = $this->getPurchaseOrders(new Criteria(), $con)->diff($purchaseOrders);
@@ -15109,13 +15481,13 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Returns the number of related PurchaseOrder objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related PurchaseOrder objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related PurchaseOrder objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countPurchaseOrders(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countPurchaseOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrdersPartial && !$this->isNew();
         if (null === $this->collPurchaseOrders || null !== $criteria || $partial) {
@@ -15144,8 +15516,8 @@ abstract class Vendor implements ActiveRecordInterface
      * Method called to associate a ChildPurchaseOrder object to this object
      * through the ChildPurchaseOrder foreign key attribute.
      *
-     * @param  ChildPurchaseOrder $l ChildPurchaseOrder
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param ChildPurchaseOrder $l ChildPurchaseOrder
+     * @return $this The current object (for fluent API support)
      */
     public function addPurchaseOrder(ChildPurchaseOrder $l)
     {
@@ -15168,15 +15540,15 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * @param ChildPurchaseOrder $purchaseOrder The ChildPurchaseOrder object to add.
      */
-    protected function doAddPurchaseOrder(ChildPurchaseOrder $purchaseOrder)
+    protected function doAddPurchaseOrder(ChildPurchaseOrder $purchaseOrder): void
     {
         $this->collPurchaseOrders[]= $purchaseOrder;
         $purchaseOrder->setVendor($this);
     }
 
     /**
-     * @param  ChildPurchaseOrder $purchaseOrder The ChildPurchaseOrder object to remove.
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param ChildPurchaseOrder $purchaseOrder The ChildPurchaseOrder object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removePurchaseOrder(ChildPurchaseOrder $purchaseOrder)
     {
@@ -15206,12 +15578,13 @@ abstract class Vendor implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Vendor.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrder[] List of ChildPurchaseOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrder}> List of ChildPurchaseOrder objects
      */
-    public function getPurchaseOrdersJoinVendorShipfrom(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrdersJoinVendorShipfrom(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderQuery::create(null, $criteria);
         $query->joinWith('VendorShipfrom', $joinBehavior);
@@ -15231,12 +15604,13 @@ abstract class Vendor implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Vendor.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrder[] List of ChildPurchaseOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrder}> List of ChildPurchaseOrder objects
      */
-    public function getPurchaseOrdersJoinShipvia(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrdersJoinShipvia(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderQuery::create(null, $criteria);
         $query->joinWith('Shipvia', $joinBehavior);
@@ -15250,18 +15624,22 @@ abstract class Vendor implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemXrefVendors()
+     * @return $this
+     * @see addItemXrefVendors()
      */
     public function clearItemXrefVendors()
     {
         $this->collItemXrefVendors = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemXrefVendors collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemXrefVendors($v = true)
+    public function resetPartialItemXrefVendors($v = true): void
     {
         $this->collItemXrefVendorsPartial = $v;
     }
@@ -15273,12 +15651,12 @@ abstract class Vendor implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemXrefVendors($overrideExisting = true)
+    public function initItemXrefVendors(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemXrefVendors && !$overrideExisting) {
             return;
@@ -15299,18 +15677,28 @@ abstract class Vendor implements ActiveRecordInterface
      * If this ChildVendor is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemXrefVendor[] List of ChildItemXrefVendor objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefVendor> List of ChildItemXrefVendor objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemXrefVendors(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemXrefVendors(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefVendorsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendors || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemXrefVendors) {
+        if (null === $this->collItemXrefVendors || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemXrefVendors();
+                if (null === $this->collItemXrefVendors) {
+                    $this->initItemXrefVendors();
+                } else {
+                    $collectionClassName = ItemXrefVendorTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemXrefVendors = new $collectionClassName;
+                    $collItemXrefVendors->setModel('\ItemXrefVendor');
+
+                    return $collItemXrefVendors;
+                }
             } else {
                 $collItemXrefVendors = ChildItemXrefVendorQuery::create(null, $criteria)
                     ->filterByVendor($this)
@@ -15354,11 +15742,11 @@ abstract class Vendor implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemXrefVendors A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param Collection $itemXrefVendors A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemXrefVendors(Collection $itemXrefVendors, ConnectionInterface $con = null)
+    public function setItemXrefVendors(Collection $itemXrefVendors, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemXrefVendor[] $itemXrefVendorsToDelete */
         $itemXrefVendorsToDelete = $this->getItemXrefVendors(new Criteria(), $con)->diff($itemXrefVendors);
@@ -15387,13 +15775,13 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * Returns the number of related ItemXrefVendor objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemXrefVendor objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemXrefVendor objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemXrefVendors(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemXrefVendors(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefVendorsPartial && !$this->isNew();
         if (null === $this->collItemXrefVendors || null !== $criteria || $partial) {
@@ -15422,8 +15810,8 @@ abstract class Vendor implements ActiveRecordInterface
      * Method called to associate a ChildItemXrefVendor object to this object
      * through the ChildItemXrefVendor foreign key attribute.
      *
-     * @param  ChildItemXrefVendor $l ChildItemXrefVendor
-     * @return $this|\Vendor The current object (for fluent API support)
+     * @param ChildItemXrefVendor $l ChildItemXrefVendor
+     * @return $this The current object (for fluent API support)
      */
     public function addItemXrefVendor(ChildItemXrefVendor $l)
     {
@@ -15446,15 +15834,15 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * @param ChildItemXrefVendor $itemXrefVendor The ChildItemXrefVendor object to add.
      */
-    protected function doAddItemXrefVendor(ChildItemXrefVendor $itemXrefVendor)
+    protected function doAddItemXrefVendor(ChildItemXrefVendor $itemXrefVendor): void
     {
         $this->collItemXrefVendors[]= $itemXrefVendor;
         $itemXrefVendor->setVendor($this);
     }
 
     /**
-     * @param  ChildItemXrefVendor $itemXrefVendor The ChildItemXrefVendor object to remove.
-     * @return $this|ChildVendor The current object (for fluent API support)
+     * @param ChildItemXrefVendor $itemXrefVendor The ChildItemXrefVendor object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemXrefVendor(ChildItemXrefVendor $itemXrefVendor)
     {
@@ -15484,12 +15872,13 @@ abstract class Vendor implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Vendor.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemXrefVendor[] List of ChildItemXrefVendor objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefVendor}> List of ChildItemXrefVendor objects
      */
-    public function getItemXrefVendorsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemXrefVendorsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemXrefVendorQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -15509,12 +15898,13 @@ abstract class Vendor implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in Vendor.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemXrefVendor[] List of ChildItemXrefVendor objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefVendor}> List of ChildItemXrefVendor objects
      */
-    public function getItemXrefVendorsJoinUnitofMeasurePurchase(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemXrefVendorsJoinUnitofMeasurePurchase(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemXrefVendorQuery::create(null, $criteria);
         $query->joinWith('UnitofMeasurePurchase', $joinBehavior);
@@ -15526,6 +15916,8 @@ abstract class Vendor implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -15721,6 +16113,8 @@ abstract class Vendor implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -15729,9 +16123,10 @@ abstract class Vendor implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
             if ($this->collApContacts) {
@@ -15812,6 +16207,7 @@ abstract class Vendor implements ActiveRecordInterface
         $this->aApTermsCode = null;
         $this->aShipvia = null;
         $this->aApBuyer = null;
+        return $this;
     }
 
     /**
@@ -15826,99 +16222,79 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        // if (is_callable('parent::preSave')) {
-        //     return parent::preSave($con);
-        // }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        // if (is_callable('parent::postSave')) {
-        //     parent::postSave($con);
-        // }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        // if (is_callable('parent::preInsert')) {
-        //     return parent::preInsert($con);
-        // }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        // if (is_callable('parent::postInsert')) {
-        //     parent::postInsert($con);
-        // }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        // if (is_callable('parent::preUpdate')) {
-        //     return parent::preUpdate($con);
-        // }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        // if (is_callable('parent::postUpdate')) {
-        //     parent::postUpdate($con);
-        // }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        // if (is_callable('parent::preDelete')) {
-        //     return parent::preDelete($con);
-        // }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        // if (is_callable('parent::postDelete')) {
-        //     parent::postDelete($con);
-        // }
-    }
+            }
 
 
     /**
@@ -15928,7 +16304,7 @@ abstract class Vendor implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -15948,15 +16324,18 @@ abstract class Vendor implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

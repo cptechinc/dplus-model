@@ -10,14 +10,12 @@ use Map\ConfigIiTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ii_config' table.
- *
- *
+ * Base class that represents a query for the `ii_config` table.
  *
  * @method     ChildConfigIiQuery orderByIitbconfkey($order = Criteria::ASC) Order by the IitbConfKey column
  * @method     ChildConfigIiQuery orderByIitbconfonewhse($order = Criteria::ASC) Order by the IitbConfOneWhse column
@@ -77,36 +75,36 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigIiQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildConfigIiQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildConfigIi findOne(ConnectionInterface $con = null) Return the first ChildConfigIi matching the query
- * @method     ChildConfigIi findOneOrCreate(ConnectionInterface $con = null) Return the first ChildConfigIi matching the query, or a new ChildConfigIi object populated from the query conditions when no match is found
+ * @method     ChildConfigIi|null findOne(?ConnectionInterface $con = null) Return the first ChildConfigIi matching the query
+ * @method     ChildConfigIi findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildConfigIi matching the query, or a new ChildConfigIi object populated from the query conditions when no match is found
  *
- * @method     ChildConfigIi findOneByIitbconfkey(int $IitbConfKey) Return the first ChildConfigIi filtered by the IitbConfKey column
- * @method     ChildConfigIi findOneByIitbconfonewhse(string $IitbConfOneWhse) Return the first ChildConfigIi filtered by the IitbConfOneWhse column
- * @method     ChildConfigIi findOneByIitbconfdefwhse(string $IitbConfDefWhse) Return the first ChildConfigIi filtered by the IitbConfDefWhse column
- * @method     ChildConfigIi findOneByIitbconfytdstrtmo(int $IitbConfYtdStrtMo) Return the first ChildConfigIi filtered by the IitbConfYtdStrtMo column
- * @method     ChildConfigIi findOneByIitbconfusecustwhse(string $IitbConfUseCustWhse) Return the first ChildConfigIi filtered by the IitbConfUseCustWhse column
- * @method     ChildConfigIi findOneByIitbconfwuorvqw(string $IitbConfWuOrVqw) Return the first ChildConfigIi filtered by the IitbConfWuOrVqw column
- * @method     ChildConfigIi findOneByIitbconfqorls(string $IitbConfQOrLs) Return the first ChildConfigIi filtered by the IitbConfQOrLs column
- * @method     ChildConfigIi findOneByIitbconfinqcode(string $IitbConfInqCode) Return the first ChildConfigIi filtered by the IitbConfInqCode column
- * @method     ChildConfigIi findOneByIitbconfpricsect(string $IitbConfPricSect) Return the first ChildConfigIi filtered by the IitbConfPricSect column
- * @method     ChildConfigIi findOneByIitbconfsrchupcalias(string $IitbConfSrchUpcAlias) Return the first ChildConfigIi filtered by the IitbConfSrchUpcAlias column
- * @method     ChildConfigIi findOneByIitbconflotbin(string $IitbConfLotBin) Return the first ChildConfigIi filtered by the IitbConfLotBin column
- * @method     ChildConfigIi findOneByIitbconfoneitem(string $IitbConfOneItem) Return the first ChildConfigIi filtered by the IitbConfOneItem column
- * @method     ChildConfigIi findOneByIitbconfitemtotals(string $IitbConfItemTotals) Return the first ChildConfigIi filtered by the IitbConfItemTotals column
- * @method     ChildConfigIi findOneByIitbconfmonthsusage(int $IitbConfMonthsUsage) Return the first ChildConfigIi filtered by the IitbConfMonthsUsage column
- * @method     ChildConfigIi findOneByIitbconftora(string $IitbConfTOrA) Return the first ChildConfigIi filtered by the IitbConfTOrA column
- * @method     ChildConfigIi findOneByIitbconfunitcost(string $IitbConfUnitCost) Return the first ChildConfigIi filtered by the IitbConfUnitCost column
- * @method     ChildConfigIi findOneByIitbconfformulaoption(int $IitbConfFormulaOption) Return the first ChildConfigIi filtered by the IitbConfFormulaOption column
- * @method     ChildConfigIi findOneByIitbconftranssep(string $IitbConfTransSep) Return the first ChildConfigIi filtered by the IitbConfTransSep column
- * @method     ChildConfigIi findOneByIitbconfdispbindet(string $IitbConfDispBinDet) Return the first ChildConfigIi filtered by the IitbConfDispBinDet column
- * @method     ChildConfigIi findOneByIitbconfshdateorcust(string $IitbConfShDateOrCust) Return the first ChildConfigIi filtered by the IitbConfShDateOrCust column
- * @method     ChildConfigIi findOneByIitbconfshzeroship(string $IitbConfShZeroShip) Return the first ChildConfigIi filtered by the IitbConfShZeroShip column
- * @method     ChildConfigIi findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigIi filtered by the DateUpdtd column
- * @method     ChildConfigIi findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigIi filtered by the TimeUpdtd column
- * @method     ChildConfigIi findOneByDummy(string $dummy) Return the first ChildConfigIi filtered by the dummy column *
-
- * @method     ChildConfigIi requirePk($key, ConnectionInterface $con = null) Return the ChildConfigIi by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigIi requireOne(ConnectionInterface $con = null) Return the first ChildConfigIi matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigIi|null findOneByIitbconfkey(int $IitbConfKey) Return the first ChildConfigIi filtered by the IitbConfKey column
+ * @method     ChildConfigIi|null findOneByIitbconfonewhse(string $IitbConfOneWhse) Return the first ChildConfigIi filtered by the IitbConfOneWhse column
+ * @method     ChildConfigIi|null findOneByIitbconfdefwhse(string $IitbConfDefWhse) Return the first ChildConfigIi filtered by the IitbConfDefWhse column
+ * @method     ChildConfigIi|null findOneByIitbconfytdstrtmo(int $IitbConfYtdStrtMo) Return the first ChildConfigIi filtered by the IitbConfYtdStrtMo column
+ * @method     ChildConfigIi|null findOneByIitbconfusecustwhse(string $IitbConfUseCustWhse) Return the first ChildConfigIi filtered by the IitbConfUseCustWhse column
+ * @method     ChildConfigIi|null findOneByIitbconfwuorvqw(string $IitbConfWuOrVqw) Return the first ChildConfigIi filtered by the IitbConfWuOrVqw column
+ * @method     ChildConfigIi|null findOneByIitbconfqorls(string $IitbConfQOrLs) Return the first ChildConfigIi filtered by the IitbConfQOrLs column
+ * @method     ChildConfigIi|null findOneByIitbconfinqcode(string $IitbConfInqCode) Return the first ChildConfigIi filtered by the IitbConfInqCode column
+ * @method     ChildConfigIi|null findOneByIitbconfpricsect(string $IitbConfPricSect) Return the first ChildConfigIi filtered by the IitbConfPricSect column
+ * @method     ChildConfigIi|null findOneByIitbconfsrchupcalias(string $IitbConfSrchUpcAlias) Return the first ChildConfigIi filtered by the IitbConfSrchUpcAlias column
+ * @method     ChildConfigIi|null findOneByIitbconflotbin(string $IitbConfLotBin) Return the first ChildConfigIi filtered by the IitbConfLotBin column
+ * @method     ChildConfigIi|null findOneByIitbconfoneitem(string $IitbConfOneItem) Return the first ChildConfigIi filtered by the IitbConfOneItem column
+ * @method     ChildConfigIi|null findOneByIitbconfitemtotals(string $IitbConfItemTotals) Return the first ChildConfigIi filtered by the IitbConfItemTotals column
+ * @method     ChildConfigIi|null findOneByIitbconfmonthsusage(int $IitbConfMonthsUsage) Return the first ChildConfigIi filtered by the IitbConfMonthsUsage column
+ * @method     ChildConfigIi|null findOneByIitbconftora(string $IitbConfTOrA) Return the first ChildConfigIi filtered by the IitbConfTOrA column
+ * @method     ChildConfigIi|null findOneByIitbconfunitcost(string $IitbConfUnitCost) Return the first ChildConfigIi filtered by the IitbConfUnitCost column
+ * @method     ChildConfigIi|null findOneByIitbconfformulaoption(int $IitbConfFormulaOption) Return the first ChildConfigIi filtered by the IitbConfFormulaOption column
+ * @method     ChildConfigIi|null findOneByIitbconftranssep(string $IitbConfTransSep) Return the first ChildConfigIi filtered by the IitbConfTransSep column
+ * @method     ChildConfigIi|null findOneByIitbconfdispbindet(string $IitbConfDispBinDet) Return the first ChildConfigIi filtered by the IitbConfDispBinDet column
+ * @method     ChildConfigIi|null findOneByIitbconfshdateorcust(string $IitbConfShDateOrCust) Return the first ChildConfigIi filtered by the IitbConfShDateOrCust column
+ * @method     ChildConfigIi|null findOneByIitbconfshzeroship(string $IitbConfShZeroShip) Return the first ChildConfigIi filtered by the IitbConfShZeroShip column
+ * @method     ChildConfigIi|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigIi filtered by the DateUpdtd column
+ * @method     ChildConfigIi|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigIi filtered by the TimeUpdtd column
+ * @method     ChildConfigIi|null findOneByDummy(string $dummy) Return the first ChildConfigIi filtered by the dummy column
+ *
+ * @method     ChildConfigIi requirePk($key, ?ConnectionInterface $con = null) Return the ChildConfigIi by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigIi requireOne(?ConnectionInterface $con = null) Return the first ChildConfigIi matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildConfigIi requireOneByIitbconfkey(int $IitbConfKey) Return the first ChildConfigIi filtered by the IitbConfKey column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigIi requireOneByIitbconfonewhse(string $IitbConfOneWhse) Return the first ChildConfigIi filtered by the IitbConfOneWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -133,33 +131,60 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigIi requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigIi filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigIi requireOneByDummy(string $dummy) Return the first ChildConfigIi filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildConfigIi[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildConfigIi objects based on current ModelCriteria
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfkey(int $IitbConfKey) Return ChildConfigIi objects filtered by the IitbConfKey column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfonewhse(string $IitbConfOneWhse) Return ChildConfigIi objects filtered by the IitbConfOneWhse column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfdefwhse(string $IitbConfDefWhse) Return ChildConfigIi objects filtered by the IitbConfDefWhse column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfytdstrtmo(int $IitbConfYtdStrtMo) Return ChildConfigIi objects filtered by the IitbConfYtdStrtMo column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfusecustwhse(string $IitbConfUseCustWhse) Return ChildConfigIi objects filtered by the IitbConfUseCustWhse column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfwuorvqw(string $IitbConfWuOrVqw) Return ChildConfigIi objects filtered by the IitbConfWuOrVqw column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfqorls(string $IitbConfQOrLs) Return ChildConfigIi objects filtered by the IitbConfQOrLs column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfinqcode(string $IitbConfInqCode) Return ChildConfigIi objects filtered by the IitbConfInqCode column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfpricsect(string $IitbConfPricSect) Return ChildConfigIi objects filtered by the IitbConfPricSect column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfsrchupcalias(string $IitbConfSrchUpcAlias) Return ChildConfigIi objects filtered by the IitbConfSrchUpcAlias column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconflotbin(string $IitbConfLotBin) Return ChildConfigIi objects filtered by the IitbConfLotBin column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfoneitem(string $IitbConfOneItem) Return ChildConfigIi objects filtered by the IitbConfOneItem column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfitemtotals(string $IitbConfItemTotals) Return ChildConfigIi objects filtered by the IitbConfItemTotals column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfmonthsusage(int $IitbConfMonthsUsage) Return ChildConfigIi objects filtered by the IitbConfMonthsUsage column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconftora(string $IitbConfTOrA) Return ChildConfigIi objects filtered by the IitbConfTOrA column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfunitcost(string $IitbConfUnitCost) Return ChildConfigIi objects filtered by the IitbConfUnitCost column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfformulaoption(int $IitbConfFormulaOption) Return ChildConfigIi objects filtered by the IitbConfFormulaOption column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconftranssep(string $IitbConfTransSep) Return ChildConfigIi objects filtered by the IitbConfTransSep column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfdispbindet(string $IitbConfDispBinDet) Return ChildConfigIi objects filtered by the IitbConfDispBinDet column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfshdateorcust(string $IitbConfShDateOrCust) Return ChildConfigIi objects filtered by the IitbConfShDateOrCust column
- * @method     ChildConfigIi[]|ObjectCollection findByIitbconfshzeroship(string $IitbConfShZeroShip) Return ChildConfigIi objects filtered by the IitbConfShZeroShip column
- * @method     ChildConfigIi[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildConfigIi objects filtered by the DateUpdtd column
- * @method     ChildConfigIi[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildConfigIi objects filtered by the TimeUpdtd column
- * @method     ChildConfigIi[]|ObjectCollection findByDummy(string $dummy) Return ChildConfigIi objects filtered by the dummy column
- * @method     ChildConfigIi[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildConfigIi[]|Collection find(?ConnectionInterface $con = null) Return ChildConfigIi objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildConfigIi> find(?ConnectionInterface $con = null) Return ChildConfigIi objects based on current ModelCriteria
  *
+ * @method     ChildConfigIi[]|Collection findByIitbconfkey(int|array<int> $IitbConfKey) Return ChildConfigIi objects filtered by the IitbConfKey column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfkey(int|array<int> $IitbConfKey) Return ChildConfigIi objects filtered by the IitbConfKey column
+ * @method     ChildConfigIi[]|Collection findByIitbconfonewhse(string|array<string> $IitbConfOneWhse) Return ChildConfigIi objects filtered by the IitbConfOneWhse column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfonewhse(string|array<string> $IitbConfOneWhse) Return ChildConfigIi objects filtered by the IitbConfOneWhse column
+ * @method     ChildConfigIi[]|Collection findByIitbconfdefwhse(string|array<string> $IitbConfDefWhse) Return ChildConfigIi objects filtered by the IitbConfDefWhse column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfdefwhse(string|array<string> $IitbConfDefWhse) Return ChildConfigIi objects filtered by the IitbConfDefWhse column
+ * @method     ChildConfigIi[]|Collection findByIitbconfytdstrtmo(int|array<int> $IitbConfYtdStrtMo) Return ChildConfigIi objects filtered by the IitbConfYtdStrtMo column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfytdstrtmo(int|array<int> $IitbConfYtdStrtMo) Return ChildConfigIi objects filtered by the IitbConfYtdStrtMo column
+ * @method     ChildConfigIi[]|Collection findByIitbconfusecustwhse(string|array<string> $IitbConfUseCustWhse) Return ChildConfigIi objects filtered by the IitbConfUseCustWhse column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfusecustwhse(string|array<string> $IitbConfUseCustWhse) Return ChildConfigIi objects filtered by the IitbConfUseCustWhse column
+ * @method     ChildConfigIi[]|Collection findByIitbconfwuorvqw(string|array<string> $IitbConfWuOrVqw) Return ChildConfigIi objects filtered by the IitbConfWuOrVqw column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfwuorvqw(string|array<string> $IitbConfWuOrVqw) Return ChildConfigIi objects filtered by the IitbConfWuOrVqw column
+ * @method     ChildConfigIi[]|Collection findByIitbconfqorls(string|array<string> $IitbConfQOrLs) Return ChildConfigIi objects filtered by the IitbConfQOrLs column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfqorls(string|array<string> $IitbConfQOrLs) Return ChildConfigIi objects filtered by the IitbConfQOrLs column
+ * @method     ChildConfigIi[]|Collection findByIitbconfinqcode(string|array<string> $IitbConfInqCode) Return ChildConfigIi objects filtered by the IitbConfInqCode column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfinqcode(string|array<string> $IitbConfInqCode) Return ChildConfigIi objects filtered by the IitbConfInqCode column
+ * @method     ChildConfigIi[]|Collection findByIitbconfpricsect(string|array<string> $IitbConfPricSect) Return ChildConfigIi objects filtered by the IitbConfPricSect column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfpricsect(string|array<string> $IitbConfPricSect) Return ChildConfigIi objects filtered by the IitbConfPricSect column
+ * @method     ChildConfigIi[]|Collection findByIitbconfsrchupcalias(string|array<string> $IitbConfSrchUpcAlias) Return ChildConfigIi objects filtered by the IitbConfSrchUpcAlias column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfsrchupcalias(string|array<string> $IitbConfSrchUpcAlias) Return ChildConfigIi objects filtered by the IitbConfSrchUpcAlias column
+ * @method     ChildConfigIi[]|Collection findByIitbconflotbin(string|array<string> $IitbConfLotBin) Return ChildConfigIi objects filtered by the IitbConfLotBin column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconflotbin(string|array<string> $IitbConfLotBin) Return ChildConfigIi objects filtered by the IitbConfLotBin column
+ * @method     ChildConfigIi[]|Collection findByIitbconfoneitem(string|array<string> $IitbConfOneItem) Return ChildConfigIi objects filtered by the IitbConfOneItem column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfoneitem(string|array<string> $IitbConfOneItem) Return ChildConfigIi objects filtered by the IitbConfOneItem column
+ * @method     ChildConfigIi[]|Collection findByIitbconfitemtotals(string|array<string> $IitbConfItemTotals) Return ChildConfigIi objects filtered by the IitbConfItemTotals column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfitemtotals(string|array<string> $IitbConfItemTotals) Return ChildConfigIi objects filtered by the IitbConfItemTotals column
+ * @method     ChildConfigIi[]|Collection findByIitbconfmonthsusage(int|array<int> $IitbConfMonthsUsage) Return ChildConfigIi objects filtered by the IitbConfMonthsUsage column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfmonthsusage(int|array<int> $IitbConfMonthsUsage) Return ChildConfigIi objects filtered by the IitbConfMonthsUsage column
+ * @method     ChildConfigIi[]|Collection findByIitbconftora(string|array<string> $IitbConfTOrA) Return ChildConfigIi objects filtered by the IitbConfTOrA column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconftora(string|array<string> $IitbConfTOrA) Return ChildConfigIi objects filtered by the IitbConfTOrA column
+ * @method     ChildConfigIi[]|Collection findByIitbconfunitcost(string|array<string> $IitbConfUnitCost) Return ChildConfigIi objects filtered by the IitbConfUnitCost column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfunitcost(string|array<string> $IitbConfUnitCost) Return ChildConfigIi objects filtered by the IitbConfUnitCost column
+ * @method     ChildConfigIi[]|Collection findByIitbconfformulaoption(int|array<int> $IitbConfFormulaOption) Return ChildConfigIi objects filtered by the IitbConfFormulaOption column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfformulaoption(int|array<int> $IitbConfFormulaOption) Return ChildConfigIi objects filtered by the IitbConfFormulaOption column
+ * @method     ChildConfigIi[]|Collection findByIitbconftranssep(string|array<string> $IitbConfTransSep) Return ChildConfigIi objects filtered by the IitbConfTransSep column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconftranssep(string|array<string> $IitbConfTransSep) Return ChildConfigIi objects filtered by the IitbConfTransSep column
+ * @method     ChildConfigIi[]|Collection findByIitbconfdispbindet(string|array<string> $IitbConfDispBinDet) Return ChildConfigIi objects filtered by the IitbConfDispBinDet column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfdispbindet(string|array<string> $IitbConfDispBinDet) Return ChildConfigIi objects filtered by the IitbConfDispBinDet column
+ * @method     ChildConfigIi[]|Collection findByIitbconfshdateorcust(string|array<string> $IitbConfShDateOrCust) Return ChildConfigIi objects filtered by the IitbConfShDateOrCust column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfshdateorcust(string|array<string> $IitbConfShDateOrCust) Return ChildConfigIi objects filtered by the IitbConfShDateOrCust column
+ * @method     ChildConfigIi[]|Collection findByIitbconfshzeroship(string|array<string> $IitbConfShZeroShip) Return ChildConfigIi objects filtered by the IitbConfShZeroShip column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByIitbconfshzeroship(string|array<string> $IitbConfShZeroShip) Return ChildConfigIi objects filtered by the IitbConfShZeroShip column
+ * @method     ChildConfigIi[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigIi objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigIi objects filtered by the DateUpdtd column
+ * @method     ChildConfigIi[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigIi objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigIi objects filtered by the TimeUpdtd column
+ * @method     ChildConfigIi[]|Collection findByDummy(string|array<string> $dummy) Return ChildConfigIi objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildConfigIi> findByDummy(string|array<string> $dummy) Return ChildConfigIi objects filtered by the dummy column
+ *
+ * @method     ChildConfigIi[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildConfigIi> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ConfigIiQuery extends ModelCriteria
 {
@@ -168,9 +193,9 @@ abstract class ConfigIiQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ConfigIiQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ConfigIi', $modelAlias = null)
     {
@@ -180,12 +205,12 @@ abstract class ConfigIiQuery extends ModelCriteria
     /**
      * Returns a new ChildConfigIiQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildConfigIiQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildConfigIiQuery) {
             return $criteria;
@@ -215,7 +240,7 @@ abstract class ConfigIiQuery extends ModelCriteria
      *
      * @return ChildConfigIi|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -247,8 +272,8 @@ abstract class ConfigIiQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -280,8 +305,8 @@ abstract class ConfigIiQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildConfigIi|array|mixed the result, formatted by the current formatter
      */
@@ -301,12 +326,12 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -323,27 +348,31 @@ abstract class ConfigIiQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFKEY, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFKEY, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFKEY, $keys, Criteria::IN);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFKEY, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -356,15 +385,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * $query->filterByIitbconfkey(array('min' => 12)); // WHERE IitbConfKey > 12
      * </code>
      *
-     * @param     mixed $iitbconfkey The value to use as filter.
+     * @param mixed $iitbconfkey The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfkey($iitbconfkey = null, $comparison = null)
+    public function filterByIitbconfkey($iitbconfkey = null, ?string $comparison = null)
     {
         if (is_array($iitbconfkey)) {
             $useMinMax = false;
@@ -384,7 +413,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFKEY, $iitbconfkey, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFKEY, $iitbconfkey, $comparison);
+
+        return $this;
     }
 
     /**
@@ -394,14 +425,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconfonewhse('fooValue');   // WHERE IitbConfOneWhse = 'fooValue'
      * $query->filterByIitbconfonewhse('%fooValue%', Criteria::LIKE); // WHERE IitbConfOneWhse LIKE '%fooValue%'
+     * $query->filterByIitbconfonewhse(['foo', 'bar']); // WHERE IitbConfOneWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconfonewhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconfonewhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfonewhse($iitbconfonewhse = null, $comparison = null)
+    public function filterByIitbconfonewhse($iitbconfonewhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconfonewhse)) {
@@ -409,7 +441,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFONEWHSE, $iitbconfonewhse, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFONEWHSE, $iitbconfonewhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -419,14 +453,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconfdefwhse('fooValue');   // WHERE IitbConfDefWhse = 'fooValue'
      * $query->filterByIitbconfdefwhse('%fooValue%', Criteria::LIKE); // WHERE IitbConfDefWhse LIKE '%fooValue%'
+     * $query->filterByIitbconfdefwhse(['foo', 'bar']); // WHERE IitbConfDefWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconfdefwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconfdefwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfdefwhse($iitbconfdefwhse = null, $comparison = null)
+    public function filterByIitbconfdefwhse($iitbconfdefwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconfdefwhse)) {
@@ -434,7 +469,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFDEFWHSE, $iitbconfdefwhse, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFDEFWHSE, $iitbconfdefwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -447,15 +484,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * $query->filterByIitbconfytdstrtmo(array('min' => 12)); // WHERE IitbConfYtdStrtMo > 12
      * </code>
      *
-     * @param     mixed $iitbconfytdstrtmo The value to use as filter.
+     * @param mixed $iitbconfytdstrtmo The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfytdstrtmo($iitbconfytdstrtmo = null, $comparison = null)
+    public function filterByIitbconfytdstrtmo($iitbconfytdstrtmo = null, ?string $comparison = null)
     {
         if (is_array($iitbconfytdstrtmo)) {
             $useMinMax = false;
@@ -475,7 +512,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFYTDSTRTMO, $iitbconfytdstrtmo, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFYTDSTRTMO, $iitbconfytdstrtmo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -485,14 +524,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconfusecustwhse('fooValue');   // WHERE IitbConfUseCustWhse = 'fooValue'
      * $query->filterByIitbconfusecustwhse('%fooValue%', Criteria::LIKE); // WHERE IitbConfUseCustWhse LIKE '%fooValue%'
+     * $query->filterByIitbconfusecustwhse(['foo', 'bar']); // WHERE IitbConfUseCustWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconfusecustwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconfusecustwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfusecustwhse($iitbconfusecustwhse = null, $comparison = null)
+    public function filterByIitbconfusecustwhse($iitbconfusecustwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconfusecustwhse)) {
@@ -500,7 +540,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFUSECUSTWHSE, $iitbconfusecustwhse, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFUSECUSTWHSE, $iitbconfusecustwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -510,14 +552,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconfwuorvqw('fooValue');   // WHERE IitbConfWuOrVqw = 'fooValue'
      * $query->filterByIitbconfwuorvqw('%fooValue%', Criteria::LIKE); // WHERE IitbConfWuOrVqw LIKE '%fooValue%'
+     * $query->filterByIitbconfwuorvqw(['foo', 'bar']); // WHERE IitbConfWuOrVqw IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconfwuorvqw The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconfwuorvqw The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfwuorvqw($iitbconfwuorvqw = null, $comparison = null)
+    public function filterByIitbconfwuorvqw($iitbconfwuorvqw = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconfwuorvqw)) {
@@ -525,7 +568,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFWUORVQW, $iitbconfwuorvqw, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFWUORVQW, $iitbconfwuorvqw, $comparison);
+
+        return $this;
     }
 
     /**
@@ -535,14 +580,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconfqorls('fooValue');   // WHERE IitbConfQOrLs = 'fooValue'
      * $query->filterByIitbconfqorls('%fooValue%', Criteria::LIKE); // WHERE IitbConfQOrLs LIKE '%fooValue%'
+     * $query->filterByIitbconfqorls(['foo', 'bar']); // WHERE IitbConfQOrLs IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconfqorls The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconfqorls The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfqorls($iitbconfqorls = null, $comparison = null)
+    public function filterByIitbconfqorls($iitbconfqorls = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconfqorls)) {
@@ -550,7 +596,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFQORLS, $iitbconfqorls, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFQORLS, $iitbconfqorls, $comparison);
+
+        return $this;
     }
 
     /**
@@ -560,14 +608,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconfinqcode('fooValue');   // WHERE IitbConfInqCode = 'fooValue'
      * $query->filterByIitbconfinqcode('%fooValue%', Criteria::LIKE); // WHERE IitbConfInqCode LIKE '%fooValue%'
+     * $query->filterByIitbconfinqcode(['foo', 'bar']); // WHERE IitbConfInqCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconfinqcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconfinqcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfinqcode($iitbconfinqcode = null, $comparison = null)
+    public function filterByIitbconfinqcode($iitbconfinqcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconfinqcode)) {
@@ -575,7 +624,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFINQCODE, $iitbconfinqcode, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFINQCODE, $iitbconfinqcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -585,14 +636,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconfpricsect('fooValue');   // WHERE IitbConfPricSect = 'fooValue'
      * $query->filterByIitbconfpricsect('%fooValue%', Criteria::LIKE); // WHERE IitbConfPricSect LIKE '%fooValue%'
+     * $query->filterByIitbconfpricsect(['foo', 'bar']); // WHERE IitbConfPricSect IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconfpricsect The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconfpricsect The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfpricsect($iitbconfpricsect = null, $comparison = null)
+    public function filterByIitbconfpricsect($iitbconfpricsect = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconfpricsect)) {
@@ -600,7 +652,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFPRICSECT, $iitbconfpricsect, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFPRICSECT, $iitbconfpricsect, $comparison);
+
+        return $this;
     }
 
     /**
@@ -610,14 +664,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconfsrchupcalias('fooValue');   // WHERE IitbConfSrchUpcAlias = 'fooValue'
      * $query->filterByIitbconfsrchupcalias('%fooValue%', Criteria::LIKE); // WHERE IitbConfSrchUpcAlias LIKE '%fooValue%'
+     * $query->filterByIitbconfsrchupcalias(['foo', 'bar']); // WHERE IitbConfSrchUpcAlias IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconfsrchupcalias The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconfsrchupcalias The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfsrchupcalias($iitbconfsrchupcalias = null, $comparison = null)
+    public function filterByIitbconfsrchupcalias($iitbconfsrchupcalias = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconfsrchupcalias)) {
@@ -625,7 +680,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFSRCHUPCALIAS, $iitbconfsrchupcalias, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFSRCHUPCALIAS, $iitbconfsrchupcalias, $comparison);
+
+        return $this;
     }
 
     /**
@@ -635,14 +692,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconflotbin('fooValue');   // WHERE IitbConfLotBin = 'fooValue'
      * $query->filterByIitbconflotbin('%fooValue%', Criteria::LIKE); // WHERE IitbConfLotBin LIKE '%fooValue%'
+     * $query->filterByIitbconflotbin(['foo', 'bar']); // WHERE IitbConfLotBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconflotbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconflotbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconflotbin($iitbconflotbin = null, $comparison = null)
+    public function filterByIitbconflotbin($iitbconflotbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconflotbin)) {
@@ -650,7 +708,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFLOTBIN, $iitbconflotbin, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFLOTBIN, $iitbconflotbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -660,14 +720,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconfoneitem('fooValue');   // WHERE IitbConfOneItem = 'fooValue'
      * $query->filterByIitbconfoneitem('%fooValue%', Criteria::LIKE); // WHERE IitbConfOneItem LIKE '%fooValue%'
+     * $query->filterByIitbconfoneitem(['foo', 'bar']); // WHERE IitbConfOneItem IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconfoneitem The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconfoneitem The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfoneitem($iitbconfoneitem = null, $comparison = null)
+    public function filterByIitbconfoneitem($iitbconfoneitem = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconfoneitem)) {
@@ -675,7 +736,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFONEITEM, $iitbconfoneitem, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFONEITEM, $iitbconfoneitem, $comparison);
+
+        return $this;
     }
 
     /**
@@ -685,14 +748,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconfitemtotals('fooValue');   // WHERE IitbConfItemTotals = 'fooValue'
      * $query->filterByIitbconfitemtotals('%fooValue%', Criteria::LIKE); // WHERE IitbConfItemTotals LIKE '%fooValue%'
+     * $query->filterByIitbconfitemtotals(['foo', 'bar']); // WHERE IitbConfItemTotals IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconfitemtotals The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconfitemtotals The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfitemtotals($iitbconfitemtotals = null, $comparison = null)
+    public function filterByIitbconfitemtotals($iitbconfitemtotals = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconfitemtotals)) {
@@ -700,7 +764,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFITEMTOTALS, $iitbconfitemtotals, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFITEMTOTALS, $iitbconfitemtotals, $comparison);
+
+        return $this;
     }
 
     /**
@@ -713,15 +779,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * $query->filterByIitbconfmonthsusage(array('min' => 12)); // WHERE IitbConfMonthsUsage > 12
      * </code>
      *
-     * @param     mixed $iitbconfmonthsusage The value to use as filter.
+     * @param mixed $iitbconfmonthsusage The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfmonthsusage($iitbconfmonthsusage = null, $comparison = null)
+    public function filterByIitbconfmonthsusage($iitbconfmonthsusage = null, ?string $comparison = null)
     {
         if (is_array($iitbconfmonthsusage)) {
             $useMinMax = false;
@@ -741,7 +807,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFMONTHSUSAGE, $iitbconfmonthsusage, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFMONTHSUSAGE, $iitbconfmonthsusage, $comparison);
+
+        return $this;
     }
 
     /**
@@ -751,14 +819,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconftora('fooValue');   // WHERE IitbConfTOrA = 'fooValue'
      * $query->filterByIitbconftora('%fooValue%', Criteria::LIKE); // WHERE IitbConfTOrA LIKE '%fooValue%'
+     * $query->filterByIitbconftora(['foo', 'bar']); // WHERE IitbConfTOrA IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconftora The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconftora The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconftora($iitbconftora = null, $comparison = null)
+    public function filterByIitbconftora($iitbconftora = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconftora)) {
@@ -766,7 +835,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFTORA, $iitbconftora, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFTORA, $iitbconftora, $comparison);
+
+        return $this;
     }
 
     /**
@@ -776,14 +847,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconfunitcost('fooValue');   // WHERE IitbConfUnitCost = 'fooValue'
      * $query->filterByIitbconfunitcost('%fooValue%', Criteria::LIKE); // WHERE IitbConfUnitCost LIKE '%fooValue%'
+     * $query->filterByIitbconfunitcost(['foo', 'bar']); // WHERE IitbConfUnitCost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconfunitcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconfunitcost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfunitcost($iitbconfunitcost = null, $comparison = null)
+    public function filterByIitbconfunitcost($iitbconfunitcost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconfunitcost)) {
@@ -791,7 +863,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFUNITCOST, $iitbconfunitcost, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFUNITCOST, $iitbconfunitcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -804,15 +878,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * $query->filterByIitbconfformulaoption(array('min' => 12)); // WHERE IitbConfFormulaOption > 12
      * </code>
      *
-     * @param     mixed $iitbconfformulaoption The value to use as filter.
+     * @param mixed $iitbconfformulaoption The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfformulaoption($iitbconfformulaoption = null, $comparison = null)
+    public function filterByIitbconfformulaoption($iitbconfformulaoption = null, ?string $comparison = null)
     {
         if (is_array($iitbconfformulaoption)) {
             $useMinMax = false;
@@ -832,7 +906,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFFORMULAOPTION, $iitbconfformulaoption, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFFORMULAOPTION, $iitbconfformulaoption, $comparison);
+
+        return $this;
     }
 
     /**
@@ -842,14 +918,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconftranssep('fooValue');   // WHERE IitbConfTransSep = 'fooValue'
      * $query->filterByIitbconftranssep('%fooValue%', Criteria::LIKE); // WHERE IitbConfTransSep LIKE '%fooValue%'
+     * $query->filterByIitbconftranssep(['foo', 'bar']); // WHERE IitbConfTransSep IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconftranssep The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconftranssep The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconftranssep($iitbconftranssep = null, $comparison = null)
+    public function filterByIitbconftranssep($iitbconftranssep = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconftranssep)) {
@@ -857,7 +934,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFTRANSSEP, $iitbconftranssep, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFTRANSSEP, $iitbconftranssep, $comparison);
+
+        return $this;
     }
 
     /**
@@ -867,14 +946,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconfdispbindet('fooValue');   // WHERE IitbConfDispBinDet = 'fooValue'
      * $query->filterByIitbconfdispbindet('%fooValue%', Criteria::LIKE); // WHERE IitbConfDispBinDet LIKE '%fooValue%'
+     * $query->filterByIitbconfdispbindet(['foo', 'bar']); // WHERE IitbConfDispBinDet IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconfdispbindet The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconfdispbindet The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfdispbindet($iitbconfdispbindet = null, $comparison = null)
+    public function filterByIitbconfdispbindet($iitbconfdispbindet = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconfdispbindet)) {
@@ -882,7 +962,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFDISPBINDET, $iitbconfdispbindet, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFDISPBINDET, $iitbconfdispbindet, $comparison);
+
+        return $this;
     }
 
     /**
@@ -892,14 +974,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconfshdateorcust('fooValue');   // WHERE IitbConfShDateOrCust = 'fooValue'
      * $query->filterByIitbconfshdateorcust('%fooValue%', Criteria::LIKE); // WHERE IitbConfShDateOrCust LIKE '%fooValue%'
+     * $query->filterByIitbconfshdateorcust(['foo', 'bar']); // WHERE IitbConfShDateOrCust IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconfshdateorcust The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconfshdateorcust The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfshdateorcust($iitbconfshdateorcust = null, $comparison = null)
+    public function filterByIitbconfshdateorcust($iitbconfshdateorcust = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconfshdateorcust)) {
@@ -907,7 +990,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFSHDATEORCUST, $iitbconfshdateorcust, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFSHDATEORCUST, $iitbconfshdateorcust, $comparison);
+
+        return $this;
     }
 
     /**
@@ -917,14 +1002,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitbconfshzeroship('fooValue');   // WHERE IitbConfShZeroShip = 'fooValue'
      * $query->filterByIitbconfshzeroship('%fooValue%', Criteria::LIKE); // WHERE IitbConfShZeroShip LIKE '%fooValue%'
+     * $query->filterByIitbconfshzeroship(['foo', 'bar']); // WHERE IitbConfShZeroShip IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitbconfshzeroship The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitbconfshzeroship The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitbconfshzeroship($iitbconfshzeroship = null, $comparison = null)
+    public function filterByIitbconfshzeroship($iitbconfshzeroship = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitbconfshzeroship)) {
@@ -932,7 +1018,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFSHZEROSHIP, $iitbconfshzeroship, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_IITBCONFSHZEROSHIP, $iitbconfshzeroship, $comparison);
+
+        return $this;
     }
 
     /**
@@ -942,14 +1030,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -957,7 +1046,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -967,14 +1058,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -982,7 +1074,9 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -992,14 +1086,15 @@ abstract class ConfigIiQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1007,15 +1102,17 @@ abstract class ConfigIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigIiTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ConfigIiTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildConfigIi $configIi Object to remove from the list of results
+     * @param ChildConfigIi $configIi Object to remove from the list of results
      *
-     * @return $this|ChildConfigIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($configIi = null)
     {
@@ -1032,7 +1129,7 @@ abstract class ConfigIiQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigIiTableMap::DATABASE_NAME);
@@ -1057,12 +1154,12 @@ abstract class ConfigIiQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigIiTableMap::DATABASE_NAME);
@@ -1087,4 +1184,4 @@ abstract class ConfigIiQuery extends ModelCriteria
         });
     }
 
-} // ConfigIiQuery
+}

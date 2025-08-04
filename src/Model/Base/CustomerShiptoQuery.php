@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ar_ship_to' table.
- *
- *
+ * Base class that represents a query for the `ar_ship_to` table.
  *
  * @method     ChildCustomerShiptoQuery orderByArcucustid($order = Criteria::ASC) Order by the ArcuCustId column
  * @method     ChildCustomerShiptoQuery orderByArstshipid($order = Criteria::ASC) Order by the ArstShipId column
@@ -354,113 +353,113 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \CustomerQuery|\ArContactQuery|\InvTransferOrderQuery|\NoteCustInternalQuery|\NoteCustOrderQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\SoStandingOrderDetailQuery|\SoStandingOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildCustomerShipto findOne(ConnectionInterface $con = null) Return the first ChildCustomerShipto matching the query
- * @method     ChildCustomerShipto findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomerShipto matching the query, or a new ChildCustomerShipto object populated from the query conditions when no match is found
+ * @method     ChildCustomerShipto|null findOne(?ConnectionInterface $con = null) Return the first ChildCustomerShipto matching the query
+ * @method     ChildCustomerShipto findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildCustomerShipto matching the query, or a new ChildCustomerShipto object populated from the query conditions when no match is found
  *
- * @method     ChildCustomerShipto findOneByArcucustid(string $ArcuCustId) Return the first ChildCustomerShipto filtered by the ArcuCustId column
- * @method     ChildCustomerShipto findOneByArstshipid(string $ArstShipId) Return the first ChildCustomerShipto filtered by the ArstShipId column
- * @method     ChildCustomerShipto findOneByArstname(string $ArstName) Return the first ChildCustomerShipto filtered by the ArstName column
- * @method     ChildCustomerShipto findOneByArstadr1(string $ArstAdr1) Return the first ChildCustomerShipto filtered by the ArstAdr1 column
- * @method     ChildCustomerShipto findOneByArstadr2(string $ArstAdr2) Return the first ChildCustomerShipto filtered by the ArstAdr2 column
- * @method     ChildCustomerShipto findOneByArstadr3(string $ArstAdr3) Return the first ChildCustomerShipto filtered by the ArstAdr3 column
- * @method     ChildCustomerShipto findOneByArstctry(string $ArstCtry) Return the first ChildCustomerShipto filtered by the ArstCtry column
- * @method     ChildCustomerShipto findOneByArstcity(string $ArstCity) Return the first ChildCustomerShipto filtered by the ArstCity column
- * @method     ChildCustomerShipto findOneByArststat(string $ArstStat) Return the first ChildCustomerShipto filtered by the ArstStat column
- * @method     ChildCustomerShipto findOneByArstzipcode(string $ArstZipCode) Return the first ChildCustomerShipto filtered by the ArstZipCode column
- * @method     ChildCustomerShipto findOneByArstdeliverydays(int $ArstDeliveryDays) Return the first ChildCustomerShipto filtered by the ArstDeliveryDays column
- * @method     ChildCustomerShipto findOneByArstcommcode(string $ArstCommCode) Return the first ChildCustomerShipto filtered by the ArstCommCode column
- * @method     ChildCustomerShipto findOneByArstallowsplit(string $ArstAllowSplit) Return the first ChildCustomerShipto filtered by the ArstAllowSplit column
- * @method     ChildCustomerShipto findOneByArstlindstsp(string $ArstLindstSp) Return the first ChildCustomerShipto filtered by the ArstLindstSp column
- * @method     ChildCustomerShipto findOneByArstlmecommcustid(string $ArstLmEcommCustId) Return the first ChildCustomerShipto filtered by the ArstLmEcommCustId column
- * @method     ChildCustomerShipto findOneByArstcatlgid(string $ArstCatlgId) Return the first ChildCustomerShipto filtered by the ArstCatlgId column
- * @method     ChildCustomerShipto findOneByArspsaleper1(string $ArspSalePer1) Return the first ChildCustomerShipto filtered by the ArspSalePer1 column
- * @method     ChildCustomerShipto findOneByArspsaleper2(string $ArspSalePer2) Return the first ChildCustomerShipto filtered by the ArspSalePer2 column
- * @method     ChildCustomerShipto findOneByArspsaleper3(string $ArspSalePer3) Return the first ChildCustomerShipto filtered by the ArspSalePer3 column
- * @method     ChildCustomerShipto findOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildCustomerShipto filtered by the ArtbCtaxCode column
- * @method     ChildCustomerShipto findOneByArsttaxexemnbr(string $ArstTaxExemNbr) Return the first ChildCustomerShipto filtered by the ArstTaxExemNbr column
- * @method     ChildCustomerShipto findOneByIntbwhse(string $IntbWhse) Return the first ChildCustomerShipto filtered by the IntbWhse column
- * @method     ChildCustomerShipto findOneByArtbshipvia(string $ArtbShipVia) Return the first ChildCustomerShipto filtered by the ArtbShipVia column
- * @method     ChildCustomerShipto findOneByArstbord(string $ArstBord) Return the first ChildCustomerShipto filtered by the ArstBord column
- * @method     ChildCustomerShipto findOneByArstcredhold(string $ArstCredHold) Return the first ChildCustomerShipto filtered by the ArstCredHold column
- * @method     ChildCustomerShipto findOneByArstusercode(string $ArstUserCode) Return the first ChildCustomerShipto filtered by the ArstUserCode column
- * @method     ChildCustomerShipto findOneByArstpriclvl(string $ArstPricLvl) Return the first ChildCustomerShipto filtered by the ArstPricLvl column
- * @method     ChildCustomerShipto findOneByArstshipcomp(string $ArstShipComp) Return the first ChildCustomerShipto filtered by the ArstShipComp column
- * @method     ChildCustomerShipto findOneByArsttxbl(string $ArstTxbl) Return the first ChildCustomerShipto filtered by the ArstTxbl column
- * @method     ChildCustomerShipto findOneByArstpostal(string $ArstPostal) Return the first ChildCustomerShipto filtered by the ArstPostal column
- * @method     ChildCustomerShipto findOneByArstsalemtd(string $ArstSaleMtd) Return the first ChildCustomerShipto filtered by the ArstSaleMtd column
- * @method     ChildCustomerShipto findOneByArstinvmtd(int $ArstInvMtd) Return the first ChildCustomerShipto filtered by the ArstInvMtd column
- * @method     ChildCustomerShipto findOneByArstdateopen(string $ArstDateOpen) Return the first ChildCustomerShipto filtered by the ArstDateOpen column
- * @method     ChildCustomerShipto findOneByArstlastsaledate(string $ArstLastSaleDate) Return the first ChildCustomerShipto filtered by the ArstLastSaleDate column
- * @method     ChildCustomerShipto findOneByArstsale24mo1(string $ArstSale24mo1) Return the first ChildCustomerShipto filtered by the ArstSale24mo1 column
- * @method     ChildCustomerShipto findOneByArstinv24mo1(int $ArstInv24mo1) Return the first ChildCustomerShipto filtered by the ArstInv24mo1 column
- * @method     ChildCustomerShipto findOneByArstsale24mo2(string $ArstSale24mo2) Return the first ChildCustomerShipto filtered by the ArstSale24mo2 column
- * @method     ChildCustomerShipto findOneByArstinv24mo2(int $ArstInv24mo2) Return the first ChildCustomerShipto filtered by the ArstInv24mo2 column
- * @method     ChildCustomerShipto findOneByArstsale24mo3(string $ArstSale24mo3) Return the first ChildCustomerShipto filtered by the ArstSale24mo3 column
- * @method     ChildCustomerShipto findOneByArstinv24mo3(int $ArstInv24mo3) Return the first ChildCustomerShipto filtered by the ArstInv24mo3 column
- * @method     ChildCustomerShipto findOneByArstsale24mo4(string $ArstSale24mo4) Return the first ChildCustomerShipto filtered by the ArstSale24mo4 column
- * @method     ChildCustomerShipto findOneByArstinv24mo4(int $ArstInv24mo4) Return the first ChildCustomerShipto filtered by the ArstInv24mo4 column
- * @method     ChildCustomerShipto findOneByArstsale24mo5(string $ArstSale24mo5) Return the first ChildCustomerShipto filtered by the ArstSale24mo5 column
- * @method     ChildCustomerShipto findOneByArstinv24mo5(int $ArstInv24mo5) Return the first ChildCustomerShipto filtered by the ArstInv24mo5 column
- * @method     ChildCustomerShipto findOneByArstsale24mo6(string $ArstSale24mo6) Return the first ChildCustomerShipto filtered by the ArstSale24mo6 column
- * @method     ChildCustomerShipto findOneByArstinv24mo6(int $ArstInv24mo6) Return the first ChildCustomerShipto filtered by the ArstInv24mo6 column
- * @method     ChildCustomerShipto findOneByArstsale24mo7(string $ArstSale24mo7) Return the first ChildCustomerShipto filtered by the ArstSale24mo7 column
- * @method     ChildCustomerShipto findOneByArstinv24mo7(int $ArstInv24mo7) Return the first ChildCustomerShipto filtered by the ArstInv24mo7 column
- * @method     ChildCustomerShipto findOneByArstsale24mo8(string $ArstSale24mo8) Return the first ChildCustomerShipto filtered by the ArstSale24mo8 column
- * @method     ChildCustomerShipto findOneByArstinv24mo8(int $ArstInv24mo8) Return the first ChildCustomerShipto filtered by the ArstInv24mo8 column
- * @method     ChildCustomerShipto findOneByArstsale24mo9(string $ArstSale24mo9) Return the first ChildCustomerShipto filtered by the ArstSale24mo9 column
- * @method     ChildCustomerShipto findOneByArstinv24mo9(int $ArstInv24mo9) Return the first ChildCustomerShipto filtered by the ArstInv24mo9 column
- * @method     ChildCustomerShipto findOneByArstsale24mo10(string $ArstSale24mo10) Return the first ChildCustomerShipto filtered by the ArstSale24mo10 column
- * @method     ChildCustomerShipto findOneByArstinv24mo10(int $ArstInv24mo10) Return the first ChildCustomerShipto filtered by the ArstInv24mo10 column
- * @method     ChildCustomerShipto findOneByArstsale24mo11(string $ArstSale24mo11) Return the first ChildCustomerShipto filtered by the ArstSale24mo11 column
- * @method     ChildCustomerShipto findOneByArstinv24mo11(int $ArstInv24mo11) Return the first ChildCustomerShipto filtered by the ArstInv24mo11 column
- * @method     ChildCustomerShipto findOneByArstsale24mo12(string $ArstSale24mo12) Return the first ChildCustomerShipto filtered by the ArstSale24mo12 column
- * @method     ChildCustomerShipto findOneByArstinv24mo12(int $ArstInv24mo12) Return the first ChildCustomerShipto filtered by the ArstInv24mo12 column
- * @method     ChildCustomerShipto findOneByArstsale24mo13(string $ArstSale24mo13) Return the first ChildCustomerShipto filtered by the ArstSale24mo13 column
- * @method     ChildCustomerShipto findOneByArstinv24mo13(int $ArstInv24mo13) Return the first ChildCustomerShipto filtered by the ArstInv24mo13 column
- * @method     ChildCustomerShipto findOneByArstsale24mo14(string $ArstSale24mo14) Return the first ChildCustomerShipto filtered by the ArstSale24mo14 column
- * @method     ChildCustomerShipto findOneByArstinv24mo14(int $ArstInv24mo14) Return the first ChildCustomerShipto filtered by the ArstInv24mo14 column
- * @method     ChildCustomerShipto findOneByArstsale24mo15(string $ArstSale24mo15) Return the first ChildCustomerShipto filtered by the ArstSale24mo15 column
- * @method     ChildCustomerShipto findOneByArstinv24mo15(int $ArstInv24mo15) Return the first ChildCustomerShipto filtered by the ArstInv24mo15 column
- * @method     ChildCustomerShipto findOneByArstsale24mo16(string $ArstSale24mo16) Return the first ChildCustomerShipto filtered by the ArstSale24mo16 column
- * @method     ChildCustomerShipto findOneByArstinv24mo16(int $ArstInv24mo16) Return the first ChildCustomerShipto filtered by the ArstInv24mo16 column
- * @method     ChildCustomerShipto findOneByArstsale24mo17(string $ArstSale24mo17) Return the first ChildCustomerShipto filtered by the ArstSale24mo17 column
- * @method     ChildCustomerShipto findOneByArstinv24mo17(int $ArstInv24mo17) Return the first ChildCustomerShipto filtered by the ArstInv24mo17 column
- * @method     ChildCustomerShipto findOneByArstsale24mo18(string $ArstSale24mo18) Return the first ChildCustomerShipto filtered by the ArstSale24mo18 column
- * @method     ChildCustomerShipto findOneByArstinv24mo18(int $ArstInv24mo18) Return the first ChildCustomerShipto filtered by the ArstInv24mo18 column
- * @method     ChildCustomerShipto findOneByArstsale24mo19(string $ArstSale24mo19) Return the first ChildCustomerShipto filtered by the ArstSale24mo19 column
- * @method     ChildCustomerShipto findOneByArstinv24mo19(int $ArstInv24mo19) Return the first ChildCustomerShipto filtered by the ArstInv24mo19 column
- * @method     ChildCustomerShipto findOneByArstsale24mo20(string $ArstSale24mo20) Return the first ChildCustomerShipto filtered by the ArstSale24mo20 column
- * @method     ChildCustomerShipto findOneByArstinv24mo20(int $ArstInv24mo20) Return the first ChildCustomerShipto filtered by the ArstInv24mo20 column
- * @method     ChildCustomerShipto findOneByArstsale24mo21(string $ArstSale24mo21) Return the first ChildCustomerShipto filtered by the ArstSale24mo21 column
- * @method     ChildCustomerShipto findOneByArstinv24mo21(int $ArstInv24mo21) Return the first ChildCustomerShipto filtered by the ArstInv24mo21 column
- * @method     ChildCustomerShipto findOneByArstsale24mo22(string $ArstSale24mo22) Return the first ChildCustomerShipto filtered by the ArstSale24mo22 column
- * @method     ChildCustomerShipto findOneByArstinv24mo22(int $ArstInv24mo22) Return the first ChildCustomerShipto filtered by the ArstInv24mo22 column
- * @method     ChildCustomerShipto findOneByArstsale24mo23(string $ArstSale24mo23) Return the first ChildCustomerShipto filtered by the ArstSale24mo23 column
- * @method     ChildCustomerShipto findOneByArstinv24mo23(int $ArstInv24mo23) Return the first ChildCustomerShipto filtered by the ArstInv24mo23 column
- * @method     ChildCustomerShipto findOneByArstsale24mo24(string $ArstSale24mo24) Return the first ChildCustomerShipto filtered by the ArstSale24mo24 column
- * @method     ChildCustomerShipto findOneByArstinv24mo24(int $ArstInv24mo24) Return the first ChildCustomerShipto filtered by the ArstInv24mo24 column
- * @method     ChildCustomerShipto findOneByArstprimshipid(string $ArstPrimShipId) Return the first ChildCustomerShipto filtered by the ArstPrimShipId column
- * @method     ChildCustomerShipto findOneByArstmyvendid(string $ArstMyVendId) Return the first ChildCustomerShipto filtered by the ArstMyVendId column
- * @method     ChildCustomerShipto findOneByArstaddlpricdisc(string $ArstAddlPricDisc) Return the first ChildCustomerShipto filtered by the ArstAddlPricDisc column
- * @method     ChildCustomerShipto findOneByArstediinvc(string $ArstEdiInvc) Return the first ChildCustomerShipto filtered by the ArstEdiInvc column
- * @method     ChildCustomerShipto findOneByArstchrgfrt(string $ArstChrgFrt) Return the first ChildCustomerShipto filtered by the ArstChrgFrt column
- * @method     ChildCustomerShipto findOneByArstdistcntr(string $ArstDistCntr) Return the first ChildCustomerShipto filtered by the ArstDistCntr column
- * @method     ChildCustomerShipto findOneByArstdunsnbr(string $ArstDunsNbr) Return the first ChildCustomerShipto filtered by the ArstDunsNbr column
- * @method     ChildCustomerShipto findOneByArstrfmlvalu(int $ArstRfmlValu) Return the first ChildCustomerShipto filtered by the ArstRfmlValu column
- * @method     ChildCustomerShipto findOneByArstcustpoparam(string $ArstCustPoParam) Return the first ChildCustomerShipto filtered by the ArstCustPoParam column
- * @method     ChildCustomerShipto findOneByArtbroutcode(string $ArtbRoutCode) Return the first ChildCustomerShipto filtered by the ArtbRoutCode column
- * @method     ChildCustomerShipto findOneByArstupsacctnbr(string $ArstUpsAcctNbr) Return the first ChildCustomerShipto filtered by the ArstUpsAcctNbr column
- * @method     ChildCustomerShipto findOneByArstfobinputyn(string $ArstFobInputYn) Return the first ChildCustomerShipto filtered by the ArstFobInputYn column
- * @method     ChildCustomerShipto findOneByArstfobperlb(string $ArstFobPerLb) Return the first ChildCustomerShipto filtered by the ArstFobPerLb column
- * @method     ChildCustomerShipto findOneByArstsaleytd(string $ArstSaleYtd) Return the first ChildCustomerShipto filtered by the ArstSaleYtd column
- * @method     ChildCustomerShipto findOneByArstinvytd(int $ArstInvYtd) Return the first ChildCustomerShipto filtered by the ArstInvYtd column
- * @method     ChildCustomerShipto findOneByArstemailfaxauthcode(string $ArstEmailFaxAuthCode) Return the first ChildCustomerShipto filtered by the ArstEmailFaxAuthCode column
- * @method     ChildCustomerShipto findOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerShipto filtered by the DateUpdtd column
- * @method     ChildCustomerShipto findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerShipto filtered by the TimeUpdtd column
- * @method     ChildCustomerShipto findOneByDummy(string $dummy) Return the first ChildCustomerShipto filtered by the dummy column *
-
- * @method     ChildCustomerShipto requirePk($key, ConnectionInterface $con = null) Return the ChildCustomerShipto by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOne(ConnectionInterface $con = null) Return the first ChildCustomerShipto matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto|null findOneByArcucustid(string $ArcuCustId) Return the first ChildCustomerShipto filtered by the ArcuCustId column
+ * @method     ChildCustomerShipto|null findOneByArstshipid(string $ArstShipId) Return the first ChildCustomerShipto filtered by the ArstShipId column
+ * @method     ChildCustomerShipto|null findOneByArstname(string $ArstName) Return the first ChildCustomerShipto filtered by the ArstName column
+ * @method     ChildCustomerShipto|null findOneByArstadr1(string $ArstAdr1) Return the first ChildCustomerShipto filtered by the ArstAdr1 column
+ * @method     ChildCustomerShipto|null findOneByArstadr2(string $ArstAdr2) Return the first ChildCustomerShipto filtered by the ArstAdr2 column
+ * @method     ChildCustomerShipto|null findOneByArstadr3(string $ArstAdr3) Return the first ChildCustomerShipto filtered by the ArstAdr3 column
+ * @method     ChildCustomerShipto|null findOneByArstctry(string $ArstCtry) Return the first ChildCustomerShipto filtered by the ArstCtry column
+ * @method     ChildCustomerShipto|null findOneByArstcity(string $ArstCity) Return the first ChildCustomerShipto filtered by the ArstCity column
+ * @method     ChildCustomerShipto|null findOneByArststat(string $ArstStat) Return the first ChildCustomerShipto filtered by the ArstStat column
+ * @method     ChildCustomerShipto|null findOneByArstzipcode(string $ArstZipCode) Return the first ChildCustomerShipto filtered by the ArstZipCode column
+ * @method     ChildCustomerShipto|null findOneByArstdeliverydays(int $ArstDeliveryDays) Return the first ChildCustomerShipto filtered by the ArstDeliveryDays column
+ * @method     ChildCustomerShipto|null findOneByArstcommcode(string $ArstCommCode) Return the first ChildCustomerShipto filtered by the ArstCommCode column
+ * @method     ChildCustomerShipto|null findOneByArstallowsplit(string $ArstAllowSplit) Return the first ChildCustomerShipto filtered by the ArstAllowSplit column
+ * @method     ChildCustomerShipto|null findOneByArstlindstsp(string $ArstLindstSp) Return the first ChildCustomerShipto filtered by the ArstLindstSp column
+ * @method     ChildCustomerShipto|null findOneByArstlmecommcustid(string $ArstLmEcommCustId) Return the first ChildCustomerShipto filtered by the ArstLmEcommCustId column
+ * @method     ChildCustomerShipto|null findOneByArstcatlgid(string $ArstCatlgId) Return the first ChildCustomerShipto filtered by the ArstCatlgId column
+ * @method     ChildCustomerShipto|null findOneByArspsaleper1(string $ArspSalePer1) Return the first ChildCustomerShipto filtered by the ArspSalePer1 column
+ * @method     ChildCustomerShipto|null findOneByArspsaleper2(string $ArspSalePer2) Return the first ChildCustomerShipto filtered by the ArspSalePer2 column
+ * @method     ChildCustomerShipto|null findOneByArspsaleper3(string $ArspSalePer3) Return the first ChildCustomerShipto filtered by the ArspSalePer3 column
+ * @method     ChildCustomerShipto|null findOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildCustomerShipto filtered by the ArtbCtaxCode column
+ * @method     ChildCustomerShipto|null findOneByArsttaxexemnbr(string $ArstTaxExemNbr) Return the first ChildCustomerShipto filtered by the ArstTaxExemNbr column
+ * @method     ChildCustomerShipto|null findOneByIntbwhse(string $IntbWhse) Return the first ChildCustomerShipto filtered by the IntbWhse column
+ * @method     ChildCustomerShipto|null findOneByArtbshipvia(string $ArtbShipVia) Return the first ChildCustomerShipto filtered by the ArtbShipVia column
+ * @method     ChildCustomerShipto|null findOneByArstbord(string $ArstBord) Return the first ChildCustomerShipto filtered by the ArstBord column
+ * @method     ChildCustomerShipto|null findOneByArstcredhold(string $ArstCredHold) Return the first ChildCustomerShipto filtered by the ArstCredHold column
+ * @method     ChildCustomerShipto|null findOneByArstusercode(string $ArstUserCode) Return the first ChildCustomerShipto filtered by the ArstUserCode column
+ * @method     ChildCustomerShipto|null findOneByArstpriclvl(string $ArstPricLvl) Return the first ChildCustomerShipto filtered by the ArstPricLvl column
+ * @method     ChildCustomerShipto|null findOneByArstshipcomp(string $ArstShipComp) Return the first ChildCustomerShipto filtered by the ArstShipComp column
+ * @method     ChildCustomerShipto|null findOneByArsttxbl(string $ArstTxbl) Return the first ChildCustomerShipto filtered by the ArstTxbl column
+ * @method     ChildCustomerShipto|null findOneByArstpostal(string $ArstPostal) Return the first ChildCustomerShipto filtered by the ArstPostal column
+ * @method     ChildCustomerShipto|null findOneByArstsalemtd(string $ArstSaleMtd) Return the first ChildCustomerShipto filtered by the ArstSaleMtd column
+ * @method     ChildCustomerShipto|null findOneByArstinvmtd(int $ArstInvMtd) Return the first ChildCustomerShipto filtered by the ArstInvMtd column
+ * @method     ChildCustomerShipto|null findOneByArstdateopen(string $ArstDateOpen) Return the first ChildCustomerShipto filtered by the ArstDateOpen column
+ * @method     ChildCustomerShipto|null findOneByArstlastsaledate(string $ArstLastSaleDate) Return the first ChildCustomerShipto filtered by the ArstLastSaleDate column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo1(string $ArstSale24mo1) Return the first ChildCustomerShipto filtered by the ArstSale24mo1 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo1(int $ArstInv24mo1) Return the first ChildCustomerShipto filtered by the ArstInv24mo1 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo2(string $ArstSale24mo2) Return the first ChildCustomerShipto filtered by the ArstSale24mo2 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo2(int $ArstInv24mo2) Return the first ChildCustomerShipto filtered by the ArstInv24mo2 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo3(string $ArstSale24mo3) Return the first ChildCustomerShipto filtered by the ArstSale24mo3 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo3(int $ArstInv24mo3) Return the first ChildCustomerShipto filtered by the ArstInv24mo3 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo4(string $ArstSale24mo4) Return the first ChildCustomerShipto filtered by the ArstSale24mo4 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo4(int $ArstInv24mo4) Return the first ChildCustomerShipto filtered by the ArstInv24mo4 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo5(string $ArstSale24mo5) Return the first ChildCustomerShipto filtered by the ArstSale24mo5 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo5(int $ArstInv24mo5) Return the first ChildCustomerShipto filtered by the ArstInv24mo5 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo6(string $ArstSale24mo6) Return the first ChildCustomerShipto filtered by the ArstSale24mo6 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo6(int $ArstInv24mo6) Return the first ChildCustomerShipto filtered by the ArstInv24mo6 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo7(string $ArstSale24mo7) Return the first ChildCustomerShipto filtered by the ArstSale24mo7 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo7(int $ArstInv24mo7) Return the first ChildCustomerShipto filtered by the ArstInv24mo7 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo8(string $ArstSale24mo8) Return the first ChildCustomerShipto filtered by the ArstSale24mo8 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo8(int $ArstInv24mo8) Return the first ChildCustomerShipto filtered by the ArstInv24mo8 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo9(string $ArstSale24mo9) Return the first ChildCustomerShipto filtered by the ArstSale24mo9 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo9(int $ArstInv24mo9) Return the first ChildCustomerShipto filtered by the ArstInv24mo9 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo10(string $ArstSale24mo10) Return the first ChildCustomerShipto filtered by the ArstSale24mo10 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo10(int $ArstInv24mo10) Return the first ChildCustomerShipto filtered by the ArstInv24mo10 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo11(string $ArstSale24mo11) Return the first ChildCustomerShipto filtered by the ArstSale24mo11 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo11(int $ArstInv24mo11) Return the first ChildCustomerShipto filtered by the ArstInv24mo11 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo12(string $ArstSale24mo12) Return the first ChildCustomerShipto filtered by the ArstSale24mo12 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo12(int $ArstInv24mo12) Return the first ChildCustomerShipto filtered by the ArstInv24mo12 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo13(string $ArstSale24mo13) Return the first ChildCustomerShipto filtered by the ArstSale24mo13 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo13(int $ArstInv24mo13) Return the first ChildCustomerShipto filtered by the ArstInv24mo13 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo14(string $ArstSale24mo14) Return the first ChildCustomerShipto filtered by the ArstSale24mo14 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo14(int $ArstInv24mo14) Return the first ChildCustomerShipto filtered by the ArstInv24mo14 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo15(string $ArstSale24mo15) Return the first ChildCustomerShipto filtered by the ArstSale24mo15 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo15(int $ArstInv24mo15) Return the first ChildCustomerShipto filtered by the ArstInv24mo15 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo16(string $ArstSale24mo16) Return the first ChildCustomerShipto filtered by the ArstSale24mo16 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo16(int $ArstInv24mo16) Return the first ChildCustomerShipto filtered by the ArstInv24mo16 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo17(string $ArstSale24mo17) Return the first ChildCustomerShipto filtered by the ArstSale24mo17 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo17(int $ArstInv24mo17) Return the first ChildCustomerShipto filtered by the ArstInv24mo17 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo18(string $ArstSale24mo18) Return the first ChildCustomerShipto filtered by the ArstSale24mo18 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo18(int $ArstInv24mo18) Return the first ChildCustomerShipto filtered by the ArstInv24mo18 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo19(string $ArstSale24mo19) Return the first ChildCustomerShipto filtered by the ArstSale24mo19 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo19(int $ArstInv24mo19) Return the first ChildCustomerShipto filtered by the ArstInv24mo19 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo20(string $ArstSale24mo20) Return the first ChildCustomerShipto filtered by the ArstSale24mo20 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo20(int $ArstInv24mo20) Return the first ChildCustomerShipto filtered by the ArstInv24mo20 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo21(string $ArstSale24mo21) Return the first ChildCustomerShipto filtered by the ArstSale24mo21 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo21(int $ArstInv24mo21) Return the first ChildCustomerShipto filtered by the ArstInv24mo21 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo22(string $ArstSale24mo22) Return the first ChildCustomerShipto filtered by the ArstSale24mo22 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo22(int $ArstInv24mo22) Return the first ChildCustomerShipto filtered by the ArstInv24mo22 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo23(string $ArstSale24mo23) Return the first ChildCustomerShipto filtered by the ArstSale24mo23 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo23(int $ArstInv24mo23) Return the first ChildCustomerShipto filtered by the ArstInv24mo23 column
+ * @method     ChildCustomerShipto|null findOneByArstsale24mo24(string $ArstSale24mo24) Return the first ChildCustomerShipto filtered by the ArstSale24mo24 column
+ * @method     ChildCustomerShipto|null findOneByArstinv24mo24(int $ArstInv24mo24) Return the first ChildCustomerShipto filtered by the ArstInv24mo24 column
+ * @method     ChildCustomerShipto|null findOneByArstprimshipid(string $ArstPrimShipId) Return the first ChildCustomerShipto filtered by the ArstPrimShipId column
+ * @method     ChildCustomerShipto|null findOneByArstmyvendid(string $ArstMyVendId) Return the first ChildCustomerShipto filtered by the ArstMyVendId column
+ * @method     ChildCustomerShipto|null findOneByArstaddlpricdisc(string $ArstAddlPricDisc) Return the first ChildCustomerShipto filtered by the ArstAddlPricDisc column
+ * @method     ChildCustomerShipto|null findOneByArstediinvc(string $ArstEdiInvc) Return the first ChildCustomerShipto filtered by the ArstEdiInvc column
+ * @method     ChildCustomerShipto|null findOneByArstchrgfrt(string $ArstChrgFrt) Return the first ChildCustomerShipto filtered by the ArstChrgFrt column
+ * @method     ChildCustomerShipto|null findOneByArstdistcntr(string $ArstDistCntr) Return the first ChildCustomerShipto filtered by the ArstDistCntr column
+ * @method     ChildCustomerShipto|null findOneByArstdunsnbr(string $ArstDunsNbr) Return the first ChildCustomerShipto filtered by the ArstDunsNbr column
+ * @method     ChildCustomerShipto|null findOneByArstrfmlvalu(int $ArstRfmlValu) Return the first ChildCustomerShipto filtered by the ArstRfmlValu column
+ * @method     ChildCustomerShipto|null findOneByArstcustpoparam(string $ArstCustPoParam) Return the first ChildCustomerShipto filtered by the ArstCustPoParam column
+ * @method     ChildCustomerShipto|null findOneByArtbroutcode(string $ArtbRoutCode) Return the first ChildCustomerShipto filtered by the ArtbRoutCode column
+ * @method     ChildCustomerShipto|null findOneByArstupsacctnbr(string $ArstUpsAcctNbr) Return the first ChildCustomerShipto filtered by the ArstUpsAcctNbr column
+ * @method     ChildCustomerShipto|null findOneByArstfobinputyn(string $ArstFobInputYn) Return the first ChildCustomerShipto filtered by the ArstFobInputYn column
+ * @method     ChildCustomerShipto|null findOneByArstfobperlb(string $ArstFobPerLb) Return the first ChildCustomerShipto filtered by the ArstFobPerLb column
+ * @method     ChildCustomerShipto|null findOneByArstsaleytd(string $ArstSaleYtd) Return the first ChildCustomerShipto filtered by the ArstSaleYtd column
+ * @method     ChildCustomerShipto|null findOneByArstinvytd(int $ArstInvYtd) Return the first ChildCustomerShipto filtered by the ArstInvYtd column
+ * @method     ChildCustomerShipto|null findOneByArstemailfaxauthcode(string $ArstEmailFaxAuthCode) Return the first ChildCustomerShipto filtered by the ArstEmailFaxAuthCode column
+ * @method     ChildCustomerShipto|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerShipto filtered by the DateUpdtd column
+ * @method     ChildCustomerShipto|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerShipto filtered by the TimeUpdtd column
+ * @method     ChildCustomerShipto|null findOneByDummy(string $dummy) Return the first ChildCustomerShipto filtered by the dummy column
+ *
+ * @method     ChildCustomerShipto requirePk($key, ?ConnectionInterface $con = null) Return the ChildCustomerShipto by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOne(?ConnectionInterface $con = null) Return the first ChildCustomerShipto matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildCustomerShipto requireOneByArcucustid(string $ArcuCustId) Return the first ChildCustomerShipto filtered by the ArcuCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstshipid(string $ArstShipId) Return the first ChildCustomerShipto filtered by the ArstShipId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -564,110 +563,214 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerShipto filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByDummy(string $dummy) Return the first ChildCustomerShipto filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCustomerShipto[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCustomerShipto objects based on current ModelCriteria
- * @method     ChildCustomerShipto[]|ObjectCollection findByArcucustid(string $ArcuCustId) Return ChildCustomerShipto objects filtered by the ArcuCustId column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstshipid(string $ArstShipId) Return ChildCustomerShipto objects filtered by the ArstShipId column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstname(string $ArstName) Return ChildCustomerShipto objects filtered by the ArstName column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstadr1(string $ArstAdr1) Return ChildCustomerShipto objects filtered by the ArstAdr1 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstadr2(string $ArstAdr2) Return ChildCustomerShipto objects filtered by the ArstAdr2 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstadr3(string $ArstAdr3) Return ChildCustomerShipto objects filtered by the ArstAdr3 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstctry(string $ArstCtry) Return ChildCustomerShipto objects filtered by the ArstCtry column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstcity(string $ArstCity) Return ChildCustomerShipto objects filtered by the ArstCity column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArststat(string $ArstStat) Return ChildCustomerShipto objects filtered by the ArstStat column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstzipcode(string $ArstZipCode) Return ChildCustomerShipto objects filtered by the ArstZipCode column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstdeliverydays(int $ArstDeliveryDays) Return ChildCustomerShipto objects filtered by the ArstDeliveryDays column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstcommcode(string $ArstCommCode) Return ChildCustomerShipto objects filtered by the ArstCommCode column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstallowsplit(string $ArstAllowSplit) Return ChildCustomerShipto objects filtered by the ArstAllowSplit column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstlindstsp(string $ArstLindstSp) Return ChildCustomerShipto objects filtered by the ArstLindstSp column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstlmecommcustid(string $ArstLmEcommCustId) Return ChildCustomerShipto objects filtered by the ArstLmEcommCustId column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstcatlgid(string $ArstCatlgId) Return ChildCustomerShipto objects filtered by the ArstCatlgId column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArspsaleper1(string $ArspSalePer1) Return ChildCustomerShipto objects filtered by the ArspSalePer1 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArspsaleper2(string $ArspSalePer2) Return ChildCustomerShipto objects filtered by the ArspSalePer2 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArspsaleper3(string $ArspSalePer3) Return ChildCustomerShipto objects filtered by the ArspSalePer3 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArtbctaxcode(string $ArtbCtaxCode) Return ChildCustomerShipto objects filtered by the ArtbCtaxCode column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArsttaxexemnbr(string $ArstTaxExemNbr) Return ChildCustomerShipto objects filtered by the ArstTaxExemNbr column
- * @method     ChildCustomerShipto[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildCustomerShipto objects filtered by the IntbWhse column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArtbshipvia(string $ArtbShipVia) Return ChildCustomerShipto objects filtered by the ArtbShipVia column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstbord(string $ArstBord) Return ChildCustomerShipto objects filtered by the ArstBord column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstcredhold(string $ArstCredHold) Return ChildCustomerShipto objects filtered by the ArstCredHold column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstusercode(string $ArstUserCode) Return ChildCustomerShipto objects filtered by the ArstUserCode column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstpriclvl(string $ArstPricLvl) Return ChildCustomerShipto objects filtered by the ArstPricLvl column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstshipcomp(string $ArstShipComp) Return ChildCustomerShipto objects filtered by the ArstShipComp column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArsttxbl(string $ArstTxbl) Return ChildCustomerShipto objects filtered by the ArstTxbl column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstpostal(string $ArstPostal) Return ChildCustomerShipto objects filtered by the ArstPostal column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsalemtd(string $ArstSaleMtd) Return ChildCustomerShipto objects filtered by the ArstSaleMtd column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinvmtd(int $ArstInvMtd) Return ChildCustomerShipto objects filtered by the ArstInvMtd column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstdateopen(string $ArstDateOpen) Return ChildCustomerShipto objects filtered by the ArstDateOpen column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstlastsaledate(string $ArstLastSaleDate) Return ChildCustomerShipto objects filtered by the ArstLastSaleDate column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo1(string $ArstSale24mo1) Return ChildCustomerShipto objects filtered by the ArstSale24mo1 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo1(int $ArstInv24mo1) Return ChildCustomerShipto objects filtered by the ArstInv24mo1 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo2(string $ArstSale24mo2) Return ChildCustomerShipto objects filtered by the ArstSale24mo2 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo2(int $ArstInv24mo2) Return ChildCustomerShipto objects filtered by the ArstInv24mo2 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo3(string $ArstSale24mo3) Return ChildCustomerShipto objects filtered by the ArstSale24mo3 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo3(int $ArstInv24mo3) Return ChildCustomerShipto objects filtered by the ArstInv24mo3 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo4(string $ArstSale24mo4) Return ChildCustomerShipto objects filtered by the ArstSale24mo4 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo4(int $ArstInv24mo4) Return ChildCustomerShipto objects filtered by the ArstInv24mo4 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo5(string $ArstSale24mo5) Return ChildCustomerShipto objects filtered by the ArstSale24mo5 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo5(int $ArstInv24mo5) Return ChildCustomerShipto objects filtered by the ArstInv24mo5 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo6(string $ArstSale24mo6) Return ChildCustomerShipto objects filtered by the ArstSale24mo6 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo6(int $ArstInv24mo6) Return ChildCustomerShipto objects filtered by the ArstInv24mo6 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo7(string $ArstSale24mo7) Return ChildCustomerShipto objects filtered by the ArstSale24mo7 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo7(int $ArstInv24mo7) Return ChildCustomerShipto objects filtered by the ArstInv24mo7 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo8(string $ArstSale24mo8) Return ChildCustomerShipto objects filtered by the ArstSale24mo8 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo8(int $ArstInv24mo8) Return ChildCustomerShipto objects filtered by the ArstInv24mo8 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo9(string $ArstSale24mo9) Return ChildCustomerShipto objects filtered by the ArstSale24mo9 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo9(int $ArstInv24mo9) Return ChildCustomerShipto objects filtered by the ArstInv24mo9 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo10(string $ArstSale24mo10) Return ChildCustomerShipto objects filtered by the ArstSale24mo10 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo10(int $ArstInv24mo10) Return ChildCustomerShipto objects filtered by the ArstInv24mo10 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo11(string $ArstSale24mo11) Return ChildCustomerShipto objects filtered by the ArstSale24mo11 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo11(int $ArstInv24mo11) Return ChildCustomerShipto objects filtered by the ArstInv24mo11 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo12(string $ArstSale24mo12) Return ChildCustomerShipto objects filtered by the ArstSale24mo12 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo12(int $ArstInv24mo12) Return ChildCustomerShipto objects filtered by the ArstInv24mo12 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo13(string $ArstSale24mo13) Return ChildCustomerShipto objects filtered by the ArstSale24mo13 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo13(int $ArstInv24mo13) Return ChildCustomerShipto objects filtered by the ArstInv24mo13 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo14(string $ArstSale24mo14) Return ChildCustomerShipto objects filtered by the ArstSale24mo14 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo14(int $ArstInv24mo14) Return ChildCustomerShipto objects filtered by the ArstInv24mo14 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo15(string $ArstSale24mo15) Return ChildCustomerShipto objects filtered by the ArstSale24mo15 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo15(int $ArstInv24mo15) Return ChildCustomerShipto objects filtered by the ArstInv24mo15 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo16(string $ArstSale24mo16) Return ChildCustomerShipto objects filtered by the ArstSale24mo16 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo16(int $ArstInv24mo16) Return ChildCustomerShipto objects filtered by the ArstInv24mo16 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo17(string $ArstSale24mo17) Return ChildCustomerShipto objects filtered by the ArstSale24mo17 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo17(int $ArstInv24mo17) Return ChildCustomerShipto objects filtered by the ArstInv24mo17 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo18(string $ArstSale24mo18) Return ChildCustomerShipto objects filtered by the ArstSale24mo18 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo18(int $ArstInv24mo18) Return ChildCustomerShipto objects filtered by the ArstInv24mo18 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo19(string $ArstSale24mo19) Return ChildCustomerShipto objects filtered by the ArstSale24mo19 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo19(int $ArstInv24mo19) Return ChildCustomerShipto objects filtered by the ArstInv24mo19 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo20(string $ArstSale24mo20) Return ChildCustomerShipto objects filtered by the ArstSale24mo20 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo20(int $ArstInv24mo20) Return ChildCustomerShipto objects filtered by the ArstInv24mo20 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo21(string $ArstSale24mo21) Return ChildCustomerShipto objects filtered by the ArstSale24mo21 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo21(int $ArstInv24mo21) Return ChildCustomerShipto objects filtered by the ArstInv24mo21 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo22(string $ArstSale24mo22) Return ChildCustomerShipto objects filtered by the ArstSale24mo22 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo22(int $ArstInv24mo22) Return ChildCustomerShipto objects filtered by the ArstInv24mo22 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo23(string $ArstSale24mo23) Return ChildCustomerShipto objects filtered by the ArstSale24mo23 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo23(int $ArstInv24mo23) Return ChildCustomerShipto objects filtered by the ArstInv24mo23 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo24(string $ArstSale24mo24) Return ChildCustomerShipto objects filtered by the ArstSale24mo24 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo24(int $ArstInv24mo24) Return ChildCustomerShipto objects filtered by the ArstInv24mo24 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstprimshipid(string $ArstPrimShipId) Return ChildCustomerShipto objects filtered by the ArstPrimShipId column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstmyvendid(string $ArstMyVendId) Return ChildCustomerShipto objects filtered by the ArstMyVendId column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstaddlpricdisc(string $ArstAddlPricDisc) Return ChildCustomerShipto objects filtered by the ArstAddlPricDisc column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstediinvc(string $ArstEdiInvc) Return ChildCustomerShipto objects filtered by the ArstEdiInvc column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstchrgfrt(string $ArstChrgFrt) Return ChildCustomerShipto objects filtered by the ArstChrgFrt column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstdistcntr(string $ArstDistCntr) Return ChildCustomerShipto objects filtered by the ArstDistCntr column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstdunsnbr(string $ArstDunsNbr) Return ChildCustomerShipto objects filtered by the ArstDunsNbr column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstrfmlvalu(int $ArstRfmlValu) Return ChildCustomerShipto objects filtered by the ArstRfmlValu column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstcustpoparam(string $ArstCustPoParam) Return ChildCustomerShipto objects filtered by the ArstCustPoParam column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArtbroutcode(string $ArtbRoutCode) Return ChildCustomerShipto objects filtered by the ArtbRoutCode column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstupsacctnbr(string $ArstUpsAcctNbr) Return ChildCustomerShipto objects filtered by the ArstUpsAcctNbr column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstfobinputyn(string $ArstFobInputYn) Return ChildCustomerShipto objects filtered by the ArstFobInputYn column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstfobperlb(string $ArstFobPerLb) Return ChildCustomerShipto objects filtered by the ArstFobPerLb column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsaleytd(string $ArstSaleYtd) Return ChildCustomerShipto objects filtered by the ArstSaleYtd column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinvytd(int $ArstInvYtd) Return ChildCustomerShipto objects filtered by the ArstInvYtd column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstemailfaxauthcode(string $ArstEmailFaxAuthCode) Return ChildCustomerShipto objects filtered by the ArstEmailFaxAuthCode column
- * @method     ChildCustomerShipto[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildCustomerShipto objects filtered by the DateUpdtd column
- * @method     ChildCustomerShipto[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildCustomerShipto objects filtered by the TimeUpdtd column
- * @method     ChildCustomerShipto[]|ObjectCollection findByDummy(string $dummy) Return ChildCustomerShipto objects filtered by the dummy column
- * @method     ChildCustomerShipto[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildCustomerShipto[]|Collection find(?ConnectionInterface $con = null) Return ChildCustomerShipto objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> find(?ConnectionInterface $con = null) Return ChildCustomerShipto objects based on current ModelCriteria
  *
+ * @method     ChildCustomerShipto[]|Collection findByArcucustid(string|array<string> $ArcuCustId) Return ChildCustomerShipto objects filtered by the ArcuCustId column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArcucustid(string|array<string> $ArcuCustId) Return ChildCustomerShipto objects filtered by the ArcuCustId column
+ * @method     ChildCustomerShipto[]|Collection findByArstshipid(string|array<string> $ArstShipId) Return ChildCustomerShipto objects filtered by the ArstShipId column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstshipid(string|array<string> $ArstShipId) Return ChildCustomerShipto objects filtered by the ArstShipId column
+ * @method     ChildCustomerShipto[]|Collection findByArstname(string|array<string> $ArstName) Return ChildCustomerShipto objects filtered by the ArstName column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstname(string|array<string> $ArstName) Return ChildCustomerShipto objects filtered by the ArstName column
+ * @method     ChildCustomerShipto[]|Collection findByArstadr1(string|array<string> $ArstAdr1) Return ChildCustomerShipto objects filtered by the ArstAdr1 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstadr1(string|array<string> $ArstAdr1) Return ChildCustomerShipto objects filtered by the ArstAdr1 column
+ * @method     ChildCustomerShipto[]|Collection findByArstadr2(string|array<string> $ArstAdr2) Return ChildCustomerShipto objects filtered by the ArstAdr2 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstadr2(string|array<string> $ArstAdr2) Return ChildCustomerShipto objects filtered by the ArstAdr2 column
+ * @method     ChildCustomerShipto[]|Collection findByArstadr3(string|array<string> $ArstAdr3) Return ChildCustomerShipto objects filtered by the ArstAdr3 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstadr3(string|array<string> $ArstAdr3) Return ChildCustomerShipto objects filtered by the ArstAdr3 column
+ * @method     ChildCustomerShipto[]|Collection findByArstctry(string|array<string> $ArstCtry) Return ChildCustomerShipto objects filtered by the ArstCtry column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstctry(string|array<string> $ArstCtry) Return ChildCustomerShipto objects filtered by the ArstCtry column
+ * @method     ChildCustomerShipto[]|Collection findByArstcity(string|array<string> $ArstCity) Return ChildCustomerShipto objects filtered by the ArstCity column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstcity(string|array<string> $ArstCity) Return ChildCustomerShipto objects filtered by the ArstCity column
+ * @method     ChildCustomerShipto[]|Collection findByArststat(string|array<string> $ArstStat) Return ChildCustomerShipto objects filtered by the ArstStat column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArststat(string|array<string> $ArstStat) Return ChildCustomerShipto objects filtered by the ArstStat column
+ * @method     ChildCustomerShipto[]|Collection findByArstzipcode(string|array<string> $ArstZipCode) Return ChildCustomerShipto objects filtered by the ArstZipCode column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstzipcode(string|array<string> $ArstZipCode) Return ChildCustomerShipto objects filtered by the ArstZipCode column
+ * @method     ChildCustomerShipto[]|Collection findByArstdeliverydays(int|array<int> $ArstDeliveryDays) Return ChildCustomerShipto objects filtered by the ArstDeliveryDays column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstdeliverydays(int|array<int> $ArstDeliveryDays) Return ChildCustomerShipto objects filtered by the ArstDeliveryDays column
+ * @method     ChildCustomerShipto[]|Collection findByArstcommcode(string|array<string> $ArstCommCode) Return ChildCustomerShipto objects filtered by the ArstCommCode column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstcommcode(string|array<string> $ArstCommCode) Return ChildCustomerShipto objects filtered by the ArstCommCode column
+ * @method     ChildCustomerShipto[]|Collection findByArstallowsplit(string|array<string> $ArstAllowSplit) Return ChildCustomerShipto objects filtered by the ArstAllowSplit column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstallowsplit(string|array<string> $ArstAllowSplit) Return ChildCustomerShipto objects filtered by the ArstAllowSplit column
+ * @method     ChildCustomerShipto[]|Collection findByArstlindstsp(string|array<string> $ArstLindstSp) Return ChildCustomerShipto objects filtered by the ArstLindstSp column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstlindstsp(string|array<string> $ArstLindstSp) Return ChildCustomerShipto objects filtered by the ArstLindstSp column
+ * @method     ChildCustomerShipto[]|Collection findByArstlmecommcustid(string|array<string> $ArstLmEcommCustId) Return ChildCustomerShipto objects filtered by the ArstLmEcommCustId column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstlmecommcustid(string|array<string> $ArstLmEcommCustId) Return ChildCustomerShipto objects filtered by the ArstLmEcommCustId column
+ * @method     ChildCustomerShipto[]|Collection findByArstcatlgid(string|array<string> $ArstCatlgId) Return ChildCustomerShipto objects filtered by the ArstCatlgId column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstcatlgid(string|array<string> $ArstCatlgId) Return ChildCustomerShipto objects filtered by the ArstCatlgId column
+ * @method     ChildCustomerShipto[]|Collection findByArspsaleper1(string|array<string> $ArspSalePer1) Return ChildCustomerShipto objects filtered by the ArspSalePer1 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArspsaleper1(string|array<string> $ArspSalePer1) Return ChildCustomerShipto objects filtered by the ArspSalePer1 column
+ * @method     ChildCustomerShipto[]|Collection findByArspsaleper2(string|array<string> $ArspSalePer2) Return ChildCustomerShipto objects filtered by the ArspSalePer2 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArspsaleper2(string|array<string> $ArspSalePer2) Return ChildCustomerShipto objects filtered by the ArspSalePer2 column
+ * @method     ChildCustomerShipto[]|Collection findByArspsaleper3(string|array<string> $ArspSalePer3) Return ChildCustomerShipto objects filtered by the ArspSalePer3 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArspsaleper3(string|array<string> $ArspSalePer3) Return ChildCustomerShipto objects filtered by the ArspSalePer3 column
+ * @method     ChildCustomerShipto[]|Collection findByArtbctaxcode(string|array<string> $ArtbCtaxCode) Return ChildCustomerShipto objects filtered by the ArtbCtaxCode column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArtbctaxcode(string|array<string> $ArtbCtaxCode) Return ChildCustomerShipto objects filtered by the ArtbCtaxCode column
+ * @method     ChildCustomerShipto[]|Collection findByArsttaxexemnbr(string|array<string> $ArstTaxExemNbr) Return ChildCustomerShipto objects filtered by the ArstTaxExemNbr column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArsttaxexemnbr(string|array<string> $ArstTaxExemNbr) Return ChildCustomerShipto objects filtered by the ArstTaxExemNbr column
+ * @method     ChildCustomerShipto[]|Collection findByIntbwhse(string|array<string> $IntbWhse) Return ChildCustomerShipto objects filtered by the IntbWhse column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByIntbwhse(string|array<string> $IntbWhse) Return ChildCustomerShipto objects filtered by the IntbWhse column
+ * @method     ChildCustomerShipto[]|Collection findByArtbshipvia(string|array<string> $ArtbShipVia) Return ChildCustomerShipto objects filtered by the ArtbShipVia column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArtbshipvia(string|array<string> $ArtbShipVia) Return ChildCustomerShipto objects filtered by the ArtbShipVia column
+ * @method     ChildCustomerShipto[]|Collection findByArstbord(string|array<string> $ArstBord) Return ChildCustomerShipto objects filtered by the ArstBord column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstbord(string|array<string> $ArstBord) Return ChildCustomerShipto objects filtered by the ArstBord column
+ * @method     ChildCustomerShipto[]|Collection findByArstcredhold(string|array<string> $ArstCredHold) Return ChildCustomerShipto objects filtered by the ArstCredHold column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstcredhold(string|array<string> $ArstCredHold) Return ChildCustomerShipto objects filtered by the ArstCredHold column
+ * @method     ChildCustomerShipto[]|Collection findByArstusercode(string|array<string> $ArstUserCode) Return ChildCustomerShipto objects filtered by the ArstUserCode column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstusercode(string|array<string> $ArstUserCode) Return ChildCustomerShipto objects filtered by the ArstUserCode column
+ * @method     ChildCustomerShipto[]|Collection findByArstpriclvl(string|array<string> $ArstPricLvl) Return ChildCustomerShipto objects filtered by the ArstPricLvl column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstpriclvl(string|array<string> $ArstPricLvl) Return ChildCustomerShipto objects filtered by the ArstPricLvl column
+ * @method     ChildCustomerShipto[]|Collection findByArstshipcomp(string|array<string> $ArstShipComp) Return ChildCustomerShipto objects filtered by the ArstShipComp column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstshipcomp(string|array<string> $ArstShipComp) Return ChildCustomerShipto objects filtered by the ArstShipComp column
+ * @method     ChildCustomerShipto[]|Collection findByArsttxbl(string|array<string> $ArstTxbl) Return ChildCustomerShipto objects filtered by the ArstTxbl column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArsttxbl(string|array<string> $ArstTxbl) Return ChildCustomerShipto objects filtered by the ArstTxbl column
+ * @method     ChildCustomerShipto[]|Collection findByArstpostal(string|array<string> $ArstPostal) Return ChildCustomerShipto objects filtered by the ArstPostal column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstpostal(string|array<string> $ArstPostal) Return ChildCustomerShipto objects filtered by the ArstPostal column
+ * @method     ChildCustomerShipto[]|Collection findByArstsalemtd(string|array<string> $ArstSaleMtd) Return ChildCustomerShipto objects filtered by the ArstSaleMtd column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsalemtd(string|array<string> $ArstSaleMtd) Return ChildCustomerShipto objects filtered by the ArstSaleMtd column
+ * @method     ChildCustomerShipto[]|Collection findByArstinvmtd(int|array<int> $ArstInvMtd) Return ChildCustomerShipto objects filtered by the ArstInvMtd column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinvmtd(int|array<int> $ArstInvMtd) Return ChildCustomerShipto objects filtered by the ArstInvMtd column
+ * @method     ChildCustomerShipto[]|Collection findByArstdateopen(string|array<string> $ArstDateOpen) Return ChildCustomerShipto objects filtered by the ArstDateOpen column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstdateopen(string|array<string> $ArstDateOpen) Return ChildCustomerShipto objects filtered by the ArstDateOpen column
+ * @method     ChildCustomerShipto[]|Collection findByArstlastsaledate(string|array<string> $ArstLastSaleDate) Return ChildCustomerShipto objects filtered by the ArstLastSaleDate column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstlastsaledate(string|array<string> $ArstLastSaleDate) Return ChildCustomerShipto objects filtered by the ArstLastSaleDate column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo1(string|array<string> $ArstSale24mo1) Return ChildCustomerShipto objects filtered by the ArstSale24mo1 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo1(string|array<string> $ArstSale24mo1) Return ChildCustomerShipto objects filtered by the ArstSale24mo1 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo1(int|array<int> $ArstInv24mo1) Return ChildCustomerShipto objects filtered by the ArstInv24mo1 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo1(int|array<int> $ArstInv24mo1) Return ChildCustomerShipto objects filtered by the ArstInv24mo1 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo2(string|array<string> $ArstSale24mo2) Return ChildCustomerShipto objects filtered by the ArstSale24mo2 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo2(string|array<string> $ArstSale24mo2) Return ChildCustomerShipto objects filtered by the ArstSale24mo2 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo2(int|array<int> $ArstInv24mo2) Return ChildCustomerShipto objects filtered by the ArstInv24mo2 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo2(int|array<int> $ArstInv24mo2) Return ChildCustomerShipto objects filtered by the ArstInv24mo2 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo3(string|array<string> $ArstSale24mo3) Return ChildCustomerShipto objects filtered by the ArstSale24mo3 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo3(string|array<string> $ArstSale24mo3) Return ChildCustomerShipto objects filtered by the ArstSale24mo3 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo3(int|array<int> $ArstInv24mo3) Return ChildCustomerShipto objects filtered by the ArstInv24mo3 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo3(int|array<int> $ArstInv24mo3) Return ChildCustomerShipto objects filtered by the ArstInv24mo3 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo4(string|array<string> $ArstSale24mo4) Return ChildCustomerShipto objects filtered by the ArstSale24mo4 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo4(string|array<string> $ArstSale24mo4) Return ChildCustomerShipto objects filtered by the ArstSale24mo4 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo4(int|array<int> $ArstInv24mo4) Return ChildCustomerShipto objects filtered by the ArstInv24mo4 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo4(int|array<int> $ArstInv24mo4) Return ChildCustomerShipto objects filtered by the ArstInv24mo4 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo5(string|array<string> $ArstSale24mo5) Return ChildCustomerShipto objects filtered by the ArstSale24mo5 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo5(string|array<string> $ArstSale24mo5) Return ChildCustomerShipto objects filtered by the ArstSale24mo5 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo5(int|array<int> $ArstInv24mo5) Return ChildCustomerShipto objects filtered by the ArstInv24mo5 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo5(int|array<int> $ArstInv24mo5) Return ChildCustomerShipto objects filtered by the ArstInv24mo5 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo6(string|array<string> $ArstSale24mo6) Return ChildCustomerShipto objects filtered by the ArstSale24mo6 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo6(string|array<string> $ArstSale24mo6) Return ChildCustomerShipto objects filtered by the ArstSale24mo6 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo6(int|array<int> $ArstInv24mo6) Return ChildCustomerShipto objects filtered by the ArstInv24mo6 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo6(int|array<int> $ArstInv24mo6) Return ChildCustomerShipto objects filtered by the ArstInv24mo6 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo7(string|array<string> $ArstSale24mo7) Return ChildCustomerShipto objects filtered by the ArstSale24mo7 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo7(string|array<string> $ArstSale24mo7) Return ChildCustomerShipto objects filtered by the ArstSale24mo7 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo7(int|array<int> $ArstInv24mo7) Return ChildCustomerShipto objects filtered by the ArstInv24mo7 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo7(int|array<int> $ArstInv24mo7) Return ChildCustomerShipto objects filtered by the ArstInv24mo7 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo8(string|array<string> $ArstSale24mo8) Return ChildCustomerShipto objects filtered by the ArstSale24mo8 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo8(string|array<string> $ArstSale24mo8) Return ChildCustomerShipto objects filtered by the ArstSale24mo8 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo8(int|array<int> $ArstInv24mo8) Return ChildCustomerShipto objects filtered by the ArstInv24mo8 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo8(int|array<int> $ArstInv24mo8) Return ChildCustomerShipto objects filtered by the ArstInv24mo8 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo9(string|array<string> $ArstSale24mo9) Return ChildCustomerShipto objects filtered by the ArstSale24mo9 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo9(string|array<string> $ArstSale24mo9) Return ChildCustomerShipto objects filtered by the ArstSale24mo9 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo9(int|array<int> $ArstInv24mo9) Return ChildCustomerShipto objects filtered by the ArstInv24mo9 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo9(int|array<int> $ArstInv24mo9) Return ChildCustomerShipto objects filtered by the ArstInv24mo9 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo10(string|array<string> $ArstSale24mo10) Return ChildCustomerShipto objects filtered by the ArstSale24mo10 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo10(string|array<string> $ArstSale24mo10) Return ChildCustomerShipto objects filtered by the ArstSale24mo10 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo10(int|array<int> $ArstInv24mo10) Return ChildCustomerShipto objects filtered by the ArstInv24mo10 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo10(int|array<int> $ArstInv24mo10) Return ChildCustomerShipto objects filtered by the ArstInv24mo10 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo11(string|array<string> $ArstSale24mo11) Return ChildCustomerShipto objects filtered by the ArstSale24mo11 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo11(string|array<string> $ArstSale24mo11) Return ChildCustomerShipto objects filtered by the ArstSale24mo11 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo11(int|array<int> $ArstInv24mo11) Return ChildCustomerShipto objects filtered by the ArstInv24mo11 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo11(int|array<int> $ArstInv24mo11) Return ChildCustomerShipto objects filtered by the ArstInv24mo11 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo12(string|array<string> $ArstSale24mo12) Return ChildCustomerShipto objects filtered by the ArstSale24mo12 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo12(string|array<string> $ArstSale24mo12) Return ChildCustomerShipto objects filtered by the ArstSale24mo12 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo12(int|array<int> $ArstInv24mo12) Return ChildCustomerShipto objects filtered by the ArstInv24mo12 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo12(int|array<int> $ArstInv24mo12) Return ChildCustomerShipto objects filtered by the ArstInv24mo12 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo13(string|array<string> $ArstSale24mo13) Return ChildCustomerShipto objects filtered by the ArstSale24mo13 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo13(string|array<string> $ArstSale24mo13) Return ChildCustomerShipto objects filtered by the ArstSale24mo13 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo13(int|array<int> $ArstInv24mo13) Return ChildCustomerShipto objects filtered by the ArstInv24mo13 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo13(int|array<int> $ArstInv24mo13) Return ChildCustomerShipto objects filtered by the ArstInv24mo13 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo14(string|array<string> $ArstSale24mo14) Return ChildCustomerShipto objects filtered by the ArstSale24mo14 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo14(string|array<string> $ArstSale24mo14) Return ChildCustomerShipto objects filtered by the ArstSale24mo14 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo14(int|array<int> $ArstInv24mo14) Return ChildCustomerShipto objects filtered by the ArstInv24mo14 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo14(int|array<int> $ArstInv24mo14) Return ChildCustomerShipto objects filtered by the ArstInv24mo14 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo15(string|array<string> $ArstSale24mo15) Return ChildCustomerShipto objects filtered by the ArstSale24mo15 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo15(string|array<string> $ArstSale24mo15) Return ChildCustomerShipto objects filtered by the ArstSale24mo15 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo15(int|array<int> $ArstInv24mo15) Return ChildCustomerShipto objects filtered by the ArstInv24mo15 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo15(int|array<int> $ArstInv24mo15) Return ChildCustomerShipto objects filtered by the ArstInv24mo15 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo16(string|array<string> $ArstSale24mo16) Return ChildCustomerShipto objects filtered by the ArstSale24mo16 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo16(string|array<string> $ArstSale24mo16) Return ChildCustomerShipto objects filtered by the ArstSale24mo16 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo16(int|array<int> $ArstInv24mo16) Return ChildCustomerShipto objects filtered by the ArstInv24mo16 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo16(int|array<int> $ArstInv24mo16) Return ChildCustomerShipto objects filtered by the ArstInv24mo16 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo17(string|array<string> $ArstSale24mo17) Return ChildCustomerShipto objects filtered by the ArstSale24mo17 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo17(string|array<string> $ArstSale24mo17) Return ChildCustomerShipto objects filtered by the ArstSale24mo17 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo17(int|array<int> $ArstInv24mo17) Return ChildCustomerShipto objects filtered by the ArstInv24mo17 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo17(int|array<int> $ArstInv24mo17) Return ChildCustomerShipto objects filtered by the ArstInv24mo17 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo18(string|array<string> $ArstSale24mo18) Return ChildCustomerShipto objects filtered by the ArstSale24mo18 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo18(string|array<string> $ArstSale24mo18) Return ChildCustomerShipto objects filtered by the ArstSale24mo18 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo18(int|array<int> $ArstInv24mo18) Return ChildCustomerShipto objects filtered by the ArstInv24mo18 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo18(int|array<int> $ArstInv24mo18) Return ChildCustomerShipto objects filtered by the ArstInv24mo18 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo19(string|array<string> $ArstSale24mo19) Return ChildCustomerShipto objects filtered by the ArstSale24mo19 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo19(string|array<string> $ArstSale24mo19) Return ChildCustomerShipto objects filtered by the ArstSale24mo19 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo19(int|array<int> $ArstInv24mo19) Return ChildCustomerShipto objects filtered by the ArstInv24mo19 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo19(int|array<int> $ArstInv24mo19) Return ChildCustomerShipto objects filtered by the ArstInv24mo19 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo20(string|array<string> $ArstSale24mo20) Return ChildCustomerShipto objects filtered by the ArstSale24mo20 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo20(string|array<string> $ArstSale24mo20) Return ChildCustomerShipto objects filtered by the ArstSale24mo20 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo20(int|array<int> $ArstInv24mo20) Return ChildCustomerShipto objects filtered by the ArstInv24mo20 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo20(int|array<int> $ArstInv24mo20) Return ChildCustomerShipto objects filtered by the ArstInv24mo20 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo21(string|array<string> $ArstSale24mo21) Return ChildCustomerShipto objects filtered by the ArstSale24mo21 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo21(string|array<string> $ArstSale24mo21) Return ChildCustomerShipto objects filtered by the ArstSale24mo21 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo21(int|array<int> $ArstInv24mo21) Return ChildCustomerShipto objects filtered by the ArstInv24mo21 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo21(int|array<int> $ArstInv24mo21) Return ChildCustomerShipto objects filtered by the ArstInv24mo21 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo22(string|array<string> $ArstSale24mo22) Return ChildCustomerShipto objects filtered by the ArstSale24mo22 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo22(string|array<string> $ArstSale24mo22) Return ChildCustomerShipto objects filtered by the ArstSale24mo22 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo22(int|array<int> $ArstInv24mo22) Return ChildCustomerShipto objects filtered by the ArstInv24mo22 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo22(int|array<int> $ArstInv24mo22) Return ChildCustomerShipto objects filtered by the ArstInv24mo22 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo23(string|array<string> $ArstSale24mo23) Return ChildCustomerShipto objects filtered by the ArstSale24mo23 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo23(string|array<string> $ArstSale24mo23) Return ChildCustomerShipto objects filtered by the ArstSale24mo23 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo23(int|array<int> $ArstInv24mo23) Return ChildCustomerShipto objects filtered by the ArstInv24mo23 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo23(int|array<int> $ArstInv24mo23) Return ChildCustomerShipto objects filtered by the ArstInv24mo23 column
+ * @method     ChildCustomerShipto[]|Collection findByArstsale24mo24(string|array<string> $ArstSale24mo24) Return ChildCustomerShipto objects filtered by the ArstSale24mo24 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsale24mo24(string|array<string> $ArstSale24mo24) Return ChildCustomerShipto objects filtered by the ArstSale24mo24 column
+ * @method     ChildCustomerShipto[]|Collection findByArstinv24mo24(int|array<int> $ArstInv24mo24) Return ChildCustomerShipto objects filtered by the ArstInv24mo24 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinv24mo24(int|array<int> $ArstInv24mo24) Return ChildCustomerShipto objects filtered by the ArstInv24mo24 column
+ * @method     ChildCustomerShipto[]|Collection findByArstprimshipid(string|array<string> $ArstPrimShipId) Return ChildCustomerShipto objects filtered by the ArstPrimShipId column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstprimshipid(string|array<string> $ArstPrimShipId) Return ChildCustomerShipto objects filtered by the ArstPrimShipId column
+ * @method     ChildCustomerShipto[]|Collection findByArstmyvendid(string|array<string> $ArstMyVendId) Return ChildCustomerShipto objects filtered by the ArstMyVendId column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstmyvendid(string|array<string> $ArstMyVendId) Return ChildCustomerShipto objects filtered by the ArstMyVendId column
+ * @method     ChildCustomerShipto[]|Collection findByArstaddlpricdisc(string|array<string> $ArstAddlPricDisc) Return ChildCustomerShipto objects filtered by the ArstAddlPricDisc column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstaddlpricdisc(string|array<string> $ArstAddlPricDisc) Return ChildCustomerShipto objects filtered by the ArstAddlPricDisc column
+ * @method     ChildCustomerShipto[]|Collection findByArstediinvc(string|array<string> $ArstEdiInvc) Return ChildCustomerShipto objects filtered by the ArstEdiInvc column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstediinvc(string|array<string> $ArstEdiInvc) Return ChildCustomerShipto objects filtered by the ArstEdiInvc column
+ * @method     ChildCustomerShipto[]|Collection findByArstchrgfrt(string|array<string> $ArstChrgFrt) Return ChildCustomerShipto objects filtered by the ArstChrgFrt column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstchrgfrt(string|array<string> $ArstChrgFrt) Return ChildCustomerShipto objects filtered by the ArstChrgFrt column
+ * @method     ChildCustomerShipto[]|Collection findByArstdistcntr(string|array<string> $ArstDistCntr) Return ChildCustomerShipto objects filtered by the ArstDistCntr column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstdistcntr(string|array<string> $ArstDistCntr) Return ChildCustomerShipto objects filtered by the ArstDistCntr column
+ * @method     ChildCustomerShipto[]|Collection findByArstdunsnbr(string|array<string> $ArstDunsNbr) Return ChildCustomerShipto objects filtered by the ArstDunsNbr column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstdunsnbr(string|array<string> $ArstDunsNbr) Return ChildCustomerShipto objects filtered by the ArstDunsNbr column
+ * @method     ChildCustomerShipto[]|Collection findByArstrfmlvalu(int|array<int> $ArstRfmlValu) Return ChildCustomerShipto objects filtered by the ArstRfmlValu column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstrfmlvalu(int|array<int> $ArstRfmlValu) Return ChildCustomerShipto objects filtered by the ArstRfmlValu column
+ * @method     ChildCustomerShipto[]|Collection findByArstcustpoparam(string|array<string> $ArstCustPoParam) Return ChildCustomerShipto objects filtered by the ArstCustPoParam column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstcustpoparam(string|array<string> $ArstCustPoParam) Return ChildCustomerShipto objects filtered by the ArstCustPoParam column
+ * @method     ChildCustomerShipto[]|Collection findByArtbroutcode(string|array<string> $ArtbRoutCode) Return ChildCustomerShipto objects filtered by the ArtbRoutCode column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArtbroutcode(string|array<string> $ArtbRoutCode) Return ChildCustomerShipto objects filtered by the ArtbRoutCode column
+ * @method     ChildCustomerShipto[]|Collection findByArstupsacctnbr(string|array<string> $ArstUpsAcctNbr) Return ChildCustomerShipto objects filtered by the ArstUpsAcctNbr column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstupsacctnbr(string|array<string> $ArstUpsAcctNbr) Return ChildCustomerShipto objects filtered by the ArstUpsAcctNbr column
+ * @method     ChildCustomerShipto[]|Collection findByArstfobinputyn(string|array<string> $ArstFobInputYn) Return ChildCustomerShipto objects filtered by the ArstFobInputYn column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstfobinputyn(string|array<string> $ArstFobInputYn) Return ChildCustomerShipto objects filtered by the ArstFobInputYn column
+ * @method     ChildCustomerShipto[]|Collection findByArstfobperlb(string|array<string> $ArstFobPerLb) Return ChildCustomerShipto objects filtered by the ArstFobPerLb column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstfobperlb(string|array<string> $ArstFobPerLb) Return ChildCustomerShipto objects filtered by the ArstFobPerLb column
+ * @method     ChildCustomerShipto[]|Collection findByArstsaleytd(string|array<string> $ArstSaleYtd) Return ChildCustomerShipto objects filtered by the ArstSaleYtd column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstsaleytd(string|array<string> $ArstSaleYtd) Return ChildCustomerShipto objects filtered by the ArstSaleYtd column
+ * @method     ChildCustomerShipto[]|Collection findByArstinvytd(int|array<int> $ArstInvYtd) Return ChildCustomerShipto objects filtered by the ArstInvYtd column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstinvytd(int|array<int> $ArstInvYtd) Return ChildCustomerShipto objects filtered by the ArstInvYtd column
+ * @method     ChildCustomerShipto[]|Collection findByArstemailfaxauthcode(string|array<string> $ArstEmailFaxAuthCode) Return ChildCustomerShipto objects filtered by the ArstEmailFaxAuthCode column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByArstemailfaxauthcode(string|array<string> $ArstEmailFaxAuthCode) Return ChildCustomerShipto objects filtered by the ArstEmailFaxAuthCode column
+ * @method     ChildCustomerShipto[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildCustomerShipto objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildCustomerShipto objects filtered by the DateUpdtd column
+ * @method     ChildCustomerShipto[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildCustomerShipto objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildCustomerShipto objects filtered by the TimeUpdtd column
+ * @method     ChildCustomerShipto[]|Collection findByDummy(string|array<string> $dummy) Return ChildCustomerShipto objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipto> findByDummy(string|array<string> $dummy) Return ChildCustomerShipto objects filtered by the dummy column
+ *
+ * @method     ChildCustomerShipto[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildCustomerShipto> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class CustomerShiptoQuery extends ModelCriteria
 {
@@ -676,9 +779,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\CustomerShiptoQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\CustomerShipto', $modelAlias = null)
     {
@@ -688,12 +791,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Returns a new ChildCustomerShiptoQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildCustomerShiptoQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildCustomerShiptoQuery) {
             return $criteria;
@@ -723,7 +826,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @return ChildCustomerShipto|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -755,8 +858,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -789,8 +892,8 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildCustomerShipto|array|mixed the result, formatted by the current formatter
      */
@@ -810,12 +913,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -832,9 +935,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -847,14 +950,16 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(CustomerShiptoTableMap::COL_ARCUCUSTID, $key[0], Criteria::EQUAL);
@@ -873,14 +978,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArcucustid('fooValue');   // WHERE ArcuCustId = 'fooValue'
      * $query->filterByArcucustid('%fooValue%', Criteria::LIKE); // WHERE ArcuCustId LIKE '%fooValue%'
+     * $query->filterByArcucustid(['foo', 'bar']); // WHERE ArcuCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcucustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcucustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcucustid($arcucustid = null, $comparison = null)
+    public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcucustid)) {
@@ -888,7 +994,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -898,14 +1006,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstshipid('fooValue');   // WHERE ArstShipId = 'fooValue'
      * $query->filterByArstshipid('%fooValue%', Criteria::LIKE); // WHERE ArstShipId LIKE '%fooValue%'
+     * $query->filterByArstshipid(['foo', 'bar']); // WHERE ArstShipId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstshipid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstshipid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstshipid($arstshipid = null, $comparison = null)
+    public function filterByArstshipid($arstshipid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstshipid)) {
@@ -913,7 +1022,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -923,14 +1034,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstname('fooValue');   // WHERE ArstName = 'fooValue'
      * $query->filterByArstname('%fooValue%', Criteria::LIKE); // WHERE ArstName LIKE '%fooValue%'
+     * $query->filterByArstname(['foo', 'bar']); // WHERE ArstName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstname($arstname = null, $comparison = null)
+    public function filterByArstname($arstname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstname)) {
@@ -938,7 +1050,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTNAME, $arstname, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTNAME, $arstname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -948,14 +1062,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstadr1('fooValue');   // WHERE ArstAdr1 = 'fooValue'
      * $query->filterByArstadr1('%fooValue%', Criteria::LIKE); // WHERE ArstAdr1 LIKE '%fooValue%'
+     * $query->filterByArstadr1(['foo', 'bar']); // WHERE ArstAdr1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstadr1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstadr1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstadr1($arstadr1 = null, $comparison = null)
+    public function filterByArstadr1($arstadr1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstadr1)) {
@@ -963,7 +1078,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTADR1, $arstadr1, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTADR1, $arstadr1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -973,14 +1090,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstadr2('fooValue');   // WHERE ArstAdr2 = 'fooValue'
      * $query->filterByArstadr2('%fooValue%', Criteria::LIKE); // WHERE ArstAdr2 LIKE '%fooValue%'
+     * $query->filterByArstadr2(['foo', 'bar']); // WHERE ArstAdr2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstadr2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstadr2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstadr2($arstadr2 = null, $comparison = null)
+    public function filterByArstadr2($arstadr2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstadr2)) {
@@ -988,7 +1106,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTADR2, $arstadr2, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTADR2, $arstadr2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -998,14 +1118,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstadr3('fooValue');   // WHERE ArstAdr3 = 'fooValue'
      * $query->filterByArstadr3('%fooValue%', Criteria::LIKE); // WHERE ArstAdr3 LIKE '%fooValue%'
+     * $query->filterByArstadr3(['foo', 'bar']); // WHERE ArstAdr3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstadr3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstadr3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstadr3($arstadr3 = null, $comparison = null)
+    public function filterByArstadr3($arstadr3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstadr3)) {
@@ -1013,7 +1134,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTADR3, $arstadr3, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTADR3, $arstadr3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1023,14 +1146,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstctry('fooValue');   // WHERE ArstCtry = 'fooValue'
      * $query->filterByArstctry('%fooValue%', Criteria::LIKE); // WHERE ArstCtry LIKE '%fooValue%'
+     * $query->filterByArstctry(['foo', 'bar']); // WHERE ArstCtry IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstctry The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstctry The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstctry($arstctry = null, $comparison = null)
+    public function filterByArstctry($arstctry = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstctry)) {
@@ -1038,7 +1162,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCTRY, $arstctry, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCTRY, $arstctry, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1048,14 +1174,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstcity('fooValue');   // WHERE ArstCity = 'fooValue'
      * $query->filterByArstcity('%fooValue%', Criteria::LIKE); // WHERE ArstCity LIKE '%fooValue%'
+     * $query->filterByArstcity(['foo', 'bar']); // WHERE ArstCity IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstcity The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstcity The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstcity($arstcity = null, $comparison = null)
+    public function filterByArstcity($arstcity = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstcity)) {
@@ -1063,7 +1190,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCITY, $arstcity, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCITY, $arstcity, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1073,14 +1202,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArststat('fooValue');   // WHERE ArstStat = 'fooValue'
      * $query->filterByArststat('%fooValue%', Criteria::LIKE); // WHERE ArstStat LIKE '%fooValue%'
+     * $query->filterByArststat(['foo', 'bar']); // WHERE ArstStat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arststat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arststat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArststat($arststat = null, $comparison = null)
+    public function filterByArststat($arststat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arststat)) {
@@ -1088,7 +1218,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSTAT, $arststat, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSTAT, $arststat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1098,14 +1230,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstzipcode('fooValue');   // WHERE ArstZipCode = 'fooValue'
      * $query->filterByArstzipcode('%fooValue%', Criteria::LIKE); // WHERE ArstZipCode LIKE '%fooValue%'
+     * $query->filterByArstzipcode(['foo', 'bar']); // WHERE ArstZipCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstzipcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstzipcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstzipcode($arstzipcode = null, $comparison = null)
+    public function filterByArstzipcode($arstzipcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstzipcode)) {
@@ -1113,7 +1246,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTZIPCODE, $arstzipcode, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTZIPCODE, $arstzipcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1126,15 +1261,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstdeliverydays(array('min' => 12)); // WHERE ArstDeliveryDays > 12
      * </code>
      *
-     * @param     mixed $arstdeliverydays The value to use as filter.
+     * @param mixed $arstdeliverydays The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstdeliverydays($arstdeliverydays = null, $comparison = null)
+    public function filterByArstdeliverydays($arstdeliverydays = null, ?string $comparison = null)
     {
         if (is_array($arstdeliverydays)) {
             $useMinMax = false;
@@ -1154,7 +1289,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTDELIVERYDAYS, $arstdeliverydays, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTDELIVERYDAYS, $arstdeliverydays, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1164,14 +1301,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstcommcode('fooValue');   // WHERE ArstCommCode = 'fooValue'
      * $query->filterByArstcommcode('%fooValue%', Criteria::LIKE); // WHERE ArstCommCode LIKE '%fooValue%'
+     * $query->filterByArstcommcode(['foo', 'bar']); // WHERE ArstCommCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstcommcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstcommcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstcommcode($arstcommcode = null, $comparison = null)
+    public function filterByArstcommcode($arstcommcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstcommcode)) {
@@ -1179,7 +1317,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCOMMCODE, $arstcommcode, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCOMMCODE, $arstcommcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1189,14 +1329,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstallowsplit('fooValue');   // WHERE ArstAllowSplit = 'fooValue'
      * $query->filterByArstallowsplit('%fooValue%', Criteria::LIKE); // WHERE ArstAllowSplit LIKE '%fooValue%'
+     * $query->filterByArstallowsplit(['foo', 'bar']); // WHERE ArstAllowSplit IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstallowsplit The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstallowsplit The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstallowsplit($arstallowsplit = null, $comparison = null)
+    public function filterByArstallowsplit($arstallowsplit = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstallowsplit)) {
@@ -1204,7 +1345,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTALLOWSPLIT, $arstallowsplit, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTALLOWSPLIT, $arstallowsplit, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1214,14 +1357,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstlindstsp('fooValue');   // WHERE ArstLindstSp = 'fooValue'
      * $query->filterByArstlindstsp('%fooValue%', Criteria::LIKE); // WHERE ArstLindstSp LIKE '%fooValue%'
+     * $query->filterByArstlindstsp(['foo', 'bar']); // WHERE ArstLindstSp IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstlindstsp The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstlindstsp The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstlindstsp($arstlindstsp = null, $comparison = null)
+    public function filterByArstlindstsp($arstlindstsp = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstlindstsp)) {
@@ -1229,7 +1373,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTLINDSTSP, $arstlindstsp, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTLINDSTSP, $arstlindstsp, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1239,14 +1385,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstlmecommcustid('fooValue');   // WHERE ArstLmEcommCustId = 'fooValue'
      * $query->filterByArstlmecommcustid('%fooValue%', Criteria::LIKE); // WHERE ArstLmEcommCustId LIKE '%fooValue%'
+     * $query->filterByArstlmecommcustid(['foo', 'bar']); // WHERE ArstLmEcommCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstlmecommcustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstlmecommcustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstlmecommcustid($arstlmecommcustid = null, $comparison = null)
+    public function filterByArstlmecommcustid($arstlmecommcustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstlmecommcustid)) {
@@ -1254,7 +1401,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTLMECOMMCUSTID, $arstlmecommcustid, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTLMECOMMCUSTID, $arstlmecommcustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1264,14 +1413,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstcatlgid('fooValue');   // WHERE ArstCatlgId = 'fooValue'
      * $query->filterByArstcatlgid('%fooValue%', Criteria::LIKE); // WHERE ArstCatlgId LIKE '%fooValue%'
+     * $query->filterByArstcatlgid(['foo', 'bar']); // WHERE ArstCatlgId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstcatlgid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstcatlgid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstcatlgid($arstcatlgid = null, $comparison = null)
+    public function filterByArstcatlgid($arstcatlgid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstcatlgid)) {
@@ -1279,7 +1429,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCATLGID, $arstcatlgid, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCATLGID, $arstcatlgid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1289,14 +1441,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArspsaleper1('fooValue');   // WHERE ArspSalePer1 = 'fooValue'
      * $query->filterByArspsaleper1('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer1 LIKE '%fooValue%'
+     * $query->filterByArspsaleper1(['foo', 'bar']); // WHERE ArspSalePer1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspsaleper1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspsaleper1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspsaleper1($arspsaleper1 = null, $comparison = null)
+    public function filterByArspsaleper1($arspsaleper1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspsaleper1)) {
@@ -1304,7 +1457,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSPSALEPER1, $arspsaleper1, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSPSALEPER1, $arspsaleper1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1314,14 +1469,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArspsaleper2('fooValue');   // WHERE ArspSalePer2 = 'fooValue'
      * $query->filterByArspsaleper2('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer2 LIKE '%fooValue%'
+     * $query->filterByArspsaleper2(['foo', 'bar']); // WHERE ArspSalePer2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspsaleper2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspsaleper2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspsaleper2($arspsaleper2 = null, $comparison = null)
+    public function filterByArspsaleper2($arspsaleper2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspsaleper2)) {
@@ -1329,7 +1485,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSPSALEPER2, $arspsaleper2, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSPSALEPER2, $arspsaleper2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1339,14 +1497,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArspsaleper3('fooValue');   // WHERE ArspSalePer3 = 'fooValue'
      * $query->filterByArspsaleper3('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer3 LIKE '%fooValue%'
+     * $query->filterByArspsaleper3(['foo', 'bar']); // WHERE ArspSalePer3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspsaleper3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspsaleper3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspsaleper3($arspsaleper3 = null, $comparison = null)
+    public function filterByArspsaleper3($arspsaleper3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspsaleper3)) {
@@ -1354,7 +1513,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSPSALEPER3, $arspsaleper3, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSPSALEPER3, $arspsaleper3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1364,14 +1525,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbctaxcode('fooValue');   // WHERE ArtbCtaxCode = 'fooValue'
      * $query->filterByArtbctaxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbCtaxCode LIKE '%fooValue%'
+     * $query->filterByArtbctaxcode(['foo', 'bar']); // WHERE ArtbCtaxCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbctaxcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbctaxcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbctaxcode($artbctaxcode = null, $comparison = null)
+    public function filterByArtbctaxcode($artbctaxcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbctaxcode)) {
@@ -1379,7 +1541,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARTBCTAXCODE, $artbctaxcode, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARTBCTAXCODE, $artbctaxcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1389,14 +1553,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArsttaxexemnbr('fooValue');   // WHERE ArstTaxExemNbr = 'fooValue'
      * $query->filterByArsttaxexemnbr('%fooValue%', Criteria::LIKE); // WHERE ArstTaxExemNbr LIKE '%fooValue%'
+     * $query->filterByArsttaxexemnbr(['foo', 'bar']); // WHERE ArstTaxExemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arsttaxexemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arsttaxexemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArsttaxexemnbr($arsttaxexemnbr = null, $comparison = null)
+    public function filterByArsttaxexemnbr($arsttaxexemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arsttaxexemnbr)) {
@@ -1404,7 +1569,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTTAXEXEMNBR, $arsttaxexemnbr, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTTAXEXEMNBR, $arsttaxexemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1414,14 +1581,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhse('fooValue');   // WHERE IntbWhse = 'fooValue'
      * $query->filterByIntbwhse('%fooValue%', Criteria::LIKE); // WHERE IntbWhse LIKE '%fooValue%'
+     * $query->filterByIntbwhse(['foo', 'bar']); // WHERE IntbWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhse($intbwhse = null, $comparison = null)
+    public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhse)) {
@@ -1429,7 +1597,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1439,14 +1609,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbshipvia('fooValue');   // WHERE ArtbShipVia = 'fooValue'
      * $query->filterByArtbshipvia('%fooValue%', Criteria::LIKE); // WHERE ArtbShipVia LIKE '%fooValue%'
+     * $query->filterByArtbshipvia(['foo', 'bar']); // WHERE ArtbShipVia IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbshipvia The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbshipvia The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbshipvia($artbshipvia = null, $comparison = null)
+    public function filterByArtbshipvia($artbshipvia = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbshipvia)) {
@@ -1454,7 +1625,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARTBSHIPVIA, $artbshipvia, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARTBSHIPVIA, $artbshipvia, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1464,14 +1637,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstbord('fooValue');   // WHERE ArstBord = 'fooValue'
      * $query->filterByArstbord('%fooValue%', Criteria::LIKE); // WHERE ArstBord LIKE '%fooValue%'
+     * $query->filterByArstbord(['foo', 'bar']); // WHERE ArstBord IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstbord The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstbord The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstbord($arstbord = null, $comparison = null)
+    public function filterByArstbord($arstbord = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstbord)) {
@@ -1479,7 +1653,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTBORD, $arstbord, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTBORD, $arstbord, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1489,14 +1665,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstcredhold('fooValue');   // WHERE ArstCredHold = 'fooValue'
      * $query->filterByArstcredhold('%fooValue%', Criteria::LIKE); // WHERE ArstCredHold LIKE '%fooValue%'
+     * $query->filterByArstcredhold(['foo', 'bar']); // WHERE ArstCredHold IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstcredhold The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstcredhold The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstcredhold($arstcredhold = null, $comparison = null)
+    public function filterByArstcredhold($arstcredhold = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstcredhold)) {
@@ -1504,7 +1681,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCREDHOLD, $arstcredhold, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCREDHOLD, $arstcredhold, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1514,14 +1693,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstusercode('fooValue');   // WHERE ArstUserCode = 'fooValue'
      * $query->filterByArstusercode('%fooValue%', Criteria::LIKE); // WHERE ArstUserCode LIKE '%fooValue%'
+     * $query->filterByArstusercode(['foo', 'bar']); // WHERE ArstUserCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstusercode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstusercode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstusercode($arstusercode = null, $comparison = null)
+    public function filterByArstusercode($arstusercode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstusercode)) {
@@ -1529,7 +1709,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTUSERCODE, $arstusercode, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTUSERCODE, $arstusercode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1539,14 +1721,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstpriclvl('fooValue');   // WHERE ArstPricLvl = 'fooValue'
      * $query->filterByArstpriclvl('%fooValue%', Criteria::LIKE); // WHERE ArstPricLvl LIKE '%fooValue%'
+     * $query->filterByArstpriclvl(['foo', 'bar']); // WHERE ArstPricLvl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstpriclvl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstpriclvl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstpriclvl($arstpriclvl = null, $comparison = null)
+    public function filterByArstpriclvl($arstpriclvl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstpriclvl)) {
@@ -1554,7 +1737,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTPRICLVL, $arstpriclvl, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTPRICLVL, $arstpriclvl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1564,14 +1749,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstshipcomp('fooValue');   // WHERE ArstShipComp = 'fooValue'
      * $query->filterByArstshipcomp('%fooValue%', Criteria::LIKE); // WHERE ArstShipComp LIKE '%fooValue%'
+     * $query->filterByArstshipcomp(['foo', 'bar']); // WHERE ArstShipComp IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstshipcomp The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstshipcomp The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstshipcomp($arstshipcomp = null, $comparison = null)
+    public function filterByArstshipcomp($arstshipcomp = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstshipcomp)) {
@@ -1579,7 +1765,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPCOMP, $arstshipcomp, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPCOMP, $arstshipcomp, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1589,14 +1777,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArsttxbl('fooValue');   // WHERE ArstTxbl = 'fooValue'
      * $query->filterByArsttxbl('%fooValue%', Criteria::LIKE); // WHERE ArstTxbl LIKE '%fooValue%'
+     * $query->filterByArsttxbl(['foo', 'bar']); // WHERE ArstTxbl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arsttxbl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arsttxbl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArsttxbl($arsttxbl = null, $comparison = null)
+    public function filterByArsttxbl($arsttxbl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arsttxbl)) {
@@ -1604,7 +1793,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTTXBL, $arsttxbl, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTTXBL, $arsttxbl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1614,14 +1805,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstpostal('fooValue');   // WHERE ArstPostal = 'fooValue'
      * $query->filterByArstpostal('%fooValue%', Criteria::LIKE); // WHERE ArstPostal LIKE '%fooValue%'
+     * $query->filterByArstpostal(['foo', 'bar']); // WHERE ArstPostal IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstpostal The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstpostal The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstpostal($arstpostal = null, $comparison = null)
+    public function filterByArstpostal($arstpostal = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstpostal)) {
@@ -1629,7 +1821,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTPOSTAL, $arstpostal, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTPOSTAL, $arstpostal, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1642,15 +1836,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsalemtd(array('min' => 12)); // WHERE ArstSaleMtd > 12
      * </code>
      *
-     * @param     mixed $arstsalemtd The value to use as filter.
+     * @param mixed $arstsalemtd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsalemtd($arstsalemtd = null, $comparison = null)
+    public function filterByArstsalemtd($arstsalemtd = null, ?string $comparison = null)
     {
         if (is_array($arstsalemtd)) {
             $useMinMax = false;
@@ -1670,7 +1864,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALEMTD, $arstsalemtd, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALEMTD, $arstsalemtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1683,15 +1879,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinvmtd(array('min' => 12)); // WHERE ArstInvMtd > 12
      * </code>
      *
-     * @param     mixed $arstinvmtd The value to use as filter.
+     * @param mixed $arstinvmtd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinvmtd($arstinvmtd = null, $comparison = null)
+    public function filterByArstinvmtd($arstinvmtd = null, ?string $comparison = null)
     {
         if (is_array($arstinvmtd)) {
             $useMinMax = false;
@@ -1711,7 +1907,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINVMTD, $arstinvmtd, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINVMTD, $arstinvmtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1721,14 +1919,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstdateopen('fooValue');   // WHERE ArstDateOpen = 'fooValue'
      * $query->filterByArstdateopen('%fooValue%', Criteria::LIKE); // WHERE ArstDateOpen LIKE '%fooValue%'
+     * $query->filterByArstdateopen(['foo', 'bar']); // WHERE ArstDateOpen IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstdateopen The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstdateopen The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstdateopen($arstdateopen = null, $comparison = null)
+    public function filterByArstdateopen($arstdateopen = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstdateopen)) {
@@ -1736,7 +1935,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTDATEOPEN, $arstdateopen, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTDATEOPEN, $arstdateopen, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1746,14 +1947,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstlastsaledate('fooValue');   // WHERE ArstLastSaleDate = 'fooValue'
      * $query->filterByArstlastsaledate('%fooValue%', Criteria::LIKE); // WHERE ArstLastSaleDate LIKE '%fooValue%'
+     * $query->filterByArstlastsaledate(['foo', 'bar']); // WHERE ArstLastSaleDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstlastsaledate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstlastsaledate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstlastsaledate($arstlastsaledate = null, $comparison = null)
+    public function filterByArstlastsaledate($arstlastsaledate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstlastsaledate)) {
@@ -1761,7 +1963,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTLASTSALEDATE, $arstlastsaledate, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTLASTSALEDATE, $arstlastsaledate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1774,15 +1978,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo1(array('min' => 12)); // WHERE ArstSale24mo1 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo1 The value to use as filter.
+     * @param mixed $arstsale24mo1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo1($arstsale24mo1 = null, $comparison = null)
+    public function filterByArstsale24mo1($arstsale24mo1 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo1)) {
             $useMinMax = false;
@@ -1802,7 +2006,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO1, $arstsale24mo1, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO1, $arstsale24mo1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1815,15 +2021,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo1(array('min' => 12)); // WHERE ArstInv24mo1 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo1 The value to use as filter.
+     * @param mixed $arstinv24mo1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo1($arstinv24mo1 = null, $comparison = null)
+    public function filterByArstinv24mo1($arstinv24mo1 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo1)) {
             $useMinMax = false;
@@ -1843,7 +2049,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO1, $arstinv24mo1, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO1, $arstinv24mo1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1856,15 +2064,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo2(array('min' => 12)); // WHERE ArstSale24mo2 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo2 The value to use as filter.
+     * @param mixed $arstsale24mo2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo2($arstsale24mo2 = null, $comparison = null)
+    public function filterByArstsale24mo2($arstsale24mo2 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo2)) {
             $useMinMax = false;
@@ -1884,7 +2092,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO2, $arstsale24mo2, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO2, $arstsale24mo2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1897,15 +2107,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo2(array('min' => 12)); // WHERE ArstInv24mo2 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo2 The value to use as filter.
+     * @param mixed $arstinv24mo2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo2($arstinv24mo2 = null, $comparison = null)
+    public function filterByArstinv24mo2($arstinv24mo2 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo2)) {
             $useMinMax = false;
@@ -1925,7 +2135,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO2, $arstinv24mo2, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO2, $arstinv24mo2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1938,15 +2150,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo3(array('min' => 12)); // WHERE ArstSale24mo3 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo3 The value to use as filter.
+     * @param mixed $arstsale24mo3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo3($arstsale24mo3 = null, $comparison = null)
+    public function filterByArstsale24mo3($arstsale24mo3 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo3)) {
             $useMinMax = false;
@@ -1966,7 +2178,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO3, $arstsale24mo3, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO3, $arstsale24mo3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1979,15 +2193,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo3(array('min' => 12)); // WHERE ArstInv24mo3 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo3 The value to use as filter.
+     * @param mixed $arstinv24mo3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo3($arstinv24mo3 = null, $comparison = null)
+    public function filterByArstinv24mo3($arstinv24mo3 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo3)) {
             $useMinMax = false;
@@ -2007,7 +2221,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO3, $arstinv24mo3, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO3, $arstinv24mo3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2020,15 +2236,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo4(array('min' => 12)); // WHERE ArstSale24mo4 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo4 The value to use as filter.
+     * @param mixed $arstsale24mo4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo4($arstsale24mo4 = null, $comparison = null)
+    public function filterByArstsale24mo4($arstsale24mo4 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo4)) {
             $useMinMax = false;
@@ -2048,7 +2264,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO4, $arstsale24mo4, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO4, $arstsale24mo4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2061,15 +2279,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo4(array('min' => 12)); // WHERE ArstInv24mo4 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo4 The value to use as filter.
+     * @param mixed $arstinv24mo4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo4($arstinv24mo4 = null, $comparison = null)
+    public function filterByArstinv24mo4($arstinv24mo4 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo4)) {
             $useMinMax = false;
@@ -2089,7 +2307,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO4, $arstinv24mo4, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO4, $arstinv24mo4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2102,15 +2322,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo5(array('min' => 12)); // WHERE ArstSale24mo5 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo5 The value to use as filter.
+     * @param mixed $arstsale24mo5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo5($arstsale24mo5 = null, $comparison = null)
+    public function filterByArstsale24mo5($arstsale24mo5 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo5)) {
             $useMinMax = false;
@@ -2130,7 +2350,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO5, $arstsale24mo5, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO5, $arstsale24mo5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2143,15 +2365,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo5(array('min' => 12)); // WHERE ArstInv24mo5 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo5 The value to use as filter.
+     * @param mixed $arstinv24mo5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo5($arstinv24mo5 = null, $comparison = null)
+    public function filterByArstinv24mo5($arstinv24mo5 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo5)) {
             $useMinMax = false;
@@ -2171,7 +2393,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO5, $arstinv24mo5, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO5, $arstinv24mo5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2184,15 +2408,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo6(array('min' => 12)); // WHERE ArstSale24mo6 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo6 The value to use as filter.
+     * @param mixed $arstsale24mo6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo6($arstsale24mo6 = null, $comparison = null)
+    public function filterByArstsale24mo6($arstsale24mo6 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo6)) {
             $useMinMax = false;
@@ -2212,7 +2436,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO6, $arstsale24mo6, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO6, $arstsale24mo6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2225,15 +2451,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo6(array('min' => 12)); // WHERE ArstInv24mo6 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo6 The value to use as filter.
+     * @param mixed $arstinv24mo6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo6($arstinv24mo6 = null, $comparison = null)
+    public function filterByArstinv24mo6($arstinv24mo6 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo6)) {
             $useMinMax = false;
@@ -2253,7 +2479,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO6, $arstinv24mo6, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO6, $arstinv24mo6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2266,15 +2494,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo7(array('min' => 12)); // WHERE ArstSale24mo7 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo7 The value to use as filter.
+     * @param mixed $arstsale24mo7 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo7($arstsale24mo7 = null, $comparison = null)
+    public function filterByArstsale24mo7($arstsale24mo7 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo7)) {
             $useMinMax = false;
@@ -2294,7 +2522,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO7, $arstsale24mo7, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO7, $arstsale24mo7, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2307,15 +2537,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo7(array('min' => 12)); // WHERE ArstInv24mo7 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo7 The value to use as filter.
+     * @param mixed $arstinv24mo7 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo7($arstinv24mo7 = null, $comparison = null)
+    public function filterByArstinv24mo7($arstinv24mo7 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo7)) {
             $useMinMax = false;
@@ -2335,7 +2565,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO7, $arstinv24mo7, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO7, $arstinv24mo7, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2348,15 +2580,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo8(array('min' => 12)); // WHERE ArstSale24mo8 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo8 The value to use as filter.
+     * @param mixed $arstsale24mo8 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo8($arstsale24mo8 = null, $comparison = null)
+    public function filterByArstsale24mo8($arstsale24mo8 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo8)) {
             $useMinMax = false;
@@ -2376,7 +2608,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO8, $arstsale24mo8, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO8, $arstsale24mo8, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2389,15 +2623,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo8(array('min' => 12)); // WHERE ArstInv24mo8 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo8 The value to use as filter.
+     * @param mixed $arstinv24mo8 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo8($arstinv24mo8 = null, $comparison = null)
+    public function filterByArstinv24mo8($arstinv24mo8 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo8)) {
             $useMinMax = false;
@@ -2417,7 +2651,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO8, $arstinv24mo8, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO8, $arstinv24mo8, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2430,15 +2666,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo9(array('min' => 12)); // WHERE ArstSale24mo9 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo9 The value to use as filter.
+     * @param mixed $arstsale24mo9 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo9($arstsale24mo9 = null, $comparison = null)
+    public function filterByArstsale24mo9($arstsale24mo9 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo9)) {
             $useMinMax = false;
@@ -2458,7 +2694,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO9, $arstsale24mo9, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO9, $arstsale24mo9, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2471,15 +2709,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo9(array('min' => 12)); // WHERE ArstInv24mo9 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo9 The value to use as filter.
+     * @param mixed $arstinv24mo9 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo9($arstinv24mo9 = null, $comparison = null)
+    public function filterByArstinv24mo9($arstinv24mo9 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo9)) {
             $useMinMax = false;
@@ -2499,7 +2737,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO9, $arstinv24mo9, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO9, $arstinv24mo9, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2512,15 +2752,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo10(array('min' => 12)); // WHERE ArstSale24mo10 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo10 The value to use as filter.
+     * @param mixed $arstsale24mo10 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo10($arstsale24mo10 = null, $comparison = null)
+    public function filterByArstsale24mo10($arstsale24mo10 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo10)) {
             $useMinMax = false;
@@ -2540,7 +2780,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO10, $arstsale24mo10, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO10, $arstsale24mo10, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2553,15 +2795,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo10(array('min' => 12)); // WHERE ArstInv24mo10 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo10 The value to use as filter.
+     * @param mixed $arstinv24mo10 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo10($arstinv24mo10 = null, $comparison = null)
+    public function filterByArstinv24mo10($arstinv24mo10 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo10)) {
             $useMinMax = false;
@@ -2581,7 +2823,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO10, $arstinv24mo10, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO10, $arstinv24mo10, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2594,15 +2838,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo11(array('min' => 12)); // WHERE ArstSale24mo11 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo11 The value to use as filter.
+     * @param mixed $arstsale24mo11 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo11($arstsale24mo11 = null, $comparison = null)
+    public function filterByArstsale24mo11($arstsale24mo11 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo11)) {
             $useMinMax = false;
@@ -2622,7 +2866,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO11, $arstsale24mo11, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO11, $arstsale24mo11, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2635,15 +2881,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo11(array('min' => 12)); // WHERE ArstInv24mo11 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo11 The value to use as filter.
+     * @param mixed $arstinv24mo11 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo11($arstinv24mo11 = null, $comparison = null)
+    public function filterByArstinv24mo11($arstinv24mo11 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo11)) {
             $useMinMax = false;
@@ -2663,7 +2909,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO11, $arstinv24mo11, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO11, $arstinv24mo11, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2676,15 +2924,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo12(array('min' => 12)); // WHERE ArstSale24mo12 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo12 The value to use as filter.
+     * @param mixed $arstsale24mo12 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo12($arstsale24mo12 = null, $comparison = null)
+    public function filterByArstsale24mo12($arstsale24mo12 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo12)) {
             $useMinMax = false;
@@ -2704,7 +2952,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO12, $arstsale24mo12, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO12, $arstsale24mo12, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2717,15 +2967,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo12(array('min' => 12)); // WHERE ArstInv24mo12 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo12 The value to use as filter.
+     * @param mixed $arstinv24mo12 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo12($arstinv24mo12 = null, $comparison = null)
+    public function filterByArstinv24mo12($arstinv24mo12 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo12)) {
             $useMinMax = false;
@@ -2745,7 +2995,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO12, $arstinv24mo12, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO12, $arstinv24mo12, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2758,15 +3010,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo13(array('min' => 12)); // WHERE ArstSale24mo13 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo13 The value to use as filter.
+     * @param mixed $arstsale24mo13 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo13($arstsale24mo13 = null, $comparison = null)
+    public function filterByArstsale24mo13($arstsale24mo13 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo13)) {
             $useMinMax = false;
@@ -2786,7 +3038,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO13, $arstsale24mo13, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO13, $arstsale24mo13, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2799,15 +3053,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo13(array('min' => 12)); // WHERE ArstInv24mo13 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo13 The value to use as filter.
+     * @param mixed $arstinv24mo13 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo13($arstinv24mo13 = null, $comparison = null)
+    public function filterByArstinv24mo13($arstinv24mo13 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo13)) {
             $useMinMax = false;
@@ -2827,7 +3081,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO13, $arstinv24mo13, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO13, $arstinv24mo13, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2840,15 +3096,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo14(array('min' => 12)); // WHERE ArstSale24mo14 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo14 The value to use as filter.
+     * @param mixed $arstsale24mo14 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo14($arstsale24mo14 = null, $comparison = null)
+    public function filterByArstsale24mo14($arstsale24mo14 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo14)) {
             $useMinMax = false;
@@ -2868,7 +3124,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO14, $arstsale24mo14, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO14, $arstsale24mo14, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2881,15 +3139,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo14(array('min' => 12)); // WHERE ArstInv24mo14 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo14 The value to use as filter.
+     * @param mixed $arstinv24mo14 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo14($arstinv24mo14 = null, $comparison = null)
+    public function filterByArstinv24mo14($arstinv24mo14 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo14)) {
             $useMinMax = false;
@@ -2909,7 +3167,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO14, $arstinv24mo14, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO14, $arstinv24mo14, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2922,15 +3182,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo15(array('min' => 12)); // WHERE ArstSale24mo15 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo15 The value to use as filter.
+     * @param mixed $arstsale24mo15 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo15($arstsale24mo15 = null, $comparison = null)
+    public function filterByArstsale24mo15($arstsale24mo15 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo15)) {
             $useMinMax = false;
@@ -2950,7 +3210,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO15, $arstsale24mo15, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO15, $arstsale24mo15, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2963,15 +3225,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo15(array('min' => 12)); // WHERE ArstInv24mo15 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo15 The value to use as filter.
+     * @param mixed $arstinv24mo15 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo15($arstinv24mo15 = null, $comparison = null)
+    public function filterByArstinv24mo15($arstinv24mo15 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo15)) {
             $useMinMax = false;
@@ -2991,7 +3253,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO15, $arstinv24mo15, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO15, $arstinv24mo15, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3004,15 +3268,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo16(array('min' => 12)); // WHERE ArstSale24mo16 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo16 The value to use as filter.
+     * @param mixed $arstsale24mo16 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo16($arstsale24mo16 = null, $comparison = null)
+    public function filterByArstsale24mo16($arstsale24mo16 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo16)) {
             $useMinMax = false;
@@ -3032,7 +3296,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO16, $arstsale24mo16, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO16, $arstsale24mo16, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3045,15 +3311,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo16(array('min' => 12)); // WHERE ArstInv24mo16 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo16 The value to use as filter.
+     * @param mixed $arstinv24mo16 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo16($arstinv24mo16 = null, $comparison = null)
+    public function filterByArstinv24mo16($arstinv24mo16 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo16)) {
             $useMinMax = false;
@@ -3073,7 +3339,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO16, $arstinv24mo16, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO16, $arstinv24mo16, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3086,15 +3354,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo17(array('min' => 12)); // WHERE ArstSale24mo17 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo17 The value to use as filter.
+     * @param mixed $arstsale24mo17 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo17($arstsale24mo17 = null, $comparison = null)
+    public function filterByArstsale24mo17($arstsale24mo17 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo17)) {
             $useMinMax = false;
@@ -3114,7 +3382,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO17, $arstsale24mo17, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO17, $arstsale24mo17, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3127,15 +3397,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo17(array('min' => 12)); // WHERE ArstInv24mo17 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo17 The value to use as filter.
+     * @param mixed $arstinv24mo17 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo17($arstinv24mo17 = null, $comparison = null)
+    public function filterByArstinv24mo17($arstinv24mo17 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo17)) {
             $useMinMax = false;
@@ -3155,7 +3425,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO17, $arstinv24mo17, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO17, $arstinv24mo17, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3168,15 +3440,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo18(array('min' => 12)); // WHERE ArstSale24mo18 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo18 The value to use as filter.
+     * @param mixed $arstsale24mo18 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo18($arstsale24mo18 = null, $comparison = null)
+    public function filterByArstsale24mo18($arstsale24mo18 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo18)) {
             $useMinMax = false;
@@ -3196,7 +3468,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO18, $arstsale24mo18, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO18, $arstsale24mo18, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3209,15 +3483,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo18(array('min' => 12)); // WHERE ArstInv24mo18 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo18 The value to use as filter.
+     * @param mixed $arstinv24mo18 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo18($arstinv24mo18 = null, $comparison = null)
+    public function filterByArstinv24mo18($arstinv24mo18 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo18)) {
             $useMinMax = false;
@@ -3237,7 +3511,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO18, $arstinv24mo18, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO18, $arstinv24mo18, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3250,15 +3526,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo19(array('min' => 12)); // WHERE ArstSale24mo19 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo19 The value to use as filter.
+     * @param mixed $arstsale24mo19 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo19($arstsale24mo19 = null, $comparison = null)
+    public function filterByArstsale24mo19($arstsale24mo19 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo19)) {
             $useMinMax = false;
@@ -3278,7 +3554,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO19, $arstsale24mo19, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO19, $arstsale24mo19, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3291,15 +3569,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo19(array('min' => 12)); // WHERE ArstInv24mo19 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo19 The value to use as filter.
+     * @param mixed $arstinv24mo19 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo19($arstinv24mo19 = null, $comparison = null)
+    public function filterByArstinv24mo19($arstinv24mo19 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo19)) {
             $useMinMax = false;
@@ -3319,7 +3597,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO19, $arstinv24mo19, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO19, $arstinv24mo19, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3332,15 +3612,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo20(array('min' => 12)); // WHERE ArstSale24mo20 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo20 The value to use as filter.
+     * @param mixed $arstsale24mo20 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo20($arstsale24mo20 = null, $comparison = null)
+    public function filterByArstsale24mo20($arstsale24mo20 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo20)) {
             $useMinMax = false;
@@ -3360,7 +3640,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO20, $arstsale24mo20, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO20, $arstsale24mo20, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3373,15 +3655,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo20(array('min' => 12)); // WHERE ArstInv24mo20 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo20 The value to use as filter.
+     * @param mixed $arstinv24mo20 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo20($arstinv24mo20 = null, $comparison = null)
+    public function filterByArstinv24mo20($arstinv24mo20 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo20)) {
             $useMinMax = false;
@@ -3401,7 +3683,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO20, $arstinv24mo20, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO20, $arstinv24mo20, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3414,15 +3698,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo21(array('min' => 12)); // WHERE ArstSale24mo21 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo21 The value to use as filter.
+     * @param mixed $arstsale24mo21 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo21($arstsale24mo21 = null, $comparison = null)
+    public function filterByArstsale24mo21($arstsale24mo21 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo21)) {
             $useMinMax = false;
@@ -3442,7 +3726,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO21, $arstsale24mo21, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO21, $arstsale24mo21, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3455,15 +3741,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo21(array('min' => 12)); // WHERE ArstInv24mo21 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo21 The value to use as filter.
+     * @param mixed $arstinv24mo21 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo21($arstinv24mo21 = null, $comparison = null)
+    public function filterByArstinv24mo21($arstinv24mo21 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo21)) {
             $useMinMax = false;
@@ -3483,7 +3769,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO21, $arstinv24mo21, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO21, $arstinv24mo21, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3496,15 +3784,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo22(array('min' => 12)); // WHERE ArstSale24mo22 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo22 The value to use as filter.
+     * @param mixed $arstsale24mo22 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo22($arstsale24mo22 = null, $comparison = null)
+    public function filterByArstsale24mo22($arstsale24mo22 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo22)) {
             $useMinMax = false;
@@ -3524,7 +3812,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO22, $arstsale24mo22, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO22, $arstsale24mo22, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3537,15 +3827,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo22(array('min' => 12)); // WHERE ArstInv24mo22 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo22 The value to use as filter.
+     * @param mixed $arstinv24mo22 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo22($arstinv24mo22 = null, $comparison = null)
+    public function filterByArstinv24mo22($arstinv24mo22 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo22)) {
             $useMinMax = false;
@@ -3565,7 +3855,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO22, $arstinv24mo22, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO22, $arstinv24mo22, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3578,15 +3870,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo23(array('min' => 12)); // WHERE ArstSale24mo23 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo23 The value to use as filter.
+     * @param mixed $arstsale24mo23 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo23($arstsale24mo23 = null, $comparison = null)
+    public function filterByArstsale24mo23($arstsale24mo23 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo23)) {
             $useMinMax = false;
@@ -3606,7 +3898,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO23, $arstsale24mo23, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO23, $arstsale24mo23, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3619,15 +3913,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo23(array('min' => 12)); // WHERE ArstInv24mo23 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo23 The value to use as filter.
+     * @param mixed $arstinv24mo23 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo23($arstinv24mo23 = null, $comparison = null)
+    public function filterByArstinv24mo23($arstinv24mo23 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo23)) {
             $useMinMax = false;
@@ -3647,7 +3941,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO23, $arstinv24mo23, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO23, $arstinv24mo23, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3660,15 +3956,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsale24mo24(array('min' => 12)); // WHERE ArstSale24mo24 > 12
      * </code>
      *
-     * @param     mixed $arstsale24mo24 The value to use as filter.
+     * @param mixed $arstsale24mo24 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsale24mo24($arstsale24mo24 = null, $comparison = null)
+    public function filterByArstsale24mo24($arstsale24mo24 = null, ?string $comparison = null)
     {
         if (is_array($arstsale24mo24)) {
             $useMinMax = false;
@@ -3688,7 +3984,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO24, $arstsale24mo24, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALE24MO24, $arstsale24mo24, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3701,15 +3999,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinv24mo24(array('min' => 12)); // WHERE ArstInv24mo24 > 12
      * </code>
      *
-     * @param     mixed $arstinv24mo24 The value to use as filter.
+     * @param mixed $arstinv24mo24 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinv24mo24($arstinv24mo24 = null, $comparison = null)
+    public function filterByArstinv24mo24($arstinv24mo24 = null, ?string $comparison = null)
     {
         if (is_array($arstinv24mo24)) {
             $useMinMax = false;
@@ -3729,7 +4027,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO24, $arstinv24mo24, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO24, $arstinv24mo24, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3739,14 +4039,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstprimshipid('fooValue');   // WHERE ArstPrimShipId = 'fooValue'
      * $query->filterByArstprimshipid('%fooValue%', Criteria::LIKE); // WHERE ArstPrimShipId LIKE '%fooValue%'
+     * $query->filterByArstprimshipid(['foo', 'bar']); // WHERE ArstPrimShipId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstprimshipid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstprimshipid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstprimshipid($arstprimshipid = null, $comparison = null)
+    public function filterByArstprimshipid($arstprimshipid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstprimshipid)) {
@@ -3754,7 +4055,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTPRIMSHIPID, $arstprimshipid, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTPRIMSHIPID, $arstprimshipid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3764,14 +4067,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstmyvendid('fooValue');   // WHERE ArstMyVendId = 'fooValue'
      * $query->filterByArstmyvendid('%fooValue%', Criteria::LIKE); // WHERE ArstMyVendId LIKE '%fooValue%'
+     * $query->filterByArstmyvendid(['foo', 'bar']); // WHERE ArstMyVendId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstmyvendid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstmyvendid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstmyvendid($arstmyvendid = null, $comparison = null)
+    public function filterByArstmyvendid($arstmyvendid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstmyvendid)) {
@@ -3779,7 +4083,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTMYVENDID, $arstmyvendid, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTMYVENDID, $arstmyvendid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3792,15 +4098,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstaddlpricdisc(array('min' => 12)); // WHERE ArstAddlPricDisc > 12
      * </code>
      *
-     * @param     mixed $arstaddlpricdisc The value to use as filter.
+     * @param mixed $arstaddlpricdisc The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstaddlpricdisc($arstaddlpricdisc = null, $comparison = null)
+    public function filterByArstaddlpricdisc($arstaddlpricdisc = null, ?string $comparison = null)
     {
         if (is_array($arstaddlpricdisc)) {
             $useMinMax = false;
@@ -3820,7 +4126,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTADDLPRICDISC, $arstaddlpricdisc, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTADDLPRICDISC, $arstaddlpricdisc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3830,14 +4138,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstediinvc('fooValue');   // WHERE ArstEdiInvc = 'fooValue'
      * $query->filterByArstediinvc('%fooValue%', Criteria::LIKE); // WHERE ArstEdiInvc LIKE '%fooValue%'
+     * $query->filterByArstediinvc(['foo', 'bar']); // WHERE ArstEdiInvc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstediinvc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstediinvc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstediinvc($arstediinvc = null, $comparison = null)
+    public function filterByArstediinvc($arstediinvc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstediinvc)) {
@@ -3845,7 +4154,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTEDIINVC, $arstediinvc, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTEDIINVC, $arstediinvc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3855,14 +4166,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstchrgfrt('fooValue');   // WHERE ArstChrgFrt = 'fooValue'
      * $query->filterByArstchrgfrt('%fooValue%', Criteria::LIKE); // WHERE ArstChrgFrt LIKE '%fooValue%'
+     * $query->filterByArstchrgfrt(['foo', 'bar']); // WHERE ArstChrgFrt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstchrgfrt The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstchrgfrt The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstchrgfrt($arstchrgfrt = null, $comparison = null)
+    public function filterByArstchrgfrt($arstchrgfrt = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstchrgfrt)) {
@@ -3870,7 +4182,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCHRGFRT, $arstchrgfrt, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCHRGFRT, $arstchrgfrt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3880,14 +4194,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstdistcntr('fooValue');   // WHERE ArstDistCntr = 'fooValue'
      * $query->filterByArstdistcntr('%fooValue%', Criteria::LIKE); // WHERE ArstDistCntr LIKE '%fooValue%'
+     * $query->filterByArstdistcntr(['foo', 'bar']); // WHERE ArstDistCntr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstdistcntr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstdistcntr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstdistcntr($arstdistcntr = null, $comparison = null)
+    public function filterByArstdistcntr($arstdistcntr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstdistcntr)) {
@@ -3895,7 +4210,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTDISTCNTR, $arstdistcntr, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTDISTCNTR, $arstdistcntr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3905,14 +4222,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstdunsnbr('fooValue');   // WHERE ArstDunsNbr = 'fooValue'
      * $query->filterByArstdunsnbr('%fooValue%', Criteria::LIKE); // WHERE ArstDunsNbr LIKE '%fooValue%'
+     * $query->filterByArstdunsnbr(['foo', 'bar']); // WHERE ArstDunsNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstdunsnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstdunsnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstdunsnbr($arstdunsnbr = null, $comparison = null)
+    public function filterByArstdunsnbr($arstdunsnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstdunsnbr)) {
@@ -3920,7 +4238,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTDUNSNBR, $arstdunsnbr, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTDUNSNBR, $arstdunsnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3933,15 +4253,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstrfmlvalu(array('min' => 12)); // WHERE ArstRfmlValu > 12
      * </code>
      *
-     * @param     mixed $arstrfmlvalu The value to use as filter.
+     * @param mixed $arstrfmlvalu The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstrfmlvalu($arstrfmlvalu = null, $comparison = null)
+    public function filterByArstrfmlvalu($arstrfmlvalu = null, ?string $comparison = null)
     {
         if (is_array($arstrfmlvalu)) {
             $useMinMax = false;
@@ -3961,7 +4281,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTRFMLVALU, $arstrfmlvalu, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTRFMLVALU, $arstrfmlvalu, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3971,14 +4293,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstcustpoparam('fooValue');   // WHERE ArstCustPoParam = 'fooValue'
      * $query->filterByArstcustpoparam('%fooValue%', Criteria::LIKE); // WHERE ArstCustPoParam LIKE '%fooValue%'
+     * $query->filterByArstcustpoparam(['foo', 'bar']); // WHERE ArstCustPoParam IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstcustpoparam The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstcustpoparam The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstcustpoparam($arstcustpoparam = null, $comparison = null)
+    public function filterByArstcustpoparam($arstcustpoparam = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstcustpoparam)) {
@@ -3986,7 +4309,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCUSTPOPARAM, $arstcustpoparam, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCUSTPOPARAM, $arstcustpoparam, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3996,14 +4321,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbroutcode('fooValue');   // WHERE ArtbRoutCode = 'fooValue'
      * $query->filterByArtbroutcode('%fooValue%', Criteria::LIKE); // WHERE ArtbRoutCode LIKE '%fooValue%'
+     * $query->filterByArtbroutcode(['foo', 'bar']); // WHERE ArtbRoutCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbroutcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbroutcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbroutcode($artbroutcode = null, $comparison = null)
+    public function filterByArtbroutcode($artbroutcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbroutcode)) {
@@ -4011,7 +4337,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARTBROUTCODE, $artbroutcode, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARTBROUTCODE, $artbroutcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4021,14 +4349,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstupsacctnbr('fooValue');   // WHERE ArstUpsAcctNbr = 'fooValue'
      * $query->filterByArstupsacctnbr('%fooValue%', Criteria::LIKE); // WHERE ArstUpsAcctNbr LIKE '%fooValue%'
+     * $query->filterByArstupsacctnbr(['foo', 'bar']); // WHERE ArstUpsAcctNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstupsacctnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstupsacctnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstupsacctnbr($arstupsacctnbr = null, $comparison = null)
+    public function filterByArstupsacctnbr($arstupsacctnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstupsacctnbr)) {
@@ -4036,7 +4365,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTUPSACCTNBR, $arstupsacctnbr, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTUPSACCTNBR, $arstupsacctnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4046,14 +4377,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstfobinputyn('fooValue');   // WHERE ArstFobInputYn = 'fooValue'
      * $query->filterByArstfobinputyn('%fooValue%', Criteria::LIKE); // WHERE ArstFobInputYn LIKE '%fooValue%'
+     * $query->filterByArstfobinputyn(['foo', 'bar']); // WHERE ArstFobInputYn IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstfobinputyn The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstfobinputyn The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstfobinputyn($arstfobinputyn = null, $comparison = null)
+    public function filterByArstfobinputyn($arstfobinputyn = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstfobinputyn)) {
@@ -4061,7 +4393,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTFOBINPUTYN, $arstfobinputyn, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTFOBINPUTYN, $arstfobinputyn, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4074,15 +4408,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstfobperlb(array('min' => 12)); // WHERE ArstFobPerLb > 12
      * </code>
      *
-     * @param     mixed $arstfobperlb The value to use as filter.
+     * @param mixed $arstfobperlb The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstfobperlb($arstfobperlb = null, $comparison = null)
+    public function filterByArstfobperlb($arstfobperlb = null, ?string $comparison = null)
     {
         if (is_array($arstfobperlb)) {
             $useMinMax = false;
@@ -4102,7 +4436,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTFOBPERLB, $arstfobperlb, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTFOBPERLB, $arstfobperlb, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4115,15 +4451,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstsaleytd(array('min' => 12)); // WHERE ArstSaleYtd > 12
      * </code>
      *
-     * @param     mixed $arstsaleytd The value to use as filter.
+     * @param mixed $arstsaleytd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstsaleytd($arstsaleytd = null, $comparison = null)
+    public function filterByArstsaleytd($arstsaleytd = null, ?string $comparison = null)
     {
         if (is_array($arstsaleytd)) {
             $useMinMax = false;
@@ -4143,7 +4479,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALEYTD, $arstsaleytd, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALEYTD, $arstsaleytd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4156,15 +4494,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * $query->filterByArstinvytd(array('min' => 12)); // WHERE ArstInvYtd > 12
      * </code>
      *
-     * @param     mixed $arstinvytd The value to use as filter.
+     * @param mixed $arstinvytd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstinvytd($arstinvytd = null, $comparison = null)
+    public function filterByArstinvytd($arstinvytd = null, ?string $comparison = null)
     {
         if (is_array($arstinvytd)) {
             $useMinMax = false;
@@ -4184,7 +4522,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINVYTD, $arstinvytd, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINVYTD, $arstinvytd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4194,14 +4534,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByArstemailfaxauthcode('fooValue');   // WHERE ArstEmailFaxAuthCode = 'fooValue'
      * $query->filterByArstemailfaxauthcode('%fooValue%', Criteria::LIKE); // WHERE ArstEmailFaxAuthCode LIKE '%fooValue%'
+     * $query->filterByArstemailfaxauthcode(['foo', 'bar']); // WHERE ArstEmailFaxAuthCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstemailfaxauthcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstemailfaxauthcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstemailfaxauthcode($arstemailfaxauthcode = null, $comparison = null)
+    public function filterByArstemailfaxauthcode($arstemailfaxauthcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstemailfaxauthcode)) {
@@ -4209,7 +4550,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTEMAILFAXAUTHCODE, $arstemailfaxauthcode, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTEMAILFAXAUTHCODE, $arstemailfaxauthcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4219,14 +4562,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -4234,7 +4578,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4244,14 +4590,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -4259,7 +4606,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4269,14 +4618,15 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -4284,20 +4634,22 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(CustomerShiptoTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \Customer object
      *
      * @param \Customer|ObjectCollection $customer The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomer($customer, $comparison = null)
+    public function filterByCustomer($customer, ?string $comparison = null)
     {
         if ($customer instanceof \Customer) {
             return $this
@@ -4307,8 +4659,10 @@ abstract class CustomerShiptoQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $customer->toKeyValue('PrimaryKey', 'Arcucustid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByCustomer() only accepts arguments of type \Customer or Collection');
         }
@@ -4317,12 +4671,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Customer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCustomer(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Customer');
@@ -4351,9 +4705,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CustomerQuery A secondary query class using the current class as primary query
      */
@@ -4365,19 +4719,117 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
+     * Use the Customer relation Customer object
+     *
+     * @param callable(\CustomerQuery):\CustomerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCustomerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useCustomerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Customer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CustomerQuery The inner query object of the EXISTS statement
+     */
+    public function useCustomerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT EXISTS query.
+     *
+     * @see useCustomerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCustomerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CustomerQuery The inner query object of the IN statement
+     */
+    public function useInCustomerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT IN query.
+     *
+     * @see useCustomerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCustomerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ArContact object
      *
      * @param \ArContact|ObjectCollection $arContact the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArContact($arContact, $comparison = null)
+    public function filterByArContact($arContact, ?string $comparison = null)
     {
         if ($arContact instanceof \ArContact) {
-            return $this
+            $this
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $arContact->getArcucustid(), $comparison)
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $arContact->getArstshipid(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByArContact() only accepts arguments of type \ArContact');
         }
@@ -4386,12 +4838,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ArContact relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinArContact($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinArContact(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ArContact');
@@ -4420,9 +4872,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ArContactQuery A secondary query class using the current class as primary query
      */
@@ -4434,19 +4886,117 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
+     * Use the ArContact relation ArContact object
+     *
+     * @param callable(\ArContactQuery):\ArContactQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withArContactQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useArContactQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ArContact table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ArContactQuery The inner query object of the EXISTS statement
+     */
+    public function useArContactExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ArContactQuery */
+        $q = $this->useExistsQuery('ArContact', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ArContact table for a NOT EXISTS query.
+     *
+     * @see useArContactExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ArContactQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useArContactNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ArContactQuery */
+        $q = $this->useExistsQuery('ArContact', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ArContact table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ArContactQuery The inner query object of the IN statement
+     */
+    public function useInArContactQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ArContactQuery */
+        $q = $this->useInQuery('ArContact', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ArContact table for a NOT IN query.
+     *
+     * @see useArContactInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ArContactQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInArContactQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ArContactQuery */
+        $q = $this->useInQuery('ArContact', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvTransferOrder object
      *
      * @param \InvTransferOrder|ObjectCollection $invTransferOrder the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferOrder($invTransferOrder, $comparison = null)
+    public function filterByInvTransferOrder($invTransferOrder, ?string $comparison = null)
     {
         if ($invTransferOrder instanceof \InvTransferOrder) {
-            return $this
+            $this
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $invTransferOrder->getArcucustid(), $comparison)
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $invTransferOrder->getArstshipid(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByInvTransferOrder() only accepts arguments of type \InvTransferOrder');
         }
@@ -4455,12 +5005,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferOrder relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferOrder($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferOrder(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferOrder');
@@ -4489,9 +5039,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferOrderQuery A secondary query class using the current class as primary query
      */
@@ -4503,19 +5053,117 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferOrder relation InvTransferOrder object
+     *
+     * @param callable(\InvTransferOrderQuery):\InvTransferOrderQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferOrderQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferOrderQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvTransferOrder table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferOrderQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferOrderExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useExistsQuery('InvTransferOrder', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferOrder table for a NOT EXISTS query.
+     *
+     * @see useInvTransferOrderExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferOrderQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferOrderNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useExistsQuery('InvTransferOrder', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferOrder table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferOrderQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferOrderQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useInQuery('InvTransferOrder', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferOrder table for a NOT IN query.
+     *
+     * @see useInvTransferOrderInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferOrderQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferOrderQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useInQuery('InvTransferOrder', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \NoteCustInternal object
      *
      * @param \NoteCustInternal|ObjectCollection $noteCustInternal the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByNoteCustInternal($noteCustInternal, $comparison = null)
+    public function filterByNoteCustInternal($noteCustInternal, ?string $comparison = null)
     {
         if ($noteCustInternal instanceof \NoteCustInternal) {
-            return $this
+            $this
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $noteCustInternal->getArcucustid(), $comparison)
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $noteCustInternal->getArstshipid(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByNoteCustInternal() only accepts arguments of type \NoteCustInternal');
         }
@@ -4524,12 +5172,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the NoteCustInternal relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinNoteCustInternal($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinNoteCustInternal(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('NoteCustInternal');
@@ -4558,9 +5206,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \NoteCustInternalQuery A secondary query class using the current class as primary query
      */
@@ -4572,19 +5220,117 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
+     * Use the NoteCustInternal relation NoteCustInternal object
+     *
+     * @param callable(\NoteCustInternalQuery):\NoteCustInternalQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withNoteCustInternalQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useNoteCustInternalQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to NoteCustInternal table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \NoteCustInternalQuery The inner query object of the EXISTS statement
+     */
+    public function useNoteCustInternalExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \NoteCustInternalQuery */
+        $q = $this->useExistsQuery('NoteCustInternal', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to NoteCustInternal table for a NOT EXISTS query.
+     *
+     * @see useNoteCustInternalExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \NoteCustInternalQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useNoteCustInternalNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \NoteCustInternalQuery */
+        $q = $this->useExistsQuery('NoteCustInternal', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to NoteCustInternal table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \NoteCustInternalQuery The inner query object of the IN statement
+     */
+    public function useInNoteCustInternalQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \NoteCustInternalQuery */
+        $q = $this->useInQuery('NoteCustInternal', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to NoteCustInternal table for a NOT IN query.
+     *
+     * @see useNoteCustInternalInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \NoteCustInternalQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInNoteCustInternalQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \NoteCustInternalQuery */
+        $q = $this->useInQuery('NoteCustInternal', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \NoteCustOrder object
      *
      * @param \NoteCustOrder|ObjectCollection $noteCustOrder the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByNoteCustOrder($noteCustOrder, $comparison = null)
+    public function filterByNoteCustOrder($noteCustOrder, ?string $comparison = null)
     {
         if ($noteCustOrder instanceof \NoteCustOrder) {
-            return $this
+            $this
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $noteCustOrder->getArcucustid(), $comparison)
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $noteCustOrder->getArstshipid(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByNoteCustOrder() only accepts arguments of type \NoteCustOrder');
         }
@@ -4593,12 +5339,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the NoteCustOrder relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinNoteCustOrder($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinNoteCustOrder(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('NoteCustOrder');
@@ -4627,9 +5373,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \NoteCustOrderQuery A secondary query class using the current class as primary query
      */
@@ -4641,19 +5387,117 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
+     * Use the NoteCustOrder relation NoteCustOrder object
+     *
+     * @param callable(\NoteCustOrderQuery):\NoteCustOrderQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withNoteCustOrderQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useNoteCustOrderQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to NoteCustOrder table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \NoteCustOrderQuery The inner query object of the EXISTS statement
+     */
+    public function useNoteCustOrderExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \NoteCustOrderQuery */
+        $q = $this->useExistsQuery('NoteCustOrder', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to NoteCustOrder table for a NOT EXISTS query.
+     *
+     * @see useNoteCustOrderExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \NoteCustOrderQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useNoteCustOrderNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \NoteCustOrderQuery */
+        $q = $this->useExistsQuery('NoteCustOrder', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to NoteCustOrder table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \NoteCustOrderQuery The inner query object of the IN statement
+     */
+    public function useInNoteCustOrderQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \NoteCustOrderQuery */
+        $q = $this->useInQuery('NoteCustOrder', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to NoteCustOrder table for a NOT IN query.
+     *
+     * @see useNoteCustOrderInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \NoteCustOrderQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInNoteCustOrderQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \NoteCustOrderQuery */
+        $q = $this->useInQuery('NoteCustOrder', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \BookingDayCustomer object
      *
      * @param \BookingDayCustomer|ObjectCollection $bookingDayCustomer the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBookingDayCustomer($bookingDayCustomer, $comparison = null)
+    public function filterByBookingDayCustomer($bookingDayCustomer, ?string $comparison = null)
     {
         if ($bookingDayCustomer instanceof \BookingDayCustomer) {
-            return $this
+            $this
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $bookingDayCustomer->getArcucustid(), $comparison)
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $bookingDayCustomer->getArstshipid(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByBookingDayCustomer() only accepts arguments of type \BookingDayCustomer');
         }
@@ -4662,12 +5506,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the BookingDayCustomer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinBookingDayCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinBookingDayCustomer(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('BookingDayCustomer');
@@ -4696,9 +5540,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \BookingDayCustomerQuery A secondary query class using the current class as primary query
      */
@@ -4710,19 +5554,117 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
+     * Use the BookingDayCustomer relation BookingDayCustomer object
+     *
+     * @param callable(\BookingDayCustomerQuery):\BookingDayCustomerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withBookingDayCustomerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useBookingDayCustomerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to BookingDayCustomer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \BookingDayCustomerQuery The inner query object of the EXISTS statement
+     */
+    public function useBookingDayCustomerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \BookingDayCustomerQuery */
+        $q = $this->useExistsQuery('BookingDayCustomer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDayCustomer table for a NOT EXISTS query.
+     *
+     * @see useBookingDayCustomerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \BookingDayCustomerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useBookingDayCustomerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingDayCustomerQuery */
+        $q = $this->useExistsQuery('BookingDayCustomer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDayCustomer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \BookingDayCustomerQuery The inner query object of the IN statement
+     */
+    public function useInBookingDayCustomerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \BookingDayCustomerQuery */
+        $q = $this->useInQuery('BookingDayCustomer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDayCustomer table for a NOT IN query.
+     *
+     * @see useBookingDayCustomerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \BookingDayCustomerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInBookingDayCustomerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingDayCustomerQuery */
+        $q = $this->useInQuery('BookingDayCustomer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \BookingDayDetail object
      *
      * @param \BookingDayDetail|ObjectCollection $bookingDayDetail the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBookingDayDetail($bookingDayDetail, $comparison = null)
+    public function filterByBookingDayDetail($bookingDayDetail, ?string $comparison = null)
     {
         if ($bookingDayDetail instanceof \BookingDayDetail) {
-            return $this
+            $this
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $bookingDayDetail->getArcucustid(), $comparison)
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $bookingDayDetail->getArstshipid(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByBookingDayDetail() only accepts arguments of type \BookingDayDetail');
         }
@@ -4731,12 +5673,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the BookingDayDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinBookingDayDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinBookingDayDetail(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('BookingDayDetail');
@@ -4765,9 +5707,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \BookingDayDetailQuery A secondary query class using the current class as primary query
      */
@@ -4779,19 +5721,117 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
+     * Use the BookingDayDetail relation BookingDayDetail object
+     *
+     * @param callable(\BookingDayDetailQuery):\BookingDayDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withBookingDayDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useBookingDayDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to BookingDayDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \BookingDayDetailQuery The inner query object of the EXISTS statement
+     */
+    public function useBookingDayDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \BookingDayDetailQuery */
+        $q = $this->useExistsQuery('BookingDayDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDayDetail table for a NOT EXISTS query.
+     *
+     * @see useBookingDayDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \BookingDayDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useBookingDayDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingDayDetailQuery */
+        $q = $this->useExistsQuery('BookingDayDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDayDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \BookingDayDetailQuery The inner query object of the IN statement
+     */
+    public function useInBookingDayDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \BookingDayDetailQuery */
+        $q = $this->useInQuery('BookingDayDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to BookingDayDetail table for a NOT IN query.
+     *
+     * @see useBookingDayDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \BookingDayDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInBookingDayDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingDayDetailQuery */
+        $q = $this->useInQuery('BookingDayDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \Booking object
      *
      * @param \Booking|ObjectCollection $booking the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBooking($booking, $comparison = null)
+    public function filterByBooking($booking, ?string $comparison = null)
     {
         if ($booking instanceof \Booking) {
-            return $this
+            $this
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $booking->getArcucustid(), $comparison)
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $booking->getArstshipid(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByBooking() only accepts arguments of type \Booking');
         }
@@ -4800,12 +5840,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Booking relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinBooking($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinBooking(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Booking');
@@ -4834,9 +5874,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \BookingQuery A secondary query class using the current class as primary query
      */
@@ -4848,19 +5888,117 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
+     * Use the Booking relation Booking object
+     *
+     * @param callable(\BookingQuery):\BookingQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withBookingQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useBookingQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Booking table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \BookingQuery The inner query object of the EXISTS statement
+     */
+    public function useBookingExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \BookingQuery */
+        $q = $this->useExistsQuery('Booking', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Booking table for a NOT EXISTS query.
+     *
+     * @see useBookingExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \BookingQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useBookingNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingQuery */
+        $q = $this->useExistsQuery('Booking', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Booking table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \BookingQuery The inner query object of the IN statement
+     */
+    public function useInBookingQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \BookingQuery */
+        $q = $this->useInQuery('Booking', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Booking table for a NOT IN query.
+     *
+     * @see useBookingInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \BookingQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInBookingQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \BookingQuery */
+        $q = $this->useInQuery('Booking', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SalesHistory object
      *
      * @param \SalesHistory|ObjectCollection $salesHistory the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesHistory($salesHistory, $comparison = null)
+    public function filterBySalesHistory($salesHistory, ?string $comparison = null)
     {
         if ($salesHistory instanceof \SalesHistory) {
-            return $this
+            $this
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $salesHistory->getArcucustid(), $comparison)
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $salesHistory->getArstshipid(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterBySalesHistory() only accepts arguments of type \SalesHistory');
         }
@@ -4869,12 +6007,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SalesHistory relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSalesHistory($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSalesHistory(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesHistory');
@@ -4903,9 +6041,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SalesHistoryQuery A secondary query class using the current class as primary query
      */
@@ -4917,19 +6055,117 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
+     * Use the SalesHistory relation SalesHistory object
+     *
+     * @param callable(\SalesHistoryQuery):\SalesHistoryQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSalesHistoryQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSalesHistoryQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SalesHistory table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SalesHistoryQuery The inner query object of the EXISTS statement
+     */
+    public function useSalesHistoryExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SalesHistoryQuery */
+        $q = $this->useExistsQuery('SalesHistory', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesHistory table for a NOT EXISTS query.
+     *
+     * @see useSalesHistoryExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SalesHistoryQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSalesHistoryNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesHistoryQuery */
+        $q = $this->useExistsQuery('SalesHistory', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesHistory table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SalesHistoryQuery The inner query object of the IN statement
+     */
+    public function useInSalesHistoryQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SalesHistoryQuery */
+        $q = $this->useInQuery('SalesHistory', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesHistory table for a NOT IN query.
+     *
+     * @see useSalesHistoryInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SalesHistoryQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSalesHistoryQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesHistoryQuery */
+        $q = $this->useInQuery('SalesHistory', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SalesOrder object
      *
      * @param \SalesOrder|ObjectCollection $salesOrder the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesOrder($salesOrder, $comparison = null)
+    public function filterBySalesOrder($salesOrder, ?string $comparison = null)
     {
         if ($salesOrder instanceof \SalesOrder) {
-            return $this
+            $this
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $salesOrder->getArcucustid(), $comparison)
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $salesOrder->getArstshipid(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterBySalesOrder() only accepts arguments of type \SalesOrder');
         }
@@ -4938,12 +6174,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SalesOrder relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSalesOrder($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSalesOrder(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesOrder');
@@ -4972,9 +6208,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SalesOrderQuery A secondary query class using the current class as primary query
      */
@@ -4986,19 +6222,117 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
+     * Use the SalesOrder relation SalesOrder object
+     *
+     * @param callable(\SalesOrderQuery):\SalesOrderQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSalesOrderQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSalesOrderQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SalesOrder table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SalesOrderQuery The inner query object of the EXISTS statement
+     */
+    public function useSalesOrderExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SalesOrderQuery */
+        $q = $this->useExistsQuery('SalesOrder', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrder table for a NOT EXISTS query.
+     *
+     * @see useSalesOrderExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SalesOrderQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSalesOrderNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesOrderQuery */
+        $q = $this->useExistsQuery('SalesOrder', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrder table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SalesOrderQuery The inner query object of the IN statement
+     */
+    public function useInSalesOrderQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SalesOrderQuery */
+        $q = $this->useInQuery('SalesOrder', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrder table for a NOT IN query.
+     *
+     * @see useSalesOrderInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SalesOrderQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSalesOrderQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesOrderQuery */
+        $q = $this->useInQuery('SalesOrder', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SoStandingOrderDetail object
      *
      * @param \SoStandingOrderDetail|ObjectCollection $soStandingOrderDetail the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySoStandingOrderDetail($soStandingOrderDetail, $comparison = null)
+    public function filterBySoStandingOrderDetail($soStandingOrderDetail, ?string $comparison = null)
     {
         if ($soStandingOrderDetail instanceof \SoStandingOrderDetail) {
-            return $this
+            $this
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $soStandingOrderDetail->getArcucustid(), $comparison)
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $soStandingOrderDetail->getArstshipid(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterBySoStandingOrderDetail() only accepts arguments of type \SoStandingOrderDetail');
         }
@@ -5007,12 +6341,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SoStandingOrderDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSoStandingOrderDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSoStandingOrderDetail(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SoStandingOrderDetail');
@@ -5041,9 +6375,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SoStandingOrderDetailQuery A secondary query class using the current class as primary query
      */
@@ -5055,19 +6389,117 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
+     * Use the SoStandingOrderDetail relation SoStandingOrderDetail object
+     *
+     * @param callable(\SoStandingOrderDetailQuery):\SoStandingOrderDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSoStandingOrderDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSoStandingOrderDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SoStandingOrderDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SoStandingOrderDetailQuery The inner query object of the EXISTS statement
+     */
+    public function useSoStandingOrderDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SoStandingOrderDetailQuery */
+        $q = $this->useExistsQuery('SoStandingOrderDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoStandingOrderDetail table for a NOT EXISTS query.
+     *
+     * @see useSoStandingOrderDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SoStandingOrderDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSoStandingOrderDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoStandingOrderDetailQuery */
+        $q = $this->useExistsQuery('SoStandingOrderDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoStandingOrderDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SoStandingOrderDetailQuery The inner query object of the IN statement
+     */
+    public function useInSoStandingOrderDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SoStandingOrderDetailQuery */
+        $q = $this->useInQuery('SoStandingOrderDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoStandingOrderDetail table for a NOT IN query.
+     *
+     * @see useSoStandingOrderDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SoStandingOrderDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSoStandingOrderDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoStandingOrderDetailQuery */
+        $q = $this->useInQuery('SoStandingOrderDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SoStandingOrder object
      *
      * @param \SoStandingOrder|ObjectCollection $soStandingOrder the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySoStandingOrder($soStandingOrder, $comparison = null)
+    public function filterBySoStandingOrder($soStandingOrder, ?string $comparison = null)
     {
         if ($soStandingOrder instanceof \SoStandingOrder) {
-            return $this
+            $this
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $soStandingOrder->getArcucustid(), $comparison)
                 ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $soStandingOrder->getArstshipid(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterBySoStandingOrder() only accepts arguments of type \SoStandingOrder');
         }
@@ -5076,12 +6508,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SoStandingOrder relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSoStandingOrder($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSoStandingOrder(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SoStandingOrder');
@@ -5110,9 +6542,9 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SoStandingOrderQuery A secondary query class using the current class as primary query
      */
@@ -5124,11 +6556,107 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
+     * Use the SoStandingOrder relation SoStandingOrder object
+     *
+     * @param callable(\SoStandingOrderQuery):\SoStandingOrderQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSoStandingOrderQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSoStandingOrderQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SoStandingOrder table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SoStandingOrderQuery The inner query object of the EXISTS statement
+     */
+    public function useSoStandingOrderExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SoStandingOrderQuery */
+        $q = $this->useExistsQuery('SoStandingOrder', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoStandingOrder table for a NOT EXISTS query.
+     *
+     * @see useSoStandingOrderExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SoStandingOrderQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSoStandingOrderNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoStandingOrderQuery */
+        $q = $this->useExistsQuery('SoStandingOrder', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoStandingOrder table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SoStandingOrderQuery The inner query object of the IN statement
+     */
+    public function useInSoStandingOrderQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SoStandingOrderQuery */
+        $q = $this->useInQuery('SoStandingOrder', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SoStandingOrder table for a NOT IN query.
+     *
+     * @see useSoStandingOrderInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SoStandingOrderQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSoStandingOrderQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SoStandingOrderQuery */
+        $q = $this->useInQuery('SoStandingOrder', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildCustomerShipto $customerShipto Object to remove from the list of results
+     * @param ChildCustomerShipto $customerShipto Object to remove from the list of results
      *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($customerShipto = null)
     {
@@ -5147,7 +6675,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerShiptoTableMap::DATABASE_NAME);
@@ -5172,12 +6700,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerShiptoTableMap::DATABASE_NAME);
@@ -5202,4 +6730,4 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         });
     }
 
-} // CustomerShiptoQuery
+}

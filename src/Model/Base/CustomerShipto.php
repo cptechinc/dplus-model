@@ -65,19 +65,21 @@ abstract class CustomerShipto implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\CustomerShiptoTableMap';
+    public const TABLE_MAP = '\\Map\\CustomerShiptoTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -86,14 +88,14 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the arcucustid field.
@@ -114,693 +116,693 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstname field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstname;
 
     /**
      * The value for the arstadr1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstadr1;
 
     /**
      * The value for the arstadr2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstadr2;
 
     /**
      * The value for the arstadr3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstadr3;
 
     /**
      * The value for the arstctry field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstctry;
 
     /**
      * The value for the arstcity field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstcity;
 
     /**
      * The value for the arststat field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arststat;
 
     /**
      * The value for the arstzipcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstzipcode;
 
     /**
      * The value for the arstdeliverydays field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstdeliverydays;
 
     /**
      * The value for the arstcommcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstcommcode;
 
     /**
      * The value for the arstallowsplit field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstallowsplit;
 
     /**
      * The value for the arstlindstsp field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstlindstsp;
 
     /**
      * The value for the arstlmecommcustid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstlmecommcustid;
 
     /**
      * The value for the arstcatlgid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstcatlgid;
 
     /**
      * The value for the arspsaleper1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspsaleper1;
 
     /**
      * The value for the arspsaleper2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspsaleper2;
 
     /**
      * The value for the arspsaleper3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspsaleper3;
 
     /**
      * The value for the artbctaxcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artbctaxcode;
 
     /**
      * The value for the arsttaxexemnbr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arsttaxexemnbr;
 
     /**
      * The value for the intbwhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbwhse;
 
     /**
      * The value for the artbshipvia field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artbshipvia;
 
     /**
      * The value for the arstbord field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstbord;
 
     /**
      * The value for the arstcredhold field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstcredhold;
 
     /**
      * The value for the arstusercode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstusercode;
 
     /**
      * The value for the arstpriclvl field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstpriclvl;
 
     /**
      * The value for the arstshipcomp field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstshipcomp;
 
     /**
      * The value for the arsttxbl field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arsttxbl;
 
     /**
      * The value for the arstpostal field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstpostal;
 
     /**
      * The value for the arstsalemtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsalemtd;
 
     /**
      * The value for the arstinvmtd field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinvmtd;
 
     /**
      * The value for the arstdateopen field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstdateopen;
 
     /**
      * The value for the arstlastsaledate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstlastsaledate;
 
     /**
      * The value for the arstsale24mo1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo1;
 
     /**
      * The value for the arstinv24mo1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo1;
 
     /**
      * The value for the arstsale24mo2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo2;
 
     /**
      * The value for the arstinv24mo2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo2;
 
     /**
      * The value for the arstsale24mo3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo3;
 
     /**
      * The value for the arstinv24mo3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo3;
 
     /**
      * The value for the arstsale24mo4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo4;
 
     /**
      * The value for the arstinv24mo4 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo4;
 
     /**
      * The value for the arstsale24mo5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo5;
 
     /**
      * The value for the arstinv24mo5 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo5;
 
     /**
      * The value for the arstsale24mo6 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo6;
 
     /**
      * The value for the arstinv24mo6 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo6;
 
     /**
      * The value for the arstsale24mo7 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo7;
 
     /**
      * The value for the arstinv24mo7 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo7;
 
     /**
      * The value for the arstsale24mo8 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo8;
 
     /**
      * The value for the arstinv24mo8 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo8;
 
     /**
      * The value for the arstsale24mo9 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo9;
 
     /**
      * The value for the arstinv24mo9 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo9;
 
     /**
      * The value for the arstsale24mo10 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo10;
 
     /**
      * The value for the arstinv24mo10 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo10;
 
     /**
      * The value for the arstsale24mo11 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo11;
 
     /**
      * The value for the arstinv24mo11 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo11;
 
     /**
      * The value for the arstsale24mo12 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo12;
 
     /**
      * The value for the arstinv24mo12 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo12;
 
     /**
      * The value for the arstsale24mo13 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo13;
 
     /**
      * The value for the arstinv24mo13 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo13;
 
     /**
      * The value for the arstsale24mo14 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo14;
 
     /**
      * The value for the arstinv24mo14 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo14;
 
     /**
      * The value for the arstsale24mo15 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo15;
 
     /**
      * The value for the arstinv24mo15 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo15;
 
     /**
      * The value for the arstsale24mo16 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo16;
 
     /**
      * The value for the arstinv24mo16 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo16;
 
     /**
      * The value for the arstsale24mo17 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo17;
 
     /**
      * The value for the arstinv24mo17 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo17;
 
     /**
      * The value for the arstsale24mo18 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo18;
 
     /**
      * The value for the arstinv24mo18 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo18;
 
     /**
      * The value for the arstsale24mo19 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo19;
 
     /**
      * The value for the arstinv24mo19 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo19;
 
     /**
      * The value for the arstsale24mo20 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo20;
 
     /**
      * The value for the arstinv24mo20 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo20;
 
     /**
      * The value for the arstsale24mo21 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo21;
 
     /**
      * The value for the arstinv24mo21 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo21;
 
     /**
      * The value for the arstsale24mo22 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo22;
 
     /**
      * The value for the arstinv24mo22 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo22;
 
     /**
      * The value for the arstsale24mo23 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo23;
 
     /**
      * The value for the arstinv24mo23 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo23;
 
     /**
      * The value for the arstsale24mo24 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsale24mo24;
 
     /**
      * The value for the arstinv24mo24 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinv24mo24;
 
     /**
      * The value for the arstprimshipid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstprimshipid;
 
     /**
      * The value for the arstmyvendid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstmyvendid;
 
     /**
      * The value for the arstaddlpricdisc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstaddlpricdisc;
 
     /**
      * The value for the arstediinvc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstediinvc;
 
     /**
      * The value for the arstchrgfrt field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstchrgfrt;
 
     /**
      * The value for the arstdistcntr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstdistcntr;
 
     /**
      * The value for the arstdunsnbr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstdunsnbr;
 
     /**
      * The value for the arstrfmlvalu field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstrfmlvalu;
 
     /**
      * The value for the arstcustpoparam field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstcustpoparam;
 
     /**
      * The value for the artbroutcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artbroutcode;
 
     /**
      * The value for the arstupsacctnbr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstupsacctnbr;
 
     /**
      * The value for the arstfobinputyn field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstfobinputyn;
 
     /**
      * The value for the arstfobperlb field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstfobperlb;
 
     /**
      * The value for the arstsaleytd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstsaleytd;
 
     /**
      * The value for the arstinvytd field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $arstinvytd;
 
     /**
      * The value for the arstemailfaxauthcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstemailfaxauthcode;
 
     /**
      * The value for the dateupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dateupdtd;
 
     /**
      * The value for the timeupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $timeupdtd;
 
     /**
      * The value for the dummy field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
@@ -811,60 +813,70 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * @var        ObjectCollection|ChildArContact[] Collection to store aggregation of ChildArContact objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildArContact> Collection to store aggregation of ChildArContact objects.
      */
     protected $collArContacts;
     protected $collArContactsPartial;
 
     /**
      * @var        ObjectCollection|ChildInvTransferOrder[] Collection to store aggregation of ChildInvTransferOrder objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferOrder> Collection to store aggregation of ChildInvTransferOrder objects.
      */
     protected $collInvTransferOrders;
     protected $collInvTransferOrdersPartial;
 
     /**
      * @var        ObjectCollection|ChildNoteCustInternal[] Collection to store aggregation of ChildNoteCustInternal objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildNoteCustInternal> Collection to store aggregation of ChildNoteCustInternal objects.
      */
     protected $collNoteCustInternals;
     protected $collNoteCustInternalsPartial;
 
     /**
      * @var        ObjectCollection|ChildNoteCustOrder[] Collection to store aggregation of ChildNoteCustOrder objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildNoteCustOrder> Collection to store aggregation of ChildNoteCustOrder objects.
      */
     protected $collNoteCustOrders;
     protected $collNoteCustOrdersPartial;
 
     /**
      * @var        ObjectCollection|ChildBookingDayCustomer[] Collection to store aggregation of ChildBookingDayCustomer objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayCustomer> Collection to store aggregation of ChildBookingDayCustomer objects.
      */
     protected $collBookingDayCustomers;
     protected $collBookingDayCustomersPartial;
 
     /**
      * @var        ObjectCollection|ChildBookingDayDetail[] Collection to store aggregation of ChildBookingDayDetail objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayDetail> Collection to store aggregation of ChildBookingDayDetail objects.
      */
     protected $collBookingDayDetails;
     protected $collBookingDayDetailsPartial;
 
     /**
      * @var        ObjectCollection|ChildBooking[] Collection to store aggregation of ChildBooking objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildBooking> Collection to store aggregation of ChildBooking objects.
      */
     protected $collBookings;
     protected $collBookingsPartial;
 
     /**
      * @var        ObjectCollection|ChildSalesHistory[] Collection to store aggregation of ChildSalesHistory objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesHistory> Collection to store aggregation of ChildSalesHistory objects.
      */
     protected $collSalesHistories;
     protected $collSalesHistoriesPartial;
 
     /**
      * @var        ObjectCollection|ChildSalesOrder[] Collection to store aggregation of ChildSalesOrder objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrder> Collection to store aggregation of ChildSalesOrder objects.
      */
     protected $collSalesOrders;
     protected $collSalesOrdersPartial;
 
     /**
      * @var        ObjectCollection|ChildSoStandingOrderDetail[] Collection to store aggregation of ChildSoStandingOrderDetail objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSoStandingOrderDetail> Collection to store aggregation of ChildSoStandingOrderDetail objects.
      */
     protected $collSoStandingOrderDetails;
     protected $collSoStandingOrderDetailsPartial;
@@ -878,67 +890,77 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildArContact[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildArContact>
      */
     protected $arContactsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferOrder[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferOrder>
      */
     protected $invTransferOrdersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildNoteCustInternal[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildNoteCustInternal>
      */
     protected $noteCustInternalsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildNoteCustOrder[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildNoteCustOrder>
      */
     protected $noteCustOrdersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBookingDayCustomer[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayCustomer>
      */
     protected $bookingDayCustomersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBookingDayDetail[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayDetail>
      */
     protected $bookingDayDetailsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBooking[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildBooking>
      */
     protected $bookingsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesHistory[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesHistory>
      */
     protected $salesHistoriesScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesOrder[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrder>
      */
     protected $salesOrdersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSoStandingOrderDetail[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSoStandingOrderDetail>
      */
     protected $soStandingOrderDetailsScheduledForDeletion = null;
 
@@ -948,7 +970,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->arcucustid = '';
         $this->arstshipid = '';
@@ -966,9 +988,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -976,10 +998,10 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -988,7 +1010,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -998,9 +1020,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -1009,45 +1031,43 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -1056,10 +1076,10 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>CustomerShipto</code>, delegates to
      * <code>equals(CustomerShipto)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -1081,7 +1101,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -1089,10 +1109,10 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -1100,15 +1120,15 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -1117,12 +1137,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|CustomerShipto The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -1132,13 +1152,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -1149,24 +1169,27 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -1204,7 +1227,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstname] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstname()
     {
@@ -1214,7 +1237,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstadr1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstadr1()
     {
@@ -1224,7 +1247,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstadr2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstadr2()
     {
@@ -1234,7 +1257,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstadr3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstadr3()
     {
@@ -1244,7 +1267,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstctry] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstctry()
     {
@@ -1254,7 +1277,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstcity] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstcity()
     {
@@ -1264,7 +1287,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arststat] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArststat()
     {
@@ -1274,7 +1297,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstzipcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstzipcode()
     {
@@ -1284,7 +1307,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstdeliverydays] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstdeliverydays()
     {
@@ -1294,7 +1317,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstcommcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstcommcode()
     {
@@ -1304,7 +1327,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstallowsplit] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstallowsplit()
     {
@@ -1314,7 +1337,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstlindstsp] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstlindstsp()
     {
@@ -1324,7 +1347,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstlmecommcustid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstlmecommcustid()
     {
@@ -1334,7 +1357,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstcatlgid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstcatlgid()
     {
@@ -1344,7 +1367,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arspsaleper1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspsaleper1()
     {
@@ -1354,7 +1377,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arspsaleper2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspsaleper2()
     {
@@ -1364,7 +1387,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arspsaleper3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspsaleper3()
     {
@@ -1374,7 +1397,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [artbctaxcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtbctaxcode()
     {
@@ -1384,7 +1407,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arsttaxexemnbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArsttaxexemnbr()
     {
@@ -1394,7 +1417,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [intbwhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbwhse()
     {
@@ -1404,7 +1427,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [artbshipvia] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtbshipvia()
     {
@@ -1414,7 +1437,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstbord] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstbord()
     {
@@ -1424,7 +1447,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstcredhold] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstcredhold()
     {
@@ -1434,7 +1457,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstusercode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstusercode()
     {
@@ -1444,7 +1467,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstpriclvl] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstpriclvl()
     {
@@ -1454,7 +1477,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstshipcomp] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstshipcomp()
     {
@@ -1464,7 +1487,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arsttxbl] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArsttxbl()
     {
@@ -1474,7 +1497,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstpostal] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstpostal()
     {
@@ -1484,7 +1507,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsalemtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsalemtd()
     {
@@ -1494,7 +1517,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinvmtd] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinvmtd()
     {
@@ -1504,7 +1527,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstdateopen] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstdateopen()
     {
@@ -1514,7 +1537,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstlastsaledate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstlastsaledate()
     {
@@ -1524,7 +1547,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo1()
     {
@@ -1534,7 +1557,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo1()
     {
@@ -1544,7 +1567,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo2()
     {
@@ -1554,7 +1577,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo2()
     {
@@ -1564,7 +1587,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo3()
     {
@@ -1574,7 +1597,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo3()
     {
@@ -1584,7 +1607,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo4()
     {
@@ -1594,7 +1617,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo4] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo4()
     {
@@ -1604,7 +1627,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo5()
     {
@@ -1614,7 +1637,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo5] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo5()
     {
@@ -1624,7 +1647,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo6] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo6()
     {
@@ -1634,7 +1657,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo6] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo6()
     {
@@ -1644,7 +1667,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo7] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo7()
     {
@@ -1654,7 +1677,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo7] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo7()
     {
@@ -1664,7 +1687,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo8] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo8()
     {
@@ -1674,7 +1697,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo8] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo8()
     {
@@ -1684,7 +1707,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo9] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo9()
     {
@@ -1694,7 +1717,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo9] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo9()
     {
@@ -1704,7 +1727,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo10] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo10()
     {
@@ -1714,7 +1737,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo10] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo10()
     {
@@ -1724,7 +1747,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo11] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo11()
     {
@@ -1734,7 +1757,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo11] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo11()
     {
@@ -1744,7 +1767,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo12] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo12()
     {
@@ -1754,7 +1777,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo12] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo12()
     {
@@ -1764,7 +1787,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo13] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo13()
     {
@@ -1774,7 +1797,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo13] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo13()
     {
@@ -1784,7 +1807,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo14] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo14()
     {
@@ -1794,7 +1817,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo14] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo14()
     {
@@ -1804,7 +1827,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo15] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo15()
     {
@@ -1814,7 +1837,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo15] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo15()
     {
@@ -1824,7 +1847,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo16] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo16()
     {
@@ -1834,7 +1857,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo16] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo16()
     {
@@ -1844,7 +1867,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo17] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo17()
     {
@@ -1854,7 +1877,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo17] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo17()
     {
@@ -1864,7 +1887,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo18] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo18()
     {
@@ -1874,7 +1897,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo18] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo18()
     {
@@ -1884,7 +1907,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo19] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo19()
     {
@@ -1894,7 +1917,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo19] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo19()
     {
@@ -1904,7 +1927,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo20] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo20()
     {
@@ -1914,7 +1937,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo20] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo20()
     {
@@ -1924,7 +1947,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo21] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo21()
     {
@@ -1934,7 +1957,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo21] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo21()
     {
@@ -1944,7 +1967,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo22] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo22()
     {
@@ -1954,7 +1977,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo22] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo22()
     {
@@ -1964,7 +1987,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo23] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo23()
     {
@@ -1974,7 +1997,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo23] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo23()
     {
@@ -1984,7 +2007,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsale24mo24] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsale24mo24()
     {
@@ -1994,7 +2017,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo24] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinv24mo24()
     {
@@ -2004,7 +2027,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstprimshipid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstprimshipid()
     {
@@ -2014,7 +2037,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstmyvendid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstmyvendid()
     {
@@ -2024,7 +2047,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstaddlpricdisc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstaddlpricdisc()
     {
@@ -2034,7 +2057,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstediinvc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstediinvc()
     {
@@ -2044,7 +2067,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstchrgfrt] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstchrgfrt()
     {
@@ -2054,7 +2077,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstdistcntr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstdistcntr()
     {
@@ -2064,7 +2087,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstdunsnbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstdunsnbr()
     {
@@ -2074,7 +2097,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstrfmlvalu] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstrfmlvalu()
     {
@@ -2084,7 +2107,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstcustpoparam] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstcustpoparam()
     {
@@ -2094,7 +2117,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [artbroutcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtbroutcode()
     {
@@ -2104,7 +2127,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstupsacctnbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstupsacctnbr()
     {
@@ -2114,7 +2137,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstfobinputyn] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstfobinputyn()
     {
@@ -2124,7 +2147,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstfobperlb] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstfobperlb()
     {
@@ -2134,7 +2157,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstsaleytd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstsaleytd()
     {
@@ -2144,7 +2167,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinvytd] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArstinvytd()
     {
@@ -2154,7 +2177,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstemailfaxauthcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstemailfaxauthcode()
     {
@@ -2164,7 +2187,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [dateupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDateupdtd()
     {
@@ -2174,7 +2197,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [timeupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTimeupdtd()
     {
@@ -2184,7 +2207,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -2194,8 +2217,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arcucustid] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArcucustid($v)
     {
@@ -2213,13 +2236,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArcucustid()
+    }
 
     /**
      * Set the value of [arstshipid] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstshipid($v)
     {
@@ -2233,13 +2256,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstshipid()
+    }
 
     /**
      * Set the value of [arstname] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstname($v)
     {
@@ -2253,13 +2276,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstname()
+    }
 
     /**
      * Set the value of [arstadr1] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstadr1($v)
     {
@@ -2273,13 +2296,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstadr1()
+    }
 
     /**
      * Set the value of [arstadr2] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstadr2($v)
     {
@@ -2293,13 +2316,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstadr2()
+    }
 
     /**
      * Set the value of [arstadr3] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstadr3($v)
     {
@@ -2313,13 +2336,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstadr3()
+    }
 
     /**
      * Set the value of [arstctry] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstctry($v)
     {
@@ -2333,13 +2356,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstctry()
+    }
 
     /**
      * Set the value of [arstcity] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstcity($v)
     {
@@ -2353,13 +2376,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstcity()
+    }
 
     /**
      * Set the value of [arststat] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArststat($v)
     {
@@ -2373,13 +2396,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArststat()
+    }
 
     /**
      * Set the value of [arstzipcode] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstzipcode($v)
     {
@@ -2393,13 +2416,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstzipcode()
+    }
 
     /**
      * Set the value of [arstdeliverydays] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstdeliverydays($v)
     {
@@ -2413,13 +2436,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstdeliverydays()
+    }
 
     /**
      * Set the value of [arstcommcode] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstcommcode($v)
     {
@@ -2433,13 +2456,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstcommcode()
+    }
 
     /**
      * Set the value of [arstallowsplit] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstallowsplit($v)
     {
@@ -2453,13 +2476,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstallowsplit()
+    }
 
     /**
      * Set the value of [arstlindstsp] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstlindstsp($v)
     {
@@ -2473,13 +2496,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstlindstsp()
+    }
 
     /**
      * Set the value of [arstlmecommcustid] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstlmecommcustid($v)
     {
@@ -2493,13 +2516,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstlmecommcustid()
+    }
 
     /**
      * Set the value of [arstcatlgid] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstcatlgid($v)
     {
@@ -2513,13 +2536,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstcatlgid()
+    }
 
     /**
      * Set the value of [arspsaleper1] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspsaleper1($v)
     {
@@ -2533,13 +2556,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspsaleper1()
+    }
 
     /**
      * Set the value of [arspsaleper2] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspsaleper2($v)
     {
@@ -2553,13 +2576,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspsaleper2()
+    }
 
     /**
      * Set the value of [arspsaleper3] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspsaleper3($v)
     {
@@ -2573,13 +2596,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspsaleper3()
+    }
 
     /**
      * Set the value of [artbctaxcode] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbctaxcode($v)
     {
@@ -2593,13 +2616,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbctaxcode()
+    }
 
     /**
      * Set the value of [arsttaxexemnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArsttaxexemnbr($v)
     {
@@ -2613,13 +2636,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArsttaxexemnbr()
+    }
 
     /**
      * Set the value of [intbwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhse($v)
     {
@@ -2633,13 +2656,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhse()
+    }
 
     /**
      * Set the value of [artbshipvia] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbshipvia($v)
     {
@@ -2653,13 +2676,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbshipvia()
+    }
 
     /**
      * Set the value of [arstbord] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstbord($v)
     {
@@ -2673,13 +2696,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstbord()
+    }
 
     /**
      * Set the value of [arstcredhold] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstcredhold($v)
     {
@@ -2693,13 +2716,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstcredhold()
+    }
 
     /**
      * Set the value of [arstusercode] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstusercode($v)
     {
@@ -2713,13 +2736,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstusercode()
+    }
 
     /**
      * Set the value of [arstpriclvl] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstpriclvl($v)
     {
@@ -2733,13 +2756,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstpriclvl()
+    }
 
     /**
      * Set the value of [arstshipcomp] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstshipcomp($v)
     {
@@ -2753,13 +2776,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstshipcomp()
+    }
 
     /**
      * Set the value of [arsttxbl] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArsttxbl($v)
     {
@@ -2773,13 +2796,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArsttxbl()
+    }
 
     /**
      * Set the value of [arstpostal] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstpostal($v)
     {
@@ -2793,13 +2816,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstpostal()
+    }
 
     /**
      * Set the value of [arstsalemtd] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsalemtd($v)
     {
@@ -2813,13 +2836,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsalemtd()
+    }
 
     /**
      * Set the value of [arstinvmtd] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinvmtd($v)
     {
@@ -2833,13 +2856,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinvmtd()
+    }
 
     /**
      * Set the value of [arstdateopen] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstdateopen($v)
     {
@@ -2853,13 +2876,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstdateopen()
+    }
 
     /**
      * Set the value of [arstlastsaledate] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstlastsaledate($v)
     {
@@ -2873,13 +2896,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstlastsaledate()
+    }
 
     /**
      * Set the value of [arstsale24mo1] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo1($v)
     {
@@ -2893,13 +2916,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo1()
+    }
 
     /**
      * Set the value of [arstinv24mo1] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo1($v)
     {
@@ -2913,13 +2936,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo1()
+    }
 
     /**
      * Set the value of [arstsale24mo2] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo2($v)
     {
@@ -2933,13 +2956,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo2()
+    }
 
     /**
      * Set the value of [arstinv24mo2] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo2($v)
     {
@@ -2953,13 +2976,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo2()
+    }
 
     /**
      * Set the value of [arstsale24mo3] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo3($v)
     {
@@ -2973,13 +2996,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo3()
+    }
 
     /**
      * Set the value of [arstinv24mo3] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo3($v)
     {
@@ -2993,13 +3016,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo3()
+    }
 
     /**
      * Set the value of [arstsale24mo4] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo4($v)
     {
@@ -3013,13 +3036,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo4()
+    }
 
     /**
      * Set the value of [arstinv24mo4] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo4($v)
     {
@@ -3033,13 +3056,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo4()
+    }
 
     /**
      * Set the value of [arstsale24mo5] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo5($v)
     {
@@ -3053,13 +3076,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo5()
+    }
 
     /**
      * Set the value of [arstinv24mo5] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo5($v)
     {
@@ -3073,13 +3096,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo5()
+    }
 
     /**
      * Set the value of [arstsale24mo6] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo6($v)
     {
@@ -3093,13 +3116,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo6()
+    }
 
     /**
      * Set the value of [arstinv24mo6] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo6($v)
     {
@@ -3113,13 +3136,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo6()
+    }
 
     /**
      * Set the value of [arstsale24mo7] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo7($v)
     {
@@ -3133,13 +3156,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo7()
+    }
 
     /**
      * Set the value of [arstinv24mo7] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo7($v)
     {
@@ -3153,13 +3176,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo7()
+    }
 
     /**
      * Set the value of [arstsale24mo8] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo8($v)
     {
@@ -3173,13 +3196,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo8()
+    }
 
     /**
      * Set the value of [arstinv24mo8] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo8($v)
     {
@@ -3193,13 +3216,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo8()
+    }
 
     /**
      * Set the value of [arstsale24mo9] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo9($v)
     {
@@ -3213,13 +3236,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo9()
+    }
 
     /**
      * Set the value of [arstinv24mo9] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo9($v)
     {
@@ -3233,13 +3256,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo9()
+    }
 
     /**
      * Set the value of [arstsale24mo10] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo10($v)
     {
@@ -3253,13 +3276,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo10()
+    }
 
     /**
      * Set the value of [arstinv24mo10] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo10($v)
     {
@@ -3273,13 +3296,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo10()
+    }
 
     /**
      * Set the value of [arstsale24mo11] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo11($v)
     {
@@ -3293,13 +3316,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo11()
+    }
 
     /**
      * Set the value of [arstinv24mo11] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo11($v)
     {
@@ -3313,13 +3336,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo11()
+    }
 
     /**
      * Set the value of [arstsale24mo12] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo12($v)
     {
@@ -3333,13 +3356,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo12()
+    }
 
     /**
      * Set the value of [arstinv24mo12] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo12($v)
     {
@@ -3353,13 +3376,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo12()
+    }
 
     /**
      * Set the value of [arstsale24mo13] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo13($v)
     {
@@ -3373,13 +3396,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo13()
+    }
 
     /**
      * Set the value of [arstinv24mo13] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo13($v)
     {
@@ -3393,13 +3416,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo13()
+    }
 
     /**
      * Set the value of [arstsale24mo14] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo14($v)
     {
@@ -3413,13 +3436,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo14()
+    }
 
     /**
      * Set the value of [arstinv24mo14] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo14($v)
     {
@@ -3433,13 +3456,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo14()
+    }
 
     /**
      * Set the value of [arstsale24mo15] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo15($v)
     {
@@ -3453,13 +3476,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo15()
+    }
 
     /**
      * Set the value of [arstinv24mo15] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo15($v)
     {
@@ -3473,13 +3496,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo15()
+    }
 
     /**
      * Set the value of [arstsale24mo16] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo16($v)
     {
@@ -3493,13 +3516,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo16()
+    }
 
     /**
      * Set the value of [arstinv24mo16] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo16($v)
     {
@@ -3513,13 +3536,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo16()
+    }
 
     /**
      * Set the value of [arstsale24mo17] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo17($v)
     {
@@ -3533,13 +3556,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo17()
+    }
 
     /**
      * Set the value of [arstinv24mo17] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo17($v)
     {
@@ -3553,13 +3576,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo17()
+    }
 
     /**
      * Set the value of [arstsale24mo18] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo18($v)
     {
@@ -3573,13 +3596,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo18()
+    }
 
     /**
      * Set the value of [arstinv24mo18] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo18($v)
     {
@@ -3593,13 +3616,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo18()
+    }
 
     /**
      * Set the value of [arstsale24mo19] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo19($v)
     {
@@ -3613,13 +3636,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo19()
+    }
 
     /**
      * Set the value of [arstinv24mo19] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo19($v)
     {
@@ -3633,13 +3656,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo19()
+    }
 
     /**
      * Set the value of [arstsale24mo20] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo20($v)
     {
@@ -3653,13 +3676,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo20()
+    }
 
     /**
      * Set the value of [arstinv24mo20] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo20($v)
     {
@@ -3673,13 +3696,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo20()
+    }
 
     /**
      * Set the value of [arstsale24mo21] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo21($v)
     {
@@ -3693,13 +3716,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo21()
+    }
 
     /**
      * Set the value of [arstinv24mo21] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo21($v)
     {
@@ -3713,13 +3736,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo21()
+    }
 
     /**
      * Set the value of [arstsale24mo22] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo22($v)
     {
@@ -3733,13 +3756,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo22()
+    }
 
     /**
      * Set the value of [arstinv24mo22] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo22($v)
     {
@@ -3753,13 +3776,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo22()
+    }
 
     /**
      * Set the value of [arstsale24mo23] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo23($v)
     {
@@ -3773,13 +3796,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo23()
+    }
 
     /**
      * Set the value of [arstinv24mo23] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo23($v)
     {
@@ -3793,13 +3816,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo23()
+    }
 
     /**
      * Set the value of [arstsale24mo24] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsale24mo24($v)
     {
@@ -3813,13 +3836,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsale24mo24()
+    }
 
     /**
      * Set the value of [arstinv24mo24] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinv24mo24($v)
     {
@@ -3833,13 +3856,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinv24mo24()
+    }
 
     /**
      * Set the value of [arstprimshipid] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstprimshipid($v)
     {
@@ -3853,13 +3876,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstprimshipid()
+    }
 
     /**
      * Set the value of [arstmyvendid] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstmyvendid($v)
     {
@@ -3873,13 +3896,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstmyvendid()
+    }
 
     /**
      * Set the value of [arstaddlpricdisc] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstaddlpricdisc($v)
     {
@@ -3893,13 +3916,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstaddlpricdisc()
+    }
 
     /**
      * Set the value of [arstediinvc] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstediinvc($v)
     {
@@ -3913,13 +3936,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstediinvc()
+    }
 
     /**
      * Set the value of [arstchrgfrt] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstchrgfrt($v)
     {
@@ -3933,13 +3956,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstchrgfrt()
+    }
 
     /**
      * Set the value of [arstdistcntr] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstdistcntr($v)
     {
@@ -3953,13 +3976,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstdistcntr()
+    }
 
     /**
      * Set the value of [arstdunsnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstdunsnbr($v)
     {
@@ -3973,13 +3996,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstdunsnbr()
+    }
 
     /**
      * Set the value of [arstrfmlvalu] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstrfmlvalu($v)
     {
@@ -3993,13 +4016,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstrfmlvalu()
+    }
 
     /**
      * Set the value of [arstcustpoparam] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstcustpoparam($v)
     {
@@ -4013,13 +4036,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstcustpoparam()
+    }
 
     /**
      * Set the value of [artbroutcode] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbroutcode($v)
     {
@@ -4033,13 +4056,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbroutcode()
+    }
 
     /**
      * Set the value of [arstupsacctnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstupsacctnbr($v)
     {
@@ -4053,13 +4076,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstupsacctnbr()
+    }
 
     /**
      * Set the value of [arstfobinputyn] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstfobinputyn($v)
     {
@@ -4073,13 +4096,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstfobinputyn()
+    }
 
     /**
      * Set the value of [arstfobperlb] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstfobperlb($v)
     {
@@ -4093,13 +4116,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstfobperlb()
+    }
 
     /**
      * Set the value of [arstsaleytd] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstsaleytd($v)
     {
@@ -4113,13 +4136,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstsaleytd()
+    }
 
     /**
      * Set the value of [arstinvytd] column.
      *
-     * @param int $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstinvytd($v)
     {
@@ -4133,13 +4156,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstinvytd()
+    }
 
     /**
      * Set the value of [arstemailfaxauthcode] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstemailfaxauthcode($v)
     {
@@ -4153,13 +4176,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstemailfaxauthcode()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -4173,13 +4196,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -4193,13 +4216,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -4213,7 +4236,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -4221,9 +4244,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->arcucustid !== '') {
                 return false;
@@ -4235,7 +4258,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -4245,17 +4268,17 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -4561,8 +4584,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : CustomerShiptoTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -4587,26 +4610,27 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
         if ($this->aCustomer !== null && $this->arcucustid !== $this->aCustomer->getArcucustid()) {
             $this->aCustomer = null;
         }
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -4662,13 +4686,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see CustomerShipto::setDeleted()
      * @see CustomerShipto::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -4698,12 +4722,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -4748,12 +4772,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -4966,19 +4990,19 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -5299,306 +5323,407 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'ArcuCustId':
                         $stmt->bindValue($identifier, $this->arcucustid, PDO::PARAM_STR);
+
                         break;
                     case 'ArstShipId':
                         $stmt->bindValue($identifier, $this->arstshipid, PDO::PARAM_STR);
+
                         break;
                     case 'ArstName':
                         $stmt->bindValue($identifier, $this->arstname, PDO::PARAM_STR);
+
                         break;
                     case 'ArstAdr1':
                         $stmt->bindValue($identifier, $this->arstadr1, PDO::PARAM_STR);
+
                         break;
                     case 'ArstAdr2':
                         $stmt->bindValue($identifier, $this->arstadr2, PDO::PARAM_STR);
+
                         break;
                     case 'ArstAdr3':
                         $stmt->bindValue($identifier, $this->arstadr3, PDO::PARAM_STR);
+
                         break;
                     case 'ArstCtry':
                         $stmt->bindValue($identifier, $this->arstctry, PDO::PARAM_STR);
+
                         break;
                     case 'ArstCity':
                         $stmt->bindValue($identifier, $this->arstcity, PDO::PARAM_STR);
+
                         break;
                     case 'ArstStat':
                         $stmt->bindValue($identifier, $this->arststat, PDO::PARAM_STR);
+
                         break;
                     case 'ArstZipCode':
                         $stmt->bindValue($identifier, $this->arstzipcode, PDO::PARAM_STR);
+
                         break;
                     case 'ArstDeliveryDays':
                         $stmt->bindValue($identifier, $this->arstdeliverydays, PDO::PARAM_INT);
+
                         break;
                     case 'ArstCommCode':
                         $stmt->bindValue($identifier, $this->arstcommcode, PDO::PARAM_STR);
+
                         break;
                     case 'ArstAllowSplit':
                         $stmt->bindValue($identifier, $this->arstallowsplit, PDO::PARAM_STR);
+
                         break;
                     case 'ArstLindstSp':
                         $stmt->bindValue($identifier, $this->arstlindstsp, PDO::PARAM_STR);
+
                         break;
                     case 'ArstLmEcommCustId':
                         $stmt->bindValue($identifier, $this->arstlmecommcustid, PDO::PARAM_STR);
+
                         break;
                     case 'ArstCatlgId':
                         $stmt->bindValue($identifier, $this->arstcatlgid, PDO::PARAM_STR);
+
                         break;
                     case 'ArspSalePer1':
                         $stmt->bindValue($identifier, $this->arspsaleper1, PDO::PARAM_STR);
+
                         break;
                     case 'ArspSalePer2':
                         $stmt->bindValue($identifier, $this->arspsaleper2, PDO::PARAM_STR);
+
                         break;
                     case 'ArspSalePer3':
                         $stmt->bindValue($identifier, $this->arspsaleper3, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCtaxCode':
                         $stmt->bindValue($identifier, $this->artbctaxcode, PDO::PARAM_STR);
+
                         break;
                     case 'ArstTaxExemNbr':
                         $stmt->bindValue($identifier, $this->arsttaxexemnbr, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhse':
                         $stmt->bindValue($identifier, $this->intbwhse, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbShipVia':
                         $stmt->bindValue($identifier, $this->artbshipvia, PDO::PARAM_STR);
+
                         break;
                     case 'ArstBord':
                         $stmt->bindValue($identifier, $this->arstbord, PDO::PARAM_STR);
+
                         break;
                     case 'ArstCredHold':
                         $stmt->bindValue($identifier, $this->arstcredhold, PDO::PARAM_STR);
+
                         break;
                     case 'ArstUserCode':
                         $stmt->bindValue($identifier, $this->arstusercode, PDO::PARAM_STR);
+
                         break;
                     case 'ArstPricLvl':
                         $stmt->bindValue($identifier, $this->arstpriclvl, PDO::PARAM_STR);
+
                         break;
                     case 'ArstShipComp':
                         $stmt->bindValue($identifier, $this->arstshipcomp, PDO::PARAM_STR);
+
                         break;
                     case 'ArstTxbl':
                         $stmt->bindValue($identifier, $this->arsttxbl, PDO::PARAM_STR);
+
                         break;
                     case 'ArstPostal':
                         $stmt->bindValue($identifier, $this->arstpostal, PDO::PARAM_STR);
+
                         break;
                     case 'ArstSaleMtd':
                         $stmt->bindValue($identifier, $this->arstsalemtd, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInvMtd':
                         $stmt->bindValue($identifier, $this->arstinvmtd, PDO::PARAM_INT);
+
                         break;
                     case 'ArstDateOpen':
                         $stmt->bindValue($identifier, $this->arstdateopen, PDO::PARAM_STR);
+
                         break;
                     case 'ArstLastSaleDate':
                         $stmt->bindValue($identifier, $this->arstlastsaledate, PDO::PARAM_STR);
+
                         break;
                     case 'ArstSale24mo1':
                         $stmt->bindValue($identifier, $this->arstsale24mo1, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo1':
                         $stmt->bindValue($identifier, $this->arstinv24mo1, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo2':
                         $stmt->bindValue($identifier, $this->arstsale24mo2, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo2':
                         $stmt->bindValue($identifier, $this->arstinv24mo2, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo3':
                         $stmt->bindValue($identifier, $this->arstsale24mo3, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo3':
                         $stmt->bindValue($identifier, $this->arstinv24mo3, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo4':
                         $stmt->bindValue($identifier, $this->arstsale24mo4, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo4':
                         $stmt->bindValue($identifier, $this->arstinv24mo4, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo5':
                         $stmt->bindValue($identifier, $this->arstsale24mo5, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo5':
                         $stmt->bindValue($identifier, $this->arstinv24mo5, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo6':
                         $stmt->bindValue($identifier, $this->arstsale24mo6, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo6':
                         $stmt->bindValue($identifier, $this->arstinv24mo6, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo7':
                         $stmt->bindValue($identifier, $this->arstsale24mo7, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo7':
                         $stmt->bindValue($identifier, $this->arstinv24mo7, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo8':
                         $stmt->bindValue($identifier, $this->arstsale24mo8, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo8':
                         $stmt->bindValue($identifier, $this->arstinv24mo8, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo9':
                         $stmt->bindValue($identifier, $this->arstsale24mo9, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo9':
                         $stmt->bindValue($identifier, $this->arstinv24mo9, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo10':
                         $stmt->bindValue($identifier, $this->arstsale24mo10, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo10':
                         $stmt->bindValue($identifier, $this->arstinv24mo10, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo11':
                         $stmt->bindValue($identifier, $this->arstsale24mo11, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo11':
                         $stmt->bindValue($identifier, $this->arstinv24mo11, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo12':
                         $stmt->bindValue($identifier, $this->arstsale24mo12, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo12':
                         $stmt->bindValue($identifier, $this->arstinv24mo12, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo13':
                         $stmt->bindValue($identifier, $this->arstsale24mo13, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo13':
                         $stmt->bindValue($identifier, $this->arstinv24mo13, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo14':
                         $stmt->bindValue($identifier, $this->arstsale24mo14, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo14':
                         $stmt->bindValue($identifier, $this->arstinv24mo14, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo15':
                         $stmt->bindValue($identifier, $this->arstsale24mo15, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo15':
                         $stmt->bindValue($identifier, $this->arstinv24mo15, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo16':
                         $stmt->bindValue($identifier, $this->arstsale24mo16, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo16':
                         $stmt->bindValue($identifier, $this->arstinv24mo16, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo17':
                         $stmt->bindValue($identifier, $this->arstsale24mo17, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo17':
                         $stmt->bindValue($identifier, $this->arstinv24mo17, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo18':
                         $stmt->bindValue($identifier, $this->arstsale24mo18, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo18':
                         $stmt->bindValue($identifier, $this->arstinv24mo18, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo19':
                         $stmt->bindValue($identifier, $this->arstsale24mo19, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo19':
                         $stmt->bindValue($identifier, $this->arstinv24mo19, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo20':
                         $stmt->bindValue($identifier, $this->arstsale24mo20, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo20':
                         $stmt->bindValue($identifier, $this->arstinv24mo20, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo21':
                         $stmt->bindValue($identifier, $this->arstsale24mo21, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo21':
                         $stmt->bindValue($identifier, $this->arstinv24mo21, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo22':
                         $stmt->bindValue($identifier, $this->arstsale24mo22, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo22':
                         $stmt->bindValue($identifier, $this->arstinv24mo22, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo23':
                         $stmt->bindValue($identifier, $this->arstsale24mo23, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo23':
                         $stmt->bindValue($identifier, $this->arstinv24mo23, PDO::PARAM_INT);
+
                         break;
                     case 'ArstSale24mo24':
                         $stmt->bindValue($identifier, $this->arstsale24mo24, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInv24mo24':
                         $stmt->bindValue($identifier, $this->arstinv24mo24, PDO::PARAM_INT);
+
                         break;
                     case 'ArstPrimShipId':
                         $stmt->bindValue($identifier, $this->arstprimshipid, PDO::PARAM_STR);
+
                         break;
                     case 'ArstMyVendId':
                         $stmt->bindValue($identifier, $this->arstmyvendid, PDO::PARAM_STR);
+
                         break;
                     case 'ArstAddlPricDisc':
                         $stmt->bindValue($identifier, $this->arstaddlpricdisc, PDO::PARAM_STR);
+
                         break;
                     case 'ArstEdiInvc':
                         $stmt->bindValue($identifier, $this->arstediinvc, PDO::PARAM_STR);
+
                         break;
                     case 'ArstChrgFrt':
                         $stmt->bindValue($identifier, $this->arstchrgfrt, PDO::PARAM_STR);
+
                         break;
                     case 'ArstDistCntr':
                         $stmt->bindValue($identifier, $this->arstdistcntr, PDO::PARAM_STR);
+
                         break;
                     case 'ArstDunsNbr':
                         $stmt->bindValue($identifier, $this->arstdunsnbr, PDO::PARAM_STR);
+
                         break;
                     case 'ArstRfmlValu':
                         $stmt->bindValue($identifier, $this->arstrfmlvalu, PDO::PARAM_INT);
+
                         break;
                     case 'ArstCustPoParam':
                         $stmt->bindValue($identifier, $this->arstcustpoparam, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbRoutCode':
                         $stmt->bindValue($identifier, $this->artbroutcode, PDO::PARAM_STR);
+
                         break;
                     case 'ArstUpsAcctNbr':
                         $stmt->bindValue($identifier, $this->arstupsacctnbr, PDO::PARAM_STR);
+
                         break;
                     case 'ArstFobInputYn':
                         $stmt->bindValue($identifier, $this->arstfobinputyn, PDO::PARAM_STR);
+
                         break;
                     case 'ArstFobPerLb':
                         $stmt->bindValue($identifier, $this->arstfobperlb, PDO::PARAM_STR);
+
                         break;
                     case 'ArstSaleYtd':
                         $stmt->bindValue($identifier, $this->arstsaleytd, PDO::PARAM_STR);
+
                         break;
                     case 'ArstInvYtd':
                         $stmt->bindValue($identifier, $this->arstinvytd, PDO::PARAM_INT);
+
                         break;
                     case 'ArstEmailFaxAuthCode':
                         $stmt->bindValue($identifier, $this->arstemailfaxauthcode, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -5614,12 +5739,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -5630,14 +5755,14 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = CustomerShiptoTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -5649,318 +5774,317 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getArcucustid();
-                break;
+
             case 1:
                 return $this->getArstshipid();
-                break;
+
             case 2:
                 return $this->getArstname();
-                break;
+
             case 3:
                 return $this->getArstadr1();
-                break;
+
             case 4:
                 return $this->getArstadr2();
-                break;
+
             case 5:
                 return $this->getArstadr3();
-                break;
+
             case 6:
                 return $this->getArstctry();
-                break;
+
             case 7:
                 return $this->getArstcity();
-                break;
+
             case 8:
                 return $this->getArststat();
-                break;
+
             case 9:
                 return $this->getArstzipcode();
-                break;
+
             case 10:
                 return $this->getArstdeliverydays();
-                break;
+
             case 11:
                 return $this->getArstcommcode();
-                break;
+
             case 12:
                 return $this->getArstallowsplit();
-                break;
+
             case 13:
                 return $this->getArstlindstsp();
-                break;
+
             case 14:
                 return $this->getArstlmecommcustid();
-                break;
+
             case 15:
                 return $this->getArstcatlgid();
-                break;
+
             case 16:
                 return $this->getArspsaleper1();
-                break;
+
             case 17:
                 return $this->getArspsaleper2();
-                break;
+
             case 18:
                 return $this->getArspsaleper3();
-                break;
+
             case 19:
                 return $this->getArtbctaxcode();
-                break;
+
             case 20:
                 return $this->getArsttaxexemnbr();
-                break;
+
             case 21:
                 return $this->getIntbwhse();
-                break;
+
             case 22:
                 return $this->getArtbshipvia();
-                break;
+
             case 23:
                 return $this->getArstbord();
-                break;
+
             case 24:
                 return $this->getArstcredhold();
-                break;
+
             case 25:
                 return $this->getArstusercode();
-                break;
+
             case 26:
                 return $this->getArstpriclvl();
-                break;
+
             case 27:
                 return $this->getArstshipcomp();
-                break;
+
             case 28:
                 return $this->getArsttxbl();
-                break;
+
             case 29:
                 return $this->getArstpostal();
-                break;
+
             case 30:
                 return $this->getArstsalemtd();
-                break;
+
             case 31:
                 return $this->getArstinvmtd();
-                break;
+
             case 32:
                 return $this->getArstdateopen();
-                break;
+
             case 33:
                 return $this->getArstlastsaledate();
-                break;
+
             case 34:
                 return $this->getArstsale24mo1();
-                break;
+
             case 35:
                 return $this->getArstinv24mo1();
-                break;
+
             case 36:
                 return $this->getArstsale24mo2();
-                break;
+
             case 37:
                 return $this->getArstinv24mo2();
-                break;
+
             case 38:
                 return $this->getArstsale24mo3();
-                break;
+
             case 39:
                 return $this->getArstinv24mo3();
-                break;
+
             case 40:
                 return $this->getArstsale24mo4();
-                break;
+
             case 41:
                 return $this->getArstinv24mo4();
-                break;
+
             case 42:
                 return $this->getArstsale24mo5();
-                break;
+
             case 43:
                 return $this->getArstinv24mo5();
-                break;
+
             case 44:
                 return $this->getArstsale24mo6();
-                break;
+
             case 45:
                 return $this->getArstinv24mo6();
-                break;
+
             case 46:
                 return $this->getArstsale24mo7();
-                break;
+
             case 47:
                 return $this->getArstinv24mo7();
-                break;
+
             case 48:
                 return $this->getArstsale24mo8();
-                break;
+
             case 49:
                 return $this->getArstinv24mo8();
-                break;
+
             case 50:
                 return $this->getArstsale24mo9();
-                break;
+
             case 51:
                 return $this->getArstinv24mo9();
-                break;
+
             case 52:
                 return $this->getArstsale24mo10();
-                break;
+
             case 53:
                 return $this->getArstinv24mo10();
-                break;
+
             case 54:
                 return $this->getArstsale24mo11();
-                break;
+
             case 55:
                 return $this->getArstinv24mo11();
-                break;
+
             case 56:
                 return $this->getArstsale24mo12();
-                break;
+
             case 57:
                 return $this->getArstinv24mo12();
-                break;
+
             case 58:
                 return $this->getArstsale24mo13();
-                break;
+
             case 59:
                 return $this->getArstinv24mo13();
-                break;
+
             case 60:
                 return $this->getArstsale24mo14();
-                break;
+
             case 61:
                 return $this->getArstinv24mo14();
-                break;
+
             case 62:
                 return $this->getArstsale24mo15();
-                break;
+
             case 63:
                 return $this->getArstinv24mo15();
-                break;
+
             case 64:
                 return $this->getArstsale24mo16();
-                break;
+
             case 65:
                 return $this->getArstinv24mo16();
-                break;
+
             case 66:
                 return $this->getArstsale24mo17();
-                break;
+
             case 67:
                 return $this->getArstinv24mo17();
-                break;
+
             case 68:
                 return $this->getArstsale24mo18();
-                break;
+
             case 69:
                 return $this->getArstinv24mo18();
-                break;
+
             case 70:
                 return $this->getArstsale24mo19();
-                break;
+
             case 71:
                 return $this->getArstinv24mo19();
-                break;
+
             case 72:
                 return $this->getArstsale24mo20();
-                break;
+
             case 73:
                 return $this->getArstinv24mo20();
-                break;
+
             case 74:
                 return $this->getArstsale24mo21();
-                break;
+
             case 75:
                 return $this->getArstinv24mo21();
-                break;
+
             case 76:
                 return $this->getArstsale24mo22();
-                break;
+
             case 77:
                 return $this->getArstinv24mo22();
-                break;
+
             case 78:
                 return $this->getArstsale24mo23();
-                break;
+
             case 79:
                 return $this->getArstinv24mo23();
-                break;
+
             case 80:
                 return $this->getArstsale24mo24();
-                break;
+
             case 81:
                 return $this->getArstinv24mo24();
-                break;
+
             case 82:
                 return $this->getArstprimshipid();
-                break;
+
             case 83:
                 return $this->getArstmyvendid();
-                break;
+
             case 84:
                 return $this->getArstaddlpricdisc();
-                break;
+
             case 85:
                 return $this->getArstediinvc();
-                break;
+
             case 86:
                 return $this->getArstchrgfrt();
-                break;
+
             case 87:
                 return $this->getArstdistcntr();
-                break;
+
             case 88:
                 return $this->getArstdunsnbr();
-                break;
+
             case 89:
                 return $this->getArstrfmlvalu();
-                break;
+
             case 90:
                 return $this->getArstcustpoparam();
-                break;
+
             case 91:
                 return $this->getArtbroutcode();
-                break;
+
             case 92:
                 return $this->getArstupsacctnbr();
-                break;
+
             case 93:
                 return $this->getArstfobinputyn();
-                break;
+
             case 94:
                 return $this->getArstfobperlb();
-                break;
+
             case 95:
                 return $this->getArstsaleytd();
-                break;
+
             case 96:
                 return $this->getArstinvytd();
-                break;
+
             case 97:
                 return $this->getArstemailfaxauthcode();
-                break;
+
             case 98:
                 return $this->getDateupdtd();
-                break;
+
             case 99:
                 return $this->getTimeupdtd();
-                break;
+
             case 100:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -5970,24 +6094,23 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
-     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = [], bool $includeForeignObjects = false): array
     {
-
         if (isset($alreadyDumpedObjects['CustomerShipto'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['CustomerShipto'][$this->hashCode()] = true;
         $keys = CustomerShiptoTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getArcucustid(),
             $keys[1] => $this->getArstshipid(),
             $keys[2] => $this->getArstname(),
@@ -6089,7 +6212,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $keys[98] => $this->getDateupdtd(),
             $keys[99] => $this->getTimeupdtd(),
             $keys[100] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -6284,30 +6407,32 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\CustomerShipto
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = CustomerShiptoTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\CustomerShipto
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -6631,11 +6756,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = CustomerShiptoTableMap::getFieldNames($keyType);
 
@@ -6942,6 +7067,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if (array_key_exists($keys[100], $arr)) {
             $this->setDummy($arr[$keys[100]]);
         }
+
+        return $this;
     }
 
      /**
@@ -6961,9 +7088,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\CustomerShipto The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -6977,9 +7104,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(CustomerShiptoTableMap::DATABASE_NAME);
 
@@ -7294,13 +7421,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildCustomerShiptoQuery::create();
         $criteria->add(CustomerShiptoTableMap::COL_ARCUCUSTID, $this->arcucustid);
@@ -7313,7 +7440,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -7346,7 +7473,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = array();
+        $pks = [];
         $pks[0] = $this->getArcucustid();
         $pks[1] = $this->getArstshipid();
 
@@ -7356,10 +7483,10 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the [composite] primary key.
      *
-     * @param      array $keys The elements of the composite key (order must match the order in XML file).
+     * @param array $keys The elements of the composite key (order must match the order in XML file).
      * @return void
      */
-    public function setPrimaryKey($keys)
+    public function setPrimaryKey(array $keys): void
     {
         $this->setArcucustid($keys[0]);
         $this->setArstshipid($keys[1]);
@@ -7367,9 +7494,10 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return (null === $this->getArcucustid()) && (null === $this->getArstshipid());
     }
@@ -7380,12 +7508,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \CustomerShipto (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \CustomerShipto (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setArcucustid($this->getArcucustid());
         $copyObj->setArstshipid($this->getArstshipid());
@@ -7574,11 +7703,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \CustomerShipto Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -7591,9 +7720,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildCustomer object.
      *
-     * @param  ChildCustomer $v
-     * @return $this|\CustomerShipto The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildCustomer $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setCustomer(ChildCustomer $v = null)
     {
@@ -7619,11 +7748,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the associated ChildCustomer object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
+     * @param ConnectionInterface $con Optional Connection object.
      * @return ChildCustomer The associated ChildCustomer object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getCustomer(ConnectionInterface $con = null)
+    public function getCustomer(?ConnectionInterface $con = null)
     {
         if ($this->aCustomer === null && (($this->arcucustid !== "" && $this->arcucustid !== null))) {
             $this->aCustomer = ChildCustomerQuery::create()->findPk($this->arcucustid, $con);
@@ -7645,48 +7774,48 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Avoids crafting an 'init[$relationName]s' method name
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
-     * @param      string $relationName The name of the relation to initialize
+     * @param string $relationName The name of the relation to initialize
      * @return void
      */
-    public function initRelation($relationName)
+    public function initRelation($relationName): void
     {
-        if ('ArContact' == $relationName) {
+        if ('ArContact' === $relationName) {
             $this->initArContacts();
             return;
         }
-        if ('InvTransferOrder' == $relationName) {
+        if ('InvTransferOrder' === $relationName) {
             $this->initInvTransferOrders();
             return;
         }
-        if ('NoteCustInternal' == $relationName) {
+        if ('NoteCustInternal' === $relationName) {
             $this->initNoteCustInternals();
             return;
         }
-        if ('NoteCustOrder' == $relationName) {
+        if ('NoteCustOrder' === $relationName) {
             $this->initNoteCustOrders();
             return;
         }
-        if ('BookingDayCustomer' == $relationName) {
+        if ('BookingDayCustomer' === $relationName) {
             $this->initBookingDayCustomers();
             return;
         }
-        if ('BookingDayDetail' == $relationName) {
+        if ('BookingDayDetail' === $relationName) {
             $this->initBookingDayDetails();
             return;
         }
-        if ('Booking' == $relationName) {
+        if ('Booking' === $relationName) {
             $this->initBookings();
             return;
         }
-        if ('SalesHistory' == $relationName) {
+        if ('SalesHistory' === $relationName) {
             $this->initSalesHistories();
             return;
         }
-        if ('SalesOrder' == $relationName) {
+        if ('SalesOrder' === $relationName) {
             $this->initSalesOrders();
             return;
         }
-        if ('SoStandingOrderDetail' == $relationName) {
+        if ('SoStandingOrderDetail' === $relationName) {
             $this->initSoStandingOrderDetails();
             return;
         }
@@ -7698,18 +7827,22 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addArContacts()
+     * @return $this
+     * @see addArContacts()
      */
     public function clearArContacts()
     {
         $this->collArContacts = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collArContacts collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialArContacts($v = true)
+    public function resetPartialArContacts($v = true): void
     {
         $this->collArContactsPartial = $v;
     }
@@ -7721,12 +7854,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initArContacts($overrideExisting = true)
+    public function initArContacts(bool $overrideExisting = true): void
     {
         if (null !== $this->collArContacts && !$overrideExisting) {
             return;
@@ -7747,18 +7880,28 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * If this ChildCustomerShipto is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildArContact[] List of ChildArContact objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildArContact> List of ChildArContact objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getArContacts(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getArContacts(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collArContactsPartial && !$this->isNew();
-        if (null === $this->collArContacts || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collArContacts) {
+        if (null === $this->collArContacts || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initArContacts();
+                if (null === $this->collArContacts) {
+                    $this->initArContacts();
+                } else {
+                    $collectionClassName = ArContactTableMap::getTableMap()->getCollectionClassName();
+
+                    $collArContacts = new $collectionClassName;
+                    $collArContacts->setModel('\ArContact');
+
+                    return $collArContacts;
+                }
             } else {
                 $collArContacts = ChildArContactQuery::create(null, $criteria)
                     ->filterByCustomerShipto($this)
@@ -7802,11 +7945,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $arContacts A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param Collection $arContacts A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setArContacts(Collection $arContacts, ConnectionInterface $con = null)
+    public function setArContacts(Collection $arContacts, ?ConnectionInterface $con = null)
     {
         /** @var ChildArContact[] $arContactsToDelete */
         $arContactsToDelete = $this->getArContacts(new Criteria(), $con)->diff($arContacts);
@@ -7835,13 +7978,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Returns the number of related ArContact objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ArContact objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ArContact objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countArContacts(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countArContacts(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collArContactsPartial && !$this->isNew();
         if (null === $this->collArContacts || null !== $criteria || $partial) {
@@ -7870,8 +8013,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Method called to associate a ChildArContact object to this object
      * through the ChildArContact foreign key attribute.
      *
-     * @param  ChildArContact $l ChildArContact
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param ChildArContact $l ChildArContact
+     * @return $this The current object (for fluent API support)
      */
     public function addArContact(ChildArContact $l)
     {
@@ -7894,15 +8037,15 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * @param ChildArContact $arContact The ChildArContact object to add.
      */
-    protected function doAddArContact(ChildArContact $arContact)
+    protected function doAddArContact(ChildArContact $arContact): void
     {
         $this->collArContacts[]= $arContact;
         $arContact->setCustomerShipto($this);
     }
 
     /**
-     * @param  ChildArContact $arContact The ChildArContact object to remove.
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param ChildArContact $arContact The ChildArContact object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeArContact(ChildArContact $arContact)
     {
@@ -7932,12 +8075,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildArContact[] List of ChildArContact objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildArContact}> List of ChildArContact objects
      */
-    public function getArContactsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getArContactsJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildArContactQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -7951,18 +8095,22 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvTransferOrders()
+     * @return $this
+     * @see addInvTransferOrders()
      */
     public function clearInvTransferOrders()
     {
         $this->collInvTransferOrders = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvTransferOrders collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvTransferOrders($v = true)
+    public function resetPartialInvTransferOrders($v = true): void
     {
         $this->collInvTransferOrdersPartial = $v;
     }
@@ -7974,12 +8122,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvTransferOrders($overrideExisting = true)
+    public function initInvTransferOrders(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvTransferOrders && !$overrideExisting) {
             return;
@@ -8000,18 +8148,28 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * If this ChildCustomerShipto is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder> List of ChildInvTransferOrder objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvTransferOrders(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvTransferOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferOrdersPartial && !$this->isNew();
-        if (null === $this->collInvTransferOrders || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvTransferOrders) {
+        if (null === $this->collInvTransferOrders || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvTransferOrders();
+                if (null === $this->collInvTransferOrders) {
+                    $this->initInvTransferOrders();
+                } else {
+                    $collectionClassName = InvTransferOrderTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvTransferOrders = new $collectionClassName;
+                    $collInvTransferOrders->setModel('\InvTransferOrder');
+
+                    return $collInvTransferOrders;
+                }
             } else {
                 $collInvTransferOrders = ChildInvTransferOrderQuery::create(null, $criteria)
                     ->filterByCustomerShipto($this)
@@ -8055,11 +8213,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invTransferOrders A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param Collection $invTransferOrders A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvTransferOrders(Collection $invTransferOrders, ConnectionInterface $con = null)
+    public function setInvTransferOrders(Collection $invTransferOrders, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvTransferOrder[] $invTransferOrdersToDelete */
         $invTransferOrdersToDelete = $this->getInvTransferOrders(new Criteria(), $con)->diff($invTransferOrders);
@@ -8085,13 +8243,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Returns the number of related InvTransferOrder objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvTransferOrder objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvTransferOrder objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvTransferOrders(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvTransferOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferOrdersPartial && !$this->isNew();
         if (null === $this->collInvTransferOrders || null !== $criteria || $partial) {
@@ -8120,8 +8278,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Method called to associate a ChildInvTransferOrder object to this object
      * through the ChildInvTransferOrder foreign key attribute.
      *
-     * @param  ChildInvTransferOrder $l ChildInvTransferOrder
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param ChildInvTransferOrder $l ChildInvTransferOrder
+     * @return $this The current object (for fluent API support)
      */
     public function addInvTransferOrder(ChildInvTransferOrder $l)
     {
@@ -8144,15 +8302,15 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * @param ChildInvTransferOrder $invTransferOrder The ChildInvTransferOrder object to add.
      */
-    protected function doAddInvTransferOrder(ChildInvTransferOrder $invTransferOrder)
+    protected function doAddInvTransferOrder(ChildInvTransferOrder $invTransferOrder): void
     {
         $this->collInvTransferOrders[]= $invTransferOrder;
         $invTransferOrder->setCustomerShipto($this);
     }
 
     /**
-     * @param  ChildInvTransferOrder $invTransferOrder The ChildInvTransferOrder object to remove.
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param ChildInvTransferOrder $invTransferOrder The ChildInvTransferOrder object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvTransferOrder(ChildInvTransferOrder $invTransferOrder)
     {
@@ -8182,12 +8340,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder}> List of ChildInvTransferOrder objects
      */
-    public function getInvTransferOrdersJoinWarehouseRelatedByIntbwhsefrom(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferOrdersJoinWarehouseRelatedByIntbwhsefrom(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferOrderQuery::create(null, $criteria);
         $query->joinWith('WarehouseRelatedByIntbwhsefrom', $joinBehavior);
@@ -8207,12 +8366,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder}> List of ChildInvTransferOrder objects
      */
-    public function getInvTransferOrdersJoinWarehouseRelatedByIntbwhseto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferOrdersJoinWarehouseRelatedByIntbwhseto(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferOrderQuery::create(null, $criteria);
         $query->joinWith('WarehouseRelatedByIntbwhseto', $joinBehavior);
@@ -8232,12 +8392,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder}> List of ChildInvTransferOrder objects
      */
-    public function getInvTransferOrdersJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferOrdersJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferOrderQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -8257,12 +8418,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferOrder}> List of ChildInvTransferOrder objects
      */
-    public function getInvTransferOrdersJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferOrdersJoinVendor(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferOrderQuery::create(null, $criteria);
         $query->joinWith('Vendor', $joinBehavior);
@@ -8276,18 +8438,22 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addNoteCustInternals()
+     * @return $this
+     * @see addNoteCustInternals()
      */
     public function clearNoteCustInternals()
     {
         $this->collNoteCustInternals = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collNoteCustInternals collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialNoteCustInternals($v = true)
+    public function resetPartialNoteCustInternals($v = true): void
     {
         $this->collNoteCustInternalsPartial = $v;
     }
@@ -8299,12 +8465,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initNoteCustInternals($overrideExisting = true)
+    public function initNoteCustInternals(bool $overrideExisting = true): void
     {
         if (null !== $this->collNoteCustInternals && !$overrideExisting) {
             return;
@@ -8325,18 +8491,28 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * If this ChildCustomerShipto is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildNoteCustInternal[] List of ChildNoteCustInternal objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildNoteCustInternal> List of ChildNoteCustInternal objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getNoteCustInternals(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getNoteCustInternals(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collNoteCustInternalsPartial && !$this->isNew();
-        if (null === $this->collNoteCustInternals || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collNoteCustInternals) {
+        if (null === $this->collNoteCustInternals || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initNoteCustInternals();
+                if (null === $this->collNoteCustInternals) {
+                    $this->initNoteCustInternals();
+                } else {
+                    $collectionClassName = NoteCustInternalTableMap::getTableMap()->getCollectionClassName();
+
+                    $collNoteCustInternals = new $collectionClassName;
+                    $collNoteCustInternals->setModel('\NoteCustInternal');
+
+                    return $collNoteCustInternals;
+                }
             } else {
                 $collNoteCustInternals = ChildNoteCustInternalQuery::create(null, $criteria)
                     ->filterByCustomerShipto($this)
@@ -8380,11 +8556,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $noteCustInternals A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param Collection $noteCustInternals A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setNoteCustInternals(Collection $noteCustInternals, ConnectionInterface $con = null)
+    public function setNoteCustInternals(Collection $noteCustInternals, ?ConnectionInterface $con = null)
     {
         /** @var ChildNoteCustInternal[] $noteCustInternalsToDelete */
         $noteCustInternalsToDelete = $this->getNoteCustInternals(new Criteria(), $con)->diff($noteCustInternals);
@@ -8410,13 +8586,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Returns the number of related NoteCustInternal objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related NoteCustInternal objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related NoteCustInternal objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countNoteCustInternals(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countNoteCustInternals(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collNoteCustInternalsPartial && !$this->isNew();
         if (null === $this->collNoteCustInternals || null !== $criteria || $partial) {
@@ -8445,8 +8621,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Method called to associate a ChildNoteCustInternal object to this object
      * through the ChildNoteCustInternal foreign key attribute.
      *
-     * @param  ChildNoteCustInternal $l ChildNoteCustInternal
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param ChildNoteCustInternal $l ChildNoteCustInternal
+     * @return $this The current object (for fluent API support)
      */
     public function addNoteCustInternal(ChildNoteCustInternal $l)
     {
@@ -8469,15 +8645,15 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * @param ChildNoteCustInternal $noteCustInternal The ChildNoteCustInternal object to add.
      */
-    protected function doAddNoteCustInternal(ChildNoteCustInternal $noteCustInternal)
+    protected function doAddNoteCustInternal(ChildNoteCustInternal $noteCustInternal): void
     {
         $this->collNoteCustInternals[]= $noteCustInternal;
         $noteCustInternal->setCustomerShipto($this);
     }
 
     /**
-     * @param  ChildNoteCustInternal $noteCustInternal The ChildNoteCustInternal object to remove.
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param ChildNoteCustInternal $noteCustInternal The ChildNoteCustInternal object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeNoteCustInternal(ChildNoteCustInternal $noteCustInternal)
     {
@@ -8507,12 +8683,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildNoteCustInternal[] List of ChildNoteCustInternal objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildNoteCustInternal}> List of ChildNoteCustInternal objects
      */
-    public function getNoteCustInternalsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getNoteCustInternalsJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildNoteCustInternalQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -8526,18 +8703,22 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addNoteCustOrders()
+     * @return $this
+     * @see addNoteCustOrders()
      */
     public function clearNoteCustOrders()
     {
         $this->collNoteCustOrders = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collNoteCustOrders collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialNoteCustOrders($v = true)
+    public function resetPartialNoteCustOrders($v = true): void
     {
         $this->collNoteCustOrdersPartial = $v;
     }
@@ -8549,12 +8730,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initNoteCustOrders($overrideExisting = true)
+    public function initNoteCustOrders(bool $overrideExisting = true): void
     {
         if (null !== $this->collNoteCustOrders && !$overrideExisting) {
             return;
@@ -8575,18 +8756,28 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * If this ChildCustomerShipto is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildNoteCustOrder[] List of ChildNoteCustOrder objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildNoteCustOrder> List of ChildNoteCustOrder objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getNoteCustOrders(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getNoteCustOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collNoteCustOrdersPartial && !$this->isNew();
-        if (null === $this->collNoteCustOrders || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collNoteCustOrders) {
+        if (null === $this->collNoteCustOrders || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initNoteCustOrders();
+                if (null === $this->collNoteCustOrders) {
+                    $this->initNoteCustOrders();
+                } else {
+                    $collectionClassName = NoteCustOrderTableMap::getTableMap()->getCollectionClassName();
+
+                    $collNoteCustOrders = new $collectionClassName;
+                    $collNoteCustOrders->setModel('\NoteCustOrder');
+
+                    return $collNoteCustOrders;
+                }
             } else {
                 $collNoteCustOrders = ChildNoteCustOrderQuery::create(null, $criteria)
                     ->filterByCustomerShipto($this)
@@ -8630,11 +8821,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $noteCustOrders A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param Collection $noteCustOrders A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setNoteCustOrders(Collection $noteCustOrders, ConnectionInterface $con = null)
+    public function setNoteCustOrders(Collection $noteCustOrders, ?ConnectionInterface $con = null)
     {
         /** @var ChildNoteCustOrder[] $noteCustOrdersToDelete */
         $noteCustOrdersToDelete = $this->getNoteCustOrders(new Criteria(), $con)->diff($noteCustOrders);
@@ -8660,13 +8851,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Returns the number of related NoteCustOrder objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related NoteCustOrder objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related NoteCustOrder objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countNoteCustOrders(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countNoteCustOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collNoteCustOrdersPartial && !$this->isNew();
         if (null === $this->collNoteCustOrders || null !== $criteria || $partial) {
@@ -8695,8 +8886,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Method called to associate a ChildNoteCustOrder object to this object
      * through the ChildNoteCustOrder foreign key attribute.
      *
-     * @param  ChildNoteCustOrder $l ChildNoteCustOrder
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param ChildNoteCustOrder $l ChildNoteCustOrder
+     * @return $this The current object (for fluent API support)
      */
     public function addNoteCustOrder(ChildNoteCustOrder $l)
     {
@@ -8719,15 +8910,15 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * @param ChildNoteCustOrder $noteCustOrder The ChildNoteCustOrder object to add.
      */
-    protected function doAddNoteCustOrder(ChildNoteCustOrder $noteCustOrder)
+    protected function doAddNoteCustOrder(ChildNoteCustOrder $noteCustOrder): void
     {
         $this->collNoteCustOrders[]= $noteCustOrder;
         $noteCustOrder->setCustomerShipto($this);
     }
 
     /**
-     * @param  ChildNoteCustOrder $noteCustOrder The ChildNoteCustOrder object to remove.
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param ChildNoteCustOrder $noteCustOrder The ChildNoteCustOrder object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeNoteCustOrder(ChildNoteCustOrder $noteCustOrder)
     {
@@ -8757,12 +8948,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildNoteCustOrder[] List of ChildNoteCustOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildNoteCustOrder}> List of ChildNoteCustOrder objects
      */
-    public function getNoteCustOrdersJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getNoteCustOrdersJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildNoteCustOrderQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -8776,18 +8968,22 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addBookingDayCustomers()
+     * @return $this
+     * @see addBookingDayCustomers()
      */
     public function clearBookingDayCustomers()
     {
         $this->collBookingDayCustomers = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collBookingDayCustomers collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialBookingDayCustomers($v = true)
+    public function resetPartialBookingDayCustomers($v = true): void
     {
         $this->collBookingDayCustomersPartial = $v;
     }
@@ -8799,12 +8995,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initBookingDayCustomers($overrideExisting = true)
+    public function initBookingDayCustomers(bool $overrideExisting = true): void
     {
         if (null !== $this->collBookingDayCustomers && !$overrideExisting) {
             return;
@@ -8825,18 +9021,28 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * If this ChildCustomerShipto is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildBookingDayCustomer[] List of ChildBookingDayCustomer objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildBookingDayCustomer> List of ChildBookingDayCustomer objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getBookingDayCustomers(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getBookingDayCustomers(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingDayCustomersPartial && !$this->isNew();
-        if (null === $this->collBookingDayCustomers || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collBookingDayCustomers) {
+        if (null === $this->collBookingDayCustomers || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initBookingDayCustomers();
+                if (null === $this->collBookingDayCustomers) {
+                    $this->initBookingDayCustomers();
+                } else {
+                    $collectionClassName = BookingDayCustomerTableMap::getTableMap()->getCollectionClassName();
+
+                    $collBookingDayCustomers = new $collectionClassName;
+                    $collBookingDayCustomers->setModel('\BookingDayCustomer');
+
+                    return $collBookingDayCustomers;
+                }
             } else {
                 $collBookingDayCustomers = ChildBookingDayCustomerQuery::create(null, $criteria)
                     ->filterByCustomerShipto($this)
@@ -8880,11 +9086,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $bookingDayCustomers A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param Collection $bookingDayCustomers A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setBookingDayCustomers(Collection $bookingDayCustomers, ConnectionInterface $con = null)
+    public function setBookingDayCustomers(Collection $bookingDayCustomers, ?ConnectionInterface $con = null)
     {
         /** @var ChildBookingDayCustomer[] $bookingDayCustomersToDelete */
         $bookingDayCustomersToDelete = $this->getBookingDayCustomers(new Criteria(), $con)->diff($bookingDayCustomers);
@@ -8913,13 +9119,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Returns the number of related BookingDayCustomer objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related BookingDayCustomer objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related BookingDayCustomer objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countBookingDayCustomers(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countBookingDayCustomers(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingDayCustomersPartial && !$this->isNew();
         if (null === $this->collBookingDayCustomers || null !== $criteria || $partial) {
@@ -8948,8 +9154,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Method called to associate a ChildBookingDayCustomer object to this object
      * through the ChildBookingDayCustomer foreign key attribute.
      *
-     * @param  ChildBookingDayCustomer $l ChildBookingDayCustomer
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param ChildBookingDayCustomer $l ChildBookingDayCustomer
+     * @return $this The current object (for fluent API support)
      */
     public function addBookingDayCustomer(ChildBookingDayCustomer $l)
     {
@@ -8972,15 +9178,15 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * @param ChildBookingDayCustomer $bookingDayCustomer The ChildBookingDayCustomer object to add.
      */
-    protected function doAddBookingDayCustomer(ChildBookingDayCustomer $bookingDayCustomer)
+    protected function doAddBookingDayCustomer(ChildBookingDayCustomer $bookingDayCustomer): void
     {
         $this->collBookingDayCustomers[]= $bookingDayCustomer;
         $bookingDayCustomer->setCustomerShipto($this);
     }
 
     /**
-     * @param  ChildBookingDayCustomer $bookingDayCustomer The ChildBookingDayCustomer object to remove.
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param ChildBookingDayCustomer $bookingDayCustomer The ChildBookingDayCustomer object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeBookingDayCustomer(ChildBookingDayCustomer $bookingDayCustomer)
     {
@@ -9010,12 +9216,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildBookingDayCustomer[] List of ChildBookingDayCustomer objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildBookingDayCustomer}> List of ChildBookingDayCustomer objects
      */
-    public function getBookingDayCustomersJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getBookingDayCustomersJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildBookingDayCustomerQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -9035,12 +9242,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildBookingDayCustomer[] List of ChildBookingDayCustomer objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildBookingDayCustomer}> List of ChildBookingDayCustomer objects
      */
-    public function getBookingDayCustomersJoinSalesPerson(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getBookingDayCustomersJoinSalesPerson(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildBookingDayCustomerQuery::create(null, $criteria);
         $query->joinWith('SalesPerson', $joinBehavior);
@@ -9054,18 +9262,22 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addBookingDayDetails()
+     * @return $this
+     * @see addBookingDayDetails()
      */
     public function clearBookingDayDetails()
     {
         $this->collBookingDayDetails = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collBookingDayDetails collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialBookingDayDetails($v = true)
+    public function resetPartialBookingDayDetails($v = true): void
     {
         $this->collBookingDayDetailsPartial = $v;
     }
@@ -9077,12 +9289,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initBookingDayDetails($overrideExisting = true)
+    public function initBookingDayDetails(bool $overrideExisting = true): void
     {
         if (null !== $this->collBookingDayDetails && !$overrideExisting) {
             return;
@@ -9103,18 +9315,28 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * If this ChildCustomerShipto is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildBookingDayDetail[] List of ChildBookingDayDetail objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildBookingDayDetail> List of ChildBookingDayDetail objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getBookingDayDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getBookingDayDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingDayDetailsPartial && !$this->isNew();
-        if (null === $this->collBookingDayDetails || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collBookingDayDetails) {
+        if (null === $this->collBookingDayDetails || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initBookingDayDetails();
+                if (null === $this->collBookingDayDetails) {
+                    $this->initBookingDayDetails();
+                } else {
+                    $collectionClassName = BookingDayDetailTableMap::getTableMap()->getCollectionClassName();
+
+                    $collBookingDayDetails = new $collectionClassName;
+                    $collBookingDayDetails->setModel('\BookingDayDetail');
+
+                    return $collBookingDayDetails;
+                }
             } else {
                 $collBookingDayDetails = ChildBookingDayDetailQuery::create(null, $criteria)
                     ->filterByCustomerShipto($this)
@@ -9158,11 +9380,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $bookingDayDetails A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param Collection $bookingDayDetails A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setBookingDayDetails(Collection $bookingDayDetails, ConnectionInterface $con = null)
+    public function setBookingDayDetails(Collection $bookingDayDetails, ?ConnectionInterface $con = null)
     {
         /** @var ChildBookingDayDetail[] $bookingDayDetailsToDelete */
         $bookingDayDetailsToDelete = $this->getBookingDayDetails(new Criteria(), $con)->diff($bookingDayDetails);
@@ -9191,13 +9413,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Returns the number of related BookingDayDetail objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related BookingDayDetail objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related BookingDayDetail objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countBookingDayDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countBookingDayDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingDayDetailsPartial && !$this->isNew();
         if (null === $this->collBookingDayDetails || null !== $criteria || $partial) {
@@ -9226,8 +9448,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Method called to associate a ChildBookingDayDetail object to this object
      * through the ChildBookingDayDetail foreign key attribute.
      *
-     * @param  ChildBookingDayDetail $l ChildBookingDayDetail
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param ChildBookingDayDetail $l ChildBookingDayDetail
+     * @return $this The current object (for fluent API support)
      */
     public function addBookingDayDetail(ChildBookingDayDetail $l)
     {
@@ -9250,15 +9472,15 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * @param ChildBookingDayDetail $bookingDayDetail The ChildBookingDayDetail object to add.
      */
-    protected function doAddBookingDayDetail(ChildBookingDayDetail $bookingDayDetail)
+    protected function doAddBookingDayDetail(ChildBookingDayDetail $bookingDayDetail): void
     {
         $this->collBookingDayDetails[]= $bookingDayDetail;
         $bookingDayDetail->setCustomerShipto($this);
     }
 
     /**
-     * @param  ChildBookingDayDetail $bookingDayDetail The ChildBookingDayDetail object to remove.
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param ChildBookingDayDetail $bookingDayDetail The ChildBookingDayDetail object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeBookingDayDetail(ChildBookingDayDetail $bookingDayDetail)
     {
@@ -9288,12 +9510,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildBookingDayDetail[] List of ChildBookingDayDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildBookingDayDetail}> List of ChildBookingDayDetail objects
      */
-    public function getBookingDayDetailsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getBookingDayDetailsJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildBookingDayDetailQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -9313,12 +9536,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildBookingDayDetail[] List of ChildBookingDayDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildBookingDayDetail}> List of ChildBookingDayDetail objects
      */
-    public function getBookingDayDetailsJoinSalesPerson(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getBookingDayDetailsJoinSalesPerson(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildBookingDayDetailQuery::create(null, $criteria);
         $query->joinWith('SalesPerson', $joinBehavior);
@@ -9332,18 +9556,22 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addBookings()
+     * @return $this
+     * @see addBookings()
      */
     public function clearBookings()
     {
         $this->collBookings = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collBookings collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialBookings($v = true)
+    public function resetPartialBookings($v = true): void
     {
         $this->collBookingsPartial = $v;
     }
@@ -9355,12 +9583,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initBookings($overrideExisting = true)
+    public function initBookings(bool $overrideExisting = true): void
     {
         if (null !== $this->collBookings && !$overrideExisting) {
             return;
@@ -9381,18 +9609,28 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * If this ChildCustomerShipto is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildBooking[] List of ChildBooking objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildBooking> List of ChildBooking objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getBookings(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getBookings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingsPartial && !$this->isNew();
-        if (null === $this->collBookings || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collBookings) {
+        if (null === $this->collBookings || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initBookings();
+                if (null === $this->collBookings) {
+                    $this->initBookings();
+                } else {
+                    $collectionClassName = BookingTableMap::getTableMap()->getCollectionClassName();
+
+                    $collBookings = new $collectionClassName;
+                    $collBookings->setModel('\Booking');
+
+                    return $collBookings;
+                }
             } else {
                 $collBookings = ChildBookingQuery::create(null, $criteria)
                     ->filterByCustomerShipto($this)
@@ -9436,11 +9674,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $bookings A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param Collection $bookings A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setBookings(Collection $bookings, ConnectionInterface $con = null)
+    public function setBookings(Collection $bookings, ?ConnectionInterface $con = null)
     {
         /** @var ChildBooking[] $bookingsToDelete */
         $bookingsToDelete = $this->getBookings(new Criteria(), $con)->diff($bookings);
@@ -9466,13 +9704,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Returns the number of related Booking objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related Booking objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related Booking objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countBookings(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countBookings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingsPartial && !$this->isNew();
         if (null === $this->collBookings || null !== $criteria || $partial) {
@@ -9501,8 +9739,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Method called to associate a ChildBooking object to this object
      * through the ChildBooking foreign key attribute.
      *
-     * @param  ChildBooking $l ChildBooking
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param ChildBooking $l ChildBooking
+     * @return $this The current object (for fluent API support)
      */
     public function addBooking(ChildBooking $l)
     {
@@ -9525,15 +9763,15 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * @param ChildBooking $booking The ChildBooking object to add.
      */
-    protected function doAddBooking(ChildBooking $booking)
+    protected function doAddBooking(ChildBooking $booking): void
     {
         $this->collBookings[]= $booking;
         $booking->setCustomerShipto($this);
     }
 
     /**
-     * @param  ChildBooking $booking The ChildBooking object to remove.
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param ChildBooking $booking The ChildBooking object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeBooking(ChildBooking $booking)
     {
@@ -9563,12 +9801,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildBooking[] List of ChildBooking objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildBooking}> List of ChildBooking objects
      */
-    public function getBookingsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getBookingsJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildBookingQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -9588,12 +9827,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildBooking[] List of ChildBooking objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildBooking}> List of ChildBooking objects
      */
-    public function getBookingsJoinSalesPerson(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getBookingsJoinSalesPerson(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildBookingQuery::create(null, $criteria);
         $query->joinWith('SalesPerson', $joinBehavior);
@@ -9607,18 +9847,22 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSalesHistories()
+     * @return $this
+     * @see addSalesHistories()
      */
     public function clearSalesHistories()
     {
         $this->collSalesHistories = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSalesHistories collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSalesHistories($v = true)
+    public function resetPartialSalesHistories($v = true): void
     {
         $this->collSalesHistoriesPartial = $v;
     }
@@ -9630,12 +9874,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSalesHistories($overrideExisting = true)
+    public function initSalesHistories(bool $overrideExisting = true): void
     {
         if (null !== $this->collSalesHistories && !$overrideExisting) {
             return;
@@ -9656,18 +9900,28 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * If this ChildCustomerShipto is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSalesHistory[] List of ChildSalesHistory objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesHistory> List of ChildSalesHistory objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSalesHistories(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSalesHistories(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesHistoriesPartial && !$this->isNew();
-        if (null === $this->collSalesHistories || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSalesHistories) {
+        if (null === $this->collSalesHistories || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSalesHistories();
+                if (null === $this->collSalesHistories) {
+                    $this->initSalesHistories();
+                } else {
+                    $collectionClassName = SalesHistoryTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSalesHistories = new $collectionClassName;
+                    $collSalesHistories->setModel('\SalesHistory');
+
+                    return $collSalesHistories;
+                }
             } else {
                 $collSalesHistories = ChildSalesHistoryQuery::create(null, $criteria)
                     ->filterByCustomerShipto($this)
@@ -9711,11 +9965,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $salesHistories A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param Collection $salesHistories A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSalesHistories(Collection $salesHistories, ConnectionInterface $con = null)
+    public function setSalesHistories(Collection $salesHistories, ?ConnectionInterface $con = null)
     {
         /** @var ChildSalesHistory[] $salesHistoriesToDelete */
         $salesHistoriesToDelete = $this->getSalesHistories(new Criteria(), $con)->diff($salesHistories);
@@ -9741,13 +9995,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Returns the number of related SalesHistory objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SalesHistory objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SalesHistory objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSalesHistories(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSalesHistories(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesHistoriesPartial && !$this->isNew();
         if (null === $this->collSalesHistories || null !== $criteria || $partial) {
@@ -9776,8 +10030,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Method called to associate a ChildSalesHistory object to this object
      * through the ChildSalesHistory foreign key attribute.
      *
-     * @param  ChildSalesHistory $l ChildSalesHistory
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param ChildSalesHistory $l ChildSalesHistory
+     * @return $this The current object (for fluent API support)
      */
     public function addSalesHistory(ChildSalesHistory $l)
     {
@@ -9800,15 +10054,15 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * @param ChildSalesHistory $salesHistory The ChildSalesHistory object to add.
      */
-    protected function doAddSalesHistory(ChildSalesHistory $salesHistory)
+    protected function doAddSalesHistory(ChildSalesHistory $salesHistory): void
     {
         $this->collSalesHistories[]= $salesHistory;
         $salesHistory->setCustomerShipto($this);
     }
 
     /**
-     * @param  ChildSalesHistory $salesHistory The ChildSalesHistory object to remove.
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param ChildSalesHistory $salesHistory The ChildSalesHistory object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSalesHistory(ChildSalesHistory $salesHistory)
     {
@@ -9838,12 +10092,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSalesHistory[] List of ChildSalesHistory objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesHistory}> List of ChildSalesHistory objects
      */
-    public function getSalesHistoriesJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSalesHistoriesJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSalesHistoryQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -9857,18 +10112,22 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSalesOrders()
+     * @return $this
+     * @see addSalesOrders()
      */
     public function clearSalesOrders()
     {
         $this->collSalesOrders = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSalesOrders collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSalesOrders($v = true)
+    public function resetPartialSalesOrders($v = true): void
     {
         $this->collSalesOrdersPartial = $v;
     }
@@ -9880,12 +10139,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSalesOrders($overrideExisting = true)
+    public function initSalesOrders(bool $overrideExisting = true): void
     {
         if (null !== $this->collSalesOrders && !$overrideExisting) {
             return;
@@ -9906,18 +10165,28 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * If this ChildCustomerShipto is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSalesOrder[] List of ChildSalesOrder objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesOrder> List of ChildSalesOrder objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSalesOrders(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSalesOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesOrdersPartial && !$this->isNew();
-        if (null === $this->collSalesOrders || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSalesOrders) {
+        if (null === $this->collSalesOrders || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSalesOrders();
+                if (null === $this->collSalesOrders) {
+                    $this->initSalesOrders();
+                } else {
+                    $collectionClassName = SalesOrderTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSalesOrders = new $collectionClassName;
+                    $collSalesOrders->setModel('\SalesOrder');
+
+                    return $collSalesOrders;
+                }
             } else {
                 $collSalesOrders = ChildSalesOrderQuery::create(null, $criteria)
                     ->filterByCustomerShipto($this)
@@ -9961,11 +10230,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $salesOrders A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param Collection $salesOrders A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSalesOrders(Collection $salesOrders, ConnectionInterface $con = null)
+    public function setSalesOrders(Collection $salesOrders, ?ConnectionInterface $con = null)
     {
         /** @var ChildSalesOrder[] $salesOrdersToDelete */
         $salesOrdersToDelete = $this->getSalesOrders(new Criteria(), $con)->diff($salesOrders);
@@ -9991,13 +10260,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Returns the number of related SalesOrder objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SalesOrder objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SalesOrder objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSalesOrders(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSalesOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesOrdersPartial && !$this->isNew();
         if (null === $this->collSalesOrders || null !== $criteria || $partial) {
@@ -10026,8 +10295,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Method called to associate a ChildSalesOrder object to this object
      * through the ChildSalesOrder foreign key attribute.
      *
-     * @param  ChildSalesOrder $l ChildSalesOrder
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param ChildSalesOrder $l ChildSalesOrder
+     * @return $this The current object (for fluent API support)
      */
     public function addSalesOrder(ChildSalesOrder $l)
     {
@@ -10050,15 +10319,15 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * @param ChildSalesOrder $salesOrder The ChildSalesOrder object to add.
      */
-    protected function doAddSalesOrder(ChildSalesOrder $salesOrder)
+    protected function doAddSalesOrder(ChildSalesOrder $salesOrder): void
     {
         $this->collSalesOrders[]= $salesOrder;
         $salesOrder->setCustomerShipto($this);
     }
 
     /**
-     * @param  ChildSalesOrder $salesOrder The ChildSalesOrder object to remove.
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param ChildSalesOrder $salesOrder The ChildSalesOrder object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSalesOrder(ChildSalesOrder $salesOrder)
     {
@@ -10088,12 +10357,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSalesOrder[] List of ChildSalesOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesOrder}> List of ChildSalesOrder objects
      */
-    public function getSalesOrdersJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSalesOrdersJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSalesOrderQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -10107,18 +10377,22 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSoStandingOrderDetails()
+     * @return $this
+     * @see addSoStandingOrderDetails()
      */
     public function clearSoStandingOrderDetails()
     {
         $this->collSoStandingOrderDetails = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSoStandingOrderDetails collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSoStandingOrderDetails($v = true)
+    public function resetPartialSoStandingOrderDetails($v = true): void
     {
         $this->collSoStandingOrderDetailsPartial = $v;
     }
@@ -10130,12 +10404,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSoStandingOrderDetails($overrideExisting = true)
+    public function initSoStandingOrderDetails(bool $overrideExisting = true): void
     {
         if (null !== $this->collSoStandingOrderDetails && !$overrideExisting) {
             return;
@@ -10156,18 +10430,28 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * If this ChildCustomerShipto is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSoStandingOrderDetail[] List of ChildSoStandingOrderDetail objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoStandingOrderDetail> List of ChildSoStandingOrderDetail objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSoStandingOrderDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSoStandingOrderDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSoStandingOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collSoStandingOrderDetails || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSoStandingOrderDetails) {
+        if (null === $this->collSoStandingOrderDetails || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSoStandingOrderDetails();
+                if (null === $this->collSoStandingOrderDetails) {
+                    $this->initSoStandingOrderDetails();
+                } else {
+                    $collectionClassName = SoStandingOrderDetailTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSoStandingOrderDetails = new $collectionClassName;
+                    $collSoStandingOrderDetails->setModel('\SoStandingOrderDetail');
+
+                    return $collSoStandingOrderDetails;
+                }
             } else {
                 $collSoStandingOrderDetails = ChildSoStandingOrderDetailQuery::create(null, $criteria)
                     ->filterByCustomerShipto($this)
@@ -10211,11 +10495,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $soStandingOrderDetails A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param Collection $soStandingOrderDetails A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSoStandingOrderDetails(Collection $soStandingOrderDetails, ConnectionInterface $con = null)
+    public function setSoStandingOrderDetails(Collection $soStandingOrderDetails, ?ConnectionInterface $con = null)
     {
         /** @var ChildSoStandingOrderDetail[] $soStandingOrderDetailsToDelete */
         $soStandingOrderDetailsToDelete = $this->getSoStandingOrderDetails(new Criteria(), $con)->diff($soStandingOrderDetails);
@@ -10244,13 +10528,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Returns the number of related SoStandingOrderDetail objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SoStandingOrderDetail objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SoStandingOrderDetail objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSoStandingOrderDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSoStandingOrderDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSoStandingOrderDetailsPartial && !$this->isNew();
         if (null === $this->collSoStandingOrderDetails || null !== $criteria || $partial) {
@@ -10279,8 +10563,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Method called to associate a ChildSoStandingOrderDetail object to this object
      * through the ChildSoStandingOrderDetail foreign key attribute.
      *
-     * @param  ChildSoStandingOrderDetail $l ChildSoStandingOrderDetail
-     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @param ChildSoStandingOrderDetail $l ChildSoStandingOrderDetail
+     * @return $this The current object (for fluent API support)
      */
     public function addSoStandingOrderDetail(ChildSoStandingOrderDetail $l)
     {
@@ -10303,15 +10587,15 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * @param ChildSoStandingOrderDetail $soStandingOrderDetail The ChildSoStandingOrderDetail object to add.
      */
-    protected function doAddSoStandingOrderDetail(ChildSoStandingOrderDetail $soStandingOrderDetail)
+    protected function doAddSoStandingOrderDetail(ChildSoStandingOrderDetail $soStandingOrderDetail): void
     {
         $this->collSoStandingOrderDetails[]= $soStandingOrderDetail;
         $soStandingOrderDetail->setCustomerShipto($this);
     }
 
     /**
-     * @param  ChildSoStandingOrderDetail $soStandingOrderDetail The ChildSoStandingOrderDetail object to remove.
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     * @param ChildSoStandingOrderDetail $soStandingOrderDetail The ChildSoStandingOrderDetail object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSoStandingOrderDetail(ChildSoStandingOrderDetail $soStandingOrderDetail)
     {
@@ -10341,12 +10625,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoStandingOrderDetail[] List of ChildSoStandingOrderDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoStandingOrderDetail}> List of ChildSoStandingOrderDetail objects
      */
-    public function getSoStandingOrderDetailsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoStandingOrderDetailsJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoStandingOrderDetailQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -10366,12 +10651,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in CustomerShipto.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoStandingOrderDetail[] List of ChildSoStandingOrderDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoStandingOrderDetail}> List of ChildSoStandingOrderDetail objects
      */
-    public function getSoStandingOrderDetailsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoStandingOrderDetailsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoStandingOrderDetailQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -10382,11 +10668,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Gets a single ChildSoStandingOrder object, which is related to this object by a one-to-one relationship.
      *
-     * @param  ConnectionInterface $con optional connection object
-     * @return ChildSoStandingOrder
-     * @throws PropelException
+     * @param ConnectionInterface $con optional connection object
+     * @return ChildSoStandingOrder|null
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSoStandingOrder(ConnectionInterface $con = null)
+    public function getSoStandingOrder(?ConnectionInterface $con = null)
     {
 
         if ($this->singleSoStandingOrder === null && !$this->isNew()) {
@@ -10399,9 +10685,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Sets a single ChildSoStandingOrder object as related to this object by a one-to-one relationship.
      *
-     * @param  ChildSoStandingOrder $v ChildSoStandingOrder
-     * @return $this|\CustomerShipto The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildSoStandingOrder $v ChildSoStandingOrder
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setSoStandingOrder(ChildSoStandingOrder $v = null)
     {
@@ -10419,6 +10705,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -10532,6 +10820,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -10540,9 +10830,10 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
             if ($this->collArContacts) {
@@ -10612,6 +10903,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->collSoStandingOrderDetails = null;
         $this->singleSoStandingOrder = null;
         $this->aCustomer = null;
+        return $this;
     }
 
     /**
@@ -10626,99 +10918,79 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        // if (is_callable('parent::preSave')) {
-        //     return parent::preSave($con);
-        // }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        // if (is_callable('parent::postSave')) {
-        //     parent::postSave($con);
-        // }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        // if (is_callable('parent::preInsert')) {
-        //     return parent::preInsert($con);
-        // }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        // if (is_callable('parent::postInsert')) {
-        //     parent::postInsert($con);
-        // }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        // if (is_callable('parent::preUpdate')) {
-        //     return parent::preUpdate($con);
-        // }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        // if (is_callable('parent::postUpdate')) {
-        //     parent::postUpdate($con);
-        // }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        // if (is_callable('parent::preDelete')) {
-        //     return parent::preDelete($con);
-        // }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        // if (is_callable('parent::postDelete')) {
-        //     parent::postDelete($con);
-        // }
-    }
+            }
 
 
     /**
@@ -10728,7 +11000,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -10748,15 +11020,18 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

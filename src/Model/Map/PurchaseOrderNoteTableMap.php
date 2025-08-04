@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class PurchaseOrderNoteTableMap extends TableMap
 {
@@ -34,144 +33,256 @@ class PurchaseOrderNoteTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.PurchaseOrderNoteTableMap';
+    public const CLASS_NAME = '.Map.PurchaseOrderNoteTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'notes_po_head_det';
+    public const TABLE_NAME = 'notes_po_head_det';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'PurchaseOrderNote';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\PurchaseOrderNote';
+    public const OM_CLASS = '\\PurchaseOrderNote';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'PurchaseOrderNote';
+    public const CLASS_DEFAULT = 'PurchaseOrderNote';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 12;
+    public const NUM_COLUMNS = 12;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 12;
+    public const NUM_HYDRATE_COLUMNS = 12;
 
     /**
      * the column name for the PontType field
      */
-    const COL_PONTTYPE = 'notes_po_head_det.PontType';
+    public const COL_PONTTYPE = 'notes_po_head_det.PontType';
 
     /**
      * the column name for the PontTypeDesc field
      */
-    const COL_PONTTYPEDESC = 'notes_po_head_det.PontTypeDesc';
+    public const COL_PONTTYPEDESC = 'notes_po_head_det.PontTypeDesc';
 
     /**
      * the column name for the PohdNbr field
      */
-    const COL_POHDNBR = 'notes_po_head_det.PohdNbr';
+    public const COL_POHDNBR = 'notes_po_head_det.PohdNbr';
 
     /**
      * the column name for the PodtLine field
      */
-    const COL_PODTLINE = 'notes_po_head_det.PodtLine';
+    public const COL_PODTLINE = 'notes_po_head_det.PodtLine';
 
     /**
      * the column name for the PontPordEditOrView field
      */
-    const COL_PONTPORDEDITORVIEW = 'notes_po_head_det.PontPordEditOrView';
+    public const COL_PONTPORDEDITORVIEW = 'notes_po_head_det.PontPordEditOrView';
 
     /**
      * the column name for the PontForm field
      */
-    const COL_PONTFORM = 'notes_po_head_det.PontForm';
+    public const COL_PONTFORM = 'notes_po_head_det.PontForm';
 
     /**
      * the column name for the PontSeq field
      */
-    const COL_PONTSEQ = 'notes_po_head_det.PontSeq';
+    public const COL_PONTSEQ = 'notes_po_head_det.PontSeq';
 
     /**
      * the column name for the PontNote field
      */
-    const COL_PONTNOTE = 'notes_po_head_det.PontNote';
+    public const COL_PONTNOTE = 'notes_po_head_det.PontNote';
 
     /**
      * the column name for the PontKey2 field
      */
-    const COL_PONTKEY2 = 'notes_po_head_det.PontKey2';
+    public const COL_PONTKEY2 = 'notes_po_head_det.PontKey2';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'notes_po_head_det.DateUpdtd';
+    public const COL_DATEUPDTD = 'notes_po_head_det.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'notes_po_head_det.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'notes_po_head_det.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'notes_po_head_det.dummy';
+    public const COL_DUMMY = 'notes_po_head_det.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Ponttype', 'Ponttypedesc', 'Pohdnbr', 'Podtline', 'Pontpordeditorview', 'Pontform', 'Pontseq', 'Pontnote', 'Pontkey2', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('ponttype', 'ponttypedesc', 'pohdnbr', 'podtline', 'pontpordeditorview', 'pontform', 'pontseq', 'pontnote', 'pontkey2', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(PurchaseOrderNoteTableMap::COL_PONTTYPE, PurchaseOrderNoteTableMap::COL_PONTTYPEDESC, PurchaseOrderNoteTableMap::COL_POHDNBR, PurchaseOrderNoteTableMap::COL_PODTLINE, PurchaseOrderNoteTableMap::COL_PONTPORDEDITORVIEW, PurchaseOrderNoteTableMap::COL_PONTFORM, PurchaseOrderNoteTableMap::COL_PONTSEQ, PurchaseOrderNoteTableMap::COL_PONTNOTE, PurchaseOrderNoteTableMap::COL_PONTKEY2, PurchaseOrderNoteTableMap::COL_DATEUPDTD, PurchaseOrderNoteTableMap::COL_TIMEUPDTD, PurchaseOrderNoteTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('PontType', 'PontTypeDesc', 'PohdNbr', 'PodtLine', 'PontPordEditOrView', 'PontForm', 'PontSeq', 'PontNote', 'PontKey2', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Ponttype', 'Ponttypedesc', 'Pohdnbr', 'Podtline', 'Pontpordeditorview', 'Pontform', 'Pontseq', 'Pontnote', 'Pontkey2', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['ponttype', 'ponttypedesc', 'pohdnbr', 'podtline', 'pontpordeditorview', 'pontform', 'pontseq', 'pontnote', 'pontkey2', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [PurchaseOrderNoteTableMap::COL_PONTTYPE, PurchaseOrderNoteTableMap::COL_PONTTYPEDESC, PurchaseOrderNoteTableMap::COL_POHDNBR, PurchaseOrderNoteTableMap::COL_PODTLINE, PurchaseOrderNoteTableMap::COL_PONTPORDEDITORVIEW, PurchaseOrderNoteTableMap::COL_PONTFORM, PurchaseOrderNoteTableMap::COL_PONTSEQ, PurchaseOrderNoteTableMap::COL_PONTNOTE, PurchaseOrderNoteTableMap::COL_PONTKEY2, PurchaseOrderNoteTableMap::COL_DATEUPDTD, PurchaseOrderNoteTableMap::COL_TIMEUPDTD, PurchaseOrderNoteTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['PontType', 'PontTypeDesc', 'PohdNbr', 'PodtLine', 'PontPordEditOrView', 'PontForm', 'PontSeq', 'PontNote', 'PontKey2', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Ponttype' => 0, 'Ponttypedesc' => 1, 'Pohdnbr' => 2, 'Podtline' => 3, 'Pontpordeditorview' => 4, 'Pontform' => 5, 'Pontseq' => 6, 'Pontnote' => 7, 'Pontkey2' => 8, 'Dateupdtd' => 9, 'Timeupdtd' => 10, 'Dummy' => 11, ),
-        self::TYPE_CAMELNAME     => array('ponttype' => 0, 'ponttypedesc' => 1, 'pohdnbr' => 2, 'podtline' => 3, 'pontpordeditorview' => 4, 'pontform' => 5, 'pontseq' => 6, 'pontnote' => 7, 'pontkey2' => 8, 'dateupdtd' => 9, 'timeupdtd' => 10, 'dummy' => 11, ),
-        self::TYPE_COLNAME       => array(PurchaseOrderNoteTableMap::COL_PONTTYPE => 0, PurchaseOrderNoteTableMap::COL_PONTTYPEDESC => 1, PurchaseOrderNoteTableMap::COL_POHDNBR => 2, PurchaseOrderNoteTableMap::COL_PODTLINE => 3, PurchaseOrderNoteTableMap::COL_PONTPORDEDITORVIEW => 4, PurchaseOrderNoteTableMap::COL_PONTFORM => 5, PurchaseOrderNoteTableMap::COL_PONTSEQ => 6, PurchaseOrderNoteTableMap::COL_PONTNOTE => 7, PurchaseOrderNoteTableMap::COL_PONTKEY2 => 8, PurchaseOrderNoteTableMap::COL_DATEUPDTD => 9, PurchaseOrderNoteTableMap::COL_TIMEUPDTD => 10, PurchaseOrderNoteTableMap::COL_DUMMY => 11, ),
-        self::TYPE_FIELDNAME     => array('PontType' => 0, 'PontTypeDesc' => 1, 'PohdNbr' => 2, 'PodtLine' => 3, 'PontPordEditOrView' => 4, 'PontForm' => 5, 'PontSeq' => 6, 'PontNote' => 7, 'PontKey2' => 8, 'DateUpdtd' => 9, 'TimeUpdtd' => 10, 'dummy' => 11, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Ponttype' => 0, 'Ponttypedesc' => 1, 'Pohdnbr' => 2, 'Podtline' => 3, 'Pontpordeditorview' => 4, 'Pontform' => 5, 'Pontseq' => 6, 'Pontnote' => 7, 'Pontkey2' => 8, 'Dateupdtd' => 9, 'Timeupdtd' => 10, 'Dummy' => 11, ],
+        self::TYPE_CAMELNAME     => ['ponttype' => 0, 'ponttypedesc' => 1, 'pohdnbr' => 2, 'podtline' => 3, 'pontpordeditorview' => 4, 'pontform' => 5, 'pontseq' => 6, 'pontnote' => 7, 'pontkey2' => 8, 'dateupdtd' => 9, 'timeupdtd' => 10, 'dummy' => 11, ],
+        self::TYPE_COLNAME       => [PurchaseOrderNoteTableMap::COL_PONTTYPE => 0, PurchaseOrderNoteTableMap::COL_PONTTYPEDESC => 1, PurchaseOrderNoteTableMap::COL_POHDNBR => 2, PurchaseOrderNoteTableMap::COL_PODTLINE => 3, PurchaseOrderNoteTableMap::COL_PONTPORDEDITORVIEW => 4, PurchaseOrderNoteTableMap::COL_PONTFORM => 5, PurchaseOrderNoteTableMap::COL_PONTSEQ => 6, PurchaseOrderNoteTableMap::COL_PONTNOTE => 7, PurchaseOrderNoteTableMap::COL_PONTKEY2 => 8, PurchaseOrderNoteTableMap::COL_DATEUPDTD => 9, PurchaseOrderNoteTableMap::COL_TIMEUPDTD => 10, PurchaseOrderNoteTableMap::COL_DUMMY => 11, ],
+        self::TYPE_FIELDNAME     => ['PontType' => 0, 'PontTypeDesc' => 1, 'PohdNbr' => 2, 'PodtLine' => 3, 'PontPordEditOrView' => 4, 'PontForm' => 5, 'PontSeq' => 6, 'PontNote' => 7, 'PontKey2' => 8, 'DateUpdtd' => 9, 'TimeUpdtd' => 10, 'dummy' => 11, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Ponttype' => 'PONTTYPE',
+        'PurchaseOrderNote.Ponttype' => 'PONTTYPE',
+        'ponttype' => 'PONTTYPE',
+        'purchaseOrderNote.ponttype' => 'PONTTYPE',
+        'PurchaseOrderNoteTableMap::COL_PONTTYPE' => 'PONTTYPE',
+        'COL_PONTTYPE' => 'PONTTYPE',
+        'PontType' => 'PONTTYPE',
+        'notes_po_head_det.PontType' => 'PONTTYPE',
+        'Ponttypedesc' => 'PONTTYPEDESC',
+        'PurchaseOrderNote.Ponttypedesc' => 'PONTTYPEDESC',
+        'ponttypedesc' => 'PONTTYPEDESC',
+        'purchaseOrderNote.ponttypedesc' => 'PONTTYPEDESC',
+        'PurchaseOrderNoteTableMap::COL_PONTTYPEDESC' => 'PONTTYPEDESC',
+        'COL_PONTTYPEDESC' => 'PONTTYPEDESC',
+        'PontTypeDesc' => 'PONTTYPEDESC',
+        'notes_po_head_det.PontTypeDesc' => 'PONTTYPEDESC',
+        'Pohdnbr' => 'POHDNBR',
+        'PurchaseOrderNote.Pohdnbr' => 'POHDNBR',
+        'pohdnbr' => 'POHDNBR',
+        'purchaseOrderNote.pohdnbr' => 'POHDNBR',
+        'PurchaseOrderNoteTableMap::COL_POHDNBR' => 'POHDNBR',
+        'COL_POHDNBR' => 'POHDNBR',
+        'PohdNbr' => 'POHDNBR',
+        'notes_po_head_det.PohdNbr' => 'POHDNBR',
+        'Podtline' => 'PODTLINE',
+        'PurchaseOrderNote.Podtline' => 'PODTLINE',
+        'podtline' => 'PODTLINE',
+        'purchaseOrderNote.podtline' => 'PODTLINE',
+        'PurchaseOrderNoteTableMap::COL_PODTLINE' => 'PODTLINE',
+        'COL_PODTLINE' => 'PODTLINE',
+        'PodtLine' => 'PODTLINE',
+        'notes_po_head_det.PodtLine' => 'PODTLINE',
+        'Pontpordeditorview' => 'PONTPORDEDITORVIEW',
+        'PurchaseOrderNote.Pontpordeditorview' => 'PONTPORDEDITORVIEW',
+        'pontpordeditorview' => 'PONTPORDEDITORVIEW',
+        'purchaseOrderNote.pontpordeditorview' => 'PONTPORDEDITORVIEW',
+        'PurchaseOrderNoteTableMap::COL_PONTPORDEDITORVIEW' => 'PONTPORDEDITORVIEW',
+        'COL_PONTPORDEDITORVIEW' => 'PONTPORDEDITORVIEW',
+        'PontPordEditOrView' => 'PONTPORDEDITORVIEW',
+        'notes_po_head_det.PontPordEditOrView' => 'PONTPORDEDITORVIEW',
+        'Pontform' => 'PONTFORM',
+        'PurchaseOrderNote.Pontform' => 'PONTFORM',
+        'pontform' => 'PONTFORM',
+        'purchaseOrderNote.pontform' => 'PONTFORM',
+        'PurchaseOrderNoteTableMap::COL_PONTFORM' => 'PONTFORM',
+        'COL_PONTFORM' => 'PONTFORM',
+        'PontForm' => 'PONTFORM',
+        'notes_po_head_det.PontForm' => 'PONTFORM',
+        'Pontseq' => 'PONTSEQ',
+        'PurchaseOrderNote.Pontseq' => 'PONTSEQ',
+        'pontseq' => 'PONTSEQ',
+        'purchaseOrderNote.pontseq' => 'PONTSEQ',
+        'PurchaseOrderNoteTableMap::COL_PONTSEQ' => 'PONTSEQ',
+        'COL_PONTSEQ' => 'PONTSEQ',
+        'PontSeq' => 'PONTSEQ',
+        'notes_po_head_det.PontSeq' => 'PONTSEQ',
+        'Pontnote' => 'PONTNOTE',
+        'PurchaseOrderNote.Pontnote' => 'PONTNOTE',
+        'pontnote' => 'PONTNOTE',
+        'purchaseOrderNote.pontnote' => 'PONTNOTE',
+        'PurchaseOrderNoteTableMap::COL_PONTNOTE' => 'PONTNOTE',
+        'COL_PONTNOTE' => 'PONTNOTE',
+        'PontNote' => 'PONTNOTE',
+        'notes_po_head_det.PontNote' => 'PONTNOTE',
+        'Pontkey2' => 'PONTKEY2',
+        'PurchaseOrderNote.Pontkey2' => 'PONTKEY2',
+        'pontkey2' => 'PONTKEY2',
+        'purchaseOrderNote.pontkey2' => 'PONTKEY2',
+        'PurchaseOrderNoteTableMap::COL_PONTKEY2' => 'PONTKEY2',
+        'COL_PONTKEY2' => 'PONTKEY2',
+        'PontKey2' => 'PONTKEY2',
+        'notes_po_head_det.PontKey2' => 'PONTKEY2',
+        'Dateupdtd' => 'DATEUPDTD',
+        'PurchaseOrderNote.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'purchaseOrderNote.dateupdtd' => 'DATEUPDTD',
+        'PurchaseOrderNoteTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'notes_po_head_det.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'PurchaseOrderNote.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'purchaseOrderNote.timeupdtd' => 'TIMEUPDTD',
+        'PurchaseOrderNoteTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'notes_po_head_det.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'PurchaseOrderNote.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'purchaseOrderNote.dummy' => 'DUMMY',
+        'PurchaseOrderNoteTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'notes_po_head_det.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('notes_po_head_det');
@@ -193,14 +304,16 @@ class PurchaseOrderNoteTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -211,9 +324,11 @@ class PurchaseOrderNoteTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \PurchaseOrderNote $obj A \PurchaseOrderNote object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(PurchaseOrderNote $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -232,8 +347,10 @@ class PurchaseOrderNoteTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \PurchaseOrderNote object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \PurchaseOrderNote) {
@@ -261,14 +378,14 @@ class PurchaseOrderNoteTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Ponttype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 5 + $offset : static::translateFieldName('Pontform', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Pontseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 8 + $offset : static::translateFieldName('Pontkey2', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -283,14 +400,14 @@ class PurchaseOrderNoteTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -326,10 +443,10 @@ class PurchaseOrderNoteTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? PurchaseOrderNoteTableMap::CLASS_DEFAULT : PurchaseOrderNoteTableMap::OM_CLASS;
     }
@@ -337,17 +454,17 @@ class PurchaseOrderNoteTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (PurchaseOrderNote object, last column rank)
+     * @return array (PurchaseOrderNote object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = PurchaseOrderNoteTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = PurchaseOrderNoteTableMap::getInstanceFromPool($key))) {
@@ -363,7 +480,7 @@ class PurchaseOrderNoteTableMap extends TableMap
             PurchaseOrderNoteTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -371,13 +488,13 @@ class PurchaseOrderNoteTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -407,12 +524,13 @@ class PurchaseOrderNoteTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(PurchaseOrderNoteTableMap::COL_PONTTYPE);
@@ -444,40 +562,72 @@ class PurchaseOrderNoteTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(PurchaseOrderNoteTableMap::COL_PONTTYPE);
+            $criteria->removeSelectColumn(PurchaseOrderNoteTableMap::COL_PONTTYPEDESC);
+            $criteria->removeSelectColumn(PurchaseOrderNoteTableMap::COL_POHDNBR);
+            $criteria->removeSelectColumn(PurchaseOrderNoteTableMap::COL_PODTLINE);
+            $criteria->removeSelectColumn(PurchaseOrderNoteTableMap::COL_PONTPORDEDITORVIEW);
+            $criteria->removeSelectColumn(PurchaseOrderNoteTableMap::COL_PONTFORM);
+            $criteria->removeSelectColumn(PurchaseOrderNoteTableMap::COL_PONTSEQ);
+            $criteria->removeSelectColumn(PurchaseOrderNoteTableMap::COL_PONTNOTE);
+            $criteria->removeSelectColumn(PurchaseOrderNoteTableMap::COL_PONTKEY2);
+            $criteria->removeSelectColumn(PurchaseOrderNoteTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(PurchaseOrderNoteTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(PurchaseOrderNoteTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.PontType');
+            $criteria->removeSelectColumn($alias . '.PontTypeDesc');
+            $criteria->removeSelectColumn($alias . '.PohdNbr');
+            $criteria->removeSelectColumn($alias . '.PodtLine');
+            $criteria->removeSelectColumn($alias . '.PontPordEditOrView');
+            $criteria->removeSelectColumn($alias . '.PontForm');
+            $criteria->removeSelectColumn($alias . '.PontSeq');
+            $criteria->removeSelectColumn($alias . '.PontNote');
+            $criteria->removeSelectColumn($alias . '.PontKey2');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(PurchaseOrderNoteTableMap::DATABASE_NAME)->getTable(PurchaseOrderNoteTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(PurchaseOrderNoteTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(PurchaseOrderNoteTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new PurchaseOrderNoteTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a PurchaseOrderNote or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or PurchaseOrderNote object or primary key or array of primary keys
+     * @param mixed $values Criteria or PurchaseOrderNote object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderNoteTableMap::DATABASE_NAME);
@@ -495,7 +645,7 @@ class PurchaseOrderNoteTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(PurchaseOrderNoteTableMap::COL_PONTTYPE, $value[0]);
@@ -525,7 +675,7 @@ class PurchaseOrderNoteTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return PurchaseOrderNoteQuery::create()->doDeleteAll($con);
     }
@@ -533,13 +683,13 @@ class PurchaseOrderNoteTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a PurchaseOrderNote or Criteria object.
      *
-     * @param mixed               $criteria Criteria or PurchaseOrderNote object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or PurchaseOrderNote object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderNoteTableMap::DATABASE_NAME);
@@ -562,7 +712,4 @@ class PurchaseOrderNoteTableMap extends TableMap
         });
     }
 
-} // PurchaseOrderNoteTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-PurchaseOrderNoteTableMap::buildTableMap();
+}

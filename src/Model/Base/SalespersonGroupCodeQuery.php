@@ -10,14 +10,12 @@ use Map\SalespersonGroupCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ar_cust_spgp' table.
- *
- *
+ * Base class that represents a query for the `ar_cust_spgp` table.
  *
  * @method     ChildSalespersonGroupCodeQuery orderByArtbspgpcode($order = Criteria::ASC) Order by the ArtbSpgpCode column
  * @method     ChildSalespersonGroupCodeQuery orderByArtbspgpdesc($order = Criteria::ASC) Order by the ArtbSpgpDesc column
@@ -39,17 +37,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalespersonGroupCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildSalespersonGroupCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildSalespersonGroupCode findOne(ConnectionInterface $con = null) Return the first ChildSalespersonGroupCode matching the query
- * @method     ChildSalespersonGroupCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSalespersonGroupCode matching the query, or a new ChildSalespersonGroupCode object populated from the query conditions when no match is found
+ * @method     ChildSalespersonGroupCode|null findOne(?ConnectionInterface $con = null) Return the first ChildSalespersonGroupCode matching the query
+ * @method     ChildSalespersonGroupCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildSalespersonGroupCode matching the query, or a new ChildSalespersonGroupCode object populated from the query conditions when no match is found
  *
- * @method     ChildSalespersonGroupCode findOneByArtbspgpcode(string $ArtbSpgpCode) Return the first ChildSalespersonGroupCode filtered by the ArtbSpgpCode column
- * @method     ChildSalespersonGroupCode findOneByArtbspgpdesc(string $ArtbSpgpDesc) Return the first ChildSalespersonGroupCode filtered by the ArtbSpgpDesc column
- * @method     ChildSalespersonGroupCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildSalespersonGroupCode filtered by the DateUpdtd column
- * @method     ChildSalespersonGroupCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalespersonGroupCode filtered by the TimeUpdtd column
- * @method     ChildSalespersonGroupCode findOneByDummy(string $dummy) Return the first ChildSalespersonGroupCode filtered by the dummy column *
-
- * @method     ChildSalespersonGroupCode requirePk($key, ConnectionInterface $con = null) Return the ChildSalespersonGroupCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalespersonGroupCode requireOne(ConnectionInterface $con = null) Return the first ChildSalespersonGroupCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalespersonGroupCode|null findOneByArtbspgpcode(string $ArtbSpgpCode) Return the first ChildSalespersonGroupCode filtered by the ArtbSpgpCode column
+ * @method     ChildSalespersonGroupCode|null findOneByArtbspgpdesc(string $ArtbSpgpDesc) Return the first ChildSalespersonGroupCode filtered by the ArtbSpgpDesc column
+ * @method     ChildSalespersonGroupCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildSalespersonGroupCode filtered by the DateUpdtd column
+ * @method     ChildSalespersonGroupCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalespersonGroupCode filtered by the TimeUpdtd column
+ * @method     ChildSalespersonGroupCode|null findOneByDummy(string $dummy) Return the first ChildSalespersonGroupCode filtered by the dummy column
+ *
+ * @method     ChildSalespersonGroupCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildSalespersonGroupCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalespersonGroupCode requireOne(?ConnectionInterface $con = null) Return the first ChildSalespersonGroupCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildSalespersonGroupCode requireOneByArtbspgpcode(string $ArtbSpgpCode) Return the first ChildSalespersonGroupCode filtered by the ArtbSpgpCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalespersonGroupCode requireOneByArtbspgpdesc(string $ArtbSpgpDesc) Return the first ChildSalespersonGroupCode filtered by the ArtbSpgpDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -57,14 +55,22 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalespersonGroupCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalespersonGroupCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalespersonGroupCode requireOneByDummy(string $dummy) Return the first ChildSalespersonGroupCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildSalespersonGroupCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildSalespersonGroupCode objects based on current ModelCriteria
- * @method     ChildSalespersonGroupCode[]|ObjectCollection findByArtbspgpcode(string $ArtbSpgpCode) Return ChildSalespersonGroupCode objects filtered by the ArtbSpgpCode column
- * @method     ChildSalespersonGroupCode[]|ObjectCollection findByArtbspgpdesc(string $ArtbSpgpDesc) Return ChildSalespersonGroupCode objects filtered by the ArtbSpgpDesc column
- * @method     ChildSalespersonGroupCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildSalespersonGroupCode objects filtered by the DateUpdtd column
- * @method     ChildSalespersonGroupCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildSalespersonGroupCode objects filtered by the TimeUpdtd column
- * @method     ChildSalespersonGroupCode[]|ObjectCollection findByDummy(string $dummy) Return ChildSalespersonGroupCode objects filtered by the dummy column
- * @method     ChildSalespersonGroupCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildSalespersonGroupCode[]|Collection find(?ConnectionInterface $con = null) Return ChildSalespersonGroupCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildSalespersonGroupCode> find(?ConnectionInterface $con = null) Return ChildSalespersonGroupCode objects based on current ModelCriteria
  *
+ * @method     ChildSalespersonGroupCode[]|Collection findByArtbspgpcode(string|array<string> $ArtbSpgpCode) Return ChildSalespersonGroupCode objects filtered by the ArtbSpgpCode column
+ * @psalm-method Collection&\Traversable<ChildSalespersonGroupCode> findByArtbspgpcode(string|array<string> $ArtbSpgpCode) Return ChildSalespersonGroupCode objects filtered by the ArtbSpgpCode column
+ * @method     ChildSalespersonGroupCode[]|Collection findByArtbspgpdesc(string|array<string> $ArtbSpgpDesc) Return ChildSalespersonGroupCode objects filtered by the ArtbSpgpDesc column
+ * @psalm-method Collection&\Traversable<ChildSalespersonGroupCode> findByArtbspgpdesc(string|array<string> $ArtbSpgpDesc) Return ChildSalespersonGroupCode objects filtered by the ArtbSpgpDesc column
+ * @method     ChildSalespersonGroupCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSalespersonGroupCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSalespersonGroupCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSalespersonGroupCode objects filtered by the DateUpdtd column
+ * @method     ChildSalespersonGroupCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSalespersonGroupCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSalespersonGroupCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSalespersonGroupCode objects filtered by the TimeUpdtd column
+ * @method     ChildSalespersonGroupCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildSalespersonGroupCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildSalespersonGroupCode> findByDummy(string|array<string> $dummy) Return ChildSalespersonGroupCode objects filtered by the dummy column
+ *
+ * @method     ChildSalespersonGroupCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildSalespersonGroupCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class SalespersonGroupCodeQuery extends ModelCriteria
 {
@@ -73,9 +79,9 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\SalespersonGroupCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\SalespersonGroupCode', $modelAlias = null)
     {
@@ -85,12 +91,12 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildSalespersonGroupCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildSalespersonGroupCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildSalespersonGroupCodeQuery) {
             return $criteria;
@@ -120,7 +126,7 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
      *
      * @return ChildSalespersonGroupCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -152,8 +158,8 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -185,8 +191,8 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildSalespersonGroupCode|array|mixed the result, formatted by the current formatter
      */
@@ -206,12 +212,12 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -228,27 +234,31 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildSalespersonGroupCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(SalespersonGroupCodeTableMap::COL_ARTBSPGPCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(SalespersonGroupCodeTableMap::COL_ARTBSPGPCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildSalespersonGroupCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(SalespersonGroupCodeTableMap::COL_ARTBSPGPCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(SalespersonGroupCodeTableMap::COL_ARTBSPGPCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -258,14 +268,15 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbspgpcode('fooValue');   // WHERE ArtbSpgpCode = 'fooValue'
      * $query->filterByArtbspgpcode('%fooValue%', Criteria::LIKE); // WHERE ArtbSpgpCode LIKE '%fooValue%'
+     * $query->filterByArtbspgpcode(['foo', 'bar']); // WHERE ArtbSpgpCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbspgpcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbspgpcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalespersonGroupCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbspgpcode($artbspgpcode = null, $comparison = null)
+    public function filterByArtbspgpcode($artbspgpcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbspgpcode)) {
@@ -273,7 +284,9 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalespersonGroupCodeTableMap::COL_ARTBSPGPCODE, $artbspgpcode, $comparison);
+        $this->addUsingAlias(SalespersonGroupCodeTableMap::COL_ARTBSPGPCODE, $artbspgpcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -283,14 +296,15 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbspgpdesc('fooValue');   // WHERE ArtbSpgpDesc = 'fooValue'
      * $query->filterByArtbspgpdesc('%fooValue%', Criteria::LIKE); // WHERE ArtbSpgpDesc LIKE '%fooValue%'
+     * $query->filterByArtbspgpdesc(['foo', 'bar']); // WHERE ArtbSpgpDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbspgpdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbspgpdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalespersonGroupCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbspgpdesc($artbspgpdesc = null, $comparison = null)
+    public function filterByArtbspgpdesc($artbspgpdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbspgpdesc)) {
@@ -298,7 +312,9 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalespersonGroupCodeTableMap::COL_ARTBSPGPDESC, $artbspgpdesc, $comparison);
+        $this->addUsingAlias(SalespersonGroupCodeTableMap::COL_ARTBSPGPDESC, $artbspgpdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -308,14 +324,15 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalespersonGroupCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -323,7 +340,9 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalespersonGroupCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(SalespersonGroupCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -333,14 +352,15 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalespersonGroupCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -348,7 +368,9 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalespersonGroupCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(SalespersonGroupCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -358,14 +380,15 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSalespersonGroupCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -373,15 +396,17 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalespersonGroupCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(SalespersonGroupCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildSalespersonGroupCode $salespersonGroupCode Object to remove from the list of results
+     * @param ChildSalespersonGroupCode $salespersonGroupCode Object to remove from the list of results
      *
-     * @return $this|ChildSalespersonGroupCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($salespersonGroupCode = null)
     {
@@ -398,7 +423,7 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalespersonGroupCodeTableMap::DATABASE_NAME);
@@ -423,12 +448,12 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalespersonGroupCodeTableMap::DATABASE_NAME);
@@ -453,4 +478,4 @@ abstract class SalespersonGroupCodeQuery extends ModelCriteria
         });
     }
 
-} // SalespersonGroupCodeQuery
+}

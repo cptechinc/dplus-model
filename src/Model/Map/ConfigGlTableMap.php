@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ConfigGlTableMap extends TableMap
 {
@@ -34,124 +33,204 @@ class ConfigGlTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ConfigGlTableMap';
+    public const CLASS_NAME = '.Map.ConfigGlTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'gl_config';
+    public const TABLE_NAME = 'gl_config';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ConfigGl';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ConfigGl';
+    public const OM_CLASS = '\\ConfigGl';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ConfigGl';
+    public const CLASS_DEFAULT = 'ConfigGl';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 8;
+    public const NUM_COLUMNS = 8;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 8;
+    public const NUM_HYDRATE_COLUMNS = 8;
 
     /**
      * the column name for the GltbConfKey field
      */
-    const COL_GLTBCONFKEY = 'gl_config.GltbConfKey';
+    public const COL_GLTBCONFKEY = 'gl_config.GltbConfKey';
 
     /**
      * the column name for the GltbCoId field
      */
-    const COL_GLTBCOID = 'gl_config.GltbCoId';
+    public const COL_GLTBCOID = 'gl_config.GltbCoId';
 
     /**
      * the column name for the GltbYearEnd field
      */
-    const COL_GLTBYEAREND = 'gl_config.GltbYearEnd';
+    public const COL_GLTBYEAREND = 'gl_config.GltbYearEnd';
 
     /**
      * the column name for the GltbUseBudAnnInc field
      */
-    const COL_GLTBUSEBUDANNINC = 'gl_config.GltbUseBudAnnInc';
+    public const COL_GLTBUSEBUDANNINC = 'gl_config.GltbUseBudAnnInc';
 
     /**
      * the column name for the GltbTraceOn field
      */
-    const COL_GLTBTRACEON = 'gl_config.GltbTraceOn';
+    public const COL_GLTBTRACEON = 'gl_config.GltbTraceOn';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'gl_config.DateUpdtd';
+    public const COL_DATEUPDTD = 'gl_config.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'gl_config.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'gl_config.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'gl_config.dummy';
+    public const COL_DUMMY = 'gl_config.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Gltbconfkey', 'Gltbcoid', 'Gltbyearend', 'Gltbusebudanninc', 'Gltbtraceon', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('gltbconfkey', 'gltbcoid', 'gltbyearend', 'gltbusebudanninc', 'gltbtraceon', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ConfigGlTableMap::COL_GLTBCONFKEY, ConfigGlTableMap::COL_GLTBCOID, ConfigGlTableMap::COL_GLTBYEAREND, ConfigGlTableMap::COL_GLTBUSEBUDANNINC, ConfigGlTableMap::COL_GLTBTRACEON, ConfigGlTableMap::COL_DATEUPDTD, ConfigGlTableMap::COL_TIMEUPDTD, ConfigGlTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('GltbConfKey', 'GltbCoId', 'GltbYearEnd', 'GltbUseBudAnnInc', 'GltbTraceOn', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Gltbconfkey', 'Gltbcoid', 'Gltbyearend', 'Gltbusebudanninc', 'Gltbtraceon', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['gltbconfkey', 'gltbcoid', 'gltbyearend', 'gltbusebudanninc', 'gltbtraceon', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ConfigGlTableMap::COL_GLTBCONFKEY, ConfigGlTableMap::COL_GLTBCOID, ConfigGlTableMap::COL_GLTBYEAREND, ConfigGlTableMap::COL_GLTBUSEBUDANNINC, ConfigGlTableMap::COL_GLTBTRACEON, ConfigGlTableMap::COL_DATEUPDTD, ConfigGlTableMap::COL_TIMEUPDTD, ConfigGlTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['GltbConfKey', 'GltbCoId', 'GltbYearEnd', 'GltbUseBudAnnInc', 'GltbTraceOn', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Gltbconfkey' => 0, 'Gltbcoid' => 1, 'Gltbyearend' => 2, 'Gltbusebudanninc' => 3, 'Gltbtraceon' => 4, 'Dateupdtd' => 5, 'Timeupdtd' => 6, 'Dummy' => 7, ),
-        self::TYPE_CAMELNAME     => array('gltbconfkey' => 0, 'gltbcoid' => 1, 'gltbyearend' => 2, 'gltbusebudanninc' => 3, 'gltbtraceon' => 4, 'dateupdtd' => 5, 'timeupdtd' => 6, 'dummy' => 7, ),
-        self::TYPE_COLNAME       => array(ConfigGlTableMap::COL_GLTBCONFKEY => 0, ConfigGlTableMap::COL_GLTBCOID => 1, ConfigGlTableMap::COL_GLTBYEAREND => 2, ConfigGlTableMap::COL_GLTBUSEBUDANNINC => 3, ConfigGlTableMap::COL_GLTBTRACEON => 4, ConfigGlTableMap::COL_DATEUPDTD => 5, ConfigGlTableMap::COL_TIMEUPDTD => 6, ConfigGlTableMap::COL_DUMMY => 7, ),
-        self::TYPE_FIELDNAME     => array('GltbConfKey' => 0, 'GltbCoId' => 1, 'GltbYearEnd' => 2, 'GltbUseBudAnnInc' => 3, 'GltbTraceOn' => 4, 'DateUpdtd' => 5, 'TimeUpdtd' => 6, 'dummy' => 7, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Gltbconfkey' => 0, 'Gltbcoid' => 1, 'Gltbyearend' => 2, 'Gltbusebudanninc' => 3, 'Gltbtraceon' => 4, 'Dateupdtd' => 5, 'Timeupdtd' => 6, 'Dummy' => 7, ],
+        self::TYPE_CAMELNAME     => ['gltbconfkey' => 0, 'gltbcoid' => 1, 'gltbyearend' => 2, 'gltbusebudanninc' => 3, 'gltbtraceon' => 4, 'dateupdtd' => 5, 'timeupdtd' => 6, 'dummy' => 7, ],
+        self::TYPE_COLNAME       => [ConfigGlTableMap::COL_GLTBCONFKEY => 0, ConfigGlTableMap::COL_GLTBCOID => 1, ConfigGlTableMap::COL_GLTBYEAREND => 2, ConfigGlTableMap::COL_GLTBUSEBUDANNINC => 3, ConfigGlTableMap::COL_GLTBTRACEON => 4, ConfigGlTableMap::COL_DATEUPDTD => 5, ConfigGlTableMap::COL_TIMEUPDTD => 6, ConfigGlTableMap::COL_DUMMY => 7, ],
+        self::TYPE_FIELDNAME     => ['GltbConfKey' => 0, 'GltbCoId' => 1, 'GltbYearEnd' => 2, 'GltbUseBudAnnInc' => 3, 'GltbTraceOn' => 4, 'DateUpdtd' => 5, 'TimeUpdtd' => 6, 'dummy' => 7, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Gltbconfkey' => 'GLTBCONFKEY',
+        'ConfigGl.Gltbconfkey' => 'GLTBCONFKEY',
+        'gltbconfkey' => 'GLTBCONFKEY',
+        'configGl.gltbconfkey' => 'GLTBCONFKEY',
+        'ConfigGlTableMap::COL_GLTBCONFKEY' => 'GLTBCONFKEY',
+        'COL_GLTBCONFKEY' => 'GLTBCONFKEY',
+        'GltbConfKey' => 'GLTBCONFKEY',
+        'gl_config.GltbConfKey' => 'GLTBCONFKEY',
+        'Gltbcoid' => 'GLTBCOID',
+        'ConfigGl.Gltbcoid' => 'GLTBCOID',
+        'gltbcoid' => 'GLTBCOID',
+        'configGl.gltbcoid' => 'GLTBCOID',
+        'ConfigGlTableMap::COL_GLTBCOID' => 'GLTBCOID',
+        'COL_GLTBCOID' => 'GLTBCOID',
+        'GltbCoId' => 'GLTBCOID',
+        'gl_config.GltbCoId' => 'GLTBCOID',
+        'Gltbyearend' => 'GLTBYEAREND',
+        'ConfigGl.Gltbyearend' => 'GLTBYEAREND',
+        'gltbyearend' => 'GLTBYEAREND',
+        'configGl.gltbyearend' => 'GLTBYEAREND',
+        'ConfigGlTableMap::COL_GLTBYEAREND' => 'GLTBYEAREND',
+        'COL_GLTBYEAREND' => 'GLTBYEAREND',
+        'GltbYearEnd' => 'GLTBYEAREND',
+        'gl_config.GltbYearEnd' => 'GLTBYEAREND',
+        'Gltbusebudanninc' => 'GLTBUSEBUDANNINC',
+        'ConfigGl.Gltbusebudanninc' => 'GLTBUSEBUDANNINC',
+        'gltbusebudanninc' => 'GLTBUSEBUDANNINC',
+        'configGl.gltbusebudanninc' => 'GLTBUSEBUDANNINC',
+        'ConfigGlTableMap::COL_GLTBUSEBUDANNINC' => 'GLTBUSEBUDANNINC',
+        'COL_GLTBUSEBUDANNINC' => 'GLTBUSEBUDANNINC',
+        'GltbUseBudAnnInc' => 'GLTBUSEBUDANNINC',
+        'gl_config.GltbUseBudAnnInc' => 'GLTBUSEBUDANNINC',
+        'Gltbtraceon' => 'GLTBTRACEON',
+        'ConfigGl.Gltbtraceon' => 'GLTBTRACEON',
+        'gltbtraceon' => 'GLTBTRACEON',
+        'configGl.gltbtraceon' => 'GLTBTRACEON',
+        'ConfigGlTableMap::COL_GLTBTRACEON' => 'GLTBTRACEON',
+        'COL_GLTBTRACEON' => 'GLTBTRACEON',
+        'GltbTraceOn' => 'GLTBTRACEON',
+        'gl_config.GltbTraceOn' => 'GLTBTRACEON',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ConfigGl.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'configGl.dateupdtd' => 'DATEUPDTD',
+        'ConfigGlTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'gl_config.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ConfigGl.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'configGl.timeupdtd' => 'TIMEUPDTD',
+        'ConfigGlTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'gl_config.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ConfigGl.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'configGl.dummy' => 'DUMMY',
+        'ConfigGlTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'gl_config.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('gl_config');
@@ -169,14 +248,16 @@ class ConfigGlTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -184,14 +265,14 @@ class ConfigGlTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Gltbconfkey', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -206,14 +287,14 @@ class ConfigGlTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (int) $row[
             $indexType == TableMap::TYPE_NUM
@@ -230,10 +311,10 @@ class ConfigGlTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ConfigGlTableMap::CLASS_DEFAULT : ConfigGlTableMap::OM_CLASS;
     }
@@ -241,17 +322,17 @@ class ConfigGlTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ConfigGl object, last column rank)
+     * @return array (ConfigGl object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ConfigGlTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ConfigGlTableMap::getInstanceFromPool($key))) {
@@ -267,7 +348,7 @@ class ConfigGlTableMap extends TableMap
             ConfigGlTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -275,13 +356,13 @@ class ConfigGlTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -311,12 +392,13 @@ class ConfigGlTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ConfigGlTableMap::COL_GLTBCONFKEY);
@@ -340,40 +422,64 @@ class ConfigGlTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ConfigGlTableMap::COL_GLTBCONFKEY);
+            $criteria->removeSelectColumn(ConfigGlTableMap::COL_GLTBCOID);
+            $criteria->removeSelectColumn(ConfigGlTableMap::COL_GLTBYEAREND);
+            $criteria->removeSelectColumn(ConfigGlTableMap::COL_GLTBUSEBUDANNINC);
+            $criteria->removeSelectColumn(ConfigGlTableMap::COL_GLTBTRACEON);
+            $criteria->removeSelectColumn(ConfigGlTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ConfigGlTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ConfigGlTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.GltbConfKey');
+            $criteria->removeSelectColumn($alias . '.GltbCoId');
+            $criteria->removeSelectColumn($alias . '.GltbYearEnd');
+            $criteria->removeSelectColumn($alias . '.GltbUseBudAnnInc');
+            $criteria->removeSelectColumn($alias . '.GltbTraceOn');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ConfigGlTableMap::DATABASE_NAME)->getTable(ConfigGlTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ConfigGlTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ConfigGlTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ConfigGlTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ConfigGl or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ConfigGl object or primary key or array of primary keys
+     * @param mixed $values Criteria or ConfigGl object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigGlTableMap::DATABASE_NAME);
@@ -409,7 +515,7 @@ class ConfigGlTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ConfigGlQuery::create()->doDeleteAll($con);
     }
@@ -417,13 +523,13 @@ class ConfigGlTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ConfigGl or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ConfigGl object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ConfigGl object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigGlTableMap::DATABASE_NAME);
@@ -446,7 +552,4 @@ class ConfigGlTableMap extends TableMap
         });
     }
 
-} // ConfigGlTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ConfigGlTableMap::buildTableMap();
+}

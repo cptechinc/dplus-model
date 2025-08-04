@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class InvTransferDetailTableMap extends TableMap
 {
@@ -34,214 +33,438 @@ class InvTransferDetailTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.InvTransferDetailTableMap';
+    public const CLASS_NAME = '.Map.InvTransferDetailTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'inv_trans_det';
+    public const TABLE_NAME = 'inv_trans_det';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'InvTransferDetail';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\InvTransferDetail';
+    public const OM_CLASS = '\\InvTransferDetail';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'InvTransferDetail';
+    public const CLASS_DEFAULT = 'InvTransferDetail';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 26;
+    public const NUM_COLUMNS = 26;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 26;
+    public const NUM_HYDRATE_COLUMNS = 26;
 
     /**
      * the column name for the InhdNbr field
      */
-    const COL_INHDNBR = 'inv_trans_det.InhdNbr';
+    public const COL_INHDNBR = 'inv_trans_det.InhdNbr';
 
     /**
      * the column name for the IndtLine field
      */
-    const COL_INDTLINE = 'inv_trans_det.IndtLine';
+    public const COL_INDTLINE = 'inv_trans_det.IndtLine';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'inv_trans_det.InitItemNbr';
+    public const COL_INITITEMNBR = 'inv_trans_det.InitItemNbr';
 
     /**
      * the column name for the IndtQtyRqst field
      */
-    const COL_INDTQTYRQST = 'inv_trans_det.IndtQtyRqst';
+    public const COL_INDTQTYRQST = 'inv_trans_det.IndtQtyRqst';
 
     /**
      * the column name for the IndtQtyShip field
      */
-    const COL_INDTQTYSHIP = 'inv_trans_det.IndtQtyShip';
+    public const COL_INDTQTYSHIP = 'inv_trans_det.IndtQtyShip';
 
     /**
      * the column name for the IndtRqstDate field
      */
-    const COL_INDTRQSTDATE = 'inv_trans_det.IndtRqstDate';
+    public const COL_INDTRQSTDATE = 'inv_trans_det.IndtRqstDate';
 
     /**
      * the column name for the IndtShipDate field
      */
-    const COL_INDTSHIPDATE = 'inv_trans_det.IndtShipDate';
+    public const COL_INDTSHIPDATE = 'inv_trans_det.IndtShipDate';
 
     /**
      * the column name for the IndtPickFlag field
      */
-    const COL_INDTPICKFLAG = 'inv_trans_det.IndtPickFlag';
+    public const COL_INDTPICKFLAG = 'inv_trans_det.IndtPickFlag';
 
     /**
      * the column name for the IndtBordFlag field
      */
-    const COL_INDTBORDFLAG = 'inv_trans_det.IndtBordFlag';
+    public const COL_INDTBORDFLAG = 'inv_trans_det.IndtBordFlag';
 
     /**
      * the column name for the IndtQtyPrev field
      */
-    const COL_INDTQTYPREV = 'inv_trans_det.IndtQtyPrev';
+    public const COL_INDTQTYPREV = 'inv_trans_det.IndtQtyPrev';
 
     /**
      * the column name for the IndtQtyRcvd field
      */
-    const COL_INDTQTYRCVD = 'inv_trans_det.IndtQtyRcvd';
+    public const COL_INDTQTYRCVD = 'inv_trans_det.IndtQtyRcvd';
 
     /**
      * the column name for the IndtToBeRcvd field
      */
-    const COL_INDTTOBERCVD = 'inv_trans_det.IndtToBeRcvd';
+    public const COL_INDTTOBERCVD = 'inv_trans_det.IndtToBeRcvd';
 
     /**
      * the column name for the IndtRcptDate field
      */
-    const COL_INDTRCPTDATE = 'inv_trans_det.IndtRcptDate';
+    public const COL_INDTRCPTDATE = 'inv_trans_det.IndtRcptDate';
 
     /**
      * the column name for the IndtSoNbr field
      */
-    const COL_INDTSONBR = 'inv_trans_det.IndtSoNbr';
+    public const COL_INDTSONBR = 'inv_trans_det.IndtSoNbr';
 
     /**
      * the column name for the IndtKitFlag field
      */
-    const COL_INDTKITFLAG = 'inv_trans_det.IndtKitFlag';
+    public const COL_INDTKITFLAG = 'inv_trans_det.IndtKitFlag';
 
     /**
      * the column name for the IndtUseItemNbr field
      */
-    const COL_INDTUSEITEMNBR = 'inv_trans_det.IndtUseItemNbr';
+    public const COL_INDTUSEITEMNBR = 'inv_trans_det.IndtUseItemNbr';
 
     /**
      * the column name for the IndtCustItemNbr field
      */
-    const COL_INDTCUSTITEMNBR = 'inv_trans_det.IndtCustItemNbr';
+    public const COL_INDTCUSTITEMNBR = 'inv_trans_det.IndtCustItemNbr';
 
     /**
      * the column name for the IndtCntrQty field
      */
-    const COL_INDTCNTRQTY = 'inv_trans_det.IndtCntrQty';
+    public const COL_INDTCNTRQTY = 'inv_trans_det.IndtCntrQty';
 
     /**
      * the column name for the IndtCases field
      */
-    const COL_INDTCASES = 'inv_trans_det.IndtCases';
+    public const COL_INDTCASES = 'inv_trans_det.IndtCases';
 
     /**
      * the column name for the IndtOrigRqstDate field
      */
-    const COL_INDTORIGRQSTDATE = 'inv_trans_det.IndtOrigRqstDate';
+    public const COL_INDTORIGRQSTDATE = 'inv_trans_det.IndtOrigRqstDate';
 
     /**
      * the column name for the IndtOrdrAs field
      */
-    const COL_INDTORDRAS = 'inv_trans_det.IndtOrdrAs';
+    public const COL_INDTORDRAS = 'inv_trans_det.IndtOrdrAs';
 
     /**
      * the column name for the IndtFreshFrozen field
      */
-    const COL_INDTFRESHFROZEN = 'inv_trans_det.IndtFreshFrozen';
+    public const COL_INDTFRESHFROZEN = 'inv_trans_det.IndtFreshFrozen';
 
     /**
      * the column name for the IndtPrimBin field
      */
-    const COL_INDTPRIMBIN = 'inv_trans_det.IndtPrimBin';
+    public const COL_INDTPRIMBIN = 'inv_trans_det.IndtPrimBin';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'inv_trans_det.DateUpdtd';
+    public const COL_DATEUPDTD = 'inv_trans_det.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'inv_trans_det.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'inv_trans_det.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'inv_trans_det.dummy';
+    public const COL_DUMMY = 'inv_trans_det.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Inhdnbr', 'Indtline', 'Inititemnbr', 'Indtqtyrqst', 'Indtqtyship', 'Indtrqstdate', 'Indtshipdate', 'Indtpickflag', 'Indtbordflag', 'Indtqtyprev', 'Indtqtyrcvd', 'Indttobercvd', 'Indtrcptdate', 'Indtsonbr', 'Indtkitflag', 'Indtuseitemnbr', 'Indtcustitemnbr', 'Indtcntrqty', 'Indtcases', 'Indtorigrqstdate', 'Indtordras', 'Indtfreshfrozen', 'Indtprimbin', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('inhdnbr', 'indtline', 'inititemnbr', 'indtqtyrqst', 'indtqtyship', 'indtrqstdate', 'indtshipdate', 'indtpickflag', 'indtbordflag', 'indtqtyprev', 'indtqtyrcvd', 'indttobercvd', 'indtrcptdate', 'indtsonbr', 'indtkitflag', 'indtuseitemnbr', 'indtcustitemnbr', 'indtcntrqty', 'indtcases', 'indtorigrqstdate', 'indtordras', 'indtfreshfrozen', 'indtprimbin', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvTransferDetailTableMap::COL_INHDNBR, InvTransferDetailTableMap::COL_INDTLINE, InvTransferDetailTableMap::COL_INITITEMNBR, InvTransferDetailTableMap::COL_INDTQTYRQST, InvTransferDetailTableMap::COL_INDTQTYSHIP, InvTransferDetailTableMap::COL_INDTRQSTDATE, InvTransferDetailTableMap::COL_INDTSHIPDATE, InvTransferDetailTableMap::COL_INDTPICKFLAG, InvTransferDetailTableMap::COL_INDTBORDFLAG, InvTransferDetailTableMap::COL_INDTQTYPREV, InvTransferDetailTableMap::COL_INDTQTYRCVD, InvTransferDetailTableMap::COL_INDTTOBERCVD, InvTransferDetailTableMap::COL_INDTRCPTDATE, InvTransferDetailTableMap::COL_INDTSONBR, InvTransferDetailTableMap::COL_INDTKITFLAG, InvTransferDetailTableMap::COL_INDTUSEITEMNBR, InvTransferDetailTableMap::COL_INDTCUSTITEMNBR, InvTransferDetailTableMap::COL_INDTCNTRQTY, InvTransferDetailTableMap::COL_INDTCASES, InvTransferDetailTableMap::COL_INDTORIGRQSTDATE, InvTransferDetailTableMap::COL_INDTORDRAS, InvTransferDetailTableMap::COL_INDTFRESHFROZEN, InvTransferDetailTableMap::COL_INDTPRIMBIN, InvTransferDetailTableMap::COL_DATEUPDTD, InvTransferDetailTableMap::COL_TIMEUPDTD, InvTransferDetailTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('InhdNbr', 'IndtLine', 'InitItemNbr', 'IndtQtyRqst', 'IndtQtyShip', 'IndtRqstDate', 'IndtShipDate', 'IndtPickFlag', 'IndtBordFlag', 'IndtQtyPrev', 'IndtQtyRcvd', 'IndtToBeRcvd', 'IndtRcptDate', 'IndtSoNbr', 'IndtKitFlag', 'IndtUseItemNbr', 'IndtCustItemNbr', 'IndtCntrQty', 'IndtCases', 'IndtOrigRqstDate', 'IndtOrdrAs', 'IndtFreshFrozen', 'IndtPrimBin', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Inhdnbr', 'Indtline', 'Inititemnbr', 'Indtqtyrqst', 'Indtqtyship', 'Indtrqstdate', 'Indtshipdate', 'Indtpickflag', 'Indtbordflag', 'Indtqtyprev', 'Indtqtyrcvd', 'Indttobercvd', 'Indtrcptdate', 'Indtsonbr', 'Indtkitflag', 'Indtuseitemnbr', 'Indtcustitemnbr', 'Indtcntrqty', 'Indtcases', 'Indtorigrqstdate', 'Indtordras', 'Indtfreshfrozen', 'Indtprimbin', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['inhdnbr', 'indtline', 'inititemnbr', 'indtqtyrqst', 'indtqtyship', 'indtrqstdate', 'indtshipdate', 'indtpickflag', 'indtbordflag', 'indtqtyprev', 'indtqtyrcvd', 'indttobercvd', 'indtrcptdate', 'indtsonbr', 'indtkitflag', 'indtuseitemnbr', 'indtcustitemnbr', 'indtcntrqty', 'indtcases', 'indtorigrqstdate', 'indtordras', 'indtfreshfrozen', 'indtprimbin', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [InvTransferDetailTableMap::COL_INHDNBR, InvTransferDetailTableMap::COL_INDTLINE, InvTransferDetailTableMap::COL_INITITEMNBR, InvTransferDetailTableMap::COL_INDTQTYRQST, InvTransferDetailTableMap::COL_INDTQTYSHIP, InvTransferDetailTableMap::COL_INDTRQSTDATE, InvTransferDetailTableMap::COL_INDTSHIPDATE, InvTransferDetailTableMap::COL_INDTPICKFLAG, InvTransferDetailTableMap::COL_INDTBORDFLAG, InvTransferDetailTableMap::COL_INDTQTYPREV, InvTransferDetailTableMap::COL_INDTQTYRCVD, InvTransferDetailTableMap::COL_INDTTOBERCVD, InvTransferDetailTableMap::COL_INDTRCPTDATE, InvTransferDetailTableMap::COL_INDTSONBR, InvTransferDetailTableMap::COL_INDTKITFLAG, InvTransferDetailTableMap::COL_INDTUSEITEMNBR, InvTransferDetailTableMap::COL_INDTCUSTITEMNBR, InvTransferDetailTableMap::COL_INDTCNTRQTY, InvTransferDetailTableMap::COL_INDTCASES, InvTransferDetailTableMap::COL_INDTORIGRQSTDATE, InvTransferDetailTableMap::COL_INDTORDRAS, InvTransferDetailTableMap::COL_INDTFRESHFROZEN, InvTransferDetailTableMap::COL_INDTPRIMBIN, InvTransferDetailTableMap::COL_DATEUPDTD, InvTransferDetailTableMap::COL_TIMEUPDTD, InvTransferDetailTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['InhdNbr', 'IndtLine', 'InitItemNbr', 'IndtQtyRqst', 'IndtQtyShip', 'IndtRqstDate', 'IndtShipDate', 'IndtPickFlag', 'IndtBordFlag', 'IndtQtyPrev', 'IndtQtyRcvd', 'IndtToBeRcvd', 'IndtRcptDate', 'IndtSoNbr', 'IndtKitFlag', 'IndtUseItemNbr', 'IndtCustItemNbr', 'IndtCntrQty', 'IndtCases', 'IndtOrigRqstDate', 'IndtOrdrAs', 'IndtFreshFrozen', 'IndtPrimBin', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Inhdnbr' => 0, 'Indtline' => 1, 'Inititemnbr' => 2, 'Indtqtyrqst' => 3, 'Indtqtyship' => 4, 'Indtrqstdate' => 5, 'Indtshipdate' => 6, 'Indtpickflag' => 7, 'Indtbordflag' => 8, 'Indtqtyprev' => 9, 'Indtqtyrcvd' => 10, 'Indttobercvd' => 11, 'Indtrcptdate' => 12, 'Indtsonbr' => 13, 'Indtkitflag' => 14, 'Indtuseitemnbr' => 15, 'Indtcustitemnbr' => 16, 'Indtcntrqty' => 17, 'Indtcases' => 18, 'Indtorigrqstdate' => 19, 'Indtordras' => 20, 'Indtfreshfrozen' => 21, 'Indtprimbin' => 22, 'Dateupdtd' => 23, 'Timeupdtd' => 24, 'Dummy' => 25, ),
-        self::TYPE_CAMELNAME     => array('inhdnbr' => 0, 'indtline' => 1, 'inititemnbr' => 2, 'indtqtyrqst' => 3, 'indtqtyship' => 4, 'indtrqstdate' => 5, 'indtshipdate' => 6, 'indtpickflag' => 7, 'indtbordflag' => 8, 'indtqtyprev' => 9, 'indtqtyrcvd' => 10, 'indttobercvd' => 11, 'indtrcptdate' => 12, 'indtsonbr' => 13, 'indtkitflag' => 14, 'indtuseitemnbr' => 15, 'indtcustitemnbr' => 16, 'indtcntrqty' => 17, 'indtcases' => 18, 'indtorigrqstdate' => 19, 'indtordras' => 20, 'indtfreshfrozen' => 21, 'indtprimbin' => 22, 'dateupdtd' => 23, 'timeupdtd' => 24, 'dummy' => 25, ),
-        self::TYPE_COLNAME       => array(InvTransferDetailTableMap::COL_INHDNBR => 0, InvTransferDetailTableMap::COL_INDTLINE => 1, InvTransferDetailTableMap::COL_INITITEMNBR => 2, InvTransferDetailTableMap::COL_INDTQTYRQST => 3, InvTransferDetailTableMap::COL_INDTQTYSHIP => 4, InvTransferDetailTableMap::COL_INDTRQSTDATE => 5, InvTransferDetailTableMap::COL_INDTSHIPDATE => 6, InvTransferDetailTableMap::COL_INDTPICKFLAG => 7, InvTransferDetailTableMap::COL_INDTBORDFLAG => 8, InvTransferDetailTableMap::COL_INDTQTYPREV => 9, InvTransferDetailTableMap::COL_INDTQTYRCVD => 10, InvTransferDetailTableMap::COL_INDTTOBERCVD => 11, InvTransferDetailTableMap::COL_INDTRCPTDATE => 12, InvTransferDetailTableMap::COL_INDTSONBR => 13, InvTransferDetailTableMap::COL_INDTKITFLAG => 14, InvTransferDetailTableMap::COL_INDTUSEITEMNBR => 15, InvTransferDetailTableMap::COL_INDTCUSTITEMNBR => 16, InvTransferDetailTableMap::COL_INDTCNTRQTY => 17, InvTransferDetailTableMap::COL_INDTCASES => 18, InvTransferDetailTableMap::COL_INDTORIGRQSTDATE => 19, InvTransferDetailTableMap::COL_INDTORDRAS => 20, InvTransferDetailTableMap::COL_INDTFRESHFROZEN => 21, InvTransferDetailTableMap::COL_INDTPRIMBIN => 22, InvTransferDetailTableMap::COL_DATEUPDTD => 23, InvTransferDetailTableMap::COL_TIMEUPDTD => 24, InvTransferDetailTableMap::COL_DUMMY => 25, ),
-        self::TYPE_FIELDNAME     => array('InhdNbr' => 0, 'IndtLine' => 1, 'InitItemNbr' => 2, 'IndtQtyRqst' => 3, 'IndtQtyShip' => 4, 'IndtRqstDate' => 5, 'IndtShipDate' => 6, 'IndtPickFlag' => 7, 'IndtBordFlag' => 8, 'IndtQtyPrev' => 9, 'IndtQtyRcvd' => 10, 'IndtToBeRcvd' => 11, 'IndtRcptDate' => 12, 'IndtSoNbr' => 13, 'IndtKitFlag' => 14, 'IndtUseItemNbr' => 15, 'IndtCustItemNbr' => 16, 'IndtCntrQty' => 17, 'IndtCases' => 18, 'IndtOrigRqstDate' => 19, 'IndtOrdrAs' => 20, 'IndtFreshFrozen' => 21, 'IndtPrimBin' => 22, 'DateUpdtd' => 23, 'TimeUpdtd' => 24, 'dummy' => 25, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Inhdnbr' => 0, 'Indtline' => 1, 'Inititemnbr' => 2, 'Indtqtyrqst' => 3, 'Indtqtyship' => 4, 'Indtrqstdate' => 5, 'Indtshipdate' => 6, 'Indtpickflag' => 7, 'Indtbordflag' => 8, 'Indtqtyprev' => 9, 'Indtqtyrcvd' => 10, 'Indttobercvd' => 11, 'Indtrcptdate' => 12, 'Indtsonbr' => 13, 'Indtkitflag' => 14, 'Indtuseitemnbr' => 15, 'Indtcustitemnbr' => 16, 'Indtcntrqty' => 17, 'Indtcases' => 18, 'Indtorigrqstdate' => 19, 'Indtordras' => 20, 'Indtfreshfrozen' => 21, 'Indtprimbin' => 22, 'Dateupdtd' => 23, 'Timeupdtd' => 24, 'Dummy' => 25, ],
+        self::TYPE_CAMELNAME     => ['inhdnbr' => 0, 'indtline' => 1, 'inititemnbr' => 2, 'indtqtyrqst' => 3, 'indtqtyship' => 4, 'indtrqstdate' => 5, 'indtshipdate' => 6, 'indtpickflag' => 7, 'indtbordflag' => 8, 'indtqtyprev' => 9, 'indtqtyrcvd' => 10, 'indttobercvd' => 11, 'indtrcptdate' => 12, 'indtsonbr' => 13, 'indtkitflag' => 14, 'indtuseitemnbr' => 15, 'indtcustitemnbr' => 16, 'indtcntrqty' => 17, 'indtcases' => 18, 'indtorigrqstdate' => 19, 'indtordras' => 20, 'indtfreshfrozen' => 21, 'indtprimbin' => 22, 'dateupdtd' => 23, 'timeupdtd' => 24, 'dummy' => 25, ],
+        self::TYPE_COLNAME       => [InvTransferDetailTableMap::COL_INHDNBR => 0, InvTransferDetailTableMap::COL_INDTLINE => 1, InvTransferDetailTableMap::COL_INITITEMNBR => 2, InvTransferDetailTableMap::COL_INDTQTYRQST => 3, InvTransferDetailTableMap::COL_INDTQTYSHIP => 4, InvTransferDetailTableMap::COL_INDTRQSTDATE => 5, InvTransferDetailTableMap::COL_INDTSHIPDATE => 6, InvTransferDetailTableMap::COL_INDTPICKFLAG => 7, InvTransferDetailTableMap::COL_INDTBORDFLAG => 8, InvTransferDetailTableMap::COL_INDTQTYPREV => 9, InvTransferDetailTableMap::COL_INDTQTYRCVD => 10, InvTransferDetailTableMap::COL_INDTTOBERCVD => 11, InvTransferDetailTableMap::COL_INDTRCPTDATE => 12, InvTransferDetailTableMap::COL_INDTSONBR => 13, InvTransferDetailTableMap::COL_INDTKITFLAG => 14, InvTransferDetailTableMap::COL_INDTUSEITEMNBR => 15, InvTransferDetailTableMap::COL_INDTCUSTITEMNBR => 16, InvTransferDetailTableMap::COL_INDTCNTRQTY => 17, InvTransferDetailTableMap::COL_INDTCASES => 18, InvTransferDetailTableMap::COL_INDTORIGRQSTDATE => 19, InvTransferDetailTableMap::COL_INDTORDRAS => 20, InvTransferDetailTableMap::COL_INDTFRESHFROZEN => 21, InvTransferDetailTableMap::COL_INDTPRIMBIN => 22, InvTransferDetailTableMap::COL_DATEUPDTD => 23, InvTransferDetailTableMap::COL_TIMEUPDTD => 24, InvTransferDetailTableMap::COL_DUMMY => 25, ],
+        self::TYPE_FIELDNAME     => ['InhdNbr' => 0, 'IndtLine' => 1, 'InitItemNbr' => 2, 'IndtQtyRqst' => 3, 'IndtQtyShip' => 4, 'IndtRqstDate' => 5, 'IndtShipDate' => 6, 'IndtPickFlag' => 7, 'IndtBordFlag' => 8, 'IndtQtyPrev' => 9, 'IndtQtyRcvd' => 10, 'IndtToBeRcvd' => 11, 'IndtRcptDate' => 12, 'IndtSoNbr' => 13, 'IndtKitFlag' => 14, 'IndtUseItemNbr' => 15, 'IndtCustItemNbr' => 16, 'IndtCntrQty' => 17, 'IndtCases' => 18, 'IndtOrigRqstDate' => 19, 'IndtOrdrAs' => 20, 'IndtFreshFrozen' => 21, 'IndtPrimBin' => 22, 'DateUpdtd' => 23, 'TimeUpdtd' => 24, 'dummy' => 25, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Inhdnbr' => 'INHDNBR',
+        'InvTransferDetail.Inhdnbr' => 'INHDNBR',
+        'inhdnbr' => 'INHDNBR',
+        'invTransferDetail.inhdnbr' => 'INHDNBR',
+        'InvTransferDetailTableMap::COL_INHDNBR' => 'INHDNBR',
+        'COL_INHDNBR' => 'INHDNBR',
+        'InhdNbr' => 'INHDNBR',
+        'inv_trans_det.InhdNbr' => 'INHDNBR',
+        'Indtline' => 'INDTLINE',
+        'InvTransferDetail.Indtline' => 'INDTLINE',
+        'indtline' => 'INDTLINE',
+        'invTransferDetail.indtline' => 'INDTLINE',
+        'InvTransferDetailTableMap::COL_INDTLINE' => 'INDTLINE',
+        'COL_INDTLINE' => 'INDTLINE',
+        'IndtLine' => 'INDTLINE',
+        'inv_trans_det.IndtLine' => 'INDTLINE',
+        'Inititemnbr' => 'INITITEMNBR',
+        'InvTransferDetail.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'invTransferDetail.inititemnbr' => 'INITITEMNBR',
+        'InvTransferDetailTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'inv_trans_det.InitItemNbr' => 'INITITEMNBR',
+        'Indtqtyrqst' => 'INDTQTYRQST',
+        'InvTransferDetail.Indtqtyrqst' => 'INDTQTYRQST',
+        'indtqtyrqst' => 'INDTQTYRQST',
+        'invTransferDetail.indtqtyrqst' => 'INDTQTYRQST',
+        'InvTransferDetailTableMap::COL_INDTQTYRQST' => 'INDTQTYRQST',
+        'COL_INDTQTYRQST' => 'INDTQTYRQST',
+        'IndtQtyRqst' => 'INDTQTYRQST',
+        'inv_trans_det.IndtQtyRqst' => 'INDTQTYRQST',
+        'Indtqtyship' => 'INDTQTYSHIP',
+        'InvTransferDetail.Indtqtyship' => 'INDTQTYSHIP',
+        'indtqtyship' => 'INDTQTYSHIP',
+        'invTransferDetail.indtqtyship' => 'INDTQTYSHIP',
+        'InvTransferDetailTableMap::COL_INDTQTYSHIP' => 'INDTQTYSHIP',
+        'COL_INDTQTYSHIP' => 'INDTQTYSHIP',
+        'IndtQtyShip' => 'INDTQTYSHIP',
+        'inv_trans_det.IndtQtyShip' => 'INDTQTYSHIP',
+        'Indtrqstdate' => 'INDTRQSTDATE',
+        'InvTransferDetail.Indtrqstdate' => 'INDTRQSTDATE',
+        'indtrqstdate' => 'INDTRQSTDATE',
+        'invTransferDetail.indtrqstdate' => 'INDTRQSTDATE',
+        'InvTransferDetailTableMap::COL_INDTRQSTDATE' => 'INDTRQSTDATE',
+        'COL_INDTRQSTDATE' => 'INDTRQSTDATE',
+        'IndtRqstDate' => 'INDTRQSTDATE',
+        'inv_trans_det.IndtRqstDate' => 'INDTRQSTDATE',
+        'Indtshipdate' => 'INDTSHIPDATE',
+        'InvTransferDetail.Indtshipdate' => 'INDTSHIPDATE',
+        'indtshipdate' => 'INDTSHIPDATE',
+        'invTransferDetail.indtshipdate' => 'INDTSHIPDATE',
+        'InvTransferDetailTableMap::COL_INDTSHIPDATE' => 'INDTSHIPDATE',
+        'COL_INDTSHIPDATE' => 'INDTSHIPDATE',
+        'IndtShipDate' => 'INDTSHIPDATE',
+        'inv_trans_det.IndtShipDate' => 'INDTSHIPDATE',
+        'Indtpickflag' => 'INDTPICKFLAG',
+        'InvTransferDetail.Indtpickflag' => 'INDTPICKFLAG',
+        'indtpickflag' => 'INDTPICKFLAG',
+        'invTransferDetail.indtpickflag' => 'INDTPICKFLAG',
+        'InvTransferDetailTableMap::COL_INDTPICKFLAG' => 'INDTPICKFLAG',
+        'COL_INDTPICKFLAG' => 'INDTPICKFLAG',
+        'IndtPickFlag' => 'INDTPICKFLAG',
+        'inv_trans_det.IndtPickFlag' => 'INDTPICKFLAG',
+        'Indtbordflag' => 'INDTBORDFLAG',
+        'InvTransferDetail.Indtbordflag' => 'INDTBORDFLAG',
+        'indtbordflag' => 'INDTBORDFLAG',
+        'invTransferDetail.indtbordflag' => 'INDTBORDFLAG',
+        'InvTransferDetailTableMap::COL_INDTBORDFLAG' => 'INDTBORDFLAG',
+        'COL_INDTBORDFLAG' => 'INDTBORDFLAG',
+        'IndtBordFlag' => 'INDTBORDFLAG',
+        'inv_trans_det.IndtBordFlag' => 'INDTBORDFLAG',
+        'Indtqtyprev' => 'INDTQTYPREV',
+        'InvTransferDetail.Indtqtyprev' => 'INDTQTYPREV',
+        'indtqtyprev' => 'INDTQTYPREV',
+        'invTransferDetail.indtqtyprev' => 'INDTQTYPREV',
+        'InvTransferDetailTableMap::COL_INDTQTYPREV' => 'INDTQTYPREV',
+        'COL_INDTQTYPREV' => 'INDTQTYPREV',
+        'IndtQtyPrev' => 'INDTQTYPREV',
+        'inv_trans_det.IndtQtyPrev' => 'INDTQTYPREV',
+        'Indtqtyrcvd' => 'INDTQTYRCVD',
+        'InvTransferDetail.Indtqtyrcvd' => 'INDTQTYRCVD',
+        'indtqtyrcvd' => 'INDTQTYRCVD',
+        'invTransferDetail.indtqtyrcvd' => 'INDTQTYRCVD',
+        'InvTransferDetailTableMap::COL_INDTQTYRCVD' => 'INDTQTYRCVD',
+        'COL_INDTQTYRCVD' => 'INDTQTYRCVD',
+        'IndtQtyRcvd' => 'INDTQTYRCVD',
+        'inv_trans_det.IndtQtyRcvd' => 'INDTQTYRCVD',
+        'Indttobercvd' => 'INDTTOBERCVD',
+        'InvTransferDetail.Indttobercvd' => 'INDTTOBERCVD',
+        'indttobercvd' => 'INDTTOBERCVD',
+        'invTransferDetail.indttobercvd' => 'INDTTOBERCVD',
+        'InvTransferDetailTableMap::COL_INDTTOBERCVD' => 'INDTTOBERCVD',
+        'COL_INDTTOBERCVD' => 'INDTTOBERCVD',
+        'IndtToBeRcvd' => 'INDTTOBERCVD',
+        'inv_trans_det.IndtToBeRcvd' => 'INDTTOBERCVD',
+        'Indtrcptdate' => 'INDTRCPTDATE',
+        'InvTransferDetail.Indtrcptdate' => 'INDTRCPTDATE',
+        'indtrcptdate' => 'INDTRCPTDATE',
+        'invTransferDetail.indtrcptdate' => 'INDTRCPTDATE',
+        'InvTransferDetailTableMap::COL_INDTRCPTDATE' => 'INDTRCPTDATE',
+        'COL_INDTRCPTDATE' => 'INDTRCPTDATE',
+        'IndtRcptDate' => 'INDTRCPTDATE',
+        'inv_trans_det.IndtRcptDate' => 'INDTRCPTDATE',
+        'Indtsonbr' => 'INDTSONBR',
+        'InvTransferDetail.Indtsonbr' => 'INDTSONBR',
+        'indtsonbr' => 'INDTSONBR',
+        'invTransferDetail.indtsonbr' => 'INDTSONBR',
+        'InvTransferDetailTableMap::COL_INDTSONBR' => 'INDTSONBR',
+        'COL_INDTSONBR' => 'INDTSONBR',
+        'IndtSoNbr' => 'INDTSONBR',
+        'inv_trans_det.IndtSoNbr' => 'INDTSONBR',
+        'Indtkitflag' => 'INDTKITFLAG',
+        'InvTransferDetail.Indtkitflag' => 'INDTKITFLAG',
+        'indtkitflag' => 'INDTKITFLAG',
+        'invTransferDetail.indtkitflag' => 'INDTKITFLAG',
+        'InvTransferDetailTableMap::COL_INDTKITFLAG' => 'INDTKITFLAG',
+        'COL_INDTKITFLAG' => 'INDTKITFLAG',
+        'IndtKitFlag' => 'INDTKITFLAG',
+        'inv_trans_det.IndtKitFlag' => 'INDTKITFLAG',
+        'Indtuseitemnbr' => 'INDTUSEITEMNBR',
+        'InvTransferDetail.Indtuseitemnbr' => 'INDTUSEITEMNBR',
+        'indtuseitemnbr' => 'INDTUSEITEMNBR',
+        'invTransferDetail.indtuseitemnbr' => 'INDTUSEITEMNBR',
+        'InvTransferDetailTableMap::COL_INDTUSEITEMNBR' => 'INDTUSEITEMNBR',
+        'COL_INDTUSEITEMNBR' => 'INDTUSEITEMNBR',
+        'IndtUseItemNbr' => 'INDTUSEITEMNBR',
+        'inv_trans_det.IndtUseItemNbr' => 'INDTUSEITEMNBR',
+        'Indtcustitemnbr' => 'INDTCUSTITEMNBR',
+        'InvTransferDetail.Indtcustitemnbr' => 'INDTCUSTITEMNBR',
+        'indtcustitemnbr' => 'INDTCUSTITEMNBR',
+        'invTransferDetail.indtcustitemnbr' => 'INDTCUSTITEMNBR',
+        'InvTransferDetailTableMap::COL_INDTCUSTITEMNBR' => 'INDTCUSTITEMNBR',
+        'COL_INDTCUSTITEMNBR' => 'INDTCUSTITEMNBR',
+        'IndtCustItemNbr' => 'INDTCUSTITEMNBR',
+        'inv_trans_det.IndtCustItemNbr' => 'INDTCUSTITEMNBR',
+        'Indtcntrqty' => 'INDTCNTRQTY',
+        'InvTransferDetail.Indtcntrqty' => 'INDTCNTRQTY',
+        'indtcntrqty' => 'INDTCNTRQTY',
+        'invTransferDetail.indtcntrqty' => 'INDTCNTRQTY',
+        'InvTransferDetailTableMap::COL_INDTCNTRQTY' => 'INDTCNTRQTY',
+        'COL_INDTCNTRQTY' => 'INDTCNTRQTY',
+        'IndtCntrQty' => 'INDTCNTRQTY',
+        'inv_trans_det.IndtCntrQty' => 'INDTCNTRQTY',
+        'Indtcases' => 'INDTCASES',
+        'InvTransferDetail.Indtcases' => 'INDTCASES',
+        'indtcases' => 'INDTCASES',
+        'invTransferDetail.indtcases' => 'INDTCASES',
+        'InvTransferDetailTableMap::COL_INDTCASES' => 'INDTCASES',
+        'COL_INDTCASES' => 'INDTCASES',
+        'IndtCases' => 'INDTCASES',
+        'inv_trans_det.IndtCases' => 'INDTCASES',
+        'Indtorigrqstdate' => 'INDTORIGRQSTDATE',
+        'InvTransferDetail.Indtorigrqstdate' => 'INDTORIGRQSTDATE',
+        'indtorigrqstdate' => 'INDTORIGRQSTDATE',
+        'invTransferDetail.indtorigrqstdate' => 'INDTORIGRQSTDATE',
+        'InvTransferDetailTableMap::COL_INDTORIGRQSTDATE' => 'INDTORIGRQSTDATE',
+        'COL_INDTORIGRQSTDATE' => 'INDTORIGRQSTDATE',
+        'IndtOrigRqstDate' => 'INDTORIGRQSTDATE',
+        'inv_trans_det.IndtOrigRqstDate' => 'INDTORIGRQSTDATE',
+        'Indtordras' => 'INDTORDRAS',
+        'InvTransferDetail.Indtordras' => 'INDTORDRAS',
+        'indtordras' => 'INDTORDRAS',
+        'invTransferDetail.indtordras' => 'INDTORDRAS',
+        'InvTransferDetailTableMap::COL_INDTORDRAS' => 'INDTORDRAS',
+        'COL_INDTORDRAS' => 'INDTORDRAS',
+        'IndtOrdrAs' => 'INDTORDRAS',
+        'inv_trans_det.IndtOrdrAs' => 'INDTORDRAS',
+        'Indtfreshfrozen' => 'INDTFRESHFROZEN',
+        'InvTransferDetail.Indtfreshfrozen' => 'INDTFRESHFROZEN',
+        'indtfreshfrozen' => 'INDTFRESHFROZEN',
+        'invTransferDetail.indtfreshfrozen' => 'INDTFRESHFROZEN',
+        'InvTransferDetailTableMap::COL_INDTFRESHFROZEN' => 'INDTFRESHFROZEN',
+        'COL_INDTFRESHFROZEN' => 'INDTFRESHFROZEN',
+        'IndtFreshFrozen' => 'INDTFRESHFROZEN',
+        'inv_trans_det.IndtFreshFrozen' => 'INDTFRESHFROZEN',
+        'Indtprimbin' => 'INDTPRIMBIN',
+        'InvTransferDetail.Indtprimbin' => 'INDTPRIMBIN',
+        'indtprimbin' => 'INDTPRIMBIN',
+        'invTransferDetail.indtprimbin' => 'INDTPRIMBIN',
+        'InvTransferDetailTableMap::COL_INDTPRIMBIN' => 'INDTPRIMBIN',
+        'COL_INDTPRIMBIN' => 'INDTPRIMBIN',
+        'IndtPrimBin' => 'INDTPRIMBIN',
+        'inv_trans_det.IndtPrimBin' => 'INDTPRIMBIN',
+        'Dateupdtd' => 'DATEUPDTD',
+        'InvTransferDetail.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'invTransferDetail.dateupdtd' => 'DATEUPDTD',
+        'InvTransferDetailTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'inv_trans_det.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'InvTransferDetail.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'invTransferDetail.timeupdtd' => 'TIMEUPDTD',
+        'InvTransferDetailTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'inv_trans_det.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'InvTransferDetail.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'invTransferDetail.dummy' => 'DUMMY',
+        'InvTransferDetailTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'inv_trans_det.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('inv_trans_det');
@@ -254,22 +477,22 @@ class InvTransferDetailTableMap extends TableMap
         $this->addForeignPrimaryKey('InhdNbr', 'Inhdnbr', 'INTEGER' , 'inv_trans_head', 'InhdNbr', true, 8, 0);
         $this->addPrimaryKey('IndtLine', 'Indtline', 'INTEGER', true, 5, 0);
         $this->addForeignKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', true, 30, '');
-        $this->addColumn('IndtQtyRqst', 'Indtqtyrqst', 'DECIMAL', true, 20, 0);
-        $this->addColumn('IndtQtyShip', 'Indtqtyship', 'DECIMAL', true, 20, 0);
+        $this->addColumn('IndtQtyRqst', 'Indtqtyrqst', 'DECIMAL', true, 20, 0.0000000);
+        $this->addColumn('IndtQtyShip', 'Indtqtyship', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('IndtRqstDate', 'Indtrqstdate', 'CHAR', true, 8, '');
         $this->addColumn('IndtShipDate', 'Indtshipdate', 'CHAR', true, 8, '');
         $this->addColumn('IndtPickFlag', 'Indtpickflag', 'CHAR', true, null, 'N');
         $this->addColumn('IndtBordFlag', 'Indtbordflag', 'CHAR', true, null, 'N');
-        $this->addColumn('IndtQtyPrev', 'Indtqtyprev', 'DECIMAL', true, 20, 0);
-        $this->addColumn('IndtQtyRcvd', 'Indtqtyrcvd', 'DECIMAL', true, 20, 0);
-        $this->addColumn('IndtToBeRcvd', 'Indttobercvd', 'DECIMAL', true, 20, 0);
+        $this->addColumn('IndtQtyPrev', 'Indtqtyprev', 'DECIMAL', true, 20, 0.0000000);
+        $this->addColumn('IndtQtyRcvd', 'Indtqtyrcvd', 'DECIMAL', true, 20, 0.0000000);
+        $this->addColumn('IndtToBeRcvd', 'Indttobercvd', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('IndtRcptDate', 'Indtrcptdate', 'CHAR', true, 8, '');
         $this->addColumn('IndtSoNbr', 'Indtsonbr', 'INTEGER', true, 8, 0);
         $this->addColumn('IndtKitFlag', 'Indtkitflag', 'CHAR', true, null, 'N');
         $this->addColumn('IndtUseItemNbr', 'Indtuseitemnbr', 'VARCHAR', true, 30, '');
         $this->addColumn('IndtCustItemNbr', 'Indtcustitemnbr', 'VARCHAR', true, 30, '');
         $this->addColumn('IndtCntrQty', 'Indtcntrqty', 'DECIMAL', true, 20, 0);
-        $this->addColumn('IndtCases', 'Indtcases', 'DECIMAL', true, 20, 0);
+        $this->addColumn('IndtCases', 'Indtcases', 'DECIMAL', true, 20, 0.00);
         $this->addColumn('IndtOrigRqstDate', 'Indtorigrqstdate', 'CHAR', true, 8, '');
         $this->addColumn('IndtOrdrAs', 'Indtordras', 'CHAR', true, null, '');
         $this->addColumn('IndtFreshFrozen', 'Indtfreshfrozen', 'CHAR', true, null, '');
@@ -277,12 +500,14 @@ class InvTransferDetailTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('InvTransferOrder', '\\InvTransferOrder', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -334,7 +559,7 @@ class InvTransferDetailTableMap extends TableMap
     1 => ':IndtLine',
   ),
 ), null, null, 'InvTransferPickedLotserials', false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -345,9 +570,11 @@ class InvTransferDetailTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \InvTransferDetail $obj A \InvTransferDetail object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(InvTransferDetail $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -366,8 +593,10 @@ class InvTransferDetailTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \InvTransferDetail object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \InvTransferDetail) {
@@ -395,14 +624,14 @@ class InvTransferDetailTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -417,14 +646,14 @@ class InvTransferDetailTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -450,10 +679,10 @@ class InvTransferDetailTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? InvTransferDetailTableMap::CLASS_DEFAULT : InvTransferDetailTableMap::OM_CLASS;
     }
@@ -461,17 +690,17 @@ class InvTransferDetailTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (InvTransferDetail object, last column rank)
+     * @return array (InvTransferDetail object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = InvTransferDetailTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = InvTransferDetailTableMap::getInstanceFromPool($key))) {
@@ -487,7 +716,7 @@ class InvTransferDetailTableMap extends TableMap
             InvTransferDetailTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -495,13 +724,13 @@ class InvTransferDetailTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -531,12 +760,13 @@ class InvTransferDetailTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(InvTransferDetailTableMap::COL_INHDNBR);
@@ -596,40 +826,100 @@ class InvTransferDetailTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INHDNBR);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTLINE);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTQTYRQST);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTQTYSHIP);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTRQSTDATE);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTSHIPDATE);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTPICKFLAG);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTBORDFLAG);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTQTYPREV);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTQTYRCVD);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTTOBERCVD);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTRCPTDATE);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTSONBR);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTKITFLAG);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTUSEITEMNBR);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTCUSTITEMNBR);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTCNTRQTY);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTCASES);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTORIGRQSTDATE);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTORDRAS);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTFRESHFROZEN);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_INDTPRIMBIN);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(InvTransferDetailTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.InhdNbr');
+            $criteria->removeSelectColumn($alias . '.IndtLine');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.IndtQtyRqst');
+            $criteria->removeSelectColumn($alias . '.IndtQtyShip');
+            $criteria->removeSelectColumn($alias . '.IndtRqstDate');
+            $criteria->removeSelectColumn($alias . '.IndtShipDate');
+            $criteria->removeSelectColumn($alias . '.IndtPickFlag');
+            $criteria->removeSelectColumn($alias . '.IndtBordFlag');
+            $criteria->removeSelectColumn($alias . '.IndtQtyPrev');
+            $criteria->removeSelectColumn($alias . '.IndtQtyRcvd');
+            $criteria->removeSelectColumn($alias . '.IndtToBeRcvd');
+            $criteria->removeSelectColumn($alias . '.IndtRcptDate');
+            $criteria->removeSelectColumn($alias . '.IndtSoNbr');
+            $criteria->removeSelectColumn($alias . '.IndtKitFlag');
+            $criteria->removeSelectColumn($alias . '.IndtUseItemNbr');
+            $criteria->removeSelectColumn($alias . '.IndtCustItemNbr');
+            $criteria->removeSelectColumn($alias . '.IndtCntrQty');
+            $criteria->removeSelectColumn($alias . '.IndtCases');
+            $criteria->removeSelectColumn($alias . '.IndtOrigRqstDate');
+            $criteria->removeSelectColumn($alias . '.IndtOrdrAs');
+            $criteria->removeSelectColumn($alias . '.IndtFreshFrozen');
+            $criteria->removeSelectColumn($alias . '.IndtPrimBin');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(InvTransferDetailTableMap::DATABASE_NAME)->getTable(InvTransferDetailTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvTransferDetailTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(InvTransferDetailTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new InvTransferDetailTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a InvTransferDetail or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or InvTransferDetail object or primary key or array of primary keys
+     * @param mixed $values Criteria or InvTransferDetail object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferDetailTableMap::DATABASE_NAME);
@@ -647,7 +937,7 @@ class InvTransferDetailTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(InvTransferDetailTableMap::COL_INHDNBR, $value[0]);
@@ -675,7 +965,7 @@ class InvTransferDetailTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return InvTransferDetailQuery::create()->doDeleteAll($con);
     }
@@ -683,13 +973,13 @@ class InvTransferDetailTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a InvTransferDetail or Criteria object.
      *
-     * @param mixed               $criteria Criteria or InvTransferDetail object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or InvTransferDetail object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferDetailTableMap::DATABASE_NAME);
@@ -712,7 +1002,4 @@ class InvTransferDetailTableMap extends TableMap
         });
     }
 
-} // InvTransferDetailTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-InvTransferDetailTableMap::buildTableMap();
+}

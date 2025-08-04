@@ -10,14 +10,12 @@ use Map\ConfigPoTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'po_config' table.
- *
- *
+ * Base class that represents a query for the `po_config` table.
  *
  * @method     ChildConfigPoQuery orderByPotbconfkey($order = Criteria::ASC) Order by the PotbConfKey column
  * @method     ChildConfigPoQuery orderByPotbconfsortpo($order = Criteria::ASC) Order by the PotbConfSortPo column
@@ -215,105 +213,105 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPoQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildConfigPoQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildConfigPo findOne(ConnectionInterface $con = null) Return the first ChildConfigPo matching the query
- * @method     ChildConfigPo findOneOrCreate(ConnectionInterface $con = null) Return the first ChildConfigPo matching the query, or a new ChildConfigPo object populated from the query conditions when no match is found
+ * @method     ChildConfigPo|null findOne(?ConnectionInterface $con = null) Return the first ChildConfigPo matching the query
+ * @method     ChildConfigPo findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildConfigPo matching the query, or a new ChildConfigPo object populated from the query conditions when no match is found
  *
- * @method     ChildConfigPo findOneByPotbconfkey(int $PotbConfKey) Return the first ChildConfigPo filtered by the PotbConfKey column
- * @method     ChildConfigPo findOneByPotbconfsortpo(string $PotbConfSortPo) Return the first ChildConfigPo filtered by the PotbConfSortPo column
- * @method     ChildConfigPo findOneByPotbconfcancorrshpdate(string $PotbConfCancOrRshpDate) Return the first ChildConfigPo filtered by the PotbConfCancOrRshpDate column
- * @method     ChildConfigPo findOneByPotbconfackoretadate(string $PotbConfAckOrEtaDate) Return the first ChildConfigPo filtered by the PotbConfAckOrEtaDate column
- * @method     ChildConfigPo findOneByPotbconfeditshipdate(string $PotbConfEditShipDate) Return the first ChildConfigPo filtered by the PotbConfEditShipDate column
- * @method     ChildConfigPo findOneByPotbconfeditexptdate(string $PotbConfEditExptDate) Return the first ChildConfigPo filtered by the PotbConfEditExptDate column
- * @method     ChildConfigPo findOneByPotbconfeditcancdate(string $PotbConfEditCancDate) Return the first ChildConfigPo filtered by the PotbConfEditCancDate column
- * @method     ChildConfigPo findOneByPotbconfeditackdate(string $PotbConfEditAckDate) Return the first ChildConfigPo filtered by the PotbConfEditAckDate column
- * @method     ChildConfigPo findOneByPotbconfexptdatedef(string $PotbConfExptDateDef) Return the first ChildConfigPo filtered by the PotbConfExptDateDef column
- * @method     ChildConfigPo findOneByPotbconfheadgetdef(int $PotbConfHeadGetDef) Return the first ChildConfigPo filtered by the PotbConfHeadGetDef column
- * @method     ChildConfigPo findOneByPotbconfreseq(string $PotbConfReseq) Return the first ChildConfigPo filtered by the PotbConfReseq column
- * @method     ChildConfigPo findOneByPotbconfforcevxref(string $PotbConfForceVxref) Return the first ChildConfigPo filtered by the PotbConfForceVxref column
- * @method     ChildConfigPo findOneByPotbconfqtydue(string $PotbConfQtyDue) Return the first ChildConfigPo filtered by the PotbConfQtyDue column
- * @method     ChildConfigPo findOneByPotbconfwarndup(string $PotbConfWarnDup) Return the first ChildConfigPo filtered by the PotbConfWarnDup column
- * @method     ChildConfigPo findOneByPotbconfforceporef(string $PotbConfForcePoRef) Return the first ChildConfigPo filtered by the PotbConfForcePoRef column
- * @method     ChildConfigPo findOneByPotbconfdestwhse(string $PotbConfDestWhse) Return the first ChildConfigPo filtered by the PotbConfDestWhse column
- * @method     ChildConfigPo findOneByPotbconfeditpoitemnotes(string $PotbConfEditPoItemNotes) Return the first ChildConfigPo filtered by the PotbConfEditPoItemNotes column
- * @method     ChildConfigPo findOneByPotbconfloadpovxmnotes(string $PotbConfLoadPoVxmNotes) Return the first ChildConfigPo filtered by the PotbConfLoadPoVxmNotes column
- * @method     ChildConfigPo findOneByPotbconfepoupdlastcost(string $PotbConfEpoUpdLastCost) Return the first ChildConfigPo filtered by the PotbConfEpoUpdLastCost column
- * @method     ChildConfigPo findOneByPotbconfrecall(string $PotbConfRecAll) Return the first ChildConfigPo filtered by the PotbConfRecAll column
- * @method     ChildConfigPo findOneByPotbconfrecallask(string $PotbConfRecAllAsk) Return the first ChildConfigPo filtered by the PotbConfRecAllAsk column
- * @method     ChildConfigPo findOneByPotbconfreceivecost(string $PotbConfReceiveCost) Return the first ChildConfigPo filtered by the PotbConfReceiveCost column
- * @method     ChildConfigPo findOneByPotbconfprocvari(string $PotbConfProcVari) Return the first ChildConfigPo filtered by the PotbConfProcVari column
- * @method     ChildConfigPo findOneByPotbconfcostrcvryacct(string $PotbConfCostRcvryAcct) Return the first ChildConfigPo filtered by the PotbConfCostRcvryAcct column
- * @method     ChildConfigPo findOneByPotbconfinvtyvariacct(string $PotbConfInvtyVariAcct) Return the first ChildConfigPo filtered by the PotbConfInvtyVariAcct column
- * @method     ChildConfigPo findOneByPotbconfallowchgcost(string $PotbConfAllowChgCost) Return the first ChildConfigPo filtered by the PotbConfAllowChgCost column
- * @method     ChildConfigPo findOneByPotbconfwarnrcptqty(string $PotbConfWarnRcptQty) Return the first ChildConfigPo filtered by the PotbConfWarnRcptQty column
- * @method     ChildConfigPo findOneByPotbconferdispdate(string $PotbConfErDispDate) Return the first ChildConfigPo filtered by the PotbConfErDispDate column
- * @method     ChildConfigPo findOneByPotbconfprovidelpo(string $PotbConfProvideLpo) Return the first ChildConfigPo filtered by the PotbConfProvideLpo column
- * @method     ChildConfigPo findOneByPotbconfwarndiffwhse(string $PotbConfWarnDiffWhse) Return the first ChildConfigPo filtered by the PotbConfWarnDiffWhse column
- * @method     ChildConfigPo findOneByPotbconfallocrcvd(string $PotbConfAllocRcvd) Return the first ChildConfigPo filtered by the PotbConfAllocRcvd column
- * @method     ChildConfigPo findOneByPotbconfaskclose(string $PotbConfAskClose) Return the first ChildConfigPo filtered by the PotbConfAskClose column
- * @method     ChildConfigPo findOneByPotbconferadd2po(string $PotbConfErAdd2Po) Return the first ChildConfigPo filtered by the PotbConfErAdd2Po column
- * @method     ChildConfigPo findOneByPotbconftariffglacct(string $PotbConfTariffGlAcct) Return the first ChildConfigPo filtered by the PotbConfTariffGlAcct column
- * @method     ChildConfigPo findOneByPotbconfshopglacct(string $PotbConfShopGlAcct) Return the first ChildConfigPo filtered by the PotbConfShopGlAcct column
- * @method     ChildConfigPo findOneByPotbconfshoprate(string $PotbConfShopRate) Return the first ChildConfigPo filtered by the PotbConfShopRate column
- * @method     ChildConfigPo findOneByPotbconfuseprime(string $PotbConfUsePrime) Return the first ChildConfigPo filtered by the PotbConfUsePrime column
- * @method     ChildConfigPo findOneByPotbconfusewatch(string $PotbConfUseWatch) Return the first ChildConfigPo filtered by the PotbConfUseWatch column
- * @method     ChildConfigPo findOneByPotbconfprtpowsugg(string $PotbConfPrtPowSugg) Return the first ChildConfigPo filtered by the PotbConfPrtPowSugg column
- * @method     ChildConfigPo findOneByPotbconfpowslctyes(string $PotbConfPowSlctYes) Return the first ChildConfigPo filtered by the PotbConfPowSlctYes column
- * @method     ChildConfigPo findOneByPotbconfpowgvendrpt(string $PotbConfPowgVendRpt) Return the first ChildConfigPo filtered by the PotbConfPowgVendRpt column
- * @method     ChildConfigPo findOneByPotbconfpowgwipstatus(string $PotbConfPowgWipStatus) Return the first ChildConfigPo filtered by the PotbConfPowgWipStatus column
- * @method     ChildConfigPo findOneByPotbconfpowgwipautogen(string $PotbConfPowgWipAutoGen) Return the first ChildConfigPo filtered by the PotbConfPowgWipAutoGen column
- * @method     ChildConfigPo findOneByPotbconfbuyercontrol(string $PotbConfBuyerControl) Return the first ChildConfigPo filtered by the PotbConfBuyerControl column
- * @method     ChildConfigPo findOneByPotbconfpowgoqmethod(int $PotbConfPowgOqMethod) Return the first ChildConfigPo filtered by the PotbConfPowgOqMethod column
- * @method     ChildConfigPo findOneByPotbconffxpo(string $PotbConfFxPo) Return the first ChildConfigPo filtered by the PotbConfFxPo column
- * @method     ChildConfigPo findOneByPotbconffxinv(string $PotbConfFxInv) Return the first ChildConfigPo filtered by the PotbConfFxInv column
- * @method     ChildConfigPo findOneByPotbconfupdatevendcost(string $PotbConfUpDateVendCost) Return the first ChildConfigPo filtered by the PotbConfUpDateVendCost column
- * @method     ChildConfigPo findOneByPotbconfaskupdate(string $PotbConfAskUpDate) Return the first ChildConfigPo filtered by the PotbConfAskUpDate column
- * @method     ChildConfigPo findOneByPotbconfvxmroundpos(int $PotbConfVxmRoundPos) Return the first ChildConfigPo filtered by the PotbConfVxmRoundPos column
- * @method     ChildConfigPo findOneByPotbconfxrefmaint(string $PotbConfXrefMaint) Return the first ChildConfigPo filtered by the PotbConfXrefMaint column
- * @method     ChildConfigPo findOneByPotbconfuseidopts(string $PotbConfUseIdOpts) Return the first ChildConfigPo filtered by the PotbConfUseIdOpts column
- * @method     ChildConfigPo findOneByPotbconfsrchvxmfirst(string $PotbConfSrchVxmFirst) Return the first ChildConfigPo filtered by the PotbConfSrchVxmFirst column
- * @method     ChildConfigPo findOneByPotbconfopenlineonly(string $PotbConfOpenLineOnly) Return the first ChildConfigPo filtered by the PotbConfOpenLineOnly column
- * @method     ChildConfigPo findOneByPotbconfitemdesc(string $PotbConfItemDesc) Return the first ChildConfigPo filtered by the PotbConfItemDesc column
- * @method     ChildConfigPo findOneByPotbconfopenbalonly(string $PotbConfOpenBalOnly) Return the first ChildConfigPo filtered by the PotbConfOpenBalOnly column
- * @method     ChildConfigPo findOneByPotbconfprtwhsedtl(string $PotbConfPrtWhseDtl) Return the first ChildConfigPo filtered by the PotbConfPrtWhseDtl column
- * @method     ChildConfigPo findOneByPotbconfautorcpt(string $PotbConfAutoRcpt) Return the first ChildConfigPo filtered by the PotbConfAutoRcpt column
- * @method     ChildConfigPo findOneByPotbconfdispitemcost(string $PotbConfDispItemCost) Return the first ChildConfigPo filtered by the PotbConfDispItemCost column
- * @method     ChildConfigPo findOneByPotbconfdispcaseqty(string $PotbConfDispCaseQty) Return the first ChildConfigPo filtered by the PotbConfDispCaseQty column
- * @method     ChildConfigPo findOneByPotbconfonetwoline(int $PotbConfOneTwoLine) Return the first ChildConfigPo filtered by the PotbConfOneTwoLine column
- * @method     ChildConfigPo findOneByPotbconfuseordras(string $PotbConfUseOrdrAs) Return the first ChildConfigPo filtered by the PotbConfUseOrdrAs column
- * @method     ChildConfigPo findOneByPotbconfaprvvendonly(string $PotbConfAprvVendOnly) Return the first ChildConfigPo filtered by the PotbConfAprvVendOnly column
- * @method     ChildConfigPo findOneByPotbconfusefab(string $PotbConfUseFab) Return the first ChildConfigPo filtered by the PotbConfUseFab column
- * @method     ChildConfigPo findOneByPotbconfshowitem(string $PotbConfShowItem) Return the first ChildConfigPo filtered by the PotbConfShowItem column
- * @method     ChildConfigPo findOneByPotbconfscrapacct(string $PotbConfScrapAcct) Return the first ChildConfigPo filtered by the PotbConfScrapAcct column
- * @method     ChildConfigPo findOneByPotbconfscrapvaripct(string $PotbConfScrapVariPct) Return the first ChildConfigPo filtered by the PotbConfScrapVariPct column
- * @method     ChildConfigPo findOneByPotbconflifofifo(string $PotbConfLifoFifo) Return the first ChildConfigPo filtered by the PotbConfLifoFifo column
- * @method     ChildConfigPo findOneByPotbconffabbomorkit(string $PotbConfFabBomOrKit) Return the first ChildConfigPo filtered by the PotbConfFabBomOrKit column
- * @method     ChildConfigPo findOneByPotbconfallocepoer(string $PotbConfAllocEpoEr) Return the first ChildConfigPo filtered by the PotbConfAllocEpoEr column
- * @method     ChildConfigPo findOneByPotbconffabprealloc(string $PotbConfFabPrealloc) Return the first ChildConfigPo filtered by the PotbConfFabPrealloc column
- * @method     ChildConfigPo findOneByPotbconfforcefabepo(string $PotbConfForceFabEpo) Return the first ChildConfigPo filtered by the PotbConfForceFabEpo column
- * @method     ChildConfigPo findOneByPotbconfpreviewcomplist(string $PotbConfPreviewCompList) Return the first ChildConfigPo filtered by the PotbConfPreviewCompList column
- * @method     ChildConfigPo findOneByPotbconfnegcompusage(string $PotbConfNegCompUsage) Return the first ChildConfigPo filtered by the PotbConfNegCompUsage column
- * @method     ChildConfigPo findOneByPotbconfautoselectcomp(string $PotbConfAutoSelectComp) Return the first ChildConfigPo filtered by the PotbConfAutoSelectComp column
- * @method     ChildConfigPo findOneByPotbconfbinfromvendor(string $PotbConfBinFromVendor) Return the first ChildConfigPo filtered by the PotbConfBinFromVendor column
- * @method     ChildConfigPo findOneByPotbconfdfltstckcd(string $PotbConfDfltStckCd) Return the first ChildConfigPo filtered by the PotbConfDfltStckCd column
- * @method     ChildConfigPo findOneByPotbconfuseremain(string $PotbConfUseRemain) Return the first ChildConfigPo filtered by the PotbConfUseRemain column
- * @method     ChildConfigPo findOneByPotbconfsamecompcost(string $PotbConfSameCompCost) Return the first ChildConfigPo filtered by the PotbConfSameCompCost column
- * @method     ChildConfigPo findOneByPotbconfpasscode(string $PotbConfPassCode) Return the first ChildConfigPo filtered by the PotbConfPassCode column
- * @method     ChildConfigPo findOneByPotbconfuselandcost(string $PotbConfUseLandCost) Return the first ChildConfigPo filtered by the PotbConfUseLandCost column
- * @method     ChildConfigPo findOneByPotbconfbaselandamtqty(string $PotbConfBaseLandAmtQty) Return the first ChildConfigPo filtered by the PotbConfBaseLandAmtQty column
- * @method     ChildConfigPo findOneByPotbconfwarnlandiner(string $PotbConfWarnLandInEr) Return the first ChildConfigPo filtered by the PotbConfWarnLandInEr column
- * @method     ChildConfigPo findOneByPotbconflandamtmultwght(string $PotbConfLandAmtMultWght) Return the first ChildConfigPo filtered by the PotbConfLandAmtMultWght column
- * @method     ChildConfigPo findOneByPotbconflanderedit(string $PotbConfLandErEdit) Return the first ChildConfigPo filtered by the PotbConfLandErEdit column
- * @method     ChildConfigPo findOneByPotbconfhistcmplfab(string $PotbConfHistCmplFab) Return the first ChildConfigPo filtered by the PotbConfHistCmplFab column
- * @method     ChildConfigPo findOneByPotbconflandglacct(string $PotbConfLandGlAcct) Return the first ChildConfigPo filtered by the PotbConfLandGlAcct column
- * @method     ChildConfigPo findOneByPotblandmpfglacct(string $PotbLandMpfGlAcct) Return the first ChildConfigPo filtered by the PotbLandMpfGlAcct column
- * @method     ChildConfigPo findOneByPotblandhmfglacct(string $PotbLandHmfGlAcct) Return the first ChildConfigPo filtered by the PotbLandHmfGlAcct column
- * @method     ChildConfigPo findOneByPotblanddsetglacct(string $PotbLandDsetGlAcct) Return the first ChildConfigPo filtered by the PotbLandDsetGlAcct column
- * @method     ChildConfigPo findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigPo filtered by the DateUpdtd column
- * @method     ChildConfigPo findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigPo filtered by the TimeUpdtd column
- * @method     ChildConfigPo findOneByDummy(string $dummy) Return the first ChildConfigPo filtered by the dummy column *
-
- * @method     ChildConfigPo requirePk($key, ConnectionInterface $con = null) Return the ChildConfigPo by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigPo requireOne(ConnectionInterface $con = null) Return the first ChildConfigPo matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigPo|null findOneByPotbconfkey(int $PotbConfKey) Return the first ChildConfigPo filtered by the PotbConfKey column
+ * @method     ChildConfigPo|null findOneByPotbconfsortpo(string $PotbConfSortPo) Return the first ChildConfigPo filtered by the PotbConfSortPo column
+ * @method     ChildConfigPo|null findOneByPotbconfcancorrshpdate(string $PotbConfCancOrRshpDate) Return the first ChildConfigPo filtered by the PotbConfCancOrRshpDate column
+ * @method     ChildConfigPo|null findOneByPotbconfackoretadate(string $PotbConfAckOrEtaDate) Return the first ChildConfigPo filtered by the PotbConfAckOrEtaDate column
+ * @method     ChildConfigPo|null findOneByPotbconfeditshipdate(string $PotbConfEditShipDate) Return the first ChildConfigPo filtered by the PotbConfEditShipDate column
+ * @method     ChildConfigPo|null findOneByPotbconfeditexptdate(string $PotbConfEditExptDate) Return the first ChildConfigPo filtered by the PotbConfEditExptDate column
+ * @method     ChildConfigPo|null findOneByPotbconfeditcancdate(string $PotbConfEditCancDate) Return the first ChildConfigPo filtered by the PotbConfEditCancDate column
+ * @method     ChildConfigPo|null findOneByPotbconfeditackdate(string $PotbConfEditAckDate) Return the first ChildConfigPo filtered by the PotbConfEditAckDate column
+ * @method     ChildConfigPo|null findOneByPotbconfexptdatedef(string $PotbConfExptDateDef) Return the first ChildConfigPo filtered by the PotbConfExptDateDef column
+ * @method     ChildConfigPo|null findOneByPotbconfheadgetdef(int $PotbConfHeadGetDef) Return the first ChildConfigPo filtered by the PotbConfHeadGetDef column
+ * @method     ChildConfigPo|null findOneByPotbconfreseq(string $PotbConfReseq) Return the first ChildConfigPo filtered by the PotbConfReseq column
+ * @method     ChildConfigPo|null findOneByPotbconfforcevxref(string $PotbConfForceVxref) Return the first ChildConfigPo filtered by the PotbConfForceVxref column
+ * @method     ChildConfigPo|null findOneByPotbconfqtydue(string $PotbConfQtyDue) Return the first ChildConfigPo filtered by the PotbConfQtyDue column
+ * @method     ChildConfigPo|null findOneByPotbconfwarndup(string $PotbConfWarnDup) Return the first ChildConfigPo filtered by the PotbConfWarnDup column
+ * @method     ChildConfigPo|null findOneByPotbconfforceporef(string $PotbConfForcePoRef) Return the first ChildConfigPo filtered by the PotbConfForcePoRef column
+ * @method     ChildConfigPo|null findOneByPotbconfdestwhse(string $PotbConfDestWhse) Return the first ChildConfigPo filtered by the PotbConfDestWhse column
+ * @method     ChildConfigPo|null findOneByPotbconfeditpoitemnotes(string $PotbConfEditPoItemNotes) Return the first ChildConfigPo filtered by the PotbConfEditPoItemNotes column
+ * @method     ChildConfigPo|null findOneByPotbconfloadpovxmnotes(string $PotbConfLoadPoVxmNotes) Return the first ChildConfigPo filtered by the PotbConfLoadPoVxmNotes column
+ * @method     ChildConfigPo|null findOneByPotbconfepoupdlastcost(string $PotbConfEpoUpdLastCost) Return the first ChildConfigPo filtered by the PotbConfEpoUpdLastCost column
+ * @method     ChildConfigPo|null findOneByPotbconfrecall(string $PotbConfRecAll) Return the first ChildConfigPo filtered by the PotbConfRecAll column
+ * @method     ChildConfigPo|null findOneByPotbconfrecallask(string $PotbConfRecAllAsk) Return the first ChildConfigPo filtered by the PotbConfRecAllAsk column
+ * @method     ChildConfigPo|null findOneByPotbconfreceivecost(string $PotbConfReceiveCost) Return the first ChildConfigPo filtered by the PotbConfReceiveCost column
+ * @method     ChildConfigPo|null findOneByPotbconfprocvari(string $PotbConfProcVari) Return the first ChildConfigPo filtered by the PotbConfProcVari column
+ * @method     ChildConfigPo|null findOneByPotbconfcostrcvryacct(string $PotbConfCostRcvryAcct) Return the first ChildConfigPo filtered by the PotbConfCostRcvryAcct column
+ * @method     ChildConfigPo|null findOneByPotbconfinvtyvariacct(string $PotbConfInvtyVariAcct) Return the first ChildConfigPo filtered by the PotbConfInvtyVariAcct column
+ * @method     ChildConfigPo|null findOneByPotbconfallowchgcost(string $PotbConfAllowChgCost) Return the first ChildConfigPo filtered by the PotbConfAllowChgCost column
+ * @method     ChildConfigPo|null findOneByPotbconfwarnrcptqty(string $PotbConfWarnRcptQty) Return the first ChildConfigPo filtered by the PotbConfWarnRcptQty column
+ * @method     ChildConfigPo|null findOneByPotbconferdispdate(string $PotbConfErDispDate) Return the first ChildConfigPo filtered by the PotbConfErDispDate column
+ * @method     ChildConfigPo|null findOneByPotbconfprovidelpo(string $PotbConfProvideLpo) Return the first ChildConfigPo filtered by the PotbConfProvideLpo column
+ * @method     ChildConfigPo|null findOneByPotbconfwarndiffwhse(string $PotbConfWarnDiffWhse) Return the first ChildConfigPo filtered by the PotbConfWarnDiffWhse column
+ * @method     ChildConfigPo|null findOneByPotbconfallocrcvd(string $PotbConfAllocRcvd) Return the first ChildConfigPo filtered by the PotbConfAllocRcvd column
+ * @method     ChildConfigPo|null findOneByPotbconfaskclose(string $PotbConfAskClose) Return the first ChildConfigPo filtered by the PotbConfAskClose column
+ * @method     ChildConfigPo|null findOneByPotbconferadd2po(string $PotbConfErAdd2Po) Return the first ChildConfigPo filtered by the PotbConfErAdd2Po column
+ * @method     ChildConfigPo|null findOneByPotbconftariffglacct(string $PotbConfTariffGlAcct) Return the first ChildConfigPo filtered by the PotbConfTariffGlAcct column
+ * @method     ChildConfigPo|null findOneByPotbconfshopglacct(string $PotbConfShopGlAcct) Return the first ChildConfigPo filtered by the PotbConfShopGlAcct column
+ * @method     ChildConfigPo|null findOneByPotbconfshoprate(string $PotbConfShopRate) Return the first ChildConfigPo filtered by the PotbConfShopRate column
+ * @method     ChildConfigPo|null findOneByPotbconfuseprime(string $PotbConfUsePrime) Return the first ChildConfigPo filtered by the PotbConfUsePrime column
+ * @method     ChildConfigPo|null findOneByPotbconfusewatch(string $PotbConfUseWatch) Return the first ChildConfigPo filtered by the PotbConfUseWatch column
+ * @method     ChildConfigPo|null findOneByPotbconfprtpowsugg(string $PotbConfPrtPowSugg) Return the first ChildConfigPo filtered by the PotbConfPrtPowSugg column
+ * @method     ChildConfigPo|null findOneByPotbconfpowslctyes(string $PotbConfPowSlctYes) Return the first ChildConfigPo filtered by the PotbConfPowSlctYes column
+ * @method     ChildConfigPo|null findOneByPotbconfpowgvendrpt(string $PotbConfPowgVendRpt) Return the first ChildConfigPo filtered by the PotbConfPowgVendRpt column
+ * @method     ChildConfigPo|null findOneByPotbconfpowgwipstatus(string $PotbConfPowgWipStatus) Return the first ChildConfigPo filtered by the PotbConfPowgWipStatus column
+ * @method     ChildConfigPo|null findOneByPotbconfpowgwipautogen(string $PotbConfPowgWipAutoGen) Return the first ChildConfigPo filtered by the PotbConfPowgWipAutoGen column
+ * @method     ChildConfigPo|null findOneByPotbconfbuyercontrol(string $PotbConfBuyerControl) Return the first ChildConfigPo filtered by the PotbConfBuyerControl column
+ * @method     ChildConfigPo|null findOneByPotbconfpowgoqmethod(int $PotbConfPowgOqMethod) Return the first ChildConfigPo filtered by the PotbConfPowgOqMethod column
+ * @method     ChildConfigPo|null findOneByPotbconffxpo(string $PotbConfFxPo) Return the first ChildConfigPo filtered by the PotbConfFxPo column
+ * @method     ChildConfigPo|null findOneByPotbconffxinv(string $PotbConfFxInv) Return the first ChildConfigPo filtered by the PotbConfFxInv column
+ * @method     ChildConfigPo|null findOneByPotbconfupdatevendcost(string $PotbConfUpDateVendCost) Return the first ChildConfigPo filtered by the PotbConfUpDateVendCost column
+ * @method     ChildConfigPo|null findOneByPotbconfaskupdate(string $PotbConfAskUpDate) Return the first ChildConfigPo filtered by the PotbConfAskUpDate column
+ * @method     ChildConfigPo|null findOneByPotbconfvxmroundpos(int $PotbConfVxmRoundPos) Return the first ChildConfigPo filtered by the PotbConfVxmRoundPos column
+ * @method     ChildConfigPo|null findOneByPotbconfxrefmaint(string $PotbConfXrefMaint) Return the first ChildConfigPo filtered by the PotbConfXrefMaint column
+ * @method     ChildConfigPo|null findOneByPotbconfuseidopts(string $PotbConfUseIdOpts) Return the first ChildConfigPo filtered by the PotbConfUseIdOpts column
+ * @method     ChildConfigPo|null findOneByPotbconfsrchvxmfirst(string $PotbConfSrchVxmFirst) Return the first ChildConfigPo filtered by the PotbConfSrchVxmFirst column
+ * @method     ChildConfigPo|null findOneByPotbconfopenlineonly(string $PotbConfOpenLineOnly) Return the first ChildConfigPo filtered by the PotbConfOpenLineOnly column
+ * @method     ChildConfigPo|null findOneByPotbconfitemdesc(string $PotbConfItemDesc) Return the first ChildConfigPo filtered by the PotbConfItemDesc column
+ * @method     ChildConfigPo|null findOneByPotbconfopenbalonly(string $PotbConfOpenBalOnly) Return the first ChildConfigPo filtered by the PotbConfOpenBalOnly column
+ * @method     ChildConfigPo|null findOneByPotbconfprtwhsedtl(string $PotbConfPrtWhseDtl) Return the first ChildConfigPo filtered by the PotbConfPrtWhseDtl column
+ * @method     ChildConfigPo|null findOneByPotbconfautorcpt(string $PotbConfAutoRcpt) Return the first ChildConfigPo filtered by the PotbConfAutoRcpt column
+ * @method     ChildConfigPo|null findOneByPotbconfdispitemcost(string $PotbConfDispItemCost) Return the first ChildConfigPo filtered by the PotbConfDispItemCost column
+ * @method     ChildConfigPo|null findOneByPotbconfdispcaseqty(string $PotbConfDispCaseQty) Return the first ChildConfigPo filtered by the PotbConfDispCaseQty column
+ * @method     ChildConfigPo|null findOneByPotbconfonetwoline(int $PotbConfOneTwoLine) Return the first ChildConfigPo filtered by the PotbConfOneTwoLine column
+ * @method     ChildConfigPo|null findOneByPotbconfuseordras(string $PotbConfUseOrdrAs) Return the first ChildConfigPo filtered by the PotbConfUseOrdrAs column
+ * @method     ChildConfigPo|null findOneByPotbconfaprvvendonly(string $PotbConfAprvVendOnly) Return the first ChildConfigPo filtered by the PotbConfAprvVendOnly column
+ * @method     ChildConfigPo|null findOneByPotbconfusefab(string $PotbConfUseFab) Return the first ChildConfigPo filtered by the PotbConfUseFab column
+ * @method     ChildConfigPo|null findOneByPotbconfshowitem(string $PotbConfShowItem) Return the first ChildConfigPo filtered by the PotbConfShowItem column
+ * @method     ChildConfigPo|null findOneByPotbconfscrapacct(string $PotbConfScrapAcct) Return the first ChildConfigPo filtered by the PotbConfScrapAcct column
+ * @method     ChildConfigPo|null findOneByPotbconfscrapvaripct(string $PotbConfScrapVariPct) Return the first ChildConfigPo filtered by the PotbConfScrapVariPct column
+ * @method     ChildConfigPo|null findOneByPotbconflifofifo(string $PotbConfLifoFifo) Return the first ChildConfigPo filtered by the PotbConfLifoFifo column
+ * @method     ChildConfigPo|null findOneByPotbconffabbomorkit(string $PotbConfFabBomOrKit) Return the first ChildConfigPo filtered by the PotbConfFabBomOrKit column
+ * @method     ChildConfigPo|null findOneByPotbconfallocepoer(string $PotbConfAllocEpoEr) Return the first ChildConfigPo filtered by the PotbConfAllocEpoEr column
+ * @method     ChildConfigPo|null findOneByPotbconffabprealloc(string $PotbConfFabPrealloc) Return the first ChildConfigPo filtered by the PotbConfFabPrealloc column
+ * @method     ChildConfigPo|null findOneByPotbconfforcefabepo(string $PotbConfForceFabEpo) Return the first ChildConfigPo filtered by the PotbConfForceFabEpo column
+ * @method     ChildConfigPo|null findOneByPotbconfpreviewcomplist(string $PotbConfPreviewCompList) Return the first ChildConfigPo filtered by the PotbConfPreviewCompList column
+ * @method     ChildConfigPo|null findOneByPotbconfnegcompusage(string $PotbConfNegCompUsage) Return the first ChildConfigPo filtered by the PotbConfNegCompUsage column
+ * @method     ChildConfigPo|null findOneByPotbconfautoselectcomp(string $PotbConfAutoSelectComp) Return the first ChildConfigPo filtered by the PotbConfAutoSelectComp column
+ * @method     ChildConfigPo|null findOneByPotbconfbinfromvendor(string $PotbConfBinFromVendor) Return the first ChildConfigPo filtered by the PotbConfBinFromVendor column
+ * @method     ChildConfigPo|null findOneByPotbconfdfltstckcd(string $PotbConfDfltStckCd) Return the first ChildConfigPo filtered by the PotbConfDfltStckCd column
+ * @method     ChildConfigPo|null findOneByPotbconfuseremain(string $PotbConfUseRemain) Return the first ChildConfigPo filtered by the PotbConfUseRemain column
+ * @method     ChildConfigPo|null findOneByPotbconfsamecompcost(string $PotbConfSameCompCost) Return the first ChildConfigPo filtered by the PotbConfSameCompCost column
+ * @method     ChildConfigPo|null findOneByPotbconfpasscode(string $PotbConfPassCode) Return the first ChildConfigPo filtered by the PotbConfPassCode column
+ * @method     ChildConfigPo|null findOneByPotbconfuselandcost(string $PotbConfUseLandCost) Return the first ChildConfigPo filtered by the PotbConfUseLandCost column
+ * @method     ChildConfigPo|null findOneByPotbconfbaselandamtqty(string $PotbConfBaseLandAmtQty) Return the first ChildConfigPo filtered by the PotbConfBaseLandAmtQty column
+ * @method     ChildConfigPo|null findOneByPotbconfwarnlandiner(string $PotbConfWarnLandInEr) Return the first ChildConfigPo filtered by the PotbConfWarnLandInEr column
+ * @method     ChildConfigPo|null findOneByPotbconflandamtmultwght(string $PotbConfLandAmtMultWght) Return the first ChildConfigPo filtered by the PotbConfLandAmtMultWght column
+ * @method     ChildConfigPo|null findOneByPotbconflanderedit(string $PotbConfLandErEdit) Return the first ChildConfigPo filtered by the PotbConfLandErEdit column
+ * @method     ChildConfigPo|null findOneByPotbconfhistcmplfab(string $PotbConfHistCmplFab) Return the first ChildConfigPo filtered by the PotbConfHistCmplFab column
+ * @method     ChildConfigPo|null findOneByPotbconflandglacct(string $PotbConfLandGlAcct) Return the first ChildConfigPo filtered by the PotbConfLandGlAcct column
+ * @method     ChildConfigPo|null findOneByPotblandmpfglacct(string $PotbLandMpfGlAcct) Return the first ChildConfigPo filtered by the PotbLandMpfGlAcct column
+ * @method     ChildConfigPo|null findOneByPotblandhmfglacct(string $PotbLandHmfGlAcct) Return the first ChildConfigPo filtered by the PotbLandHmfGlAcct column
+ * @method     ChildConfigPo|null findOneByPotblanddsetglacct(string $PotbLandDsetGlAcct) Return the first ChildConfigPo filtered by the PotbLandDsetGlAcct column
+ * @method     ChildConfigPo|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigPo filtered by the DateUpdtd column
+ * @method     ChildConfigPo|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigPo filtered by the TimeUpdtd column
+ * @method     ChildConfigPo|null findOneByDummy(string $dummy) Return the first ChildConfigPo filtered by the dummy column
+ *
+ * @method     ChildConfigPo requirePk($key, ?ConnectionInterface $con = null) Return the ChildConfigPo by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigPo requireOne(?ConnectionInterface $con = null) Return the first ChildConfigPo matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildConfigPo requireOneByPotbconfkey(int $PotbConfKey) Return the first ChildConfigPo filtered by the PotbConfKey column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByPotbconfsortpo(string $PotbConfSortPo) Return the first ChildConfigPo filtered by the PotbConfSortPo column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -409,102 +407,198 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPo requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigPo filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByDummy(string $dummy) Return the first ChildConfigPo filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildConfigPo[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildConfigPo objects based on current ModelCriteria
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfkey(int $PotbConfKey) Return ChildConfigPo objects filtered by the PotbConfKey column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfsortpo(string $PotbConfSortPo) Return ChildConfigPo objects filtered by the PotbConfSortPo column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfcancorrshpdate(string $PotbConfCancOrRshpDate) Return ChildConfigPo objects filtered by the PotbConfCancOrRshpDate column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfackoretadate(string $PotbConfAckOrEtaDate) Return ChildConfigPo objects filtered by the PotbConfAckOrEtaDate column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfeditshipdate(string $PotbConfEditShipDate) Return ChildConfigPo objects filtered by the PotbConfEditShipDate column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfeditexptdate(string $PotbConfEditExptDate) Return ChildConfigPo objects filtered by the PotbConfEditExptDate column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfeditcancdate(string $PotbConfEditCancDate) Return ChildConfigPo objects filtered by the PotbConfEditCancDate column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfeditackdate(string $PotbConfEditAckDate) Return ChildConfigPo objects filtered by the PotbConfEditAckDate column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfexptdatedef(string $PotbConfExptDateDef) Return ChildConfigPo objects filtered by the PotbConfExptDateDef column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfheadgetdef(int $PotbConfHeadGetDef) Return ChildConfigPo objects filtered by the PotbConfHeadGetDef column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfreseq(string $PotbConfReseq) Return ChildConfigPo objects filtered by the PotbConfReseq column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfforcevxref(string $PotbConfForceVxref) Return ChildConfigPo objects filtered by the PotbConfForceVxref column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfqtydue(string $PotbConfQtyDue) Return ChildConfigPo objects filtered by the PotbConfQtyDue column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfwarndup(string $PotbConfWarnDup) Return ChildConfigPo objects filtered by the PotbConfWarnDup column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfforceporef(string $PotbConfForcePoRef) Return ChildConfigPo objects filtered by the PotbConfForcePoRef column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfdestwhse(string $PotbConfDestWhse) Return ChildConfigPo objects filtered by the PotbConfDestWhse column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfeditpoitemnotes(string $PotbConfEditPoItemNotes) Return ChildConfigPo objects filtered by the PotbConfEditPoItemNotes column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfloadpovxmnotes(string $PotbConfLoadPoVxmNotes) Return ChildConfigPo objects filtered by the PotbConfLoadPoVxmNotes column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfepoupdlastcost(string $PotbConfEpoUpdLastCost) Return ChildConfigPo objects filtered by the PotbConfEpoUpdLastCost column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfrecall(string $PotbConfRecAll) Return ChildConfigPo objects filtered by the PotbConfRecAll column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfrecallask(string $PotbConfRecAllAsk) Return ChildConfigPo objects filtered by the PotbConfRecAllAsk column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfreceivecost(string $PotbConfReceiveCost) Return ChildConfigPo objects filtered by the PotbConfReceiveCost column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfprocvari(string $PotbConfProcVari) Return ChildConfigPo objects filtered by the PotbConfProcVari column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfcostrcvryacct(string $PotbConfCostRcvryAcct) Return ChildConfigPo objects filtered by the PotbConfCostRcvryAcct column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfinvtyvariacct(string $PotbConfInvtyVariAcct) Return ChildConfigPo objects filtered by the PotbConfInvtyVariAcct column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfallowchgcost(string $PotbConfAllowChgCost) Return ChildConfigPo objects filtered by the PotbConfAllowChgCost column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfwarnrcptqty(string $PotbConfWarnRcptQty) Return ChildConfigPo objects filtered by the PotbConfWarnRcptQty column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconferdispdate(string $PotbConfErDispDate) Return ChildConfigPo objects filtered by the PotbConfErDispDate column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfprovidelpo(string $PotbConfProvideLpo) Return ChildConfigPo objects filtered by the PotbConfProvideLpo column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfwarndiffwhse(string $PotbConfWarnDiffWhse) Return ChildConfigPo objects filtered by the PotbConfWarnDiffWhse column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfallocrcvd(string $PotbConfAllocRcvd) Return ChildConfigPo objects filtered by the PotbConfAllocRcvd column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfaskclose(string $PotbConfAskClose) Return ChildConfigPo objects filtered by the PotbConfAskClose column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconferadd2po(string $PotbConfErAdd2Po) Return ChildConfigPo objects filtered by the PotbConfErAdd2Po column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconftariffglacct(string $PotbConfTariffGlAcct) Return ChildConfigPo objects filtered by the PotbConfTariffGlAcct column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfshopglacct(string $PotbConfShopGlAcct) Return ChildConfigPo objects filtered by the PotbConfShopGlAcct column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfshoprate(string $PotbConfShopRate) Return ChildConfigPo objects filtered by the PotbConfShopRate column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfuseprime(string $PotbConfUsePrime) Return ChildConfigPo objects filtered by the PotbConfUsePrime column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfusewatch(string $PotbConfUseWatch) Return ChildConfigPo objects filtered by the PotbConfUseWatch column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfprtpowsugg(string $PotbConfPrtPowSugg) Return ChildConfigPo objects filtered by the PotbConfPrtPowSugg column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfpowslctyes(string $PotbConfPowSlctYes) Return ChildConfigPo objects filtered by the PotbConfPowSlctYes column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfpowgvendrpt(string $PotbConfPowgVendRpt) Return ChildConfigPo objects filtered by the PotbConfPowgVendRpt column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfpowgwipstatus(string $PotbConfPowgWipStatus) Return ChildConfigPo objects filtered by the PotbConfPowgWipStatus column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfpowgwipautogen(string $PotbConfPowgWipAutoGen) Return ChildConfigPo objects filtered by the PotbConfPowgWipAutoGen column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfbuyercontrol(string $PotbConfBuyerControl) Return ChildConfigPo objects filtered by the PotbConfBuyerControl column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfpowgoqmethod(int $PotbConfPowgOqMethod) Return ChildConfigPo objects filtered by the PotbConfPowgOqMethod column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconffxpo(string $PotbConfFxPo) Return ChildConfigPo objects filtered by the PotbConfFxPo column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconffxinv(string $PotbConfFxInv) Return ChildConfigPo objects filtered by the PotbConfFxInv column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfupdatevendcost(string $PotbConfUpDateVendCost) Return ChildConfigPo objects filtered by the PotbConfUpDateVendCost column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfaskupdate(string $PotbConfAskUpDate) Return ChildConfigPo objects filtered by the PotbConfAskUpDate column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfvxmroundpos(int $PotbConfVxmRoundPos) Return ChildConfigPo objects filtered by the PotbConfVxmRoundPos column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfxrefmaint(string $PotbConfXrefMaint) Return ChildConfigPo objects filtered by the PotbConfXrefMaint column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfuseidopts(string $PotbConfUseIdOpts) Return ChildConfigPo objects filtered by the PotbConfUseIdOpts column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfsrchvxmfirst(string $PotbConfSrchVxmFirst) Return ChildConfigPo objects filtered by the PotbConfSrchVxmFirst column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfopenlineonly(string $PotbConfOpenLineOnly) Return ChildConfigPo objects filtered by the PotbConfOpenLineOnly column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfitemdesc(string $PotbConfItemDesc) Return ChildConfigPo objects filtered by the PotbConfItemDesc column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfopenbalonly(string $PotbConfOpenBalOnly) Return ChildConfigPo objects filtered by the PotbConfOpenBalOnly column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfprtwhsedtl(string $PotbConfPrtWhseDtl) Return ChildConfigPo objects filtered by the PotbConfPrtWhseDtl column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfautorcpt(string $PotbConfAutoRcpt) Return ChildConfigPo objects filtered by the PotbConfAutoRcpt column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfdispitemcost(string $PotbConfDispItemCost) Return ChildConfigPo objects filtered by the PotbConfDispItemCost column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfdispcaseqty(string $PotbConfDispCaseQty) Return ChildConfigPo objects filtered by the PotbConfDispCaseQty column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfonetwoline(int $PotbConfOneTwoLine) Return ChildConfigPo objects filtered by the PotbConfOneTwoLine column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfuseordras(string $PotbConfUseOrdrAs) Return ChildConfigPo objects filtered by the PotbConfUseOrdrAs column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfaprvvendonly(string $PotbConfAprvVendOnly) Return ChildConfigPo objects filtered by the PotbConfAprvVendOnly column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfusefab(string $PotbConfUseFab) Return ChildConfigPo objects filtered by the PotbConfUseFab column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfshowitem(string $PotbConfShowItem) Return ChildConfigPo objects filtered by the PotbConfShowItem column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfscrapacct(string $PotbConfScrapAcct) Return ChildConfigPo objects filtered by the PotbConfScrapAcct column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfscrapvaripct(string $PotbConfScrapVariPct) Return ChildConfigPo objects filtered by the PotbConfScrapVariPct column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconflifofifo(string $PotbConfLifoFifo) Return ChildConfigPo objects filtered by the PotbConfLifoFifo column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconffabbomorkit(string $PotbConfFabBomOrKit) Return ChildConfigPo objects filtered by the PotbConfFabBomOrKit column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfallocepoer(string $PotbConfAllocEpoEr) Return ChildConfigPo objects filtered by the PotbConfAllocEpoEr column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconffabprealloc(string $PotbConfFabPrealloc) Return ChildConfigPo objects filtered by the PotbConfFabPrealloc column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfforcefabepo(string $PotbConfForceFabEpo) Return ChildConfigPo objects filtered by the PotbConfForceFabEpo column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfpreviewcomplist(string $PotbConfPreviewCompList) Return ChildConfigPo objects filtered by the PotbConfPreviewCompList column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfnegcompusage(string $PotbConfNegCompUsage) Return ChildConfigPo objects filtered by the PotbConfNegCompUsage column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfautoselectcomp(string $PotbConfAutoSelectComp) Return ChildConfigPo objects filtered by the PotbConfAutoSelectComp column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfbinfromvendor(string $PotbConfBinFromVendor) Return ChildConfigPo objects filtered by the PotbConfBinFromVendor column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfdfltstckcd(string $PotbConfDfltStckCd) Return ChildConfigPo objects filtered by the PotbConfDfltStckCd column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfuseremain(string $PotbConfUseRemain) Return ChildConfigPo objects filtered by the PotbConfUseRemain column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfsamecompcost(string $PotbConfSameCompCost) Return ChildConfigPo objects filtered by the PotbConfSameCompCost column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfpasscode(string $PotbConfPassCode) Return ChildConfigPo objects filtered by the PotbConfPassCode column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfuselandcost(string $PotbConfUseLandCost) Return ChildConfigPo objects filtered by the PotbConfUseLandCost column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfbaselandamtqty(string $PotbConfBaseLandAmtQty) Return ChildConfigPo objects filtered by the PotbConfBaseLandAmtQty column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfwarnlandiner(string $PotbConfWarnLandInEr) Return ChildConfigPo objects filtered by the PotbConfWarnLandInEr column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconflandamtmultwght(string $PotbConfLandAmtMultWght) Return ChildConfigPo objects filtered by the PotbConfLandAmtMultWght column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconflanderedit(string $PotbConfLandErEdit) Return ChildConfigPo objects filtered by the PotbConfLandErEdit column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconfhistcmplfab(string $PotbConfHistCmplFab) Return ChildConfigPo objects filtered by the PotbConfHistCmplFab column
- * @method     ChildConfigPo[]|ObjectCollection findByPotbconflandglacct(string $PotbConfLandGlAcct) Return ChildConfigPo objects filtered by the PotbConfLandGlAcct column
- * @method     ChildConfigPo[]|ObjectCollection findByPotblandmpfglacct(string $PotbLandMpfGlAcct) Return ChildConfigPo objects filtered by the PotbLandMpfGlAcct column
- * @method     ChildConfigPo[]|ObjectCollection findByPotblandhmfglacct(string $PotbLandHmfGlAcct) Return ChildConfigPo objects filtered by the PotbLandHmfGlAcct column
- * @method     ChildConfigPo[]|ObjectCollection findByPotblanddsetglacct(string $PotbLandDsetGlAcct) Return ChildConfigPo objects filtered by the PotbLandDsetGlAcct column
- * @method     ChildConfigPo[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildConfigPo objects filtered by the DateUpdtd column
- * @method     ChildConfigPo[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildConfigPo objects filtered by the TimeUpdtd column
- * @method     ChildConfigPo[]|ObjectCollection findByDummy(string $dummy) Return ChildConfigPo objects filtered by the dummy column
- * @method     ChildConfigPo[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildConfigPo[]|Collection find(?ConnectionInterface $con = null) Return ChildConfigPo objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildConfigPo> find(?ConnectionInterface $con = null) Return ChildConfigPo objects based on current ModelCriteria
  *
+ * @method     ChildConfigPo[]|Collection findByPotbconfkey(int|array<int> $PotbConfKey) Return ChildConfigPo objects filtered by the PotbConfKey column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfkey(int|array<int> $PotbConfKey) Return ChildConfigPo objects filtered by the PotbConfKey column
+ * @method     ChildConfigPo[]|Collection findByPotbconfsortpo(string|array<string> $PotbConfSortPo) Return ChildConfigPo objects filtered by the PotbConfSortPo column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfsortpo(string|array<string> $PotbConfSortPo) Return ChildConfigPo objects filtered by the PotbConfSortPo column
+ * @method     ChildConfigPo[]|Collection findByPotbconfcancorrshpdate(string|array<string> $PotbConfCancOrRshpDate) Return ChildConfigPo objects filtered by the PotbConfCancOrRshpDate column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfcancorrshpdate(string|array<string> $PotbConfCancOrRshpDate) Return ChildConfigPo objects filtered by the PotbConfCancOrRshpDate column
+ * @method     ChildConfigPo[]|Collection findByPotbconfackoretadate(string|array<string> $PotbConfAckOrEtaDate) Return ChildConfigPo objects filtered by the PotbConfAckOrEtaDate column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfackoretadate(string|array<string> $PotbConfAckOrEtaDate) Return ChildConfigPo objects filtered by the PotbConfAckOrEtaDate column
+ * @method     ChildConfigPo[]|Collection findByPotbconfeditshipdate(string|array<string> $PotbConfEditShipDate) Return ChildConfigPo objects filtered by the PotbConfEditShipDate column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfeditshipdate(string|array<string> $PotbConfEditShipDate) Return ChildConfigPo objects filtered by the PotbConfEditShipDate column
+ * @method     ChildConfigPo[]|Collection findByPotbconfeditexptdate(string|array<string> $PotbConfEditExptDate) Return ChildConfigPo objects filtered by the PotbConfEditExptDate column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfeditexptdate(string|array<string> $PotbConfEditExptDate) Return ChildConfigPo objects filtered by the PotbConfEditExptDate column
+ * @method     ChildConfigPo[]|Collection findByPotbconfeditcancdate(string|array<string> $PotbConfEditCancDate) Return ChildConfigPo objects filtered by the PotbConfEditCancDate column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfeditcancdate(string|array<string> $PotbConfEditCancDate) Return ChildConfigPo objects filtered by the PotbConfEditCancDate column
+ * @method     ChildConfigPo[]|Collection findByPotbconfeditackdate(string|array<string> $PotbConfEditAckDate) Return ChildConfigPo objects filtered by the PotbConfEditAckDate column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfeditackdate(string|array<string> $PotbConfEditAckDate) Return ChildConfigPo objects filtered by the PotbConfEditAckDate column
+ * @method     ChildConfigPo[]|Collection findByPotbconfexptdatedef(string|array<string> $PotbConfExptDateDef) Return ChildConfigPo objects filtered by the PotbConfExptDateDef column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfexptdatedef(string|array<string> $PotbConfExptDateDef) Return ChildConfigPo objects filtered by the PotbConfExptDateDef column
+ * @method     ChildConfigPo[]|Collection findByPotbconfheadgetdef(int|array<int> $PotbConfHeadGetDef) Return ChildConfigPo objects filtered by the PotbConfHeadGetDef column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfheadgetdef(int|array<int> $PotbConfHeadGetDef) Return ChildConfigPo objects filtered by the PotbConfHeadGetDef column
+ * @method     ChildConfigPo[]|Collection findByPotbconfreseq(string|array<string> $PotbConfReseq) Return ChildConfigPo objects filtered by the PotbConfReseq column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfreseq(string|array<string> $PotbConfReseq) Return ChildConfigPo objects filtered by the PotbConfReseq column
+ * @method     ChildConfigPo[]|Collection findByPotbconfforcevxref(string|array<string> $PotbConfForceVxref) Return ChildConfigPo objects filtered by the PotbConfForceVxref column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfforcevxref(string|array<string> $PotbConfForceVxref) Return ChildConfigPo objects filtered by the PotbConfForceVxref column
+ * @method     ChildConfigPo[]|Collection findByPotbconfqtydue(string|array<string> $PotbConfQtyDue) Return ChildConfigPo objects filtered by the PotbConfQtyDue column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfqtydue(string|array<string> $PotbConfQtyDue) Return ChildConfigPo objects filtered by the PotbConfQtyDue column
+ * @method     ChildConfigPo[]|Collection findByPotbconfwarndup(string|array<string> $PotbConfWarnDup) Return ChildConfigPo objects filtered by the PotbConfWarnDup column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfwarndup(string|array<string> $PotbConfWarnDup) Return ChildConfigPo objects filtered by the PotbConfWarnDup column
+ * @method     ChildConfigPo[]|Collection findByPotbconfforceporef(string|array<string> $PotbConfForcePoRef) Return ChildConfigPo objects filtered by the PotbConfForcePoRef column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfforceporef(string|array<string> $PotbConfForcePoRef) Return ChildConfigPo objects filtered by the PotbConfForcePoRef column
+ * @method     ChildConfigPo[]|Collection findByPotbconfdestwhse(string|array<string> $PotbConfDestWhse) Return ChildConfigPo objects filtered by the PotbConfDestWhse column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfdestwhse(string|array<string> $PotbConfDestWhse) Return ChildConfigPo objects filtered by the PotbConfDestWhse column
+ * @method     ChildConfigPo[]|Collection findByPotbconfeditpoitemnotes(string|array<string> $PotbConfEditPoItemNotes) Return ChildConfigPo objects filtered by the PotbConfEditPoItemNotes column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfeditpoitemnotes(string|array<string> $PotbConfEditPoItemNotes) Return ChildConfigPo objects filtered by the PotbConfEditPoItemNotes column
+ * @method     ChildConfigPo[]|Collection findByPotbconfloadpovxmnotes(string|array<string> $PotbConfLoadPoVxmNotes) Return ChildConfigPo objects filtered by the PotbConfLoadPoVxmNotes column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfloadpovxmnotes(string|array<string> $PotbConfLoadPoVxmNotes) Return ChildConfigPo objects filtered by the PotbConfLoadPoVxmNotes column
+ * @method     ChildConfigPo[]|Collection findByPotbconfepoupdlastcost(string|array<string> $PotbConfEpoUpdLastCost) Return ChildConfigPo objects filtered by the PotbConfEpoUpdLastCost column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfepoupdlastcost(string|array<string> $PotbConfEpoUpdLastCost) Return ChildConfigPo objects filtered by the PotbConfEpoUpdLastCost column
+ * @method     ChildConfigPo[]|Collection findByPotbconfrecall(string|array<string> $PotbConfRecAll) Return ChildConfigPo objects filtered by the PotbConfRecAll column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfrecall(string|array<string> $PotbConfRecAll) Return ChildConfigPo objects filtered by the PotbConfRecAll column
+ * @method     ChildConfigPo[]|Collection findByPotbconfrecallask(string|array<string> $PotbConfRecAllAsk) Return ChildConfigPo objects filtered by the PotbConfRecAllAsk column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfrecallask(string|array<string> $PotbConfRecAllAsk) Return ChildConfigPo objects filtered by the PotbConfRecAllAsk column
+ * @method     ChildConfigPo[]|Collection findByPotbconfreceivecost(string|array<string> $PotbConfReceiveCost) Return ChildConfigPo objects filtered by the PotbConfReceiveCost column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfreceivecost(string|array<string> $PotbConfReceiveCost) Return ChildConfigPo objects filtered by the PotbConfReceiveCost column
+ * @method     ChildConfigPo[]|Collection findByPotbconfprocvari(string|array<string> $PotbConfProcVari) Return ChildConfigPo objects filtered by the PotbConfProcVari column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfprocvari(string|array<string> $PotbConfProcVari) Return ChildConfigPo objects filtered by the PotbConfProcVari column
+ * @method     ChildConfigPo[]|Collection findByPotbconfcostrcvryacct(string|array<string> $PotbConfCostRcvryAcct) Return ChildConfigPo objects filtered by the PotbConfCostRcvryAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfcostrcvryacct(string|array<string> $PotbConfCostRcvryAcct) Return ChildConfigPo objects filtered by the PotbConfCostRcvryAcct column
+ * @method     ChildConfigPo[]|Collection findByPotbconfinvtyvariacct(string|array<string> $PotbConfInvtyVariAcct) Return ChildConfigPo objects filtered by the PotbConfInvtyVariAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfinvtyvariacct(string|array<string> $PotbConfInvtyVariAcct) Return ChildConfigPo objects filtered by the PotbConfInvtyVariAcct column
+ * @method     ChildConfigPo[]|Collection findByPotbconfallowchgcost(string|array<string> $PotbConfAllowChgCost) Return ChildConfigPo objects filtered by the PotbConfAllowChgCost column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfallowchgcost(string|array<string> $PotbConfAllowChgCost) Return ChildConfigPo objects filtered by the PotbConfAllowChgCost column
+ * @method     ChildConfigPo[]|Collection findByPotbconfwarnrcptqty(string|array<string> $PotbConfWarnRcptQty) Return ChildConfigPo objects filtered by the PotbConfWarnRcptQty column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfwarnrcptqty(string|array<string> $PotbConfWarnRcptQty) Return ChildConfigPo objects filtered by the PotbConfWarnRcptQty column
+ * @method     ChildConfigPo[]|Collection findByPotbconferdispdate(string|array<string> $PotbConfErDispDate) Return ChildConfigPo objects filtered by the PotbConfErDispDate column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconferdispdate(string|array<string> $PotbConfErDispDate) Return ChildConfigPo objects filtered by the PotbConfErDispDate column
+ * @method     ChildConfigPo[]|Collection findByPotbconfprovidelpo(string|array<string> $PotbConfProvideLpo) Return ChildConfigPo objects filtered by the PotbConfProvideLpo column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfprovidelpo(string|array<string> $PotbConfProvideLpo) Return ChildConfigPo objects filtered by the PotbConfProvideLpo column
+ * @method     ChildConfigPo[]|Collection findByPotbconfwarndiffwhse(string|array<string> $PotbConfWarnDiffWhse) Return ChildConfigPo objects filtered by the PotbConfWarnDiffWhse column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfwarndiffwhse(string|array<string> $PotbConfWarnDiffWhse) Return ChildConfigPo objects filtered by the PotbConfWarnDiffWhse column
+ * @method     ChildConfigPo[]|Collection findByPotbconfallocrcvd(string|array<string> $PotbConfAllocRcvd) Return ChildConfigPo objects filtered by the PotbConfAllocRcvd column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfallocrcvd(string|array<string> $PotbConfAllocRcvd) Return ChildConfigPo objects filtered by the PotbConfAllocRcvd column
+ * @method     ChildConfigPo[]|Collection findByPotbconfaskclose(string|array<string> $PotbConfAskClose) Return ChildConfigPo objects filtered by the PotbConfAskClose column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfaskclose(string|array<string> $PotbConfAskClose) Return ChildConfigPo objects filtered by the PotbConfAskClose column
+ * @method     ChildConfigPo[]|Collection findByPotbconferadd2po(string|array<string> $PotbConfErAdd2Po) Return ChildConfigPo objects filtered by the PotbConfErAdd2Po column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconferadd2po(string|array<string> $PotbConfErAdd2Po) Return ChildConfigPo objects filtered by the PotbConfErAdd2Po column
+ * @method     ChildConfigPo[]|Collection findByPotbconftariffglacct(string|array<string> $PotbConfTariffGlAcct) Return ChildConfigPo objects filtered by the PotbConfTariffGlAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconftariffglacct(string|array<string> $PotbConfTariffGlAcct) Return ChildConfigPo objects filtered by the PotbConfTariffGlAcct column
+ * @method     ChildConfigPo[]|Collection findByPotbconfshopglacct(string|array<string> $PotbConfShopGlAcct) Return ChildConfigPo objects filtered by the PotbConfShopGlAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfshopglacct(string|array<string> $PotbConfShopGlAcct) Return ChildConfigPo objects filtered by the PotbConfShopGlAcct column
+ * @method     ChildConfigPo[]|Collection findByPotbconfshoprate(string|array<string> $PotbConfShopRate) Return ChildConfigPo objects filtered by the PotbConfShopRate column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfshoprate(string|array<string> $PotbConfShopRate) Return ChildConfigPo objects filtered by the PotbConfShopRate column
+ * @method     ChildConfigPo[]|Collection findByPotbconfuseprime(string|array<string> $PotbConfUsePrime) Return ChildConfigPo objects filtered by the PotbConfUsePrime column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfuseprime(string|array<string> $PotbConfUsePrime) Return ChildConfigPo objects filtered by the PotbConfUsePrime column
+ * @method     ChildConfigPo[]|Collection findByPotbconfusewatch(string|array<string> $PotbConfUseWatch) Return ChildConfigPo objects filtered by the PotbConfUseWatch column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfusewatch(string|array<string> $PotbConfUseWatch) Return ChildConfigPo objects filtered by the PotbConfUseWatch column
+ * @method     ChildConfigPo[]|Collection findByPotbconfprtpowsugg(string|array<string> $PotbConfPrtPowSugg) Return ChildConfigPo objects filtered by the PotbConfPrtPowSugg column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfprtpowsugg(string|array<string> $PotbConfPrtPowSugg) Return ChildConfigPo objects filtered by the PotbConfPrtPowSugg column
+ * @method     ChildConfigPo[]|Collection findByPotbconfpowslctyes(string|array<string> $PotbConfPowSlctYes) Return ChildConfigPo objects filtered by the PotbConfPowSlctYes column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfpowslctyes(string|array<string> $PotbConfPowSlctYes) Return ChildConfigPo objects filtered by the PotbConfPowSlctYes column
+ * @method     ChildConfigPo[]|Collection findByPotbconfpowgvendrpt(string|array<string> $PotbConfPowgVendRpt) Return ChildConfigPo objects filtered by the PotbConfPowgVendRpt column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfpowgvendrpt(string|array<string> $PotbConfPowgVendRpt) Return ChildConfigPo objects filtered by the PotbConfPowgVendRpt column
+ * @method     ChildConfigPo[]|Collection findByPotbconfpowgwipstatus(string|array<string> $PotbConfPowgWipStatus) Return ChildConfigPo objects filtered by the PotbConfPowgWipStatus column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfpowgwipstatus(string|array<string> $PotbConfPowgWipStatus) Return ChildConfigPo objects filtered by the PotbConfPowgWipStatus column
+ * @method     ChildConfigPo[]|Collection findByPotbconfpowgwipautogen(string|array<string> $PotbConfPowgWipAutoGen) Return ChildConfigPo objects filtered by the PotbConfPowgWipAutoGen column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfpowgwipautogen(string|array<string> $PotbConfPowgWipAutoGen) Return ChildConfigPo objects filtered by the PotbConfPowgWipAutoGen column
+ * @method     ChildConfigPo[]|Collection findByPotbconfbuyercontrol(string|array<string> $PotbConfBuyerControl) Return ChildConfigPo objects filtered by the PotbConfBuyerControl column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfbuyercontrol(string|array<string> $PotbConfBuyerControl) Return ChildConfigPo objects filtered by the PotbConfBuyerControl column
+ * @method     ChildConfigPo[]|Collection findByPotbconfpowgoqmethod(int|array<int> $PotbConfPowgOqMethod) Return ChildConfigPo objects filtered by the PotbConfPowgOqMethod column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfpowgoqmethod(int|array<int> $PotbConfPowgOqMethod) Return ChildConfigPo objects filtered by the PotbConfPowgOqMethod column
+ * @method     ChildConfigPo[]|Collection findByPotbconffxpo(string|array<string> $PotbConfFxPo) Return ChildConfigPo objects filtered by the PotbConfFxPo column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconffxpo(string|array<string> $PotbConfFxPo) Return ChildConfigPo objects filtered by the PotbConfFxPo column
+ * @method     ChildConfigPo[]|Collection findByPotbconffxinv(string|array<string> $PotbConfFxInv) Return ChildConfigPo objects filtered by the PotbConfFxInv column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconffxinv(string|array<string> $PotbConfFxInv) Return ChildConfigPo objects filtered by the PotbConfFxInv column
+ * @method     ChildConfigPo[]|Collection findByPotbconfupdatevendcost(string|array<string> $PotbConfUpDateVendCost) Return ChildConfigPo objects filtered by the PotbConfUpDateVendCost column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfupdatevendcost(string|array<string> $PotbConfUpDateVendCost) Return ChildConfigPo objects filtered by the PotbConfUpDateVendCost column
+ * @method     ChildConfigPo[]|Collection findByPotbconfaskupdate(string|array<string> $PotbConfAskUpDate) Return ChildConfigPo objects filtered by the PotbConfAskUpDate column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfaskupdate(string|array<string> $PotbConfAskUpDate) Return ChildConfigPo objects filtered by the PotbConfAskUpDate column
+ * @method     ChildConfigPo[]|Collection findByPotbconfvxmroundpos(int|array<int> $PotbConfVxmRoundPos) Return ChildConfigPo objects filtered by the PotbConfVxmRoundPos column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfvxmroundpos(int|array<int> $PotbConfVxmRoundPos) Return ChildConfigPo objects filtered by the PotbConfVxmRoundPos column
+ * @method     ChildConfigPo[]|Collection findByPotbconfxrefmaint(string|array<string> $PotbConfXrefMaint) Return ChildConfigPo objects filtered by the PotbConfXrefMaint column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfxrefmaint(string|array<string> $PotbConfXrefMaint) Return ChildConfigPo objects filtered by the PotbConfXrefMaint column
+ * @method     ChildConfigPo[]|Collection findByPotbconfuseidopts(string|array<string> $PotbConfUseIdOpts) Return ChildConfigPo objects filtered by the PotbConfUseIdOpts column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfuseidopts(string|array<string> $PotbConfUseIdOpts) Return ChildConfigPo objects filtered by the PotbConfUseIdOpts column
+ * @method     ChildConfigPo[]|Collection findByPotbconfsrchvxmfirst(string|array<string> $PotbConfSrchVxmFirst) Return ChildConfigPo objects filtered by the PotbConfSrchVxmFirst column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfsrchvxmfirst(string|array<string> $PotbConfSrchVxmFirst) Return ChildConfigPo objects filtered by the PotbConfSrchVxmFirst column
+ * @method     ChildConfigPo[]|Collection findByPotbconfopenlineonly(string|array<string> $PotbConfOpenLineOnly) Return ChildConfigPo objects filtered by the PotbConfOpenLineOnly column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfopenlineonly(string|array<string> $PotbConfOpenLineOnly) Return ChildConfigPo objects filtered by the PotbConfOpenLineOnly column
+ * @method     ChildConfigPo[]|Collection findByPotbconfitemdesc(string|array<string> $PotbConfItemDesc) Return ChildConfigPo objects filtered by the PotbConfItemDesc column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfitemdesc(string|array<string> $PotbConfItemDesc) Return ChildConfigPo objects filtered by the PotbConfItemDesc column
+ * @method     ChildConfigPo[]|Collection findByPotbconfopenbalonly(string|array<string> $PotbConfOpenBalOnly) Return ChildConfigPo objects filtered by the PotbConfOpenBalOnly column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfopenbalonly(string|array<string> $PotbConfOpenBalOnly) Return ChildConfigPo objects filtered by the PotbConfOpenBalOnly column
+ * @method     ChildConfigPo[]|Collection findByPotbconfprtwhsedtl(string|array<string> $PotbConfPrtWhseDtl) Return ChildConfigPo objects filtered by the PotbConfPrtWhseDtl column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfprtwhsedtl(string|array<string> $PotbConfPrtWhseDtl) Return ChildConfigPo objects filtered by the PotbConfPrtWhseDtl column
+ * @method     ChildConfigPo[]|Collection findByPotbconfautorcpt(string|array<string> $PotbConfAutoRcpt) Return ChildConfigPo objects filtered by the PotbConfAutoRcpt column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfautorcpt(string|array<string> $PotbConfAutoRcpt) Return ChildConfigPo objects filtered by the PotbConfAutoRcpt column
+ * @method     ChildConfigPo[]|Collection findByPotbconfdispitemcost(string|array<string> $PotbConfDispItemCost) Return ChildConfigPo objects filtered by the PotbConfDispItemCost column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfdispitemcost(string|array<string> $PotbConfDispItemCost) Return ChildConfigPo objects filtered by the PotbConfDispItemCost column
+ * @method     ChildConfigPo[]|Collection findByPotbconfdispcaseqty(string|array<string> $PotbConfDispCaseQty) Return ChildConfigPo objects filtered by the PotbConfDispCaseQty column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfdispcaseqty(string|array<string> $PotbConfDispCaseQty) Return ChildConfigPo objects filtered by the PotbConfDispCaseQty column
+ * @method     ChildConfigPo[]|Collection findByPotbconfonetwoline(int|array<int> $PotbConfOneTwoLine) Return ChildConfigPo objects filtered by the PotbConfOneTwoLine column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfonetwoline(int|array<int> $PotbConfOneTwoLine) Return ChildConfigPo objects filtered by the PotbConfOneTwoLine column
+ * @method     ChildConfigPo[]|Collection findByPotbconfuseordras(string|array<string> $PotbConfUseOrdrAs) Return ChildConfigPo objects filtered by the PotbConfUseOrdrAs column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfuseordras(string|array<string> $PotbConfUseOrdrAs) Return ChildConfigPo objects filtered by the PotbConfUseOrdrAs column
+ * @method     ChildConfigPo[]|Collection findByPotbconfaprvvendonly(string|array<string> $PotbConfAprvVendOnly) Return ChildConfigPo objects filtered by the PotbConfAprvVendOnly column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfaprvvendonly(string|array<string> $PotbConfAprvVendOnly) Return ChildConfigPo objects filtered by the PotbConfAprvVendOnly column
+ * @method     ChildConfigPo[]|Collection findByPotbconfusefab(string|array<string> $PotbConfUseFab) Return ChildConfigPo objects filtered by the PotbConfUseFab column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfusefab(string|array<string> $PotbConfUseFab) Return ChildConfigPo objects filtered by the PotbConfUseFab column
+ * @method     ChildConfigPo[]|Collection findByPotbconfshowitem(string|array<string> $PotbConfShowItem) Return ChildConfigPo objects filtered by the PotbConfShowItem column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfshowitem(string|array<string> $PotbConfShowItem) Return ChildConfigPo objects filtered by the PotbConfShowItem column
+ * @method     ChildConfigPo[]|Collection findByPotbconfscrapacct(string|array<string> $PotbConfScrapAcct) Return ChildConfigPo objects filtered by the PotbConfScrapAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfscrapacct(string|array<string> $PotbConfScrapAcct) Return ChildConfigPo objects filtered by the PotbConfScrapAcct column
+ * @method     ChildConfigPo[]|Collection findByPotbconfscrapvaripct(string|array<string> $PotbConfScrapVariPct) Return ChildConfigPo objects filtered by the PotbConfScrapVariPct column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfscrapvaripct(string|array<string> $PotbConfScrapVariPct) Return ChildConfigPo objects filtered by the PotbConfScrapVariPct column
+ * @method     ChildConfigPo[]|Collection findByPotbconflifofifo(string|array<string> $PotbConfLifoFifo) Return ChildConfigPo objects filtered by the PotbConfLifoFifo column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconflifofifo(string|array<string> $PotbConfLifoFifo) Return ChildConfigPo objects filtered by the PotbConfLifoFifo column
+ * @method     ChildConfigPo[]|Collection findByPotbconffabbomorkit(string|array<string> $PotbConfFabBomOrKit) Return ChildConfigPo objects filtered by the PotbConfFabBomOrKit column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconffabbomorkit(string|array<string> $PotbConfFabBomOrKit) Return ChildConfigPo objects filtered by the PotbConfFabBomOrKit column
+ * @method     ChildConfigPo[]|Collection findByPotbconfallocepoer(string|array<string> $PotbConfAllocEpoEr) Return ChildConfigPo objects filtered by the PotbConfAllocEpoEr column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfallocepoer(string|array<string> $PotbConfAllocEpoEr) Return ChildConfigPo objects filtered by the PotbConfAllocEpoEr column
+ * @method     ChildConfigPo[]|Collection findByPotbconffabprealloc(string|array<string> $PotbConfFabPrealloc) Return ChildConfigPo objects filtered by the PotbConfFabPrealloc column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconffabprealloc(string|array<string> $PotbConfFabPrealloc) Return ChildConfigPo objects filtered by the PotbConfFabPrealloc column
+ * @method     ChildConfigPo[]|Collection findByPotbconfforcefabepo(string|array<string> $PotbConfForceFabEpo) Return ChildConfigPo objects filtered by the PotbConfForceFabEpo column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfforcefabepo(string|array<string> $PotbConfForceFabEpo) Return ChildConfigPo objects filtered by the PotbConfForceFabEpo column
+ * @method     ChildConfigPo[]|Collection findByPotbconfpreviewcomplist(string|array<string> $PotbConfPreviewCompList) Return ChildConfigPo objects filtered by the PotbConfPreviewCompList column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfpreviewcomplist(string|array<string> $PotbConfPreviewCompList) Return ChildConfigPo objects filtered by the PotbConfPreviewCompList column
+ * @method     ChildConfigPo[]|Collection findByPotbconfnegcompusage(string|array<string> $PotbConfNegCompUsage) Return ChildConfigPo objects filtered by the PotbConfNegCompUsage column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfnegcompusage(string|array<string> $PotbConfNegCompUsage) Return ChildConfigPo objects filtered by the PotbConfNegCompUsage column
+ * @method     ChildConfigPo[]|Collection findByPotbconfautoselectcomp(string|array<string> $PotbConfAutoSelectComp) Return ChildConfigPo objects filtered by the PotbConfAutoSelectComp column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfautoselectcomp(string|array<string> $PotbConfAutoSelectComp) Return ChildConfigPo objects filtered by the PotbConfAutoSelectComp column
+ * @method     ChildConfigPo[]|Collection findByPotbconfbinfromvendor(string|array<string> $PotbConfBinFromVendor) Return ChildConfigPo objects filtered by the PotbConfBinFromVendor column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfbinfromvendor(string|array<string> $PotbConfBinFromVendor) Return ChildConfigPo objects filtered by the PotbConfBinFromVendor column
+ * @method     ChildConfigPo[]|Collection findByPotbconfdfltstckcd(string|array<string> $PotbConfDfltStckCd) Return ChildConfigPo objects filtered by the PotbConfDfltStckCd column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfdfltstckcd(string|array<string> $PotbConfDfltStckCd) Return ChildConfigPo objects filtered by the PotbConfDfltStckCd column
+ * @method     ChildConfigPo[]|Collection findByPotbconfuseremain(string|array<string> $PotbConfUseRemain) Return ChildConfigPo objects filtered by the PotbConfUseRemain column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfuseremain(string|array<string> $PotbConfUseRemain) Return ChildConfigPo objects filtered by the PotbConfUseRemain column
+ * @method     ChildConfigPo[]|Collection findByPotbconfsamecompcost(string|array<string> $PotbConfSameCompCost) Return ChildConfigPo objects filtered by the PotbConfSameCompCost column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfsamecompcost(string|array<string> $PotbConfSameCompCost) Return ChildConfigPo objects filtered by the PotbConfSameCompCost column
+ * @method     ChildConfigPo[]|Collection findByPotbconfpasscode(string|array<string> $PotbConfPassCode) Return ChildConfigPo objects filtered by the PotbConfPassCode column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfpasscode(string|array<string> $PotbConfPassCode) Return ChildConfigPo objects filtered by the PotbConfPassCode column
+ * @method     ChildConfigPo[]|Collection findByPotbconfuselandcost(string|array<string> $PotbConfUseLandCost) Return ChildConfigPo objects filtered by the PotbConfUseLandCost column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfuselandcost(string|array<string> $PotbConfUseLandCost) Return ChildConfigPo objects filtered by the PotbConfUseLandCost column
+ * @method     ChildConfigPo[]|Collection findByPotbconfbaselandamtqty(string|array<string> $PotbConfBaseLandAmtQty) Return ChildConfigPo objects filtered by the PotbConfBaseLandAmtQty column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfbaselandamtqty(string|array<string> $PotbConfBaseLandAmtQty) Return ChildConfigPo objects filtered by the PotbConfBaseLandAmtQty column
+ * @method     ChildConfigPo[]|Collection findByPotbconfwarnlandiner(string|array<string> $PotbConfWarnLandInEr) Return ChildConfigPo objects filtered by the PotbConfWarnLandInEr column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfwarnlandiner(string|array<string> $PotbConfWarnLandInEr) Return ChildConfigPo objects filtered by the PotbConfWarnLandInEr column
+ * @method     ChildConfigPo[]|Collection findByPotbconflandamtmultwght(string|array<string> $PotbConfLandAmtMultWght) Return ChildConfigPo objects filtered by the PotbConfLandAmtMultWght column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconflandamtmultwght(string|array<string> $PotbConfLandAmtMultWght) Return ChildConfigPo objects filtered by the PotbConfLandAmtMultWght column
+ * @method     ChildConfigPo[]|Collection findByPotbconflanderedit(string|array<string> $PotbConfLandErEdit) Return ChildConfigPo objects filtered by the PotbConfLandErEdit column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconflanderedit(string|array<string> $PotbConfLandErEdit) Return ChildConfigPo objects filtered by the PotbConfLandErEdit column
+ * @method     ChildConfigPo[]|Collection findByPotbconfhistcmplfab(string|array<string> $PotbConfHistCmplFab) Return ChildConfigPo objects filtered by the PotbConfHistCmplFab column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconfhistcmplfab(string|array<string> $PotbConfHistCmplFab) Return ChildConfigPo objects filtered by the PotbConfHistCmplFab column
+ * @method     ChildConfigPo[]|Collection findByPotbconflandglacct(string|array<string> $PotbConfLandGlAcct) Return ChildConfigPo objects filtered by the PotbConfLandGlAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotbconflandglacct(string|array<string> $PotbConfLandGlAcct) Return ChildConfigPo objects filtered by the PotbConfLandGlAcct column
+ * @method     ChildConfigPo[]|Collection findByPotblandmpfglacct(string|array<string> $PotbLandMpfGlAcct) Return ChildConfigPo objects filtered by the PotbLandMpfGlAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotblandmpfglacct(string|array<string> $PotbLandMpfGlAcct) Return ChildConfigPo objects filtered by the PotbLandMpfGlAcct column
+ * @method     ChildConfigPo[]|Collection findByPotblandhmfglacct(string|array<string> $PotbLandHmfGlAcct) Return ChildConfigPo objects filtered by the PotbLandHmfGlAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotblandhmfglacct(string|array<string> $PotbLandHmfGlAcct) Return ChildConfigPo objects filtered by the PotbLandHmfGlAcct column
+ * @method     ChildConfigPo[]|Collection findByPotblanddsetglacct(string|array<string> $PotbLandDsetGlAcct) Return ChildConfigPo objects filtered by the PotbLandDsetGlAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByPotblanddsetglacct(string|array<string> $PotbLandDsetGlAcct) Return ChildConfigPo objects filtered by the PotbLandDsetGlAcct column
+ * @method     ChildConfigPo[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigPo objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigPo objects filtered by the DateUpdtd column
+ * @method     ChildConfigPo[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigPo objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigPo objects filtered by the TimeUpdtd column
+ * @method     ChildConfigPo[]|Collection findByDummy(string|array<string> $dummy) Return ChildConfigPo objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildConfigPo> findByDummy(string|array<string> $dummy) Return ChildConfigPo objects filtered by the dummy column
+ *
+ * @method     ChildConfigPo[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildConfigPo> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ConfigPoQuery extends ModelCriteria
 {
@@ -513,9 +607,9 @@ abstract class ConfigPoQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ConfigPoQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ConfigPo', $modelAlias = null)
     {
@@ -525,12 +619,12 @@ abstract class ConfigPoQuery extends ModelCriteria
     /**
      * Returns a new ChildConfigPoQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildConfigPoQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildConfigPoQuery) {
             return $criteria;
@@ -560,7 +654,7 @@ abstract class ConfigPoQuery extends ModelCriteria
      *
      * @return ChildConfigPo|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -592,8 +686,8 @@ abstract class ConfigPoQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -625,8 +719,8 @@ abstract class ConfigPoQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildConfigPo|array|mixed the result, formatted by the current formatter
      */
@@ -646,12 +740,12 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -668,27 +762,31 @@ abstract class ConfigPoQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFKEY, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFKEY, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFKEY, $keys, Criteria::IN);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFKEY, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -701,15 +799,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * $query->filterByPotbconfkey(array('min' => 12)); // WHERE PotbConfKey > 12
      * </code>
      *
-     * @param     mixed $potbconfkey The value to use as filter.
+     * @param mixed $potbconfkey The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfkey($potbconfkey = null, $comparison = null)
+    public function filterByPotbconfkey($potbconfkey = null, ?string $comparison = null)
     {
         if (is_array($potbconfkey)) {
             $useMinMax = false;
@@ -729,7 +827,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFKEY, $potbconfkey, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFKEY, $potbconfkey, $comparison);
+
+        return $this;
     }
 
     /**
@@ -739,14 +839,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfsortpo('fooValue');   // WHERE PotbConfSortPo = 'fooValue'
      * $query->filterByPotbconfsortpo('%fooValue%', Criteria::LIKE); // WHERE PotbConfSortPo LIKE '%fooValue%'
+     * $query->filterByPotbconfsortpo(['foo', 'bar']); // WHERE PotbConfSortPo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfsortpo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfsortpo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfsortpo($potbconfsortpo = null, $comparison = null)
+    public function filterByPotbconfsortpo($potbconfsortpo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfsortpo)) {
@@ -754,7 +855,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSORTPO, $potbconfsortpo, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSORTPO, $potbconfsortpo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -764,14 +867,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfcancorrshpdate('fooValue');   // WHERE PotbConfCancOrRshpDate = 'fooValue'
      * $query->filterByPotbconfcancorrshpdate('%fooValue%', Criteria::LIKE); // WHERE PotbConfCancOrRshpDate LIKE '%fooValue%'
+     * $query->filterByPotbconfcancorrshpdate(['foo', 'bar']); // WHERE PotbConfCancOrRshpDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfcancorrshpdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfcancorrshpdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfcancorrshpdate($potbconfcancorrshpdate = null, $comparison = null)
+    public function filterByPotbconfcancorrshpdate($potbconfcancorrshpdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfcancorrshpdate)) {
@@ -779,7 +883,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFCANCORRSHPDATE, $potbconfcancorrshpdate, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFCANCORRSHPDATE, $potbconfcancorrshpdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -789,14 +895,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfackoretadate('fooValue');   // WHERE PotbConfAckOrEtaDate = 'fooValue'
      * $query->filterByPotbconfackoretadate('%fooValue%', Criteria::LIKE); // WHERE PotbConfAckOrEtaDate LIKE '%fooValue%'
+     * $query->filterByPotbconfackoretadate(['foo', 'bar']); // WHERE PotbConfAckOrEtaDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfackoretadate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfackoretadate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfackoretadate($potbconfackoretadate = null, $comparison = null)
+    public function filterByPotbconfackoretadate($potbconfackoretadate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfackoretadate)) {
@@ -804,7 +911,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFACKORETADATE, $potbconfackoretadate, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFACKORETADATE, $potbconfackoretadate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -814,14 +923,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfeditshipdate('fooValue');   // WHERE PotbConfEditShipDate = 'fooValue'
      * $query->filterByPotbconfeditshipdate('%fooValue%', Criteria::LIKE); // WHERE PotbConfEditShipDate LIKE '%fooValue%'
+     * $query->filterByPotbconfeditshipdate(['foo', 'bar']); // WHERE PotbConfEditShipDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfeditshipdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfeditshipdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfeditshipdate($potbconfeditshipdate = null, $comparison = null)
+    public function filterByPotbconfeditshipdate($potbconfeditshipdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfeditshipdate)) {
@@ -829,7 +939,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEDITSHIPDATE, $potbconfeditshipdate, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEDITSHIPDATE, $potbconfeditshipdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -839,14 +951,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfeditexptdate('fooValue');   // WHERE PotbConfEditExptDate = 'fooValue'
      * $query->filterByPotbconfeditexptdate('%fooValue%', Criteria::LIKE); // WHERE PotbConfEditExptDate LIKE '%fooValue%'
+     * $query->filterByPotbconfeditexptdate(['foo', 'bar']); // WHERE PotbConfEditExptDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfeditexptdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfeditexptdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfeditexptdate($potbconfeditexptdate = null, $comparison = null)
+    public function filterByPotbconfeditexptdate($potbconfeditexptdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfeditexptdate)) {
@@ -854,7 +967,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEDITEXPTDATE, $potbconfeditexptdate, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEDITEXPTDATE, $potbconfeditexptdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -864,14 +979,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfeditcancdate('fooValue');   // WHERE PotbConfEditCancDate = 'fooValue'
      * $query->filterByPotbconfeditcancdate('%fooValue%', Criteria::LIKE); // WHERE PotbConfEditCancDate LIKE '%fooValue%'
+     * $query->filterByPotbconfeditcancdate(['foo', 'bar']); // WHERE PotbConfEditCancDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfeditcancdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfeditcancdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfeditcancdate($potbconfeditcancdate = null, $comparison = null)
+    public function filterByPotbconfeditcancdate($potbconfeditcancdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfeditcancdate)) {
@@ -879,7 +995,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEDITCANCDATE, $potbconfeditcancdate, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEDITCANCDATE, $potbconfeditcancdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -889,14 +1007,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfeditackdate('fooValue');   // WHERE PotbConfEditAckDate = 'fooValue'
      * $query->filterByPotbconfeditackdate('%fooValue%', Criteria::LIKE); // WHERE PotbConfEditAckDate LIKE '%fooValue%'
+     * $query->filterByPotbconfeditackdate(['foo', 'bar']); // WHERE PotbConfEditAckDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfeditackdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfeditackdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfeditackdate($potbconfeditackdate = null, $comparison = null)
+    public function filterByPotbconfeditackdate($potbconfeditackdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfeditackdate)) {
@@ -904,7 +1023,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEDITACKDATE, $potbconfeditackdate, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEDITACKDATE, $potbconfeditackdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -914,14 +1035,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfexptdatedef('fooValue');   // WHERE PotbConfExptDateDef = 'fooValue'
      * $query->filterByPotbconfexptdatedef('%fooValue%', Criteria::LIKE); // WHERE PotbConfExptDateDef LIKE '%fooValue%'
+     * $query->filterByPotbconfexptdatedef(['foo', 'bar']); // WHERE PotbConfExptDateDef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfexptdatedef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfexptdatedef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfexptdatedef($potbconfexptdatedef = null, $comparison = null)
+    public function filterByPotbconfexptdatedef($potbconfexptdatedef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfexptdatedef)) {
@@ -929,7 +1051,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEXPTDATEDEF, $potbconfexptdatedef, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEXPTDATEDEF, $potbconfexptdatedef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -942,15 +1066,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * $query->filterByPotbconfheadgetdef(array('min' => 12)); // WHERE PotbConfHeadGetDef > 12
      * </code>
      *
-     * @param     mixed $potbconfheadgetdef The value to use as filter.
+     * @param mixed $potbconfheadgetdef The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfheadgetdef($potbconfheadgetdef = null, $comparison = null)
+    public function filterByPotbconfheadgetdef($potbconfheadgetdef = null, ?string $comparison = null)
     {
         if (is_array($potbconfheadgetdef)) {
             $useMinMax = false;
@@ -970,7 +1094,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFHEADGETDEF, $potbconfheadgetdef, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFHEADGETDEF, $potbconfheadgetdef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -980,14 +1106,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfreseq('fooValue');   // WHERE PotbConfReseq = 'fooValue'
      * $query->filterByPotbconfreseq('%fooValue%', Criteria::LIKE); // WHERE PotbConfReseq LIKE '%fooValue%'
+     * $query->filterByPotbconfreseq(['foo', 'bar']); // WHERE PotbConfReseq IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfreseq The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfreseq The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfreseq($potbconfreseq = null, $comparison = null)
+    public function filterByPotbconfreseq($potbconfreseq = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfreseq)) {
@@ -995,7 +1122,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFRESEQ, $potbconfreseq, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFRESEQ, $potbconfreseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1005,14 +1134,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfforcevxref('fooValue');   // WHERE PotbConfForceVxref = 'fooValue'
      * $query->filterByPotbconfforcevxref('%fooValue%', Criteria::LIKE); // WHERE PotbConfForceVxref LIKE '%fooValue%'
+     * $query->filterByPotbconfforcevxref(['foo', 'bar']); // WHERE PotbConfForceVxref IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfforcevxref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfforcevxref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfforcevxref($potbconfforcevxref = null, $comparison = null)
+    public function filterByPotbconfforcevxref($potbconfforcevxref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfforcevxref)) {
@@ -1020,7 +1150,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFORCEVXREF, $potbconfforcevxref, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFORCEVXREF, $potbconfforcevxref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1030,14 +1162,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfqtydue('fooValue');   // WHERE PotbConfQtyDue = 'fooValue'
      * $query->filterByPotbconfqtydue('%fooValue%', Criteria::LIKE); // WHERE PotbConfQtyDue LIKE '%fooValue%'
+     * $query->filterByPotbconfqtydue(['foo', 'bar']); // WHERE PotbConfQtyDue IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfqtydue The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfqtydue The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfqtydue($potbconfqtydue = null, $comparison = null)
+    public function filterByPotbconfqtydue($potbconfqtydue = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfqtydue)) {
@@ -1045,7 +1178,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFQTYDUE, $potbconfqtydue, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFQTYDUE, $potbconfqtydue, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1055,14 +1190,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfwarndup('fooValue');   // WHERE PotbConfWarnDup = 'fooValue'
      * $query->filterByPotbconfwarndup('%fooValue%', Criteria::LIKE); // WHERE PotbConfWarnDup LIKE '%fooValue%'
+     * $query->filterByPotbconfwarndup(['foo', 'bar']); // WHERE PotbConfWarnDup IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfwarndup The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfwarndup The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfwarndup($potbconfwarndup = null, $comparison = null)
+    public function filterByPotbconfwarndup($potbconfwarndup = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfwarndup)) {
@@ -1070,7 +1206,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFWARNDUP, $potbconfwarndup, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFWARNDUP, $potbconfwarndup, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1080,14 +1218,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfforceporef('fooValue');   // WHERE PotbConfForcePoRef = 'fooValue'
      * $query->filterByPotbconfforceporef('%fooValue%', Criteria::LIKE); // WHERE PotbConfForcePoRef LIKE '%fooValue%'
+     * $query->filterByPotbconfforceporef(['foo', 'bar']); // WHERE PotbConfForcePoRef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfforceporef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfforceporef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfforceporef($potbconfforceporef = null, $comparison = null)
+    public function filterByPotbconfforceporef($potbconfforceporef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfforceporef)) {
@@ -1095,7 +1234,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFORCEPOREF, $potbconfforceporef, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFORCEPOREF, $potbconfforceporef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1105,14 +1246,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfdestwhse('fooValue');   // WHERE PotbConfDestWhse = 'fooValue'
      * $query->filterByPotbconfdestwhse('%fooValue%', Criteria::LIKE); // WHERE PotbConfDestWhse LIKE '%fooValue%'
+     * $query->filterByPotbconfdestwhse(['foo', 'bar']); // WHERE PotbConfDestWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfdestwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfdestwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfdestwhse($potbconfdestwhse = null, $comparison = null)
+    public function filterByPotbconfdestwhse($potbconfdestwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfdestwhse)) {
@@ -1120,7 +1262,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFDESTWHSE, $potbconfdestwhse, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFDESTWHSE, $potbconfdestwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1130,14 +1274,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfeditpoitemnotes('fooValue');   // WHERE PotbConfEditPoItemNotes = 'fooValue'
      * $query->filterByPotbconfeditpoitemnotes('%fooValue%', Criteria::LIKE); // WHERE PotbConfEditPoItemNotes LIKE '%fooValue%'
+     * $query->filterByPotbconfeditpoitemnotes(['foo', 'bar']); // WHERE PotbConfEditPoItemNotes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfeditpoitemnotes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfeditpoitemnotes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfeditpoitemnotes($potbconfeditpoitemnotes = null, $comparison = null)
+    public function filterByPotbconfeditpoitemnotes($potbconfeditpoitemnotes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfeditpoitemnotes)) {
@@ -1145,7 +1290,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEDITPOITEMNOTES, $potbconfeditpoitemnotes, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEDITPOITEMNOTES, $potbconfeditpoitemnotes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1155,14 +1302,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfloadpovxmnotes('fooValue');   // WHERE PotbConfLoadPoVxmNotes = 'fooValue'
      * $query->filterByPotbconfloadpovxmnotes('%fooValue%', Criteria::LIKE); // WHERE PotbConfLoadPoVxmNotes LIKE '%fooValue%'
+     * $query->filterByPotbconfloadpovxmnotes(['foo', 'bar']); // WHERE PotbConfLoadPoVxmNotes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfloadpovxmnotes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfloadpovxmnotes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfloadpovxmnotes($potbconfloadpovxmnotes = null, $comparison = null)
+    public function filterByPotbconfloadpovxmnotes($potbconfloadpovxmnotes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfloadpovxmnotes)) {
@@ -1170,7 +1318,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLOADPOVXMNOTES, $potbconfloadpovxmnotes, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLOADPOVXMNOTES, $potbconfloadpovxmnotes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1180,14 +1330,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfepoupdlastcost('fooValue');   // WHERE PotbConfEpoUpdLastCost = 'fooValue'
      * $query->filterByPotbconfepoupdlastcost('%fooValue%', Criteria::LIKE); // WHERE PotbConfEpoUpdLastCost LIKE '%fooValue%'
+     * $query->filterByPotbconfepoupdlastcost(['foo', 'bar']); // WHERE PotbConfEpoUpdLastCost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfepoupdlastcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfepoupdlastcost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfepoupdlastcost($potbconfepoupdlastcost = null, $comparison = null)
+    public function filterByPotbconfepoupdlastcost($potbconfepoupdlastcost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfepoupdlastcost)) {
@@ -1195,7 +1346,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEPOUPDLASTCOST, $potbconfepoupdlastcost, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEPOUPDLASTCOST, $potbconfepoupdlastcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1205,14 +1358,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfrecall('fooValue');   // WHERE PotbConfRecAll = 'fooValue'
      * $query->filterByPotbconfrecall('%fooValue%', Criteria::LIKE); // WHERE PotbConfRecAll LIKE '%fooValue%'
+     * $query->filterByPotbconfrecall(['foo', 'bar']); // WHERE PotbConfRecAll IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfrecall The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfrecall The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfrecall($potbconfrecall = null, $comparison = null)
+    public function filterByPotbconfrecall($potbconfrecall = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfrecall)) {
@@ -1220,7 +1374,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFRECALL, $potbconfrecall, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFRECALL, $potbconfrecall, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1230,14 +1386,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfrecallask('fooValue');   // WHERE PotbConfRecAllAsk = 'fooValue'
      * $query->filterByPotbconfrecallask('%fooValue%', Criteria::LIKE); // WHERE PotbConfRecAllAsk LIKE '%fooValue%'
+     * $query->filterByPotbconfrecallask(['foo', 'bar']); // WHERE PotbConfRecAllAsk IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfrecallask The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfrecallask The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfrecallask($potbconfrecallask = null, $comparison = null)
+    public function filterByPotbconfrecallask($potbconfrecallask = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfrecallask)) {
@@ -1245,7 +1402,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFRECALLASK, $potbconfrecallask, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFRECALLASK, $potbconfrecallask, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1255,14 +1414,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfreceivecost('fooValue');   // WHERE PotbConfReceiveCost = 'fooValue'
      * $query->filterByPotbconfreceivecost('%fooValue%', Criteria::LIKE); // WHERE PotbConfReceiveCost LIKE '%fooValue%'
+     * $query->filterByPotbconfreceivecost(['foo', 'bar']); // WHERE PotbConfReceiveCost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfreceivecost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfreceivecost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfreceivecost($potbconfreceivecost = null, $comparison = null)
+    public function filterByPotbconfreceivecost($potbconfreceivecost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfreceivecost)) {
@@ -1270,7 +1430,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFRECEIVECOST, $potbconfreceivecost, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFRECEIVECOST, $potbconfreceivecost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1280,14 +1442,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfprocvari('fooValue');   // WHERE PotbConfProcVari = 'fooValue'
      * $query->filterByPotbconfprocvari('%fooValue%', Criteria::LIKE); // WHERE PotbConfProcVari LIKE '%fooValue%'
+     * $query->filterByPotbconfprocvari(['foo', 'bar']); // WHERE PotbConfProcVari IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfprocvari The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfprocvari The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfprocvari($potbconfprocvari = null, $comparison = null)
+    public function filterByPotbconfprocvari($potbconfprocvari = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfprocvari)) {
@@ -1295,7 +1458,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPROCVARI, $potbconfprocvari, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPROCVARI, $potbconfprocvari, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1305,14 +1470,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfcostrcvryacct('fooValue');   // WHERE PotbConfCostRcvryAcct = 'fooValue'
      * $query->filterByPotbconfcostrcvryacct('%fooValue%', Criteria::LIKE); // WHERE PotbConfCostRcvryAcct LIKE '%fooValue%'
+     * $query->filterByPotbconfcostrcvryacct(['foo', 'bar']); // WHERE PotbConfCostRcvryAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfcostrcvryacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfcostrcvryacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfcostrcvryacct($potbconfcostrcvryacct = null, $comparison = null)
+    public function filterByPotbconfcostrcvryacct($potbconfcostrcvryacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfcostrcvryacct)) {
@@ -1320,7 +1486,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFCOSTRCVRYACCT, $potbconfcostrcvryacct, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFCOSTRCVRYACCT, $potbconfcostrcvryacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1330,14 +1498,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfinvtyvariacct('fooValue');   // WHERE PotbConfInvtyVariAcct = 'fooValue'
      * $query->filterByPotbconfinvtyvariacct('%fooValue%', Criteria::LIKE); // WHERE PotbConfInvtyVariAcct LIKE '%fooValue%'
+     * $query->filterByPotbconfinvtyvariacct(['foo', 'bar']); // WHERE PotbConfInvtyVariAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfinvtyvariacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfinvtyvariacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfinvtyvariacct($potbconfinvtyvariacct = null, $comparison = null)
+    public function filterByPotbconfinvtyvariacct($potbconfinvtyvariacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfinvtyvariacct)) {
@@ -1345,7 +1514,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFINVTYVARIACCT, $potbconfinvtyvariacct, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFINVTYVARIACCT, $potbconfinvtyvariacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1355,14 +1526,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfallowchgcost('fooValue');   // WHERE PotbConfAllowChgCost = 'fooValue'
      * $query->filterByPotbconfallowchgcost('%fooValue%', Criteria::LIKE); // WHERE PotbConfAllowChgCost LIKE '%fooValue%'
+     * $query->filterByPotbconfallowchgcost(['foo', 'bar']); // WHERE PotbConfAllowChgCost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfallowchgcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfallowchgcost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfallowchgcost($potbconfallowchgcost = null, $comparison = null)
+    public function filterByPotbconfallowchgcost($potbconfallowchgcost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfallowchgcost)) {
@@ -1370,7 +1542,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFALLOWCHGCOST, $potbconfallowchgcost, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFALLOWCHGCOST, $potbconfallowchgcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1380,14 +1554,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfwarnrcptqty('fooValue');   // WHERE PotbConfWarnRcptQty = 'fooValue'
      * $query->filterByPotbconfwarnrcptqty('%fooValue%', Criteria::LIKE); // WHERE PotbConfWarnRcptQty LIKE '%fooValue%'
+     * $query->filterByPotbconfwarnrcptqty(['foo', 'bar']); // WHERE PotbConfWarnRcptQty IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfwarnrcptqty The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfwarnrcptqty The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfwarnrcptqty($potbconfwarnrcptqty = null, $comparison = null)
+    public function filterByPotbconfwarnrcptqty($potbconfwarnrcptqty = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfwarnrcptqty)) {
@@ -1395,7 +1570,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFWARNRCPTQTY, $potbconfwarnrcptqty, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFWARNRCPTQTY, $potbconfwarnrcptqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1405,14 +1582,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconferdispdate('fooValue');   // WHERE PotbConfErDispDate = 'fooValue'
      * $query->filterByPotbconferdispdate('%fooValue%', Criteria::LIKE); // WHERE PotbConfErDispDate LIKE '%fooValue%'
+     * $query->filterByPotbconferdispdate(['foo', 'bar']); // WHERE PotbConfErDispDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconferdispdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconferdispdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconferdispdate($potbconferdispdate = null, $comparison = null)
+    public function filterByPotbconferdispdate($potbconferdispdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconferdispdate)) {
@@ -1420,7 +1598,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFERDISPDATE, $potbconferdispdate, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFERDISPDATE, $potbconferdispdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1430,14 +1610,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfprovidelpo('fooValue');   // WHERE PotbConfProvideLpo = 'fooValue'
      * $query->filterByPotbconfprovidelpo('%fooValue%', Criteria::LIKE); // WHERE PotbConfProvideLpo LIKE '%fooValue%'
+     * $query->filterByPotbconfprovidelpo(['foo', 'bar']); // WHERE PotbConfProvideLpo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfprovidelpo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfprovidelpo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfprovidelpo($potbconfprovidelpo = null, $comparison = null)
+    public function filterByPotbconfprovidelpo($potbconfprovidelpo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfprovidelpo)) {
@@ -1445,7 +1626,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPROVIDELPO, $potbconfprovidelpo, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPROVIDELPO, $potbconfprovidelpo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1455,14 +1638,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfwarndiffwhse('fooValue');   // WHERE PotbConfWarnDiffWhse = 'fooValue'
      * $query->filterByPotbconfwarndiffwhse('%fooValue%', Criteria::LIKE); // WHERE PotbConfWarnDiffWhse LIKE '%fooValue%'
+     * $query->filterByPotbconfwarndiffwhse(['foo', 'bar']); // WHERE PotbConfWarnDiffWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfwarndiffwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfwarndiffwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfwarndiffwhse($potbconfwarndiffwhse = null, $comparison = null)
+    public function filterByPotbconfwarndiffwhse($potbconfwarndiffwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfwarndiffwhse)) {
@@ -1470,7 +1654,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFWARNDIFFWHSE, $potbconfwarndiffwhse, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFWARNDIFFWHSE, $potbconfwarndiffwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1480,14 +1666,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfallocrcvd('fooValue');   // WHERE PotbConfAllocRcvd = 'fooValue'
      * $query->filterByPotbconfallocrcvd('%fooValue%', Criteria::LIKE); // WHERE PotbConfAllocRcvd LIKE '%fooValue%'
+     * $query->filterByPotbconfallocrcvd(['foo', 'bar']); // WHERE PotbConfAllocRcvd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfallocrcvd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfallocrcvd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfallocrcvd($potbconfallocrcvd = null, $comparison = null)
+    public function filterByPotbconfallocrcvd($potbconfallocrcvd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfallocrcvd)) {
@@ -1495,7 +1682,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFALLOCRCVD, $potbconfallocrcvd, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFALLOCRCVD, $potbconfallocrcvd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1505,14 +1694,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfaskclose('fooValue');   // WHERE PotbConfAskClose = 'fooValue'
      * $query->filterByPotbconfaskclose('%fooValue%', Criteria::LIKE); // WHERE PotbConfAskClose LIKE '%fooValue%'
+     * $query->filterByPotbconfaskclose(['foo', 'bar']); // WHERE PotbConfAskClose IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfaskclose The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfaskclose The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfaskclose($potbconfaskclose = null, $comparison = null)
+    public function filterByPotbconfaskclose($potbconfaskclose = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfaskclose)) {
@@ -1520,7 +1710,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFASKCLOSE, $potbconfaskclose, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFASKCLOSE, $potbconfaskclose, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1530,14 +1722,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconferadd2po('fooValue');   // WHERE PotbConfErAdd2Po = 'fooValue'
      * $query->filterByPotbconferadd2po('%fooValue%', Criteria::LIKE); // WHERE PotbConfErAdd2Po LIKE '%fooValue%'
+     * $query->filterByPotbconferadd2po(['foo', 'bar']); // WHERE PotbConfErAdd2Po IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconferadd2po The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconferadd2po The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconferadd2po($potbconferadd2po = null, $comparison = null)
+    public function filterByPotbconferadd2po($potbconferadd2po = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconferadd2po)) {
@@ -1545,7 +1738,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFERADD2PO, $potbconferadd2po, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFERADD2PO, $potbconferadd2po, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1555,14 +1750,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconftariffglacct('fooValue');   // WHERE PotbConfTariffGlAcct = 'fooValue'
      * $query->filterByPotbconftariffglacct('%fooValue%', Criteria::LIKE); // WHERE PotbConfTariffGlAcct LIKE '%fooValue%'
+     * $query->filterByPotbconftariffglacct(['foo', 'bar']); // WHERE PotbConfTariffGlAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconftariffglacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconftariffglacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconftariffglacct($potbconftariffglacct = null, $comparison = null)
+    public function filterByPotbconftariffglacct($potbconftariffglacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconftariffglacct)) {
@@ -1570,7 +1766,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFTARIFFGLACCT, $potbconftariffglacct, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFTARIFFGLACCT, $potbconftariffglacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1580,14 +1778,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfshopglacct('fooValue');   // WHERE PotbConfShopGlAcct = 'fooValue'
      * $query->filterByPotbconfshopglacct('%fooValue%', Criteria::LIKE); // WHERE PotbConfShopGlAcct LIKE '%fooValue%'
+     * $query->filterByPotbconfshopglacct(['foo', 'bar']); // WHERE PotbConfShopGlAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfshopglacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfshopglacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfshopglacct($potbconfshopglacct = null, $comparison = null)
+    public function filterByPotbconfshopglacct($potbconfshopglacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfshopglacct)) {
@@ -1595,7 +1794,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSHOPGLACCT, $potbconfshopglacct, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSHOPGLACCT, $potbconfshopglacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1608,15 +1809,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * $query->filterByPotbconfshoprate(array('min' => 12)); // WHERE PotbConfShopRate > 12
      * </code>
      *
-     * @param     mixed $potbconfshoprate The value to use as filter.
+     * @param mixed $potbconfshoprate The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfshoprate($potbconfshoprate = null, $comparison = null)
+    public function filterByPotbconfshoprate($potbconfshoprate = null, ?string $comparison = null)
     {
         if (is_array($potbconfshoprate)) {
             $useMinMax = false;
@@ -1636,7 +1837,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSHOPRATE, $potbconfshoprate, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSHOPRATE, $potbconfshoprate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1646,14 +1849,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfuseprime('fooValue');   // WHERE PotbConfUsePrime = 'fooValue'
      * $query->filterByPotbconfuseprime('%fooValue%', Criteria::LIKE); // WHERE PotbConfUsePrime LIKE '%fooValue%'
+     * $query->filterByPotbconfuseprime(['foo', 'bar']); // WHERE PotbConfUsePrime IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfuseprime The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfuseprime The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfuseprime($potbconfuseprime = null, $comparison = null)
+    public function filterByPotbconfuseprime($potbconfuseprime = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfuseprime)) {
@@ -1661,7 +1865,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEPRIME, $potbconfuseprime, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEPRIME, $potbconfuseprime, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1671,14 +1877,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfusewatch('fooValue');   // WHERE PotbConfUseWatch = 'fooValue'
      * $query->filterByPotbconfusewatch('%fooValue%', Criteria::LIKE); // WHERE PotbConfUseWatch LIKE '%fooValue%'
+     * $query->filterByPotbconfusewatch(['foo', 'bar']); // WHERE PotbConfUseWatch IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfusewatch The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfusewatch The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfusewatch($potbconfusewatch = null, $comparison = null)
+    public function filterByPotbconfusewatch($potbconfusewatch = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfusewatch)) {
@@ -1686,7 +1893,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEWATCH, $potbconfusewatch, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEWATCH, $potbconfusewatch, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1696,14 +1905,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfprtpowsugg('fooValue');   // WHERE PotbConfPrtPowSugg = 'fooValue'
      * $query->filterByPotbconfprtpowsugg('%fooValue%', Criteria::LIKE); // WHERE PotbConfPrtPowSugg LIKE '%fooValue%'
+     * $query->filterByPotbconfprtpowsugg(['foo', 'bar']); // WHERE PotbConfPrtPowSugg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfprtpowsugg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfprtpowsugg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfprtpowsugg($potbconfprtpowsugg = null, $comparison = null)
+    public function filterByPotbconfprtpowsugg($potbconfprtpowsugg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfprtpowsugg)) {
@@ -1711,7 +1921,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPRTPOWSUGG, $potbconfprtpowsugg, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPRTPOWSUGG, $potbconfprtpowsugg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1721,14 +1933,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfpowslctyes('fooValue');   // WHERE PotbConfPowSlctYes = 'fooValue'
      * $query->filterByPotbconfpowslctyes('%fooValue%', Criteria::LIKE); // WHERE PotbConfPowSlctYes LIKE '%fooValue%'
+     * $query->filterByPotbconfpowslctyes(['foo', 'bar']); // WHERE PotbConfPowSlctYes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfpowslctyes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfpowslctyes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfpowslctyes($potbconfpowslctyes = null, $comparison = null)
+    public function filterByPotbconfpowslctyes($potbconfpowslctyes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfpowslctyes)) {
@@ -1736,7 +1949,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPOWSLCTYES, $potbconfpowslctyes, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPOWSLCTYES, $potbconfpowslctyes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1746,14 +1961,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfpowgvendrpt('fooValue');   // WHERE PotbConfPowgVendRpt = 'fooValue'
      * $query->filterByPotbconfpowgvendrpt('%fooValue%', Criteria::LIKE); // WHERE PotbConfPowgVendRpt LIKE '%fooValue%'
+     * $query->filterByPotbconfpowgvendrpt(['foo', 'bar']); // WHERE PotbConfPowgVendRpt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfpowgvendrpt The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfpowgvendrpt The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfpowgvendrpt($potbconfpowgvendrpt = null, $comparison = null)
+    public function filterByPotbconfpowgvendrpt($potbconfpowgvendrpt = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfpowgvendrpt)) {
@@ -1761,7 +1977,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPOWGVENDRPT, $potbconfpowgvendrpt, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPOWGVENDRPT, $potbconfpowgvendrpt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1771,14 +1989,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfpowgwipstatus('fooValue');   // WHERE PotbConfPowgWipStatus = 'fooValue'
      * $query->filterByPotbconfpowgwipstatus('%fooValue%', Criteria::LIKE); // WHERE PotbConfPowgWipStatus LIKE '%fooValue%'
+     * $query->filterByPotbconfpowgwipstatus(['foo', 'bar']); // WHERE PotbConfPowgWipStatus IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfpowgwipstatus The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfpowgwipstatus The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfpowgwipstatus($potbconfpowgwipstatus = null, $comparison = null)
+    public function filterByPotbconfpowgwipstatus($potbconfpowgwipstatus = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfpowgwipstatus)) {
@@ -1786,7 +2005,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPOWGWIPSTATUS, $potbconfpowgwipstatus, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPOWGWIPSTATUS, $potbconfpowgwipstatus, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1796,14 +2017,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfpowgwipautogen('fooValue');   // WHERE PotbConfPowgWipAutoGen = 'fooValue'
      * $query->filterByPotbconfpowgwipautogen('%fooValue%', Criteria::LIKE); // WHERE PotbConfPowgWipAutoGen LIKE '%fooValue%'
+     * $query->filterByPotbconfpowgwipautogen(['foo', 'bar']); // WHERE PotbConfPowgWipAutoGen IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfpowgwipautogen The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfpowgwipautogen The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfpowgwipautogen($potbconfpowgwipautogen = null, $comparison = null)
+    public function filterByPotbconfpowgwipautogen($potbconfpowgwipautogen = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfpowgwipautogen)) {
@@ -1811,7 +2033,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPOWGWIPAUTOGEN, $potbconfpowgwipautogen, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPOWGWIPAUTOGEN, $potbconfpowgwipautogen, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1821,14 +2045,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfbuyercontrol('fooValue');   // WHERE PotbConfBuyerControl = 'fooValue'
      * $query->filterByPotbconfbuyercontrol('%fooValue%', Criteria::LIKE); // WHERE PotbConfBuyerControl LIKE '%fooValue%'
+     * $query->filterByPotbconfbuyercontrol(['foo', 'bar']); // WHERE PotbConfBuyerControl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfbuyercontrol The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfbuyercontrol The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfbuyercontrol($potbconfbuyercontrol = null, $comparison = null)
+    public function filterByPotbconfbuyercontrol($potbconfbuyercontrol = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfbuyercontrol)) {
@@ -1836,7 +2061,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFBUYERCONTROL, $potbconfbuyercontrol, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFBUYERCONTROL, $potbconfbuyercontrol, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1849,15 +2076,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * $query->filterByPotbconfpowgoqmethod(array('min' => 12)); // WHERE PotbConfPowgOqMethod > 12
      * </code>
      *
-     * @param     mixed $potbconfpowgoqmethod The value to use as filter.
+     * @param mixed $potbconfpowgoqmethod The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfpowgoqmethod($potbconfpowgoqmethod = null, $comparison = null)
+    public function filterByPotbconfpowgoqmethod($potbconfpowgoqmethod = null, ?string $comparison = null)
     {
         if (is_array($potbconfpowgoqmethod)) {
             $useMinMax = false;
@@ -1877,7 +2104,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPOWGOQMETHOD, $potbconfpowgoqmethod, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPOWGOQMETHOD, $potbconfpowgoqmethod, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1887,14 +2116,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconffxpo('fooValue');   // WHERE PotbConfFxPo = 'fooValue'
      * $query->filterByPotbconffxpo('%fooValue%', Criteria::LIKE); // WHERE PotbConfFxPo LIKE '%fooValue%'
+     * $query->filterByPotbconffxpo(['foo', 'bar']); // WHERE PotbConfFxPo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconffxpo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconffxpo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconffxpo($potbconffxpo = null, $comparison = null)
+    public function filterByPotbconffxpo($potbconffxpo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconffxpo)) {
@@ -1902,7 +2132,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFXPO, $potbconffxpo, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFXPO, $potbconffxpo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1912,14 +2144,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconffxinv('fooValue');   // WHERE PotbConfFxInv = 'fooValue'
      * $query->filterByPotbconffxinv('%fooValue%', Criteria::LIKE); // WHERE PotbConfFxInv LIKE '%fooValue%'
+     * $query->filterByPotbconffxinv(['foo', 'bar']); // WHERE PotbConfFxInv IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconffxinv The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconffxinv The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconffxinv($potbconffxinv = null, $comparison = null)
+    public function filterByPotbconffxinv($potbconffxinv = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconffxinv)) {
@@ -1927,7 +2160,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFXINV, $potbconffxinv, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFXINV, $potbconffxinv, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1937,14 +2172,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfupdatevendcost('fooValue');   // WHERE PotbConfUpDateVendCost = 'fooValue'
      * $query->filterByPotbconfupdatevendcost('%fooValue%', Criteria::LIKE); // WHERE PotbConfUpDateVendCost LIKE '%fooValue%'
+     * $query->filterByPotbconfupdatevendcost(['foo', 'bar']); // WHERE PotbConfUpDateVendCost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfupdatevendcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfupdatevendcost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfupdatevendcost($potbconfupdatevendcost = null, $comparison = null)
+    public function filterByPotbconfupdatevendcost($potbconfupdatevendcost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfupdatevendcost)) {
@@ -1952,7 +2188,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUPDATEVENDCOST, $potbconfupdatevendcost, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUPDATEVENDCOST, $potbconfupdatevendcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1962,14 +2200,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfaskupdate('fooValue');   // WHERE PotbConfAskUpDate = 'fooValue'
      * $query->filterByPotbconfaskupdate('%fooValue%', Criteria::LIKE); // WHERE PotbConfAskUpDate LIKE '%fooValue%'
+     * $query->filterByPotbconfaskupdate(['foo', 'bar']); // WHERE PotbConfAskUpDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfaskupdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfaskupdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfaskupdate($potbconfaskupdate = null, $comparison = null)
+    public function filterByPotbconfaskupdate($potbconfaskupdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfaskupdate)) {
@@ -1977,7 +2216,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFASKUPDATE, $potbconfaskupdate, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFASKUPDATE, $potbconfaskupdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1990,15 +2231,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * $query->filterByPotbconfvxmroundpos(array('min' => 12)); // WHERE PotbConfVxmRoundPos > 12
      * </code>
      *
-     * @param     mixed $potbconfvxmroundpos The value to use as filter.
+     * @param mixed $potbconfvxmroundpos The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfvxmroundpos($potbconfvxmroundpos = null, $comparison = null)
+    public function filterByPotbconfvxmroundpos($potbconfvxmroundpos = null, ?string $comparison = null)
     {
         if (is_array($potbconfvxmroundpos)) {
             $useMinMax = false;
@@ -2018,7 +2259,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFVXMROUNDPOS, $potbconfvxmroundpos, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFVXMROUNDPOS, $potbconfvxmroundpos, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2028,14 +2271,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfxrefmaint('fooValue');   // WHERE PotbConfXrefMaint = 'fooValue'
      * $query->filterByPotbconfxrefmaint('%fooValue%', Criteria::LIKE); // WHERE PotbConfXrefMaint LIKE '%fooValue%'
+     * $query->filterByPotbconfxrefmaint(['foo', 'bar']); // WHERE PotbConfXrefMaint IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfxrefmaint The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfxrefmaint The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfxrefmaint($potbconfxrefmaint = null, $comparison = null)
+    public function filterByPotbconfxrefmaint($potbconfxrefmaint = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfxrefmaint)) {
@@ -2043,7 +2287,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFXREFMAINT, $potbconfxrefmaint, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFXREFMAINT, $potbconfxrefmaint, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2053,14 +2299,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfuseidopts('fooValue');   // WHERE PotbConfUseIdOpts = 'fooValue'
      * $query->filterByPotbconfuseidopts('%fooValue%', Criteria::LIKE); // WHERE PotbConfUseIdOpts LIKE '%fooValue%'
+     * $query->filterByPotbconfuseidopts(['foo', 'bar']); // WHERE PotbConfUseIdOpts IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfuseidopts The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfuseidopts The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfuseidopts($potbconfuseidopts = null, $comparison = null)
+    public function filterByPotbconfuseidopts($potbconfuseidopts = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfuseidopts)) {
@@ -2068,7 +2315,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEIDOPTS, $potbconfuseidopts, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEIDOPTS, $potbconfuseidopts, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2078,14 +2327,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfsrchvxmfirst('fooValue');   // WHERE PotbConfSrchVxmFirst = 'fooValue'
      * $query->filterByPotbconfsrchvxmfirst('%fooValue%', Criteria::LIKE); // WHERE PotbConfSrchVxmFirst LIKE '%fooValue%'
+     * $query->filterByPotbconfsrchvxmfirst(['foo', 'bar']); // WHERE PotbConfSrchVxmFirst IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfsrchvxmfirst The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfsrchvxmfirst The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfsrchvxmfirst($potbconfsrchvxmfirst = null, $comparison = null)
+    public function filterByPotbconfsrchvxmfirst($potbconfsrchvxmfirst = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfsrchvxmfirst)) {
@@ -2093,7 +2343,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSRCHVXMFIRST, $potbconfsrchvxmfirst, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSRCHVXMFIRST, $potbconfsrchvxmfirst, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2103,14 +2355,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfopenlineonly('fooValue');   // WHERE PotbConfOpenLineOnly = 'fooValue'
      * $query->filterByPotbconfopenlineonly('%fooValue%', Criteria::LIKE); // WHERE PotbConfOpenLineOnly LIKE '%fooValue%'
+     * $query->filterByPotbconfopenlineonly(['foo', 'bar']); // WHERE PotbConfOpenLineOnly IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfopenlineonly The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfopenlineonly The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfopenlineonly($potbconfopenlineonly = null, $comparison = null)
+    public function filterByPotbconfopenlineonly($potbconfopenlineonly = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfopenlineonly)) {
@@ -2118,7 +2371,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFOPENLINEONLY, $potbconfopenlineonly, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFOPENLINEONLY, $potbconfopenlineonly, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2128,14 +2383,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfitemdesc('fooValue');   // WHERE PotbConfItemDesc = 'fooValue'
      * $query->filterByPotbconfitemdesc('%fooValue%', Criteria::LIKE); // WHERE PotbConfItemDesc LIKE '%fooValue%'
+     * $query->filterByPotbconfitemdesc(['foo', 'bar']); // WHERE PotbConfItemDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfitemdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfitemdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfitemdesc($potbconfitemdesc = null, $comparison = null)
+    public function filterByPotbconfitemdesc($potbconfitemdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfitemdesc)) {
@@ -2143,7 +2399,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFITEMDESC, $potbconfitemdesc, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFITEMDESC, $potbconfitemdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2153,14 +2411,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfopenbalonly('fooValue');   // WHERE PotbConfOpenBalOnly = 'fooValue'
      * $query->filterByPotbconfopenbalonly('%fooValue%', Criteria::LIKE); // WHERE PotbConfOpenBalOnly LIKE '%fooValue%'
+     * $query->filterByPotbconfopenbalonly(['foo', 'bar']); // WHERE PotbConfOpenBalOnly IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfopenbalonly The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfopenbalonly The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfopenbalonly($potbconfopenbalonly = null, $comparison = null)
+    public function filterByPotbconfopenbalonly($potbconfopenbalonly = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfopenbalonly)) {
@@ -2168,7 +2427,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFOPENBALONLY, $potbconfopenbalonly, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFOPENBALONLY, $potbconfopenbalonly, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2178,14 +2439,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfprtwhsedtl('fooValue');   // WHERE PotbConfPrtWhseDtl = 'fooValue'
      * $query->filterByPotbconfprtwhsedtl('%fooValue%', Criteria::LIKE); // WHERE PotbConfPrtWhseDtl LIKE '%fooValue%'
+     * $query->filterByPotbconfprtwhsedtl(['foo', 'bar']); // WHERE PotbConfPrtWhseDtl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfprtwhsedtl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfprtwhsedtl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfprtwhsedtl($potbconfprtwhsedtl = null, $comparison = null)
+    public function filterByPotbconfprtwhsedtl($potbconfprtwhsedtl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfprtwhsedtl)) {
@@ -2193,7 +2455,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPRTWHSEDTL, $potbconfprtwhsedtl, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPRTWHSEDTL, $potbconfprtwhsedtl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2203,14 +2467,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfautorcpt('fooValue');   // WHERE PotbConfAutoRcpt = 'fooValue'
      * $query->filterByPotbconfautorcpt('%fooValue%', Criteria::LIKE); // WHERE PotbConfAutoRcpt LIKE '%fooValue%'
+     * $query->filterByPotbconfautorcpt(['foo', 'bar']); // WHERE PotbConfAutoRcpt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfautorcpt The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfautorcpt The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfautorcpt($potbconfautorcpt = null, $comparison = null)
+    public function filterByPotbconfautorcpt($potbconfautorcpt = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfautorcpt)) {
@@ -2218,7 +2483,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFAUTORCPT, $potbconfautorcpt, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFAUTORCPT, $potbconfautorcpt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2228,14 +2495,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfdispitemcost('fooValue');   // WHERE PotbConfDispItemCost = 'fooValue'
      * $query->filterByPotbconfdispitemcost('%fooValue%', Criteria::LIKE); // WHERE PotbConfDispItemCost LIKE '%fooValue%'
+     * $query->filterByPotbconfdispitemcost(['foo', 'bar']); // WHERE PotbConfDispItemCost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfdispitemcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfdispitemcost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfdispitemcost($potbconfdispitemcost = null, $comparison = null)
+    public function filterByPotbconfdispitemcost($potbconfdispitemcost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfdispitemcost)) {
@@ -2243,7 +2511,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFDISPITEMCOST, $potbconfdispitemcost, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFDISPITEMCOST, $potbconfdispitemcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2253,14 +2523,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfdispcaseqty('fooValue');   // WHERE PotbConfDispCaseQty = 'fooValue'
      * $query->filterByPotbconfdispcaseqty('%fooValue%', Criteria::LIKE); // WHERE PotbConfDispCaseQty LIKE '%fooValue%'
+     * $query->filterByPotbconfdispcaseqty(['foo', 'bar']); // WHERE PotbConfDispCaseQty IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfdispcaseqty The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfdispcaseqty The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfdispcaseqty($potbconfdispcaseqty = null, $comparison = null)
+    public function filterByPotbconfdispcaseqty($potbconfdispcaseqty = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfdispcaseqty)) {
@@ -2268,7 +2539,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFDISPCASEQTY, $potbconfdispcaseqty, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFDISPCASEQTY, $potbconfdispcaseqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2281,15 +2554,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * $query->filterByPotbconfonetwoline(array('min' => 12)); // WHERE PotbConfOneTwoLine > 12
      * </code>
      *
-     * @param     mixed $potbconfonetwoline The value to use as filter.
+     * @param mixed $potbconfonetwoline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfonetwoline($potbconfonetwoline = null, $comparison = null)
+    public function filterByPotbconfonetwoline($potbconfonetwoline = null, ?string $comparison = null)
     {
         if (is_array($potbconfonetwoline)) {
             $useMinMax = false;
@@ -2309,7 +2582,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFONETWOLINE, $potbconfonetwoline, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFONETWOLINE, $potbconfonetwoline, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2319,14 +2594,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfuseordras('fooValue');   // WHERE PotbConfUseOrdrAs = 'fooValue'
      * $query->filterByPotbconfuseordras('%fooValue%', Criteria::LIKE); // WHERE PotbConfUseOrdrAs LIKE '%fooValue%'
+     * $query->filterByPotbconfuseordras(['foo', 'bar']); // WHERE PotbConfUseOrdrAs IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfuseordras The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfuseordras The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfuseordras($potbconfuseordras = null, $comparison = null)
+    public function filterByPotbconfuseordras($potbconfuseordras = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfuseordras)) {
@@ -2334,7 +2610,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEORDRAS, $potbconfuseordras, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEORDRAS, $potbconfuseordras, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2344,14 +2622,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfaprvvendonly('fooValue');   // WHERE PotbConfAprvVendOnly = 'fooValue'
      * $query->filterByPotbconfaprvvendonly('%fooValue%', Criteria::LIKE); // WHERE PotbConfAprvVendOnly LIKE '%fooValue%'
+     * $query->filterByPotbconfaprvvendonly(['foo', 'bar']); // WHERE PotbConfAprvVendOnly IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfaprvvendonly The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfaprvvendonly The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfaprvvendonly($potbconfaprvvendonly = null, $comparison = null)
+    public function filterByPotbconfaprvvendonly($potbconfaprvvendonly = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfaprvvendonly)) {
@@ -2359,7 +2638,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFAPRVVENDONLY, $potbconfaprvvendonly, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFAPRVVENDONLY, $potbconfaprvvendonly, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2369,14 +2650,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfusefab('fooValue');   // WHERE PotbConfUseFab = 'fooValue'
      * $query->filterByPotbconfusefab('%fooValue%', Criteria::LIKE); // WHERE PotbConfUseFab LIKE '%fooValue%'
+     * $query->filterByPotbconfusefab(['foo', 'bar']); // WHERE PotbConfUseFab IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfusefab The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfusefab The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfusefab($potbconfusefab = null, $comparison = null)
+    public function filterByPotbconfusefab($potbconfusefab = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfusefab)) {
@@ -2384,7 +2666,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEFAB, $potbconfusefab, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEFAB, $potbconfusefab, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2394,14 +2678,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfshowitem('fooValue');   // WHERE PotbConfShowItem = 'fooValue'
      * $query->filterByPotbconfshowitem('%fooValue%', Criteria::LIKE); // WHERE PotbConfShowItem LIKE '%fooValue%'
+     * $query->filterByPotbconfshowitem(['foo', 'bar']); // WHERE PotbConfShowItem IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfshowitem The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfshowitem The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfshowitem($potbconfshowitem = null, $comparison = null)
+    public function filterByPotbconfshowitem($potbconfshowitem = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfshowitem)) {
@@ -2409,7 +2694,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSHOWITEM, $potbconfshowitem, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSHOWITEM, $potbconfshowitem, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2419,14 +2706,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfscrapacct('fooValue');   // WHERE PotbConfScrapAcct = 'fooValue'
      * $query->filterByPotbconfscrapacct('%fooValue%', Criteria::LIKE); // WHERE PotbConfScrapAcct LIKE '%fooValue%'
+     * $query->filterByPotbconfscrapacct(['foo', 'bar']); // WHERE PotbConfScrapAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfscrapacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfscrapacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfscrapacct($potbconfscrapacct = null, $comparison = null)
+    public function filterByPotbconfscrapacct($potbconfscrapacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfscrapacct)) {
@@ -2434,7 +2722,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSCRAPACCT, $potbconfscrapacct, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSCRAPACCT, $potbconfscrapacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2447,15 +2737,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * $query->filterByPotbconfscrapvaripct(array('min' => 12)); // WHERE PotbConfScrapVariPct > 12
      * </code>
      *
-     * @param     mixed $potbconfscrapvaripct The value to use as filter.
+     * @param mixed $potbconfscrapvaripct The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfscrapvaripct($potbconfscrapvaripct = null, $comparison = null)
+    public function filterByPotbconfscrapvaripct($potbconfscrapvaripct = null, ?string $comparison = null)
     {
         if (is_array($potbconfscrapvaripct)) {
             $useMinMax = false;
@@ -2475,7 +2765,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSCRAPVARIPCT, $potbconfscrapvaripct, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSCRAPVARIPCT, $potbconfscrapvaripct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2485,14 +2777,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconflifofifo('fooValue');   // WHERE PotbConfLifoFifo = 'fooValue'
      * $query->filterByPotbconflifofifo('%fooValue%', Criteria::LIKE); // WHERE PotbConfLifoFifo LIKE '%fooValue%'
+     * $query->filterByPotbconflifofifo(['foo', 'bar']); // WHERE PotbConfLifoFifo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconflifofifo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconflifofifo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconflifofifo($potbconflifofifo = null, $comparison = null)
+    public function filterByPotbconflifofifo($potbconflifofifo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconflifofifo)) {
@@ -2500,7 +2793,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLIFOFIFO, $potbconflifofifo, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLIFOFIFO, $potbconflifofifo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2510,14 +2805,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconffabbomorkit('fooValue');   // WHERE PotbConfFabBomOrKit = 'fooValue'
      * $query->filterByPotbconffabbomorkit('%fooValue%', Criteria::LIKE); // WHERE PotbConfFabBomOrKit LIKE '%fooValue%'
+     * $query->filterByPotbconffabbomorkit(['foo', 'bar']); // WHERE PotbConfFabBomOrKit IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconffabbomorkit The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconffabbomorkit The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconffabbomorkit($potbconffabbomorkit = null, $comparison = null)
+    public function filterByPotbconffabbomorkit($potbconffabbomorkit = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconffabbomorkit)) {
@@ -2525,7 +2821,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFABBOMORKIT, $potbconffabbomorkit, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFABBOMORKIT, $potbconffabbomorkit, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2535,14 +2833,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfallocepoer('fooValue');   // WHERE PotbConfAllocEpoEr = 'fooValue'
      * $query->filterByPotbconfallocepoer('%fooValue%', Criteria::LIKE); // WHERE PotbConfAllocEpoEr LIKE '%fooValue%'
+     * $query->filterByPotbconfallocepoer(['foo', 'bar']); // WHERE PotbConfAllocEpoEr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfallocepoer The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfallocepoer The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfallocepoer($potbconfallocepoer = null, $comparison = null)
+    public function filterByPotbconfallocepoer($potbconfallocepoer = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfallocepoer)) {
@@ -2550,7 +2849,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFALLOCEPOER, $potbconfallocepoer, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFALLOCEPOER, $potbconfallocepoer, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2560,14 +2861,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconffabprealloc('fooValue');   // WHERE PotbConfFabPrealloc = 'fooValue'
      * $query->filterByPotbconffabprealloc('%fooValue%', Criteria::LIKE); // WHERE PotbConfFabPrealloc LIKE '%fooValue%'
+     * $query->filterByPotbconffabprealloc(['foo', 'bar']); // WHERE PotbConfFabPrealloc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconffabprealloc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconffabprealloc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconffabprealloc($potbconffabprealloc = null, $comparison = null)
+    public function filterByPotbconffabprealloc($potbconffabprealloc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconffabprealloc)) {
@@ -2575,7 +2877,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFABPREALLOC, $potbconffabprealloc, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFABPREALLOC, $potbconffabprealloc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2585,14 +2889,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfforcefabepo('fooValue');   // WHERE PotbConfForceFabEpo = 'fooValue'
      * $query->filterByPotbconfforcefabepo('%fooValue%', Criteria::LIKE); // WHERE PotbConfForceFabEpo LIKE '%fooValue%'
+     * $query->filterByPotbconfforcefabepo(['foo', 'bar']); // WHERE PotbConfForceFabEpo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfforcefabepo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfforcefabepo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfforcefabepo($potbconfforcefabepo = null, $comparison = null)
+    public function filterByPotbconfforcefabepo($potbconfforcefabepo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfforcefabepo)) {
@@ -2600,7 +2905,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFORCEFABEPO, $potbconfforcefabepo, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFFORCEFABEPO, $potbconfforcefabepo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2610,14 +2917,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfpreviewcomplist('fooValue');   // WHERE PotbConfPreviewCompList = 'fooValue'
      * $query->filterByPotbconfpreviewcomplist('%fooValue%', Criteria::LIKE); // WHERE PotbConfPreviewCompList LIKE '%fooValue%'
+     * $query->filterByPotbconfpreviewcomplist(['foo', 'bar']); // WHERE PotbConfPreviewCompList IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfpreviewcomplist The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfpreviewcomplist The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfpreviewcomplist($potbconfpreviewcomplist = null, $comparison = null)
+    public function filterByPotbconfpreviewcomplist($potbconfpreviewcomplist = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfpreviewcomplist)) {
@@ -2625,7 +2933,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPREVIEWCOMPLIST, $potbconfpreviewcomplist, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPREVIEWCOMPLIST, $potbconfpreviewcomplist, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2635,14 +2945,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfnegcompusage('fooValue');   // WHERE PotbConfNegCompUsage = 'fooValue'
      * $query->filterByPotbconfnegcompusage('%fooValue%', Criteria::LIKE); // WHERE PotbConfNegCompUsage LIKE '%fooValue%'
+     * $query->filterByPotbconfnegcompusage(['foo', 'bar']); // WHERE PotbConfNegCompUsage IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfnegcompusage The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfnegcompusage The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfnegcompusage($potbconfnegcompusage = null, $comparison = null)
+    public function filterByPotbconfnegcompusage($potbconfnegcompusage = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfnegcompusage)) {
@@ -2650,7 +2961,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFNEGCOMPUSAGE, $potbconfnegcompusage, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFNEGCOMPUSAGE, $potbconfnegcompusage, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2660,14 +2973,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfautoselectcomp('fooValue');   // WHERE PotbConfAutoSelectComp = 'fooValue'
      * $query->filterByPotbconfautoselectcomp('%fooValue%', Criteria::LIKE); // WHERE PotbConfAutoSelectComp LIKE '%fooValue%'
+     * $query->filterByPotbconfautoselectcomp(['foo', 'bar']); // WHERE PotbConfAutoSelectComp IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfautoselectcomp The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfautoselectcomp The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfautoselectcomp($potbconfautoselectcomp = null, $comparison = null)
+    public function filterByPotbconfautoselectcomp($potbconfautoselectcomp = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfautoselectcomp)) {
@@ -2675,7 +2989,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFAUTOSELECTCOMP, $potbconfautoselectcomp, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFAUTOSELECTCOMP, $potbconfautoselectcomp, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2685,14 +3001,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfbinfromvendor('fooValue');   // WHERE PotbConfBinFromVendor = 'fooValue'
      * $query->filterByPotbconfbinfromvendor('%fooValue%', Criteria::LIKE); // WHERE PotbConfBinFromVendor LIKE '%fooValue%'
+     * $query->filterByPotbconfbinfromvendor(['foo', 'bar']); // WHERE PotbConfBinFromVendor IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfbinfromvendor The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfbinfromvendor The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfbinfromvendor($potbconfbinfromvendor = null, $comparison = null)
+    public function filterByPotbconfbinfromvendor($potbconfbinfromvendor = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfbinfromvendor)) {
@@ -2700,7 +3017,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFBINFROMVENDOR, $potbconfbinfromvendor, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFBINFROMVENDOR, $potbconfbinfromvendor, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2710,14 +3029,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfdfltstckcd('fooValue');   // WHERE PotbConfDfltStckCd = 'fooValue'
      * $query->filterByPotbconfdfltstckcd('%fooValue%', Criteria::LIKE); // WHERE PotbConfDfltStckCd LIKE '%fooValue%'
+     * $query->filterByPotbconfdfltstckcd(['foo', 'bar']); // WHERE PotbConfDfltStckCd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfdfltstckcd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfdfltstckcd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfdfltstckcd($potbconfdfltstckcd = null, $comparison = null)
+    public function filterByPotbconfdfltstckcd($potbconfdfltstckcd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfdfltstckcd)) {
@@ -2725,7 +3045,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFDFLTSTCKCD, $potbconfdfltstckcd, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFDFLTSTCKCD, $potbconfdfltstckcd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2735,14 +3057,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfuseremain('fooValue');   // WHERE PotbConfUseRemain = 'fooValue'
      * $query->filterByPotbconfuseremain('%fooValue%', Criteria::LIKE); // WHERE PotbConfUseRemain LIKE '%fooValue%'
+     * $query->filterByPotbconfuseremain(['foo', 'bar']); // WHERE PotbConfUseRemain IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfuseremain The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfuseremain The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfuseremain($potbconfuseremain = null, $comparison = null)
+    public function filterByPotbconfuseremain($potbconfuseremain = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfuseremain)) {
@@ -2750,7 +3073,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEREMAIN, $potbconfuseremain, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSEREMAIN, $potbconfuseremain, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2760,14 +3085,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfsamecompcost('fooValue');   // WHERE PotbConfSameCompCost = 'fooValue'
      * $query->filterByPotbconfsamecompcost('%fooValue%', Criteria::LIKE); // WHERE PotbConfSameCompCost LIKE '%fooValue%'
+     * $query->filterByPotbconfsamecompcost(['foo', 'bar']); // WHERE PotbConfSameCompCost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfsamecompcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfsamecompcost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfsamecompcost($potbconfsamecompcost = null, $comparison = null)
+    public function filterByPotbconfsamecompcost($potbconfsamecompcost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfsamecompcost)) {
@@ -2775,7 +3101,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSAMECOMPCOST, $potbconfsamecompcost, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFSAMECOMPCOST, $potbconfsamecompcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2785,14 +3113,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfpasscode('fooValue');   // WHERE PotbConfPassCode = 'fooValue'
      * $query->filterByPotbconfpasscode('%fooValue%', Criteria::LIKE); // WHERE PotbConfPassCode LIKE '%fooValue%'
+     * $query->filterByPotbconfpasscode(['foo', 'bar']); // WHERE PotbConfPassCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfpasscode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfpasscode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfpasscode($potbconfpasscode = null, $comparison = null)
+    public function filterByPotbconfpasscode($potbconfpasscode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfpasscode)) {
@@ -2800,7 +3129,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPASSCODE, $potbconfpasscode, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFPASSCODE, $potbconfpasscode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2810,14 +3141,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfuselandcost('fooValue');   // WHERE PotbConfUseLandCost = 'fooValue'
      * $query->filterByPotbconfuselandcost('%fooValue%', Criteria::LIKE); // WHERE PotbConfUseLandCost LIKE '%fooValue%'
+     * $query->filterByPotbconfuselandcost(['foo', 'bar']); // WHERE PotbConfUseLandCost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfuselandcost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfuselandcost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfuselandcost($potbconfuselandcost = null, $comparison = null)
+    public function filterByPotbconfuselandcost($potbconfuselandcost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfuselandcost)) {
@@ -2825,7 +3157,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSELANDCOST, $potbconfuselandcost, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFUSELANDCOST, $potbconfuselandcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2835,14 +3169,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfbaselandamtqty('fooValue');   // WHERE PotbConfBaseLandAmtQty = 'fooValue'
      * $query->filterByPotbconfbaselandamtqty('%fooValue%', Criteria::LIKE); // WHERE PotbConfBaseLandAmtQty LIKE '%fooValue%'
+     * $query->filterByPotbconfbaselandamtqty(['foo', 'bar']); // WHERE PotbConfBaseLandAmtQty IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfbaselandamtqty The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfbaselandamtqty The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfbaselandamtqty($potbconfbaselandamtqty = null, $comparison = null)
+    public function filterByPotbconfbaselandamtqty($potbconfbaselandamtqty = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfbaselandamtqty)) {
@@ -2850,7 +3185,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFBASELANDAMTQTY, $potbconfbaselandamtqty, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFBASELANDAMTQTY, $potbconfbaselandamtqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2860,14 +3197,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfwarnlandiner('fooValue');   // WHERE PotbConfWarnLandInEr = 'fooValue'
      * $query->filterByPotbconfwarnlandiner('%fooValue%', Criteria::LIKE); // WHERE PotbConfWarnLandInEr LIKE '%fooValue%'
+     * $query->filterByPotbconfwarnlandiner(['foo', 'bar']); // WHERE PotbConfWarnLandInEr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfwarnlandiner The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfwarnlandiner The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfwarnlandiner($potbconfwarnlandiner = null, $comparison = null)
+    public function filterByPotbconfwarnlandiner($potbconfwarnlandiner = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfwarnlandiner)) {
@@ -2875,7 +3213,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFWARNLANDINER, $potbconfwarnlandiner, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFWARNLANDINER, $potbconfwarnlandiner, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2885,14 +3225,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconflandamtmultwght('fooValue');   // WHERE PotbConfLandAmtMultWght = 'fooValue'
      * $query->filterByPotbconflandamtmultwght('%fooValue%', Criteria::LIKE); // WHERE PotbConfLandAmtMultWght LIKE '%fooValue%'
+     * $query->filterByPotbconflandamtmultwght(['foo', 'bar']); // WHERE PotbConfLandAmtMultWght IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconflandamtmultwght The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconflandamtmultwght The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconflandamtmultwght($potbconflandamtmultwght = null, $comparison = null)
+    public function filterByPotbconflandamtmultwght($potbconflandamtmultwght = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconflandamtmultwght)) {
@@ -2900,7 +3241,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLANDAMTMULTWGHT, $potbconflandamtmultwght, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLANDAMTMULTWGHT, $potbconflandamtmultwght, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2910,14 +3253,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconflanderedit('fooValue');   // WHERE PotbConfLandErEdit = 'fooValue'
      * $query->filterByPotbconflanderedit('%fooValue%', Criteria::LIKE); // WHERE PotbConfLandErEdit LIKE '%fooValue%'
+     * $query->filterByPotbconflanderedit(['foo', 'bar']); // WHERE PotbConfLandErEdit IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconflanderedit The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconflanderedit The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconflanderedit($potbconflanderedit = null, $comparison = null)
+    public function filterByPotbconflanderedit($potbconflanderedit = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconflanderedit)) {
@@ -2925,7 +3269,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLANDEREDIT, $potbconflanderedit, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLANDEREDIT, $potbconflanderedit, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2935,14 +3281,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconfhistcmplfab('fooValue');   // WHERE PotbConfHistCmplFab = 'fooValue'
      * $query->filterByPotbconfhistcmplfab('%fooValue%', Criteria::LIKE); // WHERE PotbConfHistCmplFab LIKE '%fooValue%'
+     * $query->filterByPotbconfhistcmplfab(['foo', 'bar']); // WHERE PotbConfHistCmplFab IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconfhistcmplfab The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconfhistcmplfab The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconfhistcmplfab($potbconfhistcmplfab = null, $comparison = null)
+    public function filterByPotbconfhistcmplfab($potbconfhistcmplfab = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconfhistcmplfab)) {
@@ -2950,7 +3297,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFHISTCMPLFAB, $potbconfhistcmplfab, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFHISTCMPLFAB, $potbconfhistcmplfab, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2960,14 +3309,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotbconflandglacct('fooValue');   // WHERE PotbConfLandGlAcct = 'fooValue'
      * $query->filterByPotbconflandglacct('%fooValue%', Criteria::LIKE); // WHERE PotbConfLandGlAcct LIKE '%fooValue%'
+     * $query->filterByPotbconflandglacct(['foo', 'bar']); // WHERE PotbConfLandGlAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potbconflandglacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potbconflandglacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotbconflandglacct($potbconflandglacct = null, $comparison = null)
+    public function filterByPotbconflandglacct($potbconflandglacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potbconflandglacct)) {
@@ -2975,7 +3325,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLANDGLACCT, $potbconflandglacct, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFLANDGLACCT, $potbconflandglacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2985,14 +3337,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotblandmpfglacct('fooValue');   // WHERE PotbLandMpfGlAcct = 'fooValue'
      * $query->filterByPotblandmpfglacct('%fooValue%', Criteria::LIKE); // WHERE PotbLandMpfGlAcct LIKE '%fooValue%'
+     * $query->filterByPotblandmpfglacct(['foo', 'bar']); // WHERE PotbLandMpfGlAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potblandmpfglacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potblandmpfglacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotblandmpfglacct($potblandmpfglacct = null, $comparison = null)
+    public function filterByPotblandmpfglacct($potblandmpfglacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potblandmpfglacct)) {
@@ -3000,7 +3353,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBLANDMPFGLACCT, $potblandmpfglacct, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBLANDMPFGLACCT, $potblandmpfglacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3010,14 +3365,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotblandhmfglacct('fooValue');   // WHERE PotbLandHmfGlAcct = 'fooValue'
      * $query->filterByPotblandhmfglacct('%fooValue%', Criteria::LIKE); // WHERE PotbLandHmfGlAcct LIKE '%fooValue%'
+     * $query->filterByPotblandhmfglacct(['foo', 'bar']); // WHERE PotbLandHmfGlAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potblandhmfglacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potblandhmfglacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotblandhmfglacct($potblandhmfglacct = null, $comparison = null)
+    public function filterByPotblandhmfglacct($potblandhmfglacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potblandhmfglacct)) {
@@ -3025,7 +3381,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBLANDHMFGLACCT, $potblandhmfglacct, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBLANDHMFGLACCT, $potblandhmfglacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3035,14 +3393,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByPotblanddsetglacct('fooValue');   // WHERE PotbLandDsetGlAcct = 'fooValue'
      * $query->filterByPotblanddsetglacct('%fooValue%', Criteria::LIKE); // WHERE PotbLandDsetGlAcct LIKE '%fooValue%'
+     * $query->filterByPotblanddsetglacct(['foo', 'bar']); // WHERE PotbLandDsetGlAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $potblanddsetglacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $potblanddsetglacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPotblanddsetglacct($potblanddsetglacct = null, $comparison = null)
+    public function filterByPotblanddsetglacct($potblanddsetglacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($potblanddsetglacct)) {
@@ -3050,7 +3409,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBLANDDSETGLACCT, $potblanddsetglacct, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_POTBLANDDSETGLACCT, $potblanddsetglacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3060,14 +3421,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -3075,7 +3437,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3085,14 +3449,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -3100,7 +3465,9 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3110,14 +3477,15 @@ abstract class ConfigPoQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -3125,15 +3493,17 @@ abstract class ConfigPoQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigPoTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ConfigPoTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildConfigPo $configPo Object to remove from the list of results
+     * @param ChildConfigPo $configPo Object to remove from the list of results
      *
-     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($configPo = null)
     {
@@ -3150,7 +3520,7 @@ abstract class ConfigPoQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigPoTableMap::DATABASE_NAME);
@@ -3175,12 +3545,12 @@ abstract class ConfigPoQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigPoTableMap::DATABASE_NAME);
@@ -3205,4 +3575,4 @@ abstract class ConfigPoQuery extends ModelCriteria
         });
     }
 
-} // ConfigPoQuery
+}

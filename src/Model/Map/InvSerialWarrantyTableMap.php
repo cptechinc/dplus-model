@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class InvSerialWarrantyTableMap extends TableMap
 {
@@ -34,224 +33,464 @@ class InvSerialWarrantyTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.InvSerialWarrantyTableMap';
+    public const CLASS_NAME = '.Map.InvSerialWarrantyTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'inv_war_mast';
+    public const TABLE_NAME = 'inv_war_mast';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'InvSerialWarranty';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\InvSerialWarranty';
+    public const OM_CLASS = '\\InvSerialWarranty';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'InvSerialWarranty';
+    public const CLASS_DEFAULT = 'InvSerialWarranty';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 28;
+    public const NUM_COLUMNS = 28;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 28;
+    public const NUM_HYDRATE_COLUMNS = 28;
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'inv_war_mast.InitItemNbr';
+    public const COL_INITITEMNBR = 'inv_war_mast.InitItemNbr';
 
     /**
      * the column name for the SermSerNbr field
      */
-    const COL_SERMSERNBR = 'inv_war_mast.SermSerNbr';
+    public const COL_SERMSERNBR = 'inv_war_mast.SermSerNbr';
 
     /**
      * the column name for the WarmSaleDate field
      */
-    const COL_WARMSALEDATE = 'inv_war_mast.WarmSaleDate';
+    public const COL_WARMSALEDATE = 'inv_war_mast.WarmSaleDate';
 
     /**
      * the column name for the WarmOwnFName field
      */
-    const COL_WARMOWNFNAME = 'inv_war_mast.WarmOwnFName';
+    public const COL_WARMOWNFNAME = 'inv_war_mast.WarmOwnFName';
 
     /**
      * the column name for the WarmOwnMName field
      */
-    const COL_WARMOWNMNAME = 'inv_war_mast.WarmOwnMName';
+    public const COL_WARMOWNMNAME = 'inv_war_mast.WarmOwnMName';
 
     /**
      * the column name for the WarmOwnLName field
      */
-    const COL_WARMOWNLNAME = 'inv_war_mast.WarmOwnLName';
+    public const COL_WARMOWNLNAME = 'inv_war_mast.WarmOwnLName';
 
     /**
      * the column name for the WarmOwnAdr1 field
      */
-    const COL_WARMOWNADR1 = 'inv_war_mast.WarmOwnAdr1';
+    public const COL_WARMOWNADR1 = 'inv_war_mast.WarmOwnAdr1';
 
     /**
      * the column name for the WarmOwnAdr2 field
      */
-    const COL_WARMOWNADR2 = 'inv_war_mast.WarmOwnAdr2';
+    public const COL_WARMOWNADR2 = 'inv_war_mast.WarmOwnAdr2';
 
     /**
      * the column name for the WarmOwnAdr3 field
      */
-    const COL_WARMOWNADR3 = 'inv_war_mast.WarmOwnAdr3';
+    public const COL_WARMOWNADR3 = 'inv_war_mast.WarmOwnAdr3';
 
     /**
      * the column name for the WarmOwnCity field
      */
-    const COL_WARMOWNCITY = 'inv_war_mast.WarmOwnCity';
+    public const COL_WARMOWNCITY = 'inv_war_mast.WarmOwnCity';
 
     /**
      * the column name for the WarmOwnStat field
      */
-    const COL_WARMOWNSTAT = 'inv_war_mast.WarmOwnStat';
+    public const COL_WARMOWNSTAT = 'inv_war_mast.WarmOwnStat';
 
     /**
      * the column name for the WarmOwnZip field
      */
-    const COL_WARMOWNZIP = 'inv_war_mast.WarmOwnZip';
+    public const COL_WARMOWNZIP = 'inv_war_mast.WarmOwnZip';
 
     /**
      * the column name for the WarmSordNbr field
      */
-    const COL_WARMSORDNBR = 'inv_war_mast.WarmSordNbr';
+    public const COL_WARMSORDNBR = 'inv_war_mast.WarmSordNbr';
 
     /**
      * the column name for the WarmInvcDate field
      */
-    const COL_WARMINVCDATE = 'inv_war_mast.WarmInvcDate';
+    public const COL_WARMINVCDATE = 'inv_war_mast.WarmInvcDate';
 
     /**
      * the column name for the ArcuCustId field
      */
-    const COL_ARCUCUSTID = 'inv_war_mast.ArcuCustId';
+    public const COL_ARCUCUSTID = 'inv_war_mast.ArcuCustId';
 
     /**
      * the column name for the ArspSalePer1 field
      */
-    const COL_ARSPSALEPER1 = 'inv_war_mast.ArspSalePer1';
+    public const COL_ARSPSALEPER1 = 'inv_war_mast.ArspSalePer1';
 
     /**
      * the column name for the WarmEntryDate field
      */
-    const COL_WARMENTRYDATE = 'inv_war_mast.WarmEntryDate';
+    public const COL_WARMENTRYDATE = 'inv_war_mast.WarmEntryDate';
 
     /**
      * the column name for the WarmEngSerNbr field
      */
-    const COL_WARMENGSERNBR = 'inv_war_mast.WarmEngSerNbr';
+    public const COL_WARMENGSERNBR = 'inv_war_mast.WarmEngSerNbr';
 
     /**
      * the column name for the WarmEngHorse field
      */
-    const COL_WARMENGHORSE = 'inv_war_mast.WarmEngHorse';
+    public const COL_WARMENGHORSE = 'inv_war_mast.WarmEngHorse';
 
     /**
      * the column name for the WarmEngModelYear field
      */
-    const COL_WARMENGMODELYEAR = 'inv_war_mast.WarmEngModelYear';
+    public const COL_WARMENGMODELYEAR = 'inv_war_mast.WarmEngModelYear';
 
     /**
      * the column name for the WarmEngDesc field
      */
-    const COL_WARMENGDESC = 'inv_war_mast.WarmEngDesc';
+    public const COL_WARMENGDESC = 'inv_war_mast.WarmEngDesc';
 
     /**
      * the column name for the WarmPhone1 field
      */
-    const COL_WARMPHONE1 = 'inv_war_mast.WarmPhone1';
+    public const COL_WARMPHONE1 = 'inv_war_mast.WarmPhone1';
 
     /**
      * the column name for the WarmPhone2 field
      */
-    const COL_WARMPHONE2 = 'inv_war_mast.WarmPhone2';
+    public const COL_WARMPHONE2 = 'inv_war_mast.WarmPhone2';
 
     /**
      * the column name for the WarmEmail field
      */
-    const COL_WARMEMAIL = 'inv_war_mast.WarmEmail';
+    public const COL_WARMEMAIL = 'inv_war_mast.WarmEmail';
 
     /**
      * the column name for the WarmAcOrigWarrDate field
      */
-    const COL_WARMACORIGWARRDATE = 'inv_war_mast.WarmAcOrigWarrDate';
+    public const COL_WARMACORIGWARRDATE = 'inv_war_mast.WarmAcOrigWarrDate';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'inv_war_mast.DateUpdtd';
+    public const COL_DATEUPDTD = 'inv_war_mast.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'inv_war_mast.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'inv_war_mast.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'inv_war_mast.dummy';
+    public const COL_DUMMY = 'inv_war_mast.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr', 'Sermsernbr', 'Warmsaledate', 'Warmownfname', 'Warmownmname', 'Warmownlname', 'Warmownadr1', 'Warmownadr2', 'Warmownadr3', 'Warmowncity', 'Warmownstat', 'Warmownzip', 'Warmsordnbr', 'Warminvcdate', 'Arcucustid', 'Arspsaleper1', 'Warmentrydate', 'Warmengsernbr', 'Warmenghorse', 'Warmengmodelyear', 'Warmengdesc', 'Warmphone1', 'Warmphone2', 'Warmemail', 'Warmacorigwarrdate', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('inititemnbr', 'sermsernbr', 'warmsaledate', 'warmownfname', 'warmownmname', 'warmownlname', 'warmownadr1', 'warmownadr2', 'warmownadr3', 'warmowncity', 'warmownstat', 'warmownzip', 'warmsordnbr', 'warminvcdate', 'arcucustid', 'arspsaleper1', 'warmentrydate', 'warmengsernbr', 'warmenghorse', 'warmengmodelyear', 'warmengdesc', 'warmphone1', 'warmphone2', 'warmemail', 'warmacorigwarrdate', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvSerialWarrantyTableMap::COL_INITITEMNBR, InvSerialWarrantyTableMap::COL_SERMSERNBR, InvSerialWarrantyTableMap::COL_WARMSALEDATE, InvSerialWarrantyTableMap::COL_WARMOWNFNAME, InvSerialWarrantyTableMap::COL_WARMOWNMNAME, InvSerialWarrantyTableMap::COL_WARMOWNLNAME, InvSerialWarrantyTableMap::COL_WARMOWNADR1, InvSerialWarrantyTableMap::COL_WARMOWNADR2, InvSerialWarrantyTableMap::COL_WARMOWNADR3, InvSerialWarrantyTableMap::COL_WARMOWNCITY, InvSerialWarrantyTableMap::COL_WARMOWNSTAT, InvSerialWarrantyTableMap::COL_WARMOWNZIP, InvSerialWarrantyTableMap::COL_WARMSORDNBR, InvSerialWarrantyTableMap::COL_WARMINVCDATE, InvSerialWarrantyTableMap::COL_ARCUCUSTID, InvSerialWarrantyTableMap::COL_ARSPSALEPER1, InvSerialWarrantyTableMap::COL_WARMENTRYDATE, InvSerialWarrantyTableMap::COL_WARMENGSERNBR, InvSerialWarrantyTableMap::COL_WARMENGHORSE, InvSerialWarrantyTableMap::COL_WARMENGMODELYEAR, InvSerialWarrantyTableMap::COL_WARMENGDESC, InvSerialWarrantyTableMap::COL_WARMPHONE1, InvSerialWarrantyTableMap::COL_WARMPHONE2, InvSerialWarrantyTableMap::COL_WARMEMAIL, InvSerialWarrantyTableMap::COL_WARMACORIGWARRDATE, InvSerialWarrantyTableMap::COL_DATEUPDTD, InvSerialWarrantyTableMap::COL_TIMEUPDTD, InvSerialWarrantyTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr', 'SermSerNbr', 'WarmSaleDate', 'WarmOwnFName', 'WarmOwnMName', 'WarmOwnLName', 'WarmOwnAdr1', 'WarmOwnAdr2', 'WarmOwnAdr3', 'WarmOwnCity', 'WarmOwnStat', 'WarmOwnZip', 'WarmSordNbr', 'WarmInvcDate', 'ArcuCustId', 'ArspSalePer1', 'WarmEntryDate', 'WarmEngSerNbr', 'WarmEngHorse', 'WarmEngModelYear', 'WarmEngDesc', 'WarmPhone1', 'WarmPhone2', 'WarmEmail', 'WarmAcOrigWarrDate', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Inititemnbr', 'Sermsernbr', 'Warmsaledate', 'Warmownfname', 'Warmownmname', 'Warmownlname', 'Warmownadr1', 'Warmownadr2', 'Warmownadr3', 'Warmowncity', 'Warmownstat', 'Warmownzip', 'Warmsordnbr', 'Warminvcdate', 'Arcucustid', 'Arspsaleper1', 'Warmentrydate', 'Warmengsernbr', 'Warmenghorse', 'Warmengmodelyear', 'Warmengdesc', 'Warmphone1', 'Warmphone2', 'Warmemail', 'Warmacorigwarrdate', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['inititemnbr', 'sermsernbr', 'warmsaledate', 'warmownfname', 'warmownmname', 'warmownlname', 'warmownadr1', 'warmownadr2', 'warmownadr3', 'warmowncity', 'warmownstat', 'warmownzip', 'warmsordnbr', 'warminvcdate', 'arcucustid', 'arspsaleper1', 'warmentrydate', 'warmengsernbr', 'warmenghorse', 'warmengmodelyear', 'warmengdesc', 'warmphone1', 'warmphone2', 'warmemail', 'warmacorigwarrdate', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [InvSerialWarrantyTableMap::COL_INITITEMNBR, InvSerialWarrantyTableMap::COL_SERMSERNBR, InvSerialWarrantyTableMap::COL_WARMSALEDATE, InvSerialWarrantyTableMap::COL_WARMOWNFNAME, InvSerialWarrantyTableMap::COL_WARMOWNMNAME, InvSerialWarrantyTableMap::COL_WARMOWNLNAME, InvSerialWarrantyTableMap::COL_WARMOWNADR1, InvSerialWarrantyTableMap::COL_WARMOWNADR2, InvSerialWarrantyTableMap::COL_WARMOWNADR3, InvSerialWarrantyTableMap::COL_WARMOWNCITY, InvSerialWarrantyTableMap::COL_WARMOWNSTAT, InvSerialWarrantyTableMap::COL_WARMOWNZIP, InvSerialWarrantyTableMap::COL_WARMSORDNBR, InvSerialWarrantyTableMap::COL_WARMINVCDATE, InvSerialWarrantyTableMap::COL_ARCUCUSTID, InvSerialWarrantyTableMap::COL_ARSPSALEPER1, InvSerialWarrantyTableMap::COL_WARMENTRYDATE, InvSerialWarrantyTableMap::COL_WARMENGSERNBR, InvSerialWarrantyTableMap::COL_WARMENGHORSE, InvSerialWarrantyTableMap::COL_WARMENGMODELYEAR, InvSerialWarrantyTableMap::COL_WARMENGDESC, InvSerialWarrantyTableMap::COL_WARMPHONE1, InvSerialWarrantyTableMap::COL_WARMPHONE2, InvSerialWarrantyTableMap::COL_WARMEMAIL, InvSerialWarrantyTableMap::COL_WARMACORIGWARRDATE, InvSerialWarrantyTableMap::COL_DATEUPDTD, InvSerialWarrantyTableMap::COL_TIMEUPDTD, InvSerialWarrantyTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['InitItemNbr', 'SermSerNbr', 'WarmSaleDate', 'WarmOwnFName', 'WarmOwnMName', 'WarmOwnLName', 'WarmOwnAdr1', 'WarmOwnAdr2', 'WarmOwnAdr3', 'WarmOwnCity', 'WarmOwnStat', 'WarmOwnZip', 'WarmSordNbr', 'WarmInvcDate', 'ArcuCustId', 'ArspSalePer1', 'WarmEntryDate', 'WarmEngSerNbr', 'WarmEngHorse', 'WarmEngModelYear', 'WarmEngDesc', 'WarmPhone1', 'WarmPhone2', 'WarmEmail', 'WarmAcOrigWarrDate', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Sermsernbr' => 1, 'Warmsaledate' => 2, 'Warmownfname' => 3, 'Warmownmname' => 4, 'Warmownlname' => 5, 'Warmownadr1' => 6, 'Warmownadr2' => 7, 'Warmownadr3' => 8, 'Warmowncity' => 9, 'Warmownstat' => 10, 'Warmownzip' => 11, 'Warmsordnbr' => 12, 'Warminvcdate' => 13, 'Arcucustid' => 14, 'Arspsaleper1' => 15, 'Warmentrydate' => 16, 'Warmengsernbr' => 17, 'Warmenghorse' => 18, 'Warmengmodelyear' => 19, 'Warmengdesc' => 20, 'Warmphone1' => 21, 'Warmphone2' => 22, 'Warmemail' => 23, 'Warmacorigwarrdate' => 24, 'Dateupdtd' => 25, 'Timeupdtd' => 26, 'Dummy' => 27, ),
-        self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'sermsernbr' => 1, 'warmsaledate' => 2, 'warmownfname' => 3, 'warmownmname' => 4, 'warmownlname' => 5, 'warmownadr1' => 6, 'warmownadr2' => 7, 'warmownadr3' => 8, 'warmowncity' => 9, 'warmownstat' => 10, 'warmownzip' => 11, 'warmsordnbr' => 12, 'warminvcdate' => 13, 'arcucustid' => 14, 'arspsaleper1' => 15, 'warmentrydate' => 16, 'warmengsernbr' => 17, 'warmenghorse' => 18, 'warmengmodelyear' => 19, 'warmengdesc' => 20, 'warmphone1' => 21, 'warmphone2' => 22, 'warmemail' => 23, 'warmacorigwarrdate' => 24, 'dateupdtd' => 25, 'timeupdtd' => 26, 'dummy' => 27, ),
-        self::TYPE_COLNAME       => array(InvSerialWarrantyTableMap::COL_INITITEMNBR => 0, InvSerialWarrantyTableMap::COL_SERMSERNBR => 1, InvSerialWarrantyTableMap::COL_WARMSALEDATE => 2, InvSerialWarrantyTableMap::COL_WARMOWNFNAME => 3, InvSerialWarrantyTableMap::COL_WARMOWNMNAME => 4, InvSerialWarrantyTableMap::COL_WARMOWNLNAME => 5, InvSerialWarrantyTableMap::COL_WARMOWNADR1 => 6, InvSerialWarrantyTableMap::COL_WARMOWNADR2 => 7, InvSerialWarrantyTableMap::COL_WARMOWNADR3 => 8, InvSerialWarrantyTableMap::COL_WARMOWNCITY => 9, InvSerialWarrantyTableMap::COL_WARMOWNSTAT => 10, InvSerialWarrantyTableMap::COL_WARMOWNZIP => 11, InvSerialWarrantyTableMap::COL_WARMSORDNBR => 12, InvSerialWarrantyTableMap::COL_WARMINVCDATE => 13, InvSerialWarrantyTableMap::COL_ARCUCUSTID => 14, InvSerialWarrantyTableMap::COL_ARSPSALEPER1 => 15, InvSerialWarrantyTableMap::COL_WARMENTRYDATE => 16, InvSerialWarrantyTableMap::COL_WARMENGSERNBR => 17, InvSerialWarrantyTableMap::COL_WARMENGHORSE => 18, InvSerialWarrantyTableMap::COL_WARMENGMODELYEAR => 19, InvSerialWarrantyTableMap::COL_WARMENGDESC => 20, InvSerialWarrantyTableMap::COL_WARMPHONE1 => 21, InvSerialWarrantyTableMap::COL_WARMPHONE2 => 22, InvSerialWarrantyTableMap::COL_WARMEMAIL => 23, InvSerialWarrantyTableMap::COL_WARMACORIGWARRDATE => 24, InvSerialWarrantyTableMap::COL_DATEUPDTD => 25, InvSerialWarrantyTableMap::COL_TIMEUPDTD => 26, InvSerialWarrantyTableMap::COL_DUMMY => 27, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'SermSerNbr' => 1, 'WarmSaleDate' => 2, 'WarmOwnFName' => 3, 'WarmOwnMName' => 4, 'WarmOwnLName' => 5, 'WarmOwnAdr1' => 6, 'WarmOwnAdr2' => 7, 'WarmOwnAdr3' => 8, 'WarmOwnCity' => 9, 'WarmOwnStat' => 10, 'WarmOwnZip' => 11, 'WarmSordNbr' => 12, 'WarmInvcDate' => 13, 'ArcuCustId' => 14, 'ArspSalePer1' => 15, 'WarmEntryDate' => 16, 'WarmEngSerNbr' => 17, 'WarmEngHorse' => 18, 'WarmEngModelYear' => 19, 'WarmEngDesc' => 20, 'WarmPhone1' => 21, 'WarmPhone2' => 22, 'WarmEmail' => 23, 'WarmAcOrigWarrDate' => 24, 'DateUpdtd' => 25, 'TimeUpdtd' => 26, 'dummy' => 27, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Inititemnbr' => 0, 'Sermsernbr' => 1, 'Warmsaledate' => 2, 'Warmownfname' => 3, 'Warmownmname' => 4, 'Warmownlname' => 5, 'Warmownadr1' => 6, 'Warmownadr2' => 7, 'Warmownadr3' => 8, 'Warmowncity' => 9, 'Warmownstat' => 10, 'Warmownzip' => 11, 'Warmsordnbr' => 12, 'Warminvcdate' => 13, 'Arcucustid' => 14, 'Arspsaleper1' => 15, 'Warmentrydate' => 16, 'Warmengsernbr' => 17, 'Warmenghorse' => 18, 'Warmengmodelyear' => 19, 'Warmengdesc' => 20, 'Warmphone1' => 21, 'Warmphone2' => 22, 'Warmemail' => 23, 'Warmacorigwarrdate' => 24, 'Dateupdtd' => 25, 'Timeupdtd' => 26, 'Dummy' => 27, ],
+        self::TYPE_CAMELNAME     => ['inititemnbr' => 0, 'sermsernbr' => 1, 'warmsaledate' => 2, 'warmownfname' => 3, 'warmownmname' => 4, 'warmownlname' => 5, 'warmownadr1' => 6, 'warmownadr2' => 7, 'warmownadr3' => 8, 'warmowncity' => 9, 'warmownstat' => 10, 'warmownzip' => 11, 'warmsordnbr' => 12, 'warminvcdate' => 13, 'arcucustid' => 14, 'arspsaleper1' => 15, 'warmentrydate' => 16, 'warmengsernbr' => 17, 'warmenghorse' => 18, 'warmengmodelyear' => 19, 'warmengdesc' => 20, 'warmphone1' => 21, 'warmphone2' => 22, 'warmemail' => 23, 'warmacorigwarrdate' => 24, 'dateupdtd' => 25, 'timeupdtd' => 26, 'dummy' => 27, ],
+        self::TYPE_COLNAME       => [InvSerialWarrantyTableMap::COL_INITITEMNBR => 0, InvSerialWarrantyTableMap::COL_SERMSERNBR => 1, InvSerialWarrantyTableMap::COL_WARMSALEDATE => 2, InvSerialWarrantyTableMap::COL_WARMOWNFNAME => 3, InvSerialWarrantyTableMap::COL_WARMOWNMNAME => 4, InvSerialWarrantyTableMap::COL_WARMOWNLNAME => 5, InvSerialWarrantyTableMap::COL_WARMOWNADR1 => 6, InvSerialWarrantyTableMap::COL_WARMOWNADR2 => 7, InvSerialWarrantyTableMap::COL_WARMOWNADR3 => 8, InvSerialWarrantyTableMap::COL_WARMOWNCITY => 9, InvSerialWarrantyTableMap::COL_WARMOWNSTAT => 10, InvSerialWarrantyTableMap::COL_WARMOWNZIP => 11, InvSerialWarrantyTableMap::COL_WARMSORDNBR => 12, InvSerialWarrantyTableMap::COL_WARMINVCDATE => 13, InvSerialWarrantyTableMap::COL_ARCUCUSTID => 14, InvSerialWarrantyTableMap::COL_ARSPSALEPER1 => 15, InvSerialWarrantyTableMap::COL_WARMENTRYDATE => 16, InvSerialWarrantyTableMap::COL_WARMENGSERNBR => 17, InvSerialWarrantyTableMap::COL_WARMENGHORSE => 18, InvSerialWarrantyTableMap::COL_WARMENGMODELYEAR => 19, InvSerialWarrantyTableMap::COL_WARMENGDESC => 20, InvSerialWarrantyTableMap::COL_WARMPHONE1 => 21, InvSerialWarrantyTableMap::COL_WARMPHONE2 => 22, InvSerialWarrantyTableMap::COL_WARMEMAIL => 23, InvSerialWarrantyTableMap::COL_WARMACORIGWARRDATE => 24, InvSerialWarrantyTableMap::COL_DATEUPDTD => 25, InvSerialWarrantyTableMap::COL_TIMEUPDTD => 26, InvSerialWarrantyTableMap::COL_DUMMY => 27, ],
+        self::TYPE_FIELDNAME     => ['InitItemNbr' => 0, 'SermSerNbr' => 1, 'WarmSaleDate' => 2, 'WarmOwnFName' => 3, 'WarmOwnMName' => 4, 'WarmOwnLName' => 5, 'WarmOwnAdr1' => 6, 'WarmOwnAdr2' => 7, 'WarmOwnAdr3' => 8, 'WarmOwnCity' => 9, 'WarmOwnStat' => 10, 'WarmOwnZip' => 11, 'WarmSordNbr' => 12, 'WarmInvcDate' => 13, 'ArcuCustId' => 14, 'ArspSalePer1' => 15, 'WarmEntryDate' => 16, 'WarmEngSerNbr' => 17, 'WarmEngHorse' => 18, 'WarmEngModelYear' => 19, 'WarmEngDesc' => 20, 'WarmPhone1' => 21, 'WarmPhone2' => 22, 'WarmEmail' => 23, 'WarmAcOrigWarrDate' => 24, 'DateUpdtd' => 25, 'TimeUpdtd' => 26, 'dummy' => 27, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Inititemnbr' => 'INITITEMNBR',
+        'InvSerialWarranty.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'invSerialWarranty.inititemnbr' => 'INITITEMNBR',
+        'InvSerialWarrantyTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'inv_war_mast.InitItemNbr' => 'INITITEMNBR',
+        'Sermsernbr' => 'SERMSERNBR',
+        'InvSerialWarranty.Sermsernbr' => 'SERMSERNBR',
+        'sermsernbr' => 'SERMSERNBR',
+        'invSerialWarranty.sermsernbr' => 'SERMSERNBR',
+        'InvSerialWarrantyTableMap::COL_SERMSERNBR' => 'SERMSERNBR',
+        'COL_SERMSERNBR' => 'SERMSERNBR',
+        'SermSerNbr' => 'SERMSERNBR',
+        'inv_war_mast.SermSerNbr' => 'SERMSERNBR',
+        'Warmsaledate' => 'WARMSALEDATE',
+        'InvSerialWarranty.Warmsaledate' => 'WARMSALEDATE',
+        'warmsaledate' => 'WARMSALEDATE',
+        'invSerialWarranty.warmsaledate' => 'WARMSALEDATE',
+        'InvSerialWarrantyTableMap::COL_WARMSALEDATE' => 'WARMSALEDATE',
+        'COL_WARMSALEDATE' => 'WARMSALEDATE',
+        'WarmSaleDate' => 'WARMSALEDATE',
+        'inv_war_mast.WarmSaleDate' => 'WARMSALEDATE',
+        'Warmownfname' => 'WARMOWNFNAME',
+        'InvSerialWarranty.Warmownfname' => 'WARMOWNFNAME',
+        'warmownfname' => 'WARMOWNFNAME',
+        'invSerialWarranty.warmownfname' => 'WARMOWNFNAME',
+        'InvSerialWarrantyTableMap::COL_WARMOWNFNAME' => 'WARMOWNFNAME',
+        'COL_WARMOWNFNAME' => 'WARMOWNFNAME',
+        'WarmOwnFName' => 'WARMOWNFNAME',
+        'inv_war_mast.WarmOwnFName' => 'WARMOWNFNAME',
+        'Warmownmname' => 'WARMOWNMNAME',
+        'InvSerialWarranty.Warmownmname' => 'WARMOWNMNAME',
+        'warmownmname' => 'WARMOWNMNAME',
+        'invSerialWarranty.warmownmname' => 'WARMOWNMNAME',
+        'InvSerialWarrantyTableMap::COL_WARMOWNMNAME' => 'WARMOWNMNAME',
+        'COL_WARMOWNMNAME' => 'WARMOWNMNAME',
+        'WarmOwnMName' => 'WARMOWNMNAME',
+        'inv_war_mast.WarmOwnMName' => 'WARMOWNMNAME',
+        'Warmownlname' => 'WARMOWNLNAME',
+        'InvSerialWarranty.Warmownlname' => 'WARMOWNLNAME',
+        'warmownlname' => 'WARMOWNLNAME',
+        'invSerialWarranty.warmownlname' => 'WARMOWNLNAME',
+        'InvSerialWarrantyTableMap::COL_WARMOWNLNAME' => 'WARMOWNLNAME',
+        'COL_WARMOWNLNAME' => 'WARMOWNLNAME',
+        'WarmOwnLName' => 'WARMOWNLNAME',
+        'inv_war_mast.WarmOwnLName' => 'WARMOWNLNAME',
+        'Warmownadr1' => 'WARMOWNADR1',
+        'InvSerialWarranty.Warmownadr1' => 'WARMOWNADR1',
+        'warmownadr1' => 'WARMOWNADR1',
+        'invSerialWarranty.warmownadr1' => 'WARMOWNADR1',
+        'InvSerialWarrantyTableMap::COL_WARMOWNADR1' => 'WARMOWNADR1',
+        'COL_WARMOWNADR1' => 'WARMOWNADR1',
+        'WarmOwnAdr1' => 'WARMOWNADR1',
+        'inv_war_mast.WarmOwnAdr1' => 'WARMOWNADR1',
+        'Warmownadr2' => 'WARMOWNADR2',
+        'InvSerialWarranty.Warmownadr2' => 'WARMOWNADR2',
+        'warmownadr2' => 'WARMOWNADR2',
+        'invSerialWarranty.warmownadr2' => 'WARMOWNADR2',
+        'InvSerialWarrantyTableMap::COL_WARMOWNADR2' => 'WARMOWNADR2',
+        'COL_WARMOWNADR2' => 'WARMOWNADR2',
+        'WarmOwnAdr2' => 'WARMOWNADR2',
+        'inv_war_mast.WarmOwnAdr2' => 'WARMOWNADR2',
+        'Warmownadr3' => 'WARMOWNADR3',
+        'InvSerialWarranty.Warmownadr3' => 'WARMOWNADR3',
+        'warmownadr3' => 'WARMOWNADR3',
+        'invSerialWarranty.warmownadr3' => 'WARMOWNADR3',
+        'InvSerialWarrantyTableMap::COL_WARMOWNADR3' => 'WARMOWNADR3',
+        'COL_WARMOWNADR3' => 'WARMOWNADR3',
+        'WarmOwnAdr3' => 'WARMOWNADR3',
+        'inv_war_mast.WarmOwnAdr3' => 'WARMOWNADR3',
+        'Warmowncity' => 'WARMOWNCITY',
+        'InvSerialWarranty.Warmowncity' => 'WARMOWNCITY',
+        'warmowncity' => 'WARMOWNCITY',
+        'invSerialWarranty.warmowncity' => 'WARMOWNCITY',
+        'InvSerialWarrantyTableMap::COL_WARMOWNCITY' => 'WARMOWNCITY',
+        'COL_WARMOWNCITY' => 'WARMOWNCITY',
+        'WarmOwnCity' => 'WARMOWNCITY',
+        'inv_war_mast.WarmOwnCity' => 'WARMOWNCITY',
+        'Warmownstat' => 'WARMOWNSTAT',
+        'InvSerialWarranty.Warmownstat' => 'WARMOWNSTAT',
+        'warmownstat' => 'WARMOWNSTAT',
+        'invSerialWarranty.warmownstat' => 'WARMOWNSTAT',
+        'InvSerialWarrantyTableMap::COL_WARMOWNSTAT' => 'WARMOWNSTAT',
+        'COL_WARMOWNSTAT' => 'WARMOWNSTAT',
+        'WarmOwnStat' => 'WARMOWNSTAT',
+        'inv_war_mast.WarmOwnStat' => 'WARMOWNSTAT',
+        'Warmownzip' => 'WARMOWNZIP',
+        'InvSerialWarranty.Warmownzip' => 'WARMOWNZIP',
+        'warmownzip' => 'WARMOWNZIP',
+        'invSerialWarranty.warmownzip' => 'WARMOWNZIP',
+        'InvSerialWarrantyTableMap::COL_WARMOWNZIP' => 'WARMOWNZIP',
+        'COL_WARMOWNZIP' => 'WARMOWNZIP',
+        'WarmOwnZip' => 'WARMOWNZIP',
+        'inv_war_mast.WarmOwnZip' => 'WARMOWNZIP',
+        'Warmsordnbr' => 'WARMSORDNBR',
+        'InvSerialWarranty.Warmsordnbr' => 'WARMSORDNBR',
+        'warmsordnbr' => 'WARMSORDNBR',
+        'invSerialWarranty.warmsordnbr' => 'WARMSORDNBR',
+        'InvSerialWarrantyTableMap::COL_WARMSORDNBR' => 'WARMSORDNBR',
+        'COL_WARMSORDNBR' => 'WARMSORDNBR',
+        'WarmSordNbr' => 'WARMSORDNBR',
+        'inv_war_mast.WarmSordNbr' => 'WARMSORDNBR',
+        'Warminvcdate' => 'WARMINVCDATE',
+        'InvSerialWarranty.Warminvcdate' => 'WARMINVCDATE',
+        'warminvcdate' => 'WARMINVCDATE',
+        'invSerialWarranty.warminvcdate' => 'WARMINVCDATE',
+        'InvSerialWarrantyTableMap::COL_WARMINVCDATE' => 'WARMINVCDATE',
+        'COL_WARMINVCDATE' => 'WARMINVCDATE',
+        'WarmInvcDate' => 'WARMINVCDATE',
+        'inv_war_mast.WarmInvcDate' => 'WARMINVCDATE',
+        'Arcucustid' => 'ARCUCUSTID',
+        'InvSerialWarranty.Arcucustid' => 'ARCUCUSTID',
+        'arcucustid' => 'ARCUCUSTID',
+        'invSerialWarranty.arcucustid' => 'ARCUCUSTID',
+        'InvSerialWarrantyTableMap::COL_ARCUCUSTID' => 'ARCUCUSTID',
+        'COL_ARCUCUSTID' => 'ARCUCUSTID',
+        'ArcuCustId' => 'ARCUCUSTID',
+        'inv_war_mast.ArcuCustId' => 'ARCUCUSTID',
+        'Arspsaleper1' => 'ARSPSALEPER1',
+        'InvSerialWarranty.Arspsaleper1' => 'ARSPSALEPER1',
+        'arspsaleper1' => 'ARSPSALEPER1',
+        'invSerialWarranty.arspsaleper1' => 'ARSPSALEPER1',
+        'InvSerialWarrantyTableMap::COL_ARSPSALEPER1' => 'ARSPSALEPER1',
+        'COL_ARSPSALEPER1' => 'ARSPSALEPER1',
+        'ArspSalePer1' => 'ARSPSALEPER1',
+        'inv_war_mast.ArspSalePer1' => 'ARSPSALEPER1',
+        'Warmentrydate' => 'WARMENTRYDATE',
+        'InvSerialWarranty.Warmentrydate' => 'WARMENTRYDATE',
+        'warmentrydate' => 'WARMENTRYDATE',
+        'invSerialWarranty.warmentrydate' => 'WARMENTRYDATE',
+        'InvSerialWarrantyTableMap::COL_WARMENTRYDATE' => 'WARMENTRYDATE',
+        'COL_WARMENTRYDATE' => 'WARMENTRYDATE',
+        'WarmEntryDate' => 'WARMENTRYDATE',
+        'inv_war_mast.WarmEntryDate' => 'WARMENTRYDATE',
+        'Warmengsernbr' => 'WARMENGSERNBR',
+        'InvSerialWarranty.Warmengsernbr' => 'WARMENGSERNBR',
+        'warmengsernbr' => 'WARMENGSERNBR',
+        'invSerialWarranty.warmengsernbr' => 'WARMENGSERNBR',
+        'InvSerialWarrantyTableMap::COL_WARMENGSERNBR' => 'WARMENGSERNBR',
+        'COL_WARMENGSERNBR' => 'WARMENGSERNBR',
+        'WarmEngSerNbr' => 'WARMENGSERNBR',
+        'inv_war_mast.WarmEngSerNbr' => 'WARMENGSERNBR',
+        'Warmenghorse' => 'WARMENGHORSE',
+        'InvSerialWarranty.Warmenghorse' => 'WARMENGHORSE',
+        'warmenghorse' => 'WARMENGHORSE',
+        'invSerialWarranty.warmenghorse' => 'WARMENGHORSE',
+        'InvSerialWarrantyTableMap::COL_WARMENGHORSE' => 'WARMENGHORSE',
+        'COL_WARMENGHORSE' => 'WARMENGHORSE',
+        'WarmEngHorse' => 'WARMENGHORSE',
+        'inv_war_mast.WarmEngHorse' => 'WARMENGHORSE',
+        'Warmengmodelyear' => 'WARMENGMODELYEAR',
+        'InvSerialWarranty.Warmengmodelyear' => 'WARMENGMODELYEAR',
+        'warmengmodelyear' => 'WARMENGMODELYEAR',
+        'invSerialWarranty.warmengmodelyear' => 'WARMENGMODELYEAR',
+        'InvSerialWarrantyTableMap::COL_WARMENGMODELYEAR' => 'WARMENGMODELYEAR',
+        'COL_WARMENGMODELYEAR' => 'WARMENGMODELYEAR',
+        'WarmEngModelYear' => 'WARMENGMODELYEAR',
+        'inv_war_mast.WarmEngModelYear' => 'WARMENGMODELYEAR',
+        'Warmengdesc' => 'WARMENGDESC',
+        'InvSerialWarranty.Warmengdesc' => 'WARMENGDESC',
+        'warmengdesc' => 'WARMENGDESC',
+        'invSerialWarranty.warmengdesc' => 'WARMENGDESC',
+        'InvSerialWarrantyTableMap::COL_WARMENGDESC' => 'WARMENGDESC',
+        'COL_WARMENGDESC' => 'WARMENGDESC',
+        'WarmEngDesc' => 'WARMENGDESC',
+        'inv_war_mast.WarmEngDesc' => 'WARMENGDESC',
+        'Warmphone1' => 'WARMPHONE1',
+        'InvSerialWarranty.Warmphone1' => 'WARMPHONE1',
+        'warmphone1' => 'WARMPHONE1',
+        'invSerialWarranty.warmphone1' => 'WARMPHONE1',
+        'InvSerialWarrantyTableMap::COL_WARMPHONE1' => 'WARMPHONE1',
+        'COL_WARMPHONE1' => 'WARMPHONE1',
+        'WarmPhone1' => 'WARMPHONE1',
+        'inv_war_mast.WarmPhone1' => 'WARMPHONE1',
+        'Warmphone2' => 'WARMPHONE2',
+        'InvSerialWarranty.Warmphone2' => 'WARMPHONE2',
+        'warmphone2' => 'WARMPHONE2',
+        'invSerialWarranty.warmphone2' => 'WARMPHONE2',
+        'InvSerialWarrantyTableMap::COL_WARMPHONE2' => 'WARMPHONE2',
+        'COL_WARMPHONE2' => 'WARMPHONE2',
+        'WarmPhone2' => 'WARMPHONE2',
+        'inv_war_mast.WarmPhone2' => 'WARMPHONE2',
+        'Warmemail' => 'WARMEMAIL',
+        'InvSerialWarranty.Warmemail' => 'WARMEMAIL',
+        'warmemail' => 'WARMEMAIL',
+        'invSerialWarranty.warmemail' => 'WARMEMAIL',
+        'InvSerialWarrantyTableMap::COL_WARMEMAIL' => 'WARMEMAIL',
+        'COL_WARMEMAIL' => 'WARMEMAIL',
+        'WarmEmail' => 'WARMEMAIL',
+        'inv_war_mast.WarmEmail' => 'WARMEMAIL',
+        'Warmacorigwarrdate' => 'WARMACORIGWARRDATE',
+        'InvSerialWarranty.Warmacorigwarrdate' => 'WARMACORIGWARRDATE',
+        'warmacorigwarrdate' => 'WARMACORIGWARRDATE',
+        'invSerialWarranty.warmacorigwarrdate' => 'WARMACORIGWARRDATE',
+        'InvSerialWarrantyTableMap::COL_WARMACORIGWARRDATE' => 'WARMACORIGWARRDATE',
+        'COL_WARMACORIGWARRDATE' => 'WARMACORIGWARRDATE',
+        'WarmAcOrigWarrDate' => 'WARMACORIGWARRDATE',
+        'inv_war_mast.WarmAcOrigWarrDate' => 'WARMACORIGWARRDATE',
+        'Dateupdtd' => 'DATEUPDTD',
+        'InvSerialWarranty.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'invSerialWarranty.dateupdtd' => 'DATEUPDTD',
+        'InvSerialWarrantyTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'inv_war_mast.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'InvSerialWarranty.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'invSerialWarranty.timeupdtd' => 'TIMEUPDTD',
+        'InvSerialWarrantyTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'inv_war_mast.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'InvSerialWarranty.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'invSerialWarranty.dummy' => 'DUMMY',
+        'InvSerialWarrantyTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'inv_war_mast.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('inv_war_mast');
@@ -280,7 +519,7 @@ class InvSerialWarrantyTableMap extends TableMap
         $this->addColumn('ArspSalePer1', 'Arspsaleper1', 'VARCHAR', true, 6, '');
         $this->addColumn('WarmEntryDate', 'Warmentrydate', 'VARCHAR', true, 8, '');
         $this->addColumn('WarmEngSerNbr', 'Warmengsernbr', 'VARCHAR', true, 20, '');
-        $this->addColumn('WarmEngHorse', 'Warmenghorse', 'DECIMAL', true, 4, 0);
+        $this->addColumn('WarmEngHorse', 'Warmenghorse', 'DECIMAL', true, 4, 0.0);
         $this->addColumn('WarmEngModelYear', 'Warmengmodelyear', 'VARCHAR', true, 4, '');
         $this->addColumn('WarmEngDesc', 'Warmengdesc', 'VARCHAR', true, 35, '');
         $this->addColumn('WarmPhone1', 'Warmphone1', 'VARCHAR', true, 12, '');
@@ -290,12 +529,14 @@ class InvSerialWarrantyTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', true, 1, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -323,7 +564,7 @@ class InvSerialWarrantyTableMap extends TableMap
     1 => ':ArcuCustId',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -334,9 +575,11 @@ class InvSerialWarrantyTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \InvSerialWarranty $obj A \InvSerialWarranty object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(InvSerialWarranty $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -355,8 +598,10 @@ class InvSerialWarrantyTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \InvSerialWarranty object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \InvSerialWarranty) {
@@ -384,14 +629,14 @@ class InvSerialWarrantyTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Sermsernbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -406,14 +651,14 @@ class InvSerialWarrantyTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -439,10 +684,10 @@ class InvSerialWarrantyTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? InvSerialWarrantyTableMap::CLASS_DEFAULT : InvSerialWarrantyTableMap::OM_CLASS;
     }
@@ -450,17 +695,17 @@ class InvSerialWarrantyTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (InvSerialWarranty object, last column rank)
+     * @return array (InvSerialWarranty object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = InvSerialWarrantyTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = InvSerialWarrantyTableMap::getInstanceFromPool($key))) {
@@ -476,7 +721,7 @@ class InvSerialWarrantyTableMap extends TableMap
             InvSerialWarrantyTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -484,13 +729,13 @@ class InvSerialWarrantyTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -520,12 +765,13 @@ class InvSerialWarrantyTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(InvSerialWarrantyTableMap::COL_INITITEMNBR);
@@ -589,40 +835,104 @@ class InvSerialWarrantyTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_SERMSERNBR);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMSALEDATE);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMOWNFNAME);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMOWNMNAME);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMOWNLNAME);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMOWNADR1);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMOWNADR2);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMOWNADR3);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMOWNCITY);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMOWNSTAT);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMOWNZIP);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMSORDNBR);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMINVCDATE);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_ARCUCUSTID);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_ARSPSALEPER1);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMENTRYDATE);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMENGSERNBR);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMENGHORSE);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMENGMODELYEAR);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMENGDESC);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMPHONE1);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMPHONE2);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMEMAIL);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_WARMACORIGWARRDATE);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(InvSerialWarrantyTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.SermSerNbr');
+            $criteria->removeSelectColumn($alias . '.WarmSaleDate');
+            $criteria->removeSelectColumn($alias . '.WarmOwnFName');
+            $criteria->removeSelectColumn($alias . '.WarmOwnMName');
+            $criteria->removeSelectColumn($alias . '.WarmOwnLName');
+            $criteria->removeSelectColumn($alias . '.WarmOwnAdr1');
+            $criteria->removeSelectColumn($alias . '.WarmOwnAdr2');
+            $criteria->removeSelectColumn($alias . '.WarmOwnAdr3');
+            $criteria->removeSelectColumn($alias . '.WarmOwnCity');
+            $criteria->removeSelectColumn($alias . '.WarmOwnStat');
+            $criteria->removeSelectColumn($alias . '.WarmOwnZip');
+            $criteria->removeSelectColumn($alias . '.WarmSordNbr');
+            $criteria->removeSelectColumn($alias . '.WarmInvcDate');
+            $criteria->removeSelectColumn($alias . '.ArcuCustId');
+            $criteria->removeSelectColumn($alias . '.ArspSalePer1');
+            $criteria->removeSelectColumn($alias . '.WarmEntryDate');
+            $criteria->removeSelectColumn($alias . '.WarmEngSerNbr');
+            $criteria->removeSelectColumn($alias . '.WarmEngHorse');
+            $criteria->removeSelectColumn($alias . '.WarmEngModelYear');
+            $criteria->removeSelectColumn($alias . '.WarmEngDesc');
+            $criteria->removeSelectColumn($alias . '.WarmPhone1');
+            $criteria->removeSelectColumn($alias . '.WarmPhone2');
+            $criteria->removeSelectColumn($alias . '.WarmEmail');
+            $criteria->removeSelectColumn($alias . '.WarmAcOrigWarrDate');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(InvSerialWarrantyTableMap::DATABASE_NAME)->getTable(InvSerialWarrantyTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvSerialWarrantyTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(InvSerialWarrantyTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new InvSerialWarrantyTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a InvSerialWarranty or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or InvSerialWarranty object or primary key or array of primary keys
+     * @param mixed $values Criteria or InvSerialWarranty object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvSerialWarrantyTableMap::DATABASE_NAME);
@@ -640,7 +950,7 @@ class InvSerialWarrantyTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(InvSerialWarrantyTableMap::COL_INITITEMNBR, $value[0]);
@@ -668,7 +978,7 @@ class InvSerialWarrantyTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return InvSerialWarrantyQuery::create()->doDeleteAll($con);
     }
@@ -676,13 +986,13 @@ class InvSerialWarrantyTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a InvSerialWarranty or Criteria object.
      *
-     * @param mixed               $criteria Criteria or InvSerialWarranty object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or InvSerialWarranty object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvSerialWarrantyTableMap::DATABASE_NAME);
@@ -705,7 +1015,4 @@ class InvSerialWarrantyTableMap extends TableMap
         });
     }
 
-} // InvSerialWarrantyTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-InvSerialWarrantyTableMap::buildTableMap();
+}

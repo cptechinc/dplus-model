@@ -29,19 +29,21 @@ abstract class ConfigAp implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\ConfigApTableMap';
+    public const TABLE_MAP = '\\Map\\ConfigApTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -50,14 +52,14 @@ abstract class ConfigAp implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the aptbconfkey field.
@@ -70,560 +72,560 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * The value for the aptbconfglifac field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfglifac;
 
     /**
      * The value for the aptbconfinifac field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfinifac;
 
     /**
      * The value for the aptbconfsoifac field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfsoifac;
 
     /**
      * The value for the aptbconfpoifac field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfpoifac;
 
     /**
      * The value for the aptbconffrtacct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconffrtacct;
 
     /**
      * The value for the aptbconfmiscacct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfmiscacct;
 
     /**
      * The value for the aptbconfapacct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfapacct;
 
     /**
      * The value for the aptbconfcashacct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfcashacct;
 
     /**
      * The value for the aptbconfdiscacct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfdiscacct;
 
     /**
      * The value for the aptbconftaxacct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconftaxacct;
 
     /**
      * The value for the aptbconfpuracct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfpuracct;
 
     /**
      * The value for the aptbconfvaracct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfvaracct;
 
     /**
      * The value for the aptbconfvenddisc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfvenddisc;
 
     /**
      * The value for the aptbconfapinvvaracct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfapinvvaracct;
 
     /**
      * The value for the aptbconfuseroyal field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfuseroyal;
 
     /**
      * The value for the aptbconfdefbuyrcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfdefbuyrcode;
 
     /**
      * The value for the aptbconfdeftermcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfdeftermcode;
 
     /**
      * The value for the aptbconfdefsviacode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfdefsviacode;
 
     /**
      * The value for the aptbconfdeftypecode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfdeftypecode;
 
     /**
      * The value for the aptbconfvendline field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptbconfvendline;
 
     /**
      * The value for the aptbconfvendcols field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptbconfvendcols;
 
     /**
      * The value for the aptbconfpoline field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptbconfpoline;
 
     /**
      * The value for the aptbconfpocols field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptbconfpocols;
 
     /**
      * The value for the aptbconfvendgetopt field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptbconfvendgetopt;
 
     /**
      * The value for the aptbconfpaytoshipfr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfpaytoshipfr;
 
     /**
      * The value for the aptbconfholdstat field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfholdstat;
 
     /**
      * The value for the aptbconfdiscret field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfdiscret;
 
     /**
      * The value for the aptbconfstopvendchg field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptbconfstopvendchg;
 
     /**
      * The value for the aptbconfreqdate2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptbconfreqdate2;
 
     /**
      * The value for the aptbconfreqdate3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptbconfreqdate3;
 
     /**
      * The value for the aptbconfreqdate4 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptbconfreqdate4;
 
     /**
      * The value for the aptbconf1099name field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconf1099name;
 
     /**
      * The value for the aptbconf1099adr1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconf1099adr1;
 
     /**
      * The value for the aptbconf1099adr2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconf1099adr2;
 
     /**
      * The value for the aptbconf1099adr3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconf1099adr3;
 
     /**
      * The value for the aptbconf1099city field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconf1099city;
 
     /**
      * The value for the aptbconf1099stat field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconf1099stat;
 
     /**
      * The value for the aptbconf1099zipcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconf1099zipcode;
 
     /**
      * The value for the aptbconf1099id field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconf1099id;
 
     /**
      * The value for the aptbconfstubsort field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfstubsort;
 
     /**
      * The value for the aptbconfuseach field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfuseach;
 
     /**
      * The value for the aptbconfover1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptbconfover1;
 
     /**
      * The value for the aptbconfover2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptbconfover2;
 
     /**
      * The value for the aptbconfprtchk field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfprtchk;
 
     /**
      * The value for the aptbconfeiunrecqty field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfeiunrecqty;
 
     /**
      * The value for the aptbconfeirecqtyask field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfeirecqtyask;
 
     /**
      * The value for the aptbconfeirecqtydef field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfeirecqtydef;
 
     /**
      * The value for the aptbconfallowmultpos field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfallowmultpos;
 
     /**
      * The value for the aptbconfeibyclerk field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfeibyclerk;
 
     /**
      * The value for the aptbconfeibatchproc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfeibatchproc;
 
     /**
      * The value for the aptbconfeidispstancost field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfeidispstancost;
 
     /**
      * The value for the aptbconfeiassetacctchg field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfeiassetacctchg;
 
     /**
      * The value for the aptbconfallowdupinvc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfallowdupinvc;
 
     /**
      * The value for the aptbconfprtsorept field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfprtsorept;
 
     /**
      * The value for the aptbconfeicheckhist field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfeicheckhist;
 
     /**
      * The value for the aptbconfsummgl field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfsummgl;
 
     /**
      * The value for the aptbconfvxmuserlabel field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfvxmuserlabel;
 
     /**
      * The value for the aptbconfvendcostbreaks field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfvendcostbreaks;
 
     /**
      * The value for the aptbconfmyeclrclospo field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfmyeclrclospo;
 
     /**
      * The value for the aptbconfmyeclrclosdate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfmyeclrclosdate;
 
     /**
      * The value for the aptbconfmyeclrpohist field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfmyeclrpohist;
 
     /**
      * The value for the aptbconfmyeclrpodate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfmyeclrpodate;
 
     /**
      * The value for the aptbconfmyeclrckhist field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfmyeclrckhist;
 
     /**
      * The value for the aptbconfmyeclrckdate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfmyeclrckdate;
 
     /**
      * The value for the aptbconfmyeclropenck field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfmyeclropenck;
 
     /**
      * The value for the aptbconflead field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconflead;
 
     /**
      * The value for the aptbconfvrreworkitem field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfvrreworkitem;
 
     /**
      * The value for the aptbconfvrqcwhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfvrqcwhse;
 
     /**
      * The value for the aptbconfvrglacct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfvrglacct;
 
     /**
      * The value for the aptbconfvxmlistpc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfvxmlistpc;
 
     /**
      * The value for the aptbconfvxmlistitemupd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfvxmlistitemupd;
 
     /**
      * The value for the aptbconfvxmgrosslc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfvxmgrosslc;
 
     /**
      * The value for the aptbconfvxmcostlp field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfvxmcostlp;
 
     /**
      * The value for the aptbconfvxmcostitemupd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfvxmcostitemupd;
 
     /**
      * The value for the aptbconfvxmcostrmesg field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfvxmcostrmesg;
 
     /**
      * The value for the aptbconfvxmcostitemupdm field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfvxmcostitemupdm;
 
     /**
      * The value for the aptbconfvxmcostmmesg field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbconfvxmcostmmesg;
 
     /**
      * The value for the dateupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dateupdtd;
 
     /**
      * The value for the timeupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $timeupdtd;
 
     /**
      * The value for the dummy field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
@@ -631,7 +633,7 @@ abstract class ConfigAp implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
@@ -641,7 +643,7 @@ abstract class ConfigAp implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->aptbconfkey = 0;
     }
@@ -658,9 +660,9 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -668,10 +670,10 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -680,7 +682,7 @@ abstract class ConfigAp implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -690,9 +692,9 @@ abstract class ConfigAp implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -701,45 +703,43 @@ abstract class ConfigAp implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -748,10 +748,10 @@ abstract class ConfigAp implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>ConfigAp</code>, delegates to
      * <code>equals(ConfigAp)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -773,7 +773,7 @@ abstract class ConfigAp implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -781,10 +781,10 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -792,15 +792,15 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -809,12 +809,12 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|ConfigAp The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -824,13 +824,13 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -841,24 +841,27 @@ abstract class ConfigAp implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -886,7 +889,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfglifac] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfglifac()
     {
@@ -896,7 +899,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfinifac] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfinifac()
     {
@@ -906,7 +909,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfsoifac] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfsoifac()
     {
@@ -916,7 +919,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfpoifac] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfpoifac()
     {
@@ -926,7 +929,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconffrtacct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconffrtacct()
     {
@@ -936,7 +939,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfmiscacct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfmiscacct()
     {
@@ -946,7 +949,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfapacct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfapacct()
     {
@@ -956,7 +959,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfcashacct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfcashacct()
     {
@@ -966,7 +969,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfdiscacct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfdiscacct()
     {
@@ -976,7 +979,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconftaxacct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconftaxacct()
     {
@@ -986,7 +989,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfpuracct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfpuracct()
     {
@@ -996,7 +999,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvaracct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfvaracct()
     {
@@ -1006,7 +1009,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvenddisc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfvenddisc()
     {
@@ -1016,7 +1019,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfapinvvaracct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfapinvvaracct()
     {
@@ -1026,7 +1029,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfuseroyal] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfuseroyal()
     {
@@ -1036,7 +1039,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfdefbuyrcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfdefbuyrcode()
     {
@@ -1046,7 +1049,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfdeftermcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfdeftermcode()
     {
@@ -1056,7 +1059,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfdefsviacode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfdefsviacode()
     {
@@ -1066,7 +1069,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfdeftypecode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfdeftypecode()
     {
@@ -1076,7 +1079,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvendline] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptbconfvendline()
     {
@@ -1086,7 +1089,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvendcols] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptbconfvendcols()
     {
@@ -1096,7 +1099,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfpoline] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptbconfpoline()
     {
@@ -1106,7 +1109,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfpocols] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptbconfpocols()
     {
@@ -1116,7 +1119,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvendgetopt] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptbconfvendgetopt()
     {
@@ -1126,7 +1129,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfpaytoshipfr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfpaytoshipfr()
     {
@@ -1136,7 +1139,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfholdstat] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfholdstat()
     {
@@ -1146,7 +1149,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfdiscret] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfdiscret()
     {
@@ -1156,7 +1159,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfstopvendchg] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptbconfstopvendchg()
     {
@@ -1166,7 +1169,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfreqdate2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptbconfreqdate2()
     {
@@ -1176,7 +1179,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfreqdate3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptbconfreqdate3()
     {
@@ -1186,7 +1189,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfreqdate4] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptbconfreqdate4()
     {
@@ -1196,7 +1199,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconf1099name] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconf1099name()
     {
@@ -1206,7 +1209,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconf1099adr1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconf1099adr1()
     {
@@ -1216,7 +1219,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconf1099adr2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconf1099adr2()
     {
@@ -1226,7 +1229,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconf1099adr3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconf1099adr3()
     {
@@ -1236,7 +1239,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconf1099city] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconf1099city()
     {
@@ -1246,7 +1249,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconf1099stat] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconf1099stat()
     {
@@ -1256,7 +1259,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconf1099zipcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconf1099zipcode()
     {
@@ -1266,7 +1269,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconf1099id] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconf1099id()
     {
@@ -1276,7 +1279,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfstubsort] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfstubsort()
     {
@@ -1286,7 +1289,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfuseach] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbConfUseAch()
     {
@@ -1296,7 +1299,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfover1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptbconfover1()
     {
@@ -1306,7 +1309,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfover2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptbconfover2()
     {
@@ -1316,7 +1319,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfprtchk] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfprtchk()
     {
@@ -1326,7 +1329,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfeiunrecqty] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfeiunrecqty()
     {
@@ -1336,7 +1339,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfeirecqtyask] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfeirecqtyask()
     {
@@ -1346,7 +1349,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfeirecqtydef] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfeirecqtydef()
     {
@@ -1356,7 +1359,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfallowmultpos] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfallowmultpos()
     {
@@ -1366,7 +1369,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfeibyclerk] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfeibyclerk()
     {
@@ -1376,7 +1379,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfeibatchproc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfeibatchproc()
     {
@@ -1386,7 +1389,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfeidispstancost] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfeidispstancost()
     {
@@ -1396,7 +1399,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfeiassetacctchg] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfeiassetacctchg()
     {
@@ -1406,7 +1409,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfallowdupinvc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfallowdupinvc()
     {
@@ -1416,7 +1419,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfprtsorept] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfprtsorept()
     {
@@ -1426,7 +1429,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfeicheckhist] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfeicheckhist()
     {
@@ -1436,7 +1439,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfsummgl] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfsummgl()
     {
@@ -1446,7 +1449,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvxmuserlabel] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfvxmuserlabel()
     {
@@ -1456,7 +1459,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvendcostbreaks] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfvendcostbreaks()
     {
@@ -1466,7 +1469,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfmyeclrclospo] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfmyeclrclospo()
     {
@@ -1476,7 +1479,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfmyeclrclosdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfmyeclrclosdate()
     {
@@ -1486,7 +1489,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfmyeclrpohist] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfmyeclrpohist()
     {
@@ -1496,7 +1499,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfmyeclrpodate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfmyeclrpodate()
     {
@@ -1506,7 +1509,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfmyeclrckhist] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfmyeclrckhist()
     {
@@ -1516,7 +1519,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfmyeclrckdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfmyeclrckdate()
     {
@@ -1526,7 +1529,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfmyeclropenck] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfmyeclropenck()
     {
@@ -1536,7 +1539,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconflead] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconflead()
     {
@@ -1546,7 +1549,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvrreworkitem] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfvrreworkitem()
     {
@@ -1556,7 +1559,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvrqcwhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfvrqcwhse()
     {
@@ -1566,7 +1569,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvrglacct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfvrglacct()
     {
@@ -1576,7 +1579,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvxmlistpc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfvxmlistpc()
     {
@@ -1586,7 +1589,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvxmlistitemupd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfvxmlistitemupd()
     {
@@ -1596,7 +1599,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvxmgrosslc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfvxmgrosslc()
     {
@@ -1606,7 +1609,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvxmcostlp] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfvxmcostlp()
     {
@@ -1616,7 +1619,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvxmcostitemupd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfvxmcostitemupd()
     {
@@ -1626,7 +1629,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvxmcostrmesg] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfvxmcostrmesg()
     {
@@ -1636,7 +1639,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvxmcostitemupdm] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfvxmcostitemupdm()
     {
@@ -1646,7 +1649,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [aptbconfvxmcostmmesg] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbconfvxmcostmmesg()
     {
@@ -1656,7 +1659,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [dateupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDateupdtd()
     {
@@ -1666,7 +1669,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [timeupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTimeupdtd()
     {
@@ -1676,7 +1679,7 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -1686,8 +1689,8 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Set the value of [aptbconfkey] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfkey($v)
     {
@@ -1701,13 +1704,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfkey()
+    }
 
     /**
      * Set the value of [aptbconfglifac] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfglifac($v)
     {
@@ -1721,13 +1724,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfglifac()
+    }
 
     /**
      * Set the value of [aptbconfinifac] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfinifac($v)
     {
@@ -1741,13 +1744,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfinifac()
+    }
 
     /**
      * Set the value of [aptbconfsoifac] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfsoifac($v)
     {
@@ -1761,13 +1764,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfsoifac()
+    }
 
     /**
      * Set the value of [aptbconfpoifac] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfpoifac($v)
     {
@@ -1781,13 +1784,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfpoifac()
+    }
 
     /**
      * Set the value of [aptbconffrtacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconffrtacct($v)
     {
@@ -1801,13 +1804,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconffrtacct()
+    }
 
     /**
      * Set the value of [aptbconfmiscacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfmiscacct($v)
     {
@@ -1821,13 +1824,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfmiscacct()
+    }
 
     /**
      * Set the value of [aptbconfapacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfapacct($v)
     {
@@ -1841,13 +1844,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfapacct()
+    }
 
     /**
      * Set the value of [aptbconfcashacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfcashacct($v)
     {
@@ -1861,13 +1864,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfcashacct()
+    }
 
     /**
      * Set the value of [aptbconfdiscacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfdiscacct($v)
     {
@@ -1881,13 +1884,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfdiscacct()
+    }
 
     /**
      * Set the value of [aptbconftaxacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconftaxacct($v)
     {
@@ -1901,13 +1904,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconftaxacct()
+    }
 
     /**
      * Set the value of [aptbconfpuracct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfpuracct($v)
     {
@@ -1921,13 +1924,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfpuracct()
+    }
 
     /**
      * Set the value of [aptbconfvaracct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvaracct($v)
     {
@@ -1941,13 +1944,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvaracct()
+    }
 
     /**
      * Set the value of [aptbconfvenddisc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvenddisc($v)
     {
@@ -1961,13 +1964,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvenddisc()
+    }
 
     /**
      * Set the value of [aptbconfapinvvaracct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfapinvvaracct($v)
     {
@@ -1981,13 +1984,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfapinvvaracct()
+    }
 
     /**
      * Set the value of [aptbconfuseroyal] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfuseroyal($v)
     {
@@ -2001,13 +2004,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfuseroyal()
+    }
 
     /**
      * Set the value of [aptbconfdefbuyrcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfdefbuyrcode($v)
     {
@@ -2021,13 +2024,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfdefbuyrcode()
+    }
 
     /**
      * Set the value of [aptbconfdeftermcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfdeftermcode($v)
     {
@@ -2041,13 +2044,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfdeftermcode()
+    }
 
     /**
      * Set the value of [aptbconfdefsviacode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfdefsviacode($v)
     {
@@ -2061,13 +2064,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfdefsviacode()
+    }
 
     /**
      * Set the value of [aptbconfdeftypecode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfdeftypecode($v)
     {
@@ -2081,13 +2084,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfdeftypecode()
+    }
 
     /**
      * Set the value of [aptbconfvendline] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvendline($v)
     {
@@ -2101,13 +2104,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvendline()
+    }
 
     /**
      * Set the value of [aptbconfvendcols] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvendcols($v)
     {
@@ -2121,13 +2124,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvendcols()
+    }
 
     /**
      * Set the value of [aptbconfpoline] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfpoline($v)
     {
@@ -2141,13 +2144,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfpoline()
+    }
 
     /**
      * Set the value of [aptbconfpocols] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfpocols($v)
     {
@@ -2161,13 +2164,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfpocols()
+    }
 
     /**
      * Set the value of [aptbconfvendgetopt] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvendgetopt($v)
     {
@@ -2181,13 +2184,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvendgetopt()
+    }
 
     /**
      * Set the value of [aptbconfpaytoshipfr] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfpaytoshipfr($v)
     {
@@ -2201,13 +2204,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfpaytoshipfr()
+    }
 
     /**
      * Set the value of [aptbconfholdstat] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfholdstat($v)
     {
@@ -2221,13 +2224,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfholdstat()
+    }
 
     /**
      * Set the value of [aptbconfdiscret] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfdiscret($v)
     {
@@ -2241,13 +2244,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfdiscret()
+    }
 
     /**
      * Set the value of [aptbconfstopvendchg] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfstopvendchg($v)
     {
@@ -2261,13 +2264,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfstopvendchg()
+    }
 
     /**
      * Set the value of [aptbconfreqdate2] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfreqdate2($v)
     {
@@ -2281,13 +2284,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfreqdate2()
+    }
 
     /**
      * Set the value of [aptbconfreqdate3] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfreqdate3($v)
     {
@@ -2301,13 +2304,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfreqdate3()
+    }
 
     /**
      * Set the value of [aptbconfreqdate4] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfreqdate4($v)
     {
@@ -2321,13 +2324,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfreqdate4()
+    }
 
     /**
      * Set the value of [aptbconf1099name] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconf1099name($v)
     {
@@ -2341,13 +2344,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconf1099name()
+    }
 
     /**
      * Set the value of [aptbconf1099adr1] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconf1099adr1($v)
     {
@@ -2361,13 +2364,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconf1099adr1()
+    }
 
     /**
      * Set the value of [aptbconf1099adr2] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconf1099adr2($v)
     {
@@ -2381,13 +2384,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconf1099adr2()
+    }
 
     /**
      * Set the value of [aptbconf1099adr3] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconf1099adr3($v)
     {
@@ -2401,13 +2404,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconf1099adr3()
+    }
 
     /**
      * Set the value of [aptbconf1099city] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconf1099city($v)
     {
@@ -2421,13 +2424,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconf1099city()
+    }
 
     /**
      * Set the value of [aptbconf1099stat] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconf1099stat($v)
     {
@@ -2441,13 +2444,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconf1099stat()
+    }
 
     /**
      * Set the value of [aptbconf1099zipcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconf1099zipcode($v)
     {
@@ -2461,13 +2464,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconf1099zipcode()
+    }
 
     /**
      * Set the value of [aptbconf1099id] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconf1099id($v)
     {
@@ -2481,13 +2484,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconf1099id()
+    }
 
     /**
      * Set the value of [aptbconfstubsort] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfstubsort($v)
     {
@@ -2501,13 +2504,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfstubsort()
+    }
 
     /**
      * Set the value of [aptbconfuseach] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbConfUseAch($v)
     {
@@ -2521,13 +2524,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbConfUseAch()
+    }
 
     /**
      * Set the value of [aptbconfover1] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfover1($v)
     {
@@ -2541,13 +2544,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfover1()
+    }
 
     /**
      * Set the value of [aptbconfover2] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfover2($v)
     {
@@ -2561,13 +2564,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfover2()
+    }
 
     /**
      * Set the value of [aptbconfprtchk] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfprtchk($v)
     {
@@ -2581,13 +2584,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfprtchk()
+    }
 
     /**
      * Set the value of [aptbconfeiunrecqty] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfeiunrecqty($v)
     {
@@ -2601,13 +2604,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfeiunrecqty()
+    }
 
     /**
      * Set the value of [aptbconfeirecqtyask] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfeirecqtyask($v)
     {
@@ -2621,13 +2624,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfeirecqtyask()
+    }
 
     /**
      * Set the value of [aptbconfeirecqtydef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfeirecqtydef($v)
     {
@@ -2641,13 +2644,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfeirecqtydef()
+    }
 
     /**
      * Set the value of [aptbconfallowmultpos] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfallowmultpos($v)
     {
@@ -2661,13 +2664,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfallowmultpos()
+    }
 
     /**
      * Set the value of [aptbconfeibyclerk] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfeibyclerk($v)
     {
@@ -2681,13 +2684,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfeibyclerk()
+    }
 
     /**
      * Set the value of [aptbconfeibatchproc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfeibatchproc($v)
     {
@@ -2701,13 +2704,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfeibatchproc()
+    }
 
     /**
      * Set the value of [aptbconfeidispstancost] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfeidispstancost($v)
     {
@@ -2721,13 +2724,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfeidispstancost()
+    }
 
     /**
      * Set the value of [aptbconfeiassetacctchg] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfeiassetacctchg($v)
     {
@@ -2741,13 +2744,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfeiassetacctchg()
+    }
 
     /**
      * Set the value of [aptbconfallowdupinvc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfallowdupinvc($v)
     {
@@ -2761,13 +2764,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfallowdupinvc()
+    }
 
     /**
      * Set the value of [aptbconfprtsorept] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfprtsorept($v)
     {
@@ -2781,13 +2784,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfprtsorept()
+    }
 
     /**
      * Set the value of [aptbconfeicheckhist] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfeicheckhist($v)
     {
@@ -2801,13 +2804,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfeicheckhist()
+    }
 
     /**
      * Set the value of [aptbconfsummgl] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfsummgl($v)
     {
@@ -2821,13 +2824,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfsummgl()
+    }
 
     /**
      * Set the value of [aptbconfvxmuserlabel] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvxmuserlabel($v)
     {
@@ -2841,13 +2844,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvxmuserlabel()
+    }
 
     /**
      * Set the value of [aptbconfvendcostbreaks] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvendcostbreaks($v)
     {
@@ -2861,13 +2864,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvendcostbreaks()
+    }
 
     /**
      * Set the value of [aptbconfmyeclrclospo] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfmyeclrclospo($v)
     {
@@ -2881,13 +2884,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfmyeclrclospo()
+    }
 
     /**
      * Set the value of [aptbconfmyeclrclosdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfmyeclrclosdate($v)
     {
@@ -2901,13 +2904,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfmyeclrclosdate()
+    }
 
     /**
      * Set the value of [aptbconfmyeclrpohist] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfmyeclrpohist($v)
     {
@@ -2921,13 +2924,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfmyeclrpohist()
+    }
 
     /**
      * Set the value of [aptbconfmyeclrpodate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfmyeclrpodate($v)
     {
@@ -2941,13 +2944,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfmyeclrpodate()
+    }
 
     /**
      * Set the value of [aptbconfmyeclrckhist] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfmyeclrckhist($v)
     {
@@ -2961,13 +2964,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfmyeclrckhist()
+    }
 
     /**
      * Set the value of [aptbconfmyeclrckdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfmyeclrckdate($v)
     {
@@ -2981,13 +2984,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfmyeclrckdate()
+    }
 
     /**
      * Set the value of [aptbconfmyeclropenck] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfmyeclropenck($v)
     {
@@ -3001,13 +3004,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfmyeclropenck()
+    }
 
     /**
      * Set the value of [aptbconflead] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconflead($v)
     {
@@ -3021,13 +3024,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconflead()
+    }
 
     /**
      * Set the value of [aptbconfvrreworkitem] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvrreworkitem($v)
     {
@@ -3041,13 +3044,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvrreworkitem()
+    }
 
     /**
      * Set the value of [aptbconfvrqcwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvrqcwhse($v)
     {
@@ -3061,13 +3064,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvrqcwhse()
+    }
 
     /**
      * Set the value of [aptbconfvrglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvrglacct($v)
     {
@@ -3081,13 +3084,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvrglacct()
+    }
 
     /**
      * Set the value of [aptbconfvxmlistpc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvxmlistpc($v)
     {
@@ -3101,13 +3104,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvxmlistpc()
+    }
 
     /**
      * Set the value of [aptbconfvxmlistitemupd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvxmlistitemupd($v)
     {
@@ -3121,13 +3124,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvxmlistitemupd()
+    }
 
     /**
      * Set the value of [aptbconfvxmgrosslc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvxmgrosslc($v)
     {
@@ -3141,13 +3144,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvxmgrosslc()
+    }
 
     /**
      * Set the value of [aptbconfvxmcostlp] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvxmcostlp($v)
     {
@@ -3161,13 +3164,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvxmcostlp()
+    }
 
     /**
      * Set the value of [aptbconfvxmcostitemupd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvxmcostitemupd($v)
     {
@@ -3181,13 +3184,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvxmcostitemupd()
+    }
 
     /**
      * Set the value of [aptbconfvxmcostrmesg] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvxmcostrmesg($v)
     {
@@ -3201,13 +3204,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvxmcostrmesg()
+    }
 
     /**
      * Set the value of [aptbconfvxmcostitemupdm] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvxmcostitemupdm($v)
     {
@@ -3221,13 +3224,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvxmcostitemupdm()
+    }
 
     /**
      * Set the value of [aptbconfvxmcostmmesg] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbconfvxmcostmmesg($v)
     {
@@ -3241,13 +3244,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbconfvxmcostmmesg()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -3261,13 +3264,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -3281,13 +3284,13 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAp The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -3301,7 +3304,7 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -3309,9 +3312,9 @@ abstract class ConfigAp implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->aptbconfkey !== 0) {
                 return false;
@@ -3319,7 +3322,7 @@ abstract class ConfigAp implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -3329,17 +3332,17 @@ abstract class ConfigAp implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -3585,8 +3588,8 @@ abstract class ConfigAp implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : ConfigApTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -3611,23 +3614,24 @@ abstract class ConfigAp implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -3660,13 +3664,13 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see ConfigAp::setDeleted()
      * @see ConfigAp::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -3696,12 +3700,12 @@ abstract class ConfigAp implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -3746,12 +3750,12 @@ abstract class ConfigAp implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -3773,19 +3777,19 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -4046,246 +4050,327 @@ abstract class ConfigAp implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'AptbConfKey':
                         $stmt->bindValue($identifier, $this->aptbconfkey, PDO::PARAM_INT);
+
                         break;
                     case 'AptbConfGlIfac':
                         $stmt->bindValue($identifier, $this->aptbconfglifac, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfInIfac':
                         $stmt->bindValue($identifier, $this->aptbconfinifac, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfSoIfac':
                         $stmt->bindValue($identifier, $this->aptbconfsoifac, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfPoIfac':
                         $stmt->bindValue($identifier, $this->aptbconfpoifac, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfFrtAcct':
                         $stmt->bindValue($identifier, $this->aptbconffrtacct, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfMiscAcct':
                         $stmt->bindValue($identifier, $this->aptbconfmiscacct, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfApAcct':
                         $stmt->bindValue($identifier, $this->aptbconfapacct, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfCashAcct':
                         $stmt->bindValue($identifier, $this->aptbconfcashacct, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfDiscAcct':
                         $stmt->bindValue($identifier, $this->aptbconfdiscacct, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfTaxAcct':
                         $stmt->bindValue($identifier, $this->aptbconftaxacct, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfPurAcct':
                         $stmt->bindValue($identifier, $this->aptbconfpuracct, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfVarAcct':
                         $stmt->bindValue($identifier, $this->aptbconfvaracct, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfVendDisc':
                         $stmt->bindValue($identifier, $this->aptbconfvenddisc, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfApInvVarAcct':
                         $stmt->bindValue($identifier, $this->aptbconfapinvvaracct, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfUseRoyal':
                         $stmt->bindValue($identifier, $this->aptbconfuseroyal, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfDefBuyrCode':
                         $stmt->bindValue($identifier, $this->aptbconfdefbuyrcode, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfDefTermCode':
                         $stmt->bindValue($identifier, $this->aptbconfdeftermcode, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfDefSviaCode':
                         $stmt->bindValue($identifier, $this->aptbconfdefsviacode, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfDefTypeCode':
                         $stmt->bindValue($identifier, $this->aptbconfdeftypecode, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfVendLine':
                         $stmt->bindValue($identifier, $this->aptbconfvendline, PDO::PARAM_INT);
+
                         break;
                     case 'AptbConfVendCols':
                         $stmt->bindValue($identifier, $this->aptbconfvendcols, PDO::PARAM_INT);
+
                         break;
                     case 'AptbConfPoLine':
                         $stmt->bindValue($identifier, $this->aptbconfpoline, PDO::PARAM_INT);
+
                         break;
                     case 'AptbConfPoCols':
                         $stmt->bindValue($identifier, $this->aptbconfpocols, PDO::PARAM_INT);
+
                         break;
                     case 'AptbConfVendGetOpt':
                         $stmt->bindValue($identifier, $this->aptbconfvendgetopt, PDO::PARAM_INT);
+
                         break;
                     case 'AptbConfPaytoShipfr':
                         $stmt->bindValue($identifier, $this->aptbconfpaytoshipfr, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfHoldStat':
                         $stmt->bindValue($identifier, $this->aptbconfholdstat, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfDiscRet':
                         $stmt->bindValue($identifier, $this->aptbconfdiscret, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfStopVendChg':
                         $stmt->bindValue($identifier, $this->aptbconfstopvendchg, PDO::PARAM_INT);
+
                         break;
                     case 'AptbConfReqDate2':
                         $stmt->bindValue($identifier, $this->aptbconfreqdate2, PDO::PARAM_INT);
+
                         break;
                     case 'AptbConfReqDate3':
                         $stmt->bindValue($identifier, $this->aptbconfreqdate3, PDO::PARAM_INT);
+
                         break;
                     case 'AptbConfReqDate4':
                         $stmt->bindValue($identifier, $this->aptbconfreqdate4, PDO::PARAM_INT);
+
                         break;
                     case 'AptbConf1099Name':
                         $stmt->bindValue($identifier, $this->aptbconf1099name, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConf1099Adr1':
                         $stmt->bindValue($identifier, $this->aptbconf1099adr1, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConf1099Adr2':
                         $stmt->bindValue($identifier, $this->aptbconf1099adr2, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConf1099Adr3':
                         $stmt->bindValue($identifier, $this->aptbconf1099adr3, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConf1099City':
                         $stmt->bindValue($identifier, $this->aptbconf1099city, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConf1099Stat':
                         $stmt->bindValue($identifier, $this->aptbconf1099stat, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConf1099ZipCode':
                         $stmt->bindValue($identifier, $this->aptbconf1099zipcode, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConf1099Id':
                         $stmt->bindValue($identifier, $this->aptbconf1099id, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfStubSort':
                         $stmt->bindValue($identifier, $this->aptbconfstubsort, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfUseAch':
                         $stmt->bindValue($identifier, $this->aptbconfuseach, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfOver1':
                         $stmt->bindValue($identifier, $this->aptbconfover1, PDO::PARAM_INT);
+
                         break;
                     case 'AptbConfOver2':
                         $stmt->bindValue($identifier, $this->aptbconfover2, PDO::PARAM_INT);
+
                         break;
                     case 'AptbConfPrtChk':
                         $stmt->bindValue($identifier, $this->aptbconfprtchk, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfEiUnrecQty':
                         $stmt->bindValue($identifier, $this->aptbconfeiunrecqty, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfEiRecQtyAsk':
                         $stmt->bindValue($identifier, $this->aptbconfeirecqtyask, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfEiRecQtyDef':
                         $stmt->bindValue($identifier, $this->aptbconfeirecqtydef, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfAllowMultPos':
                         $stmt->bindValue($identifier, $this->aptbconfallowmultpos, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfEiByClerk':
                         $stmt->bindValue($identifier, $this->aptbconfeibyclerk, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfEiBatchProc':
                         $stmt->bindValue($identifier, $this->aptbconfeibatchproc, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfEiDispStanCost':
                         $stmt->bindValue($identifier, $this->aptbconfeidispstancost, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfEiAssetAcctChg':
                         $stmt->bindValue($identifier, $this->aptbconfeiassetacctchg, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfAllowDupInvc':
                         $stmt->bindValue($identifier, $this->aptbconfallowdupinvc, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfPrtSoRept':
                         $stmt->bindValue($identifier, $this->aptbconfprtsorept, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfEiCheckHist':
                         $stmt->bindValue($identifier, $this->aptbconfeicheckhist, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfSummGl':
                         $stmt->bindValue($identifier, $this->aptbconfsummgl, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfVxmUserLabel':
                         $stmt->bindValue($identifier, $this->aptbconfvxmuserlabel, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfVendCostBreaks':
                         $stmt->bindValue($identifier, $this->aptbconfvendcostbreaks, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfMyeClrClosPo':
                         $stmt->bindValue($identifier, $this->aptbconfmyeclrclospo, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfMyeClrClosDate':
                         $stmt->bindValue($identifier, $this->aptbconfmyeclrclosdate, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfMyeClrPoHist':
                         $stmt->bindValue($identifier, $this->aptbconfmyeclrpohist, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfMyeClrPoDate':
                         $stmt->bindValue($identifier, $this->aptbconfmyeclrpodate, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfMyeClrCkHist':
                         $stmt->bindValue($identifier, $this->aptbconfmyeclrckhist, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfMyeClrCkDate':
                         $stmt->bindValue($identifier, $this->aptbconfmyeclrckdate, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfMyeClrOpenCk':
                         $stmt->bindValue($identifier, $this->aptbconfmyeclropenck, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfLead':
                         $stmt->bindValue($identifier, $this->aptbconflead, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfVrReworkItem':
                         $stmt->bindValue($identifier, $this->aptbconfvrreworkitem, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfVrqcWhse':
                         $stmt->bindValue($identifier, $this->aptbconfvrqcwhse, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfVrGlAcct':
                         $stmt->bindValue($identifier, $this->aptbconfvrglacct, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfVxmListPc':
                         $stmt->bindValue($identifier, $this->aptbconfvxmlistpc, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfVxmListItemUpd':
                         $stmt->bindValue($identifier, $this->aptbconfvxmlistitemupd, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfVxmGrossLc':
                         $stmt->bindValue($identifier, $this->aptbconfvxmgrosslc, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfVxmCostLp':
                         $stmt->bindValue($identifier, $this->aptbconfvxmcostlp, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfVxmCostItemUpd':
                         $stmt->bindValue($identifier, $this->aptbconfvxmcostitemupd, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfVxmCostRMesg':
                         $stmt->bindValue($identifier, $this->aptbconfvxmcostrmesg, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfVxmCostItemUpdM':
                         $stmt->bindValue($identifier, $this->aptbconfvxmcostitemupdm, PDO::PARAM_STR);
+
                         break;
                     case 'AptbConfVxmCostMMesg':
                         $stmt->bindValue($identifier, $this->aptbconfvxmcostmmesg, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -4301,12 +4386,12 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -4317,14 +4402,14 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ConfigApTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -4336,258 +4421,257 @@ abstract class ConfigAp implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getAptbconfkey();
-                break;
+
             case 1:
                 return $this->getAptbconfglifac();
-                break;
+
             case 2:
                 return $this->getAptbconfinifac();
-                break;
+
             case 3:
                 return $this->getAptbconfsoifac();
-                break;
+
             case 4:
                 return $this->getAptbconfpoifac();
-                break;
+
             case 5:
                 return $this->getAptbconffrtacct();
-                break;
+
             case 6:
                 return $this->getAptbconfmiscacct();
-                break;
+
             case 7:
                 return $this->getAptbconfapacct();
-                break;
+
             case 8:
                 return $this->getAptbconfcashacct();
-                break;
+
             case 9:
                 return $this->getAptbconfdiscacct();
-                break;
+
             case 10:
                 return $this->getAptbconftaxacct();
-                break;
+
             case 11:
                 return $this->getAptbconfpuracct();
-                break;
+
             case 12:
                 return $this->getAptbconfvaracct();
-                break;
+
             case 13:
                 return $this->getAptbconfvenddisc();
-                break;
+
             case 14:
                 return $this->getAptbconfapinvvaracct();
-                break;
+
             case 15:
                 return $this->getAptbconfuseroyal();
-                break;
+
             case 16:
                 return $this->getAptbconfdefbuyrcode();
-                break;
+
             case 17:
                 return $this->getAptbconfdeftermcode();
-                break;
+
             case 18:
                 return $this->getAptbconfdefsviacode();
-                break;
+
             case 19:
                 return $this->getAptbconfdeftypecode();
-                break;
+
             case 20:
                 return $this->getAptbconfvendline();
-                break;
+
             case 21:
                 return $this->getAptbconfvendcols();
-                break;
+
             case 22:
                 return $this->getAptbconfpoline();
-                break;
+
             case 23:
                 return $this->getAptbconfpocols();
-                break;
+
             case 24:
                 return $this->getAptbconfvendgetopt();
-                break;
+
             case 25:
                 return $this->getAptbconfpaytoshipfr();
-                break;
+
             case 26:
                 return $this->getAptbconfholdstat();
-                break;
+
             case 27:
                 return $this->getAptbconfdiscret();
-                break;
+
             case 28:
                 return $this->getAptbconfstopvendchg();
-                break;
+
             case 29:
                 return $this->getAptbconfreqdate2();
-                break;
+
             case 30:
                 return $this->getAptbconfreqdate3();
-                break;
+
             case 31:
                 return $this->getAptbconfreqdate4();
-                break;
+
             case 32:
                 return $this->getAptbconf1099name();
-                break;
+
             case 33:
                 return $this->getAptbconf1099adr1();
-                break;
+
             case 34:
                 return $this->getAptbconf1099adr2();
-                break;
+
             case 35:
                 return $this->getAptbconf1099adr3();
-                break;
+
             case 36:
                 return $this->getAptbconf1099city();
-                break;
+
             case 37:
                 return $this->getAptbconf1099stat();
-                break;
+
             case 38:
                 return $this->getAptbconf1099zipcode();
-                break;
+
             case 39:
                 return $this->getAptbconf1099id();
-                break;
+
             case 40:
                 return $this->getAptbconfstubsort();
-                break;
+
             case 41:
                 return $this->getAptbConfUseAch();
-                break;
+
             case 42:
                 return $this->getAptbconfover1();
-                break;
+
             case 43:
                 return $this->getAptbconfover2();
-                break;
+
             case 44:
                 return $this->getAptbconfprtchk();
-                break;
+
             case 45:
                 return $this->getAptbconfeiunrecqty();
-                break;
+
             case 46:
                 return $this->getAptbconfeirecqtyask();
-                break;
+
             case 47:
                 return $this->getAptbconfeirecqtydef();
-                break;
+
             case 48:
                 return $this->getAptbconfallowmultpos();
-                break;
+
             case 49:
                 return $this->getAptbconfeibyclerk();
-                break;
+
             case 50:
                 return $this->getAptbconfeibatchproc();
-                break;
+
             case 51:
                 return $this->getAptbconfeidispstancost();
-                break;
+
             case 52:
                 return $this->getAptbconfeiassetacctchg();
-                break;
+
             case 53:
                 return $this->getAptbconfallowdupinvc();
-                break;
+
             case 54:
                 return $this->getAptbconfprtsorept();
-                break;
+
             case 55:
                 return $this->getAptbconfeicheckhist();
-                break;
+
             case 56:
                 return $this->getAptbconfsummgl();
-                break;
+
             case 57:
                 return $this->getAptbconfvxmuserlabel();
-                break;
+
             case 58:
                 return $this->getAptbconfvendcostbreaks();
-                break;
+
             case 59:
                 return $this->getAptbconfmyeclrclospo();
-                break;
+
             case 60:
                 return $this->getAptbconfmyeclrclosdate();
-                break;
+
             case 61:
                 return $this->getAptbconfmyeclrpohist();
-                break;
+
             case 62:
                 return $this->getAptbconfmyeclrpodate();
-                break;
+
             case 63:
                 return $this->getAptbconfmyeclrckhist();
-                break;
+
             case 64:
                 return $this->getAptbconfmyeclrckdate();
-                break;
+
             case 65:
                 return $this->getAptbconfmyeclropenck();
-                break;
+
             case 66:
                 return $this->getAptbconflead();
-                break;
+
             case 67:
                 return $this->getAptbconfvrreworkitem();
-                break;
+
             case 68:
                 return $this->getAptbconfvrqcwhse();
-                break;
+
             case 69:
                 return $this->getAptbconfvrglacct();
-                break;
+
             case 70:
                 return $this->getAptbconfvxmlistpc();
-                break;
+
             case 71:
                 return $this->getAptbconfvxmlistitemupd();
-                break;
+
             case 72:
                 return $this->getAptbconfvxmgrosslc();
-                break;
+
             case 73:
                 return $this->getAptbconfvxmcostlp();
-                break;
+
             case 74:
                 return $this->getAptbconfvxmcostitemupd();
-                break;
+
             case 75:
                 return $this->getAptbconfvxmcostrmesg();
-                break;
+
             case 76:
                 return $this->getAptbconfvxmcostitemupdm();
-                break;
+
             case 77:
                 return $this->getAptbconfvxmcostmmesg();
-                break;
+
             case 78:
                 return $this->getDateupdtd();
-                break;
+
             case 79:
                 return $this->getTimeupdtd();
-                break;
+
             case 80:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -4597,23 +4681,22 @@ abstract class ConfigAp implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = []): array
     {
-
         if (isset($alreadyDumpedObjects['ConfigAp'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['ConfigAp'][$this->hashCode()] = true;
         $keys = ConfigApTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getAptbconfkey(),
             $keys[1] => $this->getAptbconfglifac(),
             $keys[2] => $this->getAptbconfinifac(),
@@ -4695,7 +4778,7 @@ abstract class ConfigAp implements ActiveRecordInterface
             $keys[78] => $this->getDateupdtd(),
             $keys[79] => $this->getTimeupdtd(),
             $keys[80] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -4708,30 +4791,32 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\ConfigAp
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ConfigApTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\ConfigAp
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -4995,11 +5080,11 @@ abstract class ConfigAp implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = ConfigApTableMap::getFieldNames($keyType);
 
@@ -5246,6 +5331,8 @@ abstract class ConfigAp implements ActiveRecordInterface
         if (array_key_exists($keys[80], $arr)) {
             $this->setDummy($arr[$keys[80]]);
         }
+
+        return $this;
     }
 
      /**
@@ -5265,9 +5352,9 @@ abstract class ConfigAp implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\ConfigAp The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -5281,9 +5368,9 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(ConfigApTableMap::DATABASE_NAME);
 
@@ -5538,13 +5625,13 @@ abstract class ConfigAp implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildConfigApQuery::create();
         $criteria->add(ConfigApTableMap::COL_APTBCONFKEY, $this->aptbconfkey);
@@ -5556,7 +5643,7 @@ abstract class ConfigAp implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -5586,19 +5673,20 @@ abstract class ConfigAp implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (aptbconfkey column).
      *
-     * @param       int $key Primary key.
+     * @param int|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?int $key = null): void
     {
         $this->setAptbconfkey($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getAptbconfkey();
     }
@@ -5609,12 +5697,13 @@ abstract class ConfigAp implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \ConfigAp (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \ConfigAp (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setAptbconfkey($this->getAptbconfkey());
         $copyObj->setAptbconfglifac($this->getAptbconfglifac());
@@ -5710,11 +5799,11 @@ abstract class ConfigAp implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \ConfigAp Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -5728,6 +5817,8 @@ abstract class ConfigAp implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -5818,6 +5909,8 @@ abstract class ConfigAp implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -5826,13 +5919,15 @@ abstract class ConfigAp implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
         } // if ($deep)
 
+        return $this;
     }
 
     /**
@@ -5847,99 +5942,79 @@ abstract class ConfigAp implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -5949,7 +6024,7 @@ abstract class ConfigAp implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -5969,15 +6044,18 @@ abstract class ConfigAp implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

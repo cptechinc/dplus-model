@@ -29,19 +29,21 @@ abstract class ArTermsCode implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\ArTermsCodeTableMap';
+    public const TABLE_MAP = '\\Map\\ArTermsCodeTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -50,14 +52,14 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the artmtermcd field.
@@ -70,693 +72,693 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * The value for the artmtermdesc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmtermdesc;
 
     /**
      * The value for the artmmethod field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmmethod;
 
     /**
      * The value for the artmtype field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmtype;
 
     /**
      * The value for the artmhold field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmhold;
 
     /**
      * The value for the artmexpiredate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmexpiredate;
 
     /**
      * The value for the artmfrtallow field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmfrtallow;
 
     /**
      * The value for the artmccprefix field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmccprefix;
 
     /**
      * The value for the artmsplit1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmsplit1;
 
     /**
      * The value for the artmorderpct1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmorderpct1;
 
     /**
      * The value for the artmdiscpct1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscpct1;
 
     /**
      * The value for the artmdiscdays1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmdiscdays1;
 
     /**
      * The value for the artmdiscday1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscday1;
 
     /**
      * The value for the artmdiscdate1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscdate1;
 
     /**
      * The value for the artmduedays1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmduedays1;
 
     /**
      * The value for the artmdueday1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdueday1;
 
     /**
      * The value for the artmplusmonths1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmplusmonths1;
 
     /**
      * The value for the artmduedate1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmduedate1;
 
     /**
      * The value for the artmplusyear1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmplusyear1;
 
     /**
      * The value for the artmsplit2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmsplit2;
 
     /**
      * The value for the artmorderpct2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmorderpct2;
 
     /**
      * The value for the artmdiscpct2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscpct2;
 
     /**
      * The value for the artmdiscdays2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmdiscdays2;
 
     /**
      * The value for the artmdiscday2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscday2;
 
     /**
      * The value for the artmdiscdate2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscdate2;
 
     /**
      * The value for the artmduedays2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmduedays2;
 
     /**
      * The value for the artmdueday2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdueday2;
 
     /**
      * The value for the artmplusmonths2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmplusmonths2;
 
     /**
      * The value for the artmduedate2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmduedate2;
 
     /**
      * The value for the artmplusyear2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmplusyear2;
 
     /**
      * The value for the artmsplit3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmsplit3;
 
     /**
      * The value for the artmorderpct3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmorderpct3;
 
     /**
      * The value for the artmdiscpct3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscpct3;
 
     /**
      * The value for the artmdiscdays3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmdiscdays3;
 
     /**
      * The value for the artmdiscday3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscday3;
 
     /**
      * The value for the artmdiscdate3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscdate3;
 
     /**
      * The value for the artmduedays3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmduedays3;
 
     /**
      * The value for the artmdueday3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdueday3;
 
     /**
      * The value for the artmplusmonths3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmplusmonths3;
 
     /**
      * The value for the artmduedate3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmduedate3;
 
     /**
      * The value for the artmplusyear3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmplusyear3;
 
     /**
      * The value for the artmsplit4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmsplit4;
 
     /**
      * The value for the artmorderpct4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmorderpct4;
 
     /**
      * The value for the artmdiscpct4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscpct4;
 
     /**
      * The value for the artmdiscdays4 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmdiscdays4;
 
     /**
      * The value for the artmdiscday4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscday4;
 
     /**
      * The value for the artmdiscdate4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscdate4;
 
     /**
      * The value for the artmduedays4 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmduedays4;
 
     /**
      * The value for the artmdueday4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdueday4;
 
     /**
      * The value for the artmplusmonths4 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmplusmonths4;
 
     /**
      * The value for the artmduedate4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmduedate4;
 
     /**
      * The value for the artmplusyear4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmplusyear4;
 
     /**
      * The value for the artmsplit5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmsplit5;
 
     /**
      * The value for the artmorderpct5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmorderpct5;
 
     /**
      * The value for the artmdiscpct5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscpct5;
 
     /**
      * The value for the artmdiscdays5 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmdiscdays5;
 
     /**
      * The value for the artmdiscday5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscday5;
 
     /**
      * The value for the artmdiscdate5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscdate5;
 
     /**
      * The value for the artmduedays5 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmduedays5;
 
     /**
      * The value for the artmdueday5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdueday5;
 
     /**
      * The value for the artmplusmonths5 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmplusmonths5;
 
     /**
      * The value for the artmduedate5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmduedate5;
 
     /**
      * The value for the artmplusyear5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmplusyear5;
 
     /**
      * The value for the artmsplit6 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmsplit6;
 
     /**
      * The value for the artmorderpct6 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmorderpct6;
 
     /**
      * The value for the artmdiscpct6 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscpct6;
 
     /**
      * The value for the artmdiscdays6 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmdiscdays6;
 
     /**
      * The value for the artmdiscday6 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscday6;
 
     /**
      * The value for the artmdiscdate6 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdiscdate6;
 
     /**
      * The value for the artmduedays6 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmduedays6;
 
     /**
      * The value for the artmdueday6 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmdueday6;
 
     /**
      * The value for the artmplusmonths6 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmplusmonths6;
 
     /**
      * The value for the artmduedate6 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmduedate6;
 
     /**
      * The value for the artmplusyear6 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmplusyear6;
 
     /**
      * The value for the artmdayfrom1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmdayfrom1;
 
     /**
      * The value for the artmdaythru1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmdaythru1;
 
     /**
      * The value for the artmeomdiscpct1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmeomdiscpct1;
 
     /**
      * The value for the artmeomdiscday1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmeomdiscday1;
 
     /**
      * The value for the artmeomdiscmonths1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmeomdiscmonths1;
 
     /**
      * The value for the artmeomdueday1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmeomdueday1;
 
     /**
      * The value for the artmeomplusmonths1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmeomplusmonths1;
 
     /**
      * The value for the artmdayfrom2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmdayfrom2;
 
     /**
      * The value for the artmdaythru2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmdaythru2;
 
     /**
      * The value for the artmeomdiscpct2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmeomdiscpct2;
 
     /**
      * The value for the artmeomdiscday2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmeomdiscday2;
 
     /**
      * The value for the artmeomdiscmonths2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmeomdiscmonths2;
 
     /**
      * The value for the artmeomdueday2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmeomdueday2;
 
     /**
      * The value for the artmeomplusmonths2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmeomplusmonths2;
 
     /**
      * The value for the artmdayfrom3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmdayfrom3;
 
     /**
      * The value for the artmdaythru3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmdaythru3;
 
     /**
      * The value for the artmeomdiscpct3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmeomdiscpct3;
 
     /**
      * The value for the artmeomdiscday3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmeomdiscday3;
 
     /**
      * The value for the artmeomdiscmonths3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmeomdiscmonths3;
 
     /**
      * The value for the artmeomdueday3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmeomdueday3;
 
     /**
      * The value for the artmeomplusmonths3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $artmeomplusmonths3;
 
     /**
      * The value for the artmctry field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmctry;
 
     /**
      * The value for the artmtermgrup field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmtermgrup;
 
     /**
      * The value for the dateupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dateupdtd;
 
     /**
      * The value for the timeupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $timeupdtd;
 
     /**
      * The value for the dummy field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
@@ -764,7 +766,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
@@ -774,7 +776,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->artmtermcd = '';
     }
@@ -791,9 +793,9 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -801,10 +803,10 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -813,7 +815,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -823,9 +825,9 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -834,45 +836,43 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -881,10 +881,10 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>ArTermsCode</code>, delegates to
      * <code>equals(ArTermsCode)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -906,7 +906,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -914,10 +914,10 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -925,15 +925,15 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -942,12 +942,12 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|ArTermsCode The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -957,13 +957,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -974,24 +974,27 @@ abstract class ArTermsCode implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -1019,7 +1022,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmtermdesc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmtermdesc()
     {
@@ -1029,7 +1032,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmmethod] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmmethod()
     {
@@ -1039,7 +1042,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmtype] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmtype()
     {
@@ -1049,7 +1052,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmhold] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmhold()
     {
@@ -1059,7 +1062,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmexpiredate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmexpiredate()
     {
@@ -1069,7 +1072,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmfrtallow] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmfrtallow()
     {
@@ -1079,7 +1082,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmccprefix] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmccprefix()
     {
@@ -1089,7 +1092,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmsplit1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmsplit1()
     {
@@ -1099,7 +1102,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmorderpct1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmorderpct1()
     {
@@ -1109,7 +1112,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscpct1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscpct1()
     {
@@ -1119,7 +1122,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscdays1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmdiscdays1()
     {
@@ -1129,7 +1132,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscday1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscday1()
     {
@@ -1139,7 +1142,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscdate1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscdate1()
     {
@@ -1149,7 +1152,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmduedays1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmduedays1()
     {
@@ -1159,7 +1162,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdueday1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdueday1()
     {
@@ -1169,7 +1172,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmplusmonths1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmplusmonths1()
     {
@@ -1179,7 +1182,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmduedate1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmduedate1()
     {
@@ -1189,7 +1192,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmplusyear1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmplusyear1()
     {
@@ -1199,7 +1202,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmsplit2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmsplit2()
     {
@@ -1209,7 +1212,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmorderpct2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmorderpct2()
     {
@@ -1219,7 +1222,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscpct2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscpct2()
     {
@@ -1229,7 +1232,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscdays2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmdiscdays2()
     {
@@ -1239,7 +1242,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscday2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscday2()
     {
@@ -1249,7 +1252,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscdate2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscdate2()
     {
@@ -1259,7 +1262,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmduedays2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmduedays2()
     {
@@ -1269,7 +1272,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdueday2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdueday2()
     {
@@ -1279,7 +1282,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmplusmonths2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmplusmonths2()
     {
@@ -1289,7 +1292,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmduedate2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmduedate2()
     {
@@ -1299,7 +1302,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmplusyear2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmplusyear2()
     {
@@ -1309,7 +1312,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmsplit3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmsplit3()
     {
@@ -1319,7 +1322,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmorderpct3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmorderpct3()
     {
@@ -1329,7 +1332,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscpct3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscpct3()
     {
@@ -1339,7 +1342,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscdays3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmdiscdays3()
     {
@@ -1349,7 +1352,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscday3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscday3()
     {
@@ -1359,7 +1362,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscdate3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscdate3()
     {
@@ -1369,7 +1372,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmduedays3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmduedays3()
     {
@@ -1379,7 +1382,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdueday3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdueday3()
     {
@@ -1389,7 +1392,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmplusmonths3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmplusmonths3()
     {
@@ -1399,7 +1402,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmduedate3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmduedate3()
     {
@@ -1409,7 +1412,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmplusyear3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmplusyear3()
     {
@@ -1419,7 +1422,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmsplit4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmsplit4()
     {
@@ -1429,7 +1432,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmorderpct4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmorderpct4()
     {
@@ -1439,7 +1442,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscpct4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscpct4()
     {
@@ -1449,7 +1452,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscdays4] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmdiscdays4()
     {
@@ -1459,7 +1462,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscday4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscday4()
     {
@@ -1469,7 +1472,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscdate4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscdate4()
     {
@@ -1479,7 +1482,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmduedays4] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmduedays4()
     {
@@ -1489,7 +1492,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdueday4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdueday4()
     {
@@ -1499,7 +1502,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmplusmonths4] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmplusmonths4()
     {
@@ -1509,7 +1512,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmduedate4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmduedate4()
     {
@@ -1519,7 +1522,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmplusyear4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmplusyear4()
     {
@@ -1529,7 +1532,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmsplit5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmsplit5()
     {
@@ -1539,7 +1542,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmorderpct5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmorderpct5()
     {
@@ -1549,7 +1552,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscpct5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscpct5()
     {
@@ -1559,7 +1562,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscdays5] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmdiscdays5()
     {
@@ -1569,7 +1572,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscday5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscday5()
     {
@@ -1579,7 +1582,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscdate5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscdate5()
     {
@@ -1589,7 +1592,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmduedays5] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmduedays5()
     {
@@ -1599,7 +1602,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdueday5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdueday5()
     {
@@ -1609,7 +1612,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmplusmonths5] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmplusmonths5()
     {
@@ -1619,7 +1622,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmduedate5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmduedate5()
     {
@@ -1629,7 +1632,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmplusyear5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmplusyear5()
     {
@@ -1639,7 +1642,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmsplit6] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmsplit6()
     {
@@ -1649,7 +1652,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmorderpct6] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmorderpct6()
     {
@@ -1659,7 +1662,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscpct6] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscpct6()
     {
@@ -1669,7 +1672,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscdays6] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmdiscdays6()
     {
@@ -1679,7 +1682,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscday6] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscday6()
     {
@@ -1689,7 +1692,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdiscdate6] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdiscdate6()
     {
@@ -1699,7 +1702,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmduedays6] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmduedays6()
     {
@@ -1709,7 +1712,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdueday6] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmdueday6()
     {
@@ -1719,7 +1722,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmplusmonths6] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmplusmonths6()
     {
@@ -1729,7 +1732,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmduedate6] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmduedate6()
     {
@@ -1739,7 +1742,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmplusyear6] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmplusyear6()
     {
@@ -1749,7 +1752,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdayfrom1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmdayfrom1()
     {
@@ -1759,7 +1762,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdaythru1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmdaythru1()
     {
@@ -1769,7 +1772,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmeomdiscpct1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmeomdiscpct1()
     {
@@ -1779,7 +1782,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmeomdiscday1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmeomdiscday1()
     {
@@ -1789,7 +1792,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmeomdiscmonths1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmeomdiscmonths1()
     {
@@ -1799,7 +1802,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmeomdueday1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmeomdueday1()
     {
@@ -1809,7 +1812,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmeomplusmonths1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmeomplusmonths1()
     {
@@ -1819,7 +1822,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdayfrom2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmdayfrom2()
     {
@@ -1829,7 +1832,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdaythru2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmdaythru2()
     {
@@ -1839,7 +1842,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmeomdiscpct2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmeomdiscpct2()
     {
@@ -1849,7 +1852,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmeomdiscday2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmeomdiscday2()
     {
@@ -1859,7 +1862,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmeomdiscmonths2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmeomdiscmonths2()
     {
@@ -1869,7 +1872,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmeomdueday2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmeomdueday2()
     {
@@ -1879,7 +1882,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmeomplusmonths2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmeomplusmonths2()
     {
@@ -1889,7 +1892,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdayfrom3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmdayfrom3()
     {
@@ -1899,7 +1902,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmdaythru3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmdaythru3()
     {
@@ -1909,7 +1912,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmeomdiscpct3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmeomdiscpct3()
     {
@@ -1919,7 +1922,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmeomdiscday3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmeomdiscday3()
     {
@@ -1929,7 +1932,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmeomdiscmonths3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmeomdiscmonths3()
     {
@@ -1939,7 +1942,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmeomdueday3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmeomdueday3()
     {
@@ -1949,7 +1952,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmeomplusmonths3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getArtmeomplusmonths3()
     {
@@ -1959,7 +1962,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmctry] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmctry()
     {
@@ -1969,7 +1972,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [artmtermgrup] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmtermgrup()
     {
@@ -1979,7 +1982,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [dateupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDateupdtd()
     {
@@ -1989,7 +1992,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [timeupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTimeupdtd()
     {
@@ -1999,7 +2002,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -2009,8 +2012,8 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Set the value of [artmtermcd] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmtermcd($v)
     {
@@ -2024,13 +2027,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmtermcd()
+    }
 
     /**
      * Set the value of [artmtermdesc] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmtermdesc($v)
     {
@@ -2044,13 +2047,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmtermdesc()
+    }
 
     /**
      * Set the value of [artmmethod] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmmethod($v)
     {
@@ -2064,13 +2067,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmmethod()
+    }
 
     /**
      * Set the value of [artmtype] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmtype($v)
     {
@@ -2084,13 +2087,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmtype()
+    }
 
     /**
      * Set the value of [artmhold] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmhold($v)
     {
@@ -2104,13 +2107,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmhold()
+    }
 
     /**
      * Set the value of [artmexpiredate] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmexpiredate($v)
     {
@@ -2124,13 +2127,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmexpiredate()
+    }
 
     /**
      * Set the value of [artmfrtallow] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmfrtallow($v)
     {
@@ -2144,13 +2147,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmfrtallow()
+    }
 
     /**
      * Set the value of [artmccprefix] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmccprefix($v)
     {
@@ -2164,13 +2167,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmccprefix()
+    }
 
     /**
      * Set the value of [artmsplit1] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmsplit1($v)
     {
@@ -2184,13 +2187,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmsplit1()
+    }
 
     /**
      * Set the value of [artmorderpct1] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmorderpct1($v)
     {
@@ -2204,13 +2207,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmorderpct1()
+    }
 
     /**
      * Set the value of [artmdiscpct1] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscpct1($v)
     {
@@ -2224,13 +2227,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscpct1()
+    }
 
     /**
      * Set the value of [artmdiscdays1] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscdays1($v)
     {
@@ -2244,13 +2247,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscdays1()
+    }
 
     /**
      * Set the value of [artmdiscday1] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscday1($v)
     {
@@ -2264,13 +2267,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscday1()
+    }
 
     /**
      * Set the value of [artmdiscdate1] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscdate1($v)
     {
@@ -2284,13 +2287,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscdate1()
+    }
 
     /**
      * Set the value of [artmduedays1] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmduedays1($v)
     {
@@ -2304,13 +2307,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmduedays1()
+    }
 
     /**
      * Set the value of [artmdueday1] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdueday1($v)
     {
@@ -2324,13 +2327,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdueday1()
+    }
 
     /**
      * Set the value of [artmplusmonths1] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmplusmonths1($v)
     {
@@ -2344,13 +2347,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmplusmonths1()
+    }
 
     /**
      * Set the value of [artmduedate1] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmduedate1($v)
     {
@@ -2364,13 +2367,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmduedate1()
+    }
 
     /**
      * Set the value of [artmplusyear1] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmplusyear1($v)
     {
@@ -2384,13 +2387,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmplusyear1()
+    }
 
     /**
      * Set the value of [artmsplit2] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmsplit2($v)
     {
@@ -2404,13 +2407,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmsplit2()
+    }
 
     /**
      * Set the value of [artmorderpct2] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmorderpct2($v)
     {
@@ -2424,13 +2427,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmorderpct2()
+    }
 
     /**
      * Set the value of [artmdiscpct2] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscpct2($v)
     {
@@ -2444,13 +2447,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscpct2()
+    }
 
     /**
      * Set the value of [artmdiscdays2] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscdays2($v)
     {
@@ -2464,13 +2467,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscdays2()
+    }
 
     /**
      * Set the value of [artmdiscday2] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscday2($v)
     {
@@ -2484,13 +2487,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscday2()
+    }
 
     /**
      * Set the value of [artmdiscdate2] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscdate2($v)
     {
@@ -2504,13 +2507,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscdate2()
+    }
 
     /**
      * Set the value of [artmduedays2] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmduedays2($v)
     {
@@ -2524,13 +2527,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmduedays2()
+    }
 
     /**
      * Set the value of [artmdueday2] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdueday2($v)
     {
@@ -2544,13 +2547,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdueday2()
+    }
 
     /**
      * Set the value of [artmplusmonths2] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmplusmonths2($v)
     {
@@ -2564,13 +2567,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmplusmonths2()
+    }
 
     /**
      * Set the value of [artmduedate2] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmduedate2($v)
     {
@@ -2584,13 +2587,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmduedate2()
+    }
 
     /**
      * Set the value of [artmplusyear2] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmplusyear2($v)
     {
@@ -2604,13 +2607,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmplusyear2()
+    }
 
     /**
      * Set the value of [artmsplit3] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmsplit3($v)
     {
@@ -2624,13 +2627,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmsplit3()
+    }
 
     /**
      * Set the value of [artmorderpct3] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmorderpct3($v)
     {
@@ -2644,13 +2647,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmorderpct3()
+    }
 
     /**
      * Set the value of [artmdiscpct3] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscpct3($v)
     {
@@ -2664,13 +2667,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscpct3()
+    }
 
     /**
      * Set the value of [artmdiscdays3] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscdays3($v)
     {
@@ -2684,13 +2687,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscdays3()
+    }
 
     /**
      * Set the value of [artmdiscday3] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscday3($v)
     {
@@ -2704,13 +2707,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscday3()
+    }
 
     /**
      * Set the value of [artmdiscdate3] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscdate3($v)
     {
@@ -2724,13 +2727,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscdate3()
+    }
 
     /**
      * Set the value of [artmduedays3] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmduedays3($v)
     {
@@ -2744,13 +2747,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmduedays3()
+    }
 
     /**
      * Set the value of [artmdueday3] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdueday3($v)
     {
@@ -2764,13 +2767,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdueday3()
+    }
 
     /**
      * Set the value of [artmplusmonths3] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmplusmonths3($v)
     {
@@ -2784,13 +2787,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmplusmonths3()
+    }
 
     /**
      * Set the value of [artmduedate3] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmduedate3($v)
     {
@@ -2804,13 +2807,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmduedate3()
+    }
 
     /**
      * Set the value of [artmplusyear3] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmplusyear3($v)
     {
@@ -2824,13 +2827,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmplusyear3()
+    }
 
     /**
      * Set the value of [artmsplit4] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmsplit4($v)
     {
@@ -2844,13 +2847,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmsplit4()
+    }
 
     /**
      * Set the value of [artmorderpct4] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmorderpct4($v)
     {
@@ -2864,13 +2867,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmorderpct4()
+    }
 
     /**
      * Set the value of [artmdiscpct4] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscpct4($v)
     {
@@ -2884,13 +2887,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscpct4()
+    }
 
     /**
      * Set the value of [artmdiscdays4] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscdays4($v)
     {
@@ -2904,13 +2907,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscdays4()
+    }
 
     /**
      * Set the value of [artmdiscday4] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscday4($v)
     {
@@ -2924,13 +2927,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscday4()
+    }
 
     /**
      * Set the value of [artmdiscdate4] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscdate4($v)
     {
@@ -2944,13 +2947,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscdate4()
+    }
 
     /**
      * Set the value of [artmduedays4] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmduedays4($v)
     {
@@ -2964,13 +2967,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmduedays4()
+    }
 
     /**
      * Set the value of [artmdueday4] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdueday4($v)
     {
@@ -2984,13 +2987,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdueday4()
+    }
 
     /**
      * Set the value of [artmplusmonths4] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmplusmonths4($v)
     {
@@ -3004,13 +3007,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmplusmonths4()
+    }
 
     /**
      * Set the value of [artmduedate4] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmduedate4($v)
     {
@@ -3024,13 +3027,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmduedate4()
+    }
 
     /**
      * Set the value of [artmplusyear4] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmplusyear4($v)
     {
@@ -3044,13 +3047,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmplusyear4()
+    }
 
     /**
      * Set the value of [artmsplit5] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmsplit5($v)
     {
@@ -3064,13 +3067,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmsplit5()
+    }
 
     /**
      * Set the value of [artmorderpct5] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmorderpct5($v)
     {
@@ -3084,13 +3087,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmorderpct5()
+    }
 
     /**
      * Set the value of [artmdiscpct5] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscpct5($v)
     {
@@ -3104,13 +3107,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscpct5()
+    }
 
     /**
      * Set the value of [artmdiscdays5] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscdays5($v)
     {
@@ -3124,13 +3127,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscdays5()
+    }
 
     /**
      * Set the value of [artmdiscday5] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscday5($v)
     {
@@ -3144,13 +3147,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscday5()
+    }
 
     /**
      * Set the value of [artmdiscdate5] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscdate5($v)
     {
@@ -3164,13 +3167,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscdate5()
+    }
 
     /**
      * Set the value of [artmduedays5] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmduedays5($v)
     {
@@ -3184,13 +3187,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmduedays5()
+    }
 
     /**
      * Set the value of [artmdueday5] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdueday5($v)
     {
@@ -3204,13 +3207,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdueday5()
+    }
 
     /**
      * Set the value of [artmplusmonths5] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmplusmonths5($v)
     {
@@ -3224,13 +3227,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmplusmonths5()
+    }
 
     /**
      * Set the value of [artmduedate5] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmduedate5($v)
     {
@@ -3244,13 +3247,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmduedate5()
+    }
 
     /**
      * Set the value of [artmplusyear5] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmplusyear5($v)
     {
@@ -3264,13 +3267,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmplusyear5()
+    }
 
     /**
      * Set the value of [artmsplit6] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmsplit6($v)
     {
@@ -3284,13 +3287,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmsplit6()
+    }
 
     /**
      * Set the value of [artmorderpct6] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmorderpct6($v)
     {
@@ -3304,13 +3307,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmorderpct6()
+    }
 
     /**
      * Set the value of [artmdiscpct6] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscpct6($v)
     {
@@ -3324,13 +3327,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscpct6()
+    }
 
     /**
      * Set the value of [artmdiscdays6] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscdays6($v)
     {
@@ -3344,13 +3347,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscdays6()
+    }
 
     /**
      * Set the value of [artmdiscday6] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscday6($v)
     {
@@ -3364,13 +3367,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscday6()
+    }
 
     /**
      * Set the value of [artmdiscdate6] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdiscdate6($v)
     {
@@ -3384,13 +3387,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdiscdate6()
+    }
 
     /**
      * Set the value of [artmduedays6] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmduedays6($v)
     {
@@ -3404,13 +3407,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmduedays6()
+    }
 
     /**
      * Set the value of [artmdueday6] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdueday6($v)
     {
@@ -3424,13 +3427,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdueday6()
+    }
 
     /**
      * Set the value of [artmplusmonths6] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmplusmonths6($v)
     {
@@ -3444,13 +3447,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmplusmonths6()
+    }
 
     /**
      * Set the value of [artmduedate6] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmduedate6($v)
     {
@@ -3464,13 +3467,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmduedate6()
+    }
 
     /**
      * Set the value of [artmplusyear6] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmplusyear6($v)
     {
@@ -3484,13 +3487,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmplusyear6()
+    }
 
     /**
      * Set the value of [artmdayfrom1] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdayfrom1($v)
     {
@@ -3504,13 +3507,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdayfrom1()
+    }
 
     /**
      * Set the value of [artmdaythru1] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdaythru1($v)
     {
@@ -3524,13 +3527,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdaythru1()
+    }
 
     /**
      * Set the value of [artmeomdiscpct1] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmeomdiscpct1($v)
     {
@@ -3544,13 +3547,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmeomdiscpct1()
+    }
 
     /**
      * Set the value of [artmeomdiscday1] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmeomdiscday1($v)
     {
@@ -3564,13 +3567,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmeomdiscday1()
+    }
 
     /**
      * Set the value of [artmeomdiscmonths1] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmeomdiscmonths1($v)
     {
@@ -3584,13 +3587,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmeomdiscmonths1()
+    }
 
     /**
      * Set the value of [artmeomdueday1] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmeomdueday1($v)
     {
@@ -3604,13 +3607,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmeomdueday1()
+    }
 
     /**
      * Set the value of [artmeomplusmonths1] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmeomplusmonths1($v)
     {
@@ -3624,13 +3627,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmeomplusmonths1()
+    }
 
     /**
      * Set the value of [artmdayfrom2] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdayfrom2($v)
     {
@@ -3644,13 +3647,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdayfrom2()
+    }
 
     /**
      * Set the value of [artmdaythru2] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdaythru2($v)
     {
@@ -3664,13 +3667,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdaythru2()
+    }
 
     /**
      * Set the value of [artmeomdiscpct2] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmeomdiscpct2($v)
     {
@@ -3684,13 +3687,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmeomdiscpct2()
+    }
 
     /**
      * Set the value of [artmeomdiscday2] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmeomdiscday2($v)
     {
@@ -3704,13 +3707,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmeomdiscday2()
+    }
 
     /**
      * Set the value of [artmeomdiscmonths2] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmeomdiscmonths2($v)
     {
@@ -3724,13 +3727,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmeomdiscmonths2()
+    }
 
     /**
      * Set the value of [artmeomdueday2] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmeomdueday2($v)
     {
@@ -3744,13 +3747,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmeomdueday2()
+    }
 
     /**
      * Set the value of [artmeomplusmonths2] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmeomplusmonths2($v)
     {
@@ -3764,13 +3767,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmeomplusmonths2()
+    }
 
     /**
      * Set the value of [artmdayfrom3] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdayfrom3($v)
     {
@@ -3784,13 +3787,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdayfrom3()
+    }
 
     /**
      * Set the value of [artmdaythru3] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmdaythru3($v)
     {
@@ -3804,13 +3807,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmdaythru3()
+    }
 
     /**
      * Set the value of [artmeomdiscpct3] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmeomdiscpct3($v)
     {
@@ -3824,13 +3827,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmeomdiscpct3()
+    }
 
     /**
      * Set the value of [artmeomdiscday3] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmeomdiscday3($v)
     {
@@ -3844,13 +3847,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmeomdiscday3()
+    }
 
     /**
      * Set the value of [artmeomdiscmonths3] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmeomdiscmonths3($v)
     {
@@ -3864,13 +3867,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmeomdiscmonths3()
+    }
 
     /**
      * Set the value of [artmeomdueday3] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmeomdueday3($v)
     {
@@ -3884,13 +3887,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmeomdueday3()
+    }
 
     /**
      * Set the value of [artmeomplusmonths3] column.
      *
-     * @param int $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmeomplusmonths3($v)
     {
@@ -3904,13 +3907,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmeomplusmonths3()
+    }
 
     /**
      * Set the value of [artmctry] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmctry($v)
     {
@@ -3924,13 +3927,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmctry()
+    }
 
     /**
      * Set the value of [artmtermgrup] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmtermgrup($v)
     {
@@ -3944,13 +3947,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmtermgrup()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -3964,13 +3967,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -3984,13 +3987,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\ArTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -4004,7 +4007,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -4012,9 +4015,9 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->artmtermcd !== '') {
                 return false;
@@ -4022,7 +4025,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -4032,17 +4035,17 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -4345,8 +4348,8 @@ abstract class ArTermsCode implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : ArTermsCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -4371,23 +4374,24 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -4420,13 +4424,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see ArTermsCode::setDeleted()
      * @see ArTermsCode::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -4456,12 +4460,12 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -4506,12 +4510,12 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -4533,19 +4537,19 @@ abstract class ArTermsCode implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -4863,303 +4867,403 @@ abstract class ArTermsCode implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'ArtmTermCd':
                         $stmt->bindValue($identifier, $this->artmtermcd, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmTermDesc':
                         $stmt->bindValue($identifier, $this->artmtermdesc, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmMethod':
                         $stmt->bindValue($identifier, $this->artmmethod, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmType':
                         $stmt->bindValue($identifier, $this->artmtype, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmHold':
                         $stmt->bindValue($identifier, $this->artmhold, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmExpireDate':
                         $stmt->bindValue($identifier, $this->artmexpiredate, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmFrtAllow':
                         $stmt->bindValue($identifier, $this->artmfrtallow, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmCcPrefix':
                         $stmt->bindValue($identifier, $this->artmccprefix, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmSplit1':
                         $stmt->bindValue($identifier, $this->artmsplit1, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmOrderPct1':
                         $stmt->bindValue($identifier, $this->artmorderpct1, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscPct1':
                         $stmt->bindValue($identifier, $this->artmdiscpct1, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscDays1':
                         $stmt->bindValue($identifier, $this->artmdiscdays1, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDiscDay1':
                         $stmt->bindValue($identifier, $this->artmdiscday1, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscDate1':
                         $stmt->bindValue($identifier, $this->artmdiscdate1, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDueDays1':
                         $stmt->bindValue($identifier, $this->artmduedays1, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDueDay1':
                         $stmt->bindValue($identifier, $this->artmdueday1, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmPlusMonths1':
                         $stmt->bindValue($identifier, $this->artmplusmonths1, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDueDate1':
                         $stmt->bindValue($identifier, $this->artmduedate1, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmPlusYear1':
                         $stmt->bindValue($identifier, $this->artmplusyear1, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmSplit2':
                         $stmt->bindValue($identifier, $this->artmsplit2, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmOrderPct2':
                         $stmt->bindValue($identifier, $this->artmorderpct2, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscPct2':
                         $stmt->bindValue($identifier, $this->artmdiscpct2, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscDays2':
                         $stmt->bindValue($identifier, $this->artmdiscdays2, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDiscDay2':
                         $stmt->bindValue($identifier, $this->artmdiscday2, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscDate2':
                         $stmt->bindValue($identifier, $this->artmdiscdate2, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDueDays2':
                         $stmt->bindValue($identifier, $this->artmduedays2, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDueDay2':
                         $stmt->bindValue($identifier, $this->artmdueday2, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmPlusMonths2':
                         $stmt->bindValue($identifier, $this->artmplusmonths2, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDueDate2':
                         $stmt->bindValue($identifier, $this->artmduedate2, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmPlusYear2':
                         $stmt->bindValue($identifier, $this->artmplusyear2, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmSplit3':
                         $stmt->bindValue($identifier, $this->artmsplit3, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmOrderPct3':
                         $stmt->bindValue($identifier, $this->artmorderpct3, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscPct3':
                         $stmt->bindValue($identifier, $this->artmdiscpct3, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscDays3':
                         $stmt->bindValue($identifier, $this->artmdiscdays3, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDiscDay3':
                         $stmt->bindValue($identifier, $this->artmdiscday3, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscDate3':
                         $stmt->bindValue($identifier, $this->artmdiscdate3, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDueDays3':
                         $stmt->bindValue($identifier, $this->artmduedays3, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDueDay3':
                         $stmt->bindValue($identifier, $this->artmdueday3, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmPlusMonths3':
                         $stmt->bindValue($identifier, $this->artmplusmonths3, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDueDate3':
                         $stmt->bindValue($identifier, $this->artmduedate3, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmPlusYear3':
                         $stmt->bindValue($identifier, $this->artmplusyear3, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmSplit4':
                         $stmt->bindValue($identifier, $this->artmsplit4, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmOrderPct4':
                         $stmt->bindValue($identifier, $this->artmorderpct4, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscPct4':
                         $stmt->bindValue($identifier, $this->artmdiscpct4, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscDays4':
                         $stmt->bindValue($identifier, $this->artmdiscdays4, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDiscDay4':
                         $stmt->bindValue($identifier, $this->artmdiscday4, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscDate4':
                         $stmt->bindValue($identifier, $this->artmdiscdate4, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDueDays4':
                         $stmt->bindValue($identifier, $this->artmduedays4, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDueDay4':
                         $stmt->bindValue($identifier, $this->artmdueday4, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmPlusMonths4':
                         $stmt->bindValue($identifier, $this->artmplusmonths4, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDueDate4':
                         $stmt->bindValue($identifier, $this->artmduedate4, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmPlusYear4':
                         $stmt->bindValue($identifier, $this->artmplusyear4, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmSplit5':
                         $stmt->bindValue($identifier, $this->artmsplit5, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmOrderPct5':
                         $stmt->bindValue($identifier, $this->artmorderpct5, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscPct5':
                         $stmt->bindValue($identifier, $this->artmdiscpct5, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscDays5':
                         $stmt->bindValue($identifier, $this->artmdiscdays5, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDiscDay5':
                         $stmt->bindValue($identifier, $this->artmdiscday5, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscDate5':
                         $stmt->bindValue($identifier, $this->artmdiscdate5, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDueDays5':
                         $stmt->bindValue($identifier, $this->artmduedays5, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDueDay5':
                         $stmt->bindValue($identifier, $this->artmdueday5, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmPlusMonths5':
                         $stmt->bindValue($identifier, $this->artmplusmonths5, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDueDate5':
                         $stmt->bindValue($identifier, $this->artmduedate5, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmPlusYear5':
                         $stmt->bindValue($identifier, $this->artmplusyear5, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmSplit6':
                         $stmt->bindValue($identifier, $this->artmsplit6, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmOrderPct6':
                         $stmt->bindValue($identifier, $this->artmorderpct6, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscPct6':
                         $stmt->bindValue($identifier, $this->artmdiscpct6, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscDays6':
                         $stmt->bindValue($identifier, $this->artmdiscdays6, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDiscDay6':
                         $stmt->bindValue($identifier, $this->artmdiscday6, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDiscDate6':
                         $stmt->bindValue($identifier, $this->artmdiscdate6, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDueDays6':
                         $stmt->bindValue($identifier, $this->artmduedays6, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDueDay6':
                         $stmt->bindValue($identifier, $this->artmdueday6, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmPlusMonths6':
                         $stmt->bindValue($identifier, $this->artmplusmonths6, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDueDate6':
                         $stmt->bindValue($identifier, $this->artmduedate6, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmPlusYear6':
                         $stmt->bindValue($identifier, $this->artmplusyear6, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmDayFrom1':
                         $stmt->bindValue($identifier, $this->artmdayfrom1, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDayThru1':
                         $stmt->bindValue($identifier, $this->artmdaythru1, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmEomDiscPct1':
                         $stmt->bindValue($identifier, $this->artmeomdiscpct1, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmEomDiscDay1':
                         $stmt->bindValue($identifier, $this->artmeomdiscday1, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmEomDiscMonths1':
                         $stmt->bindValue($identifier, $this->artmeomdiscmonths1, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmEomDueDay1':
                         $stmt->bindValue($identifier, $this->artmeomdueday1, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmEomPlusMonths1':
                         $stmt->bindValue($identifier, $this->artmeomplusmonths1, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDayFrom2':
                         $stmt->bindValue($identifier, $this->artmdayfrom2, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDayThru2':
                         $stmt->bindValue($identifier, $this->artmdaythru2, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmEomDiscPct2':
                         $stmt->bindValue($identifier, $this->artmeomdiscpct2, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmEomDiscDay2':
                         $stmt->bindValue($identifier, $this->artmeomdiscday2, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmEomDiscMonths2':
                         $stmt->bindValue($identifier, $this->artmeomdiscmonths2, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmEomDueDay2':
                         $stmt->bindValue($identifier, $this->artmeomdueday2, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmEomPlusMonths2':
                         $stmt->bindValue($identifier, $this->artmeomplusmonths2, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDayFrom3':
                         $stmt->bindValue($identifier, $this->artmdayfrom3, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmDayThru3':
                         $stmt->bindValue($identifier, $this->artmdaythru3, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmEomDiscPct3':
                         $stmt->bindValue($identifier, $this->artmeomdiscpct3, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmEomDiscDay3':
                         $stmt->bindValue($identifier, $this->artmeomdiscday3, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmEomDiscMonths3':
                         $stmt->bindValue($identifier, $this->artmeomdiscmonths3, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmEomDueDay3':
                         $stmt->bindValue($identifier, $this->artmeomdueday3, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmEomPlusMonths3':
                         $stmt->bindValue($identifier, $this->artmeomplusmonths3, PDO::PARAM_INT);
+
                         break;
                     case 'ArtmCtry':
                         $stmt->bindValue($identifier, $this->artmctry, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmTermGrup':
                         $stmt->bindValue($identifier, $this->artmtermgrup, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -5175,12 +5279,12 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -5191,14 +5295,14 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ArTermsCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -5210,315 +5314,314 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getArtmtermcd();
-                break;
+
             case 1:
                 return $this->getArtmtermdesc();
-                break;
+
             case 2:
                 return $this->getArtmmethod();
-                break;
+
             case 3:
                 return $this->getArtmtype();
-                break;
+
             case 4:
                 return $this->getArtmhold();
-                break;
+
             case 5:
                 return $this->getArtmexpiredate();
-                break;
+
             case 6:
                 return $this->getArtmfrtallow();
-                break;
+
             case 7:
                 return $this->getArtmccprefix();
-                break;
+
             case 8:
                 return $this->getArtmsplit1();
-                break;
+
             case 9:
                 return $this->getArtmorderpct1();
-                break;
+
             case 10:
                 return $this->getArtmdiscpct1();
-                break;
+
             case 11:
                 return $this->getArtmdiscdays1();
-                break;
+
             case 12:
                 return $this->getArtmdiscday1();
-                break;
+
             case 13:
                 return $this->getArtmdiscdate1();
-                break;
+
             case 14:
                 return $this->getArtmduedays1();
-                break;
+
             case 15:
                 return $this->getArtmdueday1();
-                break;
+
             case 16:
                 return $this->getArtmplusmonths1();
-                break;
+
             case 17:
                 return $this->getArtmduedate1();
-                break;
+
             case 18:
                 return $this->getArtmplusyear1();
-                break;
+
             case 19:
                 return $this->getArtmsplit2();
-                break;
+
             case 20:
                 return $this->getArtmorderpct2();
-                break;
+
             case 21:
                 return $this->getArtmdiscpct2();
-                break;
+
             case 22:
                 return $this->getArtmdiscdays2();
-                break;
+
             case 23:
                 return $this->getArtmdiscday2();
-                break;
+
             case 24:
                 return $this->getArtmdiscdate2();
-                break;
+
             case 25:
                 return $this->getArtmduedays2();
-                break;
+
             case 26:
                 return $this->getArtmdueday2();
-                break;
+
             case 27:
                 return $this->getArtmplusmonths2();
-                break;
+
             case 28:
                 return $this->getArtmduedate2();
-                break;
+
             case 29:
                 return $this->getArtmplusyear2();
-                break;
+
             case 30:
                 return $this->getArtmsplit3();
-                break;
+
             case 31:
                 return $this->getArtmorderpct3();
-                break;
+
             case 32:
                 return $this->getArtmdiscpct3();
-                break;
+
             case 33:
                 return $this->getArtmdiscdays3();
-                break;
+
             case 34:
                 return $this->getArtmdiscday3();
-                break;
+
             case 35:
                 return $this->getArtmdiscdate3();
-                break;
+
             case 36:
                 return $this->getArtmduedays3();
-                break;
+
             case 37:
                 return $this->getArtmdueday3();
-                break;
+
             case 38:
                 return $this->getArtmplusmonths3();
-                break;
+
             case 39:
                 return $this->getArtmduedate3();
-                break;
+
             case 40:
                 return $this->getArtmplusyear3();
-                break;
+
             case 41:
                 return $this->getArtmsplit4();
-                break;
+
             case 42:
                 return $this->getArtmorderpct4();
-                break;
+
             case 43:
                 return $this->getArtmdiscpct4();
-                break;
+
             case 44:
                 return $this->getArtmdiscdays4();
-                break;
+
             case 45:
                 return $this->getArtmdiscday4();
-                break;
+
             case 46:
                 return $this->getArtmdiscdate4();
-                break;
+
             case 47:
                 return $this->getArtmduedays4();
-                break;
+
             case 48:
                 return $this->getArtmdueday4();
-                break;
+
             case 49:
                 return $this->getArtmplusmonths4();
-                break;
+
             case 50:
                 return $this->getArtmduedate4();
-                break;
+
             case 51:
                 return $this->getArtmplusyear4();
-                break;
+
             case 52:
                 return $this->getArtmsplit5();
-                break;
+
             case 53:
                 return $this->getArtmorderpct5();
-                break;
+
             case 54:
                 return $this->getArtmdiscpct5();
-                break;
+
             case 55:
                 return $this->getArtmdiscdays5();
-                break;
+
             case 56:
                 return $this->getArtmdiscday5();
-                break;
+
             case 57:
                 return $this->getArtmdiscdate5();
-                break;
+
             case 58:
                 return $this->getArtmduedays5();
-                break;
+
             case 59:
                 return $this->getArtmdueday5();
-                break;
+
             case 60:
                 return $this->getArtmplusmonths5();
-                break;
+
             case 61:
                 return $this->getArtmduedate5();
-                break;
+
             case 62:
                 return $this->getArtmplusyear5();
-                break;
+
             case 63:
                 return $this->getArtmsplit6();
-                break;
+
             case 64:
                 return $this->getArtmorderpct6();
-                break;
+
             case 65:
                 return $this->getArtmdiscpct6();
-                break;
+
             case 66:
                 return $this->getArtmdiscdays6();
-                break;
+
             case 67:
                 return $this->getArtmdiscday6();
-                break;
+
             case 68:
                 return $this->getArtmdiscdate6();
-                break;
+
             case 69:
                 return $this->getArtmduedays6();
-                break;
+
             case 70:
                 return $this->getArtmdueday6();
-                break;
+
             case 71:
                 return $this->getArtmplusmonths6();
-                break;
+
             case 72:
                 return $this->getArtmduedate6();
-                break;
+
             case 73:
                 return $this->getArtmplusyear6();
-                break;
+
             case 74:
                 return $this->getArtmdayfrom1();
-                break;
+
             case 75:
                 return $this->getArtmdaythru1();
-                break;
+
             case 76:
                 return $this->getArtmeomdiscpct1();
-                break;
+
             case 77:
                 return $this->getArtmeomdiscday1();
-                break;
+
             case 78:
                 return $this->getArtmeomdiscmonths1();
-                break;
+
             case 79:
                 return $this->getArtmeomdueday1();
-                break;
+
             case 80:
                 return $this->getArtmeomplusmonths1();
-                break;
+
             case 81:
                 return $this->getArtmdayfrom2();
-                break;
+
             case 82:
                 return $this->getArtmdaythru2();
-                break;
+
             case 83:
                 return $this->getArtmeomdiscpct2();
-                break;
+
             case 84:
                 return $this->getArtmeomdiscday2();
-                break;
+
             case 85:
                 return $this->getArtmeomdiscmonths2();
-                break;
+
             case 86:
                 return $this->getArtmeomdueday2();
-                break;
+
             case 87:
                 return $this->getArtmeomplusmonths2();
-                break;
+
             case 88:
                 return $this->getArtmdayfrom3();
-                break;
+
             case 89:
                 return $this->getArtmdaythru3();
-                break;
+
             case 90:
                 return $this->getArtmeomdiscpct3();
-                break;
+
             case 91:
                 return $this->getArtmeomdiscday3();
-                break;
+
             case 92:
                 return $this->getArtmeomdiscmonths3();
-                break;
+
             case 93:
                 return $this->getArtmeomdueday3();
-                break;
+
             case 94:
                 return $this->getArtmeomplusmonths3();
-                break;
+
             case 95:
                 return $this->getArtmctry();
-                break;
+
             case 96:
                 return $this->getArtmtermgrup();
-                break;
+
             case 97:
                 return $this->getDateupdtd();
-                break;
+
             case 98:
                 return $this->getTimeupdtd();
-                break;
+
             case 99:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -5528,23 +5631,22 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = []): array
     {
-
         if (isset($alreadyDumpedObjects['ArTermsCode'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['ArTermsCode'][$this->hashCode()] = true;
         $keys = ArTermsCodeTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getArtmtermcd(),
             $keys[1] => $this->getArtmtermdesc(),
             $keys[2] => $this->getArtmmethod(),
@@ -5645,7 +5747,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
             $keys[97] => $this->getDateupdtd(),
             $keys[98] => $this->getTimeupdtd(),
             $keys[99] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -5658,30 +5760,32 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\ArTermsCode
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ArTermsCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\ArTermsCode
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -6002,11 +6106,11 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = ArTermsCodeTableMap::getFieldNames($keyType);
 
@@ -6310,6 +6414,8 @@ abstract class ArTermsCode implements ActiveRecordInterface
         if (array_key_exists($keys[99], $arr)) {
             $this->setDummy($arr[$keys[99]]);
         }
+
+        return $this;
     }
 
      /**
@@ -6329,9 +6435,9 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\ArTermsCode The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -6345,9 +6451,9 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(ArTermsCodeTableMap::DATABASE_NAME);
 
@@ -6659,13 +6765,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildArTermsCodeQuery::create();
         $criteria->add(ArTermsCodeTableMap::COL_ARTMTERMCD, $this->artmtermcd);
@@ -6677,7 +6783,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -6707,19 +6813,20 @@ abstract class ArTermsCode implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (artmtermcd column).
      *
-     * @param       string $key Primary key.
+     * @param string|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?string $key = null): void
     {
         $this->setArtmtermcd($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getArtmtermcd();
     }
@@ -6730,12 +6837,13 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \ArTermsCode (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \ArTermsCode (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setArtmtermcd($this->getArtmtermcd());
         $copyObj->setArtmtermdesc($this->getArtmtermdesc());
@@ -6850,11 +6958,11 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \ArTermsCode Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -6868,6 +6976,8 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -6977,6 +7087,8 @@ abstract class ArTermsCode implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -6985,13 +7097,15 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
         } // if ($deep)
 
+        return $this;
     }
 
     /**
@@ -7006,99 +7120,79 @@ abstract class ArTermsCode implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -7108,7 +7202,7 @@ abstract class ArTermsCode implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -7128,15 +7222,18 @@ abstract class ArTermsCode implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'pr_work_center_cd' table.
- *
- *
+ * Base class that represents a query for the `pr_work_center_cd` table.
  *
  * @method     ChildPrWorkCenterQuery orderByPmtbdeptid($order = Criteria::ASC) Order by the PmtbDeptId column
  * @method     ChildPrWorkCenterQuery orderByPmtbdeptdesc($order = Criteria::ASC) Order by the PmtbDeptDesc column
@@ -52,17 +51,17 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \PrResourceQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildPrWorkCenter findOne(ConnectionInterface $con = null) Return the first ChildPrWorkCenter matching the query
- * @method     ChildPrWorkCenter findOneOrCreate(ConnectionInterface $con = null) Return the first ChildPrWorkCenter matching the query, or a new ChildPrWorkCenter object populated from the query conditions when no match is found
+ * @method     ChildPrWorkCenter|null findOne(?ConnectionInterface $con = null) Return the first ChildPrWorkCenter matching the query
+ * @method     ChildPrWorkCenter findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildPrWorkCenter matching the query, or a new ChildPrWorkCenter object populated from the query conditions when no match is found
  *
- * @method     ChildPrWorkCenter findOneByPmtbdeptid(string $PmtbDeptId) Return the first ChildPrWorkCenter filtered by the PmtbDeptId column
- * @method     ChildPrWorkCenter findOneByPmtbdeptdesc(string $PmtbDeptDesc) Return the first ChildPrWorkCenter filtered by the PmtbDeptDesc column
- * @method     ChildPrWorkCenter findOneByDateupdtd(string $DateUpdtd) Return the first ChildPrWorkCenter filtered by the DateUpdtd column
- * @method     ChildPrWorkCenter findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPrWorkCenter filtered by the TimeUpdtd column
- * @method     ChildPrWorkCenter findOneByDummy(string $dummy) Return the first ChildPrWorkCenter filtered by the dummy column *
-
- * @method     ChildPrWorkCenter requirePk($key, ConnectionInterface $con = null) Return the ChildPrWorkCenter by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildPrWorkCenter requireOne(ConnectionInterface $con = null) Return the first ChildPrWorkCenter matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPrWorkCenter|null findOneByPmtbdeptid(string $PmtbDeptId) Return the first ChildPrWorkCenter filtered by the PmtbDeptId column
+ * @method     ChildPrWorkCenter|null findOneByPmtbdeptdesc(string $PmtbDeptDesc) Return the first ChildPrWorkCenter filtered by the PmtbDeptDesc column
+ * @method     ChildPrWorkCenter|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildPrWorkCenter filtered by the DateUpdtd column
+ * @method     ChildPrWorkCenter|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPrWorkCenter filtered by the TimeUpdtd column
+ * @method     ChildPrWorkCenter|null findOneByDummy(string $dummy) Return the first ChildPrWorkCenter filtered by the dummy column
+ *
+ * @method     ChildPrWorkCenter requirePk($key, ?ConnectionInterface $con = null) Return the ChildPrWorkCenter by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPrWorkCenter requireOne(?ConnectionInterface $con = null) Return the first ChildPrWorkCenter matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildPrWorkCenter requireOneByPmtbdeptid(string $PmtbDeptId) Return the first ChildPrWorkCenter filtered by the PmtbDeptId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPrWorkCenter requireOneByPmtbdeptdesc(string $PmtbDeptDesc) Return the first ChildPrWorkCenter filtered by the PmtbDeptDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -70,14 +69,22 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPrWorkCenter requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPrWorkCenter filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPrWorkCenter requireOneByDummy(string $dummy) Return the first ChildPrWorkCenter filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildPrWorkCenter[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildPrWorkCenter objects based on current ModelCriteria
- * @method     ChildPrWorkCenter[]|ObjectCollection findByPmtbdeptid(string $PmtbDeptId) Return ChildPrWorkCenter objects filtered by the PmtbDeptId column
- * @method     ChildPrWorkCenter[]|ObjectCollection findByPmtbdeptdesc(string $PmtbDeptDesc) Return ChildPrWorkCenter objects filtered by the PmtbDeptDesc column
- * @method     ChildPrWorkCenter[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildPrWorkCenter objects filtered by the DateUpdtd column
- * @method     ChildPrWorkCenter[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildPrWorkCenter objects filtered by the TimeUpdtd column
- * @method     ChildPrWorkCenter[]|ObjectCollection findByDummy(string $dummy) Return ChildPrWorkCenter objects filtered by the dummy column
- * @method     ChildPrWorkCenter[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildPrWorkCenter[]|Collection find(?ConnectionInterface $con = null) Return ChildPrWorkCenter objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildPrWorkCenter> find(?ConnectionInterface $con = null) Return ChildPrWorkCenter objects based on current ModelCriteria
  *
+ * @method     ChildPrWorkCenter[]|Collection findByPmtbdeptid(string|array<string> $PmtbDeptId) Return ChildPrWorkCenter objects filtered by the PmtbDeptId column
+ * @psalm-method Collection&\Traversable<ChildPrWorkCenter> findByPmtbdeptid(string|array<string> $PmtbDeptId) Return ChildPrWorkCenter objects filtered by the PmtbDeptId column
+ * @method     ChildPrWorkCenter[]|Collection findByPmtbdeptdesc(string|array<string> $PmtbDeptDesc) Return ChildPrWorkCenter objects filtered by the PmtbDeptDesc column
+ * @psalm-method Collection&\Traversable<ChildPrWorkCenter> findByPmtbdeptdesc(string|array<string> $PmtbDeptDesc) Return ChildPrWorkCenter objects filtered by the PmtbDeptDesc column
+ * @method     ChildPrWorkCenter[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildPrWorkCenter objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildPrWorkCenter> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildPrWorkCenter objects filtered by the DateUpdtd column
+ * @method     ChildPrWorkCenter[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildPrWorkCenter objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildPrWorkCenter> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildPrWorkCenter objects filtered by the TimeUpdtd column
+ * @method     ChildPrWorkCenter[]|Collection findByDummy(string|array<string> $dummy) Return ChildPrWorkCenter objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildPrWorkCenter> findByDummy(string|array<string> $dummy) Return ChildPrWorkCenter objects filtered by the dummy column
+ *
+ * @method     ChildPrWorkCenter[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildPrWorkCenter> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class PrWorkCenterQuery extends ModelCriteria
 {
@@ -86,9 +93,9 @@ abstract class PrWorkCenterQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\PrWorkCenterQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\PrWorkCenter', $modelAlias = null)
     {
@@ -98,12 +105,12 @@ abstract class PrWorkCenterQuery extends ModelCriteria
     /**
      * Returns a new ChildPrWorkCenterQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildPrWorkCenterQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildPrWorkCenterQuery) {
             return $criteria;
@@ -133,7 +140,7 @@ abstract class PrWorkCenterQuery extends ModelCriteria
      *
      * @return ChildPrWorkCenter|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -165,8 +172,8 @@ abstract class PrWorkCenterQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -198,8 +205,8 @@ abstract class PrWorkCenterQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildPrWorkCenter|array|mixed the result, formatted by the current formatter
      */
@@ -219,12 +226,12 @@ abstract class PrWorkCenterQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -241,27 +248,31 @@ abstract class PrWorkCenterQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildPrWorkCenterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(PrWorkCenterTableMap::COL_PMTBDEPTID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(PrWorkCenterTableMap::COL_PMTBDEPTID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildPrWorkCenterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(PrWorkCenterTableMap::COL_PMTBDEPTID, $keys, Criteria::IN);
+        $this->addUsingAlias(PrWorkCenterTableMap::COL_PMTBDEPTID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -271,14 +282,15 @@ abstract class PrWorkCenterQuery extends ModelCriteria
      * <code>
      * $query->filterByPmtbdeptid('fooValue');   // WHERE PmtbDeptId = 'fooValue'
      * $query->filterByPmtbdeptid('%fooValue%', Criteria::LIKE); // WHERE PmtbDeptId LIKE '%fooValue%'
+     * $query->filterByPmtbdeptid(['foo', 'bar']); // WHERE PmtbDeptId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $pmtbdeptid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $pmtbdeptid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrWorkCenterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPmtbdeptid($pmtbdeptid = null, $comparison = null)
+    public function filterByPmtbdeptid($pmtbdeptid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($pmtbdeptid)) {
@@ -286,7 +298,9 @@ abstract class PrWorkCenterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrWorkCenterTableMap::COL_PMTBDEPTID, $pmtbdeptid, $comparison);
+        $this->addUsingAlias(PrWorkCenterTableMap::COL_PMTBDEPTID, $pmtbdeptid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -296,14 +310,15 @@ abstract class PrWorkCenterQuery extends ModelCriteria
      * <code>
      * $query->filterByPmtbdeptdesc('fooValue');   // WHERE PmtbDeptDesc = 'fooValue'
      * $query->filterByPmtbdeptdesc('%fooValue%', Criteria::LIKE); // WHERE PmtbDeptDesc LIKE '%fooValue%'
+     * $query->filterByPmtbdeptdesc(['foo', 'bar']); // WHERE PmtbDeptDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $pmtbdeptdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $pmtbdeptdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrWorkCenterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPmtbdeptdesc($pmtbdeptdesc = null, $comparison = null)
+    public function filterByPmtbdeptdesc($pmtbdeptdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($pmtbdeptdesc)) {
@@ -311,7 +326,9 @@ abstract class PrWorkCenterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrWorkCenterTableMap::COL_PMTBDEPTDESC, $pmtbdeptdesc, $comparison);
+        $this->addUsingAlias(PrWorkCenterTableMap::COL_PMTBDEPTDESC, $pmtbdeptdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -321,14 +338,15 @@ abstract class PrWorkCenterQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrWorkCenterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -336,7 +354,9 @@ abstract class PrWorkCenterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrWorkCenterTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(PrWorkCenterTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -346,14 +366,15 @@ abstract class PrWorkCenterQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrWorkCenterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -361,7 +382,9 @@ abstract class PrWorkCenterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrWorkCenterTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(PrWorkCenterTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -371,14 +394,15 @@ abstract class PrWorkCenterQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrWorkCenterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -386,27 +410,33 @@ abstract class PrWorkCenterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrWorkCenterTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(PrWorkCenterTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \PrResource object
      *
      * @param \PrResource|ObjectCollection $prResource the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildPrWorkCenterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrResource($prResource, $comparison = null)
+    public function filterByPrResource($prResource, ?string $comparison = null)
     {
         if ($prResource instanceof \PrResource) {
-            return $this
+            $this
                 ->addUsingAlias(PrWorkCenterTableMap::COL_PMTBDEPTID, $prResource->getPmtbdeptid(), $comparison);
+
+            return $this;
         } elseif ($prResource instanceof ObjectCollection) {
-            return $this
+            $this
                 ->usePrResourceQuery()
                 ->filterByPrimaryKeys($prResource->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByPrResource() only accepts arguments of type \PrResource or Collection');
         }
@@ -415,12 +445,12 @@ abstract class PrWorkCenterQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the PrResource relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildPrWorkCenterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinPrResource($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinPrResource(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('PrResource');
@@ -449,9 +479,9 @@ abstract class PrWorkCenterQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \PrResourceQuery A secondary query class using the current class as primary query
      */
@@ -463,11 +493,107 @@ abstract class PrWorkCenterQuery extends ModelCriteria
     }
 
     /**
+     * Use the PrResource relation PrResource object
+     *
+     * @param callable(\PrResourceQuery):\PrResourceQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withPrResourceQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->usePrResourceQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to PrResource table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \PrResourceQuery The inner query object of the EXISTS statement
+     */
+    public function usePrResourceExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \PrResourceQuery */
+        $q = $this->useExistsQuery('PrResource', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PrResource table for a NOT EXISTS query.
+     *
+     * @see usePrResourceExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \PrResourceQuery The inner query object of the NOT EXISTS statement
+     */
+    public function usePrResourceNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PrResourceQuery */
+        $q = $this->useExistsQuery('PrResource', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to PrResource table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \PrResourceQuery The inner query object of the IN statement
+     */
+    public function useInPrResourceQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \PrResourceQuery */
+        $q = $this->useInQuery('PrResource', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PrResource table for a NOT IN query.
+     *
+     * @see usePrResourceInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \PrResourceQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInPrResourceQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PrResourceQuery */
+        $q = $this->useInQuery('PrResource', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildPrWorkCenter $prWorkCenter Object to remove from the list of results
+     * @param ChildPrWorkCenter $prWorkCenter Object to remove from the list of results
      *
-     * @return $this|ChildPrWorkCenterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($prWorkCenter = null)
     {
@@ -484,7 +610,7 @@ abstract class PrWorkCenterQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PrWorkCenterTableMap::DATABASE_NAME);
@@ -509,12 +635,12 @@ abstract class PrWorkCenterQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PrWorkCenterTableMap::DATABASE_NAME);
@@ -539,4 +665,4 @@ abstract class PrWorkCenterQuery extends ModelCriteria
         });
     }
 
-} // PrWorkCenterQuery
+}

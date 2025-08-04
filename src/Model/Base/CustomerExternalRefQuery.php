@@ -10,14 +10,12 @@ use Map\CustomerExternalRefTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'cust_ship_link' table.
- *
- *
+ * Base class that represents a query for the `cust_ship_link` table.
  *
  * @method     ChildCustomerExternalRefQuery orderByArcucustid($order = Criteria::ASC) Order by the ArcuCustId column
  * @method     ChildCustomerExternalRefQuery orderByArstshipid($order = Criteria::ASC) Order by the ArstShipId column
@@ -43,19 +41,19 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerExternalRefQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildCustomerExternalRefQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildCustomerExternalRef findOne(ConnectionInterface $con = null) Return the first ChildCustomerExternalRef matching the query
- * @method     ChildCustomerExternalRef findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomerExternalRef matching the query, or a new ChildCustomerExternalRef object populated from the query conditions when no match is found
+ * @method     ChildCustomerExternalRef|null findOne(?ConnectionInterface $con = null) Return the first ChildCustomerExternalRef matching the query
+ * @method     ChildCustomerExternalRef findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildCustomerExternalRef matching the query, or a new ChildCustomerExternalRef object populated from the query conditions when no match is found
  *
- * @method     ChildCustomerExternalRef findOneByArcucustid(string $ArcuCustId) Return the first ChildCustomerExternalRef filtered by the ArcuCustId column
- * @method     ChildCustomerExternalRef findOneByArstshipid(string $ArstShipId) Return the first ChildCustomerExternalRef filtered by the ArstShipId column
- * @method     ChildCustomerExternalRef findOneByCslklinkcustid(string $CslkLinkCustId) Return the first ChildCustomerExternalRef filtered by the CslkLinkCustId column
- * @method     ChildCustomerExternalRef findOneByCslklinkshipid(string $CslkLinkShipId) Return the first ChildCustomerExternalRef filtered by the CslkLinkShipId column
- * @method     ChildCustomerExternalRef findOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerExternalRef filtered by the DateUpdtd column
- * @method     ChildCustomerExternalRef findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerExternalRef filtered by the TimeUpdtd column
- * @method     ChildCustomerExternalRef findOneByDummy(string $dummy) Return the first ChildCustomerExternalRef filtered by the dummy column *
-
- * @method     ChildCustomerExternalRef requirePk($key, ConnectionInterface $con = null) Return the ChildCustomerExternalRef by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerExternalRef requireOne(ConnectionInterface $con = null) Return the first ChildCustomerExternalRef matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerExternalRef|null findOneByArcucustid(string $ArcuCustId) Return the first ChildCustomerExternalRef filtered by the ArcuCustId column
+ * @method     ChildCustomerExternalRef|null findOneByArstshipid(string $ArstShipId) Return the first ChildCustomerExternalRef filtered by the ArstShipId column
+ * @method     ChildCustomerExternalRef|null findOneByCslklinkcustid(string $CslkLinkCustId) Return the first ChildCustomerExternalRef filtered by the CslkLinkCustId column
+ * @method     ChildCustomerExternalRef|null findOneByCslklinkshipid(string $CslkLinkShipId) Return the first ChildCustomerExternalRef filtered by the CslkLinkShipId column
+ * @method     ChildCustomerExternalRef|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerExternalRef filtered by the DateUpdtd column
+ * @method     ChildCustomerExternalRef|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerExternalRef filtered by the TimeUpdtd column
+ * @method     ChildCustomerExternalRef|null findOneByDummy(string $dummy) Return the first ChildCustomerExternalRef filtered by the dummy column
+ *
+ * @method     ChildCustomerExternalRef requirePk($key, ?ConnectionInterface $con = null) Return the ChildCustomerExternalRef by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerExternalRef requireOne(?ConnectionInterface $con = null) Return the first ChildCustomerExternalRef matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildCustomerExternalRef requireOneByArcucustid(string $ArcuCustId) Return the first ChildCustomerExternalRef filtered by the ArcuCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerExternalRef requireOneByArstshipid(string $ArstShipId) Return the first ChildCustomerExternalRef filtered by the ArstShipId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -65,16 +63,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerExternalRef requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerExternalRef filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerExternalRef requireOneByDummy(string $dummy) Return the first ChildCustomerExternalRef filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCustomerExternalRef[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCustomerExternalRef objects based on current ModelCriteria
- * @method     ChildCustomerExternalRef[]|ObjectCollection findByArcucustid(string $ArcuCustId) Return ChildCustomerExternalRef objects filtered by the ArcuCustId column
- * @method     ChildCustomerExternalRef[]|ObjectCollection findByArstshipid(string $ArstShipId) Return ChildCustomerExternalRef objects filtered by the ArstShipId column
- * @method     ChildCustomerExternalRef[]|ObjectCollection findByCslklinkcustid(string $CslkLinkCustId) Return ChildCustomerExternalRef objects filtered by the CslkLinkCustId column
- * @method     ChildCustomerExternalRef[]|ObjectCollection findByCslklinkshipid(string $CslkLinkShipId) Return ChildCustomerExternalRef objects filtered by the CslkLinkShipId column
- * @method     ChildCustomerExternalRef[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildCustomerExternalRef objects filtered by the DateUpdtd column
- * @method     ChildCustomerExternalRef[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildCustomerExternalRef objects filtered by the TimeUpdtd column
- * @method     ChildCustomerExternalRef[]|ObjectCollection findByDummy(string $dummy) Return ChildCustomerExternalRef objects filtered by the dummy column
- * @method     ChildCustomerExternalRef[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildCustomerExternalRef[]|Collection find(?ConnectionInterface $con = null) Return ChildCustomerExternalRef objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildCustomerExternalRef> find(?ConnectionInterface $con = null) Return ChildCustomerExternalRef objects based on current ModelCriteria
  *
+ * @method     ChildCustomerExternalRef[]|Collection findByArcucustid(string|array<string> $ArcuCustId) Return ChildCustomerExternalRef objects filtered by the ArcuCustId column
+ * @psalm-method Collection&\Traversable<ChildCustomerExternalRef> findByArcucustid(string|array<string> $ArcuCustId) Return ChildCustomerExternalRef objects filtered by the ArcuCustId column
+ * @method     ChildCustomerExternalRef[]|Collection findByArstshipid(string|array<string> $ArstShipId) Return ChildCustomerExternalRef objects filtered by the ArstShipId column
+ * @psalm-method Collection&\Traversable<ChildCustomerExternalRef> findByArstshipid(string|array<string> $ArstShipId) Return ChildCustomerExternalRef objects filtered by the ArstShipId column
+ * @method     ChildCustomerExternalRef[]|Collection findByCslklinkcustid(string|array<string> $CslkLinkCustId) Return ChildCustomerExternalRef objects filtered by the CslkLinkCustId column
+ * @psalm-method Collection&\Traversable<ChildCustomerExternalRef> findByCslklinkcustid(string|array<string> $CslkLinkCustId) Return ChildCustomerExternalRef objects filtered by the CslkLinkCustId column
+ * @method     ChildCustomerExternalRef[]|Collection findByCslklinkshipid(string|array<string> $CslkLinkShipId) Return ChildCustomerExternalRef objects filtered by the CslkLinkShipId column
+ * @psalm-method Collection&\Traversable<ChildCustomerExternalRef> findByCslklinkshipid(string|array<string> $CslkLinkShipId) Return ChildCustomerExternalRef objects filtered by the CslkLinkShipId column
+ * @method     ChildCustomerExternalRef[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildCustomerExternalRef objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildCustomerExternalRef> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildCustomerExternalRef objects filtered by the DateUpdtd column
+ * @method     ChildCustomerExternalRef[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildCustomerExternalRef objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildCustomerExternalRef> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildCustomerExternalRef objects filtered by the TimeUpdtd column
+ * @method     ChildCustomerExternalRef[]|Collection findByDummy(string|array<string> $dummy) Return ChildCustomerExternalRef objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildCustomerExternalRef> findByDummy(string|array<string> $dummy) Return ChildCustomerExternalRef objects filtered by the dummy column
+ *
+ * @method     ChildCustomerExternalRef[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildCustomerExternalRef> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class CustomerExternalRefQuery extends ModelCriteria
 {
@@ -83,9 +91,9 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\CustomerExternalRefQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\CustomerExternalRef', $modelAlias = null)
     {
@@ -95,12 +103,12 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
     /**
      * Returns a new ChildCustomerExternalRefQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildCustomerExternalRefQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildCustomerExternalRefQuery) {
             return $criteria;
@@ -130,7 +138,7 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
      *
      * @return ChildCustomerExternalRef|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -162,8 +170,8 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -196,8 +204,8 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildCustomerExternalRef|array|mixed the result, formatted by the current formatter
      */
@@ -217,12 +225,12 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -239,9 +247,9 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildCustomerExternalRefQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -254,14 +262,16 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildCustomerExternalRefQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(CustomerExternalRefTableMap::COL_ARCUCUSTID, $key[0], Criteria::EQUAL);
@@ -280,14 +290,15 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
      * <code>
      * $query->filterByArcucustid('fooValue');   // WHERE ArcuCustId = 'fooValue'
      * $query->filterByArcucustid('%fooValue%', Criteria::LIKE); // WHERE ArcuCustId LIKE '%fooValue%'
+     * $query->filterByArcucustid(['foo', 'bar']); // WHERE ArcuCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcucustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcucustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerExternalRefQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcucustid($arcucustid = null, $comparison = null)
+    public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcucustid)) {
@@ -295,7 +306,9 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerExternalRefTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+        $this->addUsingAlias(CustomerExternalRefTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -305,14 +318,15 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
      * <code>
      * $query->filterByArstshipid('fooValue');   // WHERE ArstShipId = 'fooValue'
      * $query->filterByArstshipid('%fooValue%', Criteria::LIKE); // WHERE ArstShipId LIKE '%fooValue%'
+     * $query->filterByArstshipid(['foo', 'bar']); // WHERE ArstShipId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstshipid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstshipid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerExternalRefQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstshipid($arstshipid = null, $comparison = null)
+    public function filterByArstshipid($arstshipid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstshipid)) {
@@ -320,7 +334,9 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerExternalRefTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
+        $this->addUsingAlias(CustomerExternalRefTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -330,14 +346,15 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
      * <code>
      * $query->filterByCslklinkcustid('fooValue');   // WHERE CslkLinkCustId = 'fooValue'
      * $query->filterByCslklinkcustid('%fooValue%', Criteria::LIKE); // WHERE CslkLinkCustId LIKE '%fooValue%'
+     * $query->filterByCslklinkcustid(['foo', 'bar']); // WHERE CslkLinkCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cslklinkcustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cslklinkcustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerExternalRefQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCslklinkcustid($cslklinkcustid = null, $comparison = null)
+    public function filterByCslklinkcustid($cslklinkcustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cslklinkcustid)) {
@@ -345,7 +362,9 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerExternalRefTableMap::COL_CSLKLINKCUSTID, $cslklinkcustid, $comparison);
+        $this->addUsingAlias(CustomerExternalRefTableMap::COL_CSLKLINKCUSTID, $cslklinkcustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -355,14 +374,15 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
      * <code>
      * $query->filterByCslklinkshipid('fooValue');   // WHERE CslkLinkShipId = 'fooValue'
      * $query->filterByCslklinkshipid('%fooValue%', Criteria::LIKE); // WHERE CslkLinkShipId LIKE '%fooValue%'
+     * $query->filterByCslklinkshipid(['foo', 'bar']); // WHERE CslkLinkShipId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $cslklinkshipid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $cslklinkshipid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerExternalRefQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCslklinkshipid($cslklinkshipid = null, $comparison = null)
+    public function filterByCslklinkshipid($cslklinkshipid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($cslklinkshipid)) {
@@ -370,7 +390,9 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerExternalRefTableMap::COL_CSLKLINKSHIPID, $cslklinkshipid, $comparison);
+        $this->addUsingAlias(CustomerExternalRefTableMap::COL_CSLKLINKSHIPID, $cslklinkshipid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -380,14 +402,15 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerExternalRefQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -395,7 +418,9 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerExternalRefTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(CustomerExternalRefTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -405,14 +430,15 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerExternalRefQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -420,7 +446,9 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerExternalRefTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(CustomerExternalRefTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -430,14 +458,15 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerExternalRefQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -445,15 +474,17 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerExternalRefTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(CustomerExternalRefTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildCustomerExternalRef $customerExternalRef Object to remove from the list of results
+     * @param ChildCustomerExternalRef $customerExternalRef Object to remove from the list of results
      *
-     * @return $this|ChildCustomerExternalRefQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($customerExternalRef = null)
     {
@@ -472,7 +503,7 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerExternalRefTableMap::DATABASE_NAME);
@@ -497,12 +528,12 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerExternalRefTableMap::DATABASE_NAME);
@@ -527,4 +558,4 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
         });
     }
 
-} // CustomerExternalRefQuery
+}

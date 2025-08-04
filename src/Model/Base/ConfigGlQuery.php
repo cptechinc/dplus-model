@@ -10,14 +10,12 @@ use Map\ConfigGlTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'gl_config' table.
- *
- *
+ * Base class that represents a query for the `gl_config` table.
  *
  * @method     ChildConfigGlQuery orderByGltbconfkey($order = Criteria::ASC) Order by the GltbConfKey column
  * @method     ChildConfigGlQuery orderByGltbcoid($order = Criteria::ASC) Order by the GltbCoId column
@@ -45,20 +43,20 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigGlQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildConfigGlQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildConfigGl findOne(ConnectionInterface $con = null) Return the first ChildConfigGl matching the query
- * @method     ChildConfigGl findOneOrCreate(ConnectionInterface $con = null) Return the first ChildConfigGl matching the query, or a new ChildConfigGl object populated from the query conditions when no match is found
+ * @method     ChildConfigGl|null findOne(?ConnectionInterface $con = null) Return the first ChildConfigGl matching the query
+ * @method     ChildConfigGl findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildConfigGl matching the query, or a new ChildConfigGl object populated from the query conditions when no match is found
  *
- * @method     ChildConfigGl findOneByGltbconfkey(int $GltbConfKey) Return the first ChildConfigGl filtered by the GltbConfKey column
- * @method     ChildConfigGl findOneByGltbcoid(string $GltbCoId) Return the first ChildConfigGl filtered by the GltbCoId column
- * @method     ChildConfigGl findOneByGltbyearend(string $GltbYearEnd) Return the first ChildConfigGl filtered by the GltbYearEnd column
- * @method     ChildConfigGl findOneByGltbusebudanninc(string $GltbUseBudAnnInc) Return the first ChildConfigGl filtered by the GltbUseBudAnnInc column
- * @method     ChildConfigGl findOneByGltbtraceon(string $GltbTraceOn) Return the first ChildConfigGl filtered by the GltbTraceOn column
- * @method     ChildConfigGl findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigGl filtered by the DateUpdtd column
- * @method     ChildConfigGl findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigGl filtered by the TimeUpdtd column
- * @method     ChildConfigGl findOneByDummy(string $dummy) Return the first ChildConfigGl filtered by the dummy column *
-
- * @method     ChildConfigGl requirePk($key, ConnectionInterface $con = null) Return the ChildConfigGl by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigGl requireOne(ConnectionInterface $con = null) Return the first ChildConfigGl matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigGl|null findOneByGltbconfkey(int $GltbConfKey) Return the first ChildConfigGl filtered by the GltbConfKey column
+ * @method     ChildConfigGl|null findOneByGltbcoid(string $GltbCoId) Return the first ChildConfigGl filtered by the GltbCoId column
+ * @method     ChildConfigGl|null findOneByGltbyearend(string $GltbYearEnd) Return the first ChildConfigGl filtered by the GltbYearEnd column
+ * @method     ChildConfigGl|null findOneByGltbusebudanninc(string $GltbUseBudAnnInc) Return the first ChildConfigGl filtered by the GltbUseBudAnnInc column
+ * @method     ChildConfigGl|null findOneByGltbtraceon(string $GltbTraceOn) Return the first ChildConfigGl filtered by the GltbTraceOn column
+ * @method     ChildConfigGl|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigGl filtered by the DateUpdtd column
+ * @method     ChildConfigGl|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigGl filtered by the TimeUpdtd column
+ * @method     ChildConfigGl|null findOneByDummy(string $dummy) Return the first ChildConfigGl filtered by the dummy column
+ *
+ * @method     ChildConfigGl requirePk($key, ?ConnectionInterface $con = null) Return the ChildConfigGl by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigGl requireOne(?ConnectionInterface $con = null) Return the first ChildConfigGl matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildConfigGl requireOneByGltbconfkey(int $GltbConfKey) Return the first ChildConfigGl filtered by the GltbConfKey column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigGl requireOneByGltbcoid(string $GltbCoId) Return the first ChildConfigGl filtered by the GltbCoId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -69,17 +67,28 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigGl requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigGl filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigGl requireOneByDummy(string $dummy) Return the first ChildConfigGl filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildConfigGl[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildConfigGl objects based on current ModelCriteria
- * @method     ChildConfigGl[]|ObjectCollection findByGltbconfkey(int $GltbConfKey) Return ChildConfigGl objects filtered by the GltbConfKey column
- * @method     ChildConfigGl[]|ObjectCollection findByGltbcoid(string $GltbCoId) Return ChildConfigGl objects filtered by the GltbCoId column
- * @method     ChildConfigGl[]|ObjectCollection findByGltbyearend(string $GltbYearEnd) Return ChildConfigGl objects filtered by the GltbYearEnd column
- * @method     ChildConfigGl[]|ObjectCollection findByGltbusebudanninc(string $GltbUseBudAnnInc) Return ChildConfigGl objects filtered by the GltbUseBudAnnInc column
- * @method     ChildConfigGl[]|ObjectCollection findByGltbtraceon(string $GltbTraceOn) Return ChildConfigGl objects filtered by the GltbTraceOn column
- * @method     ChildConfigGl[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildConfigGl objects filtered by the DateUpdtd column
- * @method     ChildConfigGl[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildConfigGl objects filtered by the TimeUpdtd column
- * @method     ChildConfigGl[]|ObjectCollection findByDummy(string $dummy) Return ChildConfigGl objects filtered by the dummy column
- * @method     ChildConfigGl[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildConfigGl[]|Collection find(?ConnectionInterface $con = null) Return ChildConfigGl objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildConfigGl> find(?ConnectionInterface $con = null) Return ChildConfigGl objects based on current ModelCriteria
  *
+ * @method     ChildConfigGl[]|Collection findByGltbconfkey(int|array<int> $GltbConfKey) Return ChildConfigGl objects filtered by the GltbConfKey column
+ * @psalm-method Collection&\Traversable<ChildConfigGl> findByGltbconfkey(int|array<int> $GltbConfKey) Return ChildConfigGl objects filtered by the GltbConfKey column
+ * @method     ChildConfigGl[]|Collection findByGltbcoid(string|array<string> $GltbCoId) Return ChildConfigGl objects filtered by the GltbCoId column
+ * @psalm-method Collection&\Traversable<ChildConfigGl> findByGltbcoid(string|array<string> $GltbCoId) Return ChildConfigGl objects filtered by the GltbCoId column
+ * @method     ChildConfigGl[]|Collection findByGltbyearend(string|array<string> $GltbYearEnd) Return ChildConfigGl objects filtered by the GltbYearEnd column
+ * @psalm-method Collection&\Traversable<ChildConfigGl> findByGltbyearend(string|array<string> $GltbYearEnd) Return ChildConfigGl objects filtered by the GltbYearEnd column
+ * @method     ChildConfigGl[]|Collection findByGltbusebudanninc(string|array<string> $GltbUseBudAnnInc) Return ChildConfigGl objects filtered by the GltbUseBudAnnInc column
+ * @psalm-method Collection&\Traversable<ChildConfigGl> findByGltbusebudanninc(string|array<string> $GltbUseBudAnnInc) Return ChildConfigGl objects filtered by the GltbUseBudAnnInc column
+ * @method     ChildConfigGl[]|Collection findByGltbtraceon(string|array<string> $GltbTraceOn) Return ChildConfigGl objects filtered by the GltbTraceOn column
+ * @psalm-method Collection&\Traversable<ChildConfigGl> findByGltbtraceon(string|array<string> $GltbTraceOn) Return ChildConfigGl objects filtered by the GltbTraceOn column
+ * @method     ChildConfigGl[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigGl objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigGl> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigGl objects filtered by the DateUpdtd column
+ * @method     ChildConfigGl[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigGl objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigGl> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigGl objects filtered by the TimeUpdtd column
+ * @method     ChildConfigGl[]|Collection findByDummy(string|array<string> $dummy) Return ChildConfigGl objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildConfigGl> findByDummy(string|array<string> $dummy) Return ChildConfigGl objects filtered by the dummy column
+ *
+ * @method     ChildConfigGl[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildConfigGl> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ConfigGlQuery extends ModelCriteria
 {
@@ -88,9 +97,9 @@ abstract class ConfigGlQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ConfigGlQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ConfigGl', $modelAlias = null)
     {
@@ -100,12 +109,12 @@ abstract class ConfigGlQuery extends ModelCriteria
     /**
      * Returns a new ChildConfigGlQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildConfigGlQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildConfigGlQuery) {
             return $criteria;
@@ -135,7 +144,7 @@ abstract class ConfigGlQuery extends ModelCriteria
      *
      * @return ChildConfigGl|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -167,8 +176,8 @@ abstract class ConfigGlQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -200,8 +209,8 @@ abstract class ConfigGlQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildConfigGl|array|mixed the result, formatted by the current formatter
      */
@@ -221,12 +230,12 @@ abstract class ConfigGlQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -243,27 +252,31 @@ abstract class ConfigGlQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildConfigGlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ConfigGlTableMap::COL_GLTBCONFKEY, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ConfigGlTableMap::COL_GLTBCONFKEY, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildConfigGlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ConfigGlTableMap::COL_GLTBCONFKEY, $keys, Criteria::IN);
+        $this->addUsingAlias(ConfigGlTableMap::COL_GLTBCONFKEY, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -276,15 +289,15 @@ abstract class ConfigGlQuery extends ModelCriteria
      * $query->filterByGltbconfkey(array('min' => 12)); // WHERE GltbConfKey > 12
      * </code>
      *
-     * @param     mixed $gltbconfkey The value to use as filter.
+     * @param mixed $gltbconfkey The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigGlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbconfkey($gltbconfkey = null, $comparison = null)
+    public function filterByGltbconfkey($gltbconfkey = null, ?string $comparison = null)
     {
         if (is_array($gltbconfkey)) {
             $useMinMax = false;
@@ -304,7 +317,9 @@ abstract class ConfigGlQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigGlTableMap::COL_GLTBCONFKEY, $gltbconfkey, $comparison);
+        $this->addUsingAlias(ConfigGlTableMap::COL_GLTBCONFKEY, $gltbconfkey, $comparison);
+
+        return $this;
     }
 
     /**
@@ -314,14 +329,15 @@ abstract class ConfigGlQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbcoid('fooValue');   // WHERE GltbCoId = 'fooValue'
      * $query->filterByGltbcoid('%fooValue%', Criteria::LIKE); // WHERE GltbCoId LIKE '%fooValue%'
+     * $query->filterByGltbcoid(['foo', 'bar']); // WHERE GltbCoId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbcoid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbcoid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigGlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbcoid($gltbcoid = null, $comparison = null)
+    public function filterByGltbcoid($gltbcoid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbcoid)) {
@@ -329,7 +345,9 @@ abstract class ConfigGlQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigGlTableMap::COL_GLTBCOID, $gltbcoid, $comparison);
+        $this->addUsingAlias(ConfigGlTableMap::COL_GLTBCOID, $gltbcoid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -339,14 +357,15 @@ abstract class ConfigGlQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbyearend('fooValue');   // WHERE GltbYearEnd = 'fooValue'
      * $query->filterByGltbyearend('%fooValue%', Criteria::LIKE); // WHERE GltbYearEnd LIKE '%fooValue%'
+     * $query->filterByGltbyearend(['foo', 'bar']); // WHERE GltbYearEnd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbyearend The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbyearend The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigGlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbyearend($gltbyearend = null, $comparison = null)
+    public function filterByGltbyearend($gltbyearend = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbyearend)) {
@@ -354,7 +373,9 @@ abstract class ConfigGlQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigGlTableMap::COL_GLTBYEAREND, $gltbyearend, $comparison);
+        $this->addUsingAlias(ConfigGlTableMap::COL_GLTBYEAREND, $gltbyearend, $comparison);
+
+        return $this;
     }
 
     /**
@@ -364,14 +385,15 @@ abstract class ConfigGlQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbusebudanninc('fooValue');   // WHERE GltbUseBudAnnInc = 'fooValue'
      * $query->filterByGltbusebudanninc('%fooValue%', Criteria::LIKE); // WHERE GltbUseBudAnnInc LIKE '%fooValue%'
+     * $query->filterByGltbusebudanninc(['foo', 'bar']); // WHERE GltbUseBudAnnInc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbusebudanninc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbusebudanninc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigGlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbusebudanninc($gltbusebudanninc = null, $comparison = null)
+    public function filterByGltbusebudanninc($gltbusebudanninc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbusebudanninc)) {
@@ -379,7 +401,9 @@ abstract class ConfigGlQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigGlTableMap::COL_GLTBUSEBUDANNINC, $gltbusebudanninc, $comparison);
+        $this->addUsingAlias(ConfigGlTableMap::COL_GLTBUSEBUDANNINC, $gltbusebudanninc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -389,14 +413,15 @@ abstract class ConfigGlQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbtraceon('fooValue');   // WHERE GltbTraceOn = 'fooValue'
      * $query->filterByGltbtraceon('%fooValue%', Criteria::LIKE); // WHERE GltbTraceOn LIKE '%fooValue%'
+     * $query->filterByGltbtraceon(['foo', 'bar']); // WHERE GltbTraceOn IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbtraceon The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbtraceon The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigGlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbtraceon($gltbtraceon = null, $comparison = null)
+    public function filterByGltbtraceon($gltbtraceon = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbtraceon)) {
@@ -404,7 +429,9 @@ abstract class ConfigGlQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigGlTableMap::COL_GLTBTRACEON, $gltbtraceon, $comparison);
+        $this->addUsingAlias(ConfigGlTableMap::COL_GLTBTRACEON, $gltbtraceon, $comparison);
+
+        return $this;
     }
 
     /**
@@ -414,14 +441,15 @@ abstract class ConfigGlQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigGlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -429,7 +457,9 @@ abstract class ConfigGlQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigGlTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ConfigGlTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -439,14 +469,15 @@ abstract class ConfigGlQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigGlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -454,7 +485,9 @@ abstract class ConfigGlQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigGlTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ConfigGlTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -464,14 +497,15 @@ abstract class ConfigGlQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigGlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -479,15 +513,17 @@ abstract class ConfigGlQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigGlTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ConfigGlTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildConfigGl $configGl Object to remove from the list of results
+     * @param ChildConfigGl $configGl Object to remove from the list of results
      *
-     * @return $this|ChildConfigGlQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($configGl = null)
     {
@@ -504,7 +540,7 @@ abstract class ConfigGlQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigGlTableMap::DATABASE_NAME);
@@ -529,12 +565,12 @@ abstract class ConfigGlQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigGlTableMap::DATABASE_NAME);
@@ -559,4 +595,4 @@ abstract class ConfigGlQuery extends ModelCriteria
         });
     }
 
-} // ConfigGlQuery
+}

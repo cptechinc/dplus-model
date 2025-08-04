@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_uom_sale' table.
- *
- *
+ * Base class that represents a query for the `inv_uom_sale` table.
  *
  * @method     ChildUnitofMeasureSaleQuery orderByIntbuomsale($order = Criteria::ASC) Order by the IntbUomSale column
  * @method     ChildUnitofMeasureSaleQuery orderByIntbuomdesc($order = Criteria::ASC) Order by the IntbUomDesc column
@@ -68,20 +67,20 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \ItemMasterItemQuery|\PurchaseOrderDetailReceivingQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildUnitofMeasureSale findOne(ConnectionInterface $con = null) Return the first ChildUnitofMeasureSale matching the query
- * @method     ChildUnitofMeasureSale findOneOrCreate(ConnectionInterface $con = null) Return the first ChildUnitofMeasureSale matching the query, or a new ChildUnitofMeasureSale object populated from the query conditions when no match is found
+ * @method     ChildUnitofMeasureSale|null findOne(?ConnectionInterface $con = null) Return the first ChildUnitofMeasureSale matching the query
+ * @method     ChildUnitofMeasureSale findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildUnitofMeasureSale matching the query, or a new ChildUnitofMeasureSale object populated from the query conditions when no match is found
  *
- * @method     ChildUnitofMeasureSale findOneByIntbuomsale(string $IntbUomSale) Return the first ChildUnitofMeasureSale filtered by the IntbUomSale column
- * @method     ChildUnitofMeasureSale findOneByIntbuomdesc(string $IntbUomDesc) Return the first ChildUnitofMeasureSale filtered by the IntbUomDesc column
- * @method     ChildUnitofMeasureSale findOneByIntbuomconv(string $IntbUomConv) Return the first ChildUnitofMeasureSale filtered by the IntbUomConv column
- * @method     ChildUnitofMeasureSale findOneByIntbuompricbywght(string $IntbUomPricByWght) Return the first ChildUnitofMeasureSale filtered by the IntbUomPricByWght column
- * @method     ChildUnitofMeasureSale findOneByIntbUomStockByCase(string $IntbUomStockByCase) Return the first ChildUnitofMeasureSale filtered by the IntbUomStockByCase column
- * @method     ChildUnitofMeasureSale findOneByDateupdtd(string $DateUpdtd) Return the first ChildUnitofMeasureSale filtered by the DateUpdtd column
- * @method     ChildUnitofMeasureSale findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildUnitofMeasureSale filtered by the TimeUpdtd column
- * @method     ChildUnitofMeasureSale findOneByDummy(string $dummy) Return the first ChildUnitofMeasureSale filtered by the dummy column *
-
- * @method     ChildUnitofMeasureSale requirePk($key, ConnectionInterface $con = null) Return the ChildUnitofMeasureSale by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildUnitofMeasureSale requireOne(ConnectionInterface $con = null) Return the first ChildUnitofMeasureSale matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildUnitofMeasureSale|null findOneByIntbuomsale(string $IntbUomSale) Return the first ChildUnitofMeasureSale filtered by the IntbUomSale column
+ * @method     ChildUnitofMeasureSale|null findOneByIntbuomdesc(string $IntbUomDesc) Return the first ChildUnitofMeasureSale filtered by the IntbUomDesc column
+ * @method     ChildUnitofMeasureSale|null findOneByIntbuomconv(string $IntbUomConv) Return the first ChildUnitofMeasureSale filtered by the IntbUomConv column
+ * @method     ChildUnitofMeasureSale|null findOneByIntbuompricbywght(string $IntbUomPricByWght) Return the first ChildUnitofMeasureSale filtered by the IntbUomPricByWght column
+ * @method     ChildUnitofMeasureSale|null findOneByIntbUomStockByCase(string $IntbUomStockByCase) Return the first ChildUnitofMeasureSale filtered by the IntbUomStockByCase column
+ * @method     ChildUnitofMeasureSale|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildUnitofMeasureSale filtered by the DateUpdtd column
+ * @method     ChildUnitofMeasureSale|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildUnitofMeasureSale filtered by the TimeUpdtd column
+ * @method     ChildUnitofMeasureSale|null findOneByDummy(string $dummy) Return the first ChildUnitofMeasureSale filtered by the dummy column
+ *
+ * @method     ChildUnitofMeasureSale requirePk($key, ?ConnectionInterface $con = null) Return the ChildUnitofMeasureSale by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildUnitofMeasureSale requireOne(?ConnectionInterface $con = null) Return the first ChildUnitofMeasureSale matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildUnitofMeasureSale requireOneByIntbuomsale(string $IntbUomSale) Return the first ChildUnitofMeasureSale filtered by the IntbUomSale column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildUnitofMeasureSale requireOneByIntbuomdesc(string $IntbUomDesc) Return the first ChildUnitofMeasureSale filtered by the IntbUomDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -92,17 +91,28 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildUnitofMeasureSale requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildUnitofMeasureSale filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildUnitofMeasureSale requireOneByDummy(string $dummy) Return the first ChildUnitofMeasureSale filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildUnitofMeasureSale[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildUnitofMeasureSale objects based on current ModelCriteria
- * @method     ChildUnitofMeasureSale[]|ObjectCollection findByIntbuomsale(string $IntbUomSale) Return ChildUnitofMeasureSale objects filtered by the IntbUomSale column
- * @method     ChildUnitofMeasureSale[]|ObjectCollection findByIntbuomdesc(string $IntbUomDesc) Return ChildUnitofMeasureSale objects filtered by the IntbUomDesc column
- * @method     ChildUnitofMeasureSale[]|ObjectCollection findByIntbuomconv(string $IntbUomConv) Return ChildUnitofMeasureSale objects filtered by the IntbUomConv column
- * @method     ChildUnitofMeasureSale[]|ObjectCollection findByIntbuompricbywght(string $IntbUomPricByWght) Return ChildUnitofMeasureSale objects filtered by the IntbUomPricByWght column
- * @method     ChildUnitofMeasureSale[]|ObjectCollection findByIntbUomStockByCase(string $IntbUomStockByCase) Return ChildUnitofMeasureSale objects filtered by the IntbUomStockByCase column
- * @method     ChildUnitofMeasureSale[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildUnitofMeasureSale objects filtered by the DateUpdtd column
- * @method     ChildUnitofMeasureSale[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildUnitofMeasureSale objects filtered by the TimeUpdtd column
- * @method     ChildUnitofMeasureSale[]|ObjectCollection findByDummy(string $dummy) Return ChildUnitofMeasureSale objects filtered by the dummy column
- * @method     ChildUnitofMeasureSale[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildUnitofMeasureSale[]|Collection find(?ConnectionInterface $con = null) Return ChildUnitofMeasureSale objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildUnitofMeasureSale> find(?ConnectionInterface $con = null) Return ChildUnitofMeasureSale objects based on current ModelCriteria
  *
+ * @method     ChildUnitofMeasureSale[]|Collection findByIntbuomsale(string|array<string> $IntbUomSale) Return ChildUnitofMeasureSale objects filtered by the IntbUomSale column
+ * @psalm-method Collection&\Traversable<ChildUnitofMeasureSale> findByIntbuomsale(string|array<string> $IntbUomSale) Return ChildUnitofMeasureSale objects filtered by the IntbUomSale column
+ * @method     ChildUnitofMeasureSale[]|Collection findByIntbuomdesc(string|array<string> $IntbUomDesc) Return ChildUnitofMeasureSale objects filtered by the IntbUomDesc column
+ * @psalm-method Collection&\Traversable<ChildUnitofMeasureSale> findByIntbuomdesc(string|array<string> $IntbUomDesc) Return ChildUnitofMeasureSale objects filtered by the IntbUomDesc column
+ * @method     ChildUnitofMeasureSale[]|Collection findByIntbuomconv(string|array<string> $IntbUomConv) Return ChildUnitofMeasureSale objects filtered by the IntbUomConv column
+ * @psalm-method Collection&\Traversable<ChildUnitofMeasureSale> findByIntbuomconv(string|array<string> $IntbUomConv) Return ChildUnitofMeasureSale objects filtered by the IntbUomConv column
+ * @method     ChildUnitofMeasureSale[]|Collection findByIntbuompricbywght(string|array<string> $IntbUomPricByWght) Return ChildUnitofMeasureSale objects filtered by the IntbUomPricByWght column
+ * @psalm-method Collection&\Traversable<ChildUnitofMeasureSale> findByIntbuompricbywght(string|array<string> $IntbUomPricByWght) Return ChildUnitofMeasureSale objects filtered by the IntbUomPricByWght column
+ * @method     ChildUnitofMeasureSale[]|Collection findByIntbUomStockByCase(string|array<string> $IntbUomStockByCase) Return ChildUnitofMeasureSale objects filtered by the IntbUomStockByCase column
+ * @psalm-method Collection&\Traversable<ChildUnitofMeasureSale> findByIntbUomStockByCase(string|array<string> $IntbUomStockByCase) Return ChildUnitofMeasureSale objects filtered by the IntbUomStockByCase column
+ * @method     ChildUnitofMeasureSale[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildUnitofMeasureSale objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildUnitofMeasureSale> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildUnitofMeasureSale objects filtered by the DateUpdtd column
+ * @method     ChildUnitofMeasureSale[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildUnitofMeasureSale objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildUnitofMeasureSale> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildUnitofMeasureSale objects filtered by the TimeUpdtd column
+ * @method     ChildUnitofMeasureSale[]|Collection findByDummy(string|array<string> $dummy) Return ChildUnitofMeasureSale objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildUnitofMeasureSale> findByDummy(string|array<string> $dummy) Return ChildUnitofMeasureSale objects filtered by the dummy column
+ *
+ * @method     ChildUnitofMeasureSale[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildUnitofMeasureSale> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class UnitofMeasureSaleQuery extends ModelCriteria
 {
@@ -111,9 +121,9 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\UnitofMeasureSaleQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\UnitofMeasureSale', $modelAlias = null)
     {
@@ -123,12 +133,12 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
     /**
      * Returns a new ChildUnitofMeasureSaleQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildUnitofMeasureSaleQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildUnitofMeasureSaleQuery) {
             return $criteria;
@@ -158,7 +168,7 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      *
      * @return ChildUnitofMeasureSale|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -190,8 +200,8 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -223,8 +233,8 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildUnitofMeasureSale|array|mixed the result, formatted by the current formatter
      */
@@ -244,12 +254,12 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -266,27 +276,31 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMSALE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMSALE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMSALE, $keys, Criteria::IN);
+        $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMSALE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -296,14 +310,15 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbuomsale('fooValue');   // WHERE IntbUomSale = 'fooValue'
      * $query->filterByIntbuomsale('%fooValue%', Criteria::LIKE); // WHERE IntbUomSale LIKE '%fooValue%'
+     * $query->filterByIntbuomsale(['foo', 'bar']); // WHERE IntbUomSale IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbuomsale The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbuomsale The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbuomsale($intbuomsale = null, $comparison = null)
+    public function filterByIntbuomsale($intbuomsale = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbuomsale)) {
@@ -311,7 +326,9 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMSALE, $intbuomsale, $comparison);
+        $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMSALE, $intbuomsale, $comparison);
+
+        return $this;
     }
 
     /**
@@ -321,14 +338,15 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbuomdesc('fooValue');   // WHERE IntbUomDesc = 'fooValue'
      * $query->filterByIntbuomdesc('%fooValue%', Criteria::LIKE); // WHERE IntbUomDesc LIKE '%fooValue%'
+     * $query->filterByIntbuomdesc(['foo', 'bar']); // WHERE IntbUomDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbuomdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbuomdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbuomdesc($intbuomdesc = null, $comparison = null)
+    public function filterByIntbuomdesc($intbuomdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbuomdesc)) {
@@ -336,7 +354,9 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMDESC, $intbuomdesc, $comparison);
+        $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMDESC, $intbuomdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -349,15 +369,15 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      * $query->filterByIntbuomconv(array('min' => 12)); // WHERE IntbUomConv > 12
      * </code>
      *
-     * @param     mixed $intbuomconv The value to use as filter.
+     * @param mixed $intbuomconv The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbuomconv($intbuomconv = null, $comparison = null)
+    public function filterByIntbuomconv($intbuomconv = null, ?string $comparison = null)
     {
         if (is_array($intbuomconv)) {
             $useMinMax = false;
@@ -377,7 +397,9 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMCONV, $intbuomconv, $comparison);
+        $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMCONV, $intbuomconv, $comparison);
+
+        return $this;
     }
 
     /**
@@ -387,14 +409,15 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbuompricbywght('fooValue');   // WHERE IntbUomPricByWght = 'fooValue'
      * $query->filterByIntbuompricbywght('%fooValue%', Criteria::LIKE); // WHERE IntbUomPricByWght LIKE '%fooValue%'
+     * $query->filterByIntbuompricbywght(['foo', 'bar']); // WHERE IntbUomPricByWght IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbuompricbywght The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbuompricbywght The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbuompricbywght($intbuompricbywght = null, $comparison = null)
+    public function filterByIntbuompricbywght($intbuompricbywght = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbuompricbywght)) {
@@ -402,7 +425,9 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT, $intbuompricbywght, $comparison);
+        $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT, $intbuompricbywght, $comparison);
+
+        return $this;
     }
 
     /**
@@ -412,14 +437,15 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbUomStockByCase('fooValue');   // WHERE IntbUomStockByCase = 'fooValue'
      * $query->filterByIntbUomStockByCase('%fooValue%', Criteria::LIKE); // WHERE IntbUomStockByCase LIKE '%fooValue%'
+     * $query->filterByIntbUomStockByCase(['foo', 'bar']); // WHERE IntbUomStockByCase IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbUomStockByCase The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbUomStockByCase The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbUomStockByCase($intbUomStockByCase = null, $comparison = null)
+    public function filterByIntbUomStockByCase($intbUomStockByCase = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbUomStockByCase)) {
@@ -427,7 +453,9 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMSTOCKBYCASE, $intbUomStockByCase, $comparison);
+        $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMSTOCKBYCASE, $intbUomStockByCase, $comparison);
+
+        return $this;
     }
 
     /**
@@ -437,14 +465,15 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -452,7 +481,9 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -462,14 +493,15 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -477,7 +509,9 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -487,14 +521,15 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -502,27 +537,33 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(UnitofMeasureSaleTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
-            return $this
+            $this
                 ->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMSALE, $itemMasterItem->getIntbuomsale(), $comparison);
+
+            return $this;
         } elseif ($itemMasterItem instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemMasterItemQuery()
                 ->filterByPrimaryKeys($itemMasterItem->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -531,12 +572,12 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -565,9 +606,9 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -579,23 +620,123 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \PurchaseOrderDetailReceiving object
      *
      * @param \PurchaseOrderDetailReceiving|ObjectCollection $purchaseOrderDetailReceiving the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPurchaseOrderDetailReceiving($purchaseOrderDetailReceiving, $comparison = null)
+    public function filterByPurchaseOrderDetailReceiving($purchaseOrderDetailReceiving, ?string $comparison = null)
     {
         if ($purchaseOrderDetailReceiving instanceof \PurchaseOrderDetailReceiving) {
-            return $this
+            $this
                 ->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMSALE, $purchaseOrderDetailReceiving->getIntbuompur(), $comparison);
+
+            return $this;
         } elseif ($purchaseOrderDetailReceiving instanceof ObjectCollection) {
-            return $this
+            $this
                 ->usePurchaseOrderDetailReceivingQuery()
                 ->filterByPrimaryKeys($purchaseOrderDetailReceiving->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByPurchaseOrderDetailReceiving() only accepts arguments of type \PurchaseOrderDetailReceiving or Collection');
         }
@@ -604,12 +745,12 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the PurchaseOrderDetailReceiving relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinPurchaseOrderDetailReceiving($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinPurchaseOrderDetailReceiving(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('PurchaseOrderDetailReceiving');
@@ -638,13 +779,13 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \PurchaseOrderDetailReceivingQuery A secondary query class using the current class as primary query
      */
-    public function usePurchaseOrderDetailReceivingQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function usePurchaseOrderDetailReceivingQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinPurchaseOrderDetailReceiving($relationAlias, $joinType)
@@ -652,11 +793,107 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
     }
 
     /**
+     * Use the PurchaseOrderDetailReceiving relation PurchaseOrderDetailReceiving object
+     *
+     * @param callable(\PurchaseOrderDetailReceivingQuery):\PurchaseOrderDetailReceivingQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withPurchaseOrderDetailReceivingQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->usePurchaseOrderDetailReceivingQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetailReceiving table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \PurchaseOrderDetailReceivingQuery The inner query object of the EXISTS statement
+     */
+    public function usePurchaseOrderDetailReceivingExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \PurchaseOrderDetailReceivingQuery */
+        $q = $this->useExistsQuery('PurchaseOrderDetailReceiving', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetailReceiving table for a NOT EXISTS query.
+     *
+     * @see usePurchaseOrderDetailReceivingExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderDetailReceivingQuery The inner query object of the NOT EXISTS statement
+     */
+    public function usePurchaseOrderDetailReceivingNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderDetailReceivingQuery */
+        $q = $this->useExistsQuery('PurchaseOrderDetailReceiving', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetailReceiving table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \PurchaseOrderDetailReceivingQuery The inner query object of the IN statement
+     */
+    public function useInPurchaseOrderDetailReceivingQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \PurchaseOrderDetailReceivingQuery */
+        $q = $this->useInQuery('PurchaseOrderDetailReceiving', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrderDetailReceiving table for a NOT IN query.
+     *
+     * @see usePurchaseOrderDetailReceivingInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderDetailReceivingQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInPurchaseOrderDetailReceivingQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderDetailReceivingQuery */
+        $q = $this->useInQuery('PurchaseOrderDetailReceiving', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildUnitofMeasureSale $unitofMeasureSale Object to remove from the list of results
+     * @param ChildUnitofMeasureSale $unitofMeasureSale Object to remove from the list of results
      *
-     * @return $this|ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($unitofMeasureSale = null)
     {
@@ -673,7 +910,7 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(UnitofMeasureSaleTableMap::DATABASE_NAME);
@@ -698,12 +935,12 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(UnitofMeasureSaleTableMap::DATABASE_NAME);
@@ -728,4 +965,4 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
         });
     }
 
-} // UnitofMeasureSaleQuery
+}

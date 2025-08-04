@@ -29,19 +29,21 @@ abstract class ConfigAr implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\ConfigArTableMap';
+    public const TABLE_MAP = '\\Map\\ConfigArTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -50,14 +52,14 @@ abstract class ConfigAr implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the artbconfkey field.
@@ -999,7 +1001,7 @@ abstract class ConfigAr implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
@@ -1009,7 +1011,7 @@ abstract class ConfigAr implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->artbconfkey = 1;
         $this->artbconfglifac = 'Y';
@@ -1142,9 +1144,9 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -1152,10 +1154,10 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -1164,7 +1166,7 @@ abstract class ConfigAr implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -1174,9 +1176,9 @@ abstract class ConfigAr implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -1185,45 +1187,43 @@ abstract class ConfigAr implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -1232,10 +1232,10 @@ abstract class ConfigAr implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>ConfigAr</code>, delegates to
      * <code>equals(ConfigAr)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -1257,7 +1257,7 @@ abstract class ConfigAr implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -1265,10 +1265,10 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -1276,15 +1276,15 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -1293,12 +1293,12 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|ConfigAr The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -1308,13 +1308,13 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -1325,24 +1325,27 @@ abstract class ConfigAr implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -2530,8 +2533,8 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Set the value of [artbconfkey] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfkey($v)
     {
@@ -2545,13 +2548,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfkey()
+    }
 
     /**
      * Set the value of [artbconfglifac] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfglifac($v)
     {
@@ -2565,13 +2568,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfglifac()
+    }
 
     /**
      * Set the value of [artbconfinifac] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfinifac($v)
     {
@@ -2585,13 +2588,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfinifac()
+    }
 
     /**
      * Set the value of [artbconfpcifac] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfpcifac($v)
     {
@@ -2605,13 +2608,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfpcifac()
+    }
 
     /**
      * Set the value of [artbconfccifac] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfccifac($v)
     {
@@ -2625,13 +2628,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfccifac()
+    }
 
     /**
      * Set the value of [artbconfinvcustgl] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfinvcustgl($v)
     {
@@ -2645,13 +2648,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfinvcustgl()
+    }
 
     /**
      * Set the value of [artbconffrtacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconffrtacct($v)
     {
@@ -2665,13 +2668,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconffrtacct()
+    }
 
     /**
      * Set the value of [artbconfmiscacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfmiscacct($v)
     {
@@ -2685,13 +2688,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfmiscacct()
+    }
 
     /**
      * Set the value of [artbconfaracct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfaracct($v)
     {
@@ -2705,13 +2708,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfaracct()
+    }
 
     /**
      * Set the value of [artbconfcashacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfcashacct($v)
     {
@@ -2725,13 +2728,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfcashacct()
+    }
 
     /**
      * Set the value of [artbcon2cccashacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2cccashacct($v)
     {
@@ -2745,13 +2748,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2cccashacct()
+    }
 
     /**
      * Set the value of [artbconffincacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconffincacct($v)
     {
@@ -2765,13 +2768,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconffincacct()
+    }
 
     /**
      * Set the value of [artbconfdiscacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfdiscacct($v)
     {
@@ -2785,13 +2788,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfdiscacct()
+    }
 
     /**
      * Set the value of [artbconfrgacogsacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfrgacogsacct($v)
     {
@@ -2805,13 +2808,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfrgacogsacct()
+    }
 
     /**
      * Set the value of [artbconfcusdacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfcusdacct($v)
     {
@@ -2825,13 +2828,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfcusdacct()
+    }
 
     /**
      * Set the value of [artbconfdpstacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfdpstacct($v)
     {
@@ -2845,13 +2848,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfdpstacct()
+    }
 
     /**
      * Set the value of [artbconfwriteoffacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfwriteoffacct($v)
     {
@@ -2865,13 +2868,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfwriteoffacct()
+    }
 
     /**
      * Set the value of [artbcon2presalivtyacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2presalivtyacct($v)
     {
@@ -2885,13 +2888,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2presalivtyacct()
+    }
 
     /**
      * Set the value of [artbconffincpct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconffincpct($v)
     {
@@ -2905,13 +2908,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconffincpct()
+    }
 
     /**
      * Set the value of [artbconffincdays] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconffincdays($v)
     {
@@ -2925,13 +2928,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconffincdays()
+    }
 
     /**
      * Set the value of [artbconffincminchg] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconffincminchg($v)
     {
@@ -2945,13 +2948,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconffincminchg()
+    }
 
     /**
      * Set the value of [artbconffincterm] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconffincterm($v)
     {
@@ -2965,13 +2968,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconffincterm()
+    }
 
     /**
      * Set the value of [artbconfover1] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfover1($v)
     {
@@ -2985,13 +2988,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfover1()
+    }
 
     /**
      * Set the value of [artbconfover2] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfover2($v)
     {
@@ -3005,13 +3008,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfover2()
+    }
 
     /**
      * Set the value of [artbconfstmtline] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfstmtline($v)
     {
@@ -3025,13 +3028,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfstmtline()
+    }
 
     /**
      * Set the value of [artbconfstmtcols] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfstmtcols($v)
     {
@@ -3045,13 +3048,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfstmtcols()
+    }
 
     /**
      * Set the value of [artbconfstmtnotedef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfstmtnotedef($v)
     {
@@ -3065,13 +3068,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfstmtnotedef()
+    }
 
     /**
      * Set the value of [artbconfstmtnote1] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfstmtnote1($v)
     {
@@ -3085,13 +3088,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfstmtnote1()
+    }
 
     /**
      * Set the value of [artbconfstmtnote2] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfstmtnote2($v)
     {
@@ -3105,13 +3108,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfstmtnote2()
+    }
 
     /**
      * Set the value of [artbconfstmtnote3] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfstmtnote3($v)
     {
@@ -3125,13 +3128,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfstmtnote3()
+    }
 
     /**
      * Set the value of [artbconfinvline] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfinvline($v)
     {
@@ -3145,13 +3148,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfinvline()
+    }
 
     /**
      * Set the value of [artbconfinvcols] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfinvcols($v)
     {
@@ -3165,13 +3168,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfinvcols()
+    }
 
     /**
      * Set the value of [artbconfinvnotedef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfinvnotedef($v)
     {
@@ -3185,13 +3188,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfinvnotedef()
+    }
 
     /**
      * Set the value of [artbconfcustline] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfcustline($v)
     {
@@ -3205,13 +3208,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfcustline()
+    }
 
     /**
      * Set the value of [artbconfcustcols] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfcustcols($v)
     {
@@ -3225,13 +3228,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfcustcols()
+    }
 
     /**
      * Set the value of [artbconfinvsort] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfinvsort($v)
     {
@@ -3245,13 +3248,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfinvsort()
+    }
 
     /**
      * Set the value of [artbconfinvnc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfinvnc($v)
     {
@@ -3265,13 +3268,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfinvnc()
+    }
 
     /**
      * Set the value of [artbconfstmtsort] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfstmtsort($v)
     {
@@ -3285,13 +3288,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfstmtsort()
+    }
 
     /**
      * Set the value of [artbconfstmt0orless] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfstmt0orless($v)
     {
@@ -3305,13 +3308,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfstmt0orless()
+    }
 
     /**
      * Set the value of [artbconfspdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfspdef($v)
     {
@@ -3325,13 +3328,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfspdef()
+    }
 
     /**
      * Set the value of [artbconfwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfwhse($v)
     {
@@ -3345,13 +3348,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfwhse()
+    }
 
     /**
      * Set the value of [artbconftypedef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconftypedef($v)
     {
@@ -3365,13 +3368,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconftypedef()
+    }
 
     /**
      * Set the value of [artbconfsviadef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfsviadef($v)
     {
@@ -3385,13 +3388,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfsviadef()
+    }
 
     /**
      * Set the value of [artbconftermdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconftermdef($v)
     {
@@ -3405,13 +3408,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconftermdef()
+    }
 
     /**
      * Set the value of [artbconftaxdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconftaxdef($v)
     {
@@ -3425,13 +3428,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconftaxdef()
+    }
 
     /**
      * Set the value of [artbconfstmtdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfstmtdef($v)
     {
@@ -3445,13 +3448,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfstmtdef()
+    }
 
     /**
      * Set the value of [artbconfallowbo] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfallowbo($v)
     {
@@ -3465,13 +3468,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfallowbo()
+    }
 
     /**
      * Set the value of [artbconfallowfc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfallowfc($v)
     {
@@ -3485,13 +3488,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfallowfc()
+    }
 
     /**
      * Set the value of [artbconfusepriccode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfusepriccode($v)
     {
@@ -3505,13 +3508,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfusepriccode()
+    }
 
     /**
      * Set the value of [artbconfpricdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfpricdef($v)
     {
@@ -3525,13 +3528,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfpricdef()
+    }
 
     /**
      * Set the value of [artbconfusecommcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfusecommcode($v)
     {
@@ -3545,13 +3548,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfusecommcode()
+    }
 
     /**
      * Set the value of [artbconfcommdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfcommdef($v)
     {
@@ -3565,13 +3568,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfcommdef()
+    }
 
     /**
      * Set the value of [artbconfcustlabl] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfcustlabl($v)
     {
@@ -3585,13 +3588,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfcustlabl()
+    }
 
     /**
      * Set the value of [artbconfcustreq] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfcustreq($v)
     {
@@ -3605,13 +3608,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfcustreq()
+    }
 
     /**
      * Set the value of [artbconfcustdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfcustdef($v)
     {
@@ -3625,13 +3628,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfcustdef()
+    }
 
     /**
      * Set the value of [artbconfshiplabl] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfshiplabl($v)
     {
@@ -3645,13 +3648,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfshiplabl()
+    }
 
     /**
      * Set the value of [artbconfshipreq] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfshipreq($v)
     {
@@ -3665,13 +3668,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfshipreq()
+    }
 
     /**
      * Set the value of [artbconfshipdef] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfshipdef($v)
     {
@@ -3685,13 +3688,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfshipdef()
+    }
 
     /**
      * Set the value of [artbconfuseidlink] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfuseidlink($v)
     {
@@ -3705,13 +3708,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfuseidlink()
+    }
 
     /**
      * Set the value of [artbconfreqdate2] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfreqdate2($v)
     {
@@ -3725,13 +3728,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfreqdate2()
+    }
 
     /**
      * Set the value of [artbconfreqdate3] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfreqdate3($v)
     {
@@ -3745,13 +3748,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfreqdate3()
+    }
 
     /**
      * Set the value of [artbconfreqdate4] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfreqdate4($v)
     {
@@ -3765,13 +3768,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfreqdate4()
+    }
 
     /**
      * Set the value of [artbconfuseweb] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfuseweb($v)
     {
@@ -3785,13 +3788,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfuseweb()
+    }
 
     /**
      * Set the value of [artbconfpayhstoredays] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfpayhstoredays($v)
     {
@@ -3805,13 +3808,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfpayhstoredays()
+    }
 
     /**
      * Set the value of [artbconfbyclerk] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfbyclerk($v)
     {
@@ -3825,13 +3828,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfbyclerk()
+    }
 
     /**
      * Set the value of [artbcon2ecrwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2ecrwhse($v)
     {
@@ -3845,13 +3848,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2ecrwhse()
+    }
 
     /**
      * Set the value of [artbconfzerotermdisc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfzerotermdisc($v)
     {
@@ -3865,13 +3868,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfzerotermdisc()
+    }
 
     /**
      * Set the value of [artbconfuseautocidgen] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfuseautocidgen($v)
     {
@@ -3885,13 +3888,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfuseautocidgen()
+    }
 
     /**
      * Set the value of [artbconfprefixlen] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfprefixlen($v)
     {
@@ -3905,13 +3908,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfprefixlen()
+    }
 
     /**
      * Set the value of [artbconfparagecredlast] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfparagecredlast($v)
     {
@@ -3925,13 +3928,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfparagecredlast()
+    }
 
     /**
      * Set the value of [artbconfincludecod] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfincludecod($v)
     {
@@ -3945,13 +3948,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfincludecod()
+    }
 
     /**
      * Set the value of [artbconfaddlpricdisc] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfaddlpricdisc($v)
     {
@@ -3965,13 +3968,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfaddlpricdisc()
+    }
 
     /**
      * Set the value of [artbconfapdonoehd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfapdonoehd($v)
     {
@@ -3985,13 +3988,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfapdonoehd()
+    }
 
     /**
      * Set the value of [artbconfnbrsp] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfnbrsp($v)
     {
@@ -4005,13 +4008,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfnbrsp()
+    }
 
     /**
      * Set the value of [artbconfforcesplvl] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfforcesplvl($v)
     {
@@ -4025,13 +4028,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfforcesplvl()
+    }
 
     /**
      * Set the value of [artbconfcustgetopt] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfcustgetopt($v)
     {
@@ -4045,13 +4048,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfcustgetopt()
+    }
 
     /**
      * Set the value of [artbconfaddicmnt] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfaddicmnt($v)
     {
@@ -4065,13 +4068,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfaddicmnt()
+    }
 
     /**
      * Set the value of [artbcon2appaddiscitmpdm] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2appaddiscitmpdm($v)
     {
@@ -4085,13 +4088,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2appaddiscitmpdm()
+    }
 
     /**
      * Set the value of [artbcon2rfndselectamt] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2rfndselectamt($v)
     {
@@ -4105,13 +4108,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2rfndselectamt()
+    }
 
     /**
      * Set the value of [artbcon2rfndglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2rfndglacct($v)
     {
@@ -4125,13 +4128,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2rfndglacct()
+    }
 
     /**
      * Set the value of [artbcon2rfndapterm] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2rfndapterm($v)
     {
@@ -4145,13 +4148,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2rfndapterm()
+    }
 
     /**
      * Set the value of [artbcon2rfndarterm] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2rfndarterm($v)
     {
@@ -4165,13 +4168,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2rfndarterm()
+    }
 
     /**
      * Set the value of [artbcon2cwoterm] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2cwoterm($v)
     {
@@ -4185,13 +4188,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2cwoterm()
+    }
 
     /**
      * Set the value of [artbcon2ccterm] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2ccterm($v)
     {
@@ -4205,13 +4208,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2ccterm()
+    }
 
     /**
      * Set the value of [artbcon2ccsave] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2ccsave($v)
     {
@@ -4225,13 +4228,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2ccsave()
+    }
 
     /**
      * Set the value of [artbcon2ccbatch] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2ccbatch($v)
     {
@@ -4245,13 +4248,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2ccbatch()
+    }
 
     /**
      * Set the value of [artbcon2ccsavedays] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2ccsavedays($v)
     {
@@ -4265,13 +4268,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2ccsavedays()
+    }
 
     /**
      * Set the value of [artbcon2aprvdccasdeposit] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2aprvdccasdeposit($v)
     {
@@ -4285,13 +4288,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2aprvdccasdeposit()
+    }
 
     /**
      * Set the value of [artbcon2cmqtysign] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2cmqtysign($v)
     {
@@ -4305,13 +4308,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2cmqtysign()
+    }
 
     /**
      * Set the value of [artbcon2bolline] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2bolline($v)
     {
@@ -4325,13 +4328,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2bolline()
+    }
 
     /**
      * Set the value of [artbcon2bolcols] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2bolcols($v)
     {
@@ -4345,13 +4348,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2bolcols()
+    }
 
     /**
      * Set the value of [artbcon2usesounitwght] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2usesounitwght($v)
     {
@@ -4365,13 +4368,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2usesounitwght()
+    }
 
     /**
      * Set the value of [artbcon2delzbal] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2delzbal($v)
     {
@@ -4385,13 +4388,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2delzbal()
+    }
 
     /**
      * Set the value of [artbconfstopcustchg] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfstopcustchg($v)
     {
@@ -4405,13 +4408,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfstopcustchg()
+    }
 
     /**
      * Set the value of [artbcon2prospecteditcmm] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2prospecteditcmm($v)
     {
@@ -4425,13 +4428,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2prospecteditcmm()
+    }
 
     /**
      * Set the value of [artbcon2prospectnotestocmm] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2prospectnotestocmm($v)
     {
@@ -4445,13 +4448,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2prospectnotestocmm()
+    }
 
     /**
      * Set the value of [artbcon2ctrygetdflt] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2ctrygetdflt($v)
     {
@@ -4465,13 +4468,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2ctrygetdflt()
+    }
 
     /**
      * Set the value of [artbconfrptbywhse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfrptbywhse($v)
     {
@@ -4485,13 +4488,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfrptbywhse()
+    }
 
     /**
      * Set the value of [artbconfappendpos] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfappendpos($v)
     {
@@ -4505,13 +4508,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfappendpos()
+    }
 
     /**
      * Set the value of [artbconfincoasstacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfincoasstacct($v)
     {
@@ -4525,13 +4528,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfincoasstacct()
+    }
 
     /**
      * Set the value of [artbconfincoliabacct] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfincoliabacct($v)
     {
@@ -4545,13 +4548,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfincoliabacct()
+    }
 
     /**
      * Set the value of [artbcon2incoasstacct2] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2incoasstacct2($v)
     {
@@ -4565,13 +4568,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2incoasstacct2()
+    }
 
     /**
      * Set the value of [artbcon2incoliabacct2] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2incoliabacct2($v)
     {
@@ -4585,13 +4588,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2incoliabacct2()
+    }
 
     /**
      * Set the value of [artbcon2usesurchg] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2usesurchg($v)
     {
@@ -4605,13 +4608,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2usesurchg()
+    }
 
     /**
      * Set the value of [artbcon2surchgitemid] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2surchgitemid($v)
     {
@@ -4625,13 +4628,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2surchgitemid()
+    }
 
     /**
      * Set the value of [artbcon2surchgigrupseq] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2surchgigrupseq($v)
     {
@@ -4645,13 +4648,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2surchgigrupseq()
+    }
 
     /**
      * Set the value of [artbcon2surchgsviaseq] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2surchgsviaseq($v)
     {
@@ -4665,13 +4668,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2surchgsviaseq()
+    }
 
     /**
      * Set the value of [artbcon2surchgcstidseq] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2surchgcstidseq($v)
     {
@@ -4685,13 +4688,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2surchgcstidseq()
+    }
 
     /**
      * Set the value of [artbcon2surchgcstpcseq] column.
      *
-     * @param int $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2surchgcstpcseq($v)
     {
@@ -4705,13 +4708,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2surchgcstpcseq()
+    }
 
     /**
      * Set the value of [artbconfzeroinvcline] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfzeroinvcline($v)
     {
@@ -4725,13 +4728,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfzeroinvcline()
+    }
 
     /**
      * Set the value of [artbcon2zeroordrship] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2zeroordrship($v)
     {
@@ -4745,13 +4748,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2zeroordrship()
+    }
 
     /**
      * Set the value of [artbcon2zeroordrmess] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2zeroordrmess($v)
     {
@@ -4765,13 +4768,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2zeroordrmess()
+    }
 
     /**
      * Set the value of [artbconfcashacctwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbconfcashacctwhse($v)
     {
@@ -4785,13 +4788,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbconfcashacctwhse()
+    }
 
     /**
      * Set the value of [artbcon2mtaxfrtflagorcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbcon2mtaxfrtflagorcode($v)
     {
@@ -4805,13 +4808,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbcon2mtaxfrtflagorcode()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -4825,13 +4828,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -4845,13 +4848,13 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\ConfigAr The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -4865,7 +4868,7 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -4873,9 +4876,9 @@ abstract class ConfigAr implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->artbconfkey !== 1) {
                 return false;
@@ -5347,7 +5350,7 @@ abstract class ConfigAr implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -5357,17 +5360,17 @@ abstract class ConfigAr implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -5721,8 +5724,8 @@ abstract class ConfigAr implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : ConfigArTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -5747,23 +5750,24 @@ abstract class ConfigAr implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -5796,13 +5800,13 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see ConfigAr::setDeleted()
      * @see ConfigAr::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -5832,12 +5836,12 @@ abstract class ConfigAr implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -5882,12 +5886,12 @@ abstract class ConfigAr implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -5909,19 +5913,19 @@ abstract class ConfigAr implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -6290,354 +6294,471 @@ abstract class ConfigAr implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'ArtbConfKey':
                         $stmt->bindValue($identifier, $this->artbconfkey, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfGlIfac':
                         $stmt->bindValue($identifier, $this->artbconfglifac, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfInIfac':
                         $stmt->bindValue($identifier, $this->artbconfinifac, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfPcIfac':
                         $stmt->bindValue($identifier, $this->artbconfpcifac, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfCcIfac':
                         $stmt->bindValue($identifier, $this->artbconfccifac, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfInvCustGl':
                         $stmt->bindValue($identifier, $this->artbconfinvcustgl, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfFrtAcct':
                         $stmt->bindValue($identifier, $this->artbconffrtacct, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfMiscAcct':
                         $stmt->bindValue($identifier, $this->artbconfmiscacct, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfArAcct':
                         $stmt->bindValue($identifier, $this->artbconfaracct, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfCashAcct':
                         $stmt->bindValue($identifier, $this->artbconfcashacct, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2CcCashAcct':
                         $stmt->bindValue($identifier, $this->artbcon2cccashacct, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfFincAcct':
                         $stmt->bindValue($identifier, $this->artbconffincacct, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfDiscAcct':
                         $stmt->bindValue($identifier, $this->artbconfdiscacct, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfRgaCogsAcct':
                         $stmt->bindValue($identifier, $this->artbconfrgacogsacct, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfCusdAcct':
                         $stmt->bindValue($identifier, $this->artbconfcusdacct, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfDpstAcct':
                         $stmt->bindValue($identifier, $this->artbconfdpstacct, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfWriteOffAcct':
                         $stmt->bindValue($identifier, $this->artbconfwriteoffacct, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2PresalIvtyAcct':
                         $stmt->bindValue($identifier, $this->artbcon2presalivtyacct, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfFincPct':
                         $stmt->bindValue($identifier, $this->artbconffincpct, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfFincDays':
                         $stmt->bindValue($identifier, $this->artbconffincdays, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfFincMinChg':
                         $stmt->bindValue($identifier, $this->artbconffincminchg, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfFincTerm':
                         $stmt->bindValue($identifier, $this->artbconffincterm, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfOver1':
                         $stmt->bindValue($identifier, $this->artbconfover1, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfOver2':
                         $stmt->bindValue($identifier, $this->artbconfover2, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfStmtLine':
                         $stmt->bindValue($identifier, $this->artbconfstmtline, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfStmtCols':
                         $stmt->bindValue($identifier, $this->artbconfstmtcols, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfStmtNoteDef':
                         $stmt->bindValue($identifier, $this->artbconfstmtnotedef, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfStmtNote1':
                         $stmt->bindValue($identifier, $this->artbconfstmtnote1, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfStmtNote2':
                         $stmt->bindValue($identifier, $this->artbconfstmtnote2, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfStmtNote3':
                         $stmt->bindValue($identifier, $this->artbconfstmtnote3, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfInvLine':
                         $stmt->bindValue($identifier, $this->artbconfinvline, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfInvCols':
                         $stmt->bindValue($identifier, $this->artbconfinvcols, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfInvNoteDef':
                         $stmt->bindValue($identifier, $this->artbconfinvnotedef, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfCustLine':
                         $stmt->bindValue($identifier, $this->artbconfcustline, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfCustCols':
                         $stmt->bindValue($identifier, $this->artbconfcustcols, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfInvSort':
                         $stmt->bindValue($identifier, $this->artbconfinvsort, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfInvNc':
                         $stmt->bindValue($identifier, $this->artbconfinvnc, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfStmtSort':
                         $stmt->bindValue($identifier, $this->artbconfstmtsort, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfStmt0OrLess':
                         $stmt->bindValue($identifier, $this->artbconfstmt0orless, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfSpDef':
                         $stmt->bindValue($identifier, $this->artbconfspdef, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfWhse':
                         $stmt->bindValue($identifier, $this->artbconfwhse, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfTypeDef':
                         $stmt->bindValue($identifier, $this->artbconftypedef, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfSviaDef':
                         $stmt->bindValue($identifier, $this->artbconfsviadef, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfTermDef':
                         $stmt->bindValue($identifier, $this->artbconftermdef, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfTaxDef':
                         $stmt->bindValue($identifier, $this->artbconftaxdef, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfStmtDef':
                         $stmt->bindValue($identifier, $this->artbconfstmtdef, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfAllowBo':
                         $stmt->bindValue($identifier, $this->artbconfallowbo, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfAllowFc':
                         $stmt->bindValue($identifier, $this->artbconfallowfc, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfUsePricCode':
                         $stmt->bindValue($identifier, $this->artbconfusepriccode, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfPricDef':
                         $stmt->bindValue($identifier, $this->artbconfpricdef, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfUseCommCode':
                         $stmt->bindValue($identifier, $this->artbconfusecommcode, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfCommDef':
                         $stmt->bindValue($identifier, $this->artbconfcommdef, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfCustLabl':
                         $stmt->bindValue($identifier, $this->artbconfcustlabl, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfCustReq':
                         $stmt->bindValue($identifier, $this->artbconfcustreq, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfCustDef':
                         $stmt->bindValue($identifier, $this->artbconfcustdef, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfShipLabl':
                         $stmt->bindValue($identifier, $this->artbconfshiplabl, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfShipReq':
                         $stmt->bindValue($identifier, $this->artbconfshipreq, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfShipDef':
                         $stmt->bindValue($identifier, $this->artbconfshipdef, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfUseIdLink':
                         $stmt->bindValue($identifier, $this->artbconfuseidlink, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfReqDate2':
                         $stmt->bindValue($identifier, $this->artbconfreqdate2, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfReqDate3':
                         $stmt->bindValue($identifier, $this->artbconfreqdate3, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfReqDate4':
                         $stmt->bindValue($identifier, $this->artbconfreqdate4, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfUseWeb':
                         $stmt->bindValue($identifier, $this->artbconfuseweb, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfPayhStoreDays':
                         $stmt->bindValue($identifier, $this->artbconfpayhstoredays, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfByClerk':
                         $stmt->bindValue($identifier, $this->artbconfbyclerk, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2EcrWhse':
                         $stmt->bindValue($identifier, $this->artbcon2ecrwhse, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfZeroTermDisc':
                         $stmt->bindValue($identifier, $this->artbconfzerotermdisc, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfUseAutoCidGen':
                         $stmt->bindValue($identifier, $this->artbconfuseautocidgen, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfPrefixLen':
                         $stmt->bindValue($identifier, $this->artbconfprefixlen, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfParAgeCredLast':
                         $stmt->bindValue($identifier, $this->artbconfparagecredlast, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfIncludeCod':
                         $stmt->bindValue($identifier, $this->artbconfincludecod, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfAddlPricDisc':
                         $stmt->bindValue($identifier, $this->artbconfaddlpricdisc, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfApdOnOehd':
                         $stmt->bindValue($identifier, $this->artbconfapdonoehd, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfNbrSp':
                         $stmt->bindValue($identifier, $this->artbconfnbrsp, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfForceSpLvl':
                         $stmt->bindValue($identifier, $this->artbconfforcesplvl, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfCustGetOpt':
                         $stmt->bindValue($identifier, $this->artbconfcustgetopt, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfAddICmnt':
                         $stmt->bindValue($identifier, $this->artbconfaddicmnt, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2AppAddiscItmPdm':
                         $stmt->bindValue($identifier, $this->artbcon2appaddiscitmpdm, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2RfndSelectAmt':
                         $stmt->bindValue($identifier, $this->artbcon2rfndselectamt, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2RfndGlAcct':
                         $stmt->bindValue($identifier, $this->artbcon2rfndglacct, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2RfndApTerm':
                         $stmt->bindValue($identifier, $this->artbcon2rfndapterm, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2RfndArTerm':
                         $stmt->bindValue($identifier, $this->artbcon2rfndarterm, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2CwoTerm':
                         $stmt->bindValue($identifier, $this->artbcon2cwoterm, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2CcTerm':
                         $stmt->bindValue($identifier, $this->artbcon2ccterm, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2CcSave':
                         $stmt->bindValue($identifier, $this->artbcon2ccsave, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2CcBatch':
                         $stmt->bindValue($identifier, $this->artbcon2ccbatch, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2CcSaveDays':
                         $stmt->bindValue($identifier, $this->artbcon2ccsavedays, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbCon2AprvdCcAsDeposit':
                         $stmt->bindValue($identifier, $this->artbcon2aprvdccasdeposit, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2CmQtySign':
                         $stmt->bindValue($identifier, $this->artbcon2cmqtysign, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2BolLine':
                         $stmt->bindValue($identifier, $this->artbcon2bolline, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbCon2BolCols':
                         $stmt->bindValue($identifier, $this->artbcon2bolcols, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbCon2UseSoUnitWght':
                         $stmt->bindValue($identifier, $this->artbcon2usesounitwght, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2DelZbal':
                         $stmt->bindValue($identifier, $this->artbcon2delzbal, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfStopCustChg':
                         $stmt->bindValue($identifier, $this->artbconfstopcustchg, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbCon2ProspectEditCmm':
                         $stmt->bindValue($identifier, $this->artbcon2prospecteditcmm, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2ProspectNotesToCmm':
                         $stmt->bindValue($identifier, $this->artbcon2prospectnotestocmm, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2CtryGetDflt':
                         $stmt->bindValue($identifier, $this->artbcon2ctrygetdflt, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfRptByWhse':
                         $stmt->bindValue($identifier, $this->artbconfrptbywhse, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfAppendPos':
                         $stmt->bindValue($identifier, $this->artbconfappendpos, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfIncoAsstAcct':
                         $stmt->bindValue($identifier, $this->artbconfincoasstacct, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfIncoLiabAcct':
                         $stmt->bindValue($identifier, $this->artbconfincoliabacct, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2IncoAsstAcct2':
                         $stmt->bindValue($identifier, $this->artbcon2incoasstacct2, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2IncoLiabAcct2':
                         $stmt->bindValue($identifier, $this->artbcon2incoliabacct2, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2UseSurchg':
                         $stmt->bindValue($identifier, $this->artbcon2usesurchg, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2SurchgItemId':
                         $stmt->bindValue($identifier, $this->artbcon2surchgitemid, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2SurchgIgrupSeq':
                         $stmt->bindValue($identifier, $this->artbcon2surchgigrupseq, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbCon2SurchgSviaSeq':
                         $stmt->bindValue($identifier, $this->artbcon2surchgsviaseq, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbCon2SurchgCstidSeq':
                         $stmt->bindValue($identifier, $this->artbcon2surchgcstidseq, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbCon2SurchgCstpcSeq':
                         $stmt->bindValue($identifier, $this->artbcon2surchgcstpcseq, PDO::PARAM_INT);
+
                         break;
                     case 'ArtbConfZeroInvcLine':
                         $stmt->bindValue($identifier, $this->artbconfzeroinvcline, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2ZeroOrdrShip':
                         $stmt->bindValue($identifier, $this->artbcon2zeroordrship, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2ZeroOrdrMess':
                         $stmt->bindValue($identifier, $this->artbcon2zeroordrmess, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbConfCashAcctWhse':
                         $stmt->bindValue($identifier, $this->artbconfcashacctwhse, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCon2MtaxFrtFlagOrCode':
                         $stmt->bindValue($identifier, $this->artbcon2mtaxfrtflagorcode, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -6653,12 +6774,12 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -6669,14 +6790,14 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ConfigArTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -6688,366 +6809,365 @@ abstract class ConfigAr implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getArtbconfkey();
-                break;
+
             case 1:
                 return $this->getArtbconfglifac();
-                break;
+
             case 2:
                 return $this->getArtbconfinifac();
-                break;
+
             case 3:
                 return $this->getArtbconfpcifac();
-                break;
+
             case 4:
                 return $this->getArtbconfccifac();
-                break;
+
             case 5:
                 return $this->getArtbconfinvcustgl();
-                break;
+
             case 6:
                 return $this->getArtbconffrtacct();
-                break;
+
             case 7:
                 return $this->getArtbconfmiscacct();
-                break;
+
             case 8:
                 return $this->getArtbconfaracct();
-                break;
+
             case 9:
                 return $this->getArtbconfcashacct();
-                break;
+
             case 10:
                 return $this->getArtbcon2cccashacct();
-                break;
+
             case 11:
                 return $this->getArtbconffincacct();
-                break;
+
             case 12:
                 return $this->getArtbconfdiscacct();
-                break;
+
             case 13:
                 return $this->getArtbconfrgacogsacct();
-                break;
+
             case 14:
                 return $this->getArtbconfcusdacct();
-                break;
+
             case 15:
                 return $this->getArtbconfdpstacct();
-                break;
+
             case 16:
                 return $this->getArtbconfwriteoffacct();
-                break;
+
             case 17:
                 return $this->getArtbcon2presalivtyacct();
-                break;
+
             case 18:
                 return $this->getArtbconffincpct();
-                break;
+
             case 19:
                 return $this->getArtbconffincdays();
-                break;
+
             case 20:
                 return $this->getArtbconffincminchg();
-                break;
+
             case 21:
                 return $this->getArtbconffincterm();
-                break;
+
             case 22:
                 return $this->getArtbconfover1();
-                break;
+
             case 23:
                 return $this->getArtbconfover2();
-                break;
+
             case 24:
                 return $this->getArtbconfstmtline();
-                break;
+
             case 25:
                 return $this->getArtbconfstmtcols();
-                break;
+
             case 26:
                 return $this->getArtbconfstmtnotedef();
-                break;
+
             case 27:
                 return $this->getArtbconfstmtnote1();
-                break;
+
             case 28:
                 return $this->getArtbconfstmtnote2();
-                break;
+
             case 29:
                 return $this->getArtbconfstmtnote3();
-                break;
+
             case 30:
                 return $this->getArtbconfinvline();
-                break;
+
             case 31:
                 return $this->getArtbconfinvcols();
-                break;
+
             case 32:
                 return $this->getArtbconfinvnotedef();
-                break;
+
             case 33:
                 return $this->getArtbconfcustline();
-                break;
+
             case 34:
                 return $this->getArtbconfcustcols();
-                break;
+
             case 35:
                 return $this->getArtbconfinvsort();
-                break;
+
             case 36:
                 return $this->getArtbconfinvnc();
-                break;
+
             case 37:
                 return $this->getArtbconfstmtsort();
-                break;
+
             case 38:
                 return $this->getArtbconfstmt0orless();
-                break;
+
             case 39:
                 return $this->getArtbconfspdef();
-                break;
+
             case 40:
                 return $this->getArtbconfwhse();
-                break;
+
             case 41:
                 return $this->getArtbconftypedef();
-                break;
+
             case 42:
                 return $this->getArtbconfsviadef();
-                break;
+
             case 43:
                 return $this->getArtbconftermdef();
-                break;
+
             case 44:
                 return $this->getArtbconftaxdef();
-                break;
+
             case 45:
                 return $this->getArtbconfstmtdef();
-                break;
+
             case 46:
                 return $this->getArtbconfallowbo();
-                break;
+
             case 47:
                 return $this->getArtbconfallowfc();
-                break;
+
             case 48:
                 return $this->getArtbconfusepriccode();
-                break;
+
             case 49:
                 return $this->getArtbconfpricdef();
-                break;
+
             case 50:
                 return $this->getArtbconfusecommcode();
-                break;
+
             case 51:
                 return $this->getArtbconfcommdef();
-                break;
+
             case 52:
                 return $this->getArtbconfcustlabl();
-                break;
+
             case 53:
                 return $this->getArtbconfcustreq();
-                break;
+
             case 54:
                 return $this->getArtbconfcustdef();
-                break;
+
             case 55:
                 return $this->getArtbconfshiplabl();
-                break;
+
             case 56:
                 return $this->getArtbconfshipreq();
-                break;
+
             case 57:
                 return $this->getArtbconfshipdef();
-                break;
+
             case 58:
                 return $this->getArtbconfuseidlink();
-                break;
+
             case 59:
                 return $this->getArtbconfreqdate2();
-                break;
+
             case 60:
                 return $this->getArtbconfreqdate3();
-                break;
+
             case 61:
                 return $this->getArtbconfreqdate4();
-                break;
+
             case 62:
                 return $this->getArtbconfuseweb();
-                break;
+
             case 63:
                 return $this->getArtbconfpayhstoredays();
-                break;
+
             case 64:
                 return $this->getArtbconfbyclerk();
-                break;
+
             case 65:
                 return $this->getArtbcon2ecrwhse();
-                break;
+
             case 66:
                 return $this->getArtbconfzerotermdisc();
-                break;
+
             case 67:
                 return $this->getArtbconfuseautocidgen();
-                break;
+
             case 68:
                 return $this->getArtbconfprefixlen();
-                break;
+
             case 69:
                 return $this->getArtbconfparagecredlast();
-                break;
+
             case 70:
                 return $this->getArtbconfincludecod();
-                break;
+
             case 71:
                 return $this->getArtbconfaddlpricdisc();
-                break;
+
             case 72:
                 return $this->getArtbconfapdonoehd();
-                break;
+
             case 73:
                 return $this->getArtbconfnbrsp();
-                break;
+
             case 74:
                 return $this->getArtbconfforcesplvl();
-                break;
+
             case 75:
                 return $this->getArtbconfcustgetopt();
-                break;
+
             case 76:
                 return $this->getArtbconfaddicmnt();
-                break;
+
             case 77:
                 return $this->getArtbcon2appaddiscitmpdm();
-                break;
+
             case 78:
                 return $this->getArtbcon2rfndselectamt();
-                break;
+
             case 79:
                 return $this->getArtbcon2rfndglacct();
-                break;
+
             case 80:
                 return $this->getArtbcon2rfndapterm();
-                break;
+
             case 81:
                 return $this->getArtbcon2rfndarterm();
-                break;
+
             case 82:
                 return $this->getArtbcon2cwoterm();
-                break;
+
             case 83:
                 return $this->getArtbcon2ccterm();
-                break;
+
             case 84:
                 return $this->getArtbcon2ccsave();
-                break;
+
             case 85:
                 return $this->getArtbcon2ccbatch();
-                break;
+
             case 86:
                 return $this->getArtbcon2ccsavedays();
-                break;
+
             case 87:
                 return $this->getArtbcon2aprvdccasdeposit();
-                break;
+
             case 88:
                 return $this->getArtbcon2cmqtysign();
-                break;
+
             case 89:
                 return $this->getArtbcon2bolline();
-                break;
+
             case 90:
                 return $this->getArtbcon2bolcols();
-                break;
+
             case 91:
                 return $this->getArtbcon2usesounitwght();
-                break;
+
             case 92:
                 return $this->getArtbcon2delzbal();
-                break;
+
             case 93:
                 return $this->getArtbconfstopcustchg();
-                break;
+
             case 94:
                 return $this->getArtbcon2prospecteditcmm();
-                break;
+
             case 95:
                 return $this->getArtbcon2prospectnotestocmm();
-                break;
+
             case 96:
                 return $this->getArtbcon2ctrygetdflt();
-                break;
+
             case 97:
                 return $this->getArtbconfrptbywhse();
-                break;
+
             case 98:
                 return $this->getArtbconfappendpos();
-                break;
+
             case 99:
                 return $this->getArtbconfincoasstacct();
-                break;
+
             case 100:
                 return $this->getArtbconfincoliabacct();
-                break;
+
             case 101:
                 return $this->getArtbcon2incoasstacct2();
-                break;
+
             case 102:
                 return $this->getArtbcon2incoliabacct2();
-                break;
+
             case 103:
                 return $this->getArtbcon2usesurchg();
-                break;
+
             case 104:
                 return $this->getArtbcon2surchgitemid();
-                break;
+
             case 105:
                 return $this->getArtbcon2surchgigrupseq();
-                break;
+
             case 106:
                 return $this->getArtbcon2surchgsviaseq();
-                break;
+
             case 107:
                 return $this->getArtbcon2surchgcstidseq();
-                break;
+
             case 108:
                 return $this->getArtbcon2surchgcstpcseq();
-                break;
+
             case 109:
                 return $this->getArtbconfzeroinvcline();
-                break;
+
             case 110:
                 return $this->getArtbcon2zeroordrship();
-                break;
+
             case 111:
                 return $this->getArtbcon2zeroordrmess();
-                break;
+
             case 112:
                 return $this->getArtbconfcashacctwhse();
-                break;
+
             case 113:
                 return $this->getArtbcon2mtaxfrtflagorcode();
-                break;
+
             case 114:
                 return $this->getDateupdtd();
-                break;
+
             case 115:
                 return $this->getTimeupdtd();
-                break;
+
             case 116:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -7057,23 +7177,22 @@ abstract class ConfigAr implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = []): array
     {
-
         if (isset($alreadyDumpedObjects['ConfigAr'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['ConfigAr'][$this->hashCode()] = true;
         $keys = ConfigArTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getArtbconfkey(),
             $keys[1] => $this->getArtbconfglifac(),
             $keys[2] => $this->getArtbconfinifac(),
@@ -7191,7 +7310,7 @@ abstract class ConfigAr implements ActiveRecordInterface
             $keys[114] => $this->getDateupdtd(),
             $keys[115] => $this->getTimeupdtd(),
             $keys[116] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -7204,30 +7323,32 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\ConfigAr
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ConfigArTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\ConfigAr
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -7599,11 +7720,11 @@ abstract class ConfigAr implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = ConfigArTableMap::getFieldNames($keyType);
 
@@ -7958,6 +8079,8 @@ abstract class ConfigAr implements ActiveRecordInterface
         if (array_key_exists($keys[116], $arr)) {
             $this->setDummy($arr[$keys[116]]);
         }
+
+        return $this;
     }
 
      /**
@@ -7977,9 +8100,9 @@ abstract class ConfigAr implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\ConfigAr The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -7993,9 +8116,9 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(ConfigArTableMap::DATABASE_NAME);
 
@@ -8358,13 +8481,13 @@ abstract class ConfigAr implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildConfigArQuery::create();
         $criteria->add(ConfigArTableMap::COL_ARTBCONFKEY, $this->artbconfkey);
@@ -8376,7 +8499,7 @@ abstract class ConfigAr implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -8406,19 +8529,20 @@ abstract class ConfigAr implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (artbconfkey column).
      *
-     * @param       int $key Primary key.
+     * @param int|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?int $key = null): void
     {
         $this->setArtbconfkey($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getArtbconfkey();
     }
@@ -8429,12 +8553,13 @@ abstract class ConfigAr implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \ConfigAr (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \ConfigAr (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setArtbconfkey($this->getArtbconfkey());
         $copyObj->setArtbconfglifac($this->getArtbconfglifac());
@@ -8566,11 +8691,11 @@ abstract class ConfigAr implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \ConfigAr Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -8584,6 +8709,8 @@ abstract class ConfigAr implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -8710,6 +8837,8 @@ abstract class ConfigAr implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -8718,13 +8847,15 @@ abstract class ConfigAr implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
         } // if ($deep)
 
+        return $this;
     }
 
     /**
@@ -8739,99 +8870,79 @@ abstract class ConfigAr implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -8841,7 +8952,7 @@ abstract class ConfigAr implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -8861,15 +8972,18 @@ abstract class ConfigAr implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

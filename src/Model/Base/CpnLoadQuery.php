@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'load_cpn_header' table.
- *
- *
+ * Base class that represents a query for the `load_cpn_header` table.
  *
  * @method     ChildCpnLoadQuery orderByLchdloadnbr($order = Criteria::ASC) Order by the LchdLoadNbr column
  * @method     ChildCpnLoadQuery orderByIntbwhse($order = Criteria::ASC) Order by the IntbWhse column
@@ -114,38 +113,38 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \CustomerQuery|\CpnLoadItemQuery|\CpnLoadOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildCpnLoad findOne(ConnectionInterface $con = null) Return the first ChildCpnLoad matching the query
- * @method     ChildCpnLoad findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCpnLoad matching the query, or a new ChildCpnLoad object populated from the query conditions when no match is found
+ * @method     ChildCpnLoad|null findOne(?ConnectionInterface $con = null) Return the first ChildCpnLoad matching the query
+ * @method     ChildCpnLoad findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildCpnLoad matching the query, or a new ChildCpnLoad object populated from the query conditions when no match is found
  *
- * @method     ChildCpnLoad findOneByLchdloadnbr(int $LchdLoadNbr) Return the first ChildCpnLoad filtered by the LchdLoadNbr column
- * @method     ChildCpnLoad findOneByIntbwhse(string $IntbWhse) Return the first ChildCpnLoad filtered by the IntbWhse column
- * @method     ChildCpnLoad findOneByArcucustid(string $ArcuCustId) Return the first ChildCpnLoad filtered by the ArcuCustId column
- * @method     ChildCpnLoad findOneByLchdshipidfrom(string $LchdShipIdFrom) Return the first ChildCpnLoad filtered by the LchdShipIdFrom column
- * @method     ChildCpnLoad findOneByLchdshipidthru(string $LchdShipIdThru) Return the first ChildCpnLoad filtered by the LchdShipIdThru column
- * @method     ChildCpnLoad findOneByLchdshipidthrusel(string $LchdShipIdThruSel) Return the first ChildCpnLoad filtered by the LchdShipIdThruSel column
- * @method     ChildCpnLoad findOneByLchdcustpofrom(string $LchdCustPoFrom) Return the first ChildCpnLoad filtered by the LchdCustPoFrom column
- * @method     ChildCpnLoad findOneByLchdcustpothru(string $LchdCustPoThru) Return the first ChildCpnLoad filtered by the LchdCustPoThru column
- * @method     ChildCpnLoad findOneByLchdcustpothrusel(string $LchdCustPoThruSel) Return the first ChildCpnLoad filtered by the LchdCustPoThruSel column
- * @method     ChildCpnLoad findOneByLchdrqstdatefrom(string $LchdRqstDateFrom) Return the first ChildCpnLoad filtered by the LchdRqstDateFrom column
- * @method     ChildCpnLoad findOneByLchdrqstdatethru(string $LchdRqstDateThru) Return the first ChildCpnLoad filtered by the LchdRqstDateThru column
- * @method     ChildCpnLoad findOneByLchdbol(string $LchdBol) Return the first ChildCpnLoad filtered by the LchdBol column
- * @method     ChildCpnLoad findOneByLchdpronbr(string $LchdProNbr) Return the first ChildCpnLoad filtered by the LchdProNbr column
- * @method     ChildCpnLoad findOneByLchdshipdate(string $LchdShipDate) Return the first ChildCpnLoad filtered by the LchdShipDate column
- * @method     ChildCpnLoad findOneByLchdnbrofskids(int $LchdNbrOfSkids) Return the first ChildCpnLoad filtered by the LchdNbrOfSkids column
- * @method     ChildCpnLoad findOneByLchdnbrofboxes(int $LchdNbrOfBoxes) Return the first ChildCpnLoad filtered by the LchdNbrOfBoxes column
- * @method     ChildCpnLoad findOneByLchdtotwght(string $LchdTotWght) Return the first ChildCpnLoad filtered by the LchdTotWght column
- * @method     ChildCpnLoad findOneByLchdslctnbrofboxes(int $LchdSlctNbrOfBoxes) Return the first ChildCpnLoad filtered by the LchdSlctNbrOfBoxes column
- * @method     ChildCpnLoad findOneByLchdslcttotwght(string $LchdSlctTotWght) Return the first ChildCpnLoad filtered by the LchdSlctTotWght column
- * @method     ChildCpnLoad findOneByLchdschdpickupdate(string $LchdSchdPickupDate) Return the first ChildCpnLoad filtered by the LchdSchdPickupDate column
- * @method     ChildCpnLoad findOneByLchdschdpickuptime(string $LchdSchdPickupTime) Return the first ChildCpnLoad filtered by the LchdSchdPickupTime column
- * @method     ChildCpnLoad findOneByLchdexportdate(string $LchdExportDate) Return the first ChildCpnLoad filtered by the LchdExportDate column
- * @method     ChildCpnLoad findOneByLchdexporttime(string $LchdExportTime) Return the first ChildCpnLoad filtered by the LchdExportTime column
- * @method     ChildCpnLoad findOneByDateupdtd(string $DateUpdtd) Return the first ChildCpnLoad filtered by the DateUpdtd column
- * @method     ChildCpnLoad findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCpnLoad filtered by the TimeUpdtd column
- * @method     ChildCpnLoad findOneByDummy(string $dummy) Return the first ChildCpnLoad filtered by the dummy column *
-
- * @method     ChildCpnLoad requirePk($key, ConnectionInterface $con = null) Return the ChildCpnLoad by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCpnLoad requireOne(ConnectionInterface $con = null) Return the first ChildCpnLoad matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCpnLoad|null findOneByLchdloadnbr(int $LchdLoadNbr) Return the first ChildCpnLoad filtered by the LchdLoadNbr column
+ * @method     ChildCpnLoad|null findOneByIntbwhse(string $IntbWhse) Return the first ChildCpnLoad filtered by the IntbWhse column
+ * @method     ChildCpnLoad|null findOneByArcucustid(string $ArcuCustId) Return the first ChildCpnLoad filtered by the ArcuCustId column
+ * @method     ChildCpnLoad|null findOneByLchdshipidfrom(string $LchdShipIdFrom) Return the first ChildCpnLoad filtered by the LchdShipIdFrom column
+ * @method     ChildCpnLoad|null findOneByLchdshipidthru(string $LchdShipIdThru) Return the first ChildCpnLoad filtered by the LchdShipIdThru column
+ * @method     ChildCpnLoad|null findOneByLchdshipidthrusel(string $LchdShipIdThruSel) Return the first ChildCpnLoad filtered by the LchdShipIdThruSel column
+ * @method     ChildCpnLoad|null findOneByLchdcustpofrom(string $LchdCustPoFrom) Return the first ChildCpnLoad filtered by the LchdCustPoFrom column
+ * @method     ChildCpnLoad|null findOneByLchdcustpothru(string $LchdCustPoThru) Return the first ChildCpnLoad filtered by the LchdCustPoThru column
+ * @method     ChildCpnLoad|null findOneByLchdcustpothrusel(string $LchdCustPoThruSel) Return the first ChildCpnLoad filtered by the LchdCustPoThruSel column
+ * @method     ChildCpnLoad|null findOneByLchdrqstdatefrom(string $LchdRqstDateFrom) Return the first ChildCpnLoad filtered by the LchdRqstDateFrom column
+ * @method     ChildCpnLoad|null findOneByLchdrqstdatethru(string $LchdRqstDateThru) Return the first ChildCpnLoad filtered by the LchdRqstDateThru column
+ * @method     ChildCpnLoad|null findOneByLchdbol(string $LchdBol) Return the first ChildCpnLoad filtered by the LchdBol column
+ * @method     ChildCpnLoad|null findOneByLchdpronbr(string $LchdProNbr) Return the first ChildCpnLoad filtered by the LchdProNbr column
+ * @method     ChildCpnLoad|null findOneByLchdshipdate(string $LchdShipDate) Return the first ChildCpnLoad filtered by the LchdShipDate column
+ * @method     ChildCpnLoad|null findOneByLchdnbrofskids(int $LchdNbrOfSkids) Return the first ChildCpnLoad filtered by the LchdNbrOfSkids column
+ * @method     ChildCpnLoad|null findOneByLchdnbrofboxes(int $LchdNbrOfBoxes) Return the first ChildCpnLoad filtered by the LchdNbrOfBoxes column
+ * @method     ChildCpnLoad|null findOneByLchdtotwght(string $LchdTotWght) Return the first ChildCpnLoad filtered by the LchdTotWght column
+ * @method     ChildCpnLoad|null findOneByLchdslctnbrofboxes(int $LchdSlctNbrOfBoxes) Return the first ChildCpnLoad filtered by the LchdSlctNbrOfBoxes column
+ * @method     ChildCpnLoad|null findOneByLchdslcttotwght(string $LchdSlctTotWght) Return the first ChildCpnLoad filtered by the LchdSlctTotWght column
+ * @method     ChildCpnLoad|null findOneByLchdschdpickupdate(string $LchdSchdPickupDate) Return the first ChildCpnLoad filtered by the LchdSchdPickupDate column
+ * @method     ChildCpnLoad|null findOneByLchdschdpickuptime(string $LchdSchdPickupTime) Return the first ChildCpnLoad filtered by the LchdSchdPickupTime column
+ * @method     ChildCpnLoad|null findOneByLchdexportdate(string $LchdExportDate) Return the first ChildCpnLoad filtered by the LchdExportDate column
+ * @method     ChildCpnLoad|null findOneByLchdexporttime(string $LchdExportTime) Return the first ChildCpnLoad filtered by the LchdExportTime column
+ * @method     ChildCpnLoad|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildCpnLoad filtered by the DateUpdtd column
+ * @method     ChildCpnLoad|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCpnLoad filtered by the TimeUpdtd column
+ * @method     ChildCpnLoad|null findOneByDummy(string $dummy) Return the first ChildCpnLoad filtered by the dummy column
+ *
+ * @method     ChildCpnLoad requirePk($key, ?ConnectionInterface $con = null) Return the ChildCpnLoad by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCpnLoad requireOne(?ConnectionInterface $con = null) Return the first ChildCpnLoad matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildCpnLoad requireOneByLchdloadnbr(int $LchdLoadNbr) Return the first ChildCpnLoad filtered by the LchdLoadNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCpnLoad requireOneByIntbwhse(string $IntbWhse) Return the first ChildCpnLoad filtered by the IntbWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -174,35 +173,64 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCpnLoad requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCpnLoad filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCpnLoad requireOneByDummy(string $dummy) Return the first ChildCpnLoad filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCpnLoad[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCpnLoad objects based on current ModelCriteria
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdloadnbr(int $LchdLoadNbr) Return ChildCpnLoad objects filtered by the LchdLoadNbr column
- * @method     ChildCpnLoad[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildCpnLoad objects filtered by the IntbWhse column
- * @method     ChildCpnLoad[]|ObjectCollection findByArcucustid(string $ArcuCustId) Return ChildCpnLoad objects filtered by the ArcuCustId column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdshipidfrom(string $LchdShipIdFrom) Return ChildCpnLoad objects filtered by the LchdShipIdFrom column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdshipidthru(string $LchdShipIdThru) Return ChildCpnLoad objects filtered by the LchdShipIdThru column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdshipidthrusel(string $LchdShipIdThruSel) Return ChildCpnLoad objects filtered by the LchdShipIdThruSel column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdcustpofrom(string $LchdCustPoFrom) Return ChildCpnLoad objects filtered by the LchdCustPoFrom column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdcustpothru(string $LchdCustPoThru) Return ChildCpnLoad objects filtered by the LchdCustPoThru column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdcustpothrusel(string $LchdCustPoThruSel) Return ChildCpnLoad objects filtered by the LchdCustPoThruSel column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdrqstdatefrom(string $LchdRqstDateFrom) Return ChildCpnLoad objects filtered by the LchdRqstDateFrom column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdrqstdatethru(string $LchdRqstDateThru) Return ChildCpnLoad objects filtered by the LchdRqstDateThru column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdbol(string $LchdBol) Return ChildCpnLoad objects filtered by the LchdBol column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdpronbr(string $LchdProNbr) Return ChildCpnLoad objects filtered by the LchdProNbr column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdshipdate(string $LchdShipDate) Return ChildCpnLoad objects filtered by the LchdShipDate column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdnbrofskids(int $LchdNbrOfSkids) Return ChildCpnLoad objects filtered by the LchdNbrOfSkids column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdnbrofboxes(int $LchdNbrOfBoxes) Return ChildCpnLoad objects filtered by the LchdNbrOfBoxes column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdtotwght(string $LchdTotWght) Return ChildCpnLoad objects filtered by the LchdTotWght column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdslctnbrofboxes(int $LchdSlctNbrOfBoxes) Return ChildCpnLoad objects filtered by the LchdSlctNbrOfBoxes column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdslcttotwght(string $LchdSlctTotWght) Return ChildCpnLoad objects filtered by the LchdSlctTotWght column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdschdpickupdate(string $LchdSchdPickupDate) Return ChildCpnLoad objects filtered by the LchdSchdPickupDate column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdschdpickuptime(string $LchdSchdPickupTime) Return ChildCpnLoad objects filtered by the LchdSchdPickupTime column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdexportdate(string $LchdExportDate) Return ChildCpnLoad objects filtered by the LchdExportDate column
- * @method     ChildCpnLoad[]|ObjectCollection findByLchdexporttime(string $LchdExportTime) Return ChildCpnLoad objects filtered by the LchdExportTime column
- * @method     ChildCpnLoad[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildCpnLoad objects filtered by the DateUpdtd column
- * @method     ChildCpnLoad[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildCpnLoad objects filtered by the TimeUpdtd column
- * @method     ChildCpnLoad[]|ObjectCollection findByDummy(string $dummy) Return ChildCpnLoad objects filtered by the dummy column
- * @method     ChildCpnLoad[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildCpnLoad[]|Collection find(?ConnectionInterface $con = null) Return ChildCpnLoad objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> find(?ConnectionInterface $con = null) Return ChildCpnLoad objects based on current ModelCriteria
  *
+ * @method     ChildCpnLoad[]|Collection findByLchdloadnbr(int|array<int> $LchdLoadNbr) Return ChildCpnLoad objects filtered by the LchdLoadNbr column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdloadnbr(int|array<int> $LchdLoadNbr) Return ChildCpnLoad objects filtered by the LchdLoadNbr column
+ * @method     ChildCpnLoad[]|Collection findByIntbwhse(string|array<string> $IntbWhse) Return ChildCpnLoad objects filtered by the IntbWhse column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByIntbwhse(string|array<string> $IntbWhse) Return ChildCpnLoad objects filtered by the IntbWhse column
+ * @method     ChildCpnLoad[]|Collection findByArcucustid(string|array<string> $ArcuCustId) Return ChildCpnLoad objects filtered by the ArcuCustId column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByArcucustid(string|array<string> $ArcuCustId) Return ChildCpnLoad objects filtered by the ArcuCustId column
+ * @method     ChildCpnLoad[]|Collection findByLchdshipidfrom(string|array<string> $LchdShipIdFrom) Return ChildCpnLoad objects filtered by the LchdShipIdFrom column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdshipidfrom(string|array<string> $LchdShipIdFrom) Return ChildCpnLoad objects filtered by the LchdShipIdFrom column
+ * @method     ChildCpnLoad[]|Collection findByLchdshipidthru(string|array<string> $LchdShipIdThru) Return ChildCpnLoad objects filtered by the LchdShipIdThru column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdshipidthru(string|array<string> $LchdShipIdThru) Return ChildCpnLoad objects filtered by the LchdShipIdThru column
+ * @method     ChildCpnLoad[]|Collection findByLchdshipidthrusel(string|array<string> $LchdShipIdThruSel) Return ChildCpnLoad objects filtered by the LchdShipIdThruSel column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdshipidthrusel(string|array<string> $LchdShipIdThruSel) Return ChildCpnLoad objects filtered by the LchdShipIdThruSel column
+ * @method     ChildCpnLoad[]|Collection findByLchdcustpofrom(string|array<string> $LchdCustPoFrom) Return ChildCpnLoad objects filtered by the LchdCustPoFrom column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdcustpofrom(string|array<string> $LchdCustPoFrom) Return ChildCpnLoad objects filtered by the LchdCustPoFrom column
+ * @method     ChildCpnLoad[]|Collection findByLchdcustpothru(string|array<string> $LchdCustPoThru) Return ChildCpnLoad objects filtered by the LchdCustPoThru column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdcustpothru(string|array<string> $LchdCustPoThru) Return ChildCpnLoad objects filtered by the LchdCustPoThru column
+ * @method     ChildCpnLoad[]|Collection findByLchdcustpothrusel(string|array<string> $LchdCustPoThruSel) Return ChildCpnLoad objects filtered by the LchdCustPoThruSel column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdcustpothrusel(string|array<string> $LchdCustPoThruSel) Return ChildCpnLoad objects filtered by the LchdCustPoThruSel column
+ * @method     ChildCpnLoad[]|Collection findByLchdrqstdatefrom(string|array<string> $LchdRqstDateFrom) Return ChildCpnLoad objects filtered by the LchdRqstDateFrom column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdrqstdatefrom(string|array<string> $LchdRqstDateFrom) Return ChildCpnLoad objects filtered by the LchdRqstDateFrom column
+ * @method     ChildCpnLoad[]|Collection findByLchdrqstdatethru(string|array<string> $LchdRqstDateThru) Return ChildCpnLoad objects filtered by the LchdRqstDateThru column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdrqstdatethru(string|array<string> $LchdRqstDateThru) Return ChildCpnLoad objects filtered by the LchdRqstDateThru column
+ * @method     ChildCpnLoad[]|Collection findByLchdbol(string|array<string> $LchdBol) Return ChildCpnLoad objects filtered by the LchdBol column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdbol(string|array<string> $LchdBol) Return ChildCpnLoad objects filtered by the LchdBol column
+ * @method     ChildCpnLoad[]|Collection findByLchdpronbr(string|array<string> $LchdProNbr) Return ChildCpnLoad objects filtered by the LchdProNbr column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdpronbr(string|array<string> $LchdProNbr) Return ChildCpnLoad objects filtered by the LchdProNbr column
+ * @method     ChildCpnLoad[]|Collection findByLchdshipdate(string|array<string> $LchdShipDate) Return ChildCpnLoad objects filtered by the LchdShipDate column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdshipdate(string|array<string> $LchdShipDate) Return ChildCpnLoad objects filtered by the LchdShipDate column
+ * @method     ChildCpnLoad[]|Collection findByLchdnbrofskids(int|array<int> $LchdNbrOfSkids) Return ChildCpnLoad objects filtered by the LchdNbrOfSkids column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdnbrofskids(int|array<int> $LchdNbrOfSkids) Return ChildCpnLoad objects filtered by the LchdNbrOfSkids column
+ * @method     ChildCpnLoad[]|Collection findByLchdnbrofboxes(int|array<int> $LchdNbrOfBoxes) Return ChildCpnLoad objects filtered by the LchdNbrOfBoxes column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdnbrofboxes(int|array<int> $LchdNbrOfBoxes) Return ChildCpnLoad objects filtered by the LchdNbrOfBoxes column
+ * @method     ChildCpnLoad[]|Collection findByLchdtotwght(string|array<string> $LchdTotWght) Return ChildCpnLoad objects filtered by the LchdTotWght column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdtotwght(string|array<string> $LchdTotWght) Return ChildCpnLoad objects filtered by the LchdTotWght column
+ * @method     ChildCpnLoad[]|Collection findByLchdslctnbrofboxes(int|array<int> $LchdSlctNbrOfBoxes) Return ChildCpnLoad objects filtered by the LchdSlctNbrOfBoxes column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdslctnbrofboxes(int|array<int> $LchdSlctNbrOfBoxes) Return ChildCpnLoad objects filtered by the LchdSlctNbrOfBoxes column
+ * @method     ChildCpnLoad[]|Collection findByLchdslcttotwght(string|array<string> $LchdSlctTotWght) Return ChildCpnLoad objects filtered by the LchdSlctTotWght column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdslcttotwght(string|array<string> $LchdSlctTotWght) Return ChildCpnLoad objects filtered by the LchdSlctTotWght column
+ * @method     ChildCpnLoad[]|Collection findByLchdschdpickupdate(string|array<string> $LchdSchdPickupDate) Return ChildCpnLoad objects filtered by the LchdSchdPickupDate column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdschdpickupdate(string|array<string> $LchdSchdPickupDate) Return ChildCpnLoad objects filtered by the LchdSchdPickupDate column
+ * @method     ChildCpnLoad[]|Collection findByLchdschdpickuptime(string|array<string> $LchdSchdPickupTime) Return ChildCpnLoad objects filtered by the LchdSchdPickupTime column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdschdpickuptime(string|array<string> $LchdSchdPickupTime) Return ChildCpnLoad objects filtered by the LchdSchdPickupTime column
+ * @method     ChildCpnLoad[]|Collection findByLchdexportdate(string|array<string> $LchdExportDate) Return ChildCpnLoad objects filtered by the LchdExportDate column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdexportdate(string|array<string> $LchdExportDate) Return ChildCpnLoad objects filtered by the LchdExportDate column
+ * @method     ChildCpnLoad[]|Collection findByLchdexporttime(string|array<string> $LchdExportTime) Return ChildCpnLoad objects filtered by the LchdExportTime column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByLchdexporttime(string|array<string> $LchdExportTime) Return ChildCpnLoad objects filtered by the LchdExportTime column
+ * @method     ChildCpnLoad[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildCpnLoad objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildCpnLoad objects filtered by the DateUpdtd column
+ * @method     ChildCpnLoad[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildCpnLoad objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildCpnLoad objects filtered by the TimeUpdtd column
+ * @method     ChildCpnLoad[]|Collection findByDummy(string|array<string> $dummy) Return ChildCpnLoad objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildCpnLoad> findByDummy(string|array<string> $dummy) Return ChildCpnLoad objects filtered by the dummy column
+ *
+ * @method     ChildCpnLoad[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildCpnLoad> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class CpnLoadQuery extends ModelCriteria
 {
@@ -211,9 +239,9 @@ abstract class CpnLoadQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\CpnLoadQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\CpnLoad', $modelAlias = null)
     {
@@ -223,12 +251,12 @@ abstract class CpnLoadQuery extends ModelCriteria
     /**
      * Returns a new ChildCpnLoadQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildCpnLoadQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildCpnLoadQuery) {
             return $criteria;
@@ -258,7 +286,7 @@ abstract class CpnLoadQuery extends ModelCriteria
      *
      * @return ChildCpnLoad|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -290,8 +318,8 @@ abstract class CpnLoadQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -323,8 +351,8 @@ abstract class CpnLoadQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildCpnLoad|array|mixed the result, formatted by the current formatter
      */
@@ -344,12 +372,12 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -366,27 +394,31 @@ abstract class CpnLoadQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDLOADNBR, $key, Criteria::EQUAL);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDLOADNBR, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDLOADNBR, $keys, Criteria::IN);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDLOADNBR, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -399,15 +431,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * $query->filterByLchdloadnbr(array('min' => 12)); // WHERE LchdLoadNbr > 12
      * </code>
      *
-     * @param     mixed $lchdloadnbr The value to use as filter.
+     * @param mixed $lchdloadnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdloadnbr($lchdloadnbr = null, $comparison = null)
+    public function filterByLchdloadnbr($lchdloadnbr = null, ?string $comparison = null)
     {
         if (is_array($lchdloadnbr)) {
             $useMinMax = false;
@@ -427,7 +459,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDLOADNBR, $lchdloadnbr, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDLOADNBR, $lchdloadnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -437,14 +471,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhse('fooValue');   // WHERE IntbWhse = 'fooValue'
      * $query->filterByIntbwhse('%fooValue%', Criteria::LIKE); // WHERE IntbWhse LIKE '%fooValue%'
+     * $query->filterByIntbwhse(['foo', 'bar']); // WHERE IntbWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhse($intbwhse = null, $comparison = null)
+    public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhse)) {
@@ -452,7 +487,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -462,14 +499,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByArcucustid('fooValue');   // WHERE ArcuCustId = 'fooValue'
      * $query->filterByArcucustid('%fooValue%', Criteria::LIKE); // WHERE ArcuCustId LIKE '%fooValue%'
+     * $query->filterByArcucustid(['foo', 'bar']); // WHERE ArcuCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcucustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcucustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcucustid($arcucustid = null, $comparison = null)
+    public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcucustid)) {
@@ -477,7 +515,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -487,14 +527,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByLchdshipidfrom('fooValue');   // WHERE LchdShipIdFrom = 'fooValue'
      * $query->filterByLchdshipidfrom('%fooValue%', Criteria::LIKE); // WHERE LchdShipIdFrom LIKE '%fooValue%'
+     * $query->filterByLchdshipidfrom(['foo', 'bar']); // WHERE LchdShipIdFrom IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lchdshipidfrom The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lchdshipidfrom The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdshipidfrom($lchdshipidfrom = null, $comparison = null)
+    public function filterByLchdshipidfrom($lchdshipidfrom = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lchdshipidfrom)) {
@@ -502,7 +543,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDSHIPIDFROM, $lchdshipidfrom, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDSHIPIDFROM, $lchdshipidfrom, $comparison);
+
+        return $this;
     }
 
     /**
@@ -512,14 +555,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByLchdshipidthru('fooValue');   // WHERE LchdShipIdThru = 'fooValue'
      * $query->filterByLchdshipidthru('%fooValue%', Criteria::LIKE); // WHERE LchdShipIdThru LIKE '%fooValue%'
+     * $query->filterByLchdshipidthru(['foo', 'bar']); // WHERE LchdShipIdThru IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lchdshipidthru The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lchdshipidthru The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdshipidthru($lchdshipidthru = null, $comparison = null)
+    public function filterByLchdshipidthru($lchdshipidthru = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lchdshipidthru)) {
@@ -527,7 +571,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDSHIPIDTHRU, $lchdshipidthru, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDSHIPIDTHRU, $lchdshipidthru, $comparison);
+
+        return $this;
     }
 
     /**
@@ -537,14 +583,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByLchdshipidthrusel('fooValue');   // WHERE LchdShipIdThruSel = 'fooValue'
      * $query->filterByLchdshipidthrusel('%fooValue%', Criteria::LIKE); // WHERE LchdShipIdThruSel LIKE '%fooValue%'
+     * $query->filterByLchdshipidthrusel(['foo', 'bar']); // WHERE LchdShipIdThruSel IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lchdshipidthrusel The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lchdshipidthrusel The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdshipidthrusel($lchdshipidthrusel = null, $comparison = null)
+    public function filterByLchdshipidthrusel($lchdshipidthrusel = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lchdshipidthrusel)) {
@@ -552,7 +599,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDSHIPIDTHRUSEL, $lchdshipidthrusel, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDSHIPIDTHRUSEL, $lchdshipidthrusel, $comparison);
+
+        return $this;
     }
 
     /**
@@ -562,14 +611,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByLchdcustpofrom('fooValue');   // WHERE LchdCustPoFrom = 'fooValue'
      * $query->filterByLchdcustpofrom('%fooValue%', Criteria::LIKE); // WHERE LchdCustPoFrom LIKE '%fooValue%'
+     * $query->filterByLchdcustpofrom(['foo', 'bar']); // WHERE LchdCustPoFrom IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lchdcustpofrom The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lchdcustpofrom The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdcustpofrom($lchdcustpofrom = null, $comparison = null)
+    public function filterByLchdcustpofrom($lchdcustpofrom = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lchdcustpofrom)) {
@@ -577,7 +627,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDCUSTPOFROM, $lchdcustpofrom, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDCUSTPOFROM, $lchdcustpofrom, $comparison);
+
+        return $this;
     }
 
     /**
@@ -587,14 +639,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByLchdcustpothru('fooValue');   // WHERE LchdCustPoThru = 'fooValue'
      * $query->filterByLchdcustpothru('%fooValue%', Criteria::LIKE); // WHERE LchdCustPoThru LIKE '%fooValue%'
+     * $query->filterByLchdcustpothru(['foo', 'bar']); // WHERE LchdCustPoThru IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lchdcustpothru The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lchdcustpothru The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdcustpothru($lchdcustpothru = null, $comparison = null)
+    public function filterByLchdcustpothru($lchdcustpothru = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lchdcustpothru)) {
@@ -602,7 +655,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDCUSTPOTHRU, $lchdcustpothru, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDCUSTPOTHRU, $lchdcustpothru, $comparison);
+
+        return $this;
     }
 
     /**
@@ -612,14 +667,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByLchdcustpothrusel('fooValue');   // WHERE LchdCustPoThruSel = 'fooValue'
      * $query->filterByLchdcustpothrusel('%fooValue%', Criteria::LIKE); // WHERE LchdCustPoThruSel LIKE '%fooValue%'
+     * $query->filterByLchdcustpothrusel(['foo', 'bar']); // WHERE LchdCustPoThruSel IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lchdcustpothrusel The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lchdcustpothrusel The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdcustpothrusel($lchdcustpothrusel = null, $comparison = null)
+    public function filterByLchdcustpothrusel($lchdcustpothrusel = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lchdcustpothrusel)) {
@@ -627,7 +683,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDCUSTPOTHRUSEL, $lchdcustpothrusel, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDCUSTPOTHRUSEL, $lchdcustpothrusel, $comparison);
+
+        return $this;
     }
 
     /**
@@ -637,14 +695,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByLchdrqstdatefrom('fooValue');   // WHERE LchdRqstDateFrom = 'fooValue'
      * $query->filterByLchdrqstdatefrom('%fooValue%', Criteria::LIKE); // WHERE LchdRqstDateFrom LIKE '%fooValue%'
+     * $query->filterByLchdrqstdatefrom(['foo', 'bar']); // WHERE LchdRqstDateFrom IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lchdrqstdatefrom The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lchdrqstdatefrom The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdrqstdatefrom($lchdrqstdatefrom = null, $comparison = null)
+    public function filterByLchdrqstdatefrom($lchdrqstdatefrom = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lchdrqstdatefrom)) {
@@ -652,7 +711,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDRQSTDATEFROM, $lchdrqstdatefrom, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDRQSTDATEFROM, $lchdrqstdatefrom, $comparison);
+
+        return $this;
     }
 
     /**
@@ -662,14 +723,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByLchdrqstdatethru('fooValue');   // WHERE LchdRqstDateThru = 'fooValue'
      * $query->filterByLchdrqstdatethru('%fooValue%', Criteria::LIKE); // WHERE LchdRqstDateThru LIKE '%fooValue%'
+     * $query->filterByLchdrqstdatethru(['foo', 'bar']); // WHERE LchdRqstDateThru IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lchdrqstdatethru The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lchdrqstdatethru The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdrqstdatethru($lchdrqstdatethru = null, $comparison = null)
+    public function filterByLchdrqstdatethru($lchdrqstdatethru = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lchdrqstdatethru)) {
@@ -677,7 +739,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDRQSTDATETHRU, $lchdrqstdatethru, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDRQSTDATETHRU, $lchdrqstdatethru, $comparison);
+
+        return $this;
     }
 
     /**
@@ -687,14 +751,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByLchdbol('fooValue');   // WHERE LchdBol = 'fooValue'
      * $query->filterByLchdbol('%fooValue%', Criteria::LIKE); // WHERE LchdBol LIKE '%fooValue%'
+     * $query->filterByLchdbol(['foo', 'bar']); // WHERE LchdBol IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lchdbol The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lchdbol The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdbol($lchdbol = null, $comparison = null)
+    public function filterByLchdbol($lchdbol = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lchdbol)) {
@@ -702,7 +767,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDBOL, $lchdbol, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDBOL, $lchdbol, $comparison);
+
+        return $this;
     }
 
     /**
@@ -712,14 +779,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByLchdpronbr('fooValue');   // WHERE LchdProNbr = 'fooValue'
      * $query->filterByLchdpronbr('%fooValue%', Criteria::LIKE); // WHERE LchdProNbr LIKE '%fooValue%'
+     * $query->filterByLchdpronbr(['foo', 'bar']); // WHERE LchdProNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lchdpronbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lchdpronbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdpronbr($lchdpronbr = null, $comparison = null)
+    public function filterByLchdpronbr($lchdpronbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lchdpronbr)) {
@@ -727,7 +795,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDPRONBR, $lchdpronbr, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDPRONBR, $lchdpronbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -737,14 +807,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByLchdshipdate('fooValue');   // WHERE LchdShipDate = 'fooValue'
      * $query->filterByLchdshipdate('%fooValue%', Criteria::LIKE); // WHERE LchdShipDate LIKE '%fooValue%'
+     * $query->filterByLchdshipdate(['foo', 'bar']); // WHERE LchdShipDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lchdshipdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lchdshipdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdshipdate($lchdshipdate = null, $comparison = null)
+    public function filterByLchdshipdate($lchdshipdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lchdshipdate)) {
@@ -752,7 +823,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDSHIPDATE, $lchdshipdate, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDSHIPDATE, $lchdshipdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -765,15 +838,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * $query->filterByLchdnbrofskids(array('min' => 12)); // WHERE LchdNbrOfSkids > 12
      * </code>
      *
-     * @param     mixed $lchdnbrofskids The value to use as filter.
+     * @param mixed $lchdnbrofskids The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdnbrofskids($lchdnbrofskids = null, $comparison = null)
+    public function filterByLchdnbrofskids($lchdnbrofskids = null, ?string $comparison = null)
     {
         if (is_array($lchdnbrofskids)) {
             $useMinMax = false;
@@ -793,7 +866,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDNBROFSKIDS, $lchdnbrofskids, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDNBROFSKIDS, $lchdnbrofskids, $comparison);
+
+        return $this;
     }
 
     /**
@@ -806,15 +881,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * $query->filterByLchdnbrofboxes(array('min' => 12)); // WHERE LchdNbrOfBoxes > 12
      * </code>
      *
-     * @param     mixed $lchdnbrofboxes The value to use as filter.
+     * @param mixed $lchdnbrofboxes The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdnbrofboxes($lchdnbrofboxes = null, $comparison = null)
+    public function filterByLchdnbrofboxes($lchdnbrofboxes = null, ?string $comparison = null)
     {
         if (is_array($lchdnbrofboxes)) {
             $useMinMax = false;
@@ -834,7 +909,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDNBROFBOXES, $lchdnbrofboxes, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDNBROFBOXES, $lchdnbrofboxes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -847,15 +924,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * $query->filterByLchdtotwght(array('min' => 12)); // WHERE LchdTotWght > 12
      * </code>
      *
-     * @param     mixed $lchdtotwght The value to use as filter.
+     * @param mixed $lchdtotwght The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdtotwght($lchdtotwght = null, $comparison = null)
+    public function filterByLchdtotwght($lchdtotwght = null, ?string $comparison = null)
     {
         if (is_array($lchdtotwght)) {
             $useMinMax = false;
@@ -875,7 +952,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDTOTWGHT, $lchdtotwght, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDTOTWGHT, $lchdtotwght, $comparison);
+
+        return $this;
     }
 
     /**
@@ -888,15 +967,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * $query->filterByLchdslctnbrofboxes(array('min' => 12)); // WHERE LchdSlctNbrOfBoxes > 12
      * </code>
      *
-     * @param     mixed $lchdslctnbrofboxes The value to use as filter.
+     * @param mixed $lchdslctnbrofboxes The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdslctnbrofboxes($lchdslctnbrofboxes = null, $comparison = null)
+    public function filterByLchdslctnbrofboxes($lchdslctnbrofboxes = null, ?string $comparison = null)
     {
         if (is_array($lchdslctnbrofboxes)) {
             $useMinMax = false;
@@ -916,7 +995,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDSLCTNBROFBOXES, $lchdslctnbrofboxes, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDSLCTNBROFBOXES, $lchdslctnbrofboxes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -929,15 +1010,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * $query->filterByLchdslcttotwght(array('min' => 12)); // WHERE LchdSlctTotWght > 12
      * </code>
      *
-     * @param     mixed $lchdslcttotwght The value to use as filter.
+     * @param mixed $lchdslcttotwght The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdslcttotwght($lchdslcttotwght = null, $comparison = null)
+    public function filterByLchdslcttotwght($lchdslcttotwght = null, ?string $comparison = null)
     {
         if (is_array($lchdslcttotwght)) {
             $useMinMax = false;
@@ -957,7 +1038,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDSLCTTOTWGHT, $lchdslcttotwght, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDSLCTTOTWGHT, $lchdslcttotwght, $comparison);
+
+        return $this;
     }
 
     /**
@@ -967,14 +1050,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByLchdschdpickupdate('fooValue');   // WHERE LchdSchdPickupDate = 'fooValue'
      * $query->filterByLchdschdpickupdate('%fooValue%', Criteria::LIKE); // WHERE LchdSchdPickupDate LIKE '%fooValue%'
+     * $query->filterByLchdschdpickupdate(['foo', 'bar']); // WHERE LchdSchdPickupDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lchdschdpickupdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lchdschdpickupdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdschdpickupdate($lchdschdpickupdate = null, $comparison = null)
+    public function filterByLchdschdpickupdate($lchdschdpickupdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lchdschdpickupdate)) {
@@ -982,7 +1066,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDSCHDPICKUPDATE, $lchdschdpickupdate, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDSCHDPICKUPDATE, $lchdschdpickupdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -992,14 +1078,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByLchdschdpickuptime('fooValue');   // WHERE LchdSchdPickupTime = 'fooValue'
      * $query->filterByLchdschdpickuptime('%fooValue%', Criteria::LIKE); // WHERE LchdSchdPickupTime LIKE '%fooValue%'
+     * $query->filterByLchdschdpickuptime(['foo', 'bar']); // WHERE LchdSchdPickupTime IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lchdschdpickuptime The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lchdschdpickuptime The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdschdpickuptime($lchdschdpickuptime = null, $comparison = null)
+    public function filterByLchdschdpickuptime($lchdschdpickuptime = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lchdschdpickuptime)) {
@@ -1007,7 +1094,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDSCHDPICKUPTIME, $lchdschdpickuptime, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDSCHDPICKUPTIME, $lchdschdpickuptime, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1017,14 +1106,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByLchdexportdate('fooValue');   // WHERE LchdExportDate = 'fooValue'
      * $query->filterByLchdexportdate('%fooValue%', Criteria::LIKE); // WHERE LchdExportDate LIKE '%fooValue%'
+     * $query->filterByLchdexportdate(['foo', 'bar']); // WHERE LchdExportDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lchdexportdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lchdexportdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdexportdate($lchdexportdate = null, $comparison = null)
+    public function filterByLchdexportdate($lchdexportdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lchdexportdate)) {
@@ -1032,7 +1122,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDEXPORTDATE, $lchdexportdate, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDEXPORTDATE, $lchdexportdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1042,14 +1134,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByLchdexporttime('fooValue');   // WHERE LchdExportTime = 'fooValue'
      * $query->filterByLchdexporttime('%fooValue%', Criteria::LIKE); // WHERE LchdExportTime LIKE '%fooValue%'
+     * $query->filterByLchdexporttime(['foo', 'bar']); // WHERE LchdExportTime IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $lchdexporttime The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $lchdexporttime The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByLchdexporttime($lchdexporttime = null, $comparison = null)
+    public function filterByLchdexporttime($lchdexporttime = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($lchdexporttime)) {
@@ -1057,7 +1150,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_LCHDEXPORTTIME, $lchdexporttime, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_LCHDEXPORTTIME, $lchdexporttime, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1067,14 +1162,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1082,7 +1178,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1092,14 +1190,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1107,7 +1206,9 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1117,14 +1218,15 @@ abstract class CpnLoadQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1132,20 +1234,22 @@ abstract class CpnLoadQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CpnLoadTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(CpnLoadTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \Customer object
      *
      * @param \Customer|ObjectCollection $customer The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomer($customer, $comparison = null)
+    public function filterByCustomer($customer, ?string $comparison = null)
     {
         if ($customer instanceof \Customer) {
             return $this
@@ -1155,8 +1259,10 @@ abstract class CpnLoadQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(CpnLoadTableMap::COL_ARCUCUSTID, $customer->toKeyValue('PrimaryKey', 'Arcucustid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByCustomer() only accepts arguments of type \Customer or Collection');
         }
@@ -1165,12 +1271,12 @@ abstract class CpnLoadQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Customer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCustomer(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Customer');
@@ -1199,9 +1305,9 @@ abstract class CpnLoadQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CustomerQuery A secondary query class using the current class as primary query
      */
@@ -1213,23 +1319,123 @@ abstract class CpnLoadQuery extends ModelCriteria
     }
 
     /**
+     * Use the Customer relation Customer object
+     *
+     * @param callable(\CustomerQuery):\CustomerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCustomerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useCustomerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Customer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CustomerQuery The inner query object of the EXISTS statement
+     */
+    public function useCustomerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT EXISTS query.
+     *
+     * @see useCustomerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCustomerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CustomerQuery The inner query object of the IN statement
+     */
+    public function useInCustomerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT IN query.
+     *
+     * @see useCustomerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCustomerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \CpnLoadItem object
      *
      * @param \CpnLoadItem|ObjectCollection $cpnLoadItem the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCpnLoadItem($cpnLoadItem, $comparison = null)
+    public function filterByCpnLoadItem($cpnLoadItem, ?string $comparison = null)
     {
         if ($cpnLoadItem instanceof \CpnLoadItem) {
-            return $this
+            $this
                 ->addUsingAlias(CpnLoadTableMap::COL_LCHDLOADNBR, $cpnLoadItem->getLchdloadnbr(), $comparison);
+
+            return $this;
         } elseif ($cpnLoadItem instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useCpnLoadItemQuery()
                 ->filterByPrimaryKeys($cpnLoadItem->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByCpnLoadItem() only accepts arguments of type \CpnLoadItem or Collection');
         }
@@ -1238,12 +1444,12 @@ abstract class CpnLoadQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the CpnLoadItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCpnLoadItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCpnLoadItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('CpnLoadItem');
@@ -1272,9 +1478,9 @@ abstract class CpnLoadQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CpnLoadItemQuery A secondary query class using the current class as primary query
      */
@@ -1286,23 +1492,123 @@ abstract class CpnLoadQuery extends ModelCriteria
     }
 
     /**
+     * Use the CpnLoadItem relation CpnLoadItem object
+     *
+     * @param callable(\CpnLoadItemQuery):\CpnLoadItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCpnLoadItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useCpnLoadItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to CpnLoadItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CpnLoadItemQuery The inner query object of the EXISTS statement
+     */
+    public function useCpnLoadItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CpnLoadItemQuery */
+        $q = $this->useExistsQuery('CpnLoadItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to CpnLoadItem table for a NOT EXISTS query.
+     *
+     * @see useCpnLoadItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CpnLoadItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCpnLoadItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CpnLoadItemQuery */
+        $q = $this->useExistsQuery('CpnLoadItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to CpnLoadItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CpnLoadItemQuery The inner query object of the IN statement
+     */
+    public function useInCpnLoadItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CpnLoadItemQuery */
+        $q = $this->useInQuery('CpnLoadItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to CpnLoadItem table for a NOT IN query.
+     *
+     * @see useCpnLoadItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CpnLoadItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCpnLoadItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CpnLoadItemQuery */
+        $q = $this->useInQuery('CpnLoadItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \CpnLoadOrder object
      *
      * @param \CpnLoadOrder|ObjectCollection $cpnLoadOrder the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCpnLoadOrder($cpnLoadOrder, $comparison = null)
+    public function filterByCpnLoadOrder($cpnLoadOrder, ?string $comparison = null)
     {
         if ($cpnLoadOrder instanceof \CpnLoadOrder) {
-            return $this
+            $this
                 ->addUsingAlias(CpnLoadTableMap::COL_LCHDLOADNBR, $cpnLoadOrder->getLchdloadnbr(), $comparison);
+
+            return $this;
         } elseif ($cpnLoadOrder instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useCpnLoadOrderQuery()
                 ->filterByPrimaryKeys($cpnLoadOrder->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByCpnLoadOrder() only accepts arguments of type \CpnLoadOrder or Collection');
         }
@@ -1311,12 +1617,12 @@ abstract class CpnLoadQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the CpnLoadOrder relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCpnLoadOrder($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCpnLoadOrder(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('CpnLoadOrder');
@@ -1345,9 +1651,9 @@ abstract class CpnLoadQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CpnLoadOrderQuery A secondary query class using the current class as primary query
      */
@@ -1359,11 +1665,107 @@ abstract class CpnLoadQuery extends ModelCriteria
     }
 
     /**
+     * Use the CpnLoadOrder relation CpnLoadOrder object
+     *
+     * @param callable(\CpnLoadOrderQuery):\CpnLoadOrderQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCpnLoadOrderQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useCpnLoadOrderQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to CpnLoadOrder table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CpnLoadOrderQuery The inner query object of the EXISTS statement
+     */
+    public function useCpnLoadOrderExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CpnLoadOrderQuery */
+        $q = $this->useExistsQuery('CpnLoadOrder', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to CpnLoadOrder table for a NOT EXISTS query.
+     *
+     * @see useCpnLoadOrderExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CpnLoadOrderQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCpnLoadOrderNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CpnLoadOrderQuery */
+        $q = $this->useExistsQuery('CpnLoadOrder', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to CpnLoadOrder table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CpnLoadOrderQuery The inner query object of the IN statement
+     */
+    public function useInCpnLoadOrderQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CpnLoadOrderQuery */
+        $q = $this->useInQuery('CpnLoadOrder', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to CpnLoadOrder table for a NOT IN query.
+     *
+     * @see useCpnLoadOrderInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CpnLoadOrderQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCpnLoadOrderQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CpnLoadOrderQuery */
+        $q = $this->useInQuery('CpnLoadOrder', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildCpnLoad $cpnLoad Object to remove from the list of results
+     * @param ChildCpnLoad $cpnLoad Object to remove from the list of results
      *
-     * @return $this|ChildCpnLoadQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($cpnLoad = null)
     {
@@ -1380,7 +1782,7 @@ abstract class CpnLoadQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CpnLoadTableMap::DATABASE_NAME);
@@ -1405,12 +1807,12 @@ abstract class CpnLoadQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CpnLoadTableMap::DATABASE_NAME);
@@ -1435,4 +1837,4 @@ abstract class CpnLoadQuery extends ModelCriteria
         });
     }
 
-} // CpnLoadQuery
+}

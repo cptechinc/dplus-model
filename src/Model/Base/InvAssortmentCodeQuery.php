@@ -10,14 +10,12 @@ use Map\InvAssortmentCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_asst_code' table.
- *
- *
+ * Base class that represents a query for the `inv_asst_code` table.
  *
  * @method     ChildInvAssortmentCodeQuery orderByIntbasstcode($order = Criteria::ASC) Order by the IntbAsstCode column
  * @method     ChildInvAssortmentCodeQuery orderByIntbasstdesc($order = Criteria::ASC) Order by the IntbAsstDesc column
@@ -39,17 +37,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvAssortmentCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildInvAssortmentCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildInvAssortmentCode findOne(ConnectionInterface $con = null) Return the first ChildInvAssortmentCode matching the query
- * @method     ChildInvAssortmentCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvAssortmentCode matching the query, or a new ChildInvAssortmentCode object populated from the query conditions when no match is found
+ * @method     ChildInvAssortmentCode|null findOne(?ConnectionInterface $con = null) Return the first ChildInvAssortmentCode matching the query
+ * @method     ChildInvAssortmentCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildInvAssortmentCode matching the query, or a new ChildInvAssortmentCode object populated from the query conditions when no match is found
  *
- * @method     ChildInvAssortmentCode findOneByIntbasstcode(string $IntbAsstCode) Return the first ChildInvAssortmentCode filtered by the IntbAsstCode column
- * @method     ChildInvAssortmentCode findOneByIntbasstdesc(string $IntbAsstDesc) Return the first ChildInvAssortmentCode filtered by the IntbAsstDesc column
- * @method     ChildInvAssortmentCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvAssortmentCode filtered by the DateUpdtd column
- * @method     ChildInvAssortmentCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvAssortmentCode filtered by the TimeUpdtd column
- * @method     ChildInvAssortmentCode findOneByDummy(string $dummy) Return the first ChildInvAssortmentCode filtered by the dummy column *
-
- * @method     ChildInvAssortmentCode requirePk($key, ConnectionInterface $con = null) Return the ChildInvAssortmentCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvAssortmentCode requireOne(ConnectionInterface $con = null) Return the first ChildInvAssortmentCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvAssortmentCode|null findOneByIntbasstcode(string $IntbAsstCode) Return the first ChildInvAssortmentCode filtered by the IntbAsstCode column
+ * @method     ChildInvAssortmentCode|null findOneByIntbasstdesc(string $IntbAsstDesc) Return the first ChildInvAssortmentCode filtered by the IntbAsstDesc column
+ * @method     ChildInvAssortmentCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvAssortmentCode filtered by the DateUpdtd column
+ * @method     ChildInvAssortmentCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvAssortmentCode filtered by the TimeUpdtd column
+ * @method     ChildInvAssortmentCode|null findOneByDummy(string $dummy) Return the first ChildInvAssortmentCode filtered by the dummy column
+ *
+ * @method     ChildInvAssortmentCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildInvAssortmentCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvAssortmentCode requireOne(?ConnectionInterface $con = null) Return the first ChildInvAssortmentCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildInvAssortmentCode requireOneByIntbasstcode(string $IntbAsstCode) Return the first ChildInvAssortmentCode filtered by the IntbAsstCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvAssortmentCode requireOneByIntbasstdesc(string $IntbAsstDesc) Return the first ChildInvAssortmentCode filtered by the IntbAsstDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -57,14 +55,22 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvAssortmentCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvAssortmentCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvAssortmentCode requireOneByDummy(string $dummy) Return the first ChildInvAssortmentCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInvAssortmentCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvAssortmentCode objects based on current ModelCriteria
- * @method     ChildInvAssortmentCode[]|ObjectCollection findByIntbasstcode(string $IntbAsstCode) Return ChildInvAssortmentCode objects filtered by the IntbAsstCode column
- * @method     ChildInvAssortmentCode[]|ObjectCollection findByIntbasstdesc(string $IntbAsstDesc) Return ChildInvAssortmentCode objects filtered by the IntbAsstDesc column
- * @method     ChildInvAssortmentCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvAssortmentCode objects filtered by the DateUpdtd column
- * @method     ChildInvAssortmentCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvAssortmentCode objects filtered by the TimeUpdtd column
- * @method     ChildInvAssortmentCode[]|ObjectCollection findByDummy(string $dummy) Return ChildInvAssortmentCode objects filtered by the dummy column
- * @method     ChildInvAssortmentCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvAssortmentCode[]|Collection find(?ConnectionInterface $con = null) Return ChildInvAssortmentCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildInvAssortmentCode> find(?ConnectionInterface $con = null) Return ChildInvAssortmentCode objects based on current ModelCriteria
  *
+ * @method     ChildInvAssortmentCode[]|Collection findByIntbasstcode(string|array<string> $IntbAsstCode) Return ChildInvAssortmentCode objects filtered by the IntbAsstCode column
+ * @psalm-method Collection&\Traversable<ChildInvAssortmentCode> findByIntbasstcode(string|array<string> $IntbAsstCode) Return ChildInvAssortmentCode objects filtered by the IntbAsstCode column
+ * @method     ChildInvAssortmentCode[]|Collection findByIntbasstdesc(string|array<string> $IntbAsstDesc) Return ChildInvAssortmentCode objects filtered by the IntbAsstDesc column
+ * @psalm-method Collection&\Traversable<ChildInvAssortmentCode> findByIntbasstdesc(string|array<string> $IntbAsstDesc) Return ChildInvAssortmentCode objects filtered by the IntbAsstDesc column
+ * @method     ChildInvAssortmentCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvAssortmentCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvAssortmentCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvAssortmentCode objects filtered by the DateUpdtd column
+ * @method     ChildInvAssortmentCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvAssortmentCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvAssortmentCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvAssortmentCode objects filtered by the TimeUpdtd column
+ * @method     ChildInvAssortmentCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildInvAssortmentCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildInvAssortmentCode> findByDummy(string|array<string> $dummy) Return ChildInvAssortmentCode objects filtered by the dummy column
+ *
+ * @method     ChildInvAssortmentCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildInvAssortmentCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class InvAssortmentCodeQuery extends ModelCriteria
 {
@@ -73,9 +79,9 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\InvAssortmentCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\InvAssortmentCode', $modelAlias = null)
     {
@@ -85,12 +91,12 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildInvAssortmentCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildInvAssortmentCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildInvAssortmentCodeQuery) {
             return $criteria;
@@ -120,7 +126,7 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
      *
      * @return ChildInvAssortmentCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -152,8 +158,8 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -185,8 +191,8 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildInvAssortmentCode|array|mixed the result, formatted by the current formatter
      */
@@ -206,12 +212,12 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -228,27 +234,31 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildInvAssortmentCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(InvAssortmentCodeTableMap::COL_INTBASSTCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(InvAssortmentCodeTableMap::COL_INTBASSTCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildInvAssortmentCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(InvAssortmentCodeTableMap::COL_INTBASSTCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(InvAssortmentCodeTableMap::COL_INTBASSTCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -258,14 +268,15 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbasstcode('fooValue');   // WHERE IntbAsstCode = 'fooValue'
      * $query->filterByIntbasstcode('%fooValue%', Criteria::LIKE); // WHERE IntbAsstCode LIKE '%fooValue%'
+     * $query->filterByIntbasstcode(['foo', 'bar']); // WHERE IntbAsstCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbasstcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbasstcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvAssortmentCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbasstcode($intbasstcode = null, $comparison = null)
+    public function filterByIntbasstcode($intbasstcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbasstcode)) {
@@ -273,7 +284,9 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvAssortmentCodeTableMap::COL_INTBASSTCODE, $intbasstcode, $comparison);
+        $this->addUsingAlias(InvAssortmentCodeTableMap::COL_INTBASSTCODE, $intbasstcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -283,14 +296,15 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbasstdesc('fooValue');   // WHERE IntbAsstDesc = 'fooValue'
      * $query->filterByIntbasstdesc('%fooValue%', Criteria::LIKE); // WHERE IntbAsstDesc LIKE '%fooValue%'
+     * $query->filterByIntbasstdesc(['foo', 'bar']); // WHERE IntbAsstDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbasstdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbasstdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvAssortmentCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbasstdesc($intbasstdesc = null, $comparison = null)
+    public function filterByIntbasstdesc($intbasstdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbasstdesc)) {
@@ -298,7 +312,9 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvAssortmentCodeTableMap::COL_INTBASSTDESC, $intbasstdesc, $comparison);
+        $this->addUsingAlias(InvAssortmentCodeTableMap::COL_INTBASSTDESC, $intbasstdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -308,14 +324,15 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvAssortmentCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -323,7 +340,9 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvAssortmentCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(InvAssortmentCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -333,14 +352,15 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvAssortmentCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -348,7 +368,9 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvAssortmentCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(InvAssortmentCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -358,14 +380,15 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvAssortmentCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -373,15 +396,17 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvAssortmentCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(InvAssortmentCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildInvAssortmentCode $invAssortmentCode Object to remove from the list of results
+     * @param ChildInvAssortmentCode $invAssortmentCode Object to remove from the list of results
      *
-     * @return $this|ChildInvAssortmentCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($invAssortmentCode = null)
     {
@@ -398,7 +423,7 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvAssortmentCodeTableMap::DATABASE_NAME);
@@ -423,12 +448,12 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvAssortmentCodeTableMap::DATABASE_NAME);
@@ -453,4 +478,4 @@ abstract class InvAssortmentCodeQuery extends ModelCriteria
         });
     }
 
-} // InvAssortmentCodeQuery
+}

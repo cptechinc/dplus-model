@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ItemRevisionNoteTableMap extends TableMap
 {
@@ -34,154 +33,282 @@ class ItemRevisionNoteTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ItemRevisionNoteTableMap';
+    public const CLASS_NAME = '.Map.ItemRevisionNoteTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'notes_item_revision';
+    public const TABLE_NAME = 'notes_item_revision';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ItemRevisionNote';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ItemRevisionNote';
+    public const OM_CLASS = '\\ItemRevisionNote';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ItemRevisionNote';
+    public const CLASS_DEFAULT = 'ItemRevisionNote';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 14;
+    public const NUM_COLUMNS = 14;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 14;
+    public const NUM_HYDRATE_COLUMNS = 14;
 
     /**
      * the column name for the ItemNoteType field
      */
-    const COL_ITEMNOTETYPE = 'notes_item_revision.ItemNoteType';
+    public const COL_ITEMNOTETYPE = 'notes_item_revision.ItemNoteType';
 
     /**
      * the column name for the ItemNoteTypeDesc field
      */
-    const COL_ITEMNOTETYPEDESC = 'notes_item_revision.ItemNoteTypeDesc';
+    public const COL_ITEMNOTETYPEDESC = 'notes_item_revision.ItemNoteTypeDesc';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'notes_item_revision.InitItemNbr';
+    public const COL_INITITEMNBR = 'notes_item_revision.InitItemNbr';
 
     /**
      * the column name for the ItemNoteDate field
      */
-    const COL_ITEMNOTEDATE = 'notes_item_revision.ItemNoteDate';
+    public const COL_ITEMNOTEDATE = 'notes_item_revision.ItemNoteDate';
 
     /**
      * the column name for the ItemNoteTime field
      */
-    const COL_ITEMNOTETIME = 'notes_item_revision.ItemNoteTime';
+    public const COL_ITEMNOTETIME = 'notes_item_revision.ItemNoteTime';
 
     /**
      * the column name for the ItemNoteRevision field
      */
-    const COL_ITEMNOTEREVISION = 'notes_item_revision.ItemNoteRevision';
+    public const COL_ITEMNOTEREVISION = 'notes_item_revision.ItemNoteRevision';
 
     /**
      * the column name for the ItemNoteSeq field
      */
-    const COL_ITEMNOTESEQ = 'notes_item_revision.ItemNoteSeq';
+    public const COL_ITEMNOTESEQ = 'notes_item_revision.ItemNoteSeq';
 
     /**
      * the column name for the ItemNoteNote field
      */
-    const COL_ITEMNOTENOTE = 'notes_item_revision.ItemNoteNote';
+    public const COL_ITEMNOTENOTE = 'notes_item_revision.ItemNoteNote';
 
     /**
      * the column name for the ItemNoteUser field
      */
-    const COL_ITEMNOTEUSER = 'notes_item_revision.ItemNoteUser';
+    public const COL_ITEMNOTEUSER = 'notes_item_revision.ItemNoteUser';
 
     /**
      * the column name for the ItemNoteKey2 field
      */
-    const COL_ITEMNOTEKEY2 = 'notes_item_revision.ItemNoteKey2';
+    public const COL_ITEMNOTEKEY2 = 'notes_item_revision.ItemNoteKey2';
 
     /**
      * the column name for the ItemNoteForm field
      */
-    const COL_ITEMNOTEFORM = 'notes_item_revision.ItemNoteForm';
+    public const COL_ITEMNOTEFORM = 'notes_item_revision.ItemNoteForm';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'notes_item_revision.DateUpdtd';
+    public const COL_DATEUPDTD = 'notes_item_revision.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'notes_item_revision.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'notes_item_revision.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'notes_item_revision.dummy';
+    public const COL_DUMMY = 'notes_item_revision.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Itemnotetype', 'Itemnotetypedesc', 'Inititemnbr', 'Itemnotedate', 'Itemnotetime', 'Itemnoterevision', 'Itemnoteseq', 'Itemnotenote', 'Itemnoteuser', 'Itemnotekey2', 'Itemnoteform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('itemnotetype', 'itemnotetypedesc', 'inititemnbr', 'itemnotedate', 'itemnotetime', 'itemnoterevision', 'itemnoteseq', 'itemnotenote', 'itemnoteuser', 'itemnotekey2', 'itemnoteform', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemRevisionNoteTableMap::COL_ITEMNOTETYPE, ItemRevisionNoteTableMap::COL_ITEMNOTETYPEDESC, ItemRevisionNoteTableMap::COL_INITITEMNBR, ItemRevisionNoteTableMap::COL_ITEMNOTEDATE, ItemRevisionNoteTableMap::COL_ITEMNOTETIME, ItemRevisionNoteTableMap::COL_ITEMNOTEREVISION, ItemRevisionNoteTableMap::COL_ITEMNOTESEQ, ItemRevisionNoteTableMap::COL_ITEMNOTENOTE, ItemRevisionNoteTableMap::COL_ITEMNOTEUSER, ItemRevisionNoteTableMap::COL_ITEMNOTEKEY2, ItemRevisionNoteTableMap::COL_ITEMNOTEFORM, ItemRevisionNoteTableMap::COL_DATEUPDTD, ItemRevisionNoteTableMap::COL_TIMEUPDTD, ItemRevisionNoteTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ItemNoteType', 'ItemNoteTypeDesc', 'InitItemNbr', 'ItemNoteDate', 'ItemNoteTime', 'ItemNoteRevision', 'ItemNoteSeq', 'ItemNoteNote', 'ItemNoteUser', 'ItemNoteKey2', 'ItemNoteForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Itemnotetype', 'Itemnotetypedesc', 'Inititemnbr', 'Itemnotedate', 'Itemnotetime', 'Itemnoterevision', 'Itemnoteseq', 'Itemnotenote', 'Itemnoteuser', 'Itemnotekey2', 'Itemnoteform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['itemnotetype', 'itemnotetypedesc', 'inititemnbr', 'itemnotedate', 'itemnotetime', 'itemnoterevision', 'itemnoteseq', 'itemnotenote', 'itemnoteuser', 'itemnotekey2', 'itemnoteform', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ItemRevisionNoteTableMap::COL_ITEMNOTETYPE, ItemRevisionNoteTableMap::COL_ITEMNOTETYPEDESC, ItemRevisionNoteTableMap::COL_INITITEMNBR, ItemRevisionNoteTableMap::COL_ITEMNOTEDATE, ItemRevisionNoteTableMap::COL_ITEMNOTETIME, ItemRevisionNoteTableMap::COL_ITEMNOTEREVISION, ItemRevisionNoteTableMap::COL_ITEMNOTESEQ, ItemRevisionNoteTableMap::COL_ITEMNOTENOTE, ItemRevisionNoteTableMap::COL_ITEMNOTEUSER, ItemRevisionNoteTableMap::COL_ITEMNOTEKEY2, ItemRevisionNoteTableMap::COL_ITEMNOTEFORM, ItemRevisionNoteTableMap::COL_DATEUPDTD, ItemRevisionNoteTableMap::COL_TIMEUPDTD, ItemRevisionNoteTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['ItemNoteType', 'ItemNoteTypeDesc', 'InitItemNbr', 'ItemNoteDate', 'ItemNoteTime', 'ItemNoteRevision', 'ItemNoteSeq', 'ItemNoteNote', 'ItemNoteUser', 'ItemNoteKey2', 'ItemNoteForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Itemnotetype' => 0, 'Itemnotetypedesc' => 1, 'Inititemnbr' => 2, 'Itemnotedate' => 3, 'Itemnotetime' => 4, 'Itemnoterevision' => 5, 'Itemnoteseq' => 6, 'Itemnotenote' => 7, 'Itemnoteuser' => 8, 'Itemnotekey2' => 9, 'Itemnoteform' => 10, 'Dateupdtd' => 11, 'Timeupdtd' => 12, 'Dummy' => 13, ),
-        self::TYPE_CAMELNAME     => array('itemnotetype' => 0, 'itemnotetypedesc' => 1, 'inititemnbr' => 2, 'itemnotedate' => 3, 'itemnotetime' => 4, 'itemnoterevision' => 5, 'itemnoteseq' => 6, 'itemnotenote' => 7, 'itemnoteuser' => 8, 'itemnotekey2' => 9, 'itemnoteform' => 10, 'dateupdtd' => 11, 'timeupdtd' => 12, 'dummy' => 13, ),
-        self::TYPE_COLNAME       => array(ItemRevisionNoteTableMap::COL_ITEMNOTETYPE => 0, ItemRevisionNoteTableMap::COL_ITEMNOTETYPEDESC => 1, ItemRevisionNoteTableMap::COL_INITITEMNBR => 2, ItemRevisionNoteTableMap::COL_ITEMNOTEDATE => 3, ItemRevisionNoteTableMap::COL_ITEMNOTETIME => 4, ItemRevisionNoteTableMap::COL_ITEMNOTEREVISION => 5, ItemRevisionNoteTableMap::COL_ITEMNOTESEQ => 6, ItemRevisionNoteTableMap::COL_ITEMNOTENOTE => 7, ItemRevisionNoteTableMap::COL_ITEMNOTEUSER => 8, ItemRevisionNoteTableMap::COL_ITEMNOTEKEY2 => 9, ItemRevisionNoteTableMap::COL_ITEMNOTEFORM => 10, ItemRevisionNoteTableMap::COL_DATEUPDTD => 11, ItemRevisionNoteTableMap::COL_TIMEUPDTD => 12, ItemRevisionNoteTableMap::COL_DUMMY => 13, ),
-        self::TYPE_FIELDNAME     => array('ItemNoteType' => 0, 'ItemNoteTypeDesc' => 1, 'InitItemNbr' => 2, 'ItemNoteDate' => 3, 'ItemNoteTime' => 4, 'ItemNoteRevision' => 5, 'ItemNoteSeq' => 6, 'ItemNoteNote' => 7, 'ItemNoteUser' => 8, 'ItemNoteKey2' => 9, 'ItemNoteForm' => 10, 'DateUpdtd' => 11, 'TimeUpdtd' => 12, 'dummy' => 13, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Itemnotetype' => 0, 'Itemnotetypedesc' => 1, 'Inititemnbr' => 2, 'Itemnotedate' => 3, 'Itemnotetime' => 4, 'Itemnoterevision' => 5, 'Itemnoteseq' => 6, 'Itemnotenote' => 7, 'Itemnoteuser' => 8, 'Itemnotekey2' => 9, 'Itemnoteform' => 10, 'Dateupdtd' => 11, 'Timeupdtd' => 12, 'Dummy' => 13, ],
+        self::TYPE_CAMELNAME     => ['itemnotetype' => 0, 'itemnotetypedesc' => 1, 'inititemnbr' => 2, 'itemnotedate' => 3, 'itemnotetime' => 4, 'itemnoterevision' => 5, 'itemnoteseq' => 6, 'itemnotenote' => 7, 'itemnoteuser' => 8, 'itemnotekey2' => 9, 'itemnoteform' => 10, 'dateupdtd' => 11, 'timeupdtd' => 12, 'dummy' => 13, ],
+        self::TYPE_COLNAME       => [ItemRevisionNoteTableMap::COL_ITEMNOTETYPE => 0, ItemRevisionNoteTableMap::COL_ITEMNOTETYPEDESC => 1, ItemRevisionNoteTableMap::COL_INITITEMNBR => 2, ItemRevisionNoteTableMap::COL_ITEMNOTEDATE => 3, ItemRevisionNoteTableMap::COL_ITEMNOTETIME => 4, ItemRevisionNoteTableMap::COL_ITEMNOTEREVISION => 5, ItemRevisionNoteTableMap::COL_ITEMNOTESEQ => 6, ItemRevisionNoteTableMap::COL_ITEMNOTENOTE => 7, ItemRevisionNoteTableMap::COL_ITEMNOTEUSER => 8, ItemRevisionNoteTableMap::COL_ITEMNOTEKEY2 => 9, ItemRevisionNoteTableMap::COL_ITEMNOTEFORM => 10, ItemRevisionNoteTableMap::COL_DATEUPDTD => 11, ItemRevisionNoteTableMap::COL_TIMEUPDTD => 12, ItemRevisionNoteTableMap::COL_DUMMY => 13, ],
+        self::TYPE_FIELDNAME     => ['ItemNoteType' => 0, 'ItemNoteTypeDesc' => 1, 'InitItemNbr' => 2, 'ItemNoteDate' => 3, 'ItemNoteTime' => 4, 'ItemNoteRevision' => 5, 'ItemNoteSeq' => 6, 'ItemNoteNote' => 7, 'ItemNoteUser' => 8, 'ItemNoteKey2' => 9, 'ItemNoteForm' => 10, 'DateUpdtd' => 11, 'TimeUpdtd' => 12, 'dummy' => 13, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Itemnotetype' => 'ITEMNOTETYPE',
+        'ItemRevisionNote.Itemnotetype' => 'ITEMNOTETYPE',
+        'itemnotetype' => 'ITEMNOTETYPE',
+        'itemRevisionNote.itemnotetype' => 'ITEMNOTETYPE',
+        'ItemRevisionNoteTableMap::COL_ITEMNOTETYPE' => 'ITEMNOTETYPE',
+        'COL_ITEMNOTETYPE' => 'ITEMNOTETYPE',
+        'ItemNoteType' => 'ITEMNOTETYPE',
+        'notes_item_revision.ItemNoteType' => 'ITEMNOTETYPE',
+        'Itemnotetypedesc' => 'ITEMNOTETYPEDESC',
+        'ItemRevisionNote.Itemnotetypedesc' => 'ITEMNOTETYPEDESC',
+        'itemnotetypedesc' => 'ITEMNOTETYPEDESC',
+        'itemRevisionNote.itemnotetypedesc' => 'ITEMNOTETYPEDESC',
+        'ItemRevisionNoteTableMap::COL_ITEMNOTETYPEDESC' => 'ITEMNOTETYPEDESC',
+        'COL_ITEMNOTETYPEDESC' => 'ITEMNOTETYPEDESC',
+        'ItemNoteTypeDesc' => 'ITEMNOTETYPEDESC',
+        'notes_item_revision.ItemNoteTypeDesc' => 'ITEMNOTETYPEDESC',
+        'Inititemnbr' => 'INITITEMNBR',
+        'ItemRevisionNote.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'itemRevisionNote.inititemnbr' => 'INITITEMNBR',
+        'ItemRevisionNoteTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'notes_item_revision.InitItemNbr' => 'INITITEMNBR',
+        'Itemnotedate' => 'ITEMNOTEDATE',
+        'ItemRevisionNote.Itemnotedate' => 'ITEMNOTEDATE',
+        'itemnotedate' => 'ITEMNOTEDATE',
+        'itemRevisionNote.itemnotedate' => 'ITEMNOTEDATE',
+        'ItemRevisionNoteTableMap::COL_ITEMNOTEDATE' => 'ITEMNOTEDATE',
+        'COL_ITEMNOTEDATE' => 'ITEMNOTEDATE',
+        'ItemNoteDate' => 'ITEMNOTEDATE',
+        'notes_item_revision.ItemNoteDate' => 'ITEMNOTEDATE',
+        'Itemnotetime' => 'ITEMNOTETIME',
+        'ItemRevisionNote.Itemnotetime' => 'ITEMNOTETIME',
+        'itemnotetime' => 'ITEMNOTETIME',
+        'itemRevisionNote.itemnotetime' => 'ITEMNOTETIME',
+        'ItemRevisionNoteTableMap::COL_ITEMNOTETIME' => 'ITEMNOTETIME',
+        'COL_ITEMNOTETIME' => 'ITEMNOTETIME',
+        'ItemNoteTime' => 'ITEMNOTETIME',
+        'notes_item_revision.ItemNoteTime' => 'ITEMNOTETIME',
+        'Itemnoterevision' => 'ITEMNOTEREVISION',
+        'ItemRevisionNote.Itemnoterevision' => 'ITEMNOTEREVISION',
+        'itemnoterevision' => 'ITEMNOTEREVISION',
+        'itemRevisionNote.itemnoterevision' => 'ITEMNOTEREVISION',
+        'ItemRevisionNoteTableMap::COL_ITEMNOTEREVISION' => 'ITEMNOTEREVISION',
+        'COL_ITEMNOTEREVISION' => 'ITEMNOTEREVISION',
+        'ItemNoteRevision' => 'ITEMNOTEREVISION',
+        'notes_item_revision.ItemNoteRevision' => 'ITEMNOTEREVISION',
+        'Itemnoteseq' => 'ITEMNOTESEQ',
+        'ItemRevisionNote.Itemnoteseq' => 'ITEMNOTESEQ',
+        'itemnoteseq' => 'ITEMNOTESEQ',
+        'itemRevisionNote.itemnoteseq' => 'ITEMNOTESEQ',
+        'ItemRevisionNoteTableMap::COL_ITEMNOTESEQ' => 'ITEMNOTESEQ',
+        'COL_ITEMNOTESEQ' => 'ITEMNOTESEQ',
+        'ItemNoteSeq' => 'ITEMNOTESEQ',
+        'notes_item_revision.ItemNoteSeq' => 'ITEMNOTESEQ',
+        'Itemnotenote' => 'ITEMNOTENOTE',
+        'ItemRevisionNote.Itemnotenote' => 'ITEMNOTENOTE',
+        'itemnotenote' => 'ITEMNOTENOTE',
+        'itemRevisionNote.itemnotenote' => 'ITEMNOTENOTE',
+        'ItemRevisionNoteTableMap::COL_ITEMNOTENOTE' => 'ITEMNOTENOTE',
+        'COL_ITEMNOTENOTE' => 'ITEMNOTENOTE',
+        'ItemNoteNote' => 'ITEMNOTENOTE',
+        'notes_item_revision.ItemNoteNote' => 'ITEMNOTENOTE',
+        'Itemnoteuser' => 'ITEMNOTEUSER',
+        'ItemRevisionNote.Itemnoteuser' => 'ITEMNOTEUSER',
+        'itemnoteuser' => 'ITEMNOTEUSER',
+        'itemRevisionNote.itemnoteuser' => 'ITEMNOTEUSER',
+        'ItemRevisionNoteTableMap::COL_ITEMNOTEUSER' => 'ITEMNOTEUSER',
+        'COL_ITEMNOTEUSER' => 'ITEMNOTEUSER',
+        'ItemNoteUser' => 'ITEMNOTEUSER',
+        'notes_item_revision.ItemNoteUser' => 'ITEMNOTEUSER',
+        'Itemnotekey2' => 'ITEMNOTEKEY2',
+        'ItemRevisionNote.Itemnotekey2' => 'ITEMNOTEKEY2',
+        'itemnotekey2' => 'ITEMNOTEKEY2',
+        'itemRevisionNote.itemnotekey2' => 'ITEMNOTEKEY2',
+        'ItemRevisionNoteTableMap::COL_ITEMNOTEKEY2' => 'ITEMNOTEKEY2',
+        'COL_ITEMNOTEKEY2' => 'ITEMNOTEKEY2',
+        'ItemNoteKey2' => 'ITEMNOTEKEY2',
+        'notes_item_revision.ItemNoteKey2' => 'ITEMNOTEKEY2',
+        'Itemnoteform' => 'ITEMNOTEFORM',
+        'ItemRevisionNote.Itemnoteform' => 'ITEMNOTEFORM',
+        'itemnoteform' => 'ITEMNOTEFORM',
+        'itemRevisionNote.itemnoteform' => 'ITEMNOTEFORM',
+        'ItemRevisionNoteTableMap::COL_ITEMNOTEFORM' => 'ITEMNOTEFORM',
+        'COL_ITEMNOTEFORM' => 'ITEMNOTEFORM',
+        'ItemNoteForm' => 'ITEMNOTEFORM',
+        'notes_item_revision.ItemNoteForm' => 'ITEMNOTEFORM',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ItemRevisionNote.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'itemRevisionNote.dateupdtd' => 'DATEUPDTD',
+        'ItemRevisionNoteTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'notes_item_revision.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ItemRevisionNote.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'itemRevisionNote.timeupdtd' => 'TIMEUPDTD',
+        'ItemRevisionNoteTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'notes_item_revision.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ItemRevisionNote.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'itemRevisionNote.dummy' => 'DUMMY',
+        'ItemRevisionNoteTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'notes_item_revision.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('notes_item_revision');
@@ -205,14 +332,16 @@ class ItemRevisionNoteTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -223,9 +352,11 @@ class ItemRevisionNoteTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \ItemRevisionNote $obj A \ItemRevisionNote object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(ItemRevisionNote $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -244,8 +375,10 @@ class ItemRevisionNoteTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \ItemRevisionNote object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \ItemRevisionNote) {
@@ -273,14 +406,14 @@ class ItemRevisionNoteTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Itemnotetype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Itemnoteseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 8 + $offset : static::translateFieldName('Itemnoteuser', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 9 + $offset : static::translateFieldName('Itemnotekey2', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Itemnoteform', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -295,14 +428,14 @@ class ItemRevisionNoteTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -343,10 +476,10 @@ class ItemRevisionNoteTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ItemRevisionNoteTableMap::CLASS_DEFAULT : ItemRevisionNoteTableMap::OM_CLASS;
     }
@@ -354,17 +487,17 @@ class ItemRevisionNoteTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ItemRevisionNote object, last column rank)
+     * @return array (ItemRevisionNote object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ItemRevisionNoteTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ItemRevisionNoteTableMap::getInstanceFromPool($key))) {
@@ -380,7 +513,7 @@ class ItemRevisionNoteTableMap extends TableMap
             ItemRevisionNoteTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -388,13 +521,13 @@ class ItemRevisionNoteTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -424,12 +557,13 @@ class ItemRevisionNoteTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ItemRevisionNoteTableMap::COL_ITEMNOTETYPE);
@@ -465,40 +599,76 @@ class ItemRevisionNoteTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ItemRevisionNoteTableMap::COL_ITEMNOTETYPE);
+            $criteria->removeSelectColumn(ItemRevisionNoteTableMap::COL_ITEMNOTETYPEDESC);
+            $criteria->removeSelectColumn(ItemRevisionNoteTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(ItemRevisionNoteTableMap::COL_ITEMNOTEDATE);
+            $criteria->removeSelectColumn(ItemRevisionNoteTableMap::COL_ITEMNOTETIME);
+            $criteria->removeSelectColumn(ItemRevisionNoteTableMap::COL_ITEMNOTEREVISION);
+            $criteria->removeSelectColumn(ItemRevisionNoteTableMap::COL_ITEMNOTESEQ);
+            $criteria->removeSelectColumn(ItemRevisionNoteTableMap::COL_ITEMNOTENOTE);
+            $criteria->removeSelectColumn(ItemRevisionNoteTableMap::COL_ITEMNOTEUSER);
+            $criteria->removeSelectColumn(ItemRevisionNoteTableMap::COL_ITEMNOTEKEY2);
+            $criteria->removeSelectColumn(ItemRevisionNoteTableMap::COL_ITEMNOTEFORM);
+            $criteria->removeSelectColumn(ItemRevisionNoteTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ItemRevisionNoteTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ItemRevisionNoteTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.ItemNoteType');
+            $criteria->removeSelectColumn($alias . '.ItemNoteTypeDesc');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.ItemNoteDate');
+            $criteria->removeSelectColumn($alias . '.ItemNoteTime');
+            $criteria->removeSelectColumn($alias . '.ItemNoteRevision');
+            $criteria->removeSelectColumn($alias . '.ItemNoteSeq');
+            $criteria->removeSelectColumn($alias . '.ItemNoteNote');
+            $criteria->removeSelectColumn($alias . '.ItemNoteUser');
+            $criteria->removeSelectColumn($alias . '.ItemNoteKey2');
+            $criteria->removeSelectColumn($alias . '.ItemNoteForm');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ItemRevisionNoteTableMap::DATABASE_NAME)->getTable(ItemRevisionNoteTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ItemRevisionNoteTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ItemRevisionNoteTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ItemRevisionNoteTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ItemRevisionNote or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ItemRevisionNote object or primary key or array of primary keys
+     * @param mixed $values Criteria or ItemRevisionNote object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemRevisionNoteTableMap::DATABASE_NAME);
@@ -516,7 +686,7 @@ class ItemRevisionNoteTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(ItemRevisionNoteTableMap::COL_ITEMNOTETYPE, $value[0]);
@@ -547,7 +717,7 @@ class ItemRevisionNoteTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ItemRevisionNoteQuery::create()->doDeleteAll($con);
     }
@@ -555,13 +725,13 @@ class ItemRevisionNoteTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ItemRevisionNote or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ItemRevisionNote object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ItemRevisionNote object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemRevisionNoteTableMap::DATABASE_NAME);
@@ -584,7 +754,4 @@ class ItemRevisionNoteTableMap extends TableMap
         });
     }
 
-} // ItemRevisionNoteTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ItemRevisionNoteTableMap::buildTableMap();
+}

@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class SalesHistoryNotesTableMap extends TableMap
 {
@@ -34,169 +33,321 @@ class SalesHistoryNotesTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.SalesHistoryNotesTableMap';
+    public const CLASS_NAME = '.Map.SalesHistoryNotesTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'notes_sh_head_det';
+    public const TABLE_NAME = 'notes_sh_head_det';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'SalesHistoryNotes';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\SalesHistoryNotes';
+    public const OM_CLASS = '\\SalesHistoryNotes';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'SalesHistoryNotes';
+    public const CLASS_DEFAULT = 'SalesHistoryNotes';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 17;
+    public const NUM_COLUMNS = 17;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 17;
+    public const NUM_HYDRATE_COLUMNS = 17;
 
     /**
      * the column name for the ShntType field
      */
-    const COL_SHNTTYPE = 'notes_sh_head_det.ShntType';
+    public const COL_SHNTTYPE = 'notes_sh_head_det.ShntType';
 
     /**
      * the column name for the ShntTypeDesc field
      */
-    const COL_SHNTTYPEDESC = 'notes_sh_head_det.ShntTypeDesc';
+    public const COL_SHNTTYPEDESC = 'notes_sh_head_det.ShntTypeDesc';
 
     /**
      * the column name for the OehhNbr field
      */
-    const COL_OEHHNBR = 'notes_sh_head_det.OehhNbr';
+    public const COL_OEHHNBR = 'notes_sh_head_det.OehhNbr';
 
     /**
      * the column name for the ShntYear field
      */
-    const COL_SHNTYEAR = 'notes_sh_head_det.ShntYear';
+    public const COL_SHNTYEAR = 'notes_sh_head_det.ShntYear';
 
     /**
      * the column name for the OedhLine field
      */
-    const COL_OEDHLINE = 'notes_sh_head_det.OedhLine';
+    public const COL_OEDHLINE = 'notes_sh_head_det.OedhLine';
 
     /**
      * the column name for the ShntLotSer field
      */
-    const COL_SHNTLOTSER = 'notes_sh_head_det.ShntLotSer';
+    public const COL_SHNTLOTSER = 'notes_sh_head_det.ShntLotSer';
 
     /**
      * the column name for the ShntPickTicket field
      */
-    const COL_SHNTPICKTICKET = 'notes_sh_head_det.ShntPickTicket';
+    public const COL_SHNTPICKTICKET = 'notes_sh_head_det.ShntPickTicket';
 
     /**
      * the column name for the ShntPackTicket field
      */
-    const COL_SHNTPACKTICKET = 'notes_sh_head_det.ShntPackTicket';
+    public const COL_SHNTPACKTICKET = 'notes_sh_head_det.ShntPackTicket';
 
     /**
      * the column name for the ShntInvoice field
      */
-    const COL_SHNTINVOICE = 'notes_sh_head_det.ShntInvoice';
+    public const COL_SHNTINVOICE = 'notes_sh_head_det.ShntInvoice';
 
     /**
      * the column name for the ShntAcknow field
      */
-    const COL_SHNTACKNOW = 'notes_sh_head_det.ShntAcknow';
+    public const COL_SHNTACKNOW = 'notes_sh_head_det.ShntAcknow';
 
     /**
      * the column name for the ShntSeq field
      */
-    const COL_SHNTSEQ = 'notes_sh_head_det.ShntSeq';
+    public const COL_SHNTSEQ = 'notes_sh_head_det.ShntSeq';
 
     /**
      * the column name for the ShntNote field
      */
-    const COL_SHNTNOTE = 'notes_sh_head_det.ShntNote';
+    public const COL_SHNTNOTE = 'notes_sh_head_det.ShntNote';
 
     /**
      * the column name for the ShntKey2 field
      */
-    const COL_SHNTKEY2 = 'notes_sh_head_det.ShntKey2';
+    public const COL_SHNTKEY2 = 'notes_sh_head_det.ShntKey2';
 
     /**
      * the column name for the ShntForm field
      */
-    const COL_SHNTFORM = 'notes_sh_head_det.ShntForm';
+    public const COL_SHNTFORM = 'notes_sh_head_det.ShntForm';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'notes_sh_head_det.DateUpdtd';
+    public const COL_DATEUPDTD = 'notes_sh_head_det.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'notes_sh_head_det.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'notes_sh_head_det.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'notes_sh_head_det.dummy';
+    public const COL_DUMMY = 'notes_sh_head_det.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Shnttype', 'Shnttypedesc', 'Oehhnbr', 'Shntyear', 'Oedhline', 'Shntlotser', 'Shntpickticket', 'Shntpackticket', 'Shntinvoice', 'Shntacknow', 'Shntseq', 'Shntnote', 'Shntkey2', 'Shntform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('shnttype', 'shnttypedesc', 'oehhnbr', 'shntyear', 'oedhline', 'shntlotser', 'shntpickticket', 'shntpackticket', 'shntinvoice', 'shntacknow', 'shntseq', 'shntnote', 'shntkey2', 'shntform', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(SalesHistoryNotesTableMap::COL_SHNTTYPE, SalesHistoryNotesTableMap::COL_SHNTTYPEDESC, SalesHistoryNotesTableMap::COL_OEHHNBR, SalesHistoryNotesTableMap::COL_SHNTYEAR, SalesHistoryNotesTableMap::COL_OEDHLINE, SalesHistoryNotesTableMap::COL_SHNTLOTSER, SalesHistoryNotesTableMap::COL_SHNTPICKTICKET, SalesHistoryNotesTableMap::COL_SHNTPACKTICKET, SalesHistoryNotesTableMap::COL_SHNTINVOICE, SalesHistoryNotesTableMap::COL_SHNTACKNOW, SalesHistoryNotesTableMap::COL_SHNTSEQ, SalesHistoryNotesTableMap::COL_SHNTNOTE, SalesHistoryNotesTableMap::COL_SHNTKEY2, SalesHistoryNotesTableMap::COL_SHNTFORM, SalesHistoryNotesTableMap::COL_DATEUPDTD, SalesHistoryNotesTableMap::COL_TIMEUPDTD, SalesHistoryNotesTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ShntType', 'ShntTypeDesc', 'OehhNbr', 'ShntYear', 'OedhLine', 'ShntLotSer', 'ShntPickTicket', 'ShntPackTicket', 'ShntInvoice', 'ShntAcknow', 'ShntSeq', 'ShntNote', 'ShntKey2', 'ShntForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Shnttype', 'Shnttypedesc', 'Oehhnbr', 'Shntyear', 'Oedhline', 'Shntlotser', 'Shntpickticket', 'Shntpackticket', 'Shntinvoice', 'Shntacknow', 'Shntseq', 'Shntnote', 'Shntkey2', 'Shntform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['shnttype', 'shnttypedesc', 'oehhnbr', 'shntyear', 'oedhline', 'shntlotser', 'shntpickticket', 'shntpackticket', 'shntinvoice', 'shntacknow', 'shntseq', 'shntnote', 'shntkey2', 'shntform', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [SalesHistoryNotesTableMap::COL_SHNTTYPE, SalesHistoryNotesTableMap::COL_SHNTTYPEDESC, SalesHistoryNotesTableMap::COL_OEHHNBR, SalesHistoryNotesTableMap::COL_SHNTYEAR, SalesHistoryNotesTableMap::COL_OEDHLINE, SalesHistoryNotesTableMap::COL_SHNTLOTSER, SalesHistoryNotesTableMap::COL_SHNTPICKTICKET, SalesHistoryNotesTableMap::COL_SHNTPACKTICKET, SalesHistoryNotesTableMap::COL_SHNTINVOICE, SalesHistoryNotesTableMap::COL_SHNTACKNOW, SalesHistoryNotesTableMap::COL_SHNTSEQ, SalesHistoryNotesTableMap::COL_SHNTNOTE, SalesHistoryNotesTableMap::COL_SHNTKEY2, SalesHistoryNotesTableMap::COL_SHNTFORM, SalesHistoryNotesTableMap::COL_DATEUPDTD, SalesHistoryNotesTableMap::COL_TIMEUPDTD, SalesHistoryNotesTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['ShntType', 'ShntTypeDesc', 'OehhNbr', 'ShntYear', 'OedhLine', 'ShntLotSer', 'ShntPickTicket', 'ShntPackTicket', 'ShntInvoice', 'ShntAcknow', 'ShntSeq', 'ShntNote', 'ShntKey2', 'ShntForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Shnttype' => 0, 'Shnttypedesc' => 1, 'Oehhnbr' => 2, 'Shntyear' => 3, 'Oedhline' => 4, 'Shntlotser' => 5, 'Shntpickticket' => 6, 'Shntpackticket' => 7, 'Shntinvoice' => 8, 'Shntacknow' => 9, 'Shntseq' => 10, 'Shntnote' => 11, 'Shntkey2' => 12, 'Shntform' => 13, 'Dateupdtd' => 14, 'Timeupdtd' => 15, 'Dummy' => 16, ),
-        self::TYPE_CAMELNAME     => array('shnttype' => 0, 'shnttypedesc' => 1, 'oehhnbr' => 2, 'shntyear' => 3, 'oedhline' => 4, 'shntlotser' => 5, 'shntpickticket' => 6, 'shntpackticket' => 7, 'shntinvoice' => 8, 'shntacknow' => 9, 'shntseq' => 10, 'shntnote' => 11, 'shntkey2' => 12, 'shntform' => 13, 'dateupdtd' => 14, 'timeupdtd' => 15, 'dummy' => 16, ),
-        self::TYPE_COLNAME       => array(SalesHistoryNotesTableMap::COL_SHNTTYPE => 0, SalesHistoryNotesTableMap::COL_SHNTTYPEDESC => 1, SalesHistoryNotesTableMap::COL_OEHHNBR => 2, SalesHistoryNotesTableMap::COL_SHNTYEAR => 3, SalesHistoryNotesTableMap::COL_OEDHLINE => 4, SalesHistoryNotesTableMap::COL_SHNTLOTSER => 5, SalesHistoryNotesTableMap::COL_SHNTPICKTICKET => 6, SalesHistoryNotesTableMap::COL_SHNTPACKTICKET => 7, SalesHistoryNotesTableMap::COL_SHNTINVOICE => 8, SalesHistoryNotesTableMap::COL_SHNTACKNOW => 9, SalesHistoryNotesTableMap::COL_SHNTSEQ => 10, SalesHistoryNotesTableMap::COL_SHNTNOTE => 11, SalesHistoryNotesTableMap::COL_SHNTKEY2 => 12, SalesHistoryNotesTableMap::COL_SHNTFORM => 13, SalesHistoryNotesTableMap::COL_DATEUPDTD => 14, SalesHistoryNotesTableMap::COL_TIMEUPDTD => 15, SalesHistoryNotesTableMap::COL_DUMMY => 16, ),
-        self::TYPE_FIELDNAME     => array('ShntType' => 0, 'ShntTypeDesc' => 1, 'OehhNbr' => 2, 'ShntYear' => 3, 'OedhLine' => 4, 'ShntLotSer' => 5, 'ShntPickTicket' => 6, 'ShntPackTicket' => 7, 'ShntInvoice' => 8, 'ShntAcknow' => 9, 'ShntSeq' => 10, 'ShntNote' => 11, 'ShntKey2' => 12, 'ShntForm' => 13, 'DateUpdtd' => 14, 'TimeUpdtd' => 15, 'dummy' => 16, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Shnttype' => 0, 'Shnttypedesc' => 1, 'Oehhnbr' => 2, 'Shntyear' => 3, 'Oedhline' => 4, 'Shntlotser' => 5, 'Shntpickticket' => 6, 'Shntpackticket' => 7, 'Shntinvoice' => 8, 'Shntacknow' => 9, 'Shntseq' => 10, 'Shntnote' => 11, 'Shntkey2' => 12, 'Shntform' => 13, 'Dateupdtd' => 14, 'Timeupdtd' => 15, 'Dummy' => 16, ],
+        self::TYPE_CAMELNAME     => ['shnttype' => 0, 'shnttypedesc' => 1, 'oehhnbr' => 2, 'shntyear' => 3, 'oedhline' => 4, 'shntlotser' => 5, 'shntpickticket' => 6, 'shntpackticket' => 7, 'shntinvoice' => 8, 'shntacknow' => 9, 'shntseq' => 10, 'shntnote' => 11, 'shntkey2' => 12, 'shntform' => 13, 'dateupdtd' => 14, 'timeupdtd' => 15, 'dummy' => 16, ],
+        self::TYPE_COLNAME       => [SalesHistoryNotesTableMap::COL_SHNTTYPE => 0, SalesHistoryNotesTableMap::COL_SHNTTYPEDESC => 1, SalesHistoryNotesTableMap::COL_OEHHNBR => 2, SalesHistoryNotesTableMap::COL_SHNTYEAR => 3, SalesHistoryNotesTableMap::COL_OEDHLINE => 4, SalesHistoryNotesTableMap::COL_SHNTLOTSER => 5, SalesHistoryNotesTableMap::COL_SHNTPICKTICKET => 6, SalesHistoryNotesTableMap::COL_SHNTPACKTICKET => 7, SalesHistoryNotesTableMap::COL_SHNTINVOICE => 8, SalesHistoryNotesTableMap::COL_SHNTACKNOW => 9, SalesHistoryNotesTableMap::COL_SHNTSEQ => 10, SalesHistoryNotesTableMap::COL_SHNTNOTE => 11, SalesHistoryNotesTableMap::COL_SHNTKEY2 => 12, SalesHistoryNotesTableMap::COL_SHNTFORM => 13, SalesHistoryNotesTableMap::COL_DATEUPDTD => 14, SalesHistoryNotesTableMap::COL_TIMEUPDTD => 15, SalesHistoryNotesTableMap::COL_DUMMY => 16, ],
+        self::TYPE_FIELDNAME     => ['ShntType' => 0, 'ShntTypeDesc' => 1, 'OehhNbr' => 2, 'ShntYear' => 3, 'OedhLine' => 4, 'ShntLotSer' => 5, 'ShntPickTicket' => 6, 'ShntPackTicket' => 7, 'ShntInvoice' => 8, 'ShntAcknow' => 9, 'ShntSeq' => 10, 'ShntNote' => 11, 'ShntKey2' => 12, 'ShntForm' => 13, 'DateUpdtd' => 14, 'TimeUpdtd' => 15, 'dummy' => 16, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Shnttype' => 'SHNTTYPE',
+        'SalesHistoryNotes.Shnttype' => 'SHNTTYPE',
+        'shnttype' => 'SHNTTYPE',
+        'salesHistoryNotes.shnttype' => 'SHNTTYPE',
+        'SalesHistoryNotesTableMap::COL_SHNTTYPE' => 'SHNTTYPE',
+        'COL_SHNTTYPE' => 'SHNTTYPE',
+        'ShntType' => 'SHNTTYPE',
+        'notes_sh_head_det.ShntType' => 'SHNTTYPE',
+        'Shnttypedesc' => 'SHNTTYPEDESC',
+        'SalesHistoryNotes.Shnttypedesc' => 'SHNTTYPEDESC',
+        'shnttypedesc' => 'SHNTTYPEDESC',
+        'salesHistoryNotes.shnttypedesc' => 'SHNTTYPEDESC',
+        'SalesHistoryNotesTableMap::COL_SHNTTYPEDESC' => 'SHNTTYPEDESC',
+        'COL_SHNTTYPEDESC' => 'SHNTTYPEDESC',
+        'ShntTypeDesc' => 'SHNTTYPEDESC',
+        'notes_sh_head_det.ShntTypeDesc' => 'SHNTTYPEDESC',
+        'Oehhnbr' => 'OEHHNBR',
+        'SalesHistoryNotes.Oehhnbr' => 'OEHHNBR',
+        'oehhnbr' => 'OEHHNBR',
+        'salesHistoryNotes.oehhnbr' => 'OEHHNBR',
+        'SalesHistoryNotesTableMap::COL_OEHHNBR' => 'OEHHNBR',
+        'COL_OEHHNBR' => 'OEHHNBR',
+        'OehhNbr' => 'OEHHNBR',
+        'notes_sh_head_det.OehhNbr' => 'OEHHNBR',
+        'Shntyear' => 'SHNTYEAR',
+        'SalesHistoryNotes.Shntyear' => 'SHNTYEAR',
+        'shntyear' => 'SHNTYEAR',
+        'salesHistoryNotes.shntyear' => 'SHNTYEAR',
+        'SalesHistoryNotesTableMap::COL_SHNTYEAR' => 'SHNTYEAR',
+        'COL_SHNTYEAR' => 'SHNTYEAR',
+        'ShntYear' => 'SHNTYEAR',
+        'notes_sh_head_det.ShntYear' => 'SHNTYEAR',
+        'Oedhline' => 'OEDHLINE',
+        'SalesHistoryNotes.Oedhline' => 'OEDHLINE',
+        'oedhline' => 'OEDHLINE',
+        'salesHistoryNotes.oedhline' => 'OEDHLINE',
+        'SalesHistoryNotesTableMap::COL_OEDHLINE' => 'OEDHLINE',
+        'COL_OEDHLINE' => 'OEDHLINE',
+        'OedhLine' => 'OEDHLINE',
+        'notes_sh_head_det.OedhLine' => 'OEDHLINE',
+        'Shntlotser' => 'SHNTLOTSER',
+        'SalesHistoryNotes.Shntlotser' => 'SHNTLOTSER',
+        'shntlotser' => 'SHNTLOTSER',
+        'salesHistoryNotes.shntlotser' => 'SHNTLOTSER',
+        'SalesHistoryNotesTableMap::COL_SHNTLOTSER' => 'SHNTLOTSER',
+        'COL_SHNTLOTSER' => 'SHNTLOTSER',
+        'ShntLotSer' => 'SHNTLOTSER',
+        'notes_sh_head_det.ShntLotSer' => 'SHNTLOTSER',
+        'Shntpickticket' => 'SHNTPICKTICKET',
+        'SalesHistoryNotes.Shntpickticket' => 'SHNTPICKTICKET',
+        'shntpickticket' => 'SHNTPICKTICKET',
+        'salesHistoryNotes.shntpickticket' => 'SHNTPICKTICKET',
+        'SalesHistoryNotesTableMap::COL_SHNTPICKTICKET' => 'SHNTPICKTICKET',
+        'COL_SHNTPICKTICKET' => 'SHNTPICKTICKET',
+        'ShntPickTicket' => 'SHNTPICKTICKET',
+        'notes_sh_head_det.ShntPickTicket' => 'SHNTPICKTICKET',
+        'Shntpackticket' => 'SHNTPACKTICKET',
+        'SalesHistoryNotes.Shntpackticket' => 'SHNTPACKTICKET',
+        'shntpackticket' => 'SHNTPACKTICKET',
+        'salesHistoryNotes.shntpackticket' => 'SHNTPACKTICKET',
+        'SalesHistoryNotesTableMap::COL_SHNTPACKTICKET' => 'SHNTPACKTICKET',
+        'COL_SHNTPACKTICKET' => 'SHNTPACKTICKET',
+        'ShntPackTicket' => 'SHNTPACKTICKET',
+        'notes_sh_head_det.ShntPackTicket' => 'SHNTPACKTICKET',
+        'Shntinvoice' => 'SHNTINVOICE',
+        'SalesHistoryNotes.Shntinvoice' => 'SHNTINVOICE',
+        'shntinvoice' => 'SHNTINVOICE',
+        'salesHistoryNotes.shntinvoice' => 'SHNTINVOICE',
+        'SalesHistoryNotesTableMap::COL_SHNTINVOICE' => 'SHNTINVOICE',
+        'COL_SHNTINVOICE' => 'SHNTINVOICE',
+        'ShntInvoice' => 'SHNTINVOICE',
+        'notes_sh_head_det.ShntInvoice' => 'SHNTINVOICE',
+        'Shntacknow' => 'SHNTACKNOW',
+        'SalesHistoryNotes.Shntacknow' => 'SHNTACKNOW',
+        'shntacknow' => 'SHNTACKNOW',
+        'salesHistoryNotes.shntacknow' => 'SHNTACKNOW',
+        'SalesHistoryNotesTableMap::COL_SHNTACKNOW' => 'SHNTACKNOW',
+        'COL_SHNTACKNOW' => 'SHNTACKNOW',
+        'ShntAcknow' => 'SHNTACKNOW',
+        'notes_sh_head_det.ShntAcknow' => 'SHNTACKNOW',
+        'Shntseq' => 'SHNTSEQ',
+        'SalesHistoryNotes.Shntseq' => 'SHNTSEQ',
+        'shntseq' => 'SHNTSEQ',
+        'salesHistoryNotes.shntseq' => 'SHNTSEQ',
+        'SalesHistoryNotesTableMap::COL_SHNTSEQ' => 'SHNTSEQ',
+        'COL_SHNTSEQ' => 'SHNTSEQ',
+        'ShntSeq' => 'SHNTSEQ',
+        'notes_sh_head_det.ShntSeq' => 'SHNTSEQ',
+        'Shntnote' => 'SHNTNOTE',
+        'SalesHistoryNotes.Shntnote' => 'SHNTNOTE',
+        'shntnote' => 'SHNTNOTE',
+        'salesHistoryNotes.shntnote' => 'SHNTNOTE',
+        'SalesHistoryNotesTableMap::COL_SHNTNOTE' => 'SHNTNOTE',
+        'COL_SHNTNOTE' => 'SHNTNOTE',
+        'ShntNote' => 'SHNTNOTE',
+        'notes_sh_head_det.ShntNote' => 'SHNTNOTE',
+        'Shntkey2' => 'SHNTKEY2',
+        'SalesHistoryNotes.Shntkey2' => 'SHNTKEY2',
+        'shntkey2' => 'SHNTKEY2',
+        'salesHistoryNotes.shntkey2' => 'SHNTKEY2',
+        'SalesHistoryNotesTableMap::COL_SHNTKEY2' => 'SHNTKEY2',
+        'COL_SHNTKEY2' => 'SHNTKEY2',
+        'ShntKey2' => 'SHNTKEY2',
+        'notes_sh_head_det.ShntKey2' => 'SHNTKEY2',
+        'Shntform' => 'SHNTFORM',
+        'SalesHistoryNotes.Shntform' => 'SHNTFORM',
+        'shntform' => 'SHNTFORM',
+        'salesHistoryNotes.shntform' => 'SHNTFORM',
+        'SalesHistoryNotesTableMap::COL_SHNTFORM' => 'SHNTFORM',
+        'COL_SHNTFORM' => 'SHNTFORM',
+        'ShntForm' => 'SHNTFORM',
+        'notes_sh_head_det.ShntForm' => 'SHNTFORM',
+        'Dateupdtd' => 'DATEUPDTD',
+        'SalesHistoryNotes.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'salesHistoryNotes.dateupdtd' => 'DATEUPDTD',
+        'SalesHistoryNotesTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'notes_sh_head_det.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'SalesHistoryNotes.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'salesHistoryNotes.timeupdtd' => 'TIMEUPDTD',
+        'SalesHistoryNotesTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'notes_sh_head_det.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'SalesHistoryNotes.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'salesHistoryNotes.dummy' => 'DUMMY',
+        'SalesHistoryNotesTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'notes_sh_head_det.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('notes_sh_head_det');
@@ -223,14 +374,16 @@ class SalesHistoryNotesTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -241,9 +394,11 @@ class SalesHistoryNotesTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \SalesHistoryNotes $obj A \SalesHistoryNotes object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(SalesHistoryNotes $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -262,8 +417,10 @@ class SalesHistoryNotesTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \SalesHistoryNotes object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \SalesHistoryNotes) {
@@ -291,14 +448,14 @@ class SalesHistoryNotesTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Shnttype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Shntseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Shntkey2', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Shntform', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -313,14 +470,14 @@ class SalesHistoryNotesTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -356,10 +513,10 @@ class SalesHistoryNotesTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? SalesHistoryNotesTableMap::CLASS_DEFAULT : SalesHistoryNotesTableMap::OM_CLASS;
     }
@@ -367,17 +524,17 @@ class SalesHistoryNotesTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (SalesHistoryNotes object, last column rank)
+     * @return array (SalesHistoryNotes object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = SalesHistoryNotesTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = SalesHistoryNotesTableMap::getInstanceFromPool($key))) {
@@ -393,7 +550,7 @@ class SalesHistoryNotesTableMap extends TableMap
             SalesHistoryNotesTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -401,13 +558,13 @@ class SalesHistoryNotesTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -437,12 +594,13 @@ class SalesHistoryNotesTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(SalesHistoryNotesTableMap::COL_SHNTTYPE);
@@ -484,40 +642,82 @@ class SalesHistoryNotesTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_SHNTTYPE);
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_SHNTTYPEDESC);
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_OEHHNBR);
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_SHNTYEAR);
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_OEDHLINE);
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_SHNTLOTSER);
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_SHNTPICKTICKET);
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_SHNTPACKTICKET);
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_SHNTINVOICE);
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_SHNTACKNOW);
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_SHNTSEQ);
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_SHNTNOTE);
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_SHNTKEY2);
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_SHNTFORM);
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(SalesHistoryNotesTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.ShntType');
+            $criteria->removeSelectColumn($alias . '.ShntTypeDesc');
+            $criteria->removeSelectColumn($alias . '.OehhNbr');
+            $criteria->removeSelectColumn($alias . '.ShntYear');
+            $criteria->removeSelectColumn($alias . '.OedhLine');
+            $criteria->removeSelectColumn($alias . '.ShntLotSer');
+            $criteria->removeSelectColumn($alias . '.ShntPickTicket');
+            $criteria->removeSelectColumn($alias . '.ShntPackTicket');
+            $criteria->removeSelectColumn($alias . '.ShntInvoice');
+            $criteria->removeSelectColumn($alias . '.ShntAcknow');
+            $criteria->removeSelectColumn($alias . '.ShntSeq');
+            $criteria->removeSelectColumn($alias . '.ShntNote');
+            $criteria->removeSelectColumn($alias . '.ShntKey2');
+            $criteria->removeSelectColumn($alias . '.ShntForm');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(SalesHistoryNotesTableMap::DATABASE_NAME)->getTable(SalesHistoryNotesTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(SalesHistoryNotesTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(SalesHistoryNotesTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new SalesHistoryNotesTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a SalesHistoryNotes or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or SalesHistoryNotes object or primary key or array of primary keys
+     * @param mixed $values Criteria or SalesHistoryNotes object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesHistoryNotesTableMap::DATABASE_NAME);
@@ -535,7 +735,7 @@ class SalesHistoryNotesTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(SalesHistoryNotesTableMap::COL_SHNTTYPE, $value[0]);
@@ -565,7 +765,7 @@ class SalesHistoryNotesTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return SalesHistoryNotesQuery::create()->doDeleteAll($con);
     }
@@ -573,13 +773,13 @@ class SalesHistoryNotesTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a SalesHistoryNotes or Criteria object.
      *
-     * @param mixed               $criteria Criteria or SalesHistoryNotes object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or SalesHistoryNotes object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesHistoryNotesTableMap::DATABASE_NAME);
@@ -602,7 +802,4 @@ class SalesHistoryNotesTableMap extends TableMap
         });
     }
 
-} // SalesHistoryNotesTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-SalesHistoryNotesTableMap::buildTableMap();
+}

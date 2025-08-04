@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'so_book_by_day_rep' table.
- *
- *
+ * Base class that represents a query for the `so_book_by_day_rep` table.
  *
  * @method     ChildBookingDayRepQuery orderByArspsaleper1($order = Criteria::ASC) Order by the ArspSalePer1 column
  * @method     ChildBookingDayRepQuery orderByBkgrdate($order = Criteria::ASC) Order by the BkgrDate column
@@ -56,19 +55,19 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \SalesPersonQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildBookingDayRep findOne(ConnectionInterface $con = null) Return the first ChildBookingDayRep matching the query
- * @method     ChildBookingDayRep findOneOrCreate(ConnectionInterface $con = null) Return the first ChildBookingDayRep matching the query, or a new ChildBookingDayRep object populated from the query conditions when no match is found
+ * @method     ChildBookingDayRep|null findOne(?ConnectionInterface $con = null) Return the first ChildBookingDayRep matching the query
+ * @method     ChildBookingDayRep findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildBookingDayRep matching the query, or a new ChildBookingDayRep object populated from the query conditions when no match is found
  *
- * @method     ChildBookingDayRep findOneByArspsaleper1(string $ArspSalePer1) Return the first ChildBookingDayRep filtered by the ArspSalePer1 column
- * @method     ChildBookingDayRep findOneByBkgrdate(string $BkgrDate) Return the first ChildBookingDayRep filtered by the BkgrDate column
- * @method     ChildBookingDayRep findOneByIntbwhse(string $IntbWhse) Return the first ChildBookingDayRep filtered by the IntbWhse column
- * @method     ChildBookingDayRep findOneByBkgrnetamt(string $BkgrNetAmt) Return the first ChildBookingDayRep filtered by the BkgrNetAmt column
- * @method     ChildBookingDayRep findOneByDateupdtd(string $DateUpdtd) Return the first ChildBookingDayRep filtered by the DateUpdtd column
- * @method     ChildBookingDayRep findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildBookingDayRep filtered by the TimeUpdtd column
- * @method     ChildBookingDayRep findOneByDummy(string $dummy) Return the first ChildBookingDayRep filtered by the dummy column *
-
- * @method     ChildBookingDayRep requirePk($key, ConnectionInterface $con = null) Return the ChildBookingDayRep by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildBookingDayRep requireOne(ConnectionInterface $con = null) Return the first ChildBookingDayRep matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildBookingDayRep|null findOneByArspsaleper1(string $ArspSalePer1) Return the first ChildBookingDayRep filtered by the ArspSalePer1 column
+ * @method     ChildBookingDayRep|null findOneByBkgrdate(string $BkgrDate) Return the first ChildBookingDayRep filtered by the BkgrDate column
+ * @method     ChildBookingDayRep|null findOneByIntbwhse(string $IntbWhse) Return the first ChildBookingDayRep filtered by the IntbWhse column
+ * @method     ChildBookingDayRep|null findOneByBkgrnetamt(string $BkgrNetAmt) Return the first ChildBookingDayRep filtered by the BkgrNetAmt column
+ * @method     ChildBookingDayRep|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildBookingDayRep filtered by the DateUpdtd column
+ * @method     ChildBookingDayRep|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildBookingDayRep filtered by the TimeUpdtd column
+ * @method     ChildBookingDayRep|null findOneByDummy(string $dummy) Return the first ChildBookingDayRep filtered by the dummy column
+ *
+ * @method     ChildBookingDayRep requirePk($key, ?ConnectionInterface $con = null) Return the ChildBookingDayRep by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildBookingDayRep requireOne(?ConnectionInterface $con = null) Return the first ChildBookingDayRep matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildBookingDayRep requireOneByArspsaleper1(string $ArspSalePer1) Return the first ChildBookingDayRep filtered by the ArspSalePer1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildBookingDayRep requireOneByBkgrdate(string $BkgrDate) Return the first ChildBookingDayRep filtered by the BkgrDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -78,16 +77,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildBookingDayRep requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildBookingDayRep filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildBookingDayRep requireOneByDummy(string $dummy) Return the first ChildBookingDayRep filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildBookingDayRep[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildBookingDayRep objects based on current ModelCriteria
- * @method     ChildBookingDayRep[]|ObjectCollection findByArspsaleper1(string $ArspSalePer1) Return ChildBookingDayRep objects filtered by the ArspSalePer1 column
- * @method     ChildBookingDayRep[]|ObjectCollection findByBkgrdate(string $BkgrDate) Return ChildBookingDayRep objects filtered by the BkgrDate column
- * @method     ChildBookingDayRep[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildBookingDayRep objects filtered by the IntbWhse column
- * @method     ChildBookingDayRep[]|ObjectCollection findByBkgrnetamt(string $BkgrNetAmt) Return ChildBookingDayRep objects filtered by the BkgrNetAmt column
- * @method     ChildBookingDayRep[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildBookingDayRep objects filtered by the DateUpdtd column
- * @method     ChildBookingDayRep[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildBookingDayRep objects filtered by the TimeUpdtd column
- * @method     ChildBookingDayRep[]|ObjectCollection findByDummy(string $dummy) Return ChildBookingDayRep objects filtered by the dummy column
- * @method     ChildBookingDayRep[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildBookingDayRep[]|Collection find(?ConnectionInterface $con = null) Return ChildBookingDayRep objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildBookingDayRep> find(?ConnectionInterface $con = null) Return ChildBookingDayRep objects based on current ModelCriteria
  *
+ * @method     ChildBookingDayRep[]|Collection findByArspsaleper1(string|array<string> $ArspSalePer1) Return ChildBookingDayRep objects filtered by the ArspSalePer1 column
+ * @psalm-method Collection&\Traversable<ChildBookingDayRep> findByArspsaleper1(string|array<string> $ArspSalePer1) Return ChildBookingDayRep objects filtered by the ArspSalePer1 column
+ * @method     ChildBookingDayRep[]|Collection findByBkgrdate(string|array<string> $BkgrDate) Return ChildBookingDayRep objects filtered by the BkgrDate column
+ * @psalm-method Collection&\Traversable<ChildBookingDayRep> findByBkgrdate(string|array<string> $BkgrDate) Return ChildBookingDayRep objects filtered by the BkgrDate column
+ * @method     ChildBookingDayRep[]|Collection findByIntbwhse(string|array<string> $IntbWhse) Return ChildBookingDayRep objects filtered by the IntbWhse column
+ * @psalm-method Collection&\Traversable<ChildBookingDayRep> findByIntbwhse(string|array<string> $IntbWhse) Return ChildBookingDayRep objects filtered by the IntbWhse column
+ * @method     ChildBookingDayRep[]|Collection findByBkgrnetamt(string|array<string> $BkgrNetAmt) Return ChildBookingDayRep objects filtered by the BkgrNetAmt column
+ * @psalm-method Collection&\Traversable<ChildBookingDayRep> findByBkgrnetamt(string|array<string> $BkgrNetAmt) Return ChildBookingDayRep objects filtered by the BkgrNetAmt column
+ * @method     ChildBookingDayRep[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildBookingDayRep objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildBookingDayRep> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildBookingDayRep objects filtered by the DateUpdtd column
+ * @method     ChildBookingDayRep[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildBookingDayRep objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildBookingDayRep> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildBookingDayRep objects filtered by the TimeUpdtd column
+ * @method     ChildBookingDayRep[]|Collection findByDummy(string|array<string> $dummy) Return ChildBookingDayRep objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildBookingDayRep> findByDummy(string|array<string> $dummy) Return ChildBookingDayRep objects filtered by the dummy column
+ *
+ * @method     ChildBookingDayRep[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildBookingDayRep> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class BookingDayRepQuery extends ModelCriteria
 {
@@ -96,9 +105,9 @@ abstract class BookingDayRepQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\BookingDayRepQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\BookingDayRep', $modelAlias = null)
     {
@@ -108,12 +117,12 @@ abstract class BookingDayRepQuery extends ModelCriteria
     /**
      * Returns a new ChildBookingDayRepQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildBookingDayRepQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildBookingDayRepQuery) {
             return $criteria;
@@ -143,7 +152,7 @@ abstract class BookingDayRepQuery extends ModelCriteria
      *
      * @return ChildBookingDayRep|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -175,8 +184,8 @@ abstract class BookingDayRepQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -209,8 +218,8 @@ abstract class BookingDayRepQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildBookingDayRep|array|mixed the result, formatted by the current formatter
      */
@@ -230,12 +239,12 @@ abstract class BookingDayRepQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -252,9 +261,9 @@ abstract class BookingDayRepQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildBookingDayRepQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -267,14 +276,16 @@ abstract class BookingDayRepQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildBookingDayRepQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(BookingDayRepTableMap::COL_ARSPSALEPER1, $key[0], Criteria::EQUAL);
@@ -293,14 +304,15 @@ abstract class BookingDayRepQuery extends ModelCriteria
      * <code>
      * $query->filterByArspsaleper1('fooValue');   // WHERE ArspSalePer1 = 'fooValue'
      * $query->filterByArspsaleper1('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer1 LIKE '%fooValue%'
+     * $query->filterByArspsaleper1(['foo', 'bar']); // WHERE ArspSalePer1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arspsaleper1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arspsaleper1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingDayRepQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArspsaleper1($arspsaleper1 = null, $comparison = null)
+    public function filterByArspsaleper1($arspsaleper1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arspsaleper1)) {
@@ -308,7 +320,9 @@ abstract class BookingDayRepQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingDayRepTableMap::COL_ARSPSALEPER1, $arspsaleper1, $comparison);
+        $this->addUsingAlias(BookingDayRepTableMap::COL_ARSPSALEPER1, $arspsaleper1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -318,14 +332,15 @@ abstract class BookingDayRepQuery extends ModelCriteria
      * <code>
      * $query->filterByBkgrdate('fooValue');   // WHERE BkgrDate = 'fooValue'
      * $query->filterByBkgrdate('%fooValue%', Criteria::LIKE); // WHERE BkgrDate LIKE '%fooValue%'
+     * $query->filterByBkgrdate(['foo', 'bar']); // WHERE BkgrDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $bkgrdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $bkgrdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingDayRepQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBkgrdate($bkgrdate = null, $comparison = null)
+    public function filterByBkgrdate($bkgrdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($bkgrdate)) {
@@ -333,7 +348,9 @@ abstract class BookingDayRepQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingDayRepTableMap::COL_BKGRDATE, $bkgrdate, $comparison);
+        $this->addUsingAlias(BookingDayRepTableMap::COL_BKGRDATE, $bkgrdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -343,14 +360,15 @@ abstract class BookingDayRepQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhse('fooValue');   // WHERE IntbWhse = 'fooValue'
      * $query->filterByIntbwhse('%fooValue%', Criteria::LIKE); // WHERE IntbWhse LIKE '%fooValue%'
+     * $query->filterByIntbwhse(['foo', 'bar']); // WHERE IntbWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingDayRepQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhse($intbwhse = null, $comparison = null)
+    public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhse)) {
@@ -358,7 +376,9 @@ abstract class BookingDayRepQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingDayRepTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+        $this->addUsingAlias(BookingDayRepTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -371,15 +391,15 @@ abstract class BookingDayRepQuery extends ModelCriteria
      * $query->filterByBkgrnetamt(array('min' => 12)); // WHERE BkgrNetAmt > 12
      * </code>
      *
-     * @param     mixed $bkgrnetamt The value to use as filter.
+     * @param mixed $bkgrnetamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingDayRepQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByBkgrnetamt($bkgrnetamt = null, $comparison = null)
+    public function filterByBkgrnetamt($bkgrnetamt = null, ?string $comparison = null)
     {
         if (is_array($bkgrnetamt)) {
             $useMinMax = false;
@@ -399,7 +419,9 @@ abstract class BookingDayRepQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingDayRepTableMap::COL_BKGRNETAMT, $bkgrnetamt, $comparison);
+        $this->addUsingAlias(BookingDayRepTableMap::COL_BKGRNETAMT, $bkgrnetamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -409,14 +431,15 @@ abstract class BookingDayRepQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingDayRepQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -424,7 +447,9 @@ abstract class BookingDayRepQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingDayRepTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(BookingDayRepTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -434,14 +459,15 @@ abstract class BookingDayRepQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingDayRepQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -449,7 +475,9 @@ abstract class BookingDayRepQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingDayRepTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(BookingDayRepTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -459,14 +487,15 @@ abstract class BookingDayRepQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildBookingDayRepQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -474,20 +503,22 @@ abstract class BookingDayRepQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(BookingDayRepTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(BookingDayRepTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \SalesPerson object
      *
      * @param \SalesPerson|ObjectCollection $salesPerson The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildBookingDayRepQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesPerson($salesPerson, $comparison = null)
+    public function filterBySalesPerson($salesPerson, ?string $comparison = null)
     {
         if ($salesPerson instanceof \SalesPerson) {
             return $this
@@ -497,8 +528,10 @@ abstract class BookingDayRepQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(BookingDayRepTableMap::COL_ARSPSALEPER1, $salesPerson->toKeyValue('PrimaryKey', 'Arspsaleper1'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterBySalesPerson() only accepts arguments of type \SalesPerson or Collection');
         }
@@ -507,12 +540,12 @@ abstract class BookingDayRepQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SalesPerson relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildBookingDayRepQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSalesPerson($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSalesPerson(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesPerson');
@@ -541,9 +574,9 @@ abstract class BookingDayRepQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SalesPersonQuery A secondary query class using the current class as primary query
      */
@@ -555,11 +588,107 @@ abstract class BookingDayRepQuery extends ModelCriteria
     }
 
     /**
+     * Use the SalesPerson relation SalesPerson object
+     *
+     * @param callable(\SalesPersonQuery):\SalesPersonQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSalesPersonQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSalesPersonQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SalesPerson table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SalesPersonQuery The inner query object of the EXISTS statement
+     */
+    public function useSalesPersonExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SalesPersonQuery */
+        $q = $this->useExistsQuery('SalesPerson', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesPerson table for a NOT EXISTS query.
+     *
+     * @see useSalesPersonExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SalesPersonQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSalesPersonNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesPersonQuery */
+        $q = $this->useExistsQuery('SalesPerson', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesPerson table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SalesPersonQuery The inner query object of the IN statement
+     */
+    public function useInSalesPersonQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SalesPersonQuery */
+        $q = $this->useInQuery('SalesPerson', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesPerson table for a NOT IN query.
+     *
+     * @see useSalesPersonInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SalesPersonQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSalesPersonQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesPersonQuery */
+        $q = $this->useInQuery('SalesPerson', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildBookingDayRep $bookingDayRep Object to remove from the list of results
+     * @param ChildBookingDayRep $bookingDayRep Object to remove from the list of results
      *
-     * @return $this|ChildBookingDayRepQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($bookingDayRep = null)
     {
@@ -578,7 +707,7 @@ abstract class BookingDayRepQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingDayRepTableMap::DATABASE_NAME);
@@ -603,12 +732,12 @@ abstract class BookingDayRepQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(BookingDayRepTableMap::DATABASE_NAME);
@@ -633,4 +762,4 @@ abstract class BookingDayRepQuery extends ModelCriteria
         });
     }
 
-} // BookingDayRepQuery
+}

@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'so_pre_allo' table.
- *
- *
+ * Base class that represents a query for the `so_pre_allo` table.
  *
  * @method     ChildSoAllocatedLotserialQuery orderByOehdnbr($order = Criteria::ASC) Order by the OehdNbr column
  * @method     ChildSoAllocatedLotserialQuery orderByOedtline($order = Criteria::ASC) Order by the OedtLine column
@@ -110,31 +109,31 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \SalesOrderQuery|\SalesOrderDetailQuery|\ItemMasterItemQuery|\InvLotMasterQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildSoAllocatedLotserial findOne(ConnectionInterface $con = null) Return the first ChildSoAllocatedLotserial matching the query
- * @method     ChildSoAllocatedLotserial findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSoAllocatedLotserial matching the query, or a new ChildSoAllocatedLotserial object populated from the query conditions when no match is found
+ * @method     ChildSoAllocatedLotserial|null findOne(?ConnectionInterface $con = null) Return the first ChildSoAllocatedLotserial matching the query
+ * @method     ChildSoAllocatedLotserial findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildSoAllocatedLotserial matching the query, or a new ChildSoAllocatedLotserial object populated from the query conditions when no match is found
  *
- * @method     ChildSoAllocatedLotserial findOneByOehdnbr(int $OehdNbr) Return the first ChildSoAllocatedLotserial filtered by the OehdNbr column
- * @method     ChildSoAllocatedLotserial findOneByOedtline(int $OedtLine) Return the first ChildSoAllocatedLotserial filtered by the OedtLine column
- * @method     ChildSoAllocatedLotserial findOneByInititemnbr(string $InitItemNbr) Return the first ChildSoAllocatedLotserial filtered by the InitItemNbr column
- * @method     ChildSoAllocatedLotserial findOneByOeidlotser(string $OeidLotSer) Return the first ChildSoAllocatedLotserial filtered by the OeidLotSer column
- * @method     ChildSoAllocatedLotserial findOneByOeidbin(string $OeidBin) Return the first ChildSoAllocatedLotserial filtered by the OeidBin column
- * @method     ChildSoAllocatedLotserial findOneByOeidplltnbr(int $OeidPlltNbr) Return the first ChildSoAllocatedLotserial filtered by the OeidPlltNbr column
- * @method     ChildSoAllocatedLotserial findOneByOeidcrtnnbr(int $OeidCrtnNbr) Return the first ChildSoAllocatedLotserial filtered by the OeidCrtnNbr column
- * @method     ChildSoAllocatedLotserial findOneByOeidqtyship(string $OeidQtyShip) Return the first ChildSoAllocatedLotserial filtered by the OeidQtyShip column
- * @method     ChildSoAllocatedLotserial findOneByOeidlotref(string $OeidLotRef) Return the first ChildSoAllocatedLotserial filtered by the OeidLotRef column
- * @method     ChildSoAllocatedLotserial findOneByOeidcntrqty(string $OeidCntrQty) Return the first ChildSoAllocatedLotserial filtered by the OeidCntrQty column
- * @method     ChildSoAllocatedLotserial findOneByOeidbatch(string $OeidBatch) Return the first ChildSoAllocatedLotserial filtered by the OeidBatch column
- * @method     ChildSoAllocatedLotserial findOneByOeidcuredate(string $OeidCureDate) Return the first ChildSoAllocatedLotserial filtered by the OeidCureDate column
- * @method     ChildSoAllocatedLotserial findOneByOeidpllttype(string $OeidPlltType) Return the first ChildSoAllocatedLotserial filtered by the OeidPlltType column
- * @method     ChildSoAllocatedLotserial findOneByOeidlblprtd(string $OeidLblPrtd) Return the first ChildSoAllocatedLotserial filtered by the OeidLblPrtd column
- * @method     ChildSoAllocatedLotserial findOneByOeidorigbin(string $OeidOrigBin) Return the first ChildSoAllocatedLotserial filtered by the OeidOrigBin column
- * @method     ChildSoAllocatedLotserial findOneByOeidplltid(string $OeidPlltID) Return the first ChildSoAllocatedLotserial filtered by the OeidPlltID column
- * @method     ChildSoAllocatedLotserial findOneByDateupdtd(string $DateUpdtd) Return the first ChildSoAllocatedLotserial filtered by the DateUpdtd column
- * @method     ChildSoAllocatedLotserial findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSoAllocatedLotserial filtered by the TimeUpdtd column
- * @method     ChildSoAllocatedLotserial findOneByDummy(string $dummy) Return the first ChildSoAllocatedLotserial filtered by the dummy column *
-
- * @method     ChildSoAllocatedLotserial requirePk($key, ConnectionInterface $con = null) Return the ChildSoAllocatedLotserial by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSoAllocatedLotserial requireOne(ConnectionInterface $con = null) Return the first ChildSoAllocatedLotserial matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSoAllocatedLotserial|null findOneByOehdnbr(int $OehdNbr) Return the first ChildSoAllocatedLotserial filtered by the OehdNbr column
+ * @method     ChildSoAllocatedLotserial|null findOneByOedtline(int $OedtLine) Return the first ChildSoAllocatedLotserial filtered by the OedtLine column
+ * @method     ChildSoAllocatedLotserial|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildSoAllocatedLotserial filtered by the InitItemNbr column
+ * @method     ChildSoAllocatedLotserial|null findOneByOeidlotser(string $OeidLotSer) Return the first ChildSoAllocatedLotserial filtered by the OeidLotSer column
+ * @method     ChildSoAllocatedLotserial|null findOneByOeidbin(string $OeidBin) Return the first ChildSoAllocatedLotserial filtered by the OeidBin column
+ * @method     ChildSoAllocatedLotserial|null findOneByOeidplltnbr(int $OeidPlltNbr) Return the first ChildSoAllocatedLotserial filtered by the OeidPlltNbr column
+ * @method     ChildSoAllocatedLotserial|null findOneByOeidcrtnnbr(int $OeidCrtnNbr) Return the first ChildSoAllocatedLotserial filtered by the OeidCrtnNbr column
+ * @method     ChildSoAllocatedLotserial|null findOneByOeidqtyship(string $OeidQtyShip) Return the first ChildSoAllocatedLotserial filtered by the OeidQtyShip column
+ * @method     ChildSoAllocatedLotserial|null findOneByOeidlotref(string $OeidLotRef) Return the first ChildSoAllocatedLotserial filtered by the OeidLotRef column
+ * @method     ChildSoAllocatedLotserial|null findOneByOeidcntrqty(string $OeidCntrQty) Return the first ChildSoAllocatedLotserial filtered by the OeidCntrQty column
+ * @method     ChildSoAllocatedLotserial|null findOneByOeidbatch(string $OeidBatch) Return the first ChildSoAllocatedLotserial filtered by the OeidBatch column
+ * @method     ChildSoAllocatedLotserial|null findOneByOeidcuredate(string $OeidCureDate) Return the first ChildSoAllocatedLotserial filtered by the OeidCureDate column
+ * @method     ChildSoAllocatedLotserial|null findOneByOeidpllttype(string $OeidPlltType) Return the first ChildSoAllocatedLotserial filtered by the OeidPlltType column
+ * @method     ChildSoAllocatedLotserial|null findOneByOeidlblprtd(string $OeidLblPrtd) Return the first ChildSoAllocatedLotserial filtered by the OeidLblPrtd column
+ * @method     ChildSoAllocatedLotserial|null findOneByOeidorigbin(string $OeidOrigBin) Return the first ChildSoAllocatedLotserial filtered by the OeidOrigBin column
+ * @method     ChildSoAllocatedLotserial|null findOneByOeidplltid(string $OeidPlltID) Return the first ChildSoAllocatedLotserial filtered by the OeidPlltID column
+ * @method     ChildSoAllocatedLotserial|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildSoAllocatedLotserial filtered by the DateUpdtd column
+ * @method     ChildSoAllocatedLotserial|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSoAllocatedLotserial filtered by the TimeUpdtd column
+ * @method     ChildSoAllocatedLotserial|null findOneByDummy(string $dummy) Return the first ChildSoAllocatedLotserial filtered by the dummy column
+ *
+ * @method     ChildSoAllocatedLotserial requirePk($key, ?ConnectionInterface $con = null) Return the ChildSoAllocatedLotserial by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSoAllocatedLotserial requireOne(?ConnectionInterface $con = null) Return the first ChildSoAllocatedLotserial matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildSoAllocatedLotserial requireOneByOehdnbr(int $OehdNbr) Return the first ChildSoAllocatedLotserial filtered by the OehdNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoAllocatedLotserial requireOneByOedtline(int $OedtLine) Return the first ChildSoAllocatedLotserial filtered by the OedtLine column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -156,28 +155,50 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSoAllocatedLotserial requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSoAllocatedLotserial filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoAllocatedLotserial requireOneByDummy(string $dummy) Return the first ChildSoAllocatedLotserial filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildSoAllocatedLotserial objects based on current ModelCriteria
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOehdnbr(int $OehdNbr) Return ChildSoAllocatedLotserial objects filtered by the OehdNbr column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOedtline(int $OedtLine) Return ChildSoAllocatedLotserial objects filtered by the OedtLine column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildSoAllocatedLotserial objects filtered by the InitItemNbr column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOeidlotser(string $OeidLotSer) Return ChildSoAllocatedLotserial objects filtered by the OeidLotSer column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOeidbin(string $OeidBin) Return ChildSoAllocatedLotserial objects filtered by the OeidBin column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOeidplltnbr(int $OeidPlltNbr) Return ChildSoAllocatedLotserial objects filtered by the OeidPlltNbr column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOeidcrtnnbr(int $OeidCrtnNbr) Return ChildSoAllocatedLotserial objects filtered by the OeidCrtnNbr column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOeidqtyship(string $OeidQtyShip) Return ChildSoAllocatedLotserial objects filtered by the OeidQtyShip column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOeidlotref(string $OeidLotRef) Return ChildSoAllocatedLotserial objects filtered by the OeidLotRef column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOeidcntrqty(string $OeidCntrQty) Return ChildSoAllocatedLotserial objects filtered by the OeidCntrQty column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOeidbatch(string $OeidBatch) Return ChildSoAllocatedLotserial objects filtered by the OeidBatch column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOeidcuredate(string $OeidCureDate) Return ChildSoAllocatedLotserial objects filtered by the OeidCureDate column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOeidpllttype(string $OeidPlltType) Return ChildSoAllocatedLotserial objects filtered by the OeidPlltType column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOeidlblprtd(string $OeidLblPrtd) Return ChildSoAllocatedLotserial objects filtered by the OeidLblPrtd column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOeidorigbin(string $OeidOrigBin) Return ChildSoAllocatedLotserial objects filtered by the OeidOrigBin column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOeidplltid(string $OeidPlltID) Return ChildSoAllocatedLotserial objects filtered by the OeidPlltID column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildSoAllocatedLotserial objects filtered by the DateUpdtd column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildSoAllocatedLotserial objects filtered by the TimeUpdtd column
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByDummy(string $dummy) Return ChildSoAllocatedLotserial objects filtered by the dummy column
- * @method     ChildSoAllocatedLotserial[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildSoAllocatedLotserial[]|Collection find(?ConnectionInterface $con = null) Return ChildSoAllocatedLotserial objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> find(?ConnectionInterface $con = null) Return ChildSoAllocatedLotserial objects based on current ModelCriteria
  *
+ * @method     ChildSoAllocatedLotserial[]|Collection findByOehdnbr(int|array<int> $OehdNbr) Return ChildSoAllocatedLotserial objects filtered by the OehdNbr column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByOehdnbr(int|array<int> $OehdNbr) Return ChildSoAllocatedLotserial objects filtered by the OehdNbr column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByOedtline(int|array<int> $OedtLine) Return ChildSoAllocatedLotserial objects filtered by the OedtLine column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByOedtline(int|array<int> $OedtLine) Return ChildSoAllocatedLotserial objects filtered by the OedtLine column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildSoAllocatedLotserial objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildSoAllocatedLotserial objects filtered by the InitItemNbr column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByOeidlotser(string|array<string> $OeidLotSer) Return ChildSoAllocatedLotserial objects filtered by the OeidLotSer column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByOeidlotser(string|array<string> $OeidLotSer) Return ChildSoAllocatedLotserial objects filtered by the OeidLotSer column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByOeidbin(string|array<string> $OeidBin) Return ChildSoAllocatedLotserial objects filtered by the OeidBin column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByOeidbin(string|array<string> $OeidBin) Return ChildSoAllocatedLotserial objects filtered by the OeidBin column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByOeidplltnbr(int|array<int> $OeidPlltNbr) Return ChildSoAllocatedLotserial objects filtered by the OeidPlltNbr column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByOeidplltnbr(int|array<int> $OeidPlltNbr) Return ChildSoAllocatedLotserial objects filtered by the OeidPlltNbr column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByOeidcrtnnbr(int|array<int> $OeidCrtnNbr) Return ChildSoAllocatedLotserial objects filtered by the OeidCrtnNbr column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByOeidcrtnnbr(int|array<int> $OeidCrtnNbr) Return ChildSoAllocatedLotserial objects filtered by the OeidCrtnNbr column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByOeidqtyship(string|array<string> $OeidQtyShip) Return ChildSoAllocatedLotserial objects filtered by the OeidQtyShip column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByOeidqtyship(string|array<string> $OeidQtyShip) Return ChildSoAllocatedLotserial objects filtered by the OeidQtyShip column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByOeidlotref(string|array<string> $OeidLotRef) Return ChildSoAllocatedLotserial objects filtered by the OeidLotRef column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByOeidlotref(string|array<string> $OeidLotRef) Return ChildSoAllocatedLotserial objects filtered by the OeidLotRef column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByOeidcntrqty(string|array<string> $OeidCntrQty) Return ChildSoAllocatedLotserial objects filtered by the OeidCntrQty column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByOeidcntrqty(string|array<string> $OeidCntrQty) Return ChildSoAllocatedLotserial objects filtered by the OeidCntrQty column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByOeidbatch(string|array<string> $OeidBatch) Return ChildSoAllocatedLotserial objects filtered by the OeidBatch column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByOeidbatch(string|array<string> $OeidBatch) Return ChildSoAllocatedLotserial objects filtered by the OeidBatch column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByOeidcuredate(string|array<string> $OeidCureDate) Return ChildSoAllocatedLotserial objects filtered by the OeidCureDate column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByOeidcuredate(string|array<string> $OeidCureDate) Return ChildSoAllocatedLotserial objects filtered by the OeidCureDate column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByOeidpllttype(string|array<string> $OeidPlltType) Return ChildSoAllocatedLotserial objects filtered by the OeidPlltType column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByOeidpllttype(string|array<string> $OeidPlltType) Return ChildSoAllocatedLotserial objects filtered by the OeidPlltType column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByOeidlblprtd(string|array<string> $OeidLblPrtd) Return ChildSoAllocatedLotserial objects filtered by the OeidLblPrtd column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByOeidlblprtd(string|array<string> $OeidLblPrtd) Return ChildSoAllocatedLotserial objects filtered by the OeidLblPrtd column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByOeidorigbin(string|array<string> $OeidOrigBin) Return ChildSoAllocatedLotserial objects filtered by the OeidOrigBin column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByOeidorigbin(string|array<string> $OeidOrigBin) Return ChildSoAllocatedLotserial objects filtered by the OeidOrigBin column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByOeidplltid(string|array<string> $OeidPlltID) Return ChildSoAllocatedLotserial objects filtered by the OeidPlltID column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByOeidplltid(string|array<string> $OeidPlltID) Return ChildSoAllocatedLotserial objects filtered by the OeidPlltID column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSoAllocatedLotserial objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSoAllocatedLotserial objects filtered by the DateUpdtd column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSoAllocatedLotserial objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSoAllocatedLotserial objects filtered by the TimeUpdtd column
+ * @method     ChildSoAllocatedLotserial[]|Collection findByDummy(string|array<string> $dummy) Return ChildSoAllocatedLotserial objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildSoAllocatedLotserial> findByDummy(string|array<string> $dummy) Return ChildSoAllocatedLotserial objects filtered by the dummy column
+ *
+ * @method     ChildSoAllocatedLotserial[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildSoAllocatedLotserial> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class SoAllocatedLotserialQuery extends ModelCriteria
 {
@@ -186,9 +207,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\SoAllocatedLotserialQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\SoAllocatedLotserial', $modelAlias = null)
     {
@@ -198,12 +219,12 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     /**
      * Returns a new ChildSoAllocatedLotserialQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildSoAllocatedLotserialQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildSoAllocatedLotserialQuery) {
             return $criteria;
@@ -233,7 +254,7 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      *
      * @return ChildSoAllocatedLotserial|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -265,8 +286,8 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -304,8 +325,8 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildSoAllocatedLotserial|array|mixed the result, formatted by the current formatter
      */
@@ -325,12 +346,12 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -347,9 +368,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -367,14 +388,16 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(SoAllocatedLotserialTableMap::COL_OEHDNBR, $key[0], Criteria::EQUAL);
@@ -410,15 +433,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      *
      * @see       filterBySalesOrderDetail()
      *
-     * @param     mixed $oehdnbr The value to use as filter.
+     * @param mixed $oehdnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOehdnbr($oehdnbr = null, $comparison = null)
+    public function filterByOehdnbr($oehdnbr = null, ?string $comparison = null)
     {
         if (is_array($oehdnbr)) {
             $useMinMax = false;
@@ -438,7 +461,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEHDNBR, $oehdnbr, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEHDNBR, $oehdnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -453,15 +478,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      *
      * @see       filterBySalesOrderDetail()
      *
-     * @param     mixed $oedtline The value to use as filter.
+     * @param mixed $oedtline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOedtline($oedtline = null, $comparison = null)
+    public function filterByOedtline($oedtline = null, ?string $comparison = null)
     {
         if (is_array($oedtline)) {
             $useMinMax = false;
@@ -481,7 +506,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEDTLINE, $oedtline, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEDTLINE, $oedtline, $comparison);
+
+        return $this;
     }
 
     /**
@@ -491,14 +518,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -506,7 +534,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -516,14 +546,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByOeidlotser('fooValue');   // WHERE OeidLotSer = 'fooValue'
      * $query->filterByOeidlotser('%fooValue%', Criteria::LIKE); // WHERE OeidLotSer LIKE '%fooValue%'
+     * $query->filterByOeidlotser(['foo', 'bar']); // WHERE OeidLotSer IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oeidlotser The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oeidlotser The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOeidlotser($oeidlotser = null, $comparison = null)
+    public function filterByOeidlotser($oeidlotser = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oeidlotser)) {
@@ -531,7 +562,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDLOTSER, $oeidlotser, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDLOTSER, $oeidlotser, $comparison);
+
+        return $this;
     }
 
     /**
@@ -541,14 +574,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByOeidbin('fooValue');   // WHERE OeidBin = 'fooValue'
      * $query->filterByOeidbin('%fooValue%', Criteria::LIKE); // WHERE OeidBin LIKE '%fooValue%'
+     * $query->filterByOeidbin(['foo', 'bar']); // WHERE OeidBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oeidbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oeidbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOeidbin($oeidbin = null, $comparison = null)
+    public function filterByOeidbin($oeidbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oeidbin)) {
@@ -556,7 +590,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDBIN, $oeidbin, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDBIN, $oeidbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -569,15 +605,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * $query->filterByOeidplltnbr(array('min' => 12)); // WHERE OeidPlltNbr > 12
      * </code>
      *
-     * @param     mixed $oeidplltnbr The value to use as filter.
+     * @param mixed $oeidplltnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOeidplltnbr($oeidplltnbr = null, $comparison = null)
+    public function filterByOeidplltnbr($oeidplltnbr = null, ?string $comparison = null)
     {
         if (is_array($oeidplltnbr)) {
             $useMinMax = false;
@@ -597,7 +633,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDPLLTNBR, $oeidplltnbr, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDPLLTNBR, $oeidplltnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -610,15 +648,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * $query->filterByOeidcrtnnbr(array('min' => 12)); // WHERE OeidCrtnNbr > 12
      * </code>
      *
-     * @param     mixed $oeidcrtnnbr The value to use as filter.
+     * @param mixed $oeidcrtnnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOeidcrtnnbr($oeidcrtnnbr = null, $comparison = null)
+    public function filterByOeidcrtnnbr($oeidcrtnnbr = null, ?string $comparison = null)
     {
         if (is_array($oeidcrtnnbr)) {
             $useMinMax = false;
@@ -638,7 +676,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDCRTNNBR, $oeidcrtnnbr, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDCRTNNBR, $oeidcrtnnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -651,15 +691,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * $query->filterByOeidqtyship(array('min' => 12)); // WHERE OeidQtyShip > 12
      * </code>
      *
-     * @param     mixed $oeidqtyship The value to use as filter.
+     * @param mixed $oeidqtyship The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOeidqtyship($oeidqtyship = null, $comparison = null)
+    public function filterByOeidqtyship($oeidqtyship = null, ?string $comparison = null)
     {
         if (is_array($oeidqtyship)) {
             $useMinMax = false;
@@ -679,7 +719,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDQTYSHIP, $oeidqtyship, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDQTYSHIP, $oeidqtyship, $comparison);
+
+        return $this;
     }
 
     /**
@@ -689,14 +731,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByOeidlotref('fooValue');   // WHERE OeidLotRef = 'fooValue'
      * $query->filterByOeidlotref('%fooValue%', Criteria::LIKE); // WHERE OeidLotRef LIKE '%fooValue%'
+     * $query->filterByOeidlotref(['foo', 'bar']); // WHERE OeidLotRef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oeidlotref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oeidlotref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOeidlotref($oeidlotref = null, $comparison = null)
+    public function filterByOeidlotref($oeidlotref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oeidlotref)) {
@@ -704,7 +747,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDLOTREF, $oeidlotref, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDLOTREF, $oeidlotref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -717,15 +762,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * $query->filterByOeidcntrqty(array('min' => 12)); // WHERE OeidCntrQty > 12
      * </code>
      *
-     * @param     mixed $oeidcntrqty The value to use as filter.
+     * @param mixed $oeidcntrqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOeidcntrqty($oeidcntrqty = null, $comparison = null)
+    public function filterByOeidcntrqty($oeidcntrqty = null, ?string $comparison = null)
     {
         if (is_array($oeidcntrqty)) {
             $useMinMax = false;
@@ -745,7 +790,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDCNTRQTY, $oeidcntrqty, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDCNTRQTY, $oeidcntrqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -755,14 +802,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByOeidbatch('fooValue');   // WHERE OeidBatch = 'fooValue'
      * $query->filterByOeidbatch('%fooValue%', Criteria::LIKE); // WHERE OeidBatch LIKE '%fooValue%'
+     * $query->filterByOeidbatch(['foo', 'bar']); // WHERE OeidBatch IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oeidbatch The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oeidbatch The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOeidbatch($oeidbatch = null, $comparison = null)
+    public function filterByOeidbatch($oeidbatch = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oeidbatch)) {
@@ -770,7 +818,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDBATCH, $oeidbatch, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDBATCH, $oeidbatch, $comparison);
+
+        return $this;
     }
 
     /**
@@ -780,14 +830,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByOeidcuredate('fooValue');   // WHERE OeidCureDate = 'fooValue'
      * $query->filterByOeidcuredate('%fooValue%', Criteria::LIKE); // WHERE OeidCureDate LIKE '%fooValue%'
+     * $query->filterByOeidcuredate(['foo', 'bar']); // WHERE OeidCureDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oeidcuredate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oeidcuredate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOeidcuredate($oeidcuredate = null, $comparison = null)
+    public function filterByOeidcuredate($oeidcuredate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oeidcuredate)) {
@@ -795,7 +846,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDCUREDATE, $oeidcuredate, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDCUREDATE, $oeidcuredate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -805,14 +858,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByOeidpllttype('fooValue');   // WHERE OeidPlltType = 'fooValue'
      * $query->filterByOeidpllttype('%fooValue%', Criteria::LIKE); // WHERE OeidPlltType LIKE '%fooValue%'
+     * $query->filterByOeidpllttype(['foo', 'bar']); // WHERE OeidPlltType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oeidpllttype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oeidpllttype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOeidpllttype($oeidpllttype = null, $comparison = null)
+    public function filterByOeidpllttype($oeidpllttype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oeidpllttype)) {
@@ -820,7 +874,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDPLLTTYPE, $oeidpllttype, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDPLLTTYPE, $oeidpllttype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -830,14 +886,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByOeidlblprtd('fooValue');   // WHERE OeidLblPrtd = 'fooValue'
      * $query->filterByOeidlblprtd('%fooValue%', Criteria::LIKE); // WHERE OeidLblPrtd LIKE '%fooValue%'
+     * $query->filterByOeidlblprtd(['foo', 'bar']); // WHERE OeidLblPrtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oeidlblprtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oeidlblprtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOeidlblprtd($oeidlblprtd = null, $comparison = null)
+    public function filterByOeidlblprtd($oeidlblprtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oeidlblprtd)) {
@@ -845,7 +902,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD, $oeidlblprtd, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD, $oeidlblprtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -855,14 +914,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByOeidorigbin('fooValue');   // WHERE OeidOrigBin = 'fooValue'
      * $query->filterByOeidorigbin('%fooValue%', Criteria::LIKE); // WHERE OeidOrigBin LIKE '%fooValue%'
+     * $query->filterByOeidorigbin(['foo', 'bar']); // WHERE OeidOrigBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oeidorigbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oeidorigbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOeidorigbin($oeidorigbin = null, $comparison = null)
+    public function filterByOeidorigbin($oeidorigbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oeidorigbin)) {
@@ -870,7 +930,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDORIGBIN, $oeidorigbin, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDORIGBIN, $oeidorigbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -880,14 +942,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByOeidplltid('fooValue');   // WHERE OeidPlltID = 'fooValue'
      * $query->filterByOeidplltid('%fooValue%', Criteria::LIKE); // WHERE OeidPlltID LIKE '%fooValue%'
+     * $query->filterByOeidplltid(['foo', 'bar']); // WHERE OeidPlltID IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oeidplltid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oeidplltid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOeidplltid($oeidplltid = null, $comparison = null)
+    public function filterByOeidplltid($oeidplltid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oeidplltid)) {
@@ -895,7 +958,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDPLLTID, $oeidplltid, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDPLLTID, $oeidplltid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -905,14 +970,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -920,7 +986,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -930,14 +998,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -945,7 +1014,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -955,14 +1026,15 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -970,20 +1042,22 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \SalesOrder object
      *
      * @param \SalesOrder|ObjectCollection $salesOrder The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesOrder($salesOrder, $comparison = null)
+    public function filterBySalesOrder($salesOrder, ?string $comparison = null)
     {
         if ($salesOrder instanceof \SalesOrder) {
             return $this
@@ -993,8 +1067,10 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEHDNBR, $salesOrder->toKeyValue('PrimaryKey', 'Oehdnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterBySalesOrder() only accepts arguments of type \SalesOrder or Collection');
         }
@@ -1003,12 +1079,12 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SalesOrder relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSalesOrder($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSalesOrder(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesOrder');
@@ -1037,9 +1113,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SalesOrderQuery A secondary query class using the current class as primary query
      */
@@ -1051,16 +1127,112 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     }
 
     /**
+     * Use the SalesOrder relation SalesOrder object
+     *
+     * @param callable(\SalesOrderQuery):\SalesOrderQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSalesOrderQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSalesOrderQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SalesOrder table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SalesOrderQuery The inner query object of the EXISTS statement
+     */
+    public function useSalesOrderExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SalesOrderQuery */
+        $q = $this->useExistsQuery('SalesOrder', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrder table for a NOT EXISTS query.
+     *
+     * @see useSalesOrderExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SalesOrderQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSalesOrderNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesOrderQuery */
+        $q = $this->useExistsQuery('SalesOrder', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrder table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SalesOrderQuery The inner query object of the IN statement
+     */
+    public function useInSalesOrderQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SalesOrderQuery */
+        $q = $this->useInQuery('SalesOrder', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrder table for a NOT IN query.
+     *
+     * @see useSalesOrderInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SalesOrderQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSalesOrderQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesOrderQuery */
+        $q = $this->useInQuery('SalesOrder', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \SalesOrderDetail object
      *
      * @param \SalesOrderDetail $salesOrderDetail The related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBySalesOrderDetail($salesOrderDetail, $comparison = null)
+    public function filterBySalesOrderDetail($salesOrderDetail, ?string $comparison = null)
     {
         if ($salesOrderDetail instanceof \SalesOrderDetail) {
             return $this
@@ -1074,12 +1246,12 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the SalesOrderDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinSalesOrderDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinSalesOrderDetail(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesOrderDetail');
@@ -1108,9 +1280,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \SalesOrderDetailQuery A secondary query class using the current class as primary query
      */
@@ -1122,16 +1294,112 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     }
 
     /**
+     * Use the SalesOrderDetail relation SalesOrderDetail object
+     *
+     * @param callable(\SalesOrderDetailQuery):\SalesOrderDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withSalesOrderDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useSalesOrderDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to SalesOrderDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \SalesOrderDetailQuery The inner query object of the EXISTS statement
+     */
+    public function useSalesOrderDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \SalesOrderDetailQuery */
+        $q = $this->useExistsQuery('SalesOrderDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderDetail table for a NOT EXISTS query.
+     *
+     * @see useSalesOrderDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \SalesOrderDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useSalesOrderDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesOrderDetailQuery */
+        $q = $this->useExistsQuery('SalesOrderDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \SalesOrderDetailQuery The inner query object of the IN statement
+     */
+    public function useInSalesOrderDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \SalesOrderDetailQuery */
+        $q = $this->useInQuery('SalesOrderDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to SalesOrderDetail table for a NOT IN query.
+     *
+     * @see useSalesOrderDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \SalesOrderDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInSalesOrderDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \SalesOrderDetailQuery */
+        $q = $this->useInQuery('SalesOrderDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -1141,8 +1409,10 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(SoAllocatedLotserialTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -1151,12 +1421,12 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -1185,9 +1455,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -1199,16 +1469,112 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvLotMaster object
      *
      * @param \InvLotMaster $invLotMaster The related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvLotMaster($invLotMaster, $comparison = null)
+    public function filterByInvLotMaster($invLotMaster, ?string $comparison = null)
     {
         if ($invLotMaster instanceof \InvLotMaster) {
             return $this
@@ -1222,12 +1588,12 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvLotMaster relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvLotMaster($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvLotMaster(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvLotMaster');
@@ -1256,9 +1622,9 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvLotMasterQuery A secondary query class using the current class as primary query
      */
@@ -1270,11 +1636,107 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvLotMaster relation InvLotMaster object
+     *
+     * @param callable(\InvLotMasterQuery):\InvLotMasterQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvLotMasterQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvLotMasterQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvLotMaster table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvLotMasterQuery The inner query object of the EXISTS statement
+     */
+    public function useInvLotMasterExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvLotMasterQuery */
+        $q = $this->useExistsQuery('InvLotMaster', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotMaster table for a NOT EXISTS query.
+     *
+     * @see useInvLotMasterExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvLotMasterQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvLotMasterNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvLotMasterQuery */
+        $q = $this->useExistsQuery('InvLotMaster', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotMaster table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvLotMasterQuery The inner query object of the IN statement
+     */
+    public function useInInvLotMasterQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvLotMasterQuery */
+        $q = $this->useInQuery('InvLotMaster', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotMaster table for a NOT IN query.
+     *
+     * @see useInvLotMasterInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvLotMasterQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvLotMasterQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvLotMasterQuery */
+        $q = $this->useInQuery('InvLotMaster', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildSoAllocatedLotserial $soAllocatedLotserial Object to remove from the list of results
+     * @param ChildSoAllocatedLotserial $soAllocatedLotserial Object to remove from the list of results
      *
-     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($soAllocatedLotserial = null)
     {
@@ -1298,7 +1760,7 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoAllocatedLotserialTableMap::DATABASE_NAME);
@@ -1323,12 +1785,12 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoAllocatedLotserialTableMap::DATABASE_NAME);
@@ -1353,4 +1815,4 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
         });
     }
 
-} // SoAllocatedLotserialQuery
+}

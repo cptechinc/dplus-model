@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class CustomerStockingCellTableMap extends TableMap
 {
@@ -34,109 +33,165 @@ class CustomerStockingCellTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CustomerStockingCellTableMap';
+    public const CLASS_NAME = '.Map.CustomerStockingCellTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'inv_cell_code';
+    public const TABLE_NAME = 'inv_cell_code';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'CustomerStockingCell';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\CustomerStockingCell';
+    public const OM_CLASS = '\\CustomerStockingCell';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'CustomerStockingCell';
+    public const CLASS_DEFAULT = 'CustomerStockingCell';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 5;
+    public const NUM_COLUMNS = 5;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 5;
+    public const NUM_HYDRATE_COLUMNS = 5;
 
     /**
      * the column name for the IntbCellCode field
      */
-    const COL_INTBCELLCODE = 'inv_cell_code.IntbCellCode';
+    public const COL_INTBCELLCODE = 'inv_cell_code.IntbCellCode';
 
     /**
      * the column name for the IntbCellDesc field
      */
-    const COL_INTBCELLDESC = 'inv_cell_code.IntbCellDesc';
+    public const COL_INTBCELLDESC = 'inv_cell_code.IntbCellDesc';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'inv_cell_code.DateUpdtd';
+    public const COL_DATEUPDTD = 'inv_cell_code.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'inv_cell_code.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'inv_cell_code.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'inv_cell_code.dummy';
+    public const COL_DUMMY = 'inv_cell_code.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Intbcellcode', 'Intbcelldesc', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('intbcellcode', 'intbcelldesc', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(CustomerStockingCellTableMap::COL_INTBCELLCODE, CustomerStockingCellTableMap::COL_INTBCELLDESC, CustomerStockingCellTableMap::COL_DATEUPDTD, CustomerStockingCellTableMap::COL_TIMEUPDTD, CustomerStockingCellTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('IntbCellCode', 'IntbCellDesc', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Intbcellcode', 'Intbcelldesc', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['intbcellcode', 'intbcelldesc', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [CustomerStockingCellTableMap::COL_INTBCELLCODE, CustomerStockingCellTableMap::COL_INTBCELLDESC, CustomerStockingCellTableMap::COL_DATEUPDTD, CustomerStockingCellTableMap::COL_TIMEUPDTD, CustomerStockingCellTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['IntbCellCode', 'IntbCellDesc', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Intbcellcode' => 0, 'Intbcelldesc' => 1, 'Dateupdtd' => 2, 'Timeupdtd' => 3, 'Dummy' => 4, ),
-        self::TYPE_CAMELNAME     => array('intbcellcode' => 0, 'intbcelldesc' => 1, 'dateupdtd' => 2, 'timeupdtd' => 3, 'dummy' => 4, ),
-        self::TYPE_COLNAME       => array(CustomerStockingCellTableMap::COL_INTBCELLCODE => 0, CustomerStockingCellTableMap::COL_INTBCELLDESC => 1, CustomerStockingCellTableMap::COL_DATEUPDTD => 2, CustomerStockingCellTableMap::COL_TIMEUPDTD => 3, CustomerStockingCellTableMap::COL_DUMMY => 4, ),
-        self::TYPE_FIELDNAME     => array('IntbCellCode' => 0, 'IntbCellDesc' => 1, 'DateUpdtd' => 2, 'TimeUpdtd' => 3, 'dummy' => 4, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Intbcellcode' => 0, 'Intbcelldesc' => 1, 'Dateupdtd' => 2, 'Timeupdtd' => 3, 'Dummy' => 4, ],
+        self::TYPE_CAMELNAME     => ['intbcellcode' => 0, 'intbcelldesc' => 1, 'dateupdtd' => 2, 'timeupdtd' => 3, 'dummy' => 4, ],
+        self::TYPE_COLNAME       => [CustomerStockingCellTableMap::COL_INTBCELLCODE => 0, CustomerStockingCellTableMap::COL_INTBCELLDESC => 1, CustomerStockingCellTableMap::COL_DATEUPDTD => 2, CustomerStockingCellTableMap::COL_TIMEUPDTD => 3, CustomerStockingCellTableMap::COL_DUMMY => 4, ],
+        self::TYPE_FIELDNAME     => ['IntbCellCode' => 0, 'IntbCellDesc' => 1, 'DateUpdtd' => 2, 'TimeUpdtd' => 3, 'dummy' => 4, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Intbcellcode' => 'INTBCELLCODE',
+        'CustomerStockingCell.Intbcellcode' => 'INTBCELLCODE',
+        'intbcellcode' => 'INTBCELLCODE',
+        'customerStockingCell.intbcellcode' => 'INTBCELLCODE',
+        'CustomerStockingCellTableMap::COL_INTBCELLCODE' => 'INTBCELLCODE',
+        'COL_INTBCELLCODE' => 'INTBCELLCODE',
+        'IntbCellCode' => 'INTBCELLCODE',
+        'inv_cell_code.IntbCellCode' => 'INTBCELLCODE',
+        'Intbcelldesc' => 'INTBCELLDESC',
+        'CustomerStockingCell.Intbcelldesc' => 'INTBCELLDESC',
+        'intbcelldesc' => 'INTBCELLDESC',
+        'customerStockingCell.intbcelldesc' => 'INTBCELLDESC',
+        'CustomerStockingCellTableMap::COL_INTBCELLDESC' => 'INTBCELLDESC',
+        'COL_INTBCELLDESC' => 'INTBCELLDESC',
+        'IntbCellDesc' => 'INTBCELLDESC',
+        'inv_cell_code.IntbCellDesc' => 'INTBCELLDESC',
+        'Dateupdtd' => 'DATEUPDTD',
+        'CustomerStockingCell.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'customerStockingCell.dateupdtd' => 'DATEUPDTD',
+        'CustomerStockingCellTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'inv_cell_code.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'CustomerStockingCell.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'customerStockingCell.timeupdtd' => 'TIMEUPDTD',
+        'CustomerStockingCellTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'inv_cell_code.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'CustomerStockingCell.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'customerStockingCell.dummy' => 'DUMMY',
+        'CustomerStockingCellTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'inv_cell_code.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('inv_cell_code');
@@ -151,14 +206,16 @@ class CustomerStockingCellTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -166,14 +223,14 @@ class CustomerStockingCellTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Intbcellcode', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -188,14 +245,14 @@ class CustomerStockingCellTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
             $indexType == TableMap::TYPE_NUM
@@ -212,10 +269,10 @@ class CustomerStockingCellTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? CustomerStockingCellTableMap::CLASS_DEFAULT : CustomerStockingCellTableMap::OM_CLASS;
     }
@@ -223,17 +280,17 @@ class CustomerStockingCellTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (CustomerStockingCell object, last column rank)
+     * @return array (CustomerStockingCell object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = CustomerStockingCellTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = CustomerStockingCellTableMap::getInstanceFromPool($key))) {
@@ -249,7 +306,7 @@ class CustomerStockingCellTableMap extends TableMap
             CustomerStockingCellTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -257,13 +314,13 @@ class CustomerStockingCellTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -293,12 +350,13 @@ class CustomerStockingCellTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(CustomerStockingCellTableMap::COL_INTBCELLCODE);
@@ -316,40 +374,58 @@ class CustomerStockingCellTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(CustomerStockingCellTableMap::COL_INTBCELLCODE);
+            $criteria->removeSelectColumn(CustomerStockingCellTableMap::COL_INTBCELLDESC);
+            $criteria->removeSelectColumn(CustomerStockingCellTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(CustomerStockingCellTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(CustomerStockingCellTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.IntbCellCode');
+            $criteria->removeSelectColumn($alias . '.IntbCellDesc');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(CustomerStockingCellTableMap::DATABASE_NAME)->getTable(CustomerStockingCellTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CustomerStockingCellTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CustomerStockingCellTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CustomerStockingCellTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a CustomerStockingCell or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or CustomerStockingCell object or primary key or array of primary keys
+     * @param mixed $values Criteria or CustomerStockingCell object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerStockingCellTableMap::DATABASE_NAME);
@@ -385,7 +461,7 @@ class CustomerStockingCellTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return CustomerStockingCellQuery::create()->doDeleteAll($con);
     }
@@ -393,13 +469,13 @@ class CustomerStockingCellTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a CustomerStockingCell or Criteria object.
      *
-     * @param mixed               $criteria Criteria or CustomerStockingCell object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or CustomerStockingCell object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerStockingCellTableMap::DATABASE_NAME);
@@ -422,7 +498,4 @@ class CustomerStockingCellTableMap extends TableMap
         });
     }
 
-} // CustomerStockingCellTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-CustomerStockingCellTableMap::buildTableMap();
+}

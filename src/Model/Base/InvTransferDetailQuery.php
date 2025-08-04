@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_trans_det' table.
- *
- *
+ * Base class that represents a query for the `inv_trans_det` table.
  *
  * @method     ChildInvTransferDetailQuery orderByInhdnbr($order = Criteria::ASC) Order by the InhdNbr column
  * @method     ChildInvTransferDetailQuery orderByIndtline($order = Criteria::ASC) Order by the IndtLine column
@@ -134,38 +133,38 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \InvTransferOrderQuery|\ItemMasterItemQuery|\InvTransferLotserialQuery|\InvTransferPreAllocatedLotserialQuery|\InvTransferPickedLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildInvTransferDetail findOne(ConnectionInterface $con = null) Return the first ChildInvTransferDetail matching the query
- * @method     ChildInvTransferDetail findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvTransferDetail matching the query, or a new ChildInvTransferDetail object populated from the query conditions when no match is found
+ * @method     ChildInvTransferDetail|null findOne(?ConnectionInterface $con = null) Return the first ChildInvTransferDetail matching the query
+ * @method     ChildInvTransferDetail findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildInvTransferDetail matching the query, or a new ChildInvTransferDetail object populated from the query conditions when no match is found
  *
- * @method     ChildInvTransferDetail findOneByInhdnbr(int $InhdNbr) Return the first ChildInvTransferDetail filtered by the InhdNbr column
- * @method     ChildInvTransferDetail findOneByIndtline(int $IndtLine) Return the first ChildInvTransferDetail filtered by the IndtLine column
- * @method     ChildInvTransferDetail findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvTransferDetail filtered by the InitItemNbr column
- * @method     ChildInvTransferDetail findOneByIndtqtyrqst(string $IndtQtyRqst) Return the first ChildInvTransferDetail filtered by the IndtQtyRqst column
- * @method     ChildInvTransferDetail findOneByIndtqtyship(string $IndtQtyShip) Return the first ChildInvTransferDetail filtered by the IndtQtyShip column
- * @method     ChildInvTransferDetail findOneByIndtrqstdate(string $IndtRqstDate) Return the first ChildInvTransferDetail filtered by the IndtRqstDate column
- * @method     ChildInvTransferDetail findOneByIndtshipdate(string $IndtShipDate) Return the first ChildInvTransferDetail filtered by the IndtShipDate column
- * @method     ChildInvTransferDetail findOneByIndtpickflag(string $IndtPickFlag) Return the first ChildInvTransferDetail filtered by the IndtPickFlag column
- * @method     ChildInvTransferDetail findOneByIndtbordflag(string $IndtBordFlag) Return the first ChildInvTransferDetail filtered by the IndtBordFlag column
- * @method     ChildInvTransferDetail findOneByIndtqtyprev(string $IndtQtyPrev) Return the first ChildInvTransferDetail filtered by the IndtQtyPrev column
- * @method     ChildInvTransferDetail findOneByIndtqtyrcvd(string $IndtQtyRcvd) Return the first ChildInvTransferDetail filtered by the IndtQtyRcvd column
- * @method     ChildInvTransferDetail findOneByIndttobercvd(string $IndtToBeRcvd) Return the first ChildInvTransferDetail filtered by the IndtToBeRcvd column
- * @method     ChildInvTransferDetail findOneByIndtrcptdate(string $IndtRcptDate) Return the first ChildInvTransferDetail filtered by the IndtRcptDate column
- * @method     ChildInvTransferDetail findOneByIndtsonbr(int $IndtSoNbr) Return the first ChildInvTransferDetail filtered by the IndtSoNbr column
- * @method     ChildInvTransferDetail findOneByIndtkitflag(string $IndtKitFlag) Return the first ChildInvTransferDetail filtered by the IndtKitFlag column
- * @method     ChildInvTransferDetail findOneByIndtuseitemnbr(string $IndtUseItemNbr) Return the first ChildInvTransferDetail filtered by the IndtUseItemNbr column
- * @method     ChildInvTransferDetail findOneByIndtcustitemnbr(string $IndtCustItemNbr) Return the first ChildInvTransferDetail filtered by the IndtCustItemNbr column
- * @method     ChildInvTransferDetail findOneByIndtcntrqty(string $IndtCntrQty) Return the first ChildInvTransferDetail filtered by the IndtCntrQty column
- * @method     ChildInvTransferDetail findOneByIndtcases(string $IndtCases) Return the first ChildInvTransferDetail filtered by the IndtCases column
- * @method     ChildInvTransferDetail findOneByIndtorigrqstdate(string $IndtOrigRqstDate) Return the first ChildInvTransferDetail filtered by the IndtOrigRqstDate column
- * @method     ChildInvTransferDetail findOneByIndtordras(string $IndtOrdrAs) Return the first ChildInvTransferDetail filtered by the IndtOrdrAs column
- * @method     ChildInvTransferDetail findOneByIndtfreshfrozen(string $IndtFreshFrozen) Return the first ChildInvTransferDetail filtered by the IndtFreshFrozen column
- * @method     ChildInvTransferDetail findOneByIndtprimbin(string $IndtPrimBin) Return the first ChildInvTransferDetail filtered by the IndtPrimBin column
- * @method     ChildInvTransferDetail findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvTransferDetail filtered by the DateUpdtd column
- * @method     ChildInvTransferDetail findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvTransferDetail filtered by the TimeUpdtd column
- * @method     ChildInvTransferDetail findOneByDummy(string $dummy) Return the first ChildInvTransferDetail filtered by the dummy column *
-
- * @method     ChildInvTransferDetail requirePk($key, ConnectionInterface $con = null) Return the ChildInvTransferDetail by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvTransferDetail requireOne(ConnectionInterface $con = null) Return the first ChildInvTransferDetail matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvTransferDetail|null findOneByInhdnbr(int $InhdNbr) Return the first ChildInvTransferDetail filtered by the InhdNbr column
+ * @method     ChildInvTransferDetail|null findOneByIndtline(int $IndtLine) Return the first ChildInvTransferDetail filtered by the IndtLine column
+ * @method     ChildInvTransferDetail|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvTransferDetail filtered by the InitItemNbr column
+ * @method     ChildInvTransferDetail|null findOneByIndtqtyrqst(string $IndtQtyRqst) Return the first ChildInvTransferDetail filtered by the IndtQtyRqst column
+ * @method     ChildInvTransferDetail|null findOneByIndtqtyship(string $IndtQtyShip) Return the first ChildInvTransferDetail filtered by the IndtQtyShip column
+ * @method     ChildInvTransferDetail|null findOneByIndtrqstdate(string $IndtRqstDate) Return the first ChildInvTransferDetail filtered by the IndtRqstDate column
+ * @method     ChildInvTransferDetail|null findOneByIndtshipdate(string $IndtShipDate) Return the first ChildInvTransferDetail filtered by the IndtShipDate column
+ * @method     ChildInvTransferDetail|null findOneByIndtpickflag(string $IndtPickFlag) Return the first ChildInvTransferDetail filtered by the IndtPickFlag column
+ * @method     ChildInvTransferDetail|null findOneByIndtbordflag(string $IndtBordFlag) Return the first ChildInvTransferDetail filtered by the IndtBordFlag column
+ * @method     ChildInvTransferDetail|null findOneByIndtqtyprev(string $IndtQtyPrev) Return the first ChildInvTransferDetail filtered by the IndtQtyPrev column
+ * @method     ChildInvTransferDetail|null findOneByIndtqtyrcvd(string $IndtQtyRcvd) Return the first ChildInvTransferDetail filtered by the IndtQtyRcvd column
+ * @method     ChildInvTransferDetail|null findOneByIndttobercvd(string $IndtToBeRcvd) Return the first ChildInvTransferDetail filtered by the IndtToBeRcvd column
+ * @method     ChildInvTransferDetail|null findOneByIndtrcptdate(string $IndtRcptDate) Return the first ChildInvTransferDetail filtered by the IndtRcptDate column
+ * @method     ChildInvTransferDetail|null findOneByIndtsonbr(int $IndtSoNbr) Return the first ChildInvTransferDetail filtered by the IndtSoNbr column
+ * @method     ChildInvTransferDetail|null findOneByIndtkitflag(string $IndtKitFlag) Return the first ChildInvTransferDetail filtered by the IndtKitFlag column
+ * @method     ChildInvTransferDetail|null findOneByIndtuseitemnbr(string $IndtUseItemNbr) Return the first ChildInvTransferDetail filtered by the IndtUseItemNbr column
+ * @method     ChildInvTransferDetail|null findOneByIndtcustitemnbr(string $IndtCustItemNbr) Return the first ChildInvTransferDetail filtered by the IndtCustItemNbr column
+ * @method     ChildInvTransferDetail|null findOneByIndtcntrqty(string $IndtCntrQty) Return the first ChildInvTransferDetail filtered by the IndtCntrQty column
+ * @method     ChildInvTransferDetail|null findOneByIndtcases(string $IndtCases) Return the first ChildInvTransferDetail filtered by the IndtCases column
+ * @method     ChildInvTransferDetail|null findOneByIndtorigrqstdate(string $IndtOrigRqstDate) Return the first ChildInvTransferDetail filtered by the IndtOrigRqstDate column
+ * @method     ChildInvTransferDetail|null findOneByIndtordras(string $IndtOrdrAs) Return the first ChildInvTransferDetail filtered by the IndtOrdrAs column
+ * @method     ChildInvTransferDetail|null findOneByIndtfreshfrozen(string $IndtFreshFrozen) Return the first ChildInvTransferDetail filtered by the IndtFreshFrozen column
+ * @method     ChildInvTransferDetail|null findOneByIndtprimbin(string $IndtPrimBin) Return the first ChildInvTransferDetail filtered by the IndtPrimBin column
+ * @method     ChildInvTransferDetail|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvTransferDetail filtered by the DateUpdtd column
+ * @method     ChildInvTransferDetail|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvTransferDetail filtered by the TimeUpdtd column
+ * @method     ChildInvTransferDetail|null findOneByDummy(string $dummy) Return the first ChildInvTransferDetail filtered by the dummy column
+ *
+ * @method     ChildInvTransferDetail requirePk($key, ?ConnectionInterface $con = null) Return the ChildInvTransferDetail by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvTransferDetail requireOne(?ConnectionInterface $con = null) Return the first ChildInvTransferDetail matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildInvTransferDetail requireOneByInhdnbr(int $InhdNbr) Return the first ChildInvTransferDetail filtered by the InhdNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvTransferDetail requireOneByIndtline(int $IndtLine) Return the first ChildInvTransferDetail filtered by the IndtLine column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -194,35 +193,64 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvTransferDetail requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvTransferDetail filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvTransferDetail requireOneByDummy(string $dummy) Return the first ChildInvTransferDetail filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInvTransferDetail[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvTransferDetail objects based on current ModelCriteria
- * @method     ChildInvTransferDetail[]|ObjectCollection findByInhdnbr(int $InhdNbr) Return ChildInvTransferDetail objects filtered by the InhdNbr column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtline(int $IndtLine) Return ChildInvTransferDetail objects filtered by the IndtLine column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildInvTransferDetail objects filtered by the InitItemNbr column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtqtyrqst(string $IndtQtyRqst) Return ChildInvTransferDetail objects filtered by the IndtQtyRqst column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtqtyship(string $IndtQtyShip) Return ChildInvTransferDetail objects filtered by the IndtQtyShip column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtrqstdate(string $IndtRqstDate) Return ChildInvTransferDetail objects filtered by the IndtRqstDate column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtshipdate(string $IndtShipDate) Return ChildInvTransferDetail objects filtered by the IndtShipDate column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtpickflag(string $IndtPickFlag) Return ChildInvTransferDetail objects filtered by the IndtPickFlag column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtbordflag(string $IndtBordFlag) Return ChildInvTransferDetail objects filtered by the IndtBordFlag column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtqtyprev(string $IndtQtyPrev) Return ChildInvTransferDetail objects filtered by the IndtQtyPrev column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtqtyrcvd(string $IndtQtyRcvd) Return ChildInvTransferDetail objects filtered by the IndtQtyRcvd column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndttobercvd(string $IndtToBeRcvd) Return ChildInvTransferDetail objects filtered by the IndtToBeRcvd column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtrcptdate(string $IndtRcptDate) Return ChildInvTransferDetail objects filtered by the IndtRcptDate column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtsonbr(int $IndtSoNbr) Return ChildInvTransferDetail objects filtered by the IndtSoNbr column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtkitflag(string $IndtKitFlag) Return ChildInvTransferDetail objects filtered by the IndtKitFlag column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtuseitemnbr(string $IndtUseItemNbr) Return ChildInvTransferDetail objects filtered by the IndtUseItemNbr column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtcustitemnbr(string $IndtCustItemNbr) Return ChildInvTransferDetail objects filtered by the IndtCustItemNbr column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtcntrqty(string $IndtCntrQty) Return ChildInvTransferDetail objects filtered by the IndtCntrQty column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtcases(string $IndtCases) Return ChildInvTransferDetail objects filtered by the IndtCases column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtorigrqstdate(string $IndtOrigRqstDate) Return ChildInvTransferDetail objects filtered by the IndtOrigRqstDate column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtordras(string $IndtOrdrAs) Return ChildInvTransferDetail objects filtered by the IndtOrdrAs column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtfreshfrozen(string $IndtFreshFrozen) Return ChildInvTransferDetail objects filtered by the IndtFreshFrozen column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByIndtprimbin(string $IndtPrimBin) Return ChildInvTransferDetail objects filtered by the IndtPrimBin column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvTransferDetail objects filtered by the DateUpdtd column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvTransferDetail objects filtered by the TimeUpdtd column
- * @method     ChildInvTransferDetail[]|ObjectCollection findByDummy(string $dummy) Return ChildInvTransferDetail objects filtered by the dummy column
- * @method     ChildInvTransferDetail[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvTransferDetail[]|Collection find(?ConnectionInterface $con = null) Return ChildInvTransferDetail objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> find(?ConnectionInterface $con = null) Return ChildInvTransferDetail objects based on current ModelCriteria
  *
+ * @method     ChildInvTransferDetail[]|Collection findByInhdnbr(int|array<int> $InhdNbr) Return ChildInvTransferDetail objects filtered by the InhdNbr column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByInhdnbr(int|array<int> $InhdNbr) Return ChildInvTransferDetail objects filtered by the InhdNbr column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtline(int|array<int> $IndtLine) Return ChildInvTransferDetail objects filtered by the IndtLine column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtline(int|array<int> $IndtLine) Return ChildInvTransferDetail objects filtered by the IndtLine column
+ * @method     ChildInvTransferDetail[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvTransferDetail objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvTransferDetail objects filtered by the InitItemNbr column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtqtyrqst(string|array<string> $IndtQtyRqst) Return ChildInvTransferDetail objects filtered by the IndtQtyRqst column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtqtyrqst(string|array<string> $IndtQtyRqst) Return ChildInvTransferDetail objects filtered by the IndtQtyRqst column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtqtyship(string|array<string> $IndtQtyShip) Return ChildInvTransferDetail objects filtered by the IndtQtyShip column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtqtyship(string|array<string> $IndtQtyShip) Return ChildInvTransferDetail objects filtered by the IndtQtyShip column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtrqstdate(string|array<string> $IndtRqstDate) Return ChildInvTransferDetail objects filtered by the IndtRqstDate column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtrqstdate(string|array<string> $IndtRqstDate) Return ChildInvTransferDetail objects filtered by the IndtRqstDate column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtshipdate(string|array<string> $IndtShipDate) Return ChildInvTransferDetail objects filtered by the IndtShipDate column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtshipdate(string|array<string> $IndtShipDate) Return ChildInvTransferDetail objects filtered by the IndtShipDate column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtpickflag(string|array<string> $IndtPickFlag) Return ChildInvTransferDetail objects filtered by the IndtPickFlag column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtpickflag(string|array<string> $IndtPickFlag) Return ChildInvTransferDetail objects filtered by the IndtPickFlag column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtbordflag(string|array<string> $IndtBordFlag) Return ChildInvTransferDetail objects filtered by the IndtBordFlag column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtbordflag(string|array<string> $IndtBordFlag) Return ChildInvTransferDetail objects filtered by the IndtBordFlag column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtqtyprev(string|array<string> $IndtQtyPrev) Return ChildInvTransferDetail objects filtered by the IndtQtyPrev column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtqtyprev(string|array<string> $IndtQtyPrev) Return ChildInvTransferDetail objects filtered by the IndtQtyPrev column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtqtyrcvd(string|array<string> $IndtQtyRcvd) Return ChildInvTransferDetail objects filtered by the IndtQtyRcvd column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtqtyrcvd(string|array<string> $IndtQtyRcvd) Return ChildInvTransferDetail objects filtered by the IndtQtyRcvd column
+ * @method     ChildInvTransferDetail[]|Collection findByIndttobercvd(string|array<string> $IndtToBeRcvd) Return ChildInvTransferDetail objects filtered by the IndtToBeRcvd column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndttobercvd(string|array<string> $IndtToBeRcvd) Return ChildInvTransferDetail objects filtered by the IndtToBeRcvd column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtrcptdate(string|array<string> $IndtRcptDate) Return ChildInvTransferDetail objects filtered by the IndtRcptDate column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtrcptdate(string|array<string> $IndtRcptDate) Return ChildInvTransferDetail objects filtered by the IndtRcptDate column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtsonbr(int|array<int> $IndtSoNbr) Return ChildInvTransferDetail objects filtered by the IndtSoNbr column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtsonbr(int|array<int> $IndtSoNbr) Return ChildInvTransferDetail objects filtered by the IndtSoNbr column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtkitflag(string|array<string> $IndtKitFlag) Return ChildInvTransferDetail objects filtered by the IndtKitFlag column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtkitflag(string|array<string> $IndtKitFlag) Return ChildInvTransferDetail objects filtered by the IndtKitFlag column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtuseitemnbr(string|array<string> $IndtUseItemNbr) Return ChildInvTransferDetail objects filtered by the IndtUseItemNbr column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtuseitemnbr(string|array<string> $IndtUseItemNbr) Return ChildInvTransferDetail objects filtered by the IndtUseItemNbr column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtcustitemnbr(string|array<string> $IndtCustItemNbr) Return ChildInvTransferDetail objects filtered by the IndtCustItemNbr column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtcustitemnbr(string|array<string> $IndtCustItemNbr) Return ChildInvTransferDetail objects filtered by the IndtCustItemNbr column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtcntrqty(string|array<string> $IndtCntrQty) Return ChildInvTransferDetail objects filtered by the IndtCntrQty column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtcntrqty(string|array<string> $IndtCntrQty) Return ChildInvTransferDetail objects filtered by the IndtCntrQty column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtcases(string|array<string> $IndtCases) Return ChildInvTransferDetail objects filtered by the IndtCases column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtcases(string|array<string> $IndtCases) Return ChildInvTransferDetail objects filtered by the IndtCases column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtorigrqstdate(string|array<string> $IndtOrigRqstDate) Return ChildInvTransferDetail objects filtered by the IndtOrigRqstDate column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtorigrqstdate(string|array<string> $IndtOrigRqstDate) Return ChildInvTransferDetail objects filtered by the IndtOrigRqstDate column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtordras(string|array<string> $IndtOrdrAs) Return ChildInvTransferDetail objects filtered by the IndtOrdrAs column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtordras(string|array<string> $IndtOrdrAs) Return ChildInvTransferDetail objects filtered by the IndtOrdrAs column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtfreshfrozen(string|array<string> $IndtFreshFrozen) Return ChildInvTransferDetail objects filtered by the IndtFreshFrozen column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtfreshfrozen(string|array<string> $IndtFreshFrozen) Return ChildInvTransferDetail objects filtered by the IndtFreshFrozen column
+ * @method     ChildInvTransferDetail[]|Collection findByIndtprimbin(string|array<string> $IndtPrimBin) Return ChildInvTransferDetail objects filtered by the IndtPrimBin column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByIndtprimbin(string|array<string> $IndtPrimBin) Return ChildInvTransferDetail objects filtered by the IndtPrimBin column
+ * @method     ChildInvTransferDetail[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvTransferDetail objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvTransferDetail objects filtered by the DateUpdtd column
+ * @method     ChildInvTransferDetail[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvTransferDetail objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvTransferDetail objects filtered by the TimeUpdtd column
+ * @method     ChildInvTransferDetail[]|Collection findByDummy(string|array<string> $dummy) Return ChildInvTransferDetail objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildInvTransferDetail> findByDummy(string|array<string> $dummy) Return ChildInvTransferDetail objects filtered by the dummy column
+ *
+ * @method     ChildInvTransferDetail[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildInvTransferDetail> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class InvTransferDetailQuery extends ModelCriteria
 {
@@ -231,9 +259,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\InvTransferDetailQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\InvTransferDetail', $modelAlias = null)
     {
@@ -243,12 +271,12 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     /**
      * Returns a new ChildInvTransferDetailQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildInvTransferDetailQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildInvTransferDetailQuery) {
             return $criteria;
@@ -278,7 +306,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      *
      * @return ChildInvTransferDetail|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -310,8 +338,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -344,8 +372,8 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildInvTransferDetail|array|mixed the result, formatted by the current formatter
      */
@@ -365,12 +393,12 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -387,9 +415,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -402,14 +430,16 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(InvTransferDetailTableMap::COL_INHDNBR, $key[0], Criteria::EQUAL);
@@ -433,15 +463,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      *
      * @see       filterByInvTransferOrder()
      *
-     * @param     mixed $inhdnbr The value to use as filter.
+     * @param mixed $inhdnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInhdnbr($inhdnbr = null, $comparison = null)
+    public function filterByInhdnbr($inhdnbr = null, ?string $comparison = null)
     {
         if (is_array($inhdnbr)) {
             $useMinMax = false;
@@ -461,7 +491,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INHDNBR, $inhdnbr, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INHDNBR, $inhdnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -474,15 +506,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * $query->filterByIndtline(array('min' => 12)); // WHERE IndtLine > 12
      * </code>
      *
-     * @param     mixed $indtline The value to use as filter.
+     * @param mixed $indtline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtline($indtline = null, $comparison = null)
+    public function filterByIndtline($indtline = null, ?string $comparison = null)
     {
         if (is_array($indtline)) {
             $useMinMax = false;
@@ -502,7 +534,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTLINE, $indtline, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTLINE, $indtline, $comparison);
+
+        return $this;
     }
 
     /**
@@ -512,14 +546,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -527,7 +562,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -540,15 +577,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * $query->filterByIndtqtyrqst(array('min' => 12)); // WHERE IndtQtyRqst > 12
      * </code>
      *
-     * @param     mixed $indtqtyrqst The value to use as filter.
+     * @param mixed $indtqtyrqst The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtqtyrqst($indtqtyrqst = null, $comparison = null)
+    public function filterByIndtqtyrqst($indtqtyrqst = null, ?string $comparison = null)
     {
         if (is_array($indtqtyrqst)) {
             $useMinMax = false;
@@ -568,7 +605,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTQTYRQST, $indtqtyrqst, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTQTYRQST, $indtqtyrqst, $comparison);
+
+        return $this;
     }
 
     /**
@@ -581,15 +620,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * $query->filterByIndtqtyship(array('min' => 12)); // WHERE IndtQtyShip > 12
      * </code>
      *
-     * @param     mixed $indtqtyship The value to use as filter.
+     * @param mixed $indtqtyship The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtqtyship($indtqtyship = null, $comparison = null)
+    public function filterByIndtqtyship($indtqtyship = null, ?string $comparison = null)
     {
         if (is_array($indtqtyship)) {
             $useMinMax = false;
@@ -609,7 +648,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTQTYSHIP, $indtqtyship, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTQTYSHIP, $indtqtyship, $comparison);
+
+        return $this;
     }
 
     /**
@@ -619,14 +660,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIndtrqstdate('fooValue');   // WHERE IndtRqstDate = 'fooValue'
      * $query->filterByIndtrqstdate('%fooValue%', Criteria::LIKE); // WHERE IndtRqstDate LIKE '%fooValue%'
+     * $query->filterByIndtrqstdate(['foo', 'bar']); // WHERE IndtRqstDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $indtrqstdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $indtrqstdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtrqstdate($indtrqstdate = null, $comparison = null)
+    public function filterByIndtrqstdate($indtrqstdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($indtrqstdate)) {
@@ -634,7 +676,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTRQSTDATE, $indtrqstdate, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTRQSTDATE, $indtrqstdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -644,14 +688,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIndtshipdate('fooValue');   // WHERE IndtShipDate = 'fooValue'
      * $query->filterByIndtshipdate('%fooValue%', Criteria::LIKE); // WHERE IndtShipDate LIKE '%fooValue%'
+     * $query->filterByIndtshipdate(['foo', 'bar']); // WHERE IndtShipDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $indtshipdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $indtshipdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtshipdate($indtshipdate = null, $comparison = null)
+    public function filterByIndtshipdate($indtshipdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($indtshipdate)) {
@@ -659,7 +704,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTSHIPDATE, $indtshipdate, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTSHIPDATE, $indtshipdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -669,14 +716,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIndtpickflag('fooValue');   // WHERE IndtPickFlag = 'fooValue'
      * $query->filterByIndtpickflag('%fooValue%', Criteria::LIKE); // WHERE IndtPickFlag LIKE '%fooValue%'
+     * $query->filterByIndtpickflag(['foo', 'bar']); // WHERE IndtPickFlag IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $indtpickflag The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $indtpickflag The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtpickflag($indtpickflag = null, $comparison = null)
+    public function filterByIndtpickflag($indtpickflag = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($indtpickflag)) {
@@ -684,7 +732,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTPICKFLAG, $indtpickflag, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTPICKFLAG, $indtpickflag, $comparison);
+
+        return $this;
     }
 
     /**
@@ -694,14 +744,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIndtbordflag('fooValue');   // WHERE IndtBordFlag = 'fooValue'
      * $query->filterByIndtbordflag('%fooValue%', Criteria::LIKE); // WHERE IndtBordFlag LIKE '%fooValue%'
+     * $query->filterByIndtbordflag(['foo', 'bar']); // WHERE IndtBordFlag IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $indtbordflag The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $indtbordflag The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtbordflag($indtbordflag = null, $comparison = null)
+    public function filterByIndtbordflag($indtbordflag = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($indtbordflag)) {
@@ -709,7 +760,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTBORDFLAG, $indtbordflag, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTBORDFLAG, $indtbordflag, $comparison);
+
+        return $this;
     }
 
     /**
@@ -722,15 +775,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * $query->filterByIndtqtyprev(array('min' => 12)); // WHERE IndtQtyPrev > 12
      * </code>
      *
-     * @param     mixed $indtqtyprev The value to use as filter.
+     * @param mixed $indtqtyprev The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtqtyprev($indtqtyprev = null, $comparison = null)
+    public function filterByIndtqtyprev($indtqtyprev = null, ?string $comparison = null)
     {
         if (is_array($indtqtyprev)) {
             $useMinMax = false;
@@ -750,7 +803,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTQTYPREV, $indtqtyprev, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTQTYPREV, $indtqtyprev, $comparison);
+
+        return $this;
     }
 
     /**
@@ -763,15 +818,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * $query->filterByIndtqtyrcvd(array('min' => 12)); // WHERE IndtQtyRcvd > 12
      * </code>
      *
-     * @param     mixed $indtqtyrcvd The value to use as filter.
+     * @param mixed $indtqtyrcvd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtqtyrcvd($indtqtyrcvd = null, $comparison = null)
+    public function filterByIndtqtyrcvd($indtqtyrcvd = null, ?string $comparison = null)
     {
         if (is_array($indtqtyrcvd)) {
             $useMinMax = false;
@@ -791,7 +846,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTQTYRCVD, $indtqtyrcvd, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTQTYRCVD, $indtqtyrcvd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -804,15 +861,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * $query->filterByIndttobercvd(array('min' => 12)); // WHERE IndtToBeRcvd > 12
      * </code>
      *
-     * @param     mixed $indttobercvd The value to use as filter.
+     * @param mixed $indttobercvd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndttobercvd($indttobercvd = null, $comparison = null)
+    public function filterByIndttobercvd($indttobercvd = null, ?string $comparison = null)
     {
         if (is_array($indttobercvd)) {
             $useMinMax = false;
@@ -832,7 +889,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTTOBERCVD, $indttobercvd, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTTOBERCVD, $indttobercvd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -842,14 +901,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIndtrcptdate('fooValue');   // WHERE IndtRcptDate = 'fooValue'
      * $query->filterByIndtrcptdate('%fooValue%', Criteria::LIKE); // WHERE IndtRcptDate LIKE '%fooValue%'
+     * $query->filterByIndtrcptdate(['foo', 'bar']); // WHERE IndtRcptDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $indtrcptdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $indtrcptdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtrcptdate($indtrcptdate = null, $comparison = null)
+    public function filterByIndtrcptdate($indtrcptdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($indtrcptdate)) {
@@ -857,7 +917,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTRCPTDATE, $indtrcptdate, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTRCPTDATE, $indtrcptdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -870,15 +932,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * $query->filterByIndtsonbr(array('min' => 12)); // WHERE IndtSoNbr > 12
      * </code>
      *
-     * @param     mixed $indtsonbr The value to use as filter.
+     * @param mixed $indtsonbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtsonbr($indtsonbr = null, $comparison = null)
+    public function filterByIndtsonbr($indtsonbr = null, ?string $comparison = null)
     {
         if (is_array($indtsonbr)) {
             $useMinMax = false;
@@ -898,7 +960,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTSONBR, $indtsonbr, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTSONBR, $indtsonbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -908,14 +972,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIndtkitflag('fooValue');   // WHERE IndtKitFlag = 'fooValue'
      * $query->filterByIndtkitflag('%fooValue%', Criteria::LIKE); // WHERE IndtKitFlag LIKE '%fooValue%'
+     * $query->filterByIndtkitflag(['foo', 'bar']); // WHERE IndtKitFlag IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $indtkitflag The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $indtkitflag The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtkitflag($indtkitflag = null, $comparison = null)
+    public function filterByIndtkitflag($indtkitflag = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($indtkitflag)) {
@@ -923,7 +988,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTKITFLAG, $indtkitflag, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTKITFLAG, $indtkitflag, $comparison);
+
+        return $this;
     }
 
     /**
@@ -933,14 +1000,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIndtuseitemnbr('fooValue');   // WHERE IndtUseItemNbr = 'fooValue'
      * $query->filterByIndtuseitemnbr('%fooValue%', Criteria::LIKE); // WHERE IndtUseItemNbr LIKE '%fooValue%'
+     * $query->filterByIndtuseitemnbr(['foo', 'bar']); // WHERE IndtUseItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $indtuseitemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $indtuseitemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtuseitemnbr($indtuseitemnbr = null, $comparison = null)
+    public function filterByIndtuseitemnbr($indtuseitemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($indtuseitemnbr)) {
@@ -948,7 +1016,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTUSEITEMNBR, $indtuseitemnbr, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTUSEITEMNBR, $indtuseitemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -958,14 +1028,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIndtcustitemnbr('fooValue');   // WHERE IndtCustItemNbr = 'fooValue'
      * $query->filterByIndtcustitemnbr('%fooValue%', Criteria::LIKE); // WHERE IndtCustItemNbr LIKE '%fooValue%'
+     * $query->filterByIndtcustitemnbr(['foo', 'bar']); // WHERE IndtCustItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $indtcustitemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $indtcustitemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtcustitemnbr($indtcustitemnbr = null, $comparison = null)
+    public function filterByIndtcustitemnbr($indtcustitemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($indtcustitemnbr)) {
@@ -973,7 +1044,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTCUSTITEMNBR, $indtcustitemnbr, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTCUSTITEMNBR, $indtcustitemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -986,15 +1059,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * $query->filterByIndtcntrqty(array('min' => 12)); // WHERE IndtCntrQty > 12
      * </code>
      *
-     * @param     mixed $indtcntrqty The value to use as filter.
+     * @param mixed $indtcntrqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtcntrqty($indtcntrqty = null, $comparison = null)
+    public function filterByIndtcntrqty($indtcntrqty = null, ?string $comparison = null)
     {
         if (is_array($indtcntrqty)) {
             $useMinMax = false;
@@ -1014,7 +1087,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTCNTRQTY, $indtcntrqty, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTCNTRQTY, $indtcntrqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1027,15 +1102,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * $query->filterByIndtcases(array('min' => 12)); // WHERE IndtCases > 12
      * </code>
      *
-     * @param     mixed $indtcases The value to use as filter.
+     * @param mixed $indtcases The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtcases($indtcases = null, $comparison = null)
+    public function filterByIndtcases($indtcases = null, ?string $comparison = null)
     {
         if (is_array($indtcases)) {
             $useMinMax = false;
@@ -1055,7 +1130,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTCASES, $indtcases, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTCASES, $indtcases, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1065,14 +1142,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIndtorigrqstdate('fooValue');   // WHERE IndtOrigRqstDate = 'fooValue'
      * $query->filterByIndtorigrqstdate('%fooValue%', Criteria::LIKE); // WHERE IndtOrigRqstDate LIKE '%fooValue%'
+     * $query->filterByIndtorigrqstdate(['foo', 'bar']); // WHERE IndtOrigRqstDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $indtorigrqstdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $indtorigrqstdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtorigrqstdate($indtorigrqstdate = null, $comparison = null)
+    public function filterByIndtorigrqstdate($indtorigrqstdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($indtorigrqstdate)) {
@@ -1080,7 +1158,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTORIGRQSTDATE, $indtorigrqstdate, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTORIGRQSTDATE, $indtorigrqstdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1090,14 +1170,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIndtordras('fooValue');   // WHERE IndtOrdrAs = 'fooValue'
      * $query->filterByIndtordras('%fooValue%', Criteria::LIKE); // WHERE IndtOrdrAs LIKE '%fooValue%'
+     * $query->filterByIndtordras(['foo', 'bar']); // WHERE IndtOrdrAs IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $indtordras The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $indtordras The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtordras($indtordras = null, $comparison = null)
+    public function filterByIndtordras($indtordras = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($indtordras)) {
@@ -1105,7 +1186,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTORDRAS, $indtordras, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTORDRAS, $indtordras, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1115,14 +1198,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIndtfreshfrozen('fooValue');   // WHERE IndtFreshFrozen = 'fooValue'
      * $query->filterByIndtfreshfrozen('%fooValue%', Criteria::LIKE); // WHERE IndtFreshFrozen LIKE '%fooValue%'
+     * $query->filterByIndtfreshfrozen(['foo', 'bar']); // WHERE IndtFreshFrozen IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $indtfreshfrozen The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $indtfreshfrozen The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtfreshfrozen($indtfreshfrozen = null, $comparison = null)
+    public function filterByIndtfreshfrozen($indtfreshfrozen = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($indtfreshfrozen)) {
@@ -1130,7 +1214,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTFRESHFROZEN, $indtfreshfrozen, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTFRESHFROZEN, $indtfreshfrozen, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1140,14 +1226,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIndtprimbin('fooValue');   // WHERE IndtPrimBin = 'fooValue'
      * $query->filterByIndtprimbin('%fooValue%', Criteria::LIKE); // WHERE IndtPrimBin LIKE '%fooValue%'
+     * $query->filterByIndtprimbin(['foo', 'bar']); // WHERE IndtPrimBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $indtprimbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $indtprimbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIndtprimbin($indtprimbin = null, $comparison = null)
+    public function filterByIndtprimbin($indtprimbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($indtprimbin)) {
@@ -1155,7 +1242,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTPRIMBIN, $indtprimbin, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_INDTPRIMBIN, $indtprimbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1165,14 +1254,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1180,7 +1270,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1190,14 +1282,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1205,7 +1298,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1215,14 +1310,15 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1230,20 +1326,22 @@ abstract class InvTransferDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvTransferDetailTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(InvTransferDetailTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \InvTransferOrder object
      *
      * @param \InvTransferOrder|ObjectCollection $invTransferOrder The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferOrder($invTransferOrder, $comparison = null)
+    public function filterByInvTransferOrder($invTransferOrder, ?string $comparison = null)
     {
         if ($invTransferOrder instanceof \InvTransferOrder) {
             return $this
@@ -1253,8 +1351,10 @@ abstract class InvTransferDetailQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(InvTransferDetailTableMap::COL_INHDNBR, $invTransferOrder->toKeyValue('PrimaryKey', 'Inhdnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByInvTransferOrder() only accepts arguments of type \InvTransferOrder or Collection');
         }
@@ -1263,12 +1363,12 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferOrder relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferOrder($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferOrder(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferOrder');
@@ -1297,9 +1397,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferOrderQuery A secondary query class using the current class as primary query
      */
@@ -1311,16 +1411,112 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferOrder relation InvTransferOrder object
+     *
+     * @param callable(\InvTransferOrderQuery):\InvTransferOrderQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferOrderQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferOrderQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvTransferOrder table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferOrderQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferOrderExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useExistsQuery('InvTransferOrder', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferOrder table for a NOT EXISTS query.
+     *
+     * @see useInvTransferOrderExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferOrderQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferOrderNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useExistsQuery('InvTransferOrder', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferOrder table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferOrderQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferOrderQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useInQuery('InvTransferOrder', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferOrder table for a NOT IN query.
+     *
+     * @see useInvTransferOrderInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferOrderQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferOrderQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useInQuery('InvTransferOrder', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -1330,8 +1526,10 @@ abstract class InvTransferDetailQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(InvTransferDetailTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -1340,12 +1538,12 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -1374,9 +1572,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -1388,19 +1586,117 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvTransferLotserial object
      *
      * @param \InvTransferLotserial|ObjectCollection $invTransferLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferLotserial($invTransferLotserial, $comparison = null)
+    public function filterByInvTransferLotserial($invTransferLotserial, ?string $comparison = null)
     {
         if ($invTransferLotserial instanceof \InvTransferLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(InvTransferDetailTableMap::COL_INHDNBR, $invTransferLotserial->getInhdnbr(), $comparison)
                 ->addUsingAlias(InvTransferDetailTableMap::COL_INDTLINE, $invTransferLotserial->getIndtline(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByInvTransferLotserial() only accepts arguments of type \InvTransferLotserial');
         }
@@ -1409,12 +1705,12 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferLotserial');
@@ -1443,9 +1739,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferLotserialQuery A secondary query class using the current class as primary query
      */
@@ -1457,19 +1753,117 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferLotserial relation InvTransferLotserial object
+     *
+     * @param callable(\InvTransferLotserialQuery):\InvTransferLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvTransferLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferLotserial table for a NOT EXISTS query.
+     *
+     * @see useInvTransferLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferLotserialQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferLotserialQuery */
+        $q = $this->useInQuery('InvTransferLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferLotserial table for a NOT IN query.
+     *
+     * @see useInvTransferLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferLotserialQuery */
+        $q = $this->useInQuery('InvTransferLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvTransferPreAllocatedLotserial object
      *
      * @param \InvTransferPreAllocatedLotserial|ObjectCollection $invTransferPreAllocatedLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferPreAllocatedLotserial($invTransferPreAllocatedLotserial, $comparison = null)
+    public function filterByInvTransferPreAllocatedLotserial($invTransferPreAllocatedLotserial, ?string $comparison = null)
     {
         if ($invTransferPreAllocatedLotserial instanceof \InvTransferPreAllocatedLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(InvTransferDetailTableMap::COL_INHDNBR, $invTransferPreAllocatedLotserial->getInhdnbr(), $comparison)
                 ->addUsingAlias(InvTransferDetailTableMap::COL_INDTLINE, $invTransferPreAllocatedLotserial->getIndtline(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByInvTransferPreAllocatedLotserial() only accepts arguments of type \InvTransferPreAllocatedLotserial');
         }
@@ -1478,12 +1872,12 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferPreAllocatedLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferPreAllocatedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferPreAllocatedLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferPreAllocatedLotserial');
@@ -1512,9 +1906,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferPreAllocatedLotserialQuery A secondary query class using the current class as primary query
      */
@@ -1526,19 +1920,117 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferPreAllocatedLotserial relation InvTransferPreAllocatedLotserial object
+     *
+     * @param callable(\InvTransferPreAllocatedLotserialQuery):\InvTransferPreAllocatedLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferPreAllocatedLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferPreAllocatedLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvTransferPreAllocatedLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferPreAllocatedLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferPreAllocatedLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferPreAllocatedLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferPreAllocatedLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPreAllocatedLotserial table for a NOT EXISTS query.
+     *
+     * @see useInvTransferPreAllocatedLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferPreAllocatedLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferPreAllocatedLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferPreAllocatedLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferPreAllocatedLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPreAllocatedLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferPreAllocatedLotserialQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferPreAllocatedLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferPreAllocatedLotserialQuery */
+        $q = $this->useInQuery('InvTransferPreAllocatedLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPreAllocatedLotserial table for a NOT IN query.
+     *
+     * @see useInvTransferPreAllocatedLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferPreAllocatedLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferPreAllocatedLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferPreAllocatedLotserialQuery */
+        $q = $this->useInQuery('InvTransferPreAllocatedLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvTransferPickedLotserial object
      *
      * @param \InvTransferPickedLotserial|ObjectCollection $invTransferPickedLotserial the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferPickedLotserial($invTransferPickedLotserial, $comparison = null)
+    public function filterByInvTransferPickedLotserial($invTransferPickedLotserial, ?string $comparison = null)
     {
         if ($invTransferPickedLotserial instanceof \InvTransferPickedLotserial) {
-            return $this
+            $this
                 ->addUsingAlias(InvTransferDetailTableMap::COL_INHDNBR, $invTransferPickedLotserial->getInhdnbr(), $comparison)
                 ->addUsingAlias(InvTransferDetailTableMap::COL_INDTLINE, $invTransferPickedLotserial->getIndtline(), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByInvTransferPickedLotserial() only accepts arguments of type \InvTransferPickedLotserial');
         }
@@ -1547,12 +2039,12 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferPickedLotserial relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferPickedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferPickedLotserial(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferPickedLotserial');
@@ -1581,9 +2073,9 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferPickedLotserialQuery A secondary query class using the current class as primary query
      */
@@ -1595,11 +2087,107 @@ abstract class InvTransferDetailQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferPickedLotserial relation InvTransferPickedLotserial object
+     *
+     * @param callable(\InvTransferPickedLotserialQuery):\InvTransferPickedLotserialQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferPickedLotserialQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferPickedLotserialQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvTransferPickedLotserial table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferPickedLotserialQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferPickedLotserialExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferPickedLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferPickedLotserial', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPickedLotserial table for a NOT EXISTS query.
+     *
+     * @see useInvTransferPickedLotserialExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferPickedLotserialQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferPickedLotserialNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferPickedLotserialQuery */
+        $q = $this->useExistsQuery('InvTransferPickedLotserial', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPickedLotserial table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferPickedLotserialQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferPickedLotserialQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferPickedLotserialQuery */
+        $q = $this->useInQuery('InvTransferPickedLotserial', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferPickedLotserial table for a NOT IN query.
+     *
+     * @see useInvTransferPickedLotserialInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferPickedLotserialQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferPickedLotserialQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferPickedLotserialQuery */
+        $q = $this->useInQuery('InvTransferPickedLotserial', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildInvTransferDetail $invTransferDetail Object to remove from the list of results
+     * @param ChildInvTransferDetail $invTransferDetail Object to remove from the list of results
      *
-     * @return $this|ChildInvTransferDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($invTransferDetail = null)
     {
@@ -1618,7 +2206,7 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferDetailTableMap::DATABASE_NAME);
@@ -1643,12 +2231,12 @@ abstract class InvTransferDetailQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvTransferDetailTableMap::DATABASE_NAME);
@@ -1673,4 +2261,4 @@ abstract class InvTransferDetailQuery extends ModelCriteria
         });
     }
 
-} // InvTransferDetailQuery
+}

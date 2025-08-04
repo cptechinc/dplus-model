@@ -46,19 +46,21 @@ abstract class SalesPerson implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\SalesPersonTableMap';
+    public const TABLE_MAP = '\\Map\\SalesPersonTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -67,14 +69,14 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the arspsaleper1 field.
@@ -87,176 +89,181 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * The value for the arspname field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspname;
 
     /**
      * The value for the arspmtdsale field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspmtdsale;
 
     /**
      * The value for the arspytdsale field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspytdsale;
 
     /**
      * The value for the arspltdsale field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspltdsale;
 
     /**
      * The value for the arsplastsaledate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arsplastsaledate;
 
     /**
      * The value for the arspmtdcommearn field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspmtdcommearn;
 
     /**
      * The value for the arspytdcommearn field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspytdcommearn;
 
     /**
      * The value for the arspltdcommearn field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspltdcommearn;
 
     /**
      * The value for the arspmtdcommpaid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspmtdcommpaid;
 
     /**
      * The value for the arspytdcommpaid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspytdcommpaid;
 
     /**
      * The value for the arspltdcommpaid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspltdcommpaid;
 
     /**
      * The value for the arspcommcycle field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspcommcycle;
 
     /**
      * The value for the arspgrup field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspgrup;
 
     /**
      * The value for the arsplogin field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arsplogin;
 
     /**
      * The value for the arspmgr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspmgr;
 
     /**
      * The value for the arspvendid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspvendid;
 
     /**
      * The value for the arsprestrictaccess field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arsprestrictaccess;
 
     /**
      * The value for the arspemailaddr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspemailaddr;
 
     /**
      * The value for the dateupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dateupdtd;
 
     /**
      * The value for the timeupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $timeupdtd;
 
     /**
      * The value for the dummy field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
     /**
      * @var        ObjectCollection|ChildBookingDayCustomer[] Collection to store aggregation of ChildBookingDayCustomer objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayCustomer> Collection to store aggregation of ChildBookingDayCustomer objects.
      */
     protected $collBookingDayCustomers;
     protected $collBookingDayCustomersPartial;
 
     /**
      * @var        ObjectCollection|ChildBookingDayDetail[] Collection to store aggregation of ChildBookingDayDetail objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayDetail> Collection to store aggregation of ChildBookingDayDetail objects.
      */
     protected $collBookingDayDetails;
     protected $collBookingDayDetailsPartial;
 
     /**
      * @var        ObjectCollection|ChildBookingDayRep[] Collection to store aggregation of ChildBookingDayRep objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayRep> Collection to store aggregation of ChildBookingDayRep objects.
      */
     protected $collBookingDayReps;
     protected $collBookingDayRepsPartial;
 
     /**
      * @var        ObjectCollection|ChildBookingSummaryRep[] Collection to store aggregation of ChildBookingSummaryRep objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildBookingSummaryRep> Collection to store aggregation of ChildBookingSummaryRep objects.
      */
     protected $collBookingSummaryReps;
     protected $collBookingSummaryRepsPartial;
 
     /**
      * @var        ObjectCollection|ChildBooking[] Collection to store aggregation of ChildBooking objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildBooking> Collection to store aggregation of ChildBooking objects.
      */
     protected $collBookings;
     protected $collBookingsPartial;
@@ -265,37 +272,42 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBookingDayCustomer[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayCustomer>
      */
     protected $bookingDayCustomersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBookingDayDetail[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayDetail>
      */
     protected $bookingDayDetailsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBookingDayRep[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildBookingDayRep>
      */
     protected $bookingDayRepsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBookingSummaryRep[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildBookingSummaryRep>
      */
     protected $bookingSummaryRepsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBooking[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildBooking>
      */
     protected $bookingsScheduledForDeletion = null;
 
@@ -305,7 +317,7 @@ abstract class SalesPerson implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->arspsaleper1 = '';
     }
@@ -322,9 +334,9 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -332,10 +344,10 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -344,7 +356,7 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -354,9 +366,9 @@ abstract class SalesPerson implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -365,45 +377,43 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -412,10 +422,10 @@ abstract class SalesPerson implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>SalesPerson</code>, delegates to
      * <code>equals(SalesPerson)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -437,7 +447,7 @@ abstract class SalesPerson implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -445,10 +455,10 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -456,15 +466,15 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -473,12 +483,12 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|SalesPerson The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -488,13 +498,13 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -505,24 +515,27 @@ abstract class SalesPerson implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -550,7 +563,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arspname] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspname()
     {
@@ -560,7 +573,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arspmtdsale] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspmtdsale()
     {
@@ -570,7 +583,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arspytdsale] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspytdsale()
     {
@@ -580,7 +593,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arspltdsale] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspltdsale()
     {
@@ -590,7 +603,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arsplastsaledate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArsplastsaledate()
     {
@@ -600,7 +613,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arspmtdcommearn] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspmtdcommearn()
     {
@@ -610,7 +623,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arspytdcommearn] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspytdcommearn()
     {
@@ -620,7 +633,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arspltdcommearn] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspltdcommearn()
     {
@@ -630,7 +643,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arspmtdcommpaid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspmtdcommpaid()
     {
@@ -640,7 +653,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arspytdcommpaid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspytdcommpaid()
     {
@@ -650,7 +663,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arspltdcommpaid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspltdcommpaid()
     {
@@ -660,7 +673,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arspcommcycle] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspcommcycle()
     {
@@ -670,7 +683,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arspgrup] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspgrup()
     {
@@ -680,7 +693,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arsplogin] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArsplogin()
     {
@@ -690,7 +703,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arspmgr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspmgr()
     {
@@ -700,7 +713,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arspvendid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspvendid()
     {
@@ -710,7 +723,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arsprestrictaccess] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArsprestrictaccess()
     {
@@ -720,7 +733,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [arspemailaddr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspemailaddr()
     {
@@ -730,7 +743,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [dateupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDateupdtd()
     {
@@ -740,7 +753,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [timeupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTimeupdtd()
     {
@@ -750,7 +763,7 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -760,8 +773,8 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Set the value of [arspsaleper1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspsaleper1($v)
     {
@@ -775,13 +788,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspsaleper1()
+    }
 
     /**
      * Set the value of [arspname] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspname($v)
     {
@@ -795,13 +808,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspname()
+    }
 
     /**
      * Set the value of [arspmtdsale] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspmtdsale($v)
     {
@@ -815,13 +828,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspmtdsale()
+    }
 
     /**
      * Set the value of [arspytdsale] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspytdsale($v)
     {
@@ -835,13 +848,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspytdsale()
+    }
 
     /**
      * Set the value of [arspltdsale] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspltdsale($v)
     {
@@ -855,13 +868,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspltdsale()
+    }
 
     /**
      * Set the value of [arsplastsaledate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArsplastsaledate($v)
     {
@@ -875,13 +888,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArsplastsaledate()
+    }
 
     /**
      * Set the value of [arspmtdcommearn] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspmtdcommearn($v)
     {
@@ -895,13 +908,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspmtdcommearn()
+    }
 
     /**
      * Set the value of [arspytdcommearn] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspytdcommearn($v)
     {
@@ -915,13 +928,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspytdcommearn()
+    }
 
     /**
      * Set the value of [arspltdcommearn] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspltdcommearn($v)
     {
@@ -935,13 +948,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspltdcommearn()
+    }
 
     /**
      * Set the value of [arspmtdcommpaid] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspmtdcommpaid($v)
     {
@@ -955,13 +968,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspmtdcommpaid()
+    }
 
     /**
      * Set the value of [arspytdcommpaid] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspytdcommpaid($v)
     {
@@ -975,13 +988,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspytdcommpaid()
+    }
 
     /**
      * Set the value of [arspltdcommpaid] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspltdcommpaid($v)
     {
@@ -995,13 +1008,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspltdcommpaid()
+    }
 
     /**
      * Set the value of [arspcommcycle] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspcommcycle($v)
     {
@@ -1015,13 +1028,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspcommcycle()
+    }
 
     /**
      * Set the value of [arspgrup] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspgrup($v)
     {
@@ -1035,13 +1048,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspgrup()
+    }
 
     /**
      * Set the value of [arsplogin] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArsplogin($v)
     {
@@ -1055,13 +1068,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArsplogin()
+    }
 
     /**
      * Set the value of [arspmgr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspmgr($v)
     {
@@ -1075,13 +1088,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspmgr()
+    }
 
     /**
      * Set the value of [arspvendid] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspvendid($v)
     {
@@ -1095,13 +1108,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspvendid()
+    }
 
     /**
      * Set the value of [arsprestrictaccess] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArsprestrictaccess($v)
     {
@@ -1115,13 +1128,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArsprestrictaccess()
+    }
 
     /**
      * Set the value of [arspemailaddr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspemailaddr($v)
     {
@@ -1135,13 +1148,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspemailaddr()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -1155,13 +1168,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -1175,13 +1188,13 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -1195,7 +1208,7 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -1203,9 +1216,9 @@ abstract class SalesPerson implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->arspsaleper1 !== '') {
                 return false;
@@ -1213,7 +1226,7 @@ abstract class SalesPerson implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -1223,17 +1236,17 @@ abstract class SalesPerson implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -1302,8 +1315,8 @@ abstract class SalesPerson implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : SalesPersonTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -1328,23 +1341,24 @@ abstract class SalesPerson implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -1387,13 +1401,13 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see SalesPerson::setDeleted()
      * @see SalesPerson::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -1423,12 +1437,12 @@ abstract class SalesPerson implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -1473,12 +1487,12 @@ abstract class SalesPerson implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -1587,19 +1601,19 @@ abstract class SalesPerson implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -1683,69 +1697,91 @@ abstract class SalesPerson implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'ArspSalePer1':
                         $stmt->bindValue($identifier, $this->arspsaleper1, PDO::PARAM_STR);
+
                         break;
                     case 'ArspName':
                         $stmt->bindValue($identifier, $this->arspname, PDO::PARAM_STR);
+
                         break;
                     case 'ArspMtdSale':
                         $stmt->bindValue($identifier, $this->arspmtdsale, PDO::PARAM_STR);
+
                         break;
                     case 'ArspYtdSale':
                         $stmt->bindValue($identifier, $this->arspytdsale, PDO::PARAM_STR);
+
                         break;
                     case 'ArspLtdSale':
                         $stmt->bindValue($identifier, $this->arspltdsale, PDO::PARAM_STR);
+
                         break;
                     case 'ArspLastSaleDate':
                         $stmt->bindValue($identifier, $this->arsplastsaledate, PDO::PARAM_STR);
+
                         break;
                     case 'ArspMtdCommEarn':
                         $stmt->bindValue($identifier, $this->arspmtdcommearn, PDO::PARAM_STR);
+
                         break;
                     case 'ArspYtdCommEarn':
                         $stmt->bindValue($identifier, $this->arspytdcommearn, PDO::PARAM_STR);
+
                         break;
                     case 'ArspLtdCommEarn':
                         $stmt->bindValue($identifier, $this->arspltdcommearn, PDO::PARAM_STR);
+
                         break;
                     case 'ArspMtdCommPaid':
                         $stmt->bindValue($identifier, $this->arspmtdcommpaid, PDO::PARAM_STR);
+
                         break;
                     case 'ArspYtdCommPaid':
                         $stmt->bindValue($identifier, $this->arspytdcommpaid, PDO::PARAM_STR);
+
                         break;
                     case 'ArspLtdCommPaid':
                         $stmt->bindValue($identifier, $this->arspltdcommpaid, PDO::PARAM_STR);
+
                         break;
                     case 'ArspCommCycle':
                         $stmt->bindValue($identifier, $this->arspcommcycle, PDO::PARAM_STR);
+
                         break;
                     case 'ArspGrup':
                         $stmt->bindValue($identifier, $this->arspgrup, PDO::PARAM_STR);
+
                         break;
                     case 'ArspLogin':
                         $stmt->bindValue($identifier, $this->arsplogin, PDO::PARAM_STR);
+
                         break;
                     case 'ArspMgr':
                         $stmt->bindValue($identifier, $this->arspmgr, PDO::PARAM_STR);
+
                         break;
                     case 'ArspVendId':
                         $stmt->bindValue($identifier, $this->arspvendid, PDO::PARAM_STR);
+
                         break;
                     case 'ArspRestrictAccess':
                         $stmt->bindValue($identifier, $this->arsprestrictaccess, PDO::PARAM_STR);
+
                         break;
                     case 'ArspEmailAddr':
                         $stmt->bindValue($identifier, $this->arspemailaddr, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -1761,12 +1797,12 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -1777,14 +1813,14 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = SalesPersonTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -1796,81 +1832,80 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getArspsaleper1();
-                break;
+
             case 1:
                 return $this->getArspname();
-                break;
+
             case 2:
                 return $this->getArspmtdsale();
-                break;
+
             case 3:
                 return $this->getArspytdsale();
-                break;
+
             case 4:
                 return $this->getArspltdsale();
-                break;
+
             case 5:
                 return $this->getArsplastsaledate();
-                break;
+
             case 6:
                 return $this->getArspmtdcommearn();
-                break;
+
             case 7:
                 return $this->getArspytdcommearn();
-                break;
+
             case 8:
                 return $this->getArspltdcommearn();
-                break;
+
             case 9:
                 return $this->getArspmtdcommpaid();
-                break;
+
             case 10:
                 return $this->getArspytdcommpaid();
-                break;
+
             case 11:
                 return $this->getArspltdcommpaid();
-                break;
+
             case 12:
                 return $this->getArspcommcycle();
-                break;
+
             case 13:
                 return $this->getArspgrup();
-                break;
+
             case 14:
                 return $this->getArsplogin();
-                break;
+
             case 15:
                 return $this->getArspmgr();
-                break;
+
             case 16:
                 return $this->getArspvendid();
-                break;
+
             case 17:
                 return $this->getArsprestrictaccess();
-                break;
+
             case 18:
                 return $this->getArspemailaddr();
-                break;
+
             case 19:
                 return $this->getDateupdtd();
-                break;
+
             case 20:
                 return $this->getTimeupdtd();
-                break;
+
             case 21:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -1880,24 +1915,23 @@ abstract class SalesPerson implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
-     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = [], bool $includeForeignObjects = false): array
     {
-
         if (isset($alreadyDumpedObjects['SalesPerson'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['SalesPerson'][$this->hashCode()] = true;
         $keys = SalesPersonTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getArspsaleper1(),
             $keys[1] => $this->getArspname(),
             $keys[2] => $this->getArspmtdsale(),
@@ -1920,7 +1954,7 @@ abstract class SalesPerson implements ActiveRecordInterface
             $keys[19] => $this->getDateupdtd(),
             $keys[20] => $this->getTimeupdtd(),
             $keys[21] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -2010,30 +2044,32 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\SalesPerson
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = SalesPersonTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\SalesPerson
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -2120,11 +2156,11 @@ abstract class SalesPerson implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = SalesPersonTableMap::getFieldNames($keyType);
 
@@ -2194,6 +2230,8 @@ abstract class SalesPerson implements ActiveRecordInterface
         if (array_key_exists($keys[21], $arr)) {
             $this->setDummy($arr[$keys[21]]);
         }
+
+        return $this;
     }
 
      /**
@@ -2213,9 +2251,9 @@ abstract class SalesPerson implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\SalesPerson The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -2229,9 +2267,9 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(SalesPersonTableMap::DATABASE_NAME);
 
@@ -2309,13 +2347,13 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildSalesPersonQuery::create();
         $criteria->add(SalesPersonTableMap::COL_ARSPSALEPER1, $this->arspsaleper1);
@@ -2327,7 +2365,7 @@ abstract class SalesPerson implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -2357,19 +2395,20 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (arspsaleper1 column).
      *
-     * @param       string $key Primary key.
+     * @param string|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?string $key = null): void
     {
         $this->setArspsaleper1($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getArspsaleper1();
     }
@@ -2380,12 +2419,13 @@ abstract class SalesPerson implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \SalesPerson (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \SalesPerson (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setArspsaleper1($this->getArspsaleper1());
         $copyObj->setArspname($this->getArspname());
@@ -2460,11 +2500,11 @@ abstract class SalesPerson implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \SalesPerson Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -2480,28 +2520,28 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Avoids crafting an 'init[$relationName]s' method name
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
-     * @param      string $relationName The name of the relation to initialize
+     * @param string $relationName The name of the relation to initialize
      * @return void
      */
-    public function initRelation($relationName)
+    public function initRelation($relationName): void
     {
-        if ('BookingDayCustomer' == $relationName) {
+        if ('BookingDayCustomer' === $relationName) {
             $this->initBookingDayCustomers();
             return;
         }
-        if ('BookingDayDetail' == $relationName) {
+        if ('BookingDayDetail' === $relationName) {
             $this->initBookingDayDetails();
             return;
         }
-        if ('BookingDayRep' == $relationName) {
+        if ('BookingDayRep' === $relationName) {
             $this->initBookingDayReps();
             return;
         }
-        if ('BookingSummaryRep' == $relationName) {
+        if ('BookingSummaryRep' === $relationName) {
             $this->initBookingSummaryReps();
             return;
         }
-        if ('Booking' == $relationName) {
+        if ('Booking' === $relationName) {
             $this->initBookings();
             return;
         }
@@ -2513,18 +2553,22 @@ abstract class SalesPerson implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addBookingDayCustomers()
+     * @return $this
+     * @see addBookingDayCustomers()
      */
     public function clearBookingDayCustomers()
     {
         $this->collBookingDayCustomers = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collBookingDayCustomers collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialBookingDayCustomers($v = true)
+    public function resetPartialBookingDayCustomers($v = true): void
     {
         $this->collBookingDayCustomersPartial = $v;
     }
@@ -2536,12 +2580,12 @@ abstract class SalesPerson implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initBookingDayCustomers($overrideExisting = true)
+    public function initBookingDayCustomers(bool $overrideExisting = true): void
     {
         if (null !== $this->collBookingDayCustomers && !$overrideExisting) {
             return;
@@ -2562,18 +2606,28 @@ abstract class SalesPerson implements ActiveRecordInterface
      * If this ChildSalesPerson is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildBookingDayCustomer[] List of ChildBookingDayCustomer objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildBookingDayCustomer> List of ChildBookingDayCustomer objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getBookingDayCustomers(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getBookingDayCustomers(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingDayCustomersPartial && !$this->isNew();
-        if (null === $this->collBookingDayCustomers || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collBookingDayCustomers) {
+        if (null === $this->collBookingDayCustomers || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initBookingDayCustomers();
+                if (null === $this->collBookingDayCustomers) {
+                    $this->initBookingDayCustomers();
+                } else {
+                    $collectionClassName = BookingDayCustomerTableMap::getTableMap()->getCollectionClassName();
+
+                    $collBookingDayCustomers = new $collectionClassName;
+                    $collBookingDayCustomers->setModel('\BookingDayCustomer');
+
+                    return $collBookingDayCustomers;
+                }
             } else {
                 $collBookingDayCustomers = ChildBookingDayCustomerQuery::create(null, $criteria)
                     ->filterBySalesPerson($this)
@@ -2617,11 +2671,11 @@ abstract class SalesPerson implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $bookingDayCustomers A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildSalesPerson The current object (for fluent API support)
+     * @param Collection $bookingDayCustomers A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setBookingDayCustomers(Collection $bookingDayCustomers, ConnectionInterface $con = null)
+    public function setBookingDayCustomers(Collection $bookingDayCustomers, ?ConnectionInterface $con = null)
     {
         /** @var ChildBookingDayCustomer[] $bookingDayCustomersToDelete */
         $bookingDayCustomersToDelete = $this->getBookingDayCustomers(new Criteria(), $con)->diff($bookingDayCustomers);
@@ -2650,13 +2704,13 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Returns the number of related BookingDayCustomer objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related BookingDayCustomer objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related BookingDayCustomer objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countBookingDayCustomers(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countBookingDayCustomers(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingDayCustomersPartial && !$this->isNew();
         if (null === $this->collBookingDayCustomers || null !== $criteria || $partial) {
@@ -2685,8 +2739,8 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Method called to associate a ChildBookingDayCustomer object to this object
      * through the ChildBookingDayCustomer foreign key attribute.
      *
-     * @param  ChildBookingDayCustomer $l ChildBookingDayCustomer
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param ChildBookingDayCustomer $l ChildBookingDayCustomer
+     * @return $this The current object (for fluent API support)
      */
     public function addBookingDayCustomer(ChildBookingDayCustomer $l)
     {
@@ -2709,15 +2763,15 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * @param ChildBookingDayCustomer $bookingDayCustomer The ChildBookingDayCustomer object to add.
      */
-    protected function doAddBookingDayCustomer(ChildBookingDayCustomer $bookingDayCustomer)
+    protected function doAddBookingDayCustomer(ChildBookingDayCustomer $bookingDayCustomer): void
     {
         $this->collBookingDayCustomers[]= $bookingDayCustomer;
         $bookingDayCustomer->setSalesPerson($this);
     }
 
     /**
-     * @param  ChildBookingDayCustomer $bookingDayCustomer The ChildBookingDayCustomer object to remove.
-     * @return $this|ChildSalesPerson The current object (for fluent API support)
+     * @param ChildBookingDayCustomer $bookingDayCustomer The ChildBookingDayCustomer object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeBookingDayCustomer(ChildBookingDayCustomer $bookingDayCustomer)
     {
@@ -2747,12 +2801,13 @@ abstract class SalesPerson implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesPerson.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildBookingDayCustomer[] List of ChildBookingDayCustomer objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildBookingDayCustomer}> List of ChildBookingDayCustomer objects
      */
-    public function getBookingDayCustomersJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getBookingDayCustomersJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildBookingDayCustomerQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -2772,12 +2827,13 @@ abstract class SalesPerson implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesPerson.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildBookingDayCustomer[] List of ChildBookingDayCustomer objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildBookingDayCustomer}> List of ChildBookingDayCustomer objects
      */
-    public function getBookingDayCustomersJoinCustomerShipto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getBookingDayCustomersJoinCustomerShipto(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildBookingDayCustomerQuery::create(null, $criteria);
         $query->joinWith('CustomerShipto', $joinBehavior);
@@ -2791,18 +2847,22 @@ abstract class SalesPerson implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addBookingDayDetails()
+     * @return $this
+     * @see addBookingDayDetails()
      */
     public function clearBookingDayDetails()
     {
         $this->collBookingDayDetails = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collBookingDayDetails collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialBookingDayDetails($v = true)
+    public function resetPartialBookingDayDetails($v = true): void
     {
         $this->collBookingDayDetailsPartial = $v;
     }
@@ -2814,12 +2874,12 @@ abstract class SalesPerson implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initBookingDayDetails($overrideExisting = true)
+    public function initBookingDayDetails(bool $overrideExisting = true): void
     {
         if (null !== $this->collBookingDayDetails && !$overrideExisting) {
             return;
@@ -2840,18 +2900,28 @@ abstract class SalesPerson implements ActiveRecordInterface
      * If this ChildSalesPerson is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildBookingDayDetail[] List of ChildBookingDayDetail objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildBookingDayDetail> List of ChildBookingDayDetail objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getBookingDayDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getBookingDayDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingDayDetailsPartial && !$this->isNew();
-        if (null === $this->collBookingDayDetails || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collBookingDayDetails) {
+        if (null === $this->collBookingDayDetails || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initBookingDayDetails();
+                if (null === $this->collBookingDayDetails) {
+                    $this->initBookingDayDetails();
+                } else {
+                    $collectionClassName = BookingDayDetailTableMap::getTableMap()->getCollectionClassName();
+
+                    $collBookingDayDetails = new $collectionClassName;
+                    $collBookingDayDetails->setModel('\BookingDayDetail');
+
+                    return $collBookingDayDetails;
+                }
             } else {
                 $collBookingDayDetails = ChildBookingDayDetailQuery::create(null, $criteria)
                     ->filterBySalesPerson($this)
@@ -2895,11 +2965,11 @@ abstract class SalesPerson implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $bookingDayDetails A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildSalesPerson The current object (for fluent API support)
+     * @param Collection $bookingDayDetails A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setBookingDayDetails(Collection $bookingDayDetails, ConnectionInterface $con = null)
+    public function setBookingDayDetails(Collection $bookingDayDetails, ?ConnectionInterface $con = null)
     {
         /** @var ChildBookingDayDetail[] $bookingDayDetailsToDelete */
         $bookingDayDetailsToDelete = $this->getBookingDayDetails(new Criteria(), $con)->diff($bookingDayDetails);
@@ -2925,13 +2995,13 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Returns the number of related BookingDayDetail objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related BookingDayDetail objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related BookingDayDetail objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countBookingDayDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countBookingDayDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingDayDetailsPartial && !$this->isNew();
         if (null === $this->collBookingDayDetails || null !== $criteria || $partial) {
@@ -2960,8 +3030,8 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Method called to associate a ChildBookingDayDetail object to this object
      * through the ChildBookingDayDetail foreign key attribute.
      *
-     * @param  ChildBookingDayDetail $l ChildBookingDayDetail
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param ChildBookingDayDetail $l ChildBookingDayDetail
+     * @return $this The current object (for fluent API support)
      */
     public function addBookingDayDetail(ChildBookingDayDetail $l)
     {
@@ -2984,15 +3054,15 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * @param ChildBookingDayDetail $bookingDayDetail The ChildBookingDayDetail object to add.
      */
-    protected function doAddBookingDayDetail(ChildBookingDayDetail $bookingDayDetail)
+    protected function doAddBookingDayDetail(ChildBookingDayDetail $bookingDayDetail): void
     {
         $this->collBookingDayDetails[]= $bookingDayDetail;
         $bookingDayDetail->setSalesPerson($this);
     }
 
     /**
-     * @param  ChildBookingDayDetail $bookingDayDetail The ChildBookingDayDetail object to remove.
-     * @return $this|ChildSalesPerson The current object (for fluent API support)
+     * @param ChildBookingDayDetail $bookingDayDetail The ChildBookingDayDetail object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeBookingDayDetail(ChildBookingDayDetail $bookingDayDetail)
     {
@@ -3022,12 +3092,13 @@ abstract class SalesPerson implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesPerson.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildBookingDayDetail[] List of ChildBookingDayDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildBookingDayDetail}> List of ChildBookingDayDetail objects
      */
-    public function getBookingDayDetailsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getBookingDayDetailsJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildBookingDayDetailQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -3047,12 +3118,13 @@ abstract class SalesPerson implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesPerson.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildBookingDayDetail[] List of ChildBookingDayDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildBookingDayDetail}> List of ChildBookingDayDetail objects
      */
-    public function getBookingDayDetailsJoinCustomerShipto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getBookingDayDetailsJoinCustomerShipto(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildBookingDayDetailQuery::create(null, $criteria);
         $query->joinWith('CustomerShipto', $joinBehavior);
@@ -3066,18 +3138,22 @@ abstract class SalesPerson implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addBookingDayReps()
+     * @return $this
+     * @see addBookingDayReps()
      */
     public function clearBookingDayReps()
     {
         $this->collBookingDayReps = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collBookingDayReps collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialBookingDayReps($v = true)
+    public function resetPartialBookingDayReps($v = true): void
     {
         $this->collBookingDayRepsPartial = $v;
     }
@@ -3089,12 +3165,12 @@ abstract class SalesPerson implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initBookingDayReps($overrideExisting = true)
+    public function initBookingDayReps(bool $overrideExisting = true): void
     {
         if (null !== $this->collBookingDayReps && !$overrideExisting) {
             return;
@@ -3115,18 +3191,28 @@ abstract class SalesPerson implements ActiveRecordInterface
      * If this ChildSalesPerson is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildBookingDayRep[] List of ChildBookingDayRep objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildBookingDayRep> List of ChildBookingDayRep objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getBookingDayReps(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getBookingDayReps(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingDayRepsPartial && !$this->isNew();
-        if (null === $this->collBookingDayReps || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collBookingDayReps) {
+        if (null === $this->collBookingDayReps || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initBookingDayReps();
+                if (null === $this->collBookingDayReps) {
+                    $this->initBookingDayReps();
+                } else {
+                    $collectionClassName = BookingDayRepTableMap::getTableMap()->getCollectionClassName();
+
+                    $collBookingDayReps = new $collectionClassName;
+                    $collBookingDayReps->setModel('\BookingDayRep');
+
+                    return $collBookingDayReps;
+                }
             } else {
                 $collBookingDayReps = ChildBookingDayRepQuery::create(null, $criteria)
                     ->filterBySalesPerson($this)
@@ -3170,11 +3256,11 @@ abstract class SalesPerson implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $bookingDayReps A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildSalesPerson The current object (for fluent API support)
+     * @param Collection $bookingDayReps A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setBookingDayReps(Collection $bookingDayReps, ConnectionInterface $con = null)
+    public function setBookingDayReps(Collection $bookingDayReps, ?ConnectionInterface $con = null)
     {
         /** @var ChildBookingDayRep[] $bookingDayRepsToDelete */
         $bookingDayRepsToDelete = $this->getBookingDayReps(new Criteria(), $con)->diff($bookingDayReps);
@@ -3203,13 +3289,13 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Returns the number of related BookingDayRep objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related BookingDayRep objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related BookingDayRep objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countBookingDayReps(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countBookingDayReps(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingDayRepsPartial && !$this->isNew();
         if (null === $this->collBookingDayReps || null !== $criteria || $partial) {
@@ -3238,8 +3324,8 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Method called to associate a ChildBookingDayRep object to this object
      * through the ChildBookingDayRep foreign key attribute.
      *
-     * @param  ChildBookingDayRep $l ChildBookingDayRep
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param ChildBookingDayRep $l ChildBookingDayRep
+     * @return $this The current object (for fluent API support)
      */
     public function addBookingDayRep(ChildBookingDayRep $l)
     {
@@ -3262,15 +3348,15 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * @param ChildBookingDayRep $bookingDayRep The ChildBookingDayRep object to add.
      */
-    protected function doAddBookingDayRep(ChildBookingDayRep $bookingDayRep)
+    protected function doAddBookingDayRep(ChildBookingDayRep $bookingDayRep): void
     {
         $this->collBookingDayReps[]= $bookingDayRep;
         $bookingDayRep->setSalesPerson($this);
     }
 
     /**
-     * @param  ChildBookingDayRep $bookingDayRep The ChildBookingDayRep object to remove.
-     * @return $this|ChildSalesPerson The current object (for fluent API support)
+     * @param ChildBookingDayRep $bookingDayRep The ChildBookingDayRep object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeBookingDayRep(ChildBookingDayRep $bookingDayRep)
     {
@@ -3294,18 +3380,22 @@ abstract class SalesPerson implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addBookingSummaryReps()
+     * @return $this
+     * @see addBookingSummaryReps()
      */
     public function clearBookingSummaryReps()
     {
         $this->collBookingSummaryReps = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collBookingSummaryReps collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialBookingSummaryReps($v = true)
+    public function resetPartialBookingSummaryReps($v = true): void
     {
         $this->collBookingSummaryRepsPartial = $v;
     }
@@ -3317,12 +3407,12 @@ abstract class SalesPerson implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initBookingSummaryReps($overrideExisting = true)
+    public function initBookingSummaryReps(bool $overrideExisting = true): void
     {
         if (null !== $this->collBookingSummaryReps && !$overrideExisting) {
             return;
@@ -3343,18 +3433,28 @@ abstract class SalesPerson implements ActiveRecordInterface
      * If this ChildSalesPerson is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildBookingSummaryRep[] List of ChildBookingSummaryRep objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildBookingSummaryRep> List of ChildBookingSummaryRep objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getBookingSummaryReps(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getBookingSummaryReps(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingSummaryRepsPartial && !$this->isNew();
-        if (null === $this->collBookingSummaryReps || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collBookingSummaryReps) {
+        if (null === $this->collBookingSummaryReps || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initBookingSummaryReps();
+                if (null === $this->collBookingSummaryReps) {
+                    $this->initBookingSummaryReps();
+                } else {
+                    $collectionClassName = BookingSummaryRepTableMap::getTableMap()->getCollectionClassName();
+
+                    $collBookingSummaryReps = new $collectionClassName;
+                    $collBookingSummaryReps->setModel('\BookingSummaryRep');
+
+                    return $collBookingSummaryReps;
+                }
             } else {
                 $collBookingSummaryReps = ChildBookingSummaryRepQuery::create(null, $criteria)
                     ->filterBySalesPerson($this)
@@ -3398,11 +3498,11 @@ abstract class SalesPerson implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $bookingSummaryReps A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildSalesPerson The current object (for fluent API support)
+     * @param Collection $bookingSummaryReps A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setBookingSummaryReps(Collection $bookingSummaryReps, ConnectionInterface $con = null)
+    public function setBookingSummaryReps(Collection $bookingSummaryReps, ?ConnectionInterface $con = null)
     {
         /** @var ChildBookingSummaryRep[] $bookingSummaryRepsToDelete */
         $bookingSummaryRepsToDelete = $this->getBookingSummaryReps(new Criteria(), $con)->diff($bookingSummaryReps);
@@ -3431,13 +3531,13 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Returns the number of related BookingSummaryRep objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related BookingSummaryRep objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related BookingSummaryRep objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countBookingSummaryReps(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countBookingSummaryReps(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingSummaryRepsPartial && !$this->isNew();
         if (null === $this->collBookingSummaryReps || null !== $criteria || $partial) {
@@ -3466,8 +3566,8 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Method called to associate a ChildBookingSummaryRep object to this object
      * through the ChildBookingSummaryRep foreign key attribute.
      *
-     * @param  ChildBookingSummaryRep $l ChildBookingSummaryRep
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param ChildBookingSummaryRep $l ChildBookingSummaryRep
+     * @return $this The current object (for fluent API support)
      */
     public function addBookingSummaryRep(ChildBookingSummaryRep $l)
     {
@@ -3490,15 +3590,15 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * @param ChildBookingSummaryRep $bookingSummaryRep The ChildBookingSummaryRep object to add.
      */
-    protected function doAddBookingSummaryRep(ChildBookingSummaryRep $bookingSummaryRep)
+    protected function doAddBookingSummaryRep(ChildBookingSummaryRep $bookingSummaryRep): void
     {
         $this->collBookingSummaryReps[]= $bookingSummaryRep;
         $bookingSummaryRep->setSalesPerson($this);
     }
 
     /**
-     * @param  ChildBookingSummaryRep $bookingSummaryRep The ChildBookingSummaryRep object to remove.
-     * @return $this|ChildSalesPerson The current object (for fluent API support)
+     * @param ChildBookingSummaryRep $bookingSummaryRep The ChildBookingSummaryRep object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeBookingSummaryRep(ChildBookingSummaryRep $bookingSummaryRep)
     {
@@ -3522,18 +3622,22 @@ abstract class SalesPerson implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addBookings()
+     * @return $this
+     * @see addBookings()
      */
     public function clearBookings()
     {
         $this->collBookings = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collBookings collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialBookings($v = true)
+    public function resetPartialBookings($v = true): void
     {
         $this->collBookingsPartial = $v;
     }
@@ -3545,12 +3649,12 @@ abstract class SalesPerson implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initBookings($overrideExisting = true)
+    public function initBookings(bool $overrideExisting = true): void
     {
         if (null !== $this->collBookings && !$overrideExisting) {
             return;
@@ -3571,18 +3675,28 @@ abstract class SalesPerson implements ActiveRecordInterface
      * If this ChildSalesPerson is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildBooking[] List of ChildBooking objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildBooking> List of ChildBooking objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getBookings(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getBookings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingsPartial && !$this->isNew();
-        if (null === $this->collBookings || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collBookings) {
+        if (null === $this->collBookings || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initBookings();
+                if (null === $this->collBookings) {
+                    $this->initBookings();
+                } else {
+                    $collectionClassName = BookingTableMap::getTableMap()->getCollectionClassName();
+
+                    $collBookings = new $collectionClassName;
+                    $collBookings->setModel('\Booking');
+
+                    return $collBookings;
+                }
             } else {
                 $collBookings = ChildBookingQuery::create(null, $criteria)
                     ->filterBySalesPerson($this)
@@ -3626,11 +3740,11 @@ abstract class SalesPerson implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $bookings A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildSalesPerson The current object (for fluent API support)
+     * @param Collection $bookings A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setBookings(Collection $bookings, ConnectionInterface $con = null)
+    public function setBookings(Collection $bookings, ?ConnectionInterface $con = null)
     {
         /** @var ChildBooking[] $bookingsToDelete */
         $bookingsToDelete = $this->getBookings(new Criteria(), $con)->diff($bookings);
@@ -3656,13 +3770,13 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * Returns the number of related Booking objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related Booking objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related Booking objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countBookings(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countBookings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingsPartial && !$this->isNew();
         if (null === $this->collBookings || null !== $criteria || $partial) {
@@ -3691,8 +3805,8 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Method called to associate a ChildBooking object to this object
      * through the ChildBooking foreign key attribute.
      *
-     * @param  ChildBooking $l ChildBooking
-     * @return $this|\SalesPerson The current object (for fluent API support)
+     * @param ChildBooking $l ChildBooking
+     * @return $this The current object (for fluent API support)
      */
     public function addBooking(ChildBooking $l)
     {
@@ -3715,15 +3829,15 @@ abstract class SalesPerson implements ActiveRecordInterface
     /**
      * @param ChildBooking $booking The ChildBooking object to add.
      */
-    protected function doAddBooking(ChildBooking $booking)
+    protected function doAddBooking(ChildBooking $booking): void
     {
         $this->collBookings[]= $booking;
         $booking->setSalesPerson($this);
     }
 
     /**
-     * @param  ChildBooking $booking The ChildBooking object to remove.
-     * @return $this|ChildSalesPerson The current object (for fluent API support)
+     * @param ChildBooking $booking The ChildBooking object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeBooking(ChildBooking $booking)
     {
@@ -3753,12 +3867,13 @@ abstract class SalesPerson implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesPerson.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildBooking[] List of ChildBooking objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildBooking}> List of ChildBooking objects
      */
-    public function getBookingsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getBookingsJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildBookingQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -3778,12 +3893,13 @@ abstract class SalesPerson implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesPerson.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildBooking[] List of ChildBooking objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildBooking}> List of ChildBooking objects
      */
-    public function getBookingsJoinCustomerShipto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getBookingsJoinCustomerShipto(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildBookingQuery::create(null, $criteria);
         $query->joinWith('CustomerShipto', $joinBehavior);
@@ -3795,6 +3911,8 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -3826,6 +3944,8 @@ abstract class SalesPerson implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -3834,9 +3954,10 @@ abstract class SalesPerson implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
             if ($this->collBookingDayCustomers) {
@@ -3871,6 +3992,7 @@ abstract class SalesPerson implements ActiveRecordInterface
         $this->collBookingDayReps = null;
         $this->collBookingSummaryReps = null;
         $this->collBookings = null;
+        return $this;
     }
 
     /**
@@ -3885,99 +4007,79 @@ abstract class SalesPerson implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -3987,7 +4089,7 @@ abstract class SalesPerson implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -4007,15 +4109,18 @@ abstract class SalesPerson implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

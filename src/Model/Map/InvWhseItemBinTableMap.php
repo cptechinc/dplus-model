@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class InvWhseItemBinTableMap extends TableMap
 {
@@ -34,244 +33,516 @@ class InvWhseItemBinTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.InvWhseItemBinTableMap';
+    public const CLASS_NAME = '.Map.InvWhseItemBinTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'inv_bin_area';
+    public const TABLE_NAME = 'inv_bin_area';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'InvWhseItemBin';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\InvWhseItemBin';
+    public const OM_CLASS = '\\InvWhseItemBin';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'InvWhseItemBin';
+    public const CLASS_DEFAULT = 'InvWhseItemBin';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 32;
+    public const NUM_COLUMNS = 32;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 32;
+    public const NUM_HYDRATE_COLUMNS = 32;
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'inv_bin_area.InitItemNbr';
+    public const COL_INITITEMNBR = 'inv_bin_area.InitItemNbr';
 
     /**
      * the column name for the IntbWhse field
      */
-    const COL_INTBWHSE = 'inv_bin_area.IntbWhse';
+    public const COL_INTBWHSE = 'inv_bin_area.IntbWhse';
 
     /**
      * the column name for the BinaBin1 field
      */
-    const COL_BINABIN1 = 'inv_bin_area.BinaBin1';
+    public const COL_BINABIN1 = 'inv_bin_area.BinaBin1';
 
     /**
      * the column name for the BinaMin1 field
      */
-    const COL_BINAMIN1 = 'inv_bin_area.BinaMin1';
+    public const COL_BINAMIN1 = 'inv_bin_area.BinaMin1';
 
     /**
      * the column name for the BinaMax1 field
      */
-    const COL_BINAMAX1 = 'inv_bin_area.BinaMax1';
+    public const COL_BINAMAX1 = 'inv_bin_area.BinaMax1';
 
     /**
      * the column name for the BinaBin2 field
      */
-    const COL_BINABIN2 = 'inv_bin_area.BinaBin2';
+    public const COL_BINABIN2 = 'inv_bin_area.BinaBin2';
 
     /**
      * the column name for the BinaMin2 field
      */
-    const COL_BINAMIN2 = 'inv_bin_area.BinaMin2';
+    public const COL_BINAMIN2 = 'inv_bin_area.BinaMin2';
 
     /**
      * the column name for the BinaMax2 field
      */
-    const COL_BINAMAX2 = 'inv_bin_area.BinaMax2';
+    public const COL_BINAMAX2 = 'inv_bin_area.BinaMax2';
 
     /**
      * the column name for the BinaBin3 field
      */
-    const COL_BINABIN3 = 'inv_bin_area.BinaBin3';
+    public const COL_BINABIN3 = 'inv_bin_area.BinaBin3';
 
     /**
      * the column name for the BinaMin3 field
      */
-    const COL_BINAMIN3 = 'inv_bin_area.BinaMin3';
+    public const COL_BINAMIN3 = 'inv_bin_area.BinaMin3';
 
     /**
      * the column name for the BinaMax3 field
      */
-    const COL_BINAMAX3 = 'inv_bin_area.BinaMax3';
+    public const COL_BINAMAX3 = 'inv_bin_area.BinaMax3';
 
     /**
      * the column name for the BinaBin4 field
      */
-    const COL_BINABIN4 = 'inv_bin_area.BinaBin4';
+    public const COL_BINABIN4 = 'inv_bin_area.BinaBin4';
 
     /**
      * the column name for the BinaMin4 field
      */
-    const COL_BINAMIN4 = 'inv_bin_area.BinaMin4';
+    public const COL_BINAMIN4 = 'inv_bin_area.BinaMin4';
 
     /**
      * the column name for the BinaMax4 field
      */
-    const COL_BINAMAX4 = 'inv_bin_area.BinaMax4';
+    public const COL_BINAMAX4 = 'inv_bin_area.BinaMax4';
 
     /**
      * the column name for the BinaBin5 field
      */
-    const COL_BINABIN5 = 'inv_bin_area.BinaBin5';
+    public const COL_BINABIN5 = 'inv_bin_area.BinaBin5';
 
     /**
      * the column name for the BinaMin5 field
      */
-    const COL_BINAMIN5 = 'inv_bin_area.BinaMin5';
+    public const COL_BINAMIN5 = 'inv_bin_area.BinaMin5';
 
     /**
      * the column name for the BinaMax5 field
      */
-    const COL_BINAMAX5 = 'inv_bin_area.BinaMax5';
+    public const COL_BINAMAX5 = 'inv_bin_area.BinaMax5';
 
     /**
      * the column name for the BinaBin6 field
      */
-    const COL_BINABIN6 = 'inv_bin_area.BinaBin6';
+    public const COL_BINABIN6 = 'inv_bin_area.BinaBin6';
 
     /**
      * the column name for the BinaMin6 field
      */
-    const COL_BINAMIN6 = 'inv_bin_area.BinaMin6';
+    public const COL_BINAMIN6 = 'inv_bin_area.BinaMin6';
 
     /**
      * the column name for the BinaMax6 field
      */
-    const COL_BINAMAX6 = 'inv_bin_area.BinaMax6';
+    public const COL_BINAMAX6 = 'inv_bin_area.BinaMax6';
 
     /**
      * the column name for the BinaBin7 field
      */
-    const COL_BINABIN7 = 'inv_bin_area.BinaBin7';
+    public const COL_BINABIN7 = 'inv_bin_area.BinaBin7';
 
     /**
      * the column name for the BinaMin7 field
      */
-    const COL_BINAMIN7 = 'inv_bin_area.BinaMin7';
+    public const COL_BINAMIN7 = 'inv_bin_area.BinaMin7';
 
     /**
      * the column name for the BinaMax7 field
      */
-    const COL_BINAMAX7 = 'inv_bin_area.BinaMax7';
+    public const COL_BINAMAX7 = 'inv_bin_area.BinaMax7';
 
     /**
      * the column name for the BinaBin8 field
      */
-    const COL_BINABIN8 = 'inv_bin_area.BinaBin8';
+    public const COL_BINABIN8 = 'inv_bin_area.BinaBin8';
 
     /**
      * the column name for the BinaMin8 field
      */
-    const COL_BINAMIN8 = 'inv_bin_area.BinaMin8';
+    public const COL_BINAMIN8 = 'inv_bin_area.BinaMin8';
 
     /**
      * the column name for the BinaMax8 field
      */
-    const COL_BINAMAX8 = 'inv_bin_area.BinaMax8';
+    public const COL_BINAMAX8 = 'inv_bin_area.BinaMax8';
 
     /**
      * the column name for the BinaBin9 field
      */
-    const COL_BINABIN9 = 'inv_bin_area.BinaBin9';
+    public const COL_BINABIN9 = 'inv_bin_area.BinaBin9';
 
     /**
      * the column name for the BinaMin9 field
      */
-    const COL_BINAMIN9 = 'inv_bin_area.BinaMin9';
+    public const COL_BINAMIN9 = 'inv_bin_area.BinaMin9';
 
     /**
      * the column name for the BinaMax9 field
      */
-    const COL_BINAMAX9 = 'inv_bin_area.BinaMax9';
+    public const COL_BINAMAX9 = 'inv_bin_area.BinaMax9';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'inv_bin_area.DateUpdtd';
+    public const COL_DATEUPDTD = 'inv_bin_area.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'inv_bin_area.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'inv_bin_area.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'inv_bin_area.dummy';
+    public const COL_DUMMY = 'inv_bin_area.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr', 'Intbwhse', 'Binabin1', 'Binamin1', 'Binamax1', 'Binabin2', 'Binamin2', 'Binamax2', 'Binabin3', 'Binamin3', 'Binamax3', 'Binabin4', 'Binamin4', 'Binamax4', 'Binabin5', 'Binamin5', 'Binamax5', 'Binabin6', 'Binamin6', 'Binamax6', 'Binabin7', 'Binamin7', 'Binamax7', 'Binabin8', 'Binamin8', 'Binamax8', 'Binabin9', 'Binamin9', 'Binamax9', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('inititemnbr', 'intbwhse', 'binabin1', 'binamin1', 'binamax1', 'binabin2', 'binamin2', 'binamax2', 'binabin3', 'binamin3', 'binamax3', 'binabin4', 'binamin4', 'binamax4', 'binabin5', 'binamin5', 'binamax5', 'binabin6', 'binamin6', 'binamax6', 'binabin7', 'binamin7', 'binamax7', 'binabin8', 'binamin8', 'binamax8', 'binabin9', 'binamin9', 'binamax9', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvWhseItemBinTableMap::COL_INITITEMNBR, InvWhseItemBinTableMap::COL_INTBWHSE, InvWhseItemBinTableMap::COL_BINABIN1, InvWhseItemBinTableMap::COL_BINAMIN1, InvWhseItemBinTableMap::COL_BINAMAX1, InvWhseItemBinTableMap::COL_BINABIN2, InvWhseItemBinTableMap::COL_BINAMIN2, InvWhseItemBinTableMap::COL_BINAMAX2, InvWhseItemBinTableMap::COL_BINABIN3, InvWhseItemBinTableMap::COL_BINAMIN3, InvWhseItemBinTableMap::COL_BINAMAX3, InvWhseItemBinTableMap::COL_BINABIN4, InvWhseItemBinTableMap::COL_BINAMIN4, InvWhseItemBinTableMap::COL_BINAMAX4, InvWhseItemBinTableMap::COL_BINABIN5, InvWhseItemBinTableMap::COL_BINAMIN5, InvWhseItemBinTableMap::COL_BINAMAX5, InvWhseItemBinTableMap::COL_BINABIN6, InvWhseItemBinTableMap::COL_BINAMIN6, InvWhseItemBinTableMap::COL_BINAMAX6, InvWhseItemBinTableMap::COL_BINABIN7, InvWhseItemBinTableMap::COL_BINAMIN7, InvWhseItemBinTableMap::COL_BINAMAX7, InvWhseItemBinTableMap::COL_BINABIN8, InvWhseItemBinTableMap::COL_BINAMIN8, InvWhseItemBinTableMap::COL_BINAMAX8, InvWhseItemBinTableMap::COL_BINABIN9, InvWhseItemBinTableMap::COL_BINAMIN9, InvWhseItemBinTableMap::COL_BINAMAX9, InvWhseItemBinTableMap::COL_DATEUPDTD, InvWhseItemBinTableMap::COL_TIMEUPDTD, InvWhseItemBinTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr', 'IntbWhse', 'BinaBin1', 'BinaMin1', 'BinaMax1', 'BinaBin2', 'BinaMin2', 'BinaMax2', 'BinaBin3', 'BinaMin3', 'BinaMax3', 'BinaBin4', 'BinaMin4', 'BinaMax4', 'BinaBin5', 'BinaMin5', 'BinaMax5', 'BinaBin6', 'BinaMin6', 'BinaMax6', 'BinaBin7', 'BinaMin7', 'BinaMax7', 'BinaBin8', 'BinaMin8', 'BinaMax8', 'BinaBin9', 'BinaMin9', 'BinaMax9', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Inititemnbr', 'Intbwhse', 'Binabin1', 'Binamin1', 'Binamax1', 'Binabin2', 'Binamin2', 'Binamax2', 'Binabin3', 'Binamin3', 'Binamax3', 'Binabin4', 'Binamin4', 'Binamax4', 'Binabin5', 'Binamin5', 'Binamax5', 'Binabin6', 'Binamin6', 'Binamax6', 'Binabin7', 'Binamin7', 'Binamax7', 'Binabin8', 'Binamin8', 'Binamax8', 'Binabin9', 'Binamin9', 'Binamax9', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['inititemnbr', 'intbwhse', 'binabin1', 'binamin1', 'binamax1', 'binabin2', 'binamin2', 'binamax2', 'binabin3', 'binamin3', 'binamax3', 'binabin4', 'binamin4', 'binamax4', 'binabin5', 'binamin5', 'binamax5', 'binabin6', 'binamin6', 'binamax6', 'binabin7', 'binamin7', 'binamax7', 'binabin8', 'binamin8', 'binamax8', 'binabin9', 'binamin9', 'binamax9', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [InvWhseItemBinTableMap::COL_INITITEMNBR, InvWhseItemBinTableMap::COL_INTBWHSE, InvWhseItemBinTableMap::COL_BINABIN1, InvWhseItemBinTableMap::COL_BINAMIN1, InvWhseItemBinTableMap::COL_BINAMAX1, InvWhseItemBinTableMap::COL_BINABIN2, InvWhseItemBinTableMap::COL_BINAMIN2, InvWhseItemBinTableMap::COL_BINAMAX2, InvWhseItemBinTableMap::COL_BINABIN3, InvWhseItemBinTableMap::COL_BINAMIN3, InvWhseItemBinTableMap::COL_BINAMAX3, InvWhseItemBinTableMap::COL_BINABIN4, InvWhseItemBinTableMap::COL_BINAMIN4, InvWhseItemBinTableMap::COL_BINAMAX4, InvWhseItemBinTableMap::COL_BINABIN5, InvWhseItemBinTableMap::COL_BINAMIN5, InvWhseItemBinTableMap::COL_BINAMAX5, InvWhseItemBinTableMap::COL_BINABIN6, InvWhseItemBinTableMap::COL_BINAMIN6, InvWhseItemBinTableMap::COL_BINAMAX6, InvWhseItemBinTableMap::COL_BINABIN7, InvWhseItemBinTableMap::COL_BINAMIN7, InvWhseItemBinTableMap::COL_BINAMAX7, InvWhseItemBinTableMap::COL_BINABIN8, InvWhseItemBinTableMap::COL_BINAMIN8, InvWhseItemBinTableMap::COL_BINAMAX8, InvWhseItemBinTableMap::COL_BINABIN9, InvWhseItemBinTableMap::COL_BINAMIN9, InvWhseItemBinTableMap::COL_BINAMAX9, InvWhseItemBinTableMap::COL_DATEUPDTD, InvWhseItemBinTableMap::COL_TIMEUPDTD, InvWhseItemBinTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['InitItemNbr', 'IntbWhse', 'BinaBin1', 'BinaMin1', 'BinaMax1', 'BinaBin2', 'BinaMin2', 'BinaMax2', 'BinaBin3', 'BinaMin3', 'BinaMax3', 'BinaBin4', 'BinaMin4', 'BinaMax4', 'BinaBin5', 'BinaMin5', 'BinaMax5', 'BinaBin6', 'BinaMin6', 'BinaMax6', 'BinaBin7', 'BinaMin7', 'BinaMax7', 'BinaBin8', 'BinaMin8', 'BinaMax8', 'BinaBin9', 'BinaMin9', 'BinaMax9', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Intbwhse' => 1, 'Binabin1' => 2, 'Binamin1' => 3, 'Binamax1' => 4, 'Binabin2' => 5, 'Binamin2' => 6, 'Binamax2' => 7, 'Binabin3' => 8, 'Binamin3' => 9, 'Binamax3' => 10, 'Binabin4' => 11, 'Binamin4' => 12, 'Binamax4' => 13, 'Binabin5' => 14, 'Binamin5' => 15, 'Binamax5' => 16, 'Binabin6' => 17, 'Binamin6' => 18, 'Binamax6' => 19, 'Binabin7' => 20, 'Binamin7' => 21, 'Binamax7' => 22, 'Binabin8' => 23, 'Binamin8' => 24, 'Binamax8' => 25, 'Binabin9' => 26, 'Binamin9' => 27, 'Binamax9' => 28, 'Dateupdtd' => 29, 'Timeupdtd' => 30, 'Dummy' => 31, ),
-        self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'intbwhse' => 1, 'binabin1' => 2, 'binamin1' => 3, 'binamax1' => 4, 'binabin2' => 5, 'binamin2' => 6, 'binamax2' => 7, 'binabin3' => 8, 'binamin3' => 9, 'binamax3' => 10, 'binabin4' => 11, 'binamin4' => 12, 'binamax4' => 13, 'binabin5' => 14, 'binamin5' => 15, 'binamax5' => 16, 'binabin6' => 17, 'binamin6' => 18, 'binamax6' => 19, 'binabin7' => 20, 'binamin7' => 21, 'binamax7' => 22, 'binabin8' => 23, 'binamin8' => 24, 'binamax8' => 25, 'binabin9' => 26, 'binamin9' => 27, 'binamax9' => 28, 'dateupdtd' => 29, 'timeupdtd' => 30, 'dummy' => 31, ),
-        self::TYPE_COLNAME       => array(InvWhseItemBinTableMap::COL_INITITEMNBR => 0, InvWhseItemBinTableMap::COL_INTBWHSE => 1, InvWhseItemBinTableMap::COL_BINABIN1 => 2, InvWhseItemBinTableMap::COL_BINAMIN1 => 3, InvWhseItemBinTableMap::COL_BINAMAX1 => 4, InvWhseItemBinTableMap::COL_BINABIN2 => 5, InvWhseItemBinTableMap::COL_BINAMIN2 => 6, InvWhseItemBinTableMap::COL_BINAMAX2 => 7, InvWhseItemBinTableMap::COL_BINABIN3 => 8, InvWhseItemBinTableMap::COL_BINAMIN3 => 9, InvWhseItemBinTableMap::COL_BINAMAX3 => 10, InvWhseItemBinTableMap::COL_BINABIN4 => 11, InvWhseItemBinTableMap::COL_BINAMIN4 => 12, InvWhseItemBinTableMap::COL_BINAMAX4 => 13, InvWhseItemBinTableMap::COL_BINABIN5 => 14, InvWhseItemBinTableMap::COL_BINAMIN5 => 15, InvWhseItemBinTableMap::COL_BINAMAX5 => 16, InvWhseItemBinTableMap::COL_BINABIN6 => 17, InvWhseItemBinTableMap::COL_BINAMIN6 => 18, InvWhseItemBinTableMap::COL_BINAMAX6 => 19, InvWhseItemBinTableMap::COL_BINABIN7 => 20, InvWhseItemBinTableMap::COL_BINAMIN7 => 21, InvWhseItemBinTableMap::COL_BINAMAX7 => 22, InvWhseItemBinTableMap::COL_BINABIN8 => 23, InvWhseItemBinTableMap::COL_BINAMIN8 => 24, InvWhseItemBinTableMap::COL_BINAMAX8 => 25, InvWhseItemBinTableMap::COL_BINABIN9 => 26, InvWhseItemBinTableMap::COL_BINAMIN9 => 27, InvWhseItemBinTableMap::COL_BINAMAX9 => 28, InvWhseItemBinTableMap::COL_DATEUPDTD => 29, InvWhseItemBinTableMap::COL_TIMEUPDTD => 30, InvWhseItemBinTableMap::COL_DUMMY => 31, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'IntbWhse' => 1, 'BinaBin1' => 2, 'BinaMin1' => 3, 'BinaMax1' => 4, 'BinaBin2' => 5, 'BinaMin2' => 6, 'BinaMax2' => 7, 'BinaBin3' => 8, 'BinaMin3' => 9, 'BinaMax3' => 10, 'BinaBin4' => 11, 'BinaMin4' => 12, 'BinaMax4' => 13, 'BinaBin5' => 14, 'BinaMin5' => 15, 'BinaMax5' => 16, 'BinaBin6' => 17, 'BinaMin6' => 18, 'BinaMax6' => 19, 'BinaBin7' => 20, 'BinaMin7' => 21, 'BinaMax7' => 22, 'BinaBin8' => 23, 'BinaMin8' => 24, 'BinaMax8' => 25, 'BinaBin9' => 26, 'BinaMin9' => 27, 'BinaMax9' => 28, 'DateUpdtd' => 29, 'TimeUpdtd' => 30, 'dummy' => 31, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Inititemnbr' => 0, 'Intbwhse' => 1, 'Binabin1' => 2, 'Binamin1' => 3, 'Binamax1' => 4, 'Binabin2' => 5, 'Binamin2' => 6, 'Binamax2' => 7, 'Binabin3' => 8, 'Binamin3' => 9, 'Binamax3' => 10, 'Binabin4' => 11, 'Binamin4' => 12, 'Binamax4' => 13, 'Binabin5' => 14, 'Binamin5' => 15, 'Binamax5' => 16, 'Binabin6' => 17, 'Binamin6' => 18, 'Binamax6' => 19, 'Binabin7' => 20, 'Binamin7' => 21, 'Binamax7' => 22, 'Binabin8' => 23, 'Binamin8' => 24, 'Binamax8' => 25, 'Binabin9' => 26, 'Binamin9' => 27, 'Binamax9' => 28, 'Dateupdtd' => 29, 'Timeupdtd' => 30, 'Dummy' => 31, ],
+        self::TYPE_CAMELNAME     => ['inititemnbr' => 0, 'intbwhse' => 1, 'binabin1' => 2, 'binamin1' => 3, 'binamax1' => 4, 'binabin2' => 5, 'binamin2' => 6, 'binamax2' => 7, 'binabin3' => 8, 'binamin3' => 9, 'binamax3' => 10, 'binabin4' => 11, 'binamin4' => 12, 'binamax4' => 13, 'binabin5' => 14, 'binamin5' => 15, 'binamax5' => 16, 'binabin6' => 17, 'binamin6' => 18, 'binamax6' => 19, 'binabin7' => 20, 'binamin7' => 21, 'binamax7' => 22, 'binabin8' => 23, 'binamin8' => 24, 'binamax8' => 25, 'binabin9' => 26, 'binamin9' => 27, 'binamax9' => 28, 'dateupdtd' => 29, 'timeupdtd' => 30, 'dummy' => 31, ],
+        self::TYPE_COLNAME       => [InvWhseItemBinTableMap::COL_INITITEMNBR => 0, InvWhseItemBinTableMap::COL_INTBWHSE => 1, InvWhseItemBinTableMap::COL_BINABIN1 => 2, InvWhseItemBinTableMap::COL_BINAMIN1 => 3, InvWhseItemBinTableMap::COL_BINAMAX1 => 4, InvWhseItemBinTableMap::COL_BINABIN2 => 5, InvWhseItemBinTableMap::COL_BINAMIN2 => 6, InvWhseItemBinTableMap::COL_BINAMAX2 => 7, InvWhseItemBinTableMap::COL_BINABIN3 => 8, InvWhseItemBinTableMap::COL_BINAMIN3 => 9, InvWhseItemBinTableMap::COL_BINAMAX3 => 10, InvWhseItemBinTableMap::COL_BINABIN4 => 11, InvWhseItemBinTableMap::COL_BINAMIN4 => 12, InvWhseItemBinTableMap::COL_BINAMAX4 => 13, InvWhseItemBinTableMap::COL_BINABIN5 => 14, InvWhseItemBinTableMap::COL_BINAMIN5 => 15, InvWhseItemBinTableMap::COL_BINAMAX5 => 16, InvWhseItemBinTableMap::COL_BINABIN6 => 17, InvWhseItemBinTableMap::COL_BINAMIN6 => 18, InvWhseItemBinTableMap::COL_BINAMAX6 => 19, InvWhseItemBinTableMap::COL_BINABIN7 => 20, InvWhseItemBinTableMap::COL_BINAMIN7 => 21, InvWhseItemBinTableMap::COL_BINAMAX7 => 22, InvWhseItemBinTableMap::COL_BINABIN8 => 23, InvWhseItemBinTableMap::COL_BINAMIN8 => 24, InvWhseItemBinTableMap::COL_BINAMAX8 => 25, InvWhseItemBinTableMap::COL_BINABIN9 => 26, InvWhseItemBinTableMap::COL_BINAMIN9 => 27, InvWhseItemBinTableMap::COL_BINAMAX9 => 28, InvWhseItemBinTableMap::COL_DATEUPDTD => 29, InvWhseItemBinTableMap::COL_TIMEUPDTD => 30, InvWhseItemBinTableMap::COL_DUMMY => 31, ],
+        self::TYPE_FIELDNAME     => ['InitItemNbr' => 0, 'IntbWhse' => 1, 'BinaBin1' => 2, 'BinaMin1' => 3, 'BinaMax1' => 4, 'BinaBin2' => 5, 'BinaMin2' => 6, 'BinaMax2' => 7, 'BinaBin3' => 8, 'BinaMin3' => 9, 'BinaMax3' => 10, 'BinaBin4' => 11, 'BinaMin4' => 12, 'BinaMax4' => 13, 'BinaBin5' => 14, 'BinaMin5' => 15, 'BinaMax5' => 16, 'BinaBin6' => 17, 'BinaMin6' => 18, 'BinaMax6' => 19, 'BinaBin7' => 20, 'BinaMin7' => 21, 'BinaMax7' => 22, 'BinaBin8' => 23, 'BinaMin8' => 24, 'BinaMax8' => 25, 'BinaBin9' => 26, 'BinaMin9' => 27, 'BinaMax9' => 28, 'DateUpdtd' => 29, 'TimeUpdtd' => 30, 'dummy' => 31, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Inititemnbr' => 'INITITEMNBR',
+        'InvWhseItemBin.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'invWhseItemBin.inititemnbr' => 'INITITEMNBR',
+        'InvWhseItemBinTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'inv_bin_area.InitItemNbr' => 'INITITEMNBR',
+        'Intbwhse' => 'INTBWHSE',
+        'InvWhseItemBin.Intbwhse' => 'INTBWHSE',
+        'intbwhse' => 'INTBWHSE',
+        'invWhseItemBin.intbwhse' => 'INTBWHSE',
+        'InvWhseItemBinTableMap::COL_INTBWHSE' => 'INTBWHSE',
+        'COL_INTBWHSE' => 'INTBWHSE',
+        'IntbWhse' => 'INTBWHSE',
+        'inv_bin_area.IntbWhse' => 'INTBWHSE',
+        'Binabin1' => 'BINABIN1',
+        'InvWhseItemBin.Binabin1' => 'BINABIN1',
+        'binabin1' => 'BINABIN1',
+        'invWhseItemBin.binabin1' => 'BINABIN1',
+        'InvWhseItemBinTableMap::COL_BINABIN1' => 'BINABIN1',
+        'COL_BINABIN1' => 'BINABIN1',
+        'BinaBin1' => 'BINABIN1',
+        'inv_bin_area.BinaBin1' => 'BINABIN1',
+        'Binamin1' => 'BINAMIN1',
+        'InvWhseItemBin.Binamin1' => 'BINAMIN1',
+        'binamin1' => 'BINAMIN1',
+        'invWhseItemBin.binamin1' => 'BINAMIN1',
+        'InvWhseItemBinTableMap::COL_BINAMIN1' => 'BINAMIN1',
+        'COL_BINAMIN1' => 'BINAMIN1',
+        'BinaMin1' => 'BINAMIN1',
+        'inv_bin_area.BinaMin1' => 'BINAMIN1',
+        'Binamax1' => 'BINAMAX1',
+        'InvWhseItemBin.Binamax1' => 'BINAMAX1',
+        'binamax1' => 'BINAMAX1',
+        'invWhseItemBin.binamax1' => 'BINAMAX1',
+        'InvWhseItemBinTableMap::COL_BINAMAX1' => 'BINAMAX1',
+        'COL_BINAMAX1' => 'BINAMAX1',
+        'BinaMax1' => 'BINAMAX1',
+        'inv_bin_area.BinaMax1' => 'BINAMAX1',
+        'Binabin2' => 'BINABIN2',
+        'InvWhseItemBin.Binabin2' => 'BINABIN2',
+        'binabin2' => 'BINABIN2',
+        'invWhseItemBin.binabin2' => 'BINABIN2',
+        'InvWhseItemBinTableMap::COL_BINABIN2' => 'BINABIN2',
+        'COL_BINABIN2' => 'BINABIN2',
+        'BinaBin2' => 'BINABIN2',
+        'inv_bin_area.BinaBin2' => 'BINABIN2',
+        'Binamin2' => 'BINAMIN2',
+        'InvWhseItemBin.Binamin2' => 'BINAMIN2',
+        'binamin2' => 'BINAMIN2',
+        'invWhseItemBin.binamin2' => 'BINAMIN2',
+        'InvWhseItemBinTableMap::COL_BINAMIN2' => 'BINAMIN2',
+        'COL_BINAMIN2' => 'BINAMIN2',
+        'BinaMin2' => 'BINAMIN2',
+        'inv_bin_area.BinaMin2' => 'BINAMIN2',
+        'Binamax2' => 'BINAMAX2',
+        'InvWhseItemBin.Binamax2' => 'BINAMAX2',
+        'binamax2' => 'BINAMAX2',
+        'invWhseItemBin.binamax2' => 'BINAMAX2',
+        'InvWhseItemBinTableMap::COL_BINAMAX2' => 'BINAMAX2',
+        'COL_BINAMAX2' => 'BINAMAX2',
+        'BinaMax2' => 'BINAMAX2',
+        'inv_bin_area.BinaMax2' => 'BINAMAX2',
+        'Binabin3' => 'BINABIN3',
+        'InvWhseItemBin.Binabin3' => 'BINABIN3',
+        'binabin3' => 'BINABIN3',
+        'invWhseItemBin.binabin3' => 'BINABIN3',
+        'InvWhseItemBinTableMap::COL_BINABIN3' => 'BINABIN3',
+        'COL_BINABIN3' => 'BINABIN3',
+        'BinaBin3' => 'BINABIN3',
+        'inv_bin_area.BinaBin3' => 'BINABIN3',
+        'Binamin3' => 'BINAMIN3',
+        'InvWhseItemBin.Binamin3' => 'BINAMIN3',
+        'binamin3' => 'BINAMIN3',
+        'invWhseItemBin.binamin3' => 'BINAMIN3',
+        'InvWhseItemBinTableMap::COL_BINAMIN3' => 'BINAMIN3',
+        'COL_BINAMIN3' => 'BINAMIN3',
+        'BinaMin3' => 'BINAMIN3',
+        'inv_bin_area.BinaMin3' => 'BINAMIN3',
+        'Binamax3' => 'BINAMAX3',
+        'InvWhseItemBin.Binamax3' => 'BINAMAX3',
+        'binamax3' => 'BINAMAX3',
+        'invWhseItemBin.binamax3' => 'BINAMAX3',
+        'InvWhseItemBinTableMap::COL_BINAMAX3' => 'BINAMAX3',
+        'COL_BINAMAX3' => 'BINAMAX3',
+        'BinaMax3' => 'BINAMAX3',
+        'inv_bin_area.BinaMax3' => 'BINAMAX3',
+        'Binabin4' => 'BINABIN4',
+        'InvWhseItemBin.Binabin4' => 'BINABIN4',
+        'binabin4' => 'BINABIN4',
+        'invWhseItemBin.binabin4' => 'BINABIN4',
+        'InvWhseItemBinTableMap::COL_BINABIN4' => 'BINABIN4',
+        'COL_BINABIN4' => 'BINABIN4',
+        'BinaBin4' => 'BINABIN4',
+        'inv_bin_area.BinaBin4' => 'BINABIN4',
+        'Binamin4' => 'BINAMIN4',
+        'InvWhseItemBin.Binamin4' => 'BINAMIN4',
+        'binamin4' => 'BINAMIN4',
+        'invWhseItemBin.binamin4' => 'BINAMIN4',
+        'InvWhseItemBinTableMap::COL_BINAMIN4' => 'BINAMIN4',
+        'COL_BINAMIN4' => 'BINAMIN4',
+        'BinaMin4' => 'BINAMIN4',
+        'inv_bin_area.BinaMin4' => 'BINAMIN4',
+        'Binamax4' => 'BINAMAX4',
+        'InvWhseItemBin.Binamax4' => 'BINAMAX4',
+        'binamax4' => 'BINAMAX4',
+        'invWhseItemBin.binamax4' => 'BINAMAX4',
+        'InvWhseItemBinTableMap::COL_BINAMAX4' => 'BINAMAX4',
+        'COL_BINAMAX4' => 'BINAMAX4',
+        'BinaMax4' => 'BINAMAX4',
+        'inv_bin_area.BinaMax4' => 'BINAMAX4',
+        'Binabin5' => 'BINABIN5',
+        'InvWhseItemBin.Binabin5' => 'BINABIN5',
+        'binabin5' => 'BINABIN5',
+        'invWhseItemBin.binabin5' => 'BINABIN5',
+        'InvWhseItemBinTableMap::COL_BINABIN5' => 'BINABIN5',
+        'COL_BINABIN5' => 'BINABIN5',
+        'BinaBin5' => 'BINABIN5',
+        'inv_bin_area.BinaBin5' => 'BINABIN5',
+        'Binamin5' => 'BINAMIN5',
+        'InvWhseItemBin.Binamin5' => 'BINAMIN5',
+        'binamin5' => 'BINAMIN5',
+        'invWhseItemBin.binamin5' => 'BINAMIN5',
+        'InvWhseItemBinTableMap::COL_BINAMIN5' => 'BINAMIN5',
+        'COL_BINAMIN5' => 'BINAMIN5',
+        'BinaMin5' => 'BINAMIN5',
+        'inv_bin_area.BinaMin5' => 'BINAMIN5',
+        'Binamax5' => 'BINAMAX5',
+        'InvWhseItemBin.Binamax5' => 'BINAMAX5',
+        'binamax5' => 'BINAMAX5',
+        'invWhseItemBin.binamax5' => 'BINAMAX5',
+        'InvWhseItemBinTableMap::COL_BINAMAX5' => 'BINAMAX5',
+        'COL_BINAMAX5' => 'BINAMAX5',
+        'BinaMax5' => 'BINAMAX5',
+        'inv_bin_area.BinaMax5' => 'BINAMAX5',
+        'Binabin6' => 'BINABIN6',
+        'InvWhseItemBin.Binabin6' => 'BINABIN6',
+        'binabin6' => 'BINABIN6',
+        'invWhseItemBin.binabin6' => 'BINABIN6',
+        'InvWhseItemBinTableMap::COL_BINABIN6' => 'BINABIN6',
+        'COL_BINABIN6' => 'BINABIN6',
+        'BinaBin6' => 'BINABIN6',
+        'inv_bin_area.BinaBin6' => 'BINABIN6',
+        'Binamin6' => 'BINAMIN6',
+        'InvWhseItemBin.Binamin6' => 'BINAMIN6',
+        'binamin6' => 'BINAMIN6',
+        'invWhseItemBin.binamin6' => 'BINAMIN6',
+        'InvWhseItemBinTableMap::COL_BINAMIN6' => 'BINAMIN6',
+        'COL_BINAMIN6' => 'BINAMIN6',
+        'BinaMin6' => 'BINAMIN6',
+        'inv_bin_area.BinaMin6' => 'BINAMIN6',
+        'Binamax6' => 'BINAMAX6',
+        'InvWhseItemBin.Binamax6' => 'BINAMAX6',
+        'binamax6' => 'BINAMAX6',
+        'invWhseItemBin.binamax6' => 'BINAMAX6',
+        'InvWhseItemBinTableMap::COL_BINAMAX6' => 'BINAMAX6',
+        'COL_BINAMAX6' => 'BINAMAX6',
+        'BinaMax6' => 'BINAMAX6',
+        'inv_bin_area.BinaMax6' => 'BINAMAX6',
+        'Binabin7' => 'BINABIN7',
+        'InvWhseItemBin.Binabin7' => 'BINABIN7',
+        'binabin7' => 'BINABIN7',
+        'invWhseItemBin.binabin7' => 'BINABIN7',
+        'InvWhseItemBinTableMap::COL_BINABIN7' => 'BINABIN7',
+        'COL_BINABIN7' => 'BINABIN7',
+        'BinaBin7' => 'BINABIN7',
+        'inv_bin_area.BinaBin7' => 'BINABIN7',
+        'Binamin7' => 'BINAMIN7',
+        'InvWhseItemBin.Binamin7' => 'BINAMIN7',
+        'binamin7' => 'BINAMIN7',
+        'invWhseItemBin.binamin7' => 'BINAMIN7',
+        'InvWhseItemBinTableMap::COL_BINAMIN7' => 'BINAMIN7',
+        'COL_BINAMIN7' => 'BINAMIN7',
+        'BinaMin7' => 'BINAMIN7',
+        'inv_bin_area.BinaMin7' => 'BINAMIN7',
+        'Binamax7' => 'BINAMAX7',
+        'InvWhseItemBin.Binamax7' => 'BINAMAX7',
+        'binamax7' => 'BINAMAX7',
+        'invWhseItemBin.binamax7' => 'BINAMAX7',
+        'InvWhseItemBinTableMap::COL_BINAMAX7' => 'BINAMAX7',
+        'COL_BINAMAX7' => 'BINAMAX7',
+        'BinaMax7' => 'BINAMAX7',
+        'inv_bin_area.BinaMax7' => 'BINAMAX7',
+        'Binabin8' => 'BINABIN8',
+        'InvWhseItemBin.Binabin8' => 'BINABIN8',
+        'binabin8' => 'BINABIN8',
+        'invWhseItemBin.binabin8' => 'BINABIN8',
+        'InvWhseItemBinTableMap::COL_BINABIN8' => 'BINABIN8',
+        'COL_BINABIN8' => 'BINABIN8',
+        'BinaBin8' => 'BINABIN8',
+        'inv_bin_area.BinaBin8' => 'BINABIN8',
+        'Binamin8' => 'BINAMIN8',
+        'InvWhseItemBin.Binamin8' => 'BINAMIN8',
+        'binamin8' => 'BINAMIN8',
+        'invWhseItemBin.binamin8' => 'BINAMIN8',
+        'InvWhseItemBinTableMap::COL_BINAMIN8' => 'BINAMIN8',
+        'COL_BINAMIN8' => 'BINAMIN8',
+        'BinaMin8' => 'BINAMIN8',
+        'inv_bin_area.BinaMin8' => 'BINAMIN8',
+        'Binamax8' => 'BINAMAX8',
+        'InvWhseItemBin.Binamax8' => 'BINAMAX8',
+        'binamax8' => 'BINAMAX8',
+        'invWhseItemBin.binamax8' => 'BINAMAX8',
+        'InvWhseItemBinTableMap::COL_BINAMAX8' => 'BINAMAX8',
+        'COL_BINAMAX8' => 'BINAMAX8',
+        'BinaMax8' => 'BINAMAX8',
+        'inv_bin_area.BinaMax8' => 'BINAMAX8',
+        'Binabin9' => 'BINABIN9',
+        'InvWhseItemBin.Binabin9' => 'BINABIN9',
+        'binabin9' => 'BINABIN9',
+        'invWhseItemBin.binabin9' => 'BINABIN9',
+        'InvWhseItemBinTableMap::COL_BINABIN9' => 'BINABIN9',
+        'COL_BINABIN9' => 'BINABIN9',
+        'BinaBin9' => 'BINABIN9',
+        'inv_bin_area.BinaBin9' => 'BINABIN9',
+        'Binamin9' => 'BINAMIN9',
+        'InvWhseItemBin.Binamin9' => 'BINAMIN9',
+        'binamin9' => 'BINAMIN9',
+        'invWhseItemBin.binamin9' => 'BINAMIN9',
+        'InvWhseItemBinTableMap::COL_BINAMIN9' => 'BINAMIN9',
+        'COL_BINAMIN9' => 'BINAMIN9',
+        'BinaMin9' => 'BINAMIN9',
+        'inv_bin_area.BinaMin9' => 'BINAMIN9',
+        'Binamax9' => 'BINAMAX9',
+        'InvWhseItemBin.Binamax9' => 'BINAMAX9',
+        'binamax9' => 'BINAMAX9',
+        'invWhseItemBin.binamax9' => 'BINAMAX9',
+        'InvWhseItemBinTableMap::COL_BINAMAX9' => 'BINAMAX9',
+        'COL_BINAMAX9' => 'BINAMAX9',
+        'BinaMax9' => 'BINAMAX9',
+        'inv_bin_area.BinaMax9' => 'BINAMAX9',
+        'Dateupdtd' => 'DATEUPDTD',
+        'InvWhseItemBin.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'invWhseItemBin.dateupdtd' => 'DATEUPDTD',
+        'InvWhseItemBinTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'inv_bin_area.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'InvWhseItemBin.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'invWhseItemBin.timeupdtd' => 'TIMEUPDTD',
+        'InvWhseItemBinTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'inv_bin_area.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'InvWhseItemBin.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'invWhseItemBin.dummy' => 'DUMMY',
+        'InvWhseItemBinTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'inv_bin_area.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('inv_bin_area');
@@ -315,12 +586,14 @@ class InvWhseItemBinTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -348,7 +621,7 @@ class InvWhseItemBinTableMap extends TableMap
     1 => ':IntbWhse',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -359,9 +632,11 @@ class InvWhseItemBinTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \InvWhseItemBin $obj A \InvWhseItemBin object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(InvWhseItemBin $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -380,8 +655,10 @@ class InvWhseItemBinTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \InvWhseItemBin object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \InvWhseItemBin) {
@@ -409,14 +686,14 @@ class InvWhseItemBinTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -431,14 +708,14 @@ class InvWhseItemBinTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -464,10 +741,10 @@ class InvWhseItemBinTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? InvWhseItemBinTableMap::CLASS_DEFAULT : InvWhseItemBinTableMap::OM_CLASS;
     }
@@ -475,17 +752,17 @@ class InvWhseItemBinTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (InvWhseItemBin object, last column rank)
+     * @return array (InvWhseItemBin object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = InvWhseItemBinTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = InvWhseItemBinTableMap::getInstanceFromPool($key))) {
@@ -501,7 +778,7 @@ class InvWhseItemBinTableMap extends TableMap
             InvWhseItemBinTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -509,13 +786,13 @@ class InvWhseItemBinTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -545,12 +822,13 @@ class InvWhseItemBinTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(InvWhseItemBinTableMap::COL_INITITEMNBR);
@@ -622,40 +900,112 @@ class InvWhseItemBinTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_INTBWHSE);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINABIN1);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMIN1);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMAX1);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINABIN2);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMIN2);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMAX2);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINABIN3);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMIN3);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMAX3);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINABIN4);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMIN4);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMAX4);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINABIN5);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMIN5);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMAX5);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINABIN6);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMIN6);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMAX6);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINABIN7);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMIN7);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMAX7);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINABIN8);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMIN8);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMAX8);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINABIN9);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMIN9);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_BINAMAX9);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(InvWhseItemBinTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.IntbWhse');
+            $criteria->removeSelectColumn($alias . '.BinaBin1');
+            $criteria->removeSelectColumn($alias . '.BinaMin1');
+            $criteria->removeSelectColumn($alias . '.BinaMax1');
+            $criteria->removeSelectColumn($alias . '.BinaBin2');
+            $criteria->removeSelectColumn($alias . '.BinaMin2');
+            $criteria->removeSelectColumn($alias . '.BinaMax2');
+            $criteria->removeSelectColumn($alias . '.BinaBin3');
+            $criteria->removeSelectColumn($alias . '.BinaMin3');
+            $criteria->removeSelectColumn($alias . '.BinaMax3');
+            $criteria->removeSelectColumn($alias . '.BinaBin4');
+            $criteria->removeSelectColumn($alias . '.BinaMin4');
+            $criteria->removeSelectColumn($alias . '.BinaMax4');
+            $criteria->removeSelectColumn($alias . '.BinaBin5');
+            $criteria->removeSelectColumn($alias . '.BinaMin5');
+            $criteria->removeSelectColumn($alias . '.BinaMax5');
+            $criteria->removeSelectColumn($alias . '.BinaBin6');
+            $criteria->removeSelectColumn($alias . '.BinaMin6');
+            $criteria->removeSelectColumn($alias . '.BinaMax6');
+            $criteria->removeSelectColumn($alias . '.BinaBin7');
+            $criteria->removeSelectColumn($alias . '.BinaMin7');
+            $criteria->removeSelectColumn($alias . '.BinaMax7');
+            $criteria->removeSelectColumn($alias . '.BinaBin8');
+            $criteria->removeSelectColumn($alias . '.BinaMin8');
+            $criteria->removeSelectColumn($alias . '.BinaMax8');
+            $criteria->removeSelectColumn($alias . '.BinaBin9');
+            $criteria->removeSelectColumn($alias . '.BinaMin9');
+            $criteria->removeSelectColumn($alias . '.BinaMax9');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(InvWhseItemBinTableMap::DATABASE_NAME)->getTable(InvWhseItemBinTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvWhseItemBinTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(InvWhseItemBinTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new InvWhseItemBinTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a InvWhseItemBin or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or InvWhseItemBin object or primary key or array of primary keys
+     * @param mixed $values Criteria or InvWhseItemBin object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvWhseItemBinTableMap::DATABASE_NAME);
@@ -673,7 +1023,7 @@ class InvWhseItemBinTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(InvWhseItemBinTableMap::COL_INITITEMNBR, $value[0]);
@@ -701,7 +1051,7 @@ class InvWhseItemBinTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return InvWhseItemBinQuery::create()->doDeleteAll($con);
     }
@@ -709,13 +1059,13 @@ class InvWhseItemBinTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a InvWhseItemBin or Criteria object.
      *
-     * @param mixed               $criteria Criteria or InvWhseItemBin object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or InvWhseItemBin object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvWhseItemBinTableMap::DATABASE_NAME);
@@ -738,7 +1088,4 @@ class InvWhseItemBinTableMap extends TableMap
         });
     }
 
-} // InvWhseItemBinTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-InvWhseItemBinTableMap::buildTableMap();
+}

@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class InvBinAreaCodeTableMap extends TableMap
 {
@@ -34,109 +33,165 @@ class InvBinAreaCodeTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.InvBinAreaCodeTableMap';
+    public const CLASS_NAME = '.Map.InvBinAreaCodeTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'inv_bina_code';
+    public const TABLE_NAME = 'inv_bina_code';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'InvBinAreaCode';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\InvBinAreaCode';
+    public const OM_CLASS = '\\InvBinAreaCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'InvBinAreaCode';
+    public const CLASS_DEFAULT = 'InvBinAreaCode';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 5;
+    public const NUM_COLUMNS = 5;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 5;
+    public const NUM_HYDRATE_COLUMNS = 5;
 
     /**
      * the column name for the IntbBinaCode field
      */
-    const COL_INTBBINACODE = 'inv_bina_code.IntbBinaCode';
+    public const COL_INTBBINACODE = 'inv_bina_code.IntbBinaCode';
 
     /**
      * the column name for the IntbBinaDesc field
      */
-    const COL_INTBBINADESC = 'inv_bina_code.IntbBinaDesc';
+    public const COL_INTBBINADESC = 'inv_bina_code.IntbBinaDesc';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'inv_bina_code.DateUpdtd';
+    public const COL_DATEUPDTD = 'inv_bina_code.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'inv_bina_code.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'inv_bina_code.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'inv_bina_code.dummy';
+    public const COL_DUMMY = 'inv_bina_code.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Intbbinacode', 'Intbbinadesc', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('intbbinacode', 'intbbinadesc', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvBinAreaCodeTableMap::COL_INTBBINACODE, InvBinAreaCodeTableMap::COL_INTBBINADESC, InvBinAreaCodeTableMap::COL_DATEUPDTD, InvBinAreaCodeTableMap::COL_TIMEUPDTD, InvBinAreaCodeTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('IntbBinaCode', 'IntbBinaDesc', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Intbbinacode', 'Intbbinadesc', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['intbbinacode', 'intbbinadesc', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [InvBinAreaCodeTableMap::COL_INTBBINACODE, InvBinAreaCodeTableMap::COL_INTBBINADESC, InvBinAreaCodeTableMap::COL_DATEUPDTD, InvBinAreaCodeTableMap::COL_TIMEUPDTD, InvBinAreaCodeTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['IntbBinaCode', 'IntbBinaDesc', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Intbbinacode' => 0, 'Intbbinadesc' => 1, 'Dateupdtd' => 2, 'Timeupdtd' => 3, 'Dummy' => 4, ),
-        self::TYPE_CAMELNAME     => array('intbbinacode' => 0, 'intbbinadesc' => 1, 'dateupdtd' => 2, 'timeupdtd' => 3, 'dummy' => 4, ),
-        self::TYPE_COLNAME       => array(InvBinAreaCodeTableMap::COL_INTBBINACODE => 0, InvBinAreaCodeTableMap::COL_INTBBINADESC => 1, InvBinAreaCodeTableMap::COL_DATEUPDTD => 2, InvBinAreaCodeTableMap::COL_TIMEUPDTD => 3, InvBinAreaCodeTableMap::COL_DUMMY => 4, ),
-        self::TYPE_FIELDNAME     => array('IntbBinaCode' => 0, 'IntbBinaDesc' => 1, 'DateUpdtd' => 2, 'TimeUpdtd' => 3, 'dummy' => 4, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Intbbinacode' => 0, 'Intbbinadesc' => 1, 'Dateupdtd' => 2, 'Timeupdtd' => 3, 'Dummy' => 4, ],
+        self::TYPE_CAMELNAME     => ['intbbinacode' => 0, 'intbbinadesc' => 1, 'dateupdtd' => 2, 'timeupdtd' => 3, 'dummy' => 4, ],
+        self::TYPE_COLNAME       => [InvBinAreaCodeTableMap::COL_INTBBINACODE => 0, InvBinAreaCodeTableMap::COL_INTBBINADESC => 1, InvBinAreaCodeTableMap::COL_DATEUPDTD => 2, InvBinAreaCodeTableMap::COL_TIMEUPDTD => 3, InvBinAreaCodeTableMap::COL_DUMMY => 4, ],
+        self::TYPE_FIELDNAME     => ['IntbBinaCode' => 0, 'IntbBinaDesc' => 1, 'DateUpdtd' => 2, 'TimeUpdtd' => 3, 'dummy' => 4, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Intbbinacode' => 'INTBBINACODE',
+        'InvBinAreaCode.Intbbinacode' => 'INTBBINACODE',
+        'intbbinacode' => 'INTBBINACODE',
+        'invBinAreaCode.intbbinacode' => 'INTBBINACODE',
+        'InvBinAreaCodeTableMap::COL_INTBBINACODE' => 'INTBBINACODE',
+        'COL_INTBBINACODE' => 'INTBBINACODE',
+        'IntbBinaCode' => 'INTBBINACODE',
+        'inv_bina_code.IntbBinaCode' => 'INTBBINACODE',
+        'Intbbinadesc' => 'INTBBINADESC',
+        'InvBinAreaCode.Intbbinadesc' => 'INTBBINADESC',
+        'intbbinadesc' => 'INTBBINADESC',
+        'invBinAreaCode.intbbinadesc' => 'INTBBINADESC',
+        'InvBinAreaCodeTableMap::COL_INTBBINADESC' => 'INTBBINADESC',
+        'COL_INTBBINADESC' => 'INTBBINADESC',
+        'IntbBinaDesc' => 'INTBBINADESC',
+        'inv_bina_code.IntbBinaDesc' => 'INTBBINADESC',
+        'Dateupdtd' => 'DATEUPDTD',
+        'InvBinAreaCode.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'invBinAreaCode.dateupdtd' => 'DATEUPDTD',
+        'InvBinAreaCodeTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'inv_bina_code.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'InvBinAreaCode.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'invBinAreaCode.timeupdtd' => 'TIMEUPDTD',
+        'InvBinAreaCodeTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'inv_bina_code.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'InvBinAreaCode.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'invBinAreaCode.dummy' => 'DUMMY',
+        'InvBinAreaCodeTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'inv_bina_code.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('inv_bina_code');
@@ -151,12 +206,14 @@ class InvBinAreaCodeTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('WarehouseBin', '\\WarehouseBin', RelationMap::ONE_TO_MANY, array (
   0 =>
@@ -165,7 +222,7 @@ class InvBinAreaCodeTableMap extends TableMap
     1 => ':IntbBinaCode',
   ),
 ), null, null, 'WarehouseBins', false);
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -173,14 +230,14 @@ class InvBinAreaCodeTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Intbbinacode', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -195,14 +252,14 @@ class InvBinAreaCodeTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
             $indexType == TableMap::TYPE_NUM
@@ -219,10 +276,10 @@ class InvBinAreaCodeTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? InvBinAreaCodeTableMap::CLASS_DEFAULT : InvBinAreaCodeTableMap::OM_CLASS;
     }
@@ -230,17 +287,17 @@ class InvBinAreaCodeTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (InvBinAreaCode object, last column rank)
+     * @return array (InvBinAreaCode object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = InvBinAreaCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = InvBinAreaCodeTableMap::getInstanceFromPool($key))) {
@@ -256,7 +313,7 @@ class InvBinAreaCodeTableMap extends TableMap
             InvBinAreaCodeTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -264,13 +321,13 @@ class InvBinAreaCodeTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -300,12 +357,13 @@ class InvBinAreaCodeTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(InvBinAreaCodeTableMap::COL_INTBBINACODE);
@@ -323,40 +381,58 @@ class InvBinAreaCodeTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(InvBinAreaCodeTableMap::COL_INTBBINACODE);
+            $criteria->removeSelectColumn(InvBinAreaCodeTableMap::COL_INTBBINADESC);
+            $criteria->removeSelectColumn(InvBinAreaCodeTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(InvBinAreaCodeTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(InvBinAreaCodeTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.IntbBinaCode');
+            $criteria->removeSelectColumn($alias . '.IntbBinaDesc');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(InvBinAreaCodeTableMap::DATABASE_NAME)->getTable(InvBinAreaCodeTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvBinAreaCodeTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(InvBinAreaCodeTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new InvBinAreaCodeTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a InvBinAreaCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or InvBinAreaCode object or primary key or array of primary keys
+     * @param mixed $values Criteria or InvBinAreaCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvBinAreaCodeTableMap::DATABASE_NAME);
@@ -392,7 +468,7 @@ class InvBinAreaCodeTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return InvBinAreaCodeQuery::create()->doDeleteAll($con);
     }
@@ -400,13 +476,13 @@ class InvBinAreaCodeTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a InvBinAreaCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or InvBinAreaCode object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or InvBinAreaCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvBinAreaCodeTableMap::DATABASE_NAME);
@@ -429,7 +505,4 @@ class InvBinAreaCodeTableMap extends TableMap
         });
     }
 
-} // InvBinAreaCodeTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-InvBinAreaCodeTableMap::buildTableMap();
+}

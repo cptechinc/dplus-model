@@ -10,14 +10,12 @@ use Map\CustomerShipBolNotesTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'notes_cust_ship_bol' table.
- *
- *
+ * Base class that represents a query for the `notes_cust_ship_bol` table.
  *
  * @method     ChildCustomerShipBolNotesQuery orderByQntype($order = Criteria::ASC) Order by the QnType column
  * @method     ChildCustomerShipBolNotesQuery orderByQntypedesc($order = Criteria::ASC) Order by the QnTypeDesc column
@@ -51,23 +49,23 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipBolNotesQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildCustomerShipBolNotesQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildCustomerShipBolNotes findOne(ConnectionInterface $con = null) Return the first ChildCustomerShipBolNotes matching the query
- * @method     ChildCustomerShipBolNotes findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomerShipBolNotes matching the query, or a new ChildCustomerShipBolNotes object populated from the query conditions when no match is found
+ * @method     ChildCustomerShipBolNotes|null findOne(?ConnectionInterface $con = null) Return the first ChildCustomerShipBolNotes matching the query
+ * @method     ChildCustomerShipBolNotes findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildCustomerShipBolNotes matching the query, or a new ChildCustomerShipBolNotes object populated from the query conditions when no match is found
  *
- * @method     ChildCustomerShipBolNotes findOneByQntype(string $QnType) Return the first ChildCustomerShipBolNotes filtered by the QnType column
- * @method     ChildCustomerShipBolNotes findOneByQntypedesc(string $QnTypeDesc) Return the first ChildCustomerShipBolNotes filtered by the QnTypeDesc column
- * @method     ChildCustomerShipBolNotes findOneByArcucustid(string $ArcuCustId) Return the first ChildCustomerShipBolNotes filtered by the ArcuCustId column
- * @method     ChildCustomerShipBolNotes findOneByArstshipid(string $ArstShipId) Return the first ChildCustomerShipBolNotes filtered by the ArstShipId column
- * @method     ChildCustomerShipBolNotes findOneByQnseq(int $QnSeq) Return the first ChildCustomerShipBolNotes filtered by the QnSeq column
- * @method     ChildCustomerShipBolNotes findOneByQnnote(string $QnNote) Return the first ChildCustomerShipBolNotes filtered by the QnNote column
- * @method     ChildCustomerShipBolNotes findOneByQnkey2(string $QnKey2) Return the first ChildCustomerShipBolNotes filtered by the QnKey2 column
- * @method     ChildCustomerShipBolNotes findOneByQnform(string $QnForm) Return the first ChildCustomerShipBolNotes filtered by the QnForm column
- * @method     ChildCustomerShipBolNotes findOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerShipBolNotes filtered by the DateUpdtd column
- * @method     ChildCustomerShipBolNotes findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerShipBolNotes filtered by the TimeUpdtd column
- * @method     ChildCustomerShipBolNotes findOneByDummy(string $dummy) Return the first ChildCustomerShipBolNotes filtered by the dummy column *
-
- * @method     ChildCustomerShipBolNotes requirePk($key, ConnectionInterface $con = null) Return the ChildCustomerShipBolNotes by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipBolNotes requireOne(ConnectionInterface $con = null) Return the first ChildCustomerShipBolNotes matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipBolNotes|null findOneByQntype(string $QnType) Return the first ChildCustomerShipBolNotes filtered by the QnType column
+ * @method     ChildCustomerShipBolNotes|null findOneByQntypedesc(string $QnTypeDesc) Return the first ChildCustomerShipBolNotes filtered by the QnTypeDesc column
+ * @method     ChildCustomerShipBolNotes|null findOneByArcucustid(string $ArcuCustId) Return the first ChildCustomerShipBolNotes filtered by the ArcuCustId column
+ * @method     ChildCustomerShipBolNotes|null findOneByArstshipid(string $ArstShipId) Return the first ChildCustomerShipBolNotes filtered by the ArstShipId column
+ * @method     ChildCustomerShipBolNotes|null findOneByQnseq(int $QnSeq) Return the first ChildCustomerShipBolNotes filtered by the QnSeq column
+ * @method     ChildCustomerShipBolNotes|null findOneByQnnote(string $QnNote) Return the first ChildCustomerShipBolNotes filtered by the QnNote column
+ * @method     ChildCustomerShipBolNotes|null findOneByQnkey2(string $QnKey2) Return the first ChildCustomerShipBolNotes filtered by the QnKey2 column
+ * @method     ChildCustomerShipBolNotes|null findOneByQnform(string $QnForm) Return the first ChildCustomerShipBolNotes filtered by the QnForm column
+ * @method     ChildCustomerShipBolNotes|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerShipBolNotes filtered by the DateUpdtd column
+ * @method     ChildCustomerShipBolNotes|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerShipBolNotes filtered by the TimeUpdtd column
+ * @method     ChildCustomerShipBolNotes|null findOneByDummy(string $dummy) Return the first ChildCustomerShipBolNotes filtered by the dummy column
+ *
+ * @method     ChildCustomerShipBolNotes requirePk($key, ?ConnectionInterface $con = null) Return the ChildCustomerShipBolNotes by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipBolNotes requireOne(?ConnectionInterface $con = null) Return the first ChildCustomerShipBolNotes matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildCustomerShipBolNotes requireOneByQntype(string $QnType) Return the first ChildCustomerShipBolNotes filtered by the QnType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipBolNotes requireOneByQntypedesc(string $QnTypeDesc) Return the first ChildCustomerShipBolNotes filtered by the QnTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -81,20 +79,34 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipBolNotes requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerShipBolNotes filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipBolNotes requireOneByDummy(string $dummy) Return the first ChildCustomerShipBolNotes filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCustomerShipBolNotes[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCustomerShipBolNotes objects based on current ModelCriteria
- * @method     ChildCustomerShipBolNotes[]|ObjectCollection findByQntype(string $QnType) Return ChildCustomerShipBolNotes objects filtered by the QnType column
- * @method     ChildCustomerShipBolNotes[]|ObjectCollection findByQntypedesc(string $QnTypeDesc) Return ChildCustomerShipBolNotes objects filtered by the QnTypeDesc column
- * @method     ChildCustomerShipBolNotes[]|ObjectCollection findByArcucustid(string $ArcuCustId) Return ChildCustomerShipBolNotes objects filtered by the ArcuCustId column
- * @method     ChildCustomerShipBolNotes[]|ObjectCollection findByArstshipid(string $ArstShipId) Return ChildCustomerShipBolNotes objects filtered by the ArstShipId column
- * @method     ChildCustomerShipBolNotes[]|ObjectCollection findByQnseq(int $QnSeq) Return ChildCustomerShipBolNotes objects filtered by the QnSeq column
- * @method     ChildCustomerShipBolNotes[]|ObjectCollection findByQnnote(string $QnNote) Return ChildCustomerShipBolNotes objects filtered by the QnNote column
- * @method     ChildCustomerShipBolNotes[]|ObjectCollection findByQnkey2(string $QnKey2) Return ChildCustomerShipBolNotes objects filtered by the QnKey2 column
- * @method     ChildCustomerShipBolNotes[]|ObjectCollection findByQnform(string $QnForm) Return ChildCustomerShipBolNotes objects filtered by the QnForm column
- * @method     ChildCustomerShipBolNotes[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildCustomerShipBolNotes objects filtered by the DateUpdtd column
- * @method     ChildCustomerShipBolNotes[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildCustomerShipBolNotes objects filtered by the TimeUpdtd column
- * @method     ChildCustomerShipBolNotes[]|ObjectCollection findByDummy(string $dummy) Return ChildCustomerShipBolNotes objects filtered by the dummy column
- * @method     ChildCustomerShipBolNotes[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildCustomerShipBolNotes[]|Collection find(?ConnectionInterface $con = null) Return ChildCustomerShipBolNotes objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildCustomerShipBolNotes> find(?ConnectionInterface $con = null) Return ChildCustomerShipBolNotes objects based on current ModelCriteria
  *
+ * @method     ChildCustomerShipBolNotes[]|Collection findByQntype(string|array<string> $QnType) Return ChildCustomerShipBolNotes objects filtered by the QnType column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipBolNotes> findByQntype(string|array<string> $QnType) Return ChildCustomerShipBolNotes objects filtered by the QnType column
+ * @method     ChildCustomerShipBolNotes[]|Collection findByQntypedesc(string|array<string> $QnTypeDesc) Return ChildCustomerShipBolNotes objects filtered by the QnTypeDesc column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipBolNotes> findByQntypedesc(string|array<string> $QnTypeDesc) Return ChildCustomerShipBolNotes objects filtered by the QnTypeDesc column
+ * @method     ChildCustomerShipBolNotes[]|Collection findByArcucustid(string|array<string> $ArcuCustId) Return ChildCustomerShipBolNotes objects filtered by the ArcuCustId column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipBolNotes> findByArcucustid(string|array<string> $ArcuCustId) Return ChildCustomerShipBolNotes objects filtered by the ArcuCustId column
+ * @method     ChildCustomerShipBolNotes[]|Collection findByArstshipid(string|array<string> $ArstShipId) Return ChildCustomerShipBolNotes objects filtered by the ArstShipId column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipBolNotes> findByArstshipid(string|array<string> $ArstShipId) Return ChildCustomerShipBolNotes objects filtered by the ArstShipId column
+ * @method     ChildCustomerShipBolNotes[]|Collection findByQnseq(int|array<int> $QnSeq) Return ChildCustomerShipBolNotes objects filtered by the QnSeq column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipBolNotes> findByQnseq(int|array<int> $QnSeq) Return ChildCustomerShipBolNotes objects filtered by the QnSeq column
+ * @method     ChildCustomerShipBolNotes[]|Collection findByQnnote(string|array<string> $QnNote) Return ChildCustomerShipBolNotes objects filtered by the QnNote column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipBolNotes> findByQnnote(string|array<string> $QnNote) Return ChildCustomerShipBolNotes objects filtered by the QnNote column
+ * @method     ChildCustomerShipBolNotes[]|Collection findByQnkey2(string|array<string> $QnKey2) Return ChildCustomerShipBolNotes objects filtered by the QnKey2 column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipBolNotes> findByQnkey2(string|array<string> $QnKey2) Return ChildCustomerShipBolNotes objects filtered by the QnKey2 column
+ * @method     ChildCustomerShipBolNotes[]|Collection findByQnform(string|array<string> $QnForm) Return ChildCustomerShipBolNotes objects filtered by the QnForm column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipBolNotes> findByQnform(string|array<string> $QnForm) Return ChildCustomerShipBolNotes objects filtered by the QnForm column
+ * @method     ChildCustomerShipBolNotes[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildCustomerShipBolNotes objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipBolNotes> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildCustomerShipBolNotes objects filtered by the DateUpdtd column
+ * @method     ChildCustomerShipBolNotes[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildCustomerShipBolNotes objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipBolNotes> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildCustomerShipBolNotes objects filtered by the TimeUpdtd column
+ * @method     ChildCustomerShipBolNotes[]|Collection findByDummy(string|array<string> $dummy) Return ChildCustomerShipBolNotes objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildCustomerShipBolNotes> findByDummy(string|array<string> $dummy) Return ChildCustomerShipBolNotes objects filtered by the dummy column
+ *
+ * @method     ChildCustomerShipBolNotes[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildCustomerShipBolNotes> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class CustomerShipBolNotesQuery extends ModelCriteria
 {
@@ -103,9 +115,9 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\CustomerShipBolNotesQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\CustomerShipBolNotes', $modelAlias = null)
     {
@@ -115,12 +127,12 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
     /**
      * Returns a new ChildCustomerShipBolNotesQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildCustomerShipBolNotesQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildCustomerShipBolNotesQuery) {
             return $criteria;
@@ -150,7 +162,7 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      *
      * @return ChildCustomerShipBolNotes|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -182,8 +194,8 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -218,8 +230,8 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildCustomerShipBolNotes|array|mixed the result, formatted by the current formatter
      */
@@ -239,12 +251,12 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -261,9 +273,9 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildCustomerShipBolNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -278,14 +290,16 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildCustomerShipBolNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(CustomerShipBolNotesTableMap::COL_QNTYPE, $key[0], Criteria::EQUAL);
@@ -308,14 +322,15 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByQntype('fooValue');   // WHERE QnType = 'fooValue'
      * $query->filterByQntype('%fooValue%', Criteria::LIKE); // WHERE QnType LIKE '%fooValue%'
+     * $query->filterByQntype(['foo', 'bar']); // WHERE QnType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qntype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qntype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShipBolNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQntype($qntype = null, $comparison = null)
+    public function filterByQntype($qntype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qntype)) {
@@ -323,7 +338,9 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNTYPE, $qntype, $comparison);
+        $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNTYPE, $qntype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -333,14 +350,15 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByQntypedesc('fooValue');   // WHERE QnTypeDesc = 'fooValue'
      * $query->filterByQntypedesc('%fooValue%', Criteria::LIKE); // WHERE QnTypeDesc LIKE '%fooValue%'
+     * $query->filterByQntypedesc(['foo', 'bar']); // WHERE QnTypeDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qntypedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qntypedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShipBolNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQntypedesc($qntypedesc = null, $comparison = null)
+    public function filterByQntypedesc($qntypedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qntypedesc)) {
@@ -348,7 +366,9 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
+        $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -358,14 +378,15 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByArcucustid('fooValue');   // WHERE ArcuCustId = 'fooValue'
      * $query->filterByArcucustid('%fooValue%', Criteria::LIKE); // WHERE ArcuCustId LIKE '%fooValue%'
+     * $query->filterByArcucustid(['foo', 'bar']); // WHERE ArcuCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcucustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcucustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShipBolNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcucustid($arcucustid = null, $comparison = null)
+    public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcucustid)) {
@@ -373,7 +394,9 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+        $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -383,14 +406,15 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByArstshipid('fooValue');   // WHERE ArstShipId = 'fooValue'
      * $query->filterByArstshipid('%fooValue%', Criteria::LIKE); // WHERE ArstShipId LIKE '%fooValue%'
+     * $query->filterByArstshipid(['foo', 'bar']); // WHERE ArstShipId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstshipid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstshipid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShipBolNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstshipid($arstshipid = null, $comparison = null)
+    public function filterByArstshipid($arstshipid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstshipid)) {
@@ -398,7 +422,9 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
+        $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -411,15 +437,15 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      * $query->filterByQnseq(array('min' => 12)); // WHERE QnSeq > 12
      * </code>
      *
-     * @param     mixed $qnseq The value to use as filter.
+     * @param mixed $qnseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShipBolNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnseq($qnseq = null, $comparison = null)
+    public function filterByQnseq($qnseq = null, ?string $comparison = null)
     {
         if (is_array($qnseq)) {
             $useMinMax = false;
@@ -439,7 +465,9 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNSEQ, $qnseq, $comparison);
+        $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNSEQ, $qnseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -449,14 +477,15 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByQnnote('fooValue');   // WHERE QnNote = 'fooValue'
      * $query->filterByQnnote('%fooValue%', Criteria::LIKE); // WHERE QnNote LIKE '%fooValue%'
+     * $query->filterByQnnote(['foo', 'bar']); // WHERE QnNote IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnnote The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnnote The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShipBolNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnnote($qnnote = null, $comparison = null)
+    public function filterByQnnote($qnnote = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnnote)) {
@@ -464,7 +493,9 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNNOTE, $qnnote, $comparison);
+        $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNNOTE, $qnnote, $comparison);
+
+        return $this;
     }
 
     /**
@@ -474,14 +505,15 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByQnkey2('fooValue');   // WHERE QnKey2 = 'fooValue'
      * $query->filterByQnkey2('%fooValue%', Criteria::LIKE); // WHERE QnKey2 LIKE '%fooValue%'
+     * $query->filterByQnkey2(['foo', 'bar']); // WHERE QnKey2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnkey2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnkey2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShipBolNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnkey2($qnkey2 = null, $comparison = null)
+    public function filterByQnkey2($qnkey2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnkey2)) {
@@ -489,7 +521,9 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNKEY2, $qnkey2, $comparison);
+        $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNKEY2, $qnkey2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -499,14 +533,15 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByQnform('fooValue');   // WHERE QnForm = 'fooValue'
      * $query->filterByQnform('%fooValue%', Criteria::LIKE); // WHERE QnForm LIKE '%fooValue%'
+     * $query->filterByQnform(['foo', 'bar']); // WHERE QnForm IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnform The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnform The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShipBolNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnform($qnform = null, $comparison = null)
+    public function filterByQnform($qnform = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnform)) {
@@ -514,7 +549,9 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNFORM, $qnform, $comparison);
+        $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_QNFORM, $qnform, $comparison);
+
+        return $this;
     }
 
     /**
@@ -524,14 +561,15 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShipBolNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -539,7 +577,9 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -549,14 +589,15 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShipBolNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -564,7 +605,9 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -574,14 +617,15 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerShipBolNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -589,15 +633,17 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(CustomerShipBolNotesTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildCustomerShipBolNotes $customerShipBolNotes Object to remove from the list of results
+     * @param ChildCustomerShipBolNotes $customerShipBolNotes Object to remove from the list of results
      *
-     * @return $this|ChildCustomerShipBolNotesQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($customerShipBolNotes = null)
     {
@@ -618,7 +664,7 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerShipBolNotesTableMap::DATABASE_NAME);
@@ -643,12 +689,12 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CustomerShipBolNotesTableMap::DATABASE_NAME);
@@ -673,4 +719,4 @@ abstract class CustomerShipBolNotesQuery extends ModelCriteria
         });
     }
 
-} // CustomerShipBolNotesQuery
+}

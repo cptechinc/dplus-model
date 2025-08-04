@@ -44,19 +44,21 @@ abstract class SalesHistory implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\SalesHistoryTableMap';
+    public const TABLE_MAP = '\\Map\\SalesHistoryTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -65,14 +67,14 @@ abstract class SalesHistory implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the oehhnbr field.
@@ -1606,18 +1608,21 @@ abstract class SalesHistory implements ActiveRecordInterface
 
     /**
      * @var        ObjectCollection|ChildSalesHistoryDetail[] Collection to store aggregation of ChildSalesHistoryDetail objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesHistoryDetail> Collection to store aggregation of ChildSalesHistoryDetail objects.
      */
     protected $collSalesHistoryDetails;
     protected $collSalesHistoryDetailsPartial;
 
     /**
      * @var        ObjectCollection|ChildSalesOrderShipment[] Collection to store aggregation of ChildSalesOrderShipment objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderShipment> Collection to store aggregation of ChildSalesOrderShipment objects.
      */
     protected $collSalesOrderShipments;
     protected $collSalesOrderShipmentsPartial;
 
     /**
      * @var        ObjectCollection|ChildSalesHistoryLotserial[] Collection to store aggregation of ChildSalesHistoryLotserial objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesHistoryLotserial> Collection to store aggregation of ChildSalesHistoryLotserial objects.
      */
     protected $collSalesHistoryLotserials;
     protected $collSalesHistoryLotserialsPartial;
@@ -1626,25 +1631,28 @@ abstract class SalesHistory implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesHistoryDetail[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesHistoryDetail>
      */
     protected $salesHistoryDetailsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesOrderShipment[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderShipment>
      */
     protected $salesOrderShipmentsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesHistoryLotserial[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesHistoryLotserial>
      */
     protected $salesHistoryLotserialsScheduledForDeletion = null;
 
@@ -1654,7 +1662,7 @@ abstract class SalesHistory implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->oehhnbr = 0;
         $this->oehhyear = '';
@@ -1860,9 +1868,9 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -1870,10 +1878,10 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -1882,7 +1890,7 @@ abstract class SalesHistory implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -1892,9 +1900,9 @@ abstract class SalesHistory implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -1903,45 +1911,43 @@ abstract class SalesHistory implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -1950,10 +1956,10 @@ abstract class SalesHistory implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>SalesHistory</code>, delegates to
      * <code>equals(SalesHistory)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -1975,7 +1981,7 @@ abstract class SalesHistory implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -1983,10 +1989,10 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -1994,15 +2000,15 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -2011,12 +2017,12 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|SalesHistory The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -2026,13 +2032,13 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -2043,24 +2049,27 @@ abstract class SalesHistory implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -3978,8 +3987,8 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Set the value of [oehhnbr] column.
      *
-     * @param int $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhnbr($v)
     {
@@ -3993,13 +4002,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhnbr()
+    }
 
     /**
      * Set the value of [oehhyear] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhyear($v)
     {
@@ -4013,13 +4022,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhyear()
+    }
 
     /**
      * Set the value of [oehhstat] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhstat($v)
     {
@@ -4033,13 +4042,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhstat()
+    }
 
     /**
      * Set the value of [oehhhold] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhhold($v)
     {
@@ -4053,13 +4062,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhhold()
+    }
 
     /**
      * Set the value of [arcucustid] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArcucustid($v)
     {
@@ -4081,13 +4090,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArcucustid()
+    }
 
     /**
      * Set the value of [arstshipid] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstshipid($v)
     {
@@ -4105,13 +4114,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstshipid()
+    }
 
     /**
      * Set the value of [oehhstname] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhstname($v)
     {
@@ -4125,13 +4134,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhstname()
+    }
 
     /**
      * Set the value of [oehhstlastname] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhstlastname($v)
     {
@@ -4145,13 +4154,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhstlastname()
+    }
 
     /**
      * Set the value of [oehhstfirstname] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhstfirstname($v)
     {
@@ -4165,13 +4174,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhstfirstname()
+    }
 
     /**
      * Set the value of [oehhstadr1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhstadr1($v)
     {
@@ -4185,13 +4194,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhstadr1()
+    }
 
     /**
      * Set the value of [oehhstadr2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhstadr2($v)
     {
@@ -4205,13 +4214,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhstadr2()
+    }
 
     /**
      * Set the value of [oehhstadr3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhstadr3($v)
     {
@@ -4225,13 +4234,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhstadr3()
+    }
 
     /**
      * Set the value of [oehhstctry] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhstctry($v)
     {
@@ -4245,13 +4254,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhstctry()
+    }
 
     /**
      * Set the value of [oehhstcity] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhstcity($v)
     {
@@ -4265,13 +4274,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhstcity()
+    }
 
     /**
      * Set the value of [oehhststat] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhststat($v)
     {
@@ -4285,13 +4294,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhststat()
+    }
 
     /**
      * Set the value of [oehhstzipcode] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhstzipcode($v)
     {
@@ -4305,13 +4314,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhstzipcode()
+    }
 
     /**
      * Set the value of [oehhcustpo] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcustpo($v)
     {
@@ -4325,13 +4334,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcustpo()
+    }
 
     /**
      * Set the value of [oehhordrdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhordrdate($v)
     {
@@ -4345,13 +4354,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhordrdate()
+    }
 
     /**
      * Set the value of [artmtermcd] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmtermcd($v)
     {
@@ -4365,13 +4374,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmtermcd()
+    }
 
     /**
      * Set the value of [artbshipvia] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbshipvia($v)
     {
@@ -4385,13 +4394,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbshipvia()
+    }
 
     /**
      * Set the value of [arininvnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArininvnbr($v)
     {
@@ -4405,13 +4414,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArininvnbr()
+    }
 
     /**
      * Set the value of [oehhinvdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhinvdate($v)
     {
@@ -4425,13 +4434,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhinvdate()
+    }
 
     /**
      * Set the value of [oehhglpd] column.
      *
-     * @param int $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhglpd($v)
     {
@@ -4445,13 +4454,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhglpd()
+    }
 
     /**
      * Set the value of [arspsaleper1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspsaleper1($v)
     {
@@ -4465,13 +4474,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspsaleper1()
+    }
 
     /**
      * Set the value of [oehhsp1pct] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhsp1pct($v)
     {
@@ -4485,13 +4494,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhsp1pct()
+    }
 
     /**
      * Set the value of [arspsaleper2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspsaleper2($v)
     {
@@ -4505,13 +4514,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspsaleper2()
+    }
 
     /**
      * Set the value of [oehhsp2pct] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhsp2pct($v)
     {
@@ -4525,13 +4534,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhsp2pct()
+    }
 
     /**
      * Set the value of [arspsaleper3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspsaleper3($v)
     {
@@ -4545,13 +4554,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspsaleper3()
+    }
 
     /**
      * Set the value of [oehhsp3pct] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhsp3pct($v)
     {
@@ -4565,13 +4574,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhsp3pct()
+    }
 
     /**
      * Set the value of [oehhcntrnbr] column.
      *
-     * @param int $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcntrnbr($v)
     {
@@ -4585,13 +4594,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcntrnbr()
+    }
 
     /**
      * Set the value of [oehhwibatch] column.
      *
-     * @param int $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhwibatch($v)
     {
@@ -4605,13 +4614,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhwibatch()
+    }
 
     /**
      * Set the value of [oehhdroprelhold] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdroprelhold($v)
     {
@@ -4625,13 +4634,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdroprelhold()
+    }
 
     /**
      * Set the value of [oehhtaxsub] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhtaxsub($v)
     {
@@ -4645,13 +4654,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhtaxsub()
+    }
 
     /**
      * Set the value of [oehhnontaxsub] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhnontaxsub($v)
     {
@@ -4665,13 +4674,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhnontaxsub()
+    }
 
     /**
      * Set the value of [oehhtaxtot] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhtaxtot($v)
     {
@@ -4685,13 +4694,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhtaxtot()
+    }
 
     /**
      * Set the value of [oehhfrttot] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfrttot($v)
     {
@@ -4705,13 +4714,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfrttot()
+    }
 
     /**
      * Set the value of [oehhmisctot] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhmisctot($v)
     {
@@ -4725,13 +4734,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhmisctot()
+    }
 
     /**
      * Set the value of [oehhordrtot] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhordrtot($v)
     {
@@ -4745,13 +4754,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhordrtot()
+    }
 
     /**
      * Set the value of [oehhcosttot] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcosttot($v)
     {
@@ -4765,13 +4774,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcosttot()
+    }
 
     /**
      * Set the value of [oehhspcommlock] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhspcommlock($v)
     {
@@ -4785,13 +4794,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhspcommlock()
+    }
 
     /**
      * Set the value of [oehhtakendate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhtakendate($v)
     {
@@ -4805,13 +4814,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhtakendate()
+    }
 
     /**
      * Set the value of [oehhtakentime] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhtakentime($v)
     {
@@ -4825,13 +4834,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhtakentime()
+    }
 
     /**
      * Set the value of [oehhpickdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhpickdate($v)
     {
@@ -4845,13 +4854,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhpickdate()
+    }
 
     /**
      * Set the value of [oehhpicktime] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhpicktime($v)
     {
@@ -4865,13 +4874,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhpicktime()
+    }
 
     /**
      * Set the value of [oehhpackdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhpackdate($v)
     {
@@ -4885,13 +4894,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhpackdate()
+    }
 
     /**
      * Set the value of [oehhpacktime] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhpacktime($v)
     {
@@ -4905,13 +4914,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhpacktime()
+    }
 
     /**
      * Set the value of [oehhverifydate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhverifydate($v)
     {
@@ -4925,13 +4934,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhverifydate()
+    }
 
     /**
      * Set the value of [oehhverifytime] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhverifytime($v)
     {
@@ -4945,13 +4954,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhverifytime()
+    }
 
     /**
      * Set the value of [oehhcreditmemo] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcreditmemo($v)
     {
@@ -4965,13 +4974,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcreditmemo()
+    }
 
     /**
      * Set the value of [oehhbookedyn] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhbookedyn($v)
     {
@@ -4985,13 +4994,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhbookedyn()
+    }
 
     /**
      * Set the value of [intbwhseorig] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhseorig($v)
     {
@@ -5005,13 +5014,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhseorig()
+    }
 
     /**
      * Set the value of [oehhbtstat] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhbtstat($v)
     {
@@ -5025,13 +5034,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhbtstat()
+    }
 
     /**
      * Set the value of [oehhshipcomp] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhshipcomp($v)
     {
@@ -5045,13 +5054,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhshipcomp()
+    }
 
     /**
      * Set the value of [oehhcwoflag] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcwoflag($v)
     {
@@ -5065,13 +5074,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcwoflag()
+    }
 
     /**
      * Set the value of [oehhdivision] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdivision($v)
     {
@@ -5085,13 +5094,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdivision()
+    }
 
     /**
      * Set the value of [oehhtakencode] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhtakencode($v)
     {
@@ -5105,13 +5114,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhtakencode()
+    }
 
     /**
      * Set the value of [oehhpickcode] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhpickcode($v)
     {
@@ -5125,13 +5134,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhpickcode()
+    }
 
     /**
      * Set the value of [oehhpackcode] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhpackcode($v)
     {
@@ -5145,13 +5154,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhpackcode()
+    }
 
     /**
      * Set the value of [oehhverifycode] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhverifycode($v)
     {
@@ -5165,13 +5174,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhverifycode()
+    }
 
     /**
      * Set the value of [oehhtotdisc] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhtotdisc($v)
     {
@@ -5185,13 +5194,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhtotdisc()
+    }
 
     /**
      * Set the value of [oehhedirefnbrqual] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhedirefnbrqual($v)
     {
@@ -5205,13 +5214,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhedirefnbrqual()
+    }
 
     /**
      * Set the value of [oehhusercode1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhusercode1($v)
     {
@@ -5225,13 +5234,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhusercode1()
+    }
 
     /**
      * Set the value of [oehhusercode2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhusercode2($v)
     {
@@ -5245,13 +5254,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhusercode2()
+    }
 
     /**
      * Set the value of [oehhusercode3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhusercode3($v)
     {
@@ -5265,13 +5274,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhusercode3()
+    }
 
     /**
      * Set the value of [oehhusercode4] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhusercode4($v)
     {
@@ -5285,13 +5294,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhusercode4()
+    }
 
     /**
      * Set the value of [oehhexchctry] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhexchctry($v)
     {
@@ -5305,13 +5314,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhexchctry()
+    }
 
     /**
      * Set the value of [oehhexchrate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhexchrate($v)
     {
@@ -5325,13 +5334,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhexchrate()
+    }
 
     /**
      * Set the value of [oehhwghttot] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhwghttot($v)
     {
@@ -5345,13 +5354,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhwghttot()
+    }
 
     /**
      * Set the value of [oehhwghtoride] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhwghtoride($v)
     {
@@ -5365,13 +5374,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhwghtoride()
+    }
 
     /**
      * Set the value of [oehhccinfo] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhccinfo($v)
     {
@@ -5385,13 +5394,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhccinfo()
+    }
 
     /**
      * Set the value of [oehhboxcount] column.
      *
-     * @param int $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhboxcount($v)
     {
@@ -5405,13 +5414,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhboxcount()
+    }
 
     /**
      * Set the value of [oehhrqstdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhrqstdate($v)
     {
@@ -5425,13 +5434,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhrqstdate()
+    }
 
     /**
      * Set the value of [oehhcancdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcancdate($v)
     {
@@ -5445,13 +5454,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcancdate()
+    }
 
     /**
      * Set the value of [oehhcrntuser] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcrntuser($v)
     {
@@ -5465,13 +5474,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcrntuser()
+    }
 
     /**
      * Set the value of [oehhreleasenbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhreleasenbr($v)
     {
@@ -5485,13 +5494,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhreleasenbr()
+    }
 
     /**
      * Set the value of [intbwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhse($v)
     {
@@ -5505,13 +5514,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhse()
+    }
 
     /**
      * Set the value of [oehhbordbuilddate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhbordbuilddate($v)
     {
@@ -5525,13 +5534,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhbordbuilddate()
+    }
 
     /**
      * Set the value of [oehhdeptcode] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdeptcode($v)
     {
@@ -5545,13 +5554,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdeptcode()
+    }
 
     /**
      * Set the value of [oehhfrtinentered] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfrtinentered($v)
     {
@@ -5565,13 +5574,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfrtinentered()
+    }
 
     /**
      * Set the value of [oehhdropshipentered] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdropshipentered($v)
     {
@@ -5585,13 +5594,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdropshipentered()
+    }
 
     /**
      * Set the value of [oehherflag] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehherflag($v)
     {
@@ -5605,13 +5614,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehherflag()
+    }
 
     /**
      * Set the value of [oehhfrtin] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfrtin($v)
     {
@@ -5625,13 +5634,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfrtin()
+    }
 
     /**
      * Set the value of [oehhdropship] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdropship($v)
     {
@@ -5645,13 +5654,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdropship()
+    }
 
     /**
      * Set the value of [oehhminorder] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhminorder($v)
     {
@@ -5665,13 +5674,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhminorder()
+    }
 
     /**
      * Set the value of [oehhcontractterms] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcontractterms($v)
     {
@@ -5685,13 +5694,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcontractterms()
+    }
 
     /**
      * Set the value of [oehhdropshipbilled] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdropshipbilled($v)
     {
@@ -5705,13 +5714,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdropshipbilled()
+    }
 
     /**
      * Set the value of [oehhordtyp] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhordtyp($v)
     {
@@ -5725,13 +5734,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhordtyp()
+    }
 
     /**
      * Set the value of [oehhtracknbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhtracknbr($v)
     {
@@ -5745,13 +5754,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhtracknbr()
+    }
 
     /**
      * Set the value of [oehhsource] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhsource($v)
     {
@@ -5765,13 +5774,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhsource()
+    }
 
     /**
      * Set the value of [oehhccaprv] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhccaprv($v)
     {
@@ -5785,13 +5794,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhccaprv()
+    }
 
     /**
      * Set the value of [oehhpickfmattype] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhpickfmattype($v)
     {
@@ -5805,13 +5814,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhpickfmattype()
+    }
 
     /**
      * Set the value of [oehhinvcfmattype] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhinvcfmattype($v)
     {
@@ -5825,13 +5834,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhinvcfmattype()
+    }
 
     /**
      * Set the value of [oehhcashamt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcashamt($v)
     {
@@ -5845,13 +5854,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcashamt()
+    }
 
     /**
      * Set the value of [oehhcheckamt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcheckamt($v)
     {
@@ -5865,13 +5874,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcheckamt()
+    }
 
     /**
      * Set the value of [oehhchecknbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhchecknbr($v)
     {
@@ -5885,13 +5894,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhchecknbr()
+    }
 
     /**
      * Set the value of [oehhdepositamt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdepositamt($v)
     {
@@ -5905,13 +5914,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdepositamt()
+    }
 
     /**
      * Set the value of [oehhdepositnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdepositnbr($v)
     {
@@ -5925,13 +5934,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdepositnbr()
+    }
 
     /**
      * Set the value of [oehhccamt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhccamt($v)
     {
@@ -5945,13 +5954,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhccamt()
+    }
 
     /**
      * Set the value of [oehhotaxsub] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhotaxsub($v)
     {
@@ -5965,13 +5974,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhotaxsub()
+    }
 
     /**
      * Set the value of [oehhonontaxsub] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhonontaxsub($v)
     {
@@ -5985,13 +5994,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhonontaxsub()
+    }
 
     /**
      * Set the value of [oehhotaxtot] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhotaxtot($v)
     {
@@ -6005,13 +6014,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhotaxtot()
+    }
 
     /**
      * Set the value of [oehhoordrtot] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhoordrtot($v)
     {
@@ -6025,13 +6034,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhoordrtot()
+    }
 
     /**
      * Set the value of [oehhpickprintdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhpickprintdate($v)
     {
@@ -6045,13 +6054,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhpickprintdate()
+    }
 
     /**
      * Set the value of [oehhpickprinttime] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhpickprinttime($v)
     {
@@ -6065,13 +6074,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhpickprinttime()
+    }
 
     /**
      * Set the value of [oehhcont] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcont($v)
     {
@@ -6085,13 +6094,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcont()
+    }
 
     /**
      * Set the value of [oehhcontteleintl] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcontteleintl($v)
     {
@@ -6105,13 +6114,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcontteleintl()
+    }
 
     /**
      * Set the value of [oehhconttelenbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhconttelenbr($v)
     {
@@ -6125,13 +6134,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhconttelenbr()
+    }
 
     /**
      * Set the value of [oehhcontteleext] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcontteleext($v)
     {
@@ -6145,13 +6154,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcontteleext()
+    }
 
     /**
      * Set the value of [oehhcontfaxintl] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcontfaxintl($v)
     {
@@ -6165,13 +6174,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcontfaxintl()
+    }
 
     /**
      * Set the value of [oehhcontfaxnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcontfaxnbr($v)
     {
@@ -6185,13 +6194,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcontfaxnbr()
+    }
 
     /**
      * Set the value of [oehhshipacct] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhshipacct($v)
     {
@@ -6205,13 +6214,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhshipacct()
+    }
 
     /**
      * Set the value of [oehhchgdue] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhchgdue($v)
     {
@@ -6225,13 +6234,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhchgdue()
+    }
 
     /**
      * Set the value of [oehhaddlpricdisc] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhaddlpricdisc($v)
     {
@@ -6245,13 +6254,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhaddlpricdisc()
+    }
 
     /**
      * Set the value of [oehhallship] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhallship($v)
     {
@@ -6265,13 +6274,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhallship()
+    }
 
     /**
      * Set the value of [oehhqtyorderamt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhqtyorderamt($v)
     {
@@ -6285,13 +6294,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhqtyorderamt()
+    }
 
     /**
      * Set the value of [oehhcreditapplied] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcreditapplied($v)
     {
@@ -6305,13 +6314,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcreditapplied()
+    }
 
     /**
      * Set the value of [oehhinvcprintdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhinvcprintdate($v)
     {
@@ -6325,13 +6334,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhinvcprintdate()
+    }
 
     /**
      * Set the value of [oehhinvcprinttime] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhinvcprinttime($v)
     {
@@ -6345,13 +6354,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhinvcprinttime()
+    }
 
     /**
      * Set the value of [oehhdiscfrt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdiscfrt($v)
     {
@@ -6365,13 +6374,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdiscfrt()
+    }
 
     /**
      * Set the value of [oehhorideshipcomp] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhorideshipcomp($v)
     {
@@ -6385,13 +6394,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhorideshipcomp()
+    }
 
     /**
      * Set the value of [oehhcontemail] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcontemail($v)
     {
@@ -6405,13 +6414,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcontemail()
+    }
 
     /**
      * Set the value of [oehhmanualfrt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhmanualfrt($v)
     {
@@ -6425,13 +6434,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhmanualfrt()
+    }
 
     /**
      * Set the value of [oehhinternalfrt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhinternalfrt($v)
     {
@@ -6445,13 +6454,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhinternalfrt()
+    }
 
     /**
      * Set the value of [oehhfrtcost] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfrtcost($v)
     {
@@ -6465,13 +6474,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfrtcost()
+    }
 
     /**
      * Set the value of [oehhroute] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhroute($v)
     {
@@ -6485,13 +6494,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhroute()
+    }
 
     /**
      * Set the value of [oehhrouteseq] column.
      *
-     * @param int $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param int $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhrouteseq($v)
     {
@@ -6505,13 +6514,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhrouteseq()
+    }
 
     /**
      * Set the value of [oehhfrttaxcode1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfrttaxcode1($v)
     {
@@ -6525,13 +6534,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfrttaxcode1()
+    }
 
     /**
      * Set the value of [oehhfrttaxamt1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfrttaxamt1($v)
     {
@@ -6545,13 +6554,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfrttaxamt1()
+    }
 
     /**
      * Set the value of [oehhfrttaxcode2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfrttaxcode2($v)
     {
@@ -6565,13 +6574,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfrttaxcode2()
+    }
 
     /**
      * Set the value of [oehhfrttaxamt2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfrttaxamt2($v)
     {
@@ -6585,13 +6594,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfrttaxamt2()
+    }
 
     /**
      * Set the value of [oehhfrttaxcode3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfrttaxcode3($v)
     {
@@ -6605,13 +6614,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfrttaxcode3()
+    }
 
     /**
      * Set the value of [oehhfrttaxamt3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfrttaxamt3($v)
     {
@@ -6625,13 +6634,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfrttaxamt3()
+    }
 
     /**
      * Set the value of [oehhfrttaxcode4] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfrttaxcode4($v)
     {
@@ -6645,13 +6654,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfrttaxcode4()
+    }
 
     /**
      * Set the value of [oehhfrttaxamt4] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfrttaxamt4($v)
     {
@@ -6665,13 +6674,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfrttaxamt4()
+    }
 
     /**
      * Set the value of [oehhfrttaxcode5] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfrttaxcode5($v)
     {
@@ -6685,13 +6694,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfrttaxcode5()
+    }
 
     /**
      * Set the value of [oehhfrttaxamt5] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfrttaxamt5($v)
     {
@@ -6705,13 +6714,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfrttaxamt5()
+    }
 
     /**
      * Set the value of [oehhedi855sent] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhedi855sent($v)
     {
@@ -6725,13 +6734,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhedi855sent()
+    }
 
     /**
      * Set the value of [oehhfrt3rdparty] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfrt3rdparty($v)
     {
@@ -6745,13 +6754,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfrt3rdparty()
+    }
 
     /**
      * Set the value of [oehhfob] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfob($v)
     {
@@ -6765,13 +6774,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfob()
+    }
 
     /**
      * Set the value of [oehhconfirmimagyn] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhconfirmimagyn($v)
     {
@@ -6785,13 +6794,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhconfirmimagyn()
+    }
 
     /**
      * Set the value of [oehhindustconform] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhindustconform($v)
     {
@@ -6805,13 +6814,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhindustconform()
+    }
 
     /**
      * Set the value of [oehhcstkconsign] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcstkconsign($v)
     {
@@ -6825,13 +6834,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcstkconsign()
+    }
 
     /**
      * Set the value of [oehhlmdelaycapsent] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhlmdelaycapsent($v)
     {
@@ -6845,13 +6854,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhlmdelaycapsent()
+    }
 
     /**
      * Set the value of [oehhmfgid] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhmfgid($v)
     {
@@ -6865,13 +6874,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhmfgid()
+    }
 
     /**
      * Set the value of [oehhstoreid] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhstoreid($v)
     {
@@ -6885,13 +6894,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhstoreid()
+    }
 
     /**
      * Set the value of [oehhpickqueue] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhpickqueue($v)
     {
@@ -6905,13 +6914,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhpickqueue()
+    }
 
     /**
      * Set the value of [oehharrvdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehharrvdate($v)
     {
@@ -6925,13 +6934,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehharrvdate()
+    }
 
     /**
      * Set the value of [oehhsurchgstat] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhsurchgstat($v)
     {
@@ -6945,13 +6954,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhsurchgstat()
+    }
 
     /**
      * Set the value of [oehhfrtgrup] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhfrtgrup($v)
     {
@@ -6965,13 +6974,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhfrtgrup()
+    }
 
     /**
      * Set the value of [oehhcommoride] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhcommoride($v)
     {
@@ -6985,13 +6994,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhcommoride()
+    }
 
     /**
      * Set the value of [oehhchrgsplt] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhchrgsplt($v)
     {
@@ -7005,13 +7014,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhchrgsplt()
+    }
 
     /**
      * Set the value of [oehhacccaprv] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhacccaprv($v)
     {
@@ -7025,13 +7034,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhacccaprv()
+    }
 
     /**
      * Set the value of [oehhorigordrnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhorigordrnbr($v)
     {
@@ -7045,13 +7054,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhorigordrnbr()
+    }
 
     /**
      * Set the value of [oehhpostdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhpostdate($v)
     {
@@ -7065,13 +7074,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhpostdate()
+    }
 
     /**
      * Set the value of [oehhdiscdate1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdiscdate1($v)
     {
@@ -7085,13 +7094,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdiscdate1()
+    }
 
     /**
      * Set the value of [oehhdiscpct1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdiscpct1($v)
     {
@@ -7105,13 +7114,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdiscpct1()
+    }
 
     /**
      * Set the value of [oehhduedate1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhduedate1($v)
     {
@@ -7125,13 +7134,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhduedate1()
+    }
 
     /**
      * Set the value of [oehhdueamt1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdueamt1($v)
     {
@@ -7145,13 +7154,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdueamt1()
+    }
 
     /**
      * Set the value of [oehhduepct1] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhduepct1($v)
     {
@@ -7165,13 +7174,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhduepct1()
+    }
 
     /**
      * Set the value of [oehhdiscdate2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdiscdate2($v)
     {
@@ -7185,13 +7194,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdiscdate2()
+    }
 
     /**
      * Set the value of [oehhdiscpct2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdiscpct2($v)
     {
@@ -7205,13 +7214,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdiscpct2()
+    }
 
     /**
      * Set the value of [oehhduedate2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhduedate2($v)
     {
@@ -7225,13 +7234,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhduedate2()
+    }
 
     /**
      * Set the value of [oehhdueamt2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdueamt2($v)
     {
@@ -7245,13 +7254,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdueamt2()
+    }
 
     /**
      * Set the value of [oehhduepct2] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhduepct2($v)
     {
@@ -7265,13 +7274,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhduepct2()
+    }
 
     /**
      * Set the value of [oehhdiscdate3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdiscdate3($v)
     {
@@ -7285,13 +7294,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdiscdate3()
+    }
 
     /**
      * Set the value of [oehhdiscpct3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdiscpct3($v)
     {
@@ -7305,13 +7314,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdiscpct3()
+    }
 
     /**
      * Set the value of [oehhduedate3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhduedate3($v)
     {
@@ -7325,13 +7334,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhduedate3()
+    }
 
     /**
      * Set the value of [oehhdueamt3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdueamt3($v)
     {
@@ -7345,13 +7354,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdueamt3()
+    }
 
     /**
      * Set the value of [oehhduepct3] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhduepct3($v)
     {
@@ -7365,13 +7374,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhduepct3()
+    }
 
     /**
      * Set the value of [oehhdiscdate4] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdiscdate4($v)
     {
@@ -7385,13 +7394,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdiscdate4()
+    }
 
     /**
      * Set the value of [oehhdiscpct4] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdiscpct4($v)
     {
@@ -7405,13 +7414,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdiscpct4()
+    }
 
     /**
      * Set the value of [oehhduedate4] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhduedate4($v)
     {
@@ -7425,13 +7434,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhduedate4()
+    }
 
     /**
      * Set the value of [oehhdueamt4] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdueamt4($v)
     {
@@ -7445,13 +7454,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdueamt4()
+    }
 
     /**
      * Set the value of [oehhduepct4] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhduepct4($v)
     {
@@ -7465,13 +7474,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhduepct4()
+    }
 
     /**
      * Set the value of [oehhdiscdate5] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdiscdate5($v)
     {
@@ -7485,13 +7494,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdiscdate5()
+    }
 
     /**
      * Set the value of [oehhdiscpct5] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdiscpct5($v)
     {
@@ -7505,13 +7514,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdiscpct5()
+    }
 
     /**
      * Set the value of [oehhduedate5] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhduedate5($v)
     {
@@ -7525,13 +7534,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhduedate5()
+    }
 
     /**
      * Set the value of [oehhdueamt5] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdueamt5($v)
     {
@@ -7545,13 +7554,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdueamt5()
+    }
 
     /**
      * Set the value of [oehhduepct5] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhduepct5($v)
     {
@@ -7565,13 +7574,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhduepct5()
+    }
 
     /**
      * Set the value of [oehhdiscdate6] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdiscdate6($v)
     {
@@ -7585,13 +7594,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdiscdate6()
+    }
 
     /**
      * Set the value of [oehhdiscpct6] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdiscpct6($v)
     {
@@ -7605,13 +7614,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdiscpct6()
+    }
 
     /**
      * Set the value of [oehhduedate6] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhduedate6($v)
     {
@@ -7625,13 +7634,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhduedate6()
+    }
 
     /**
      * Set the value of [oehhdueamt6] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhdueamt6($v)
     {
@@ -7645,13 +7654,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhdueamt6()
+    }
 
     /**
      * Set the value of [oehhduepct6] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhduepct6($v)
     {
@@ -7665,13 +7674,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhduepct6()
+    }
 
     /**
      * Set the value of [oehhrefnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhrefnbr($v)
     {
@@ -7685,13 +7694,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhrefnbr()
+    }
 
     /**
      * Set the value of [oehhacprognbr] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhacprognbr($v)
     {
@@ -7705,13 +7714,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhacprognbr()
+    }
 
     /**
      * Set the value of [oehhacprogexpdate] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setOehhacprogexpdate($v)
     {
@@ -7725,13 +7734,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setOehhacprogexpdate()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -7745,13 +7754,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -7765,13 +7774,13 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -7785,7 +7794,7 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -7793,9 +7802,9 @@ abstract class SalesHistory implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->oehhnbr !== 0) {
                 return false;
@@ -8559,7 +8568,7 @@ abstract class SalesHistory implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -8569,17 +8578,17 @@ abstract class SalesHistory implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -9152,8 +9161,8 @@ abstract class SalesHistory implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 189 + $startcol : SalesHistoryTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -9178,9 +9187,10 @@ abstract class SalesHistory implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
         if ($this->aCustomer !== null && $this->arcucustid !== $this->aCustomer->getArcucustid()) {
             $this->aCustomer = null;
@@ -9191,19 +9201,19 @@ abstract class SalesHistory implements ActiveRecordInterface
         if ($this->aCustomerShipto !== null && $this->arstshipid !== $this->aCustomerShipto->getArstshipid()) {
             $this->aCustomerShipto = null;
         }
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -9244,13 +9254,13 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see SalesHistory::setDeleted()
      * @see SalesHistory::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -9280,12 +9290,12 @@ abstract class SalesHistory implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -9330,12 +9340,12 @@ abstract class SalesHistory implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -9427,19 +9437,19 @@ abstract class SalesHistory implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -10027,573 +10037,763 @@ abstract class SalesHistory implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'OehhNbr':
                         $stmt->bindValue($identifier, $this->oehhnbr, PDO::PARAM_INT);
+
                         break;
                     case 'OehhYear':
                         $stmt->bindValue($identifier, $this->oehhyear, PDO::PARAM_STR);
+
                         break;
                     case 'OehhStat':
                         $stmt->bindValue($identifier, $this->oehhstat, PDO::PARAM_STR);
+
                         break;
                     case 'OehhHold':
                         $stmt->bindValue($identifier, $this->oehhhold, PDO::PARAM_STR);
+
                         break;
                     case 'ArcuCustId':
                         $stmt->bindValue($identifier, $this->arcucustid, PDO::PARAM_STR);
+
                         break;
                     case 'ArstShipId':
                         $stmt->bindValue($identifier, $this->arstshipid, PDO::PARAM_STR);
+
                         break;
                     case 'OehhStName':
                         $stmt->bindValue($identifier, $this->oehhstname, PDO::PARAM_STR);
+
                         break;
                     case 'OehhStLastName':
                         $stmt->bindValue($identifier, $this->oehhstlastname, PDO::PARAM_STR);
+
                         break;
                     case 'OehhStFirstName':
                         $stmt->bindValue($identifier, $this->oehhstfirstname, PDO::PARAM_STR);
+
                         break;
                     case 'OehhStAdr1':
                         $stmt->bindValue($identifier, $this->oehhstadr1, PDO::PARAM_STR);
+
                         break;
                     case 'OehhStAdr2':
                         $stmt->bindValue($identifier, $this->oehhstadr2, PDO::PARAM_STR);
+
                         break;
                     case 'OehhStAdr3':
                         $stmt->bindValue($identifier, $this->oehhstadr3, PDO::PARAM_STR);
+
                         break;
                     case 'OehhStCtry':
                         $stmt->bindValue($identifier, $this->oehhstctry, PDO::PARAM_STR);
+
                         break;
                     case 'OehhStCity':
                         $stmt->bindValue($identifier, $this->oehhstcity, PDO::PARAM_STR);
+
                         break;
                     case 'OehhStStat':
                         $stmt->bindValue($identifier, $this->oehhststat, PDO::PARAM_STR);
+
                         break;
                     case 'OehhStZipCode':
                         $stmt->bindValue($identifier, $this->oehhstzipcode, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCustPo':
                         $stmt->bindValue($identifier, $this->oehhcustpo, PDO::PARAM_STR);
+
                         break;
                     case 'OehhOrdrDate':
                         $stmt->bindValue($identifier, $this->oehhordrdate, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmTermCd':
                         $stmt->bindValue($identifier, $this->artmtermcd, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbShipVia':
                         $stmt->bindValue($identifier, $this->artbshipvia, PDO::PARAM_STR);
+
                         break;
                     case 'ArinInvNbr':
                         $stmt->bindValue($identifier, $this->arininvnbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehhInvDate':
                         $stmt->bindValue($identifier, $this->oehhinvdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehhGLPd':
                         $stmt->bindValue($identifier, $this->oehhglpd, PDO::PARAM_INT);
+
                         break;
                     case 'ArspSalePer1':
                         $stmt->bindValue($identifier, $this->arspsaleper1, PDO::PARAM_STR);
+
                         break;
                     case 'OehhSp1Pct':
                         $stmt->bindValue($identifier, $this->oehhsp1pct, PDO::PARAM_STR);
+
                         break;
                     case 'ArspSalePer2':
                         $stmt->bindValue($identifier, $this->arspsaleper2, PDO::PARAM_STR);
+
                         break;
                     case 'OehhSp2Pct':
                         $stmt->bindValue($identifier, $this->oehhsp2pct, PDO::PARAM_STR);
+
                         break;
                     case 'ArspSalePer3':
                         $stmt->bindValue($identifier, $this->arspsaleper3, PDO::PARAM_STR);
+
                         break;
                     case 'OehhSp3Pct':
                         $stmt->bindValue($identifier, $this->oehhsp3pct, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCntrNbr':
                         $stmt->bindValue($identifier, $this->oehhcntrnbr, PDO::PARAM_INT);
+
                         break;
                     case 'OehhWiBatch':
                         $stmt->bindValue($identifier, $this->oehhwibatch, PDO::PARAM_INT);
+
                         break;
                     case 'OehhDropRelHold':
                         $stmt->bindValue($identifier, $this->oehhdroprelhold, PDO::PARAM_STR);
+
                         break;
                     case 'OehhTaxSub':
                         $stmt->bindValue($identifier, $this->oehhtaxsub, PDO::PARAM_STR);
+
                         break;
                     case 'OehhNonTaxSub':
                         $stmt->bindValue($identifier, $this->oehhnontaxsub, PDO::PARAM_STR);
+
                         break;
                     case 'OehhTaxTot':
                         $stmt->bindValue($identifier, $this->oehhtaxtot, PDO::PARAM_STR);
+
                         break;
                     case 'OehhFrtTot':
                         $stmt->bindValue($identifier, $this->oehhfrttot, PDO::PARAM_STR);
+
                         break;
                     case 'OehhMiscTot':
                         $stmt->bindValue($identifier, $this->oehhmisctot, PDO::PARAM_STR);
+
                         break;
                     case 'OehhOrdrTot':
                         $stmt->bindValue($identifier, $this->oehhordrtot, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCostTot':
                         $stmt->bindValue($identifier, $this->oehhcosttot, PDO::PARAM_STR);
+
                         break;
                     case 'OehhSpCommLock':
                         $stmt->bindValue($identifier, $this->oehhspcommlock, PDO::PARAM_STR);
+
                         break;
                     case 'OehhTakenDate':
                         $stmt->bindValue($identifier, $this->oehhtakendate, PDO::PARAM_STR);
+
                         break;
                     case 'OehhTakenTime':
                         $stmt->bindValue($identifier, $this->oehhtakentime, PDO::PARAM_STR);
+
                         break;
                     case 'OehhPickDate':
                         $stmt->bindValue($identifier, $this->oehhpickdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehhPickTime':
                         $stmt->bindValue($identifier, $this->oehhpicktime, PDO::PARAM_STR);
+
                         break;
                     case 'OehhPackDate':
                         $stmt->bindValue($identifier, $this->oehhpackdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehhPackTime':
                         $stmt->bindValue($identifier, $this->oehhpacktime, PDO::PARAM_STR);
+
                         break;
                     case 'OehhVerifyDate':
                         $stmt->bindValue($identifier, $this->oehhverifydate, PDO::PARAM_STR);
+
                         break;
                     case 'OehhVerifyTime':
                         $stmt->bindValue($identifier, $this->oehhverifytime, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCreditMemo':
                         $stmt->bindValue($identifier, $this->oehhcreditmemo, PDO::PARAM_STR);
+
                         break;
                     case 'OehhBookedYn':
                         $stmt->bindValue($identifier, $this->oehhbookedyn, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhseOrig':
                         $stmt->bindValue($identifier, $this->intbwhseorig, PDO::PARAM_STR);
+
                         break;
                     case 'OehhBtStat':
                         $stmt->bindValue($identifier, $this->oehhbtstat, PDO::PARAM_STR);
+
                         break;
                     case 'OehhShipComp':
                         $stmt->bindValue($identifier, $this->oehhshipcomp, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCwoFlag':
                         $stmt->bindValue($identifier, $this->oehhcwoflag, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDivision':
                         $stmt->bindValue($identifier, $this->oehhdivision, PDO::PARAM_STR);
+
                         break;
                     case 'OehhTakenCode':
                         $stmt->bindValue($identifier, $this->oehhtakencode, PDO::PARAM_STR);
+
                         break;
                     case 'OehhPickCode':
                         $stmt->bindValue($identifier, $this->oehhpickcode, PDO::PARAM_STR);
+
                         break;
                     case 'OehhPackCode':
                         $stmt->bindValue($identifier, $this->oehhpackcode, PDO::PARAM_STR);
+
                         break;
                     case 'OehhVerifyCode':
                         $stmt->bindValue($identifier, $this->oehhverifycode, PDO::PARAM_STR);
+
                         break;
                     case 'OehhTotDisc':
                         $stmt->bindValue($identifier, $this->oehhtotdisc, PDO::PARAM_STR);
+
                         break;
                     case 'OehhEdiRefNbrQual':
                         $stmt->bindValue($identifier, $this->oehhedirefnbrqual, PDO::PARAM_STR);
+
                         break;
                     case 'OehhUserCode1':
                         $stmt->bindValue($identifier, $this->oehhusercode1, PDO::PARAM_STR);
+
                         break;
                     case 'OehhUserCode2':
                         $stmt->bindValue($identifier, $this->oehhusercode2, PDO::PARAM_STR);
+
                         break;
                     case 'OehhUserCode3':
                         $stmt->bindValue($identifier, $this->oehhusercode3, PDO::PARAM_STR);
+
                         break;
                     case 'OehhUserCode4':
                         $stmt->bindValue($identifier, $this->oehhusercode4, PDO::PARAM_STR);
+
                         break;
                     case 'OehhExchCtry':
                         $stmt->bindValue($identifier, $this->oehhexchctry, PDO::PARAM_STR);
+
                         break;
                     case 'OehhExchRate':
                         $stmt->bindValue($identifier, $this->oehhexchrate, PDO::PARAM_STR);
+
                         break;
                     case 'OehhWghtTot':
                         $stmt->bindValue($identifier, $this->oehhwghttot, PDO::PARAM_STR);
+
                         break;
                     case 'OehhWghtOride':
                         $stmt->bindValue($identifier, $this->oehhwghtoride, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCcInfo':
                         $stmt->bindValue($identifier, $this->oehhccinfo, PDO::PARAM_STR);
+
                         break;
                     case 'OehhBoxCount':
                         $stmt->bindValue($identifier, $this->oehhboxcount, PDO::PARAM_INT);
+
                         break;
                     case 'OehhRqstDate':
                         $stmt->bindValue($identifier, $this->oehhrqstdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCancDate':
                         $stmt->bindValue($identifier, $this->oehhcancdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCrntUser':
                         $stmt->bindValue($identifier, $this->oehhcrntuser, PDO::PARAM_STR);
+
                         break;
                     case 'OehhReleaseNbr':
                         $stmt->bindValue($identifier, $this->oehhreleasenbr, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhse':
                         $stmt->bindValue($identifier, $this->intbwhse, PDO::PARAM_STR);
+
                         break;
                     case 'OehhBordBuildDate':
                         $stmt->bindValue($identifier, $this->oehhbordbuilddate, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDeptCode':
                         $stmt->bindValue($identifier, $this->oehhdeptcode, PDO::PARAM_STR);
+
                         break;
                     case 'OehhFrtInEntered':
                         $stmt->bindValue($identifier, $this->oehhfrtinentered, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDropShipEntered':
                         $stmt->bindValue($identifier, $this->oehhdropshipentered, PDO::PARAM_STR);
+
                         break;
                     case 'OehhErFlag':
                         $stmt->bindValue($identifier, $this->oehherflag, PDO::PARAM_STR);
+
                         break;
                     case 'OehhFrtIn':
                         $stmt->bindValue($identifier, $this->oehhfrtin, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDropShip':
                         $stmt->bindValue($identifier, $this->oehhdropship, PDO::PARAM_STR);
+
                         break;
                     case 'OehhMinOrder':
                         $stmt->bindValue($identifier, $this->oehhminorder, PDO::PARAM_STR);
+
                         break;
                     case 'OehhContractTerms':
                         $stmt->bindValue($identifier, $this->oehhcontractterms, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDropShipBilled':
                         $stmt->bindValue($identifier, $this->oehhdropshipbilled, PDO::PARAM_STR);
+
                         break;
                     case 'OehhOrdTyp':
                         $stmt->bindValue($identifier, $this->oehhordtyp, PDO::PARAM_STR);
+
                         break;
                     case 'OehhTrackNbr':
                         $stmt->bindValue($identifier, $this->oehhtracknbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehhSource':
                         $stmt->bindValue($identifier, $this->oehhsource, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCcAprv':
                         $stmt->bindValue($identifier, $this->oehhccaprv, PDO::PARAM_STR);
+
                         break;
                     case 'OehhPickFmatType':
                         $stmt->bindValue($identifier, $this->oehhpickfmattype, PDO::PARAM_STR);
+
                         break;
                     case 'OehhInvcFmatType':
                         $stmt->bindValue($identifier, $this->oehhinvcfmattype, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCashAmt':
                         $stmt->bindValue($identifier, $this->oehhcashamt, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCheckAmt':
                         $stmt->bindValue($identifier, $this->oehhcheckamt, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCheckNbr':
                         $stmt->bindValue($identifier, $this->oehhchecknbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDepositAmt':
                         $stmt->bindValue($identifier, $this->oehhdepositamt, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDepositNbr':
                         $stmt->bindValue($identifier, $this->oehhdepositnbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCcAmt':
                         $stmt->bindValue($identifier, $this->oehhccamt, PDO::PARAM_STR);
+
                         break;
                     case 'OehhOTaxSub':
                         $stmt->bindValue($identifier, $this->oehhotaxsub, PDO::PARAM_STR);
+
                         break;
                     case 'OehhONonTaxSub':
                         $stmt->bindValue($identifier, $this->oehhonontaxsub, PDO::PARAM_STR);
+
                         break;
                     case 'OehhOTaxTot':
                         $stmt->bindValue($identifier, $this->oehhotaxtot, PDO::PARAM_STR);
+
                         break;
                     case 'OehhOOrdrTot':
                         $stmt->bindValue($identifier, $this->oehhoordrtot, PDO::PARAM_STR);
+
                         break;
                     case 'OehhPickPrintDate':
                         $stmt->bindValue($identifier, $this->oehhpickprintdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehhPickPrintTime':
                         $stmt->bindValue($identifier, $this->oehhpickprinttime, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCont':
                         $stmt->bindValue($identifier, $this->oehhcont, PDO::PARAM_STR);
+
                         break;
                     case 'OehhContTeleIntl':
                         $stmt->bindValue($identifier, $this->oehhcontteleintl, PDO::PARAM_STR);
+
                         break;
                     case 'OehhContTeleNbr':
                         $stmt->bindValue($identifier, $this->oehhconttelenbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehhContTeleExt':
                         $stmt->bindValue($identifier, $this->oehhcontteleext, PDO::PARAM_STR);
+
                         break;
                     case 'OehhContFaxIntl':
                         $stmt->bindValue($identifier, $this->oehhcontfaxintl, PDO::PARAM_STR);
+
                         break;
                     case 'OehhContFaxNbr':
                         $stmt->bindValue($identifier, $this->oehhcontfaxnbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehhShipAcct':
                         $stmt->bindValue($identifier, $this->oehhshipacct, PDO::PARAM_STR);
+
                         break;
                     case 'OehhChgDue':
                         $stmt->bindValue($identifier, $this->oehhchgdue, PDO::PARAM_STR);
+
                         break;
                     case 'OehhAddlPricDisc':
                         $stmt->bindValue($identifier, $this->oehhaddlpricdisc, PDO::PARAM_STR);
+
                         break;
                     case 'OehhAllShip':
                         $stmt->bindValue($identifier, $this->oehhallship, PDO::PARAM_STR);
+
                         break;
                     case 'OehhQtyOrderAmt':
                         $stmt->bindValue($identifier, $this->oehhqtyorderamt, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCreditApplied':
                         $stmt->bindValue($identifier, $this->oehhcreditapplied, PDO::PARAM_STR);
+
                         break;
                     case 'OehhInvcPrintDate':
                         $stmt->bindValue($identifier, $this->oehhinvcprintdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehhInvcPrintTime':
                         $stmt->bindValue($identifier, $this->oehhinvcprinttime, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDiscFrt':
                         $stmt->bindValue($identifier, $this->oehhdiscfrt, PDO::PARAM_STR);
+
                         break;
                     case 'OehhOrideShipComp':
                         $stmt->bindValue($identifier, $this->oehhorideshipcomp, PDO::PARAM_STR);
+
                         break;
                     case 'OehhContEmail':
                         $stmt->bindValue($identifier, $this->oehhcontemail, PDO::PARAM_STR);
+
                         break;
                     case 'OehhManualFrt':
                         $stmt->bindValue($identifier, $this->oehhmanualfrt, PDO::PARAM_STR);
+
                         break;
                     case 'OehhInternalFrt':
                         $stmt->bindValue($identifier, $this->oehhinternalfrt, PDO::PARAM_STR);
+
                         break;
                     case 'OehhFrtCost':
                         $stmt->bindValue($identifier, $this->oehhfrtcost, PDO::PARAM_STR);
+
                         break;
                     case 'OehhRoute':
                         $stmt->bindValue($identifier, $this->oehhroute, PDO::PARAM_STR);
+
                         break;
                     case 'OehhRouteSeq':
                         $stmt->bindValue($identifier, $this->oehhrouteseq, PDO::PARAM_INT);
+
                         break;
                     case 'OehhFrtTaxCode1':
                         $stmt->bindValue($identifier, $this->oehhfrttaxcode1, PDO::PARAM_STR);
+
                         break;
                     case 'OehhFrtTaxAmt1':
                         $stmt->bindValue($identifier, $this->oehhfrttaxamt1, PDO::PARAM_STR);
+
                         break;
                     case 'OehhFrtTaxCode2':
                         $stmt->bindValue($identifier, $this->oehhfrttaxcode2, PDO::PARAM_STR);
+
                         break;
                     case 'OehhFrtTaxAmt2':
                         $stmt->bindValue($identifier, $this->oehhfrttaxamt2, PDO::PARAM_STR);
+
                         break;
                     case 'OehhFrtTaxCode3':
                         $stmt->bindValue($identifier, $this->oehhfrttaxcode3, PDO::PARAM_STR);
+
                         break;
                     case 'OehhFrtTaxAmt3':
                         $stmt->bindValue($identifier, $this->oehhfrttaxamt3, PDO::PARAM_STR);
+
                         break;
                     case 'OehhFrtTaxCode4':
                         $stmt->bindValue($identifier, $this->oehhfrttaxcode4, PDO::PARAM_STR);
+
                         break;
                     case 'OehhFrtTaxAmt4':
                         $stmt->bindValue($identifier, $this->oehhfrttaxamt4, PDO::PARAM_STR);
+
                         break;
                     case 'OehhFrtTaxCode5':
                         $stmt->bindValue($identifier, $this->oehhfrttaxcode5, PDO::PARAM_STR);
+
                         break;
                     case 'OehhFrtTaxAmt5':
                         $stmt->bindValue($identifier, $this->oehhfrttaxamt5, PDO::PARAM_STR);
+
                         break;
                     case 'OehhEdi855Sent':
                         $stmt->bindValue($identifier, $this->oehhedi855sent, PDO::PARAM_STR);
+
                         break;
                     case 'OehhFrt3rdParty':
                         $stmt->bindValue($identifier, $this->oehhfrt3rdparty, PDO::PARAM_STR);
+
                         break;
                     case 'OehhFob':
                         $stmt->bindValue($identifier, $this->oehhfob, PDO::PARAM_STR);
+
                         break;
                     case 'OehhConfirmImagYn':
                         $stmt->bindValue($identifier, $this->oehhconfirmimagyn, PDO::PARAM_STR);
+
                         break;
                     case 'OehhIndustConform':
                         $stmt->bindValue($identifier, $this->oehhindustconform, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCstkConsign':
                         $stmt->bindValue($identifier, $this->oehhcstkconsign, PDO::PARAM_STR);
+
                         break;
                     case 'OehhLmDelayCapSent':
                         $stmt->bindValue($identifier, $this->oehhlmdelaycapsent, PDO::PARAM_STR);
+
                         break;
                     case 'OehhMfgId':
                         $stmt->bindValue($identifier, $this->oehhmfgid, PDO::PARAM_STR);
+
                         break;
                     case 'OehhStoreId':
                         $stmt->bindValue($identifier, $this->oehhstoreid, PDO::PARAM_STR);
+
                         break;
                     case 'OehhPickQueue':
                         $stmt->bindValue($identifier, $this->oehhpickqueue, PDO::PARAM_STR);
+
                         break;
                     case 'OehhArrvDate':
                         $stmt->bindValue($identifier, $this->oehharrvdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehhSurchgStat':
                         $stmt->bindValue($identifier, $this->oehhsurchgstat, PDO::PARAM_STR);
+
                         break;
                     case 'OehhFrtGrup':
                         $stmt->bindValue($identifier, $this->oehhfrtgrup, PDO::PARAM_STR);
+
                         break;
                     case 'OehhCommOride':
                         $stmt->bindValue($identifier, $this->oehhcommoride, PDO::PARAM_STR);
+
                         break;
                     case 'OehhChrgSplt':
                         $stmt->bindValue($identifier, $this->oehhchrgsplt, PDO::PARAM_STR);
+
                         break;
                     case 'OehhAcCcAprv':
                         $stmt->bindValue($identifier, $this->oehhacccaprv, PDO::PARAM_STR);
+
                         break;
                     case 'OehhOrigOrdrNbr':
                         $stmt->bindValue($identifier, $this->oehhorigordrnbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehhPostDate':
                         $stmt->bindValue($identifier, $this->oehhpostdate, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDiscDate1':
                         $stmt->bindValue($identifier, $this->oehhdiscdate1, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDiscPct1':
                         $stmt->bindValue($identifier, $this->oehhdiscpct1, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDueDate1':
                         $stmt->bindValue($identifier, $this->oehhduedate1, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDueAmt1':
                         $stmt->bindValue($identifier, $this->oehhdueamt1, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDuePct1':
                         $stmt->bindValue($identifier, $this->oehhduepct1, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDiscDate2':
                         $stmt->bindValue($identifier, $this->oehhdiscdate2, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDiscPct2':
                         $stmt->bindValue($identifier, $this->oehhdiscpct2, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDueDate2':
                         $stmt->bindValue($identifier, $this->oehhduedate2, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDueAmt2':
                         $stmt->bindValue($identifier, $this->oehhdueamt2, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDuePct2':
                         $stmt->bindValue($identifier, $this->oehhduepct2, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDiscDate3':
                         $stmt->bindValue($identifier, $this->oehhdiscdate3, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDiscPct3':
                         $stmt->bindValue($identifier, $this->oehhdiscpct3, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDueDate3':
                         $stmt->bindValue($identifier, $this->oehhduedate3, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDueAmt3':
                         $stmt->bindValue($identifier, $this->oehhdueamt3, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDuePct3':
                         $stmt->bindValue($identifier, $this->oehhduepct3, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDiscDate4':
                         $stmt->bindValue($identifier, $this->oehhdiscdate4, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDiscPct4':
                         $stmt->bindValue($identifier, $this->oehhdiscpct4, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDueDate4':
                         $stmt->bindValue($identifier, $this->oehhduedate4, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDueAmt4':
                         $stmt->bindValue($identifier, $this->oehhdueamt4, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDuePct4':
                         $stmt->bindValue($identifier, $this->oehhduepct4, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDiscDate5':
                         $stmt->bindValue($identifier, $this->oehhdiscdate5, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDiscPct5':
                         $stmt->bindValue($identifier, $this->oehhdiscpct5, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDueDate5':
                         $stmt->bindValue($identifier, $this->oehhduedate5, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDueAmt5':
                         $stmt->bindValue($identifier, $this->oehhdueamt5, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDuePct5':
                         $stmt->bindValue($identifier, $this->oehhduepct5, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDiscDate6':
                         $stmt->bindValue($identifier, $this->oehhdiscdate6, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDiscPct6':
                         $stmt->bindValue($identifier, $this->oehhdiscpct6, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDueDate6':
                         $stmt->bindValue($identifier, $this->oehhduedate6, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDueAmt6':
                         $stmt->bindValue($identifier, $this->oehhdueamt6, PDO::PARAM_STR);
+
                         break;
                     case 'OehhDuePct6':
                         $stmt->bindValue($identifier, $this->oehhduepct6, PDO::PARAM_STR);
+
                         break;
                     case 'OehhRefNbr':
                         $stmt->bindValue($identifier, $this->oehhrefnbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehhAcProgNbr':
                         $stmt->bindValue($identifier, $this->oehhacprognbr, PDO::PARAM_STR);
+
                         break;
                     case 'OehhAcProgExpDate':
                         $stmt->bindValue($identifier, $this->oehhacprogexpdate, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -10609,12 +10809,12 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -10625,14 +10825,14 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = SalesHistoryTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -10644,585 +10844,584 @@ abstract class SalesHistory implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getOehhnbr();
-                break;
+
             case 1:
                 return $this->getOehhyear();
-                break;
+
             case 2:
                 return $this->getOehhstat();
-                break;
+
             case 3:
                 return $this->getOehhhold();
-                break;
+
             case 4:
                 return $this->getArcucustid();
-                break;
+
             case 5:
                 return $this->getArstshipid();
-                break;
+
             case 6:
                 return $this->getOehhstname();
-                break;
+
             case 7:
                 return $this->getOehhstlastname();
-                break;
+
             case 8:
                 return $this->getOehhstfirstname();
-                break;
+
             case 9:
                 return $this->getOehhstadr1();
-                break;
+
             case 10:
                 return $this->getOehhstadr2();
-                break;
+
             case 11:
                 return $this->getOehhstadr3();
-                break;
+
             case 12:
                 return $this->getOehhstctry();
-                break;
+
             case 13:
                 return $this->getOehhstcity();
-                break;
+
             case 14:
                 return $this->getOehhststat();
-                break;
+
             case 15:
                 return $this->getOehhstzipcode();
-                break;
+
             case 16:
                 return $this->getOehhcustpo();
-                break;
+
             case 17:
                 return $this->getOehhordrdate();
-                break;
+
             case 18:
                 return $this->getArtmtermcd();
-                break;
+
             case 19:
                 return $this->getArtbshipvia();
-                break;
+
             case 20:
                 return $this->getArininvnbr();
-                break;
+
             case 21:
                 return $this->getOehhinvdate();
-                break;
+
             case 22:
                 return $this->getOehhglpd();
-                break;
+
             case 23:
                 return $this->getArspsaleper1();
-                break;
+
             case 24:
                 return $this->getOehhsp1pct();
-                break;
+
             case 25:
                 return $this->getArspsaleper2();
-                break;
+
             case 26:
                 return $this->getOehhsp2pct();
-                break;
+
             case 27:
                 return $this->getArspsaleper3();
-                break;
+
             case 28:
                 return $this->getOehhsp3pct();
-                break;
+
             case 29:
                 return $this->getOehhcntrnbr();
-                break;
+
             case 30:
                 return $this->getOehhwibatch();
-                break;
+
             case 31:
                 return $this->getOehhdroprelhold();
-                break;
+
             case 32:
                 return $this->getOehhtaxsub();
-                break;
+
             case 33:
                 return $this->getOehhnontaxsub();
-                break;
+
             case 34:
                 return $this->getOehhtaxtot();
-                break;
+
             case 35:
                 return $this->getOehhfrttot();
-                break;
+
             case 36:
                 return $this->getOehhmisctot();
-                break;
+
             case 37:
                 return $this->getOehhordrtot();
-                break;
+
             case 38:
                 return $this->getOehhcosttot();
-                break;
+
             case 39:
                 return $this->getOehhspcommlock();
-                break;
+
             case 40:
                 return $this->getOehhtakendate();
-                break;
+
             case 41:
                 return $this->getOehhtakentime();
-                break;
+
             case 42:
                 return $this->getOehhpickdate();
-                break;
+
             case 43:
                 return $this->getOehhpicktime();
-                break;
+
             case 44:
                 return $this->getOehhpackdate();
-                break;
+
             case 45:
                 return $this->getOehhpacktime();
-                break;
+
             case 46:
                 return $this->getOehhverifydate();
-                break;
+
             case 47:
                 return $this->getOehhverifytime();
-                break;
+
             case 48:
                 return $this->getOehhcreditmemo();
-                break;
+
             case 49:
                 return $this->getOehhbookedyn();
-                break;
+
             case 50:
                 return $this->getIntbwhseorig();
-                break;
+
             case 51:
                 return $this->getOehhbtstat();
-                break;
+
             case 52:
                 return $this->getOehhshipcomp();
-                break;
+
             case 53:
                 return $this->getOehhcwoflag();
-                break;
+
             case 54:
                 return $this->getOehhdivision();
-                break;
+
             case 55:
                 return $this->getOehhtakencode();
-                break;
+
             case 56:
                 return $this->getOehhpickcode();
-                break;
+
             case 57:
                 return $this->getOehhpackcode();
-                break;
+
             case 58:
                 return $this->getOehhverifycode();
-                break;
+
             case 59:
                 return $this->getOehhtotdisc();
-                break;
+
             case 60:
                 return $this->getOehhedirefnbrqual();
-                break;
+
             case 61:
                 return $this->getOehhusercode1();
-                break;
+
             case 62:
                 return $this->getOehhusercode2();
-                break;
+
             case 63:
                 return $this->getOehhusercode3();
-                break;
+
             case 64:
                 return $this->getOehhusercode4();
-                break;
+
             case 65:
                 return $this->getOehhexchctry();
-                break;
+
             case 66:
                 return $this->getOehhexchrate();
-                break;
+
             case 67:
                 return $this->getOehhwghttot();
-                break;
+
             case 68:
                 return $this->getOehhwghtoride();
-                break;
+
             case 69:
                 return $this->getOehhccinfo();
-                break;
+
             case 70:
                 return $this->getOehhboxcount();
-                break;
+
             case 71:
                 return $this->getOehhrqstdate();
-                break;
+
             case 72:
                 return $this->getOehhcancdate();
-                break;
+
             case 73:
                 return $this->getOehhcrntuser();
-                break;
+
             case 74:
                 return $this->getOehhreleasenbr();
-                break;
+
             case 75:
                 return $this->getIntbwhse();
-                break;
+
             case 76:
                 return $this->getOehhbordbuilddate();
-                break;
+
             case 77:
                 return $this->getOehhdeptcode();
-                break;
+
             case 78:
                 return $this->getOehhfrtinentered();
-                break;
+
             case 79:
                 return $this->getOehhdropshipentered();
-                break;
+
             case 80:
                 return $this->getOehherflag();
-                break;
+
             case 81:
                 return $this->getOehhfrtin();
-                break;
+
             case 82:
                 return $this->getOehhdropship();
-                break;
+
             case 83:
                 return $this->getOehhminorder();
-                break;
+
             case 84:
                 return $this->getOehhcontractterms();
-                break;
+
             case 85:
                 return $this->getOehhdropshipbilled();
-                break;
+
             case 86:
                 return $this->getOehhordtyp();
-                break;
+
             case 87:
                 return $this->getOehhtracknbr();
-                break;
+
             case 88:
                 return $this->getOehhsource();
-                break;
+
             case 89:
                 return $this->getOehhccaprv();
-                break;
+
             case 90:
                 return $this->getOehhpickfmattype();
-                break;
+
             case 91:
                 return $this->getOehhinvcfmattype();
-                break;
+
             case 92:
                 return $this->getOehhcashamt();
-                break;
+
             case 93:
                 return $this->getOehhcheckamt();
-                break;
+
             case 94:
                 return $this->getOehhchecknbr();
-                break;
+
             case 95:
                 return $this->getOehhdepositamt();
-                break;
+
             case 96:
                 return $this->getOehhdepositnbr();
-                break;
+
             case 97:
                 return $this->getOehhccamt();
-                break;
+
             case 98:
                 return $this->getOehhotaxsub();
-                break;
+
             case 99:
                 return $this->getOehhonontaxsub();
-                break;
+
             case 100:
                 return $this->getOehhotaxtot();
-                break;
+
             case 101:
                 return $this->getOehhoordrtot();
-                break;
+
             case 102:
                 return $this->getOehhpickprintdate();
-                break;
+
             case 103:
                 return $this->getOehhpickprinttime();
-                break;
+
             case 104:
                 return $this->getOehhcont();
-                break;
+
             case 105:
                 return $this->getOehhcontteleintl();
-                break;
+
             case 106:
                 return $this->getOehhconttelenbr();
-                break;
+
             case 107:
                 return $this->getOehhcontteleext();
-                break;
+
             case 108:
                 return $this->getOehhcontfaxintl();
-                break;
+
             case 109:
                 return $this->getOehhcontfaxnbr();
-                break;
+
             case 110:
                 return $this->getOehhshipacct();
-                break;
+
             case 111:
                 return $this->getOehhchgdue();
-                break;
+
             case 112:
                 return $this->getOehhaddlpricdisc();
-                break;
+
             case 113:
                 return $this->getOehhallship();
-                break;
+
             case 114:
                 return $this->getOehhqtyorderamt();
-                break;
+
             case 115:
                 return $this->getOehhcreditapplied();
-                break;
+
             case 116:
                 return $this->getOehhinvcprintdate();
-                break;
+
             case 117:
                 return $this->getOehhinvcprinttime();
-                break;
+
             case 118:
                 return $this->getOehhdiscfrt();
-                break;
+
             case 119:
                 return $this->getOehhorideshipcomp();
-                break;
+
             case 120:
                 return $this->getOehhcontemail();
-                break;
+
             case 121:
                 return $this->getOehhmanualfrt();
-                break;
+
             case 122:
                 return $this->getOehhinternalfrt();
-                break;
+
             case 123:
                 return $this->getOehhfrtcost();
-                break;
+
             case 124:
                 return $this->getOehhroute();
-                break;
+
             case 125:
                 return $this->getOehhrouteseq();
-                break;
+
             case 126:
                 return $this->getOehhfrttaxcode1();
-                break;
+
             case 127:
                 return $this->getOehhfrttaxamt1();
-                break;
+
             case 128:
                 return $this->getOehhfrttaxcode2();
-                break;
+
             case 129:
                 return $this->getOehhfrttaxamt2();
-                break;
+
             case 130:
                 return $this->getOehhfrttaxcode3();
-                break;
+
             case 131:
                 return $this->getOehhfrttaxamt3();
-                break;
+
             case 132:
                 return $this->getOehhfrttaxcode4();
-                break;
+
             case 133:
                 return $this->getOehhfrttaxamt4();
-                break;
+
             case 134:
                 return $this->getOehhfrttaxcode5();
-                break;
+
             case 135:
                 return $this->getOehhfrttaxamt5();
-                break;
+
             case 136:
                 return $this->getOehhedi855sent();
-                break;
+
             case 137:
                 return $this->getOehhfrt3rdparty();
-                break;
+
             case 138:
                 return $this->getOehhfob();
-                break;
+
             case 139:
                 return $this->getOehhconfirmimagyn();
-                break;
+
             case 140:
                 return $this->getOehhindustconform();
-                break;
+
             case 141:
                 return $this->getOehhcstkconsign();
-                break;
+
             case 142:
                 return $this->getOehhlmdelaycapsent();
-                break;
+
             case 143:
                 return $this->getOehhmfgid();
-                break;
+
             case 144:
                 return $this->getOehhstoreid();
-                break;
+
             case 145:
                 return $this->getOehhpickqueue();
-                break;
+
             case 146:
                 return $this->getOehharrvdate();
-                break;
+
             case 147:
                 return $this->getOehhsurchgstat();
-                break;
+
             case 148:
                 return $this->getOehhfrtgrup();
-                break;
+
             case 149:
                 return $this->getOehhcommoride();
-                break;
+
             case 150:
                 return $this->getOehhchrgsplt();
-                break;
+
             case 151:
                 return $this->getOehhacccaprv();
-                break;
+
             case 152:
                 return $this->getOehhorigordrnbr();
-                break;
+
             case 153:
                 return $this->getOehhpostdate();
-                break;
+
             case 154:
                 return $this->getOehhdiscdate1();
-                break;
+
             case 155:
                 return $this->getOehhdiscpct1();
-                break;
+
             case 156:
                 return $this->getOehhduedate1();
-                break;
+
             case 157:
                 return $this->getOehhdueamt1();
-                break;
+
             case 158:
                 return $this->getOehhduepct1();
-                break;
+
             case 159:
                 return $this->getOehhdiscdate2();
-                break;
+
             case 160:
                 return $this->getOehhdiscpct2();
-                break;
+
             case 161:
                 return $this->getOehhduedate2();
-                break;
+
             case 162:
                 return $this->getOehhdueamt2();
-                break;
+
             case 163:
                 return $this->getOehhduepct2();
-                break;
+
             case 164:
                 return $this->getOehhdiscdate3();
-                break;
+
             case 165:
                 return $this->getOehhdiscpct3();
-                break;
+
             case 166:
                 return $this->getOehhduedate3();
-                break;
+
             case 167:
                 return $this->getOehhdueamt3();
-                break;
+
             case 168:
                 return $this->getOehhduepct3();
-                break;
+
             case 169:
                 return $this->getOehhdiscdate4();
-                break;
+
             case 170:
                 return $this->getOehhdiscpct4();
-                break;
+
             case 171:
                 return $this->getOehhduedate4();
-                break;
+
             case 172:
                 return $this->getOehhdueamt4();
-                break;
+
             case 173:
                 return $this->getOehhduepct4();
-                break;
+
             case 174:
                 return $this->getOehhdiscdate5();
-                break;
+
             case 175:
                 return $this->getOehhdiscpct5();
-                break;
+
             case 176:
                 return $this->getOehhduedate5();
-                break;
+
             case 177:
                 return $this->getOehhdueamt5();
-                break;
+
             case 178:
                 return $this->getOehhduepct5();
-                break;
+
             case 179:
                 return $this->getOehhdiscdate6();
-                break;
+
             case 180:
                 return $this->getOehhdiscpct6();
-                break;
+
             case 181:
                 return $this->getOehhduedate6();
-                break;
+
             case 182:
                 return $this->getOehhdueamt6();
-                break;
+
             case 183:
                 return $this->getOehhduepct6();
-                break;
+
             case 184:
                 return $this->getOehhrefnbr();
-                break;
+
             case 185:
                 return $this->getOehhacprognbr();
-                break;
+
             case 186:
                 return $this->getOehhacprogexpdate();
-                break;
+
             case 187:
                 return $this->getDateupdtd();
-                break;
+
             case 188:
                 return $this->getTimeupdtd();
-                break;
+
             case 189:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -11232,24 +11431,23 @@ abstract class SalesHistory implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
-     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = [], bool $includeForeignObjects = false): array
     {
-
         if (isset($alreadyDumpedObjects['SalesHistory'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['SalesHistory'][$this->hashCode()] = true;
         $keys = SalesHistoryTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getOehhnbr(),
             $keys[1] => $this->getOehhyear(),
             $keys[2] => $this->getOehhstat(),
@@ -11440,7 +11638,7 @@ abstract class SalesHistory implements ActiveRecordInterface
             $keys[187] => $this->getDateupdtd(),
             $keys[188] => $this->getTimeupdtd(),
             $keys[189] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -11530,30 +11728,32 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\SalesHistory
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = SalesHistoryTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\SalesHistory
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -12144,11 +12344,11 @@ abstract class SalesHistory implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = SalesHistoryTableMap::getFieldNames($keyType);
 
@@ -12722,6 +12922,8 @@ abstract class SalesHistory implements ActiveRecordInterface
         if (array_key_exists($keys[189], $arr)) {
             $this->setDummy($arr[$keys[189]]);
         }
+
+        return $this;
     }
 
      /**
@@ -12741,9 +12943,9 @@ abstract class SalesHistory implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\SalesHistory The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -12757,9 +12959,9 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(SalesHistoryTableMap::DATABASE_NAME);
 
@@ -13341,13 +13543,13 @@ abstract class SalesHistory implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildSalesHistoryQuery::create();
         $criteria->add(SalesHistoryTableMap::COL_OEHHNBR, $this->oehhnbr);
@@ -13359,7 +13561,7 @@ abstract class SalesHistory implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -13389,19 +13591,20 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (oehhnbr column).
      *
-     * @param       int $key Primary key.
+     * @param int|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?int $key = null): void
     {
         $this->setOehhnbr($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getOehhnbr();
     }
@@ -13412,12 +13615,13 @@ abstract class SalesHistory implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \SalesHistory (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \SalesHistory (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setOehhnbr($this->getOehhnbr());
         $copyObj->setOehhyear($this->getOehhyear());
@@ -13648,11 +13852,11 @@ abstract class SalesHistory implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \SalesHistory Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -13665,9 +13869,9 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildCustomer object.
      *
-     * @param  ChildCustomer $v
-     * @return $this|\SalesHistory The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildCustomer $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setCustomer(ChildCustomer $v = null)
     {
@@ -13693,11 +13897,11 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Get the associated ChildCustomer object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
+     * @param ConnectionInterface $con Optional Connection object.
      * @return ChildCustomer The associated ChildCustomer object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getCustomer(ConnectionInterface $con = null)
+    public function getCustomer(?ConnectionInterface $con = null)
     {
         if ($this->aCustomer === null && (($this->arcucustid !== "" && $this->arcucustid !== null))) {
             $this->aCustomer = ChildCustomerQuery::create()->findPk($this->arcucustid, $con);
@@ -13716,9 +13920,9 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildCustomerShipto object.
      *
-     * @param  ChildCustomerShipto $v
-     * @return $this|\SalesHistory The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildCustomerShipto $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setCustomerShipto(ChildCustomerShipto $v = null)
     {
@@ -13750,11 +13954,11 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Get the associated ChildCustomerShipto object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
+     * @param ConnectionInterface $con Optional Connection object.
      * @return ChildCustomerShipto The associated ChildCustomerShipto object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getCustomerShipto(ConnectionInterface $con = null)
+    public function getCustomerShipto(?ConnectionInterface $con = null)
     {
         if ($this->aCustomerShipto === null && (($this->arcucustid !== "" && $this->arcucustid !== null) && ($this->arstshipid !== "" && $this->arstshipid !== null))) {
             $this->aCustomerShipto = ChildCustomerShiptoQuery::create()->findPk(array($this->arcucustid, $this->arstshipid), $con);
@@ -13776,20 +13980,20 @@ abstract class SalesHistory implements ActiveRecordInterface
      * Avoids crafting an 'init[$relationName]s' method name
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
-     * @param      string $relationName The name of the relation to initialize
+     * @param string $relationName The name of the relation to initialize
      * @return void
      */
-    public function initRelation($relationName)
+    public function initRelation($relationName): void
     {
-        if ('SalesHistoryDetail' == $relationName) {
+        if ('SalesHistoryDetail' === $relationName) {
             $this->initSalesHistoryDetails();
             return;
         }
-        if ('SalesOrderShipment' == $relationName) {
+        if ('SalesOrderShipment' === $relationName) {
             $this->initSalesOrderShipments();
             return;
         }
-        if ('SalesHistoryLotserial' == $relationName) {
+        if ('SalesHistoryLotserial' === $relationName) {
             $this->initSalesHistoryLotserials();
             return;
         }
@@ -13801,18 +14005,22 @@ abstract class SalesHistory implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSalesHistoryDetails()
+     * @return $this
+     * @see addSalesHistoryDetails()
      */
     public function clearSalesHistoryDetails()
     {
         $this->collSalesHistoryDetails = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSalesHistoryDetails collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSalesHistoryDetails($v = true)
+    public function resetPartialSalesHistoryDetails($v = true): void
     {
         $this->collSalesHistoryDetailsPartial = $v;
     }
@@ -13824,12 +14032,12 @@ abstract class SalesHistory implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSalesHistoryDetails($overrideExisting = true)
+    public function initSalesHistoryDetails(bool $overrideExisting = true): void
     {
         if (null !== $this->collSalesHistoryDetails && !$overrideExisting) {
             return;
@@ -13850,18 +14058,28 @@ abstract class SalesHistory implements ActiveRecordInterface
      * If this ChildSalesHistory is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSalesHistoryDetail[] List of ChildSalesHistoryDetail objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesHistoryDetail> List of ChildSalesHistoryDetail objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSalesHistoryDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSalesHistoryDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesHistoryDetailsPartial && !$this->isNew();
-        if (null === $this->collSalesHistoryDetails || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSalesHistoryDetails) {
+        if (null === $this->collSalesHistoryDetails || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSalesHistoryDetails();
+                if (null === $this->collSalesHistoryDetails) {
+                    $this->initSalesHistoryDetails();
+                } else {
+                    $collectionClassName = SalesHistoryDetailTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSalesHistoryDetails = new $collectionClassName;
+                    $collSalesHistoryDetails->setModel('\SalesHistoryDetail');
+
+                    return $collSalesHistoryDetails;
+                }
             } else {
                 $collSalesHistoryDetails = ChildSalesHistoryDetailQuery::create(null, $criteria)
                     ->filterBySalesHistory($this)
@@ -13905,11 +14123,11 @@ abstract class SalesHistory implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $salesHistoryDetails A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildSalesHistory The current object (for fluent API support)
+     * @param Collection $salesHistoryDetails A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSalesHistoryDetails(Collection $salesHistoryDetails, ConnectionInterface $con = null)
+    public function setSalesHistoryDetails(Collection $salesHistoryDetails, ?ConnectionInterface $con = null)
     {
         /** @var ChildSalesHistoryDetail[] $salesHistoryDetailsToDelete */
         $salesHistoryDetailsToDelete = $this->getSalesHistoryDetails(new Criteria(), $con)->diff($salesHistoryDetails);
@@ -13938,13 +14156,13 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Returns the number of related SalesHistoryDetail objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SalesHistoryDetail objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SalesHistoryDetail objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSalesHistoryDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSalesHistoryDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesHistoryDetailsPartial && !$this->isNew();
         if (null === $this->collSalesHistoryDetails || null !== $criteria || $partial) {
@@ -13973,8 +14191,8 @@ abstract class SalesHistory implements ActiveRecordInterface
      * Method called to associate a ChildSalesHistoryDetail object to this object
      * through the ChildSalesHistoryDetail foreign key attribute.
      *
-     * @param  ChildSalesHistoryDetail $l ChildSalesHistoryDetail
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param ChildSalesHistoryDetail $l ChildSalesHistoryDetail
+     * @return $this The current object (for fluent API support)
      */
     public function addSalesHistoryDetail(ChildSalesHistoryDetail $l)
     {
@@ -13997,15 +14215,15 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * @param ChildSalesHistoryDetail $salesHistoryDetail The ChildSalesHistoryDetail object to add.
      */
-    protected function doAddSalesHistoryDetail(ChildSalesHistoryDetail $salesHistoryDetail)
+    protected function doAddSalesHistoryDetail(ChildSalesHistoryDetail $salesHistoryDetail): void
     {
         $this->collSalesHistoryDetails[]= $salesHistoryDetail;
         $salesHistoryDetail->setSalesHistory($this);
     }
 
     /**
-     * @param  ChildSalesHistoryDetail $salesHistoryDetail The ChildSalesHistoryDetail object to remove.
-     * @return $this|ChildSalesHistory The current object (for fluent API support)
+     * @param ChildSalesHistoryDetail $salesHistoryDetail The ChildSalesHistoryDetail object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSalesHistoryDetail(ChildSalesHistoryDetail $salesHistoryDetail)
     {
@@ -14023,24 +14241,54 @@ abstract class SalesHistory implements ActiveRecordInterface
         return $this;
     }
 
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this SalesHistory is new, it will return
+     * an empty collection; or if this SalesHistory has previously
+     * been saved, it will retrieve related SalesHistoryDetails from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in SalesHistory.
+     *
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildSalesHistoryDetail[] List of ChildSalesHistoryDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesHistoryDetail}> List of ChildSalesHistoryDetail objects
+     */
+    public function getSalesHistoryDetailsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildSalesHistoryDetailQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getSalesHistoryDetails($query, $con);
+    }
+
     /**
      * Clears out the collSalesOrderShipments collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSalesOrderShipments()
+     * @return $this
+     * @see addSalesOrderShipments()
      */
     public function clearSalesOrderShipments()
     {
         $this->collSalesOrderShipments = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSalesOrderShipments collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSalesOrderShipments($v = true)
+    public function resetPartialSalesOrderShipments($v = true): void
     {
         $this->collSalesOrderShipmentsPartial = $v;
     }
@@ -14052,12 +14300,12 @@ abstract class SalesHistory implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSalesOrderShipments($overrideExisting = true)
+    public function initSalesOrderShipments(bool $overrideExisting = true): void
     {
         if (null !== $this->collSalesOrderShipments && !$overrideExisting) {
             return;
@@ -14078,18 +14326,28 @@ abstract class SalesHistory implements ActiveRecordInterface
      * If this ChildSalesHistory is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSalesOrderShipment[] List of ChildSalesOrderShipment objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesOrderShipment> List of ChildSalesOrderShipment objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSalesOrderShipments(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSalesOrderShipments(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesOrderShipmentsPartial && !$this->isNew();
-        if (null === $this->collSalesOrderShipments || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSalesOrderShipments) {
+        if (null === $this->collSalesOrderShipments || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSalesOrderShipments();
+                if (null === $this->collSalesOrderShipments) {
+                    $this->initSalesOrderShipments();
+                } else {
+                    $collectionClassName = SalesOrderShipmentTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSalesOrderShipments = new $collectionClassName;
+                    $collSalesOrderShipments->setModel('\SalesOrderShipment');
+
+                    return $collSalesOrderShipments;
+                }
             } else {
                 $collSalesOrderShipments = ChildSalesOrderShipmentQuery::create(null, $criteria)
                     ->filterBySalesHistory($this)
@@ -14133,11 +14391,11 @@ abstract class SalesHistory implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $salesOrderShipments A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildSalesHistory The current object (for fluent API support)
+     * @param Collection $salesOrderShipments A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSalesOrderShipments(Collection $salesOrderShipments, ConnectionInterface $con = null)
+    public function setSalesOrderShipments(Collection $salesOrderShipments, ?ConnectionInterface $con = null)
     {
         /** @var ChildSalesOrderShipment[] $salesOrderShipmentsToDelete */
         $salesOrderShipmentsToDelete = $this->getSalesOrderShipments(new Criteria(), $con)->diff($salesOrderShipments);
@@ -14166,13 +14424,13 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Returns the number of related SalesOrderShipment objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SalesOrderShipment objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SalesOrderShipment objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSalesOrderShipments(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSalesOrderShipments(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesOrderShipmentsPartial && !$this->isNew();
         if (null === $this->collSalesOrderShipments || null !== $criteria || $partial) {
@@ -14201,8 +14459,8 @@ abstract class SalesHistory implements ActiveRecordInterface
      * Method called to associate a ChildSalesOrderShipment object to this object
      * through the ChildSalesOrderShipment foreign key attribute.
      *
-     * @param  ChildSalesOrderShipment $l ChildSalesOrderShipment
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param ChildSalesOrderShipment $l ChildSalesOrderShipment
+     * @return $this The current object (for fluent API support)
      */
     public function addSalesOrderShipment(ChildSalesOrderShipment $l)
     {
@@ -14225,15 +14483,15 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * @param ChildSalesOrderShipment $salesOrderShipment The ChildSalesOrderShipment object to add.
      */
-    protected function doAddSalesOrderShipment(ChildSalesOrderShipment $salesOrderShipment)
+    protected function doAddSalesOrderShipment(ChildSalesOrderShipment $salesOrderShipment): void
     {
         $this->collSalesOrderShipments[]= $salesOrderShipment;
         $salesOrderShipment->setSalesHistory($this);
     }
 
     /**
-     * @param  ChildSalesOrderShipment $salesOrderShipment The ChildSalesOrderShipment object to remove.
-     * @return $this|ChildSalesHistory The current object (for fluent API support)
+     * @param ChildSalesOrderShipment $salesOrderShipment The ChildSalesOrderShipment object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSalesOrderShipment(ChildSalesOrderShipment $salesOrderShipment)
     {
@@ -14263,12 +14521,13 @@ abstract class SalesHistory implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesHistory.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSalesOrderShipment[] List of ChildSalesOrderShipment objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesOrderShipment}> List of ChildSalesOrderShipment objects
      */
-    public function getSalesOrderShipmentsJoinSalesOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSalesOrderShipmentsJoinSalesOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSalesOrderShipmentQuery::create(null, $criteria);
         $query->joinWith('SalesOrder', $joinBehavior);
@@ -14282,18 +14541,22 @@ abstract class SalesHistory implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSalesHistoryLotserials()
+     * @return $this
+     * @see addSalesHistoryLotserials()
      */
     public function clearSalesHistoryLotserials()
     {
         $this->collSalesHistoryLotserials = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSalesHistoryLotserials collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSalesHistoryLotserials($v = true)
+    public function resetPartialSalesHistoryLotserials($v = true): void
     {
         $this->collSalesHistoryLotserialsPartial = $v;
     }
@@ -14305,12 +14568,12 @@ abstract class SalesHistory implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSalesHistoryLotserials($overrideExisting = true)
+    public function initSalesHistoryLotserials(bool $overrideExisting = true): void
     {
         if (null !== $this->collSalesHistoryLotserials && !$overrideExisting) {
             return;
@@ -14331,18 +14594,28 @@ abstract class SalesHistory implements ActiveRecordInterface
      * If this ChildSalesHistory is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSalesHistoryLotserial[] List of ChildSalesHistoryLotserial objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesHistoryLotserial> List of ChildSalesHistoryLotserial objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSalesHistoryLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSalesHistoryLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesHistoryLotserialsPartial && !$this->isNew();
-        if (null === $this->collSalesHistoryLotserials || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSalesHistoryLotserials) {
+        if (null === $this->collSalesHistoryLotserials || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSalesHistoryLotserials();
+                if (null === $this->collSalesHistoryLotserials) {
+                    $this->initSalesHistoryLotserials();
+                } else {
+                    $collectionClassName = SalesHistoryLotserialTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSalesHistoryLotserials = new $collectionClassName;
+                    $collSalesHistoryLotserials->setModel('\SalesHistoryLotserial');
+
+                    return $collSalesHistoryLotserials;
+                }
             } else {
                 $collSalesHistoryLotserials = ChildSalesHistoryLotserialQuery::create(null, $criteria)
                     ->filterBySalesHistory($this)
@@ -14386,11 +14659,11 @@ abstract class SalesHistory implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $salesHistoryLotserials A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildSalesHistory The current object (for fluent API support)
+     * @param Collection $salesHistoryLotserials A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSalesHistoryLotserials(Collection $salesHistoryLotserials, ConnectionInterface $con = null)
+    public function setSalesHistoryLotserials(Collection $salesHistoryLotserials, ?ConnectionInterface $con = null)
     {
         /** @var ChildSalesHistoryLotserial[] $salesHistoryLotserialsToDelete */
         $salesHistoryLotserialsToDelete = $this->getSalesHistoryLotserials(new Criteria(), $con)->diff($salesHistoryLotserials);
@@ -14419,13 +14692,13 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Returns the number of related SalesHistoryLotserial objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SalesHistoryLotserial objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SalesHistoryLotserial objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSalesHistoryLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSalesHistoryLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesHistoryLotserialsPartial && !$this->isNew();
         if (null === $this->collSalesHistoryLotserials || null !== $criteria || $partial) {
@@ -14454,8 +14727,8 @@ abstract class SalesHistory implements ActiveRecordInterface
      * Method called to associate a ChildSalesHistoryLotserial object to this object
      * through the ChildSalesHistoryLotserial foreign key attribute.
      *
-     * @param  ChildSalesHistoryLotserial $l ChildSalesHistoryLotserial
-     * @return $this|\SalesHistory The current object (for fluent API support)
+     * @param ChildSalesHistoryLotserial $l ChildSalesHistoryLotserial
+     * @return $this The current object (for fluent API support)
      */
     public function addSalesHistoryLotserial(ChildSalesHistoryLotserial $l)
     {
@@ -14478,15 +14751,15 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * @param ChildSalesHistoryLotserial $salesHistoryLotserial The ChildSalesHistoryLotserial object to add.
      */
-    protected function doAddSalesHistoryLotserial(ChildSalesHistoryLotserial $salesHistoryLotserial)
+    protected function doAddSalesHistoryLotserial(ChildSalesHistoryLotserial $salesHistoryLotserial): void
     {
         $this->collSalesHistoryLotserials[]= $salesHistoryLotserial;
         $salesHistoryLotserial->setSalesHistory($this);
     }
 
     /**
-     * @param  ChildSalesHistoryLotserial $salesHistoryLotserial The ChildSalesHistoryLotserial object to remove.
-     * @return $this|ChildSalesHistory The current object (for fluent API support)
+     * @param ChildSalesHistoryLotserial $salesHistoryLotserial The ChildSalesHistoryLotserial object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSalesHistoryLotserial(ChildSalesHistoryLotserial $salesHistoryLotserial)
     {
@@ -14516,12 +14789,13 @@ abstract class SalesHistory implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesHistory.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSalesHistoryLotserial[] List of ChildSalesHistoryLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesHistoryLotserial}> List of ChildSalesHistoryLotserial objects
      */
-    public function getSalesHistoryLotserialsJoinSalesHistoryDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSalesHistoryLotserialsJoinSalesHistoryDetail(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSalesHistoryLotserialQuery::create(null, $criteria);
         $query->joinWith('SalesHistoryDetail', $joinBehavior);
@@ -14541,12 +14815,13 @@ abstract class SalesHistory implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in SalesHistory.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSalesHistoryLotserial[] List of ChildSalesHistoryLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesHistoryLotserial}> List of ChildSalesHistoryLotserial objects
      */
-    public function getSalesHistoryLotserialsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSalesHistoryLotserialsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSalesHistoryLotserialQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -14558,6 +14833,8 @@ abstract class SalesHistory implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -14763,6 +15040,8 @@ abstract class SalesHistory implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -14771,9 +15050,10 @@ abstract class SalesHistory implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
             if ($this->collSalesHistoryDetails) {
@@ -14798,6 +15078,7 @@ abstract class SalesHistory implements ActiveRecordInterface
         $this->collSalesHistoryLotserials = null;
         $this->aCustomer = null;
         $this->aCustomerShipto = null;
+        return $this;
     }
 
     /**
@@ -14812,99 +15093,79 @@ abstract class SalesHistory implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // // parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -14914,7 +15175,7 @@ abstract class SalesHistory implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -14934,15 +15195,18 @@ abstract class SalesHistory implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

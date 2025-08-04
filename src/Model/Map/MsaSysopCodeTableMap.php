@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class MsaSysopCodeTableMap extends TableMap
 {
@@ -34,174 +33,334 @@ class MsaSysopCodeTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.MsaSysopCodeTableMap';
+    public const CLASS_NAME = '.Map.MsaSysopCodeTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'sys_opt_options';
+    public const TABLE_NAME = 'sys_opt_options';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'MsaSysopCode';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\MsaSysopCode';
+    public const OM_CLASS = '\\MsaSysopCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'MsaSysopCode';
+    public const CLASS_DEFAULT = 'MsaSysopCode';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 18;
+    public const NUM_COLUMNS = 18;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 18;
+    public const NUM_HYDRATE_COLUMNS = 18;
 
     /**
      * the column name for the OptnSystem field
      */
-    const COL_OPTNSYSTEM = 'sys_opt_options.OptnSystem';
+    public const COL_OPTNSYSTEM = 'sys_opt_options.OptnSystem';
 
     /**
      * the column name for the OptnCode field
      */
-    const COL_OPTNCODE = 'sys_opt_options.OptnCode';
+    public const COL_OPTNCODE = 'sys_opt_options.OptnCode';
 
     /**
      * the column name for the OptnDesc field
      */
-    const COL_OPTNDESC = 'sys_opt_options.OptnDesc';
+    public const COL_OPTNDESC = 'sys_opt_options.OptnDesc';
 
     /**
      * the column name for the OptnValidate field
      */
-    const COL_OPTNVALIDATE = 'sys_opt_options.OptnValidate';
+    public const COL_OPTNVALIDATE = 'sys_opt_options.OptnValidate';
 
     /**
      * the column name for the OptnForce field
      */
-    const COL_OPTNFORCE = 'sys_opt_options.OptnForce';
+    public const COL_OPTNFORCE = 'sys_opt_options.OptnForce';
 
     /**
      * the column name for the OptnNoteCode field
      */
-    const COL_OPTNNOTECODE = 'sys_opt_options.OptnNoteCode';
+    public const COL_OPTNNOTECODE = 'sys_opt_options.OptnNoteCode';
 
     /**
      * the column name for the OptnListSeq field
      */
-    const COL_OPTNLISTSEQ = 'sys_opt_options.OptnListSeq';
+    public const COL_OPTNLISTSEQ = 'sys_opt_options.OptnListSeq';
 
     /**
      * the column name for the OptnFileName field
      */
-    const COL_OPTNFILENAME = 'sys_opt_options.OptnFileName';
+    public const COL_OPTNFILENAME = 'sys_opt_options.OptnFileName';
 
     /**
      * the column name for the OptnAdvSrch field
      */
-    const COL_OPTNADVSRCH = 'sys_opt_options.OptnAdvSrch';
+    public const COL_OPTNADVSRCH = 'sys_opt_options.OptnAdvSrch';
 
     /**
      * the column name for the OptnFieldType field
      */
-    const COL_OPTNFIELDTYPE = 'sys_opt_options.OptnFieldType';
+    public const COL_OPTNFIELDTYPE = 'sys_opt_options.OptnFieldType';
 
     /**
      * the column name for the OptnDef1B4Dec field
      */
-    const COL_OPTNDEF1B4DEC = 'sys_opt_options.OptnDef1B4Dec';
+    public const COL_OPTNDEF1B4DEC = 'sys_opt_options.OptnDef1B4Dec';
 
     /**
      * the column name for the OptnDef2AftDec field
      */
-    const COL_OPTNDEF2AFTDEC = 'sys_opt_options.OptnDef2AftDec';
+    public const COL_OPTNDEF2AFTDEC = 'sys_opt_options.OptnDef2AftDec';
 
     /**
      * the column name for the OptnDocStorFolder field
      */
-    const COL_OPTNDOCSTORFOLDER = 'sys_opt_options.OptnDocStorFolder';
+    public const COL_OPTNDOCSTORFOLDER = 'sys_opt_options.OptnDocStorFolder';
 
     /**
      * the column name for the OptnWebValidate field
      */
-    const COL_OPTNWEBVALIDATE = 'sys_opt_options.OptnWebValidate';
+    public const COL_OPTNWEBVALIDATE = 'sys_opt_options.OptnWebValidate';
 
     /**
      * the column name for the OptnWebForce field
      */
-    const COL_OPTNWEBFORCE = 'sys_opt_options.OptnWebForce';
+    public const COL_OPTNWEBFORCE = 'sys_opt_options.OptnWebForce';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'sys_opt_options.DateUpdtd';
+    public const COL_DATEUPDTD = 'sys_opt_options.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'sys_opt_options.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'sys_opt_options.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'sys_opt_options.dummy';
+    public const COL_DUMMY = 'sys_opt_options.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Optnsystem', 'Optncode', 'Optndesc', 'Optnvalidate', 'Optnforce', 'Optnnotecode', 'Optnlistseq', 'Optnfilename', 'Optnadvsrch', 'Optnfieldtype', 'Optndef1b4dec', 'Optndef2aftdec', 'Optndocstorfolder', 'Optnwebvalidate', 'Optnwebforce', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('optnsystem', 'optncode', 'optndesc', 'optnvalidate', 'optnforce', 'optnnotecode', 'optnlistseq', 'optnfilename', 'optnadvsrch', 'optnfieldtype', 'optndef1b4dec', 'optndef2aftdec', 'optndocstorfolder', 'optnwebvalidate', 'optnwebforce', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(MsaSysopCodeTableMap::COL_OPTNSYSTEM, MsaSysopCodeTableMap::COL_OPTNCODE, MsaSysopCodeTableMap::COL_OPTNDESC, MsaSysopCodeTableMap::COL_OPTNVALIDATE, MsaSysopCodeTableMap::COL_OPTNFORCE, MsaSysopCodeTableMap::COL_OPTNNOTECODE, MsaSysopCodeTableMap::COL_OPTNLISTSEQ, MsaSysopCodeTableMap::COL_OPTNFILENAME, MsaSysopCodeTableMap::COL_OPTNADVSRCH, MsaSysopCodeTableMap::COL_OPTNFIELDTYPE, MsaSysopCodeTableMap::COL_OPTNDEF1B4DEC, MsaSysopCodeTableMap::COL_OPTNDEF2AFTDEC, MsaSysopCodeTableMap::COL_OPTNDOCSTORFOLDER, MsaSysopCodeTableMap::COL_OPTNWEBVALIDATE, MsaSysopCodeTableMap::COL_OPTNWEBFORCE, MsaSysopCodeTableMap::COL_DATEUPDTD, MsaSysopCodeTableMap::COL_TIMEUPDTD, MsaSysopCodeTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('OptnSystem', 'OptnCode', 'OptnDesc', 'OptnValidate', 'OptnForce', 'OptnNoteCode', 'OptnListSeq', 'OptnFileName', 'OptnAdvSrch', 'OptnFieldType', 'OptnDef1B4Dec', 'OptnDef2AftDec', 'OptnDocStorFolder', 'OptnWebValidate', 'OptnWebForce', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Optnsystem', 'Optncode', 'Optndesc', 'Optnvalidate', 'Optnforce', 'Optnnotecode', 'Optnlistseq', 'Optnfilename', 'Optnadvsrch', 'Optnfieldtype', 'Optndef1b4dec', 'Optndef2aftdec', 'Optndocstorfolder', 'Optnwebvalidate', 'Optnwebforce', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['optnsystem', 'optncode', 'optndesc', 'optnvalidate', 'optnforce', 'optnnotecode', 'optnlistseq', 'optnfilename', 'optnadvsrch', 'optnfieldtype', 'optndef1b4dec', 'optndef2aftdec', 'optndocstorfolder', 'optnwebvalidate', 'optnwebforce', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [MsaSysopCodeTableMap::COL_OPTNSYSTEM, MsaSysopCodeTableMap::COL_OPTNCODE, MsaSysopCodeTableMap::COL_OPTNDESC, MsaSysopCodeTableMap::COL_OPTNVALIDATE, MsaSysopCodeTableMap::COL_OPTNFORCE, MsaSysopCodeTableMap::COL_OPTNNOTECODE, MsaSysopCodeTableMap::COL_OPTNLISTSEQ, MsaSysopCodeTableMap::COL_OPTNFILENAME, MsaSysopCodeTableMap::COL_OPTNADVSRCH, MsaSysopCodeTableMap::COL_OPTNFIELDTYPE, MsaSysopCodeTableMap::COL_OPTNDEF1B4DEC, MsaSysopCodeTableMap::COL_OPTNDEF2AFTDEC, MsaSysopCodeTableMap::COL_OPTNDOCSTORFOLDER, MsaSysopCodeTableMap::COL_OPTNWEBVALIDATE, MsaSysopCodeTableMap::COL_OPTNWEBFORCE, MsaSysopCodeTableMap::COL_DATEUPDTD, MsaSysopCodeTableMap::COL_TIMEUPDTD, MsaSysopCodeTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['OptnSystem', 'OptnCode', 'OptnDesc', 'OptnValidate', 'OptnForce', 'OptnNoteCode', 'OptnListSeq', 'OptnFileName', 'OptnAdvSrch', 'OptnFieldType', 'OptnDef1B4Dec', 'OptnDef2AftDec', 'OptnDocStorFolder', 'OptnWebValidate', 'OptnWebForce', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Optnsystem' => 0, 'Optncode' => 1, 'Optndesc' => 2, 'Optnvalidate' => 3, 'Optnforce' => 4, 'Optnnotecode' => 5, 'Optnlistseq' => 6, 'Optnfilename' => 7, 'Optnadvsrch' => 8, 'Optnfieldtype' => 9, 'Optndef1b4dec' => 10, 'Optndef2aftdec' => 11, 'Optndocstorfolder' => 12, 'Optnwebvalidate' => 13, 'Optnwebforce' => 14, 'Dateupdtd' => 15, 'Timeupdtd' => 16, 'Dummy' => 17, ),
-        self::TYPE_CAMELNAME     => array('optnsystem' => 0, 'optncode' => 1, 'optndesc' => 2, 'optnvalidate' => 3, 'optnforce' => 4, 'optnnotecode' => 5, 'optnlistseq' => 6, 'optnfilename' => 7, 'optnadvsrch' => 8, 'optnfieldtype' => 9, 'optndef1b4dec' => 10, 'optndef2aftdec' => 11, 'optndocstorfolder' => 12, 'optnwebvalidate' => 13, 'optnwebforce' => 14, 'dateupdtd' => 15, 'timeupdtd' => 16, 'dummy' => 17, ),
-        self::TYPE_COLNAME       => array(MsaSysopCodeTableMap::COL_OPTNSYSTEM => 0, MsaSysopCodeTableMap::COL_OPTNCODE => 1, MsaSysopCodeTableMap::COL_OPTNDESC => 2, MsaSysopCodeTableMap::COL_OPTNVALIDATE => 3, MsaSysopCodeTableMap::COL_OPTNFORCE => 4, MsaSysopCodeTableMap::COL_OPTNNOTECODE => 5, MsaSysopCodeTableMap::COL_OPTNLISTSEQ => 6, MsaSysopCodeTableMap::COL_OPTNFILENAME => 7, MsaSysopCodeTableMap::COL_OPTNADVSRCH => 8, MsaSysopCodeTableMap::COL_OPTNFIELDTYPE => 9, MsaSysopCodeTableMap::COL_OPTNDEF1B4DEC => 10, MsaSysopCodeTableMap::COL_OPTNDEF2AFTDEC => 11, MsaSysopCodeTableMap::COL_OPTNDOCSTORFOLDER => 12, MsaSysopCodeTableMap::COL_OPTNWEBVALIDATE => 13, MsaSysopCodeTableMap::COL_OPTNWEBFORCE => 14, MsaSysopCodeTableMap::COL_DATEUPDTD => 15, MsaSysopCodeTableMap::COL_TIMEUPDTD => 16, MsaSysopCodeTableMap::COL_DUMMY => 17, ),
-        self::TYPE_FIELDNAME     => array('OptnSystem' => 0, 'OptnCode' => 1, 'OptnDesc' => 2, 'OptnValidate' => 3, 'OptnForce' => 4, 'OptnNoteCode' => 5, 'OptnListSeq' => 6, 'OptnFileName' => 7, 'OptnAdvSrch' => 8, 'OptnFieldType' => 9, 'OptnDef1B4Dec' => 10, 'OptnDef2AftDec' => 11, 'OptnDocStorFolder' => 12, 'OptnWebValidate' => 13, 'OptnWebForce' => 14, 'DateUpdtd' => 15, 'TimeUpdtd' => 16, 'dummy' => 17, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Optnsystem' => 0, 'Optncode' => 1, 'Optndesc' => 2, 'Optnvalidate' => 3, 'Optnforce' => 4, 'Optnnotecode' => 5, 'Optnlistseq' => 6, 'Optnfilename' => 7, 'Optnadvsrch' => 8, 'Optnfieldtype' => 9, 'Optndef1b4dec' => 10, 'Optndef2aftdec' => 11, 'Optndocstorfolder' => 12, 'Optnwebvalidate' => 13, 'Optnwebforce' => 14, 'Dateupdtd' => 15, 'Timeupdtd' => 16, 'Dummy' => 17, ],
+        self::TYPE_CAMELNAME     => ['optnsystem' => 0, 'optncode' => 1, 'optndesc' => 2, 'optnvalidate' => 3, 'optnforce' => 4, 'optnnotecode' => 5, 'optnlistseq' => 6, 'optnfilename' => 7, 'optnadvsrch' => 8, 'optnfieldtype' => 9, 'optndef1b4dec' => 10, 'optndef2aftdec' => 11, 'optndocstorfolder' => 12, 'optnwebvalidate' => 13, 'optnwebforce' => 14, 'dateupdtd' => 15, 'timeupdtd' => 16, 'dummy' => 17, ],
+        self::TYPE_COLNAME       => [MsaSysopCodeTableMap::COL_OPTNSYSTEM => 0, MsaSysopCodeTableMap::COL_OPTNCODE => 1, MsaSysopCodeTableMap::COL_OPTNDESC => 2, MsaSysopCodeTableMap::COL_OPTNVALIDATE => 3, MsaSysopCodeTableMap::COL_OPTNFORCE => 4, MsaSysopCodeTableMap::COL_OPTNNOTECODE => 5, MsaSysopCodeTableMap::COL_OPTNLISTSEQ => 6, MsaSysopCodeTableMap::COL_OPTNFILENAME => 7, MsaSysopCodeTableMap::COL_OPTNADVSRCH => 8, MsaSysopCodeTableMap::COL_OPTNFIELDTYPE => 9, MsaSysopCodeTableMap::COL_OPTNDEF1B4DEC => 10, MsaSysopCodeTableMap::COL_OPTNDEF2AFTDEC => 11, MsaSysopCodeTableMap::COL_OPTNDOCSTORFOLDER => 12, MsaSysopCodeTableMap::COL_OPTNWEBVALIDATE => 13, MsaSysopCodeTableMap::COL_OPTNWEBFORCE => 14, MsaSysopCodeTableMap::COL_DATEUPDTD => 15, MsaSysopCodeTableMap::COL_TIMEUPDTD => 16, MsaSysopCodeTableMap::COL_DUMMY => 17, ],
+        self::TYPE_FIELDNAME     => ['OptnSystem' => 0, 'OptnCode' => 1, 'OptnDesc' => 2, 'OptnValidate' => 3, 'OptnForce' => 4, 'OptnNoteCode' => 5, 'OptnListSeq' => 6, 'OptnFileName' => 7, 'OptnAdvSrch' => 8, 'OptnFieldType' => 9, 'OptnDef1B4Dec' => 10, 'OptnDef2AftDec' => 11, 'OptnDocStorFolder' => 12, 'OptnWebValidate' => 13, 'OptnWebForce' => 14, 'DateUpdtd' => 15, 'TimeUpdtd' => 16, 'dummy' => 17, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Optnsystem' => 'OPTNSYSTEM',
+        'MsaSysopCode.Optnsystem' => 'OPTNSYSTEM',
+        'optnsystem' => 'OPTNSYSTEM',
+        'msaSysopCode.optnsystem' => 'OPTNSYSTEM',
+        'MsaSysopCodeTableMap::COL_OPTNSYSTEM' => 'OPTNSYSTEM',
+        'COL_OPTNSYSTEM' => 'OPTNSYSTEM',
+        'OptnSystem' => 'OPTNSYSTEM',
+        'sys_opt_options.OptnSystem' => 'OPTNSYSTEM',
+        'Optncode' => 'OPTNCODE',
+        'MsaSysopCode.Optncode' => 'OPTNCODE',
+        'optncode' => 'OPTNCODE',
+        'msaSysopCode.optncode' => 'OPTNCODE',
+        'MsaSysopCodeTableMap::COL_OPTNCODE' => 'OPTNCODE',
+        'COL_OPTNCODE' => 'OPTNCODE',
+        'OptnCode' => 'OPTNCODE',
+        'sys_opt_options.OptnCode' => 'OPTNCODE',
+        'Optndesc' => 'OPTNDESC',
+        'MsaSysopCode.Optndesc' => 'OPTNDESC',
+        'optndesc' => 'OPTNDESC',
+        'msaSysopCode.optndesc' => 'OPTNDESC',
+        'MsaSysopCodeTableMap::COL_OPTNDESC' => 'OPTNDESC',
+        'COL_OPTNDESC' => 'OPTNDESC',
+        'OptnDesc' => 'OPTNDESC',
+        'sys_opt_options.OptnDesc' => 'OPTNDESC',
+        'Optnvalidate' => 'OPTNVALIDATE',
+        'MsaSysopCode.Optnvalidate' => 'OPTNVALIDATE',
+        'optnvalidate' => 'OPTNVALIDATE',
+        'msaSysopCode.optnvalidate' => 'OPTNVALIDATE',
+        'MsaSysopCodeTableMap::COL_OPTNVALIDATE' => 'OPTNVALIDATE',
+        'COL_OPTNVALIDATE' => 'OPTNVALIDATE',
+        'OptnValidate' => 'OPTNVALIDATE',
+        'sys_opt_options.OptnValidate' => 'OPTNVALIDATE',
+        'Optnforce' => 'OPTNFORCE',
+        'MsaSysopCode.Optnforce' => 'OPTNFORCE',
+        'optnforce' => 'OPTNFORCE',
+        'msaSysopCode.optnforce' => 'OPTNFORCE',
+        'MsaSysopCodeTableMap::COL_OPTNFORCE' => 'OPTNFORCE',
+        'COL_OPTNFORCE' => 'OPTNFORCE',
+        'OptnForce' => 'OPTNFORCE',
+        'sys_opt_options.OptnForce' => 'OPTNFORCE',
+        'Optnnotecode' => 'OPTNNOTECODE',
+        'MsaSysopCode.Optnnotecode' => 'OPTNNOTECODE',
+        'optnnotecode' => 'OPTNNOTECODE',
+        'msaSysopCode.optnnotecode' => 'OPTNNOTECODE',
+        'MsaSysopCodeTableMap::COL_OPTNNOTECODE' => 'OPTNNOTECODE',
+        'COL_OPTNNOTECODE' => 'OPTNNOTECODE',
+        'OptnNoteCode' => 'OPTNNOTECODE',
+        'sys_opt_options.OptnNoteCode' => 'OPTNNOTECODE',
+        'Optnlistseq' => 'OPTNLISTSEQ',
+        'MsaSysopCode.Optnlistseq' => 'OPTNLISTSEQ',
+        'optnlistseq' => 'OPTNLISTSEQ',
+        'msaSysopCode.optnlistseq' => 'OPTNLISTSEQ',
+        'MsaSysopCodeTableMap::COL_OPTNLISTSEQ' => 'OPTNLISTSEQ',
+        'COL_OPTNLISTSEQ' => 'OPTNLISTSEQ',
+        'OptnListSeq' => 'OPTNLISTSEQ',
+        'sys_opt_options.OptnListSeq' => 'OPTNLISTSEQ',
+        'Optnfilename' => 'OPTNFILENAME',
+        'MsaSysopCode.Optnfilename' => 'OPTNFILENAME',
+        'optnfilename' => 'OPTNFILENAME',
+        'msaSysopCode.optnfilename' => 'OPTNFILENAME',
+        'MsaSysopCodeTableMap::COL_OPTNFILENAME' => 'OPTNFILENAME',
+        'COL_OPTNFILENAME' => 'OPTNFILENAME',
+        'OptnFileName' => 'OPTNFILENAME',
+        'sys_opt_options.OptnFileName' => 'OPTNFILENAME',
+        'Optnadvsrch' => 'OPTNADVSRCH',
+        'MsaSysopCode.Optnadvsrch' => 'OPTNADVSRCH',
+        'optnadvsrch' => 'OPTNADVSRCH',
+        'msaSysopCode.optnadvsrch' => 'OPTNADVSRCH',
+        'MsaSysopCodeTableMap::COL_OPTNADVSRCH' => 'OPTNADVSRCH',
+        'COL_OPTNADVSRCH' => 'OPTNADVSRCH',
+        'OptnAdvSrch' => 'OPTNADVSRCH',
+        'sys_opt_options.OptnAdvSrch' => 'OPTNADVSRCH',
+        'Optnfieldtype' => 'OPTNFIELDTYPE',
+        'MsaSysopCode.Optnfieldtype' => 'OPTNFIELDTYPE',
+        'optnfieldtype' => 'OPTNFIELDTYPE',
+        'msaSysopCode.optnfieldtype' => 'OPTNFIELDTYPE',
+        'MsaSysopCodeTableMap::COL_OPTNFIELDTYPE' => 'OPTNFIELDTYPE',
+        'COL_OPTNFIELDTYPE' => 'OPTNFIELDTYPE',
+        'OptnFieldType' => 'OPTNFIELDTYPE',
+        'sys_opt_options.OptnFieldType' => 'OPTNFIELDTYPE',
+        'Optndef1b4dec' => 'OPTNDEF1B4DEC',
+        'MsaSysopCode.Optndef1b4dec' => 'OPTNDEF1B4DEC',
+        'optndef1b4dec' => 'OPTNDEF1B4DEC',
+        'msaSysopCode.optndef1b4dec' => 'OPTNDEF1B4DEC',
+        'MsaSysopCodeTableMap::COL_OPTNDEF1B4DEC' => 'OPTNDEF1B4DEC',
+        'COL_OPTNDEF1B4DEC' => 'OPTNDEF1B4DEC',
+        'OptnDef1B4Dec' => 'OPTNDEF1B4DEC',
+        'sys_opt_options.OptnDef1B4Dec' => 'OPTNDEF1B4DEC',
+        'Optndef2aftdec' => 'OPTNDEF2AFTDEC',
+        'MsaSysopCode.Optndef2aftdec' => 'OPTNDEF2AFTDEC',
+        'optndef2aftdec' => 'OPTNDEF2AFTDEC',
+        'msaSysopCode.optndef2aftdec' => 'OPTNDEF2AFTDEC',
+        'MsaSysopCodeTableMap::COL_OPTNDEF2AFTDEC' => 'OPTNDEF2AFTDEC',
+        'COL_OPTNDEF2AFTDEC' => 'OPTNDEF2AFTDEC',
+        'OptnDef2AftDec' => 'OPTNDEF2AFTDEC',
+        'sys_opt_options.OptnDef2AftDec' => 'OPTNDEF2AFTDEC',
+        'Optndocstorfolder' => 'OPTNDOCSTORFOLDER',
+        'MsaSysopCode.Optndocstorfolder' => 'OPTNDOCSTORFOLDER',
+        'optndocstorfolder' => 'OPTNDOCSTORFOLDER',
+        'msaSysopCode.optndocstorfolder' => 'OPTNDOCSTORFOLDER',
+        'MsaSysopCodeTableMap::COL_OPTNDOCSTORFOLDER' => 'OPTNDOCSTORFOLDER',
+        'COL_OPTNDOCSTORFOLDER' => 'OPTNDOCSTORFOLDER',
+        'OptnDocStorFolder' => 'OPTNDOCSTORFOLDER',
+        'sys_opt_options.OptnDocStorFolder' => 'OPTNDOCSTORFOLDER',
+        'Optnwebvalidate' => 'OPTNWEBVALIDATE',
+        'MsaSysopCode.Optnwebvalidate' => 'OPTNWEBVALIDATE',
+        'optnwebvalidate' => 'OPTNWEBVALIDATE',
+        'msaSysopCode.optnwebvalidate' => 'OPTNWEBVALIDATE',
+        'MsaSysopCodeTableMap::COL_OPTNWEBVALIDATE' => 'OPTNWEBVALIDATE',
+        'COL_OPTNWEBVALIDATE' => 'OPTNWEBVALIDATE',
+        'OptnWebValidate' => 'OPTNWEBVALIDATE',
+        'sys_opt_options.OptnWebValidate' => 'OPTNWEBVALIDATE',
+        'Optnwebforce' => 'OPTNWEBFORCE',
+        'MsaSysopCode.Optnwebforce' => 'OPTNWEBFORCE',
+        'optnwebforce' => 'OPTNWEBFORCE',
+        'msaSysopCode.optnwebforce' => 'OPTNWEBFORCE',
+        'MsaSysopCodeTableMap::COL_OPTNWEBFORCE' => 'OPTNWEBFORCE',
+        'COL_OPTNWEBFORCE' => 'OPTNWEBFORCE',
+        'OptnWebForce' => 'OPTNWEBFORCE',
+        'sys_opt_options.OptnWebForce' => 'OPTNWEBFORCE',
+        'Dateupdtd' => 'DATEUPDTD',
+        'MsaSysopCode.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'msaSysopCode.dateupdtd' => 'DATEUPDTD',
+        'MsaSysopCodeTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'sys_opt_options.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'MsaSysopCode.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'msaSysopCode.timeupdtd' => 'TIMEUPDTD',
+        'MsaSysopCodeTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'sys_opt_options.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'MsaSysopCode.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'msaSysopCode.dummy' => 'DUMMY',
+        'MsaSysopCodeTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'sys_opt_options.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('sys_opt_options');
@@ -229,14 +388,16 @@ class MsaSysopCodeTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -247,9 +408,11 @@ class MsaSysopCodeTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \MsaSysopCode $obj A \MsaSysopCode object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(MsaSysopCode $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -268,8 +431,10 @@ class MsaSysopCodeTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \MsaSysopCode object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \MsaSysopCode) {
@@ -297,14 +462,14 @@ class MsaSysopCodeTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Optnsystem', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Optncode', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -319,14 +484,14 @@ class MsaSysopCodeTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -352,10 +517,10 @@ class MsaSysopCodeTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? MsaSysopCodeTableMap::CLASS_DEFAULT : MsaSysopCodeTableMap::OM_CLASS;
     }
@@ -363,17 +528,17 @@ class MsaSysopCodeTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (MsaSysopCode object, last column rank)
+     * @return array (MsaSysopCode object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = MsaSysopCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = MsaSysopCodeTableMap::getInstanceFromPool($key))) {
@@ -389,7 +554,7 @@ class MsaSysopCodeTableMap extends TableMap
             MsaSysopCodeTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -397,13 +562,13 @@ class MsaSysopCodeTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -433,12 +598,13 @@ class MsaSysopCodeTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(MsaSysopCodeTableMap::COL_OPTNSYSTEM);
@@ -482,40 +648,84 @@ class MsaSysopCodeTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_OPTNSYSTEM);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_OPTNCODE);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_OPTNDESC);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_OPTNVALIDATE);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_OPTNFORCE);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_OPTNNOTECODE);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_OPTNLISTSEQ);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_OPTNFILENAME);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_OPTNADVSRCH);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_OPTNFIELDTYPE);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_OPTNDEF1B4DEC);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_OPTNDEF2AFTDEC);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_OPTNDOCSTORFOLDER);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_OPTNWEBVALIDATE);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_OPTNWEBFORCE);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(MsaSysopCodeTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.OptnSystem');
+            $criteria->removeSelectColumn($alias . '.OptnCode');
+            $criteria->removeSelectColumn($alias . '.OptnDesc');
+            $criteria->removeSelectColumn($alias . '.OptnValidate');
+            $criteria->removeSelectColumn($alias . '.OptnForce');
+            $criteria->removeSelectColumn($alias . '.OptnNoteCode');
+            $criteria->removeSelectColumn($alias . '.OptnListSeq');
+            $criteria->removeSelectColumn($alias . '.OptnFileName');
+            $criteria->removeSelectColumn($alias . '.OptnAdvSrch');
+            $criteria->removeSelectColumn($alias . '.OptnFieldType');
+            $criteria->removeSelectColumn($alias . '.OptnDef1B4Dec');
+            $criteria->removeSelectColumn($alias . '.OptnDef2AftDec');
+            $criteria->removeSelectColumn($alias . '.OptnDocStorFolder');
+            $criteria->removeSelectColumn($alias . '.OptnWebValidate');
+            $criteria->removeSelectColumn($alias . '.OptnWebForce');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(MsaSysopCodeTableMap::DATABASE_NAME)->getTable(MsaSysopCodeTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(MsaSysopCodeTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(MsaSysopCodeTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new MsaSysopCodeTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a MsaSysopCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or MsaSysopCode object or primary key or array of primary keys
+     * @param mixed $values Criteria or MsaSysopCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(MsaSysopCodeTableMap::DATABASE_NAME);
@@ -533,7 +743,7 @@ class MsaSysopCodeTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(MsaSysopCodeTableMap::COL_OPTNSYSTEM, $value[0]);
@@ -561,7 +771,7 @@ class MsaSysopCodeTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return MsaSysopCodeQuery::create()->doDeleteAll($con);
     }
@@ -569,13 +779,13 @@ class MsaSysopCodeTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a MsaSysopCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or MsaSysopCode object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or MsaSysopCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(MsaSysopCodeTableMap::DATABASE_NAME);
@@ -598,7 +808,4 @@ class MsaSysopCodeTableMap extends TableMap
         });
     }
 
-} // MsaSysopCodeTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-MsaSysopCodeTableMap::buildTableMap();
+}

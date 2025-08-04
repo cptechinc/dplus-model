@@ -10,14 +10,12 @@ use Map\PrinterTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'printer_control' table.
- *
- *
+ * Base class that represents a query for the `printer_control` table.
  *
  * @method     ChildPrinterQuery orderByPrctprinterid($order = Criteria::ASC) Order by the PrctPrinterId column
  * @method     ChildPrinterQuery orderByPrctdesc($order = Criteria::ASC) Order by the PrctDesc column
@@ -57,26 +55,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPrinterQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildPrinterQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildPrinter findOne(ConnectionInterface $con = null) Return the first ChildPrinter matching the query
- * @method     ChildPrinter findOneOrCreate(ConnectionInterface $con = null) Return the first ChildPrinter matching the query, or a new ChildPrinter object populated from the query conditions when no match is found
+ * @method     ChildPrinter|null findOne(?ConnectionInterface $con = null) Return the first ChildPrinter matching the query
+ * @method     ChildPrinter findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildPrinter matching the query, or a new ChildPrinter object populated from the query conditions when no match is found
  *
- * @method     ChildPrinter findOneByPrctprinterid(string $PrctPrinterId) Return the first ChildPrinter filtered by the PrctPrinterId column
- * @method     ChildPrinter findOneByPrctdesc(string $PrctDesc) Return the first ChildPrinter filtered by the PrctDesc column
- * @method     ChildPrinter findOneByPrctprtrtype(string $PrctPrtrType) Return the first ChildPrinter filtered by the PrctPrtrType column
- * @method     ChildPrinter findOneByPrcttypedesc(string $PrctTypeDesc) Return the first ChildPrinter filtered by the PrctTypeDesc column
- * @method     ChildPrinter findOneByPrctform(string $PrctForm) Return the first ChildPrinter filtered by the PrctForm column
- * @method     ChildPrinter findOneByPrctpitch10(string $PrctPitch10) Return the first ChildPrinter filtered by the PrctPitch10 column
- * @method     ChildPrinter findOneByPrctpitch12(string $PrctPitch12) Return the first ChildPrinter filtered by the PrctPitch12 column
- * @method     ChildPrinter findOneByPrctpitch17(string $PrctPitch17) Return the first ChildPrinter filtered by the PrctPitch17 column
- * @method     ChildPrinter findOneByPrctwhse(string $PrctWhse) Return the first ChildPrinter filtered by the PrctWhse column
- * @method     ChildPrinter findOneByPrctselectlist(string $PrctSelectList) Return the first ChildPrinter filtered by the PrctSelectList column
- * @method     ChildPrinter findOneByPrctassgndcart(string $PrctAssgndCart) Return the first ChildPrinter filtered by the PrctAssgndCart column
- * @method     ChildPrinter findOneByDateupdtd(string $DateUpdtd) Return the first ChildPrinter filtered by the DateUpdtd column
- * @method     ChildPrinter findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPrinter filtered by the TimeUpdtd column
- * @method     ChildPrinter findOneByDummy(string $dummy) Return the first ChildPrinter filtered by the dummy column *
-
- * @method     ChildPrinter requirePk($key, ConnectionInterface $con = null) Return the ChildPrinter by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildPrinter requireOne(ConnectionInterface $con = null) Return the first ChildPrinter matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPrinter|null findOneByPrctprinterid(string $PrctPrinterId) Return the first ChildPrinter filtered by the PrctPrinterId column
+ * @method     ChildPrinter|null findOneByPrctdesc(string $PrctDesc) Return the first ChildPrinter filtered by the PrctDesc column
+ * @method     ChildPrinter|null findOneByPrctprtrtype(string $PrctPrtrType) Return the first ChildPrinter filtered by the PrctPrtrType column
+ * @method     ChildPrinter|null findOneByPrcttypedesc(string $PrctTypeDesc) Return the first ChildPrinter filtered by the PrctTypeDesc column
+ * @method     ChildPrinter|null findOneByPrctform(string $PrctForm) Return the first ChildPrinter filtered by the PrctForm column
+ * @method     ChildPrinter|null findOneByPrctpitch10(string $PrctPitch10) Return the first ChildPrinter filtered by the PrctPitch10 column
+ * @method     ChildPrinter|null findOneByPrctpitch12(string $PrctPitch12) Return the first ChildPrinter filtered by the PrctPitch12 column
+ * @method     ChildPrinter|null findOneByPrctpitch17(string $PrctPitch17) Return the first ChildPrinter filtered by the PrctPitch17 column
+ * @method     ChildPrinter|null findOneByPrctwhse(string $PrctWhse) Return the first ChildPrinter filtered by the PrctWhse column
+ * @method     ChildPrinter|null findOneByPrctselectlist(string $PrctSelectList) Return the first ChildPrinter filtered by the PrctSelectList column
+ * @method     ChildPrinter|null findOneByPrctassgndcart(string $PrctAssgndCart) Return the first ChildPrinter filtered by the PrctAssgndCart column
+ * @method     ChildPrinter|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildPrinter filtered by the DateUpdtd column
+ * @method     ChildPrinter|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPrinter filtered by the TimeUpdtd column
+ * @method     ChildPrinter|null findOneByDummy(string $dummy) Return the first ChildPrinter filtered by the dummy column
+ *
+ * @method     ChildPrinter requirePk($key, ?ConnectionInterface $con = null) Return the ChildPrinter by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPrinter requireOne(?ConnectionInterface $con = null) Return the first ChildPrinter matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildPrinter requireOneByPrctprinterid(string $PrctPrinterId) Return the first ChildPrinter filtered by the PrctPrinterId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPrinter requireOneByPrctdesc(string $PrctDesc) Return the first ChildPrinter filtered by the PrctDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -93,23 +91,40 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPrinter requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildPrinter filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildPrinter requireOneByDummy(string $dummy) Return the first ChildPrinter filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildPrinter[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildPrinter objects based on current ModelCriteria
- * @method     ChildPrinter[]|ObjectCollection findByPrctprinterid(string $PrctPrinterId) Return ChildPrinter objects filtered by the PrctPrinterId column
- * @method     ChildPrinter[]|ObjectCollection findByPrctdesc(string $PrctDesc) Return ChildPrinter objects filtered by the PrctDesc column
- * @method     ChildPrinter[]|ObjectCollection findByPrctprtrtype(string $PrctPrtrType) Return ChildPrinter objects filtered by the PrctPrtrType column
- * @method     ChildPrinter[]|ObjectCollection findByPrcttypedesc(string $PrctTypeDesc) Return ChildPrinter objects filtered by the PrctTypeDesc column
- * @method     ChildPrinter[]|ObjectCollection findByPrctform(string $PrctForm) Return ChildPrinter objects filtered by the PrctForm column
- * @method     ChildPrinter[]|ObjectCollection findByPrctpitch10(string $PrctPitch10) Return ChildPrinter objects filtered by the PrctPitch10 column
- * @method     ChildPrinter[]|ObjectCollection findByPrctpitch12(string $PrctPitch12) Return ChildPrinter objects filtered by the PrctPitch12 column
- * @method     ChildPrinter[]|ObjectCollection findByPrctpitch17(string $PrctPitch17) Return ChildPrinter objects filtered by the PrctPitch17 column
- * @method     ChildPrinter[]|ObjectCollection findByPrctwhse(string $PrctWhse) Return ChildPrinter objects filtered by the PrctWhse column
- * @method     ChildPrinter[]|ObjectCollection findByPrctselectlist(string $PrctSelectList) Return ChildPrinter objects filtered by the PrctSelectList column
- * @method     ChildPrinter[]|ObjectCollection findByPrctassgndcart(string $PrctAssgndCart) Return ChildPrinter objects filtered by the PrctAssgndCart column
- * @method     ChildPrinter[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildPrinter objects filtered by the DateUpdtd column
- * @method     ChildPrinter[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildPrinter objects filtered by the TimeUpdtd column
- * @method     ChildPrinter[]|ObjectCollection findByDummy(string $dummy) Return ChildPrinter objects filtered by the dummy column
- * @method     ChildPrinter[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildPrinter[]|Collection find(?ConnectionInterface $con = null) Return ChildPrinter objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildPrinter> find(?ConnectionInterface $con = null) Return ChildPrinter objects based on current ModelCriteria
  *
+ * @method     ChildPrinter[]|Collection findByPrctprinterid(string|array<string> $PrctPrinterId) Return ChildPrinter objects filtered by the PrctPrinterId column
+ * @psalm-method Collection&\Traversable<ChildPrinter> findByPrctprinterid(string|array<string> $PrctPrinterId) Return ChildPrinter objects filtered by the PrctPrinterId column
+ * @method     ChildPrinter[]|Collection findByPrctdesc(string|array<string> $PrctDesc) Return ChildPrinter objects filtered by the PrctDesc column
+ * @psalm-method Collection&\Traversable<ChildPrinter> findByPrctdesc(string|array<string> $PrctDesc) Return ChildPrinter objects filtered by the PrctDesc column
+ * @method     ChildPrinter[]|Collection findByPrctprtrtype(string|array<string> $PrctPrtrType) Return ChildPrinter objects filtered by the PrctPrtrType column
+ * @psalm-method Collection&\Traversable<ChildPrinter> findByPrctprtrtype(string|array<string> $PrctPrtrType) Return ChildPrinter objects filtered by the PrctPrtrType column
+ * @method     ChildPrinter[]|Collection findByPrcttypedesc(string|array<string> $PrctTypeDesc) Return ChildPrinter objects filtered by the PrctTypeDesc column
+ * @psalm-method Collection&\Traversable<ChildPrinter> findByPrcttypedesc(string|array<string> $PrctTypeDesc) Return ChildPrinter objects filtered by the PrctTypeDesc column
+ * @method     ChildPrinter[]|Collection findByPrctform(string|array<string> $PrctForm) Return ChildPrinter objects filtered by the PrctForm column
+ * @psalm-method Collection&\Traversable<ChildPrinter> findByPrctform(string|array<string> $PrctForm) Return ChildPrinter objects filtered by the PrctForm column
+ * @method     ChildPrinter[]|Collection findByPrctpitch10(string|array<string> $PrctPitch10) Return ChildPrinter objects filtered by the PrctPitch10 column
+ * @psalm-method Collection&\Traversable<ChildPrinter> findByPrctpitch10(string|array<string> $PrctPitch10) Return ChildPrinter objects filtered by the PrctPitch10 column
+ * @method     ChildPrinter[]|Collection findByPrctpitch12(string|array<string> $PrctPitch12) Return ChildPrinter objects filtered by the PrctPitch12 column
+ * @psalm-method Collection&\Traversable<ChildPrinter> findByPrctpitch12(string|array<string> $PrctPitch12) Return ChildPrinter objects filtered by the PrctPitch12 column
+ * @method     ChildPrinter[]|Collection findByPrctpitch17(string|array<string> $PrctPitch17) Return ChildPrinter objects filtered by the PrctPitch17 column
+ * @psalm-method Collection&\Traversable<ChildPrinter> findByPrctpitch17(string|array<string> $PrctPitch17) Return ChildPrinter objects filtered by the PrctPitch17 column
+ * @method     ChildPrinter[]|Collection findByPrctwhse(string|array<string> $PrctWhse) Return ChildPrinter objects filtered by the PrctWhse column
+ * @psalm-method Collection&\Traversable<ChildPrinter> findByPrctwhse(string|array<string> $PrctWhse) Return ChildPrinter objects filtered by the PrctWhse column
+ * @method     ChildPrinter[]|Collection findByPrctselectlist(string|array<string> $PrctSelectList) Return ChildPrinter objects filtered by the PrctSelectList column
+ * @psalm-method Collection&\Traversable<ChildPrinter> findByPrctselectlist(string|array<string> $PrctSelectList) Return ChildPrinter objects filtered by the PrctSelectList column
+ * @method     ChildPrinter[]|Collection findByPrctassgndcart(string|array<string> $PrctAssgndCart) Return ChildPrinter objects filtered by the PrctAssgndCart column
+ * @psalm-method Collection&\Traversable<ChildPrinter> findByPrctassgndcart(string|array<string> $PrctAssgndCart) Return ChildPrinter objects filtered by the PrctAssgndCart column
+ * @method     ChildPrinter[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildPrinter objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildPrinter> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildPrinter objects filtered by the DateUpdtd column
+ * @method     ChildPrinter[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildPrinter objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildPrinter> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildPrinter objects filtered by the TimeUpdtd column
+ * @method     ChildPrinter[]|Collection findByDummy(string|array<string> $dummy) Return ChildPrinter objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildPrinter> findByDummy(string|array<string> $dummy) Return ChildPrinter objects filtered by the dummy column
+ *
+ * @method     ChildPrinter[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildPrinter> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class PrinterQuery extends ModelCriteria
 {
@@ -118,9 +133,9 @@ abstract class PrinterQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\PrinterQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\Printer', $modelAlias = null)
     {
@@ -130,12 +145,12 @@ abstract class PrinterQuery extends ModelCriteria
     /**
      * Returns a new ChildPrinterQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildPrinterQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildPrinterQuery) {
             return $criteria;
@@ -165,7 +180,7 @@ abstract class PrinterQuery extends ModelCriteria
      *
      * @return ChildPrinter|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -197,8 +212,8 @@ abstract class PrinterQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -230,8 +245,8 @@ abstract class PrinterQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildPrinter|array|mixed the result, formatted by the current formatter
      */
@@ -251,12 +266,12 @@ abstract class PrinterQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -273,27 +288,31 @@ abstract class PrinterQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(PrinterTableMap::COL_PRCTPRINTERID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(PrinterTableMap::COL_PRCTPRINTERID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(PrinterTableMap::COL_PRCTPRINTERID, $keys, Criteria::IN);
+        $this->addUsingAlias(PrinterTableMap::COL_PRCTPRINTERID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -303,14 +322,15 @@ abstract class PrinterQuery extends ModelCriteria
      * <code>
      * $query->filterByPrctprinterid('fooValue');   // WHERE PrctPrinterId = 'fooValue'
      * $query->filterByPrctprinterid('%fooValue%', Criteria::LIKE); // WHERE PrctPrinterId LIKE '%fooValue%'
+     * $query->filterByPrctprinterid(['foo', 'bar']); // WHERE PrctPrinterId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $prctprinterid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $prctprinterid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrctprinterid($prctprinterid = null, $comparison = null)
+    public function filterByPrctprinterid($prctprinterid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($prctprinterid)) {
@@ -318,7 +338,9 @@ abstract class PrinterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrinterTableMap::COL_PRCTPRINTERID, $prctprinterid, $comparison);
+        $this->addUsingAlias(PrinterTableMap::COL_PRCTPRINTERID, $prctprinterid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -328,14 +350,15 @@ abstract class PrinterQuery extends ModelCriteria
      * <code>
      * $query->filterByPrctdesc('fooValue');   // WHERE PrctDesc = 'fooValue'
      * $query->filterByPrctdesc('%fooValue%', Criteria::LIKE); // WHERE PrctDesc LIKE '%fooValue%'
+     * $query->filterByPrctdesc(['foo', 'bar']); // WHERE PrctDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $prctdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $prctdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrctdesc($prctdesc = null, $comparison = null)
+    public function filterByPrctdesc($prctdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($prctdesc)) {
@@ -343,7 +366,9 @@ abstract class PrinterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrinterTableMap::COL_PRCTDESC, $prctdesc, $comparison);
+        $this->addUsingAlias(PrinterTableMap::COL_PRCTDESC, $prctdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -353,14 +378,15 @@ abstract class PrinterQuery extends ModelCriteria
      * <code>
      * $query->filterByPrctprtrtype('fooValue');   // WHERE PrctPrtrType = 'fooValue'
      * $query->filterByPrctprtrtype('%fooValue%', Criteria::LIKE); // WHERE PrctPrtrType LIKE '%fooValue%'
+     * $query->filterByPrctprtrtype(['foo', 'bar']); // WHERE PrctPrtrType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $prctprtrtype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $prctprtrtype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrctprtrtype($prctprtrtype = null, $comparison = null)
+    public function filterByPrctprtrtype($prctprtrtype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($prctprtrtype)) {
@@ -368,7 +394,9 @@ abstract class PrinterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrinterTableMap::COL_PRCTPRTRTYPE, $prctprtrtype, $comparison);
+        $this->addUsingAlias(PrinterTableMap::COL_PRCTPRTRTYPE, $prctprtrtype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -378,14 +406,15 @@ abstract class PrinterQuery extends ModelCriteria
      * <code>
      * $query->filterByPrcttypedesc('fooValue');   // WHERE PrctTypeDesc = 'fooValue'
      * $query->filterByPrcttypedesc('%fooValue%', Criteria::LIKE); // WHERE PrctTypeDesc LIKE '%fooValue%'
+     * $query->filterByPrcttypedesc(['foo', 'bar']); // WHERE PrctTypeDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $prcttypedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $prcttypedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrcttypedesc($prcttypedesc = null, $comparison = null)
+    public function filterByPrcttypedesc($prcttypedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($prcttypedesc)) {
@@ -393,7 +422,9 @@ abstract class PrinterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrinterTableMap::COL_PRCTTYPEDESC, $prcttypedesc, $comparison);
+        $this->addUsingAlias(PrinterTableMap::COL_PRCTTYPEDESC, $prcttypedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -403,14 +434,15 @@ abstract class PrinterQuery extends ModelCriteria
      * <code>
      * $query->filterByPrctform('fooValue');   // WHERE PrctForm = 'fooValue'
      * $query->filterByPrctform('%fooValue%', Criteria::LIKE); // WHERE PrctForm LIKE '%fooValue%'
+     * $query->filterByPrctform(['foo', 'bar']); // WHERE PrctForm IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $prctform The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $prctform The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrctform($prctform = null, $comparison = null)
+    public function filterByPrctform($prctform = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($prctform)) {
@@ -418,7 +450,9 @@ abstract class PrinterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrinterTableMap::COL_PRCTFORM, $prctform, $comparison);
+        $this->addUsingAlias(PrinterTableMap::COL_PRCTFORM, $prctform, $comparison);
+
+        return $this;
     }
 
     /**
@@ -428,14 +462,15 @@ abstract class PrinterQuery extends ModelCriteria
      * <code>
      * $query->filterByPrctpitch10('fooValue');   // WHERE PrctPitch10 = 'fooValue'
      * $query->filterByPrctpitch10('%fooValue%', Criteria::LIKE); // WHERE PrctPitch10 LIKE '%fooValue%'
+     * $query->filterByPrctpitch10(['foo', 'bar']); // WHERE PrctPitch10 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $prctpitch10 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $prctpitch10 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrctpitch10($prctpitch10 = null, $comparison = null)
+    public function filterByPrctpitch10($prctpitch10 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($prctpitch10)) {
@@ -443,7 +478,9 @@ abstract class PrinterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrinterTableMap::COL_PRCTPITCH10, $prctpitch10, $comparison);
+        $this->addUsingAlias(PrinterTableMap::COL_PRCTPITCH10, $prctpitch10, $comparison);
+
+        return $this;
     }
 
     /**
@@ -453,14 +490,15 @@ abstract class PrinterQuery extends ModelCriteria
      * <code>
      * $query->filterByPrctpitch12('fooValue');   // WHERE PrctPitch12 = 'fooValue'
      * $query->filterByPrctpitch12('%fooValue%', Criteria::LIKE); // WHERE PrctPitch12 LIKE '%fooValue%'
+     * $query->filterByPrctpitch12(['foo', 'bar']); // WHERE PrctPitch12 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $prctpitch12 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $prctpitch12 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrctpitch12($prctpitch12 = null, $comparison = null)
+    public function filterByPrctpitch12($prctpitch12 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($prctpitch12)) {
@@ -468,7 +506,9 @@ abstract class PrinterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrinterTableMap::COL_PRCTPITCH12, $prctpitch12, $comparison);
+        $this->addUsingAlias(PrinterTableMap::COL_PRCTPITCH12, $prctpitch12, $comparison);
+
+        return $this;
     }
 
     /**
@@ -478,14 +518,15 @@ abstract class PrinterQuery extends ModelCriteria
      * <code>
      * $query->filterByPrctpitch17('fooValue');   // WHERE PrctPitch17 = 'fooValue'
      * $query->filterByPrctpitch17('%fooValue%', Criteria::LIKE); // WHERE PrctPitch17 LIKE '%fooValue%'
+     * $query->filterByPrctpitch17(['foo', 'bar']); // WHERE PrctPitch17 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $prctpitch17 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $prctpitch17 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrctpitch17($prctpitch17 = null, $comparison = null)
+    public function filterByPrctpitch17($prctpitch17 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($prctpitch17)) {
@@ -493,7 +534,9 @@ abstract class PrinterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrinterTableMap::COL_PRCTPITCH17, $prctpitch17, $comparison);
+        $this->addUsingAlias(PrinterTableMap::COL_PRCTPITCH17, $prctpitch17, $comparison);
+
+        return $this;
     }
 
     /**
@@ -503,14 +546,15 @@ abstract class PrinterQuery extends ModelCriteria
      * <code>
      * $query->filterByPrctwhse('fooValue');   // WHERE PrctWhse = 'fooValue'
      * $query->filterByPrctwhse('%fooValue%', Criteria::LIKE); // WHERE PrctWhse LIKE '%fooValue%'
+     * $query->filterByPrctwhse(['foo', 'bar']); // WHERE PrctWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $prctwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $prctwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrctwhse($prctwhse = null, $comparison = null)
+    public function filterByPrctwhse($prctwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($prctwhse)) {
@@ -518,7 +562,9 @@ abstract class PrinterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrinterTableMap::COL_PRCTWHSE, $prctwhse, $comparison);
+        $this->addUsingAlias(PrinterTableMap::COL_PRCTWHSE, $prctwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -528,14 +574,15 @@ abstract class PrinterQuery extends ModelCriteria
      * <code>
      * $query->filterByPrctselectlist('fooValue');   // WHERE PrctSelectList = 'fooValue'
      * $query->filterByPrctselectlist('%fooValue%', Criteria::LIKE); // WHERE PrctSelectList LIKE '%fooValue%'
+     * $query->filterByPrctselectlist(['foo', 'bar']); // WHERE PrctSelectList IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $prctselectlist The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $prctselectlist The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrctselectlist($prctselectlist = null, $comparison = null)
+    public function filterByPrctselectlist($prctselectlist = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($prctselectlist)) {
@@ -543,7 +590,9 @@ abstract class PrinterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrinterTableMap::COL_PRCTSELECTLIST, $prctselectlist, $comparison);
+        $this->addUsingAlias(PrinterTableMap::COL_PRCTSELECTLIST, $prctselectlist, $comparison);
+
+        return $this;
     }
 
     /**
@@ -553,14 +602,15 @@ abstract class PrinterQuery extends ModelCriteria
      * <code>
      * $query->filterByPrctassgndcart('fooValue');   // WHERE PrctAssgndCart = 'fooValue'
      * $query->filterByPrctassgndcart('%fooValue%', Criteria::LIKE); // WHERE PrctAssgndCart LIKE '%fooValue%'
+     * $query->filterByPrctassgndcart(['foo', 'bar']); // WHERE PrctAssgndCart IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $prctassgndcart The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $prctassgndcart The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPrctassgndcart($prctassgndcart = null, $comparison = null)
+    public function filterByPrctassgndcart($prctassgndcart = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($prctassgndcart)) {
@@ -568,7 +618,9 @@ abstract class PrinterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrinterTableMap::COL_PRCTASSGNDCART, $prctassgndcart, $comparison);
+        $this->addUsingAlias(PrinterTableMap::COL_PRCTASSGNDCART, $prctassgndcart, $comparison);
+
+        return $this;
     }
 
     /**
@@ -578,14 +630,15 @@ abstract class PrinterQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -593,7 +646,9 @@ abstract class PrinterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrinterTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(PrinterTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -603,14 +658,15 @@ abstract class PrinterQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -618,7 +674,9 @@ abstract class PrinterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrinterTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(PrinterTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -628,14 +686,15 @@ abstract class PrinterQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -643,15 +702,17 @@ abstract class PrinterQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(PrinterTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(PrinterTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildPrinter $printer Object to remove from the list of results
+     * @param ChildPrinter $printer Object to remove from the list of results
      *
-     * @return $this|ChildPrinterQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($printer = null)
     {
@@ -668,7 +729,7 @@ abstract class PrinterQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PrinterTableMap::DATABASE_NAME);
@@ -693,12 +754,12 @@ abstract class PrinterQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PrinterTableMap::DATABASE_NAME);
@@ -723,4 +784,4 @@ abstract class PrinterQuery extends ModelCriteria
         });
     }
 
-} // PrinterQuery
+}

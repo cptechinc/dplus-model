@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class UnitofMeasureSaleTableMap extends TableMap
 {
@@ -34,124 +33,203 @@ class UnitofMeasureSaleTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.UnitofMeasureSaleTableMap';
+    public const CLASS_NAME = '.Map.UnitofMeasureSaleTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'inv_uom_sale';
+    public const TABLE_NAME = 'inv_uom_sale';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'UnitofMeasureSale';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\UnitofMeasureSale';
+    public const OM_CLASS = '\\UnitofMeasureSale';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'UnitofMeasureSale';
+    public const CLASS_DEFAULT = 'UnitofMeasureSale';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 8;
+    public const NUM_COLUMNS = 8;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 8;
+    public const NUM_HYDRATE_COLUMNS = 8;
 
     /**
      * the column name for the IntbUomSale field
      */
-    const COL_INTBUOMSALE = 'inv_uom_sale.IntbUomSale';
+    public const COL_INTBUOMSALE = 'inv_uom_sale.IntbUomSale';
 
     /**
      * the column name for the IntbUomDesc field
      */
-    const COL_INTBUOMDESC = 'inv_uom_sale.IntbUomDesc';
+    public const COL_INTBUOMDESC = 'inv_uom_sale.IntbUomDesc';
 
     /**
      * the column name for the IntbUomConv field
      */
-    const COL_INTBUOMCONV = 'inv_uom_sale.IntbUomConv';
+    public const COL_INTBUOMCONV = 'inv_uom_sale.IntbUomConv';
 
     /**
      * the column name for the IntbUomPricByWght field
      */
-    const COL_INTBUOMPRICBYWGHT = 'inv_uom_sale.IntbUomPricByWght';
+    public const COL_INTBUOMPRICBYWGHT = 'inv_uom_sale.IntbUomPricByWght';
 
     /**
      * the column name for the IntbUomStockByCase field
      */
-    const COL_INTBUOMSTOCKBYCASE = 'inv_uom_sale.IntbUomStockByCase';
+    public const COL_INTBUOMSTOCKBYCASE = 'inv_uom_sale.IntbUomStockByCase';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'inv_uom_sale.DateUpdtd';
+    public const COL_DATEUPDTD = 'inv_uom_sale.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'inv_uom_sale.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'inv_uom_sale.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'inv_uom_sale.dummy';
+    public const COL_DUMMY = 'inv_uom_sale.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Intbuomsale', 'Intbuomdesc', 'Intbuomconv', 'Intbuompricbywght', 'IntbUomStockByCase', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('intbuomsale', 'intbuomdesc', 'intbuomconv', 'intbuompricbywght', 'intbUomStockByCase', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(UnitofMeasureSaleTableMap::COL_INTBUOMSALE, UnitofMeasureSaleTableMap::COL_INTBUOMDESC, UnitofMeasureSaleTableMap::COL_INTBUOMCONV, UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT, UnitofMeasureSaleTableMap::COL_INTBUOMSTOCKBYCASE, UnitofMeasureSaleTableMap::COL_DATEUPDTD, UnitofMeasureSaleTableMap::COL_TIMEUPDTD, UnitofMeasureSaleTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('IntbUomSale', 'IntbUomDesc', 'IntbUomConv', 'IntbUomPricByWght', 'IntbUomStockByCase', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Intbuomsale', 'Intbuomdesc', 'Intbuomconv', 'Intbuompricbywght', 'IntbUomStockByCase', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['intbuomsale', 'intbuomdesc', 'intbuomconv', 'intbuompricbywght', 'intbUomStockByCase', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [UnitofMeasureSaleTableMap::COL_INTBUOMSALE, UnitofMeasureSaleTableMap::COL_INTBUOMDESC, UnitofMeasureSaleTableMap::COL_INTBUOMCONV, UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT, UnitofMeasureSaleTableMap::COL_INTBUOMSTOCKBYCASE, UnitofMeasureSaleTableMap::COL_DATEUPDTD, UnitofMeasureSaleTableMap::COL_TIMEUPDTD, UnitofMeasureSaleTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['IntbUomSale', 'IntbUomDesc', 'IntbUomConv', 'IntbUomPricByWght', 'IntbUomStockByCase', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Intbuomsale' => 0, 'Intbuomdesc' => 1, 'Intbuomconv' => 2, 'Intbuompricbywght' => 3, 'IntbUomStockByCase' => 4, 'Dateupdtd' => 5, 'Timeupdtd' => 6, 'Dummy' => 7, ),
-        self::TYPE_CAMELNAME     => array('intbuomsale' => 0, 'intbuomdesc' => 1, 'intbuomconv' => 2, 'intbuompricbywght' => 3, 'intbUomStockByCase' => 4, 'dateupdtd' => 5, 'timeupdtd' => 6, 'dummy' => 7, ),
-        self::TYPE_COLNAME       => array(UnitofMeasureSaleTableMap::COL_INTBUOMSALE => 0, UnitofMeasureSaleTableMap::COL_INTBUOMDESC => 1, UnitofMeasureSaleTableMap::COL_INTBUOMCONV => 2, UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT => 3, UnitofMeasureSaleTableMap::COL_INTBUOMSTOCKBYCASE => 4, UnitofMeasureSaleTableMap::COL_DATEUPDTD => 5, UnitofMeasureSaleTableMap::COL_TIMEUPDTD => 6, UnitofMeasureSaleTableMap::COL_DUMMY => 7, ),
-        self::TYPE_FIELDNAME     => array('IntbUomSale' => 0, 'IntbUomDesc' => 1, 'IntbUomConv' => 2, 'IntbUomPricByWght' => 3, 'IntbUomStockByCase' => 4, 'DateUpdtd' => 5, 'TimeUpdtd' => 6, 'dummy' => 7, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Intbuomsale' => 0, 'Intbuomdesc' => 1, 'Intbuomconv' => 2, 'Intbuompricbywght' => 3, 'IntbUomStockByCase' => 4, 'Dateupdtd' => 5, 'Timeupdtd' => 6, 'Dummy' => 7, ],
+        self::TYPE_CAMELNAME     => ['intbuomsale' => 0, 'intbuomdesc' => 1, 'intbuomconv' => 2, 'intbuompricbywght' => 3, 'intbUomStockByCase' => 4, 'dateupdtd' => 5, 'timeupdtd' => 6, 'dummy' => 7, ],
+        self::TYPE_COLNAME       => [UnitofMeasureSaleTableMap::COL_INTBUOMSALE => 0, UnitofMeasureSaleTableMap::COL_INTBUOMDESC => 1, UnitofMeasureSaleTableMap::COL_INTBUOMCONV => 2, UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT => 3, UnitofMeasureSaleTableMap::COL_INTBUOMSTOCKBYCASE => 4, UnitofMeasureSaleTableMap::COL_DATEUPDTD => 5, UnitofMeasureSaleTableMap::COL_TIMEUPDTD => 6, UnitofMeasureSaleTableMap::COL_DUMMY => 7, ],
+        self::TYPE_FIELDNAME     => ['IntbUomSale' => 0, 'IntbUomDesc' => 1, 'IntbUomConv' => 2, 'IntbUomPricByWght' => 3, 'IntbUomStockByCase' => 4, 'DateUpdtd' => 5, 'TimeUpdtd' => 6, 'dummy' => 7, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Intbuomsale' => 'INTBUOMSALE',
+        'UnitofMeasureSale.Intbuomsale' => 'INTBUOMSALE',
+        'intbuomsale' => 'INTBUOMSALE',
+        'unitofMeasureSale.intbuomsale' => 'INTBUOMSALE',
+        'UnitofMeasureSaleTableMap::COL_INTBUOMSALE' => 'INTBUOMSALE',
+        'COL_INTBUOMSALE' => 'INTBUOMSALE',
+        'IntbUomSale' => 'INTBUOMSALE',
+        'inv_uom_sale.IntbUomSale' => 'INTBUOMSALE',
+        'Intbuomdesc' => 'INTBUOMDESC',
+        'UnitofMeasureSale.Intbuomdesc' => 'INTBUOMDESC',
+        'intbuomdesc' => 'INTBUOMDESC',
+        'unitofMeasureSale.intbuomdesc' => 'INTBUOMDESC',
+        'UnitofMeasureSaleTableMap::COL_INTBUOMDESC' => 'INTBUOMDESC',
+        'COL_INTBUOMDESC' => 'INTBUOMDESC',
+        'IntbUomDesc' => 'INTBUOMDESC',
+        'inv_uom_sale.IntbUomDesc' => 'INTBUOMDESC',
+        'Intbuomconv' => 'INTBUOMCONV',
+        'UnitofMeasureSale.Intbuomconv' => 'INTBUOMCONV',
+        'intbuomconv' => 'INTBUOMCONV',
+        'unitofMeasureSale.intbuomconv' => 'INTBUOMCONV',
+        'UnitofMeasureSaleTableMap::COL_INTBUOMCONV' => 'INTBUOMCONV',
+        'COL_INTBUOMCONV' => 'INTBUOMCONV',
+        'IntbUomConv' => 'INTBUOMCONV',
+        'inv_uom_sale.IntbUomConv' => 'INTBUOMCONV',
+        'Intbuompricbywght' => 'INTBUOMPRICBYWGHT',
+        'UnitofMeasureSale.Intbuompricbywght' => 'INTBUOMPRICBYWGHT',
+        'intbuompricbywght' => 'INTBUOMPRICBYWGHT',
+        'unitofMeasureSale.intbuompricbywght' => 'INTBUOMPRICBYWGHT',
+        'UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT' => 'INTBUOMPRICBYWGHT',
+        'COL_INTBUOMPRICBYWGHT' => 'INTBUOMPRICBYWGHT',
+        'IntbUomPricByWght' => 'INTBUOMPRICBYWGHT',
+        'inv_uom_sale.IntbUomPricByWght' => 'INTBUOMPRICBYWGHT',
+        'IntbUomStockByCase' => 'INTBUOMSTOCKBYCASE',
+        'UnitofMeasureSale.IntbUomStockByCase' => 'INTBUOMSTOCKBYCASE',
+        'intbUomStockByCase' => 'INTBUOMSTOCKBYCASE',
+        'unitofMeasureSale.intbUomStockByCase' => 'INTBUOMSTOCKBYCASE',
+        'UnitofMeasureSaleTableMap::COL_INTBUOMSTOCKBYCASE' => 'INTBUOMSTOCKBYCASE',
+        'COL_INTBUOMSTOCKBYCASE' => 'INTBUOMSTOCKBYCASE',
+        'inv_uom_sale.IntbUomStockByCase' => 'INTBUOMSTOCKBYCASE',
+        'Dateupdtd' => 'DATEUPDTD',
+        'UnitofMeasureSale.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'unitofMeasureSale.dateupdtd' => 'DATEUPDTD',
+        'UnitofMeasureSaleTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'inv_uom_sale.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'UnitofMeasureSale.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'unitofMeasureSale.timeupdtd' => 'TIMEUPDTD',
+        'UnitofMeasureSaleTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'inv_uom_sale.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'UnitofMeasureSale.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'unitofMeasureSale.dummy' => 'DUMMY',
+        'UnitofMeasureSaleTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'inv_uom_sale.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('inv_uom_sale');
@@ -169,12 +247,14 @@ class UnitofMeasureSaleTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::ONE_TO_MANY, array (
   0 =>
@@ -183,7 +263,14 @@ class UnitofMeasureSaleTableMap extends TableMap
     1 => ':IntbUomSale',
   ),
 ), null, null, 'ItemMasterItems', false);
-    } // buildRelations()
+        $this->addRelation('PurchaseOrderDetailReceiving', '\\PurchaseOrderDetailReceiving', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':IntbUomPur',
+    1 => ':IntbUomSale',
+  ),
+), null, null, 'PurchaseOrderDetailReceivings', false);
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -191,14 +278,14 @@ class UnitofMeasureSaleTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Intbuomsale', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -213,14 +300,14 @@ class UnitofMeasureSaleTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
             $indexType == TableMap::TYPE_NUM
@@ -237,10 +324,10 @@ class UnitofMeasureSaleTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? UnitofMeasureSaleTableMap::CLASS_DEFAULT : UnitofMeasureSaleTableMap::OM_CLASS;
     }
@@ -248,17 +335,17 @@ class UnitofMeasureSaleTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (UnitofMeasureSale object, last column rank)
+     * @return array (UnitofMeasureSale object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = UnitofMeasureSaleTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = UnitofMeasureSaleTableMap::getInstanceFromPool($key))) {
@@ -274,7 +361,7 @@ class UnitofMeasureSaleTableMap extends TableMap
             UnitofMeasureSaleTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -282,13 +369,13 @@ class UnitofMeasureSaleTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -318,12 +405,13 @@ class UnitofMeasureSaleTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(UnitofMeasureSaleTableMap::COL_INTBUOMSALE);
@@ -347,40 +435,64 @@ class UnitofMeasureSaleTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(UnitofMeasureSaleTableMap::COL_INTBUOMSALE);
+            $criteria->removeSelectColumn(UnitofMeasureSaleTableMap::COL_INTBUOMDESC);
+            $criteria->removeSelectColumn(UnitofMeasureSaleTableMap::COL_INTBUOMCONV);
+            $criteria->removeSelectColumn(UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT);
+            $criteria->removeSelectColumn(UnitofMeasureSaleTableMap::COL_INTBUOMSTOCKBYCASE);
+            $criteria->removeSelectColumn(UnitofMeasureSaleTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(UnitofMeasureSaleTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(UnitofMeasureSaleTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.IntbUomSale');
+            $criteria->removeSelectColumn($alias . '.IntbUomDesc');
+            $criteria->removeSelectColumn($alias . '.IntbUomConv');
+            $criteria->removeSelectColumn($alias . '.IntbUomPricByWght');
+            $criteria->removeSelectColumn($alias . '.IntbUomStockByCase');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(UnitofMeasureSaleTableMap::DATABASE_NAME)->getTable(UnitofMeasureSaleTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(UnitofMeasureSaleTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(UnitofMeasureSaleTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new UnitofMeasureSaleTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a UnitofMeasureSale or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or UnitofMeasureSale object or primary key or array of primary keys
+     * @param mixed $values Criteria or UnitofMeasureSale object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(UnitofMeasureSaleTableMap::DATABASE_NAME);
@@ -416,7 +528,7 @@ class UnitofMeasureSaleTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return UnitofMeasureSaleQuery::create()->doDeleteAll($con);
     }
@@ -424,13 +536,13 @@ class UnitofMeasureSaleTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a UnitofMeasureSale or Criteria object.
      *
-     * @param mixed               $criteria Criteria or UnitofMeasureSale object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or UnitofMeasureSale object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(UnitofMeasureSaleTableMap::DATABASE_NAME);
@@ -453,7 +565,4 @@ class UnitofMeasureSaleTableMap extends TableMap
         });
     }
 
-} // UnitofMeasureSaleTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-UnitofMeasureSaleTableMap::buildTableMap();
+}

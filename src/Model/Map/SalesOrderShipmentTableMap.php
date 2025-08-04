@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class SalesOrderShipmentTableMap extends TableMap
 {
@@ -34,194 +33,386 @@ class SalesOrderShipmentTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.SalesOrderShipmentTableMap';
+    public const CLASS_NAME = '.Map.SalesOrderShipmentTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'so_hist_ship';
+    public const TABLE_NAME = 'so_hist_ship';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'SalesOrderShipment';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\SalesOrderShipment';
+    public const OM_CLASS = '\\SalesOrderShipment';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'SalesOrderShipment';
+    public const CLASS_DEFAULT = 'SalesOrderShipment';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 22;
+    public const NUM_COLUMNS = 22;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 22;
+    public const NUM_HYDRATE_COLUMNS = 22;
 
     /**
      * the column name for the OehshNbr field
      */
-    const COL_OEHSHNBR = 'so_hist_ship.OehshNbr';
+    public const COL_OEHSHNBR = 'so_hist_ship.OehshNbr';
 
     /**
      * the column name for the OehshSeq field
      */
-    const COL_OEHSHSEQ = 'so_hist_ship.OehshSeq';
+    public const COL_OEHSHSEQ = 'so_hist_ship.OehshSeq';
 
     /**
      * the column name for the OehshShipRefNbr field
      */
-    const COL_OEHSHSHIPREFNBR = 'so_hist_ship.OehshShipRefNbr';
+    public const COL_OEHSHSHIPREFNBR = 'so_hist_ship.OehshShipRefNbr';
 
     /**
      * the column name for the OehshWght field
      */
-    const COL_OEHSHWGHT = 'so_hist_ship.OehshWght';
+    public const COL_OEHSHWGHT = 'so_hist_ship.OehshWght';
 
     /**
      * the column name for the OehshServType field
      */
-    const COL_OEHSHSERVTYPE = 'so_hist_ship.OehshServType';
+    public const COL_OEHSHSERVTYPE = 'so_hist_ship.OehshServType';
 
     /**
      * the column name for the OehshShipDate field
      */
-    const COL_OEHSHSHIPDATE = 'so_hist_ship.OehshShipDate';
+    public const COL_OEHSHSHIPDATE = 'so_hist_ship.OehshShipDate';
 
     /**
      * the column name for the OehshTrackNbr field
      */
-    const COL_OEHSHTRACKNBR = 'so_hist_ship.OehshTrackNbr';
+    public const COL_OEHSHTRACKNBR = 'so_hist_ship.OehshTrackNbr';
 
     /**
      * the column name for the OehshBillOfLading field
      */
-    const COL_OEHSHBILLOFLADING = 'so_hist_ship.OehshBillOfLading';
+    public const COL_OEHSHBILLOFLADING = 'so_hist_ship.OehshBillOfLading';
 
     /**
      * the column name for the OehshVesselName field
      */
-    const COL_OEHSHVESSELNAME = 'so_hist_ship.OehshVesselName';
+    public const COL_OEHSHVESSELNAME = 'so_hist_ship.OehshVesselName';
 
     /**
      * the column name for the OehshAsgdCntrNbr field
      */
-    const COL_OEHSHASGDCNTRNBR = 'so_hist_ship.OehshAsgdCntrNbr';
+    public const COL_OEHSHASGDCNTRNBR = 'so_hist_ship.OehshAsgdCntrNbr';
 
     /**
      * the column name for the OehshOceanContainer field
      */
-    const COL_OEHSHOCEANCONTAINER = 'so_hist_ship.OehshOceanContainer';
+    public const COL_OEHSHOCEANCONTAINER = 'so_hist_ship.OehshOceanContainer';
 
     /**
      * the column name for the OehshAmazonRef field
      */
-    const COL_OEHSHAMAZONREF = 'so_hist_ship.OehshAmazonRef';
+    public const COL_OEHSHAMAZONREF = 'so_hist_ship.OehshAmazonRef';
 
     /**
      * the column name for the OehshSealNumber field
      */
-    const COL_OEHSHSEALNUMBER = 'so_hist_ship.OehshSealNumber';
+    public const COL_OEHSHSEALNUMBER = 'so_hist_ship.OehshSealNumber';
 
     /**
      * the column name for the OehshNbrCntrs field
      */
-    const COL_OEHSHNBRCNTRS = 'so_hist_ship.OehshNbrCntrs';
+    public const COL_OEHSHNBRCNTRS = 'so_hist_ship.OehshNbrCntrs';
 
     /**
      * the column name for the OehshReported field
      */
-    const COL_OEHSHREPORTED = 'so_hist_ship.OehshReported';
+    public const COL_OEHSHREPORTED = 'so_hist_ship.OehshReported';
 
     /**
      * the column name for the OehshCrtnNbr field
      */
-    const COL_OEHSHCRTNNBR = 'so_hist_ship.OehshCrtnNbr';
+    public const COL_OEHSHCRTNNBR = 'so_hist_ship.OehshCrtnNbr';
 
     /**
      * the column name for the OehshFrtCost field
      */
-    const COL_OEHSHFRTCOST = 'so_hist_ship.OehshFrtCost';
+    public const COL_OEHSHFRTCOST = 'so_hist_ship.OehshFrtCost';
 
     /**
      * the column name for the OehshDiscFrtCost field
      */
-    const COL_OEHSHDISCFRTCOST = 'so_hist_ship.OehshDiscFrtCost';
+    public const COL_OEHSHDISCFRTCOST = 'so_hist_ship.OehshDiscFrtCost';
 
     /**
      * the column name for the OehshFrtChrged field
      */
-    const COL_OEHSHFRTCHRGED = 'so_hist_ship.OehshFrtChrged';
+    public const COL_OEHSHFRTCHRGED = 'so_hist_ship.OehshFrtChrged';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'so_hist_ship.DateUpdtd';
+    public const COL_DATEUPDTD = 'so_hist_ship.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'so_hist_ship.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'so_hist_ship.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'so_hist_ship.dummy';
+    public const COL_DUMMY = 'so_hist_ship.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Oehshnbr', 'Oehshseq', 'Oehshshiprefnbr', 'Oehshwght', 'Oehshservtype', 'Oehshshipdate', 'Oehshtracknbr', 'Oehshbilloflading', 'Oehshvesselname', 'Oehshasgdcntrnbr', 'Oehshoceancontainer', 'Oehshamazonref', 'Oehshsealnumber', 'Oehshnbrcntrs', 'Oehshreported', 'Oehshcrtnnbr', 'Oehshfrtcost', 'Oehshdiscfrtcost', 'Oehshfrtchrged', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('oehshnbr', 'oehshseq', 'oehshshiprefnbr', 'oehshwght', 'oehshservtype', 'oehshshipdate', 'oehshtracknbr', 'oehshbilloflading', 'oehshvesselname', 'oehshasgdcntrnbr', 'oehshoceancontainer', 'oehshamazonref', 'oehshsealnumber', 'oehshnbrcntrs', 'oehshreported', 'oehshcrtnnbr', 'oehshfrtcost', 'oehshdiscfrtcost', 'oehshfrtchrged', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(SalesOrderShipmentTableMap::COL_OEHSHNBR, SalesOrderShipmentTableMap::COL_OEHSHSEQ, SalesOrderShipmentTableMap::COL_OEHSHSHIPREFNBR, SalesOrderShipmentTableMap::COL_OEHSHWGHT, SalesOrderShipmentTableMap::COL_OEHSHSERVTYPE, SalesOrderShipmentTableMap::COL_OEHSHSHIPDATE, SalesOrderShipmentTableMap::COL_OEHSHTRACKNBR, SalesOrderShipmentTableMap::COL_OEHSHBILLOFLADING, SalesOrderShipmentTableMap::COL_OEHSHVESSELNAME, SalesOrderShipmentTableMap::COL_OEHSHASGDCNTRNBR, SalesOrderShipmentTableMap::COL_OEHSHOCEANCONTAINER, SalesOrderShipmentTableMap::COL_OEHSHAMAZONREF, SalesOrderShipmentTableMap::COL_OEHSHSEALNUMBER, SalesOrderShipmentTableMap::COL_OEHSHNBRCNTRS, SalesOrderShipmentTableMap::COL_OEHSHREPORTED, SalesOrderShipmentTableMap::COL_OEHSHCRTNNBR, SalesOrderShipmentTableMap::COL_OEHSHFRTCOST, SalesOrderShipmentTableMap::COL_OEHSHDISCFRTCOST, SalesOrderShipmentTableMap::COL_OEHSHFRTCHRGED, SalesOrderShipmentTableMap::COL_DATEUPDTD, SalesOrderShipmentTableMap::COL_TIMEUPDTD, SalesOrderShipmentTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('OehshNbr', 'OehshSeq', 'OehshShipRefNbr', 'OehshWght', 'OehshServType', 'OehshShipDate', 'OehshTrackNbr', 'OehshBillOfLading', 'OehshVesselName', 'OehshAsgdCntrNbr', 'OehshOceanContainer', 'OehshAmazonRef', 'OehshSealNumber', 'OehshNbrCntrs', 'OehshReported', 'OehshCrtnNbr', 'OehshFrtCost', 'OehshDiscFrtCost', 'OehshFrtChrged', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Oehshnbr', 'Oehshseq', 'Oehshshiprefnbr', 'Oehshwght', 'Oehshservtype', 'Oehshshipdate', 'Oehshtracknbr', 'Oehshbilloflading', 'Oehshvesselname', 'Oehshasgdcntrnbr', 'Oehshoceancontainer', 'Oehshamazonref', 'Oehshsealnumber', 'Oehshnbrcntrs', 'Oehshreported', 'Oehshcrtnnbr', 'Oehshfrtcost', 'Oehshdiscfrtcost', 'Oehshfrtchrged', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['oehshnbr', 'oehshseq', 'oehshshiprefnbr', 'oehshwght', 'oehshservtype', 'oehshshipdate', 'oehshtracknbr', 'oehshbilloflading', 'oehshvesselname', 'oehshasgdcntrnbr', 'oehshoceancontainer', 'oehshamazonref', 'oehshsealnumber', 'oehshnbrcntrs', 'oehshreported', 'oehshcrtnnbr', 'oehshfrtcost', 'oehshdiscfrtcost', 'oehshfrtchrged', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [SalesOrderShipmentTableMap::COL_OEHSHNBR, SalesOrderShipmentTableMap::COL_OEHSHSEQ, SalesOrderShipmentTableMap::COL_OEHSHSHIPREFNBR, SalesOrderShipmentTableMap::COL_OEHSHWGHT, SalesOrderShipmentTableMap::COL_OEHSHSERVTYPE, SalesOrderShipmentTableMap::COL_OEHSHSHIPDATE, SalesOrderShipmentTableMap::COL_OEHSHTRACKNBR, SalesOrderShipmentTableMap::COL_OEHSHBILLOFLADING, SalesOrderShipmentTableMap::COL_OEHSHVESSELNAME, SalesOrderShipmentTableMap::COL_OEHSHASGDCNTRNBR, SalesOrderShipmentTableMap::COL_OEHSHOCEANCONTAINER, SalesOrderShipmentTableMap::COL_OEHSHAMAZONREF, SalesOrderShipmentTableMap::COL_OEHSHSEALNUMBER, SalesOrderShipmentTableMap::COL_OEHSHNBRCNTRS, SalesOrderShipmentTableMap::COL_OEHSHREPORTED, SalesOrderShipmentTableMap::COL_OEHSHCRTNNBR, SalesOrderShipmentTableMap::COL_OEHSHFRTCOST, SalesOrderShipmentTableMap::COL_OEHSHDISCFRTCOST, SalesOrderShipmentTableMap::COL_OEHSHFRTCHRGED, SalesOrderShipmentTableMap::COL_DATEUPDTD, SalesOrderShipmentTableMap::COL_TIMEUPDTD, SalesOrderShipmentTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['OehshNbr', 'OehshSeq', 'OehshShipRefNbr', 'OehshWght', 'OehshServType', 'OehshShipDate', 'OehshTrackNbr', 'OehshBillOfLading', 'OehshVesselName', 'OehshAsgdCntrNbr', 'OehshOceanContainer', 'OehshAmazonRef', 'OehshSealNumber', 'OehshNbrCntrs', 'OehshReported', 'OehshCrtnNbr', 'OehshFrtCost', 'OehshDiscFrtCost', 'OehshFrtChrged', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Oehshnbr' => 0, 'Oehshseq' => 1, 'Oehshshiprefnbr' => 2, 'Oehshwght' => 3, 'Oehshservtype' => 4, 'Oehshshipdate' => 5, 'Oehshtracknbr' => 6, 'Oehshbilloflading' => 7, 'Oehshvesselname' => 8, 'Oehshasgdcntrnbr' => 9, 'Oehshoceancontainer' => 10, 'Oehshamazonref' => 11, 'Oehshsealnumber' => 12, 'Oehshnbrcntrs' => 13, 'Oehshreported' => 14, 'Oehshcrtnnbr' => 15, 'Oehshfrtcost' => 16, 'Oehshdiscfrtcost' => 17, 'Oehshfrtchrged' => 18, 'Dateupdtd' => 19, 'Timeupdtd' => 20, 'Dummy' => 21, ),
-        self::TYPE_CAMELNAME     => array('oehshnbr' => 0, 'oehshseq' => 1, 'oehshshiprefnbr' => 2, 'oehshwght' => 3, 'oehshservtype' => 4, 'oehshshipdate' => 5, 'oehshtracknbr' => 6, 'oehshbilloflading' => 7, 'oehshvesselname' => 8, 'oehshasgdcntrnbr' => 9, 'oehshoceancontainer' => 10, 'oehshamazonref' => 11, 'oehshsealnumber' => 12, 'oehshnbrcntrs' => 13, 'oehshreported' => 14, 'oehshcrtnnbr' => 15, 'oehshfrtcost' => 16, 'oehshdiscfrtcost' => 17, 'oehshfrtchrged' => 18, 'dateupdtd' => 19, 'timeupdtd' => 20, 'dummy' => 21, ),
-        self::TYPE_COLNAME       => array(SalesOrderShipmentTableMap::COL_OEHSHNBR => 0, SalesOrderShipmentTableMap::COL_OEHSHSEQ => 1, SalesOrderShipmentTableMap::COL_OEHSHSHIPREFNBR => 2, SalesOrderShipmentTableMap::COL_OEHSHWGHT => 3, SalesOrderShipmentTableMap::COL_OEHSHSERVTYPE => 4, SalesOrderShipmentTableMap::COL_OEHSHSHIPDATE => 5, SalesOrderShipmentTableMap::COL_OEHSHTRACKNBR => 6, SalesOrderShipmentTableMap::COL_OEHSHBILLOFLADING => 7, SalesOrderShipmentTableMap::COL_OEHSHVESSELNAME => 8, SalesOrderShipmentTableMap::COL_OEHSHASGDCNTRNBR => 9, SalesOrderShipmentTableMap::COL_OEHSHOCEANCONTAINER => 10, SalesOrderShipmentTableMap::COL_OEHSHAMAZONREF => 11, SalesOrderShipmentTableMap::COL_OEHSHSEALNUMBER => 12, SalesOrderShipmentTableMap::COL_OEHSHNBRCNTRS => 13, SalesOrderShipmentTableMap::COL_OEHSHREPORTED => 14, SalesOrderShipmentTableMap::COL_OEHSHCRTNNBR => 15, SalesOrderShipmentTableMap::COL_OEHSHFRTCOST => 16, SalesOrderShipmentTableMap::COL_OEHSHDISCFRTCOST => 17, SalesOrderShipmentTableMap::COL_OEHSHFRTCHRGED => 18, SalesOrderShipmentTableMap::COL_DATEUPDTD => 19, SalesOrderShipmentTableMap::COL_TIMEUPDTD => 20, SalesOrderShipmentTableMap::COL_DUMMY => 21, ),
-        self::TYPE_FIELDNAME     => array('OehshNbr' => 0, 'OehshSeq' => 1, 'OehshShipRefNbr' => 2, 'OehshWght' => 3, 'OehshServType' => 4, 'OehshShipDate' => 5, 'OehshTrackNbr' => 6, 'OehshBillOfLading' => 7, 'OehshVesselName' => 8, 'OehshAsgdCntrNbr' => 9, 'OehshOceanContainer' => 10, 'OehshAmazonRef' => 11, 'OehshSealNumber' => 12, 'OehshNbrCntrs' => 13, 'OehshReported' => 14, 'OehshCrtnNbr' => 15, 'OehshFrtCost' => 16, 'OehshDiscFrtCost' => 17, 'OehshFrtChrged' => 18, 'DateUpdtd' => 19, 'TimeUpdtd' => 20, 'dummy' => 21, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Oehshnbr' => 0, 'Oehshseq' => 1, 'Oehshshiprefnbr' => 2, 'Oehshwght' => 3, 'Oehshservtype' => 4, 'Oehshshipdate' => 5, 'Oehshtracknbr' => 6, 'Oehshbilloflading' => 7, 'Oehshvesselname' => 8, 'Oehshasgdcntrnbr' => 9, 'Oehshoceancontainer' => 10, 'Oehshamazonref' => 11, 'Oehshsealnumber' => 12, 'Oehshnbrcntrs' => 13, 'Oehshreported' => 14, 'Oehshcrtnnbr' => 15, 'Oehshfrtcost' => 16, 'Oehshdiscfrtcost' => 17, 'Oehshfrtchrged' => 18, 'Dateupdtd' => 19, 'Timeupdtd' => 20, 'Dummy' => 21, ],
+        self::TYPE_CAMELNAME     => ['oehshnbr' => 0, 'oehshseq' => 1, 'oehshshiprefnbr' => 2, 'oehshwght' => 3, 'oehshservtype' => 4, 'oehshshipdate' => 5, 'oehshtracknbr' => 6, 'oehshbilloflading' => 7, 'oehshvesselname' => 8, 'oehshasgdcntrnbr' => 9, 'oehshoceancontainer' => 10, 'oehshamazonref' => 11, 'oehshsealnumber' => 12, 'oehshnbrcntrs' => 13, 'oehshreported' => 14, 'oehshcrtnnbr' => 15, 'oehshfrtcost' => 16, 'oehshdiscfrtcost' => 17, 'oehshfrtchrged' => 18, 'dateupdtd' => 19, 'timeupdtd' => 20, 'dummy' => 21, ],
+        self::TYPE_COLNAME       => [SalesOrderShipmentTableMap::COL_OEHSHNBR => 0, SalesOrderShipmentTableMap::COL_OEHSHSEQ => 1, SalesOrderShipmentTableMap::COL_OEHSHSHIPREFNBR => 2, SalesOrderShipmentTableMap::COL_OEHSHWGHT => 3, SalesOrderShipmentTableMap::COL_OEHSHSERVTYPE => 4, SalesOrderShipmentTableMap::COL_OEHSHSHIPDATE => 5, SalesOrderShipmentTableMap::COL_OEHSHTRACKNBR => 6, SalesOrderShipmentTableMap::COL_OEHSHBILLOFLADING => 7, SalesOrderShipmentTableMap::COL_OEHSHVESSELNAME => 8, SalesOrderShipmentTableMap::COL_OEHSHASGDCNTRNBR => 9, SalesOrderShipmentTableMap::COL_OEHSHOCEANCONTAINER => 10, SalesOrderShipmentTableMap::COL_OEHSHAMAZONREF => 11, SalesOrderShipmentTableMap::COL_OEHSHSEALNUMBER => 12, SalesOrderShipmentTableMap::COL_OEHSHNBRCNTRS => 13, SalesOrderShipmentTableMap::COL_OEHSHREPORTED => 14, SalesOrderShipmentTableMap::COL_OEHSHCRTNNBR => 15, SalesOrderShipmentTableMap::COL_OEHSHFRTCOST => 16, SalesOrderShipmentTableMap::COL_OEHSHDISCFRTCOST => 17, SalesOrderShipmentTableMap::COL_OEHSHFRTCHRGED => 18, SalesOrderShipmentTableMap::COL_DATEUPDTD => 19, SalesOrderShipmentTableMap::COL_TIMEUPDTD => 20, SalesOrderShipmentTableMap::COL_DUMMY => 21, ],
+        self::TYPE_FIELDNAME     => ['OehshNbr' => 0, 'OehshSeq' => 1, 'OehshShipRefNbr' => 2, 'OehshWght' => 3, 'OehshServType' => 4, 'OehshShipDate' => 5, 'OehshTrackNbr' => 6, 'OehshBillOfLading' => 7, 'OehshVesselName' => 8, 'OehshAsgdCntrNbr' => 9, 'OehshOceanContainer' => 10, 'OehshAmazonRef' => 11, 'OehshSealNumber' => 12, 'OehshNbrCntrs' => 13, 'OehshReported' => 14, 'OehshCrtnNbr' => 15, 'OehshFrtCost' => 16, 'OehshDiscFrtCost' => 17, 'OehshFrtChrged' => 18, 'DateUpdtd' => 19, 'TimeUpdtd' => 20, 'dummy' => 21, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Oehshnbr' => 'OEHSHNBR',
+        'SalesOrderShipment.Oehshnbr' => 'OEHSHNBR',
+        'oehshnbr' => 'OEHSHNBR',
+        'salesOrderShipment.oehshnbr' => 'OEHSHNBR',
+        'SalesOrderShipmentTableMap::COL_OEHSHNBR' => 'OEHSHNBR',
+        'COL_OEHSHNBR' => 'OEHSHNBR',
+        'OehshNbr' => 'OEHSHNBR',
+        'so_hist_ship.OehshNbr' => 'OEHSHNBR',
+        'Oehshseq' => 'OEHSHSEQ',
+        'SalesOrderShipment.Oehshseq' => 'OEHSHSEQ',
+        'oehshseq' => 'OEHSHSEQ',
+        'salesOrderShipment.oehshseq' => 'OEHSHSEQ',
+        'SalesOrderShipmentTableMap::COL_OEHSHSEQ' => 'OEHSHSEQ',
+        'COL_OEHSHSEQ' => 'OEHSHSEQ',
+        'OehshSeq' => 'OEHSHSEQ',
+        'so_hist_ship.OehshSeq' => 'OEHSHSEQ',
+        'Oehshshiprefnbr' => 'OEHSHSHIPREFNBR',
+        'SalesOrderShipment.Oehshshiprefnbr' => 'OEHSHSHIPREFNBR',
+        'oehshshiprefnbr' => 'OEHSHSHIPREFNBR',
+        'salesOrderShipment.oehshshiprefnbr' => 'OEHSHSHIPREFNBR',
+        'SalesOrderShipmentTableMap::COL_OEHSHSHIPREFNBR' => 'OEHSHSHIPREFNBR',
+        'COL_OEHSHSHIPREFNBR' => 'OEHSHSHIPREFNBR',
+        'OehshShipRefNbr' => 'OEHSHSHIPREFNBR',
+        'so_hist_ship.OehshShipRefNbr' => 'OEHSHSHIPREFNBR',
+        'Oehshwght' => 'OEHSHWGHT',
+        'SalesOrderShipment.Oehshwght' => 'OEHSHWGHT',
+        'oehshwght' => 'OEHSHWGHT',
+        'salesOrderShipment.oehshwght' => 'OEHSHWGHT',
+        'SalesOrderShipmentTableMap::COL_OEHSHWGHT' => 'OEHSHWGHT',
+        'COL_OEHSHWGHT' => 'OEHSHWGHT',
+        'OehshWght' => 'OEHSHWGHT',
+        'so_hist_ship.OehshWght' => 'OEHSHWGHT',
+        'Oehshservtype' => 'OEHSHSERVTYPE',
+        'SalesOrderShipment.Oehshservtype' => 'OEHSHSERVTYPE',
+        'oehshservtype' => 'OEHSHSERVTYPE',
+        'salesOrderShipment.oehshservtype' => 'OEHSHSERVTYPE',
+        'SalesOrderShipmentTableMap::COL_OEHSHSERVTYPE' => 'OEHSHSERVTYPE',
+        'COL_OEHSHSERVTYPE' => 'OEHSHSERVTYPE',
+        'OehshServType' => 'OEHSHSERVTYPE',
+        'so_hist_ship.OehshServType' => 'OEHSHSERVTYPE',
+        'Oehshshipdate' => 'OEHSHSHIPDATE',
+        'SalesOrderShipment.Oehshshipdate' => 'OEHSHSHIPDATE',
+        'oehshshipdate' => 'OEHSHSHIPDATE',
+        'salesOrderShipment.oehshshipdate' => 'OEHSHSHIPDATE',
+        'SalesOrderShipmentTableMap::COL_OEHSHSHIPDATE' => 'OEHSHSHIPDATE',
+        'COL_OEHSHSHIPDATE' => 'OEHSHSHIPDATE',
+        'OehshShipDate' => 'OEHSHSHIPDATE',
+        'so_hist_ship.OehshShipDate' => 'OEHSHSHIPDATE',
+        'Oehshtracknbr' => 'OEHSHTRACKNBR',
+        'SalesOrderShipment.Oehshtracknbr' => 'OEHSHTRACKNBR',
+        'oehshtracknbr' => 'OEHSHTRACKNBR',
+        'salesOrderShipment.oehshtracknbr' => 'OEHSHTRACKNBR',
+        'SalesOrderShipmentTableMap::COL_OEHSHTRACKNBR' => 'OEHSHTRACKNBR',
+        'COL_OEHSHTRACKNBR' => 'OEHSHTRACKNBR',
+        'OehshTrackNbr' => 'OEHSHTRACKNBR',
+        'so_hist_ship.OehshTrackNbr' => 'OEHSHTRACKNBR',
+        'Oehshbilloflading' => 'OEHSHBILLOFLADING',
+        'SalesOrderShipment.Oehshbilloflading' => 'OEHSHBILLOFLADING',
+        'oehshbilloflading' => 'OEHSHBILLOFLADING',
+        'salesOrderShipment.oehshbilloflading' => 'OEHSHBILLOFLADING',
+        'SalesOrderShipmentTableMap::COL_OEHSHBILLOFLADING' => 'OEHSHBILLOFLADING',
+        'COL_OEHSHBILLOFLADING' => 'OEHSHBILLOFLADING',
+        'OehshBillOfLading' => 'OEHSHBILLOFLADING',
+        'so_hist_ship.OehshBillOfLading' => 'OEHSHBILLOFLADING',
+        'Oehshvesselname' => 'OEHSHVESSELNAME',
+        'SalesOrderShipment.Oehshvesselname' => 'OEHSHVESSELNAME',
+        'oehshvesselname' => 'OEHSHVESSELNAME',
+        'salesOrderShipment.oehshvesselname' => 'OEHSHVESSELNAME',
+        'SalesOrderShipmentTableMap::COL_OEHSHVESSELNAME' => 'OEHSHVESSELNAME',
+        'COL_OEHSHVESSELNAME' => 'OEHSHVESSELNAME',
+        'OehshVesselName' => 'OEHSHVESSELNAME',
+        'so_hist_ship.OehshVesselName' => 'OEHSHVESSELNAME',
+        'Oehshasgdcntrnbr' => 'OEHSHASGDCNTRNBR',
+        'SalesOrderShipment.Oehshasgdcntrnbr' => 'OEHSHASGDCNTRNBR',
+        'oehshasgdcntrnbr' => 'OEHSHASGDCNTRNBR',
+        'salesOrderShipment.oehshasgdcntrnbr' => 'OEHSHASGDCNTRNBR',
+        'SalesOrderShipmentTableMap::COL_OEHSHASGDCNTRNBR' => 'OEHSHASGDCNTRNBR',
+        'COL_OEHSHASGDCNTRNBR' => 'OEHSHASGDCNTRNBR',
+        'OehshAsgdCntrNbr' => 'OEHSHASGDCNTRNBR',
+        'so_hist_ship.OehshAsgdCntrNbr' => 'OEHSHASGDCNTRNBR',
+        'Oehshoceancontainer' => 'OEHSHOCEANCONTAINER',
+        'SalesOrderShipment.Oehshoceancontainer' => 'OEHSHOCEANCONTAINER',
+        'oehshoceancontainer' => 'OEHSHOCEANCONTAINER',
+        'salesOrderShipment.oehshoceancontainer' => 'OEHSHOCEANCONTAINER',
+        'SalesOrderShipmentTableMap::COL_OEHSHOCEANCONTAINER' => 'OEHSHOCEANCONTAINER',
+        'COL_OEHSHOCEANCONTAINER' => 'OEHSHOCEANCONTAINER',
+        'OehshOceanContainer' => 'OEHSHOCEANCONTAINER',
+        'so_hist_ship.OehshOceanContainer' => 'OEHSHOCEANCONTAINER',
+        'Oehshamazonref' => 'OEHSHAMAZONREF',
+        'SalesOrderShipment.Oehshamazonref' => 'OEHSHAMAZONREF',
+        'oehshamazonref' => 'OEHSHAMAZONREF',
+        'salesOrderShipment.oehshamazonref' => 'OEHSHAMAZONREF',
+        'SalesOrderShipmentTableMap::COL_OEHSHAMAZONREF' => 'OEHSHAMAZONREF',
+        'COL_OEHSHAMAZONREF' => 'OEHSHAMAZONREF',
+        'OehshAmazonRef' => 'OEHSHAMAZONREF',
+        'so_hist_ship.OehshAmazonRef' => 'OEHSHAMAZONREF',
+        'Oehshsealnumber' => 'OEHSHSEALNUMBER',
+        'SalesOrderShipment.Oehshsealnumber' => 'OEHSHSEALNUMBER',
+        'oehshsealnumber' => 'OEHSHSEALNUMBER',
+        'salesOrderShipment.oehshsealnumber' => 'OEHSHSEALNUMBER',
+        'SalesOrderShipmentTableMap::COL_OEHSHSEALNUMBER' => 'OEHSHSEALNUMBER',
+        'COL_OEHSHSEALNUMBER' => 'OEHSHSEALNUMBER',
+        'OehshSealNumber' => 'OEHSHSEALNUMBER',
+        'so_hist_ship.OehshSealNumber' => 'OEHSHSEALNUMBER',
+        'Oehshnbrcntrs' => 'OEHSHNBRCNTRS',
+        'SalesOrderShipment.Oehshnbrcntrs' => 'OEHSHNBRCNTRS',
+        'oehshnbrcntrs' => 'OEHSHNBRCNTRS',
+        'salesOrderShipment.oehshnbrcntrs' => 'OEHSHNBRCNTRS',
+        'SalesOrderShipmentTableMap::COL_OEHSHNBRCNTRS' => 'OEHSHNBRCNTRS',
+        'COL_OEHSHNBRCNTRS' => 'OEHSHNBRCNTRS',
+        'OehshNbrCntrs' => 'OEHSHNBRCNTRS',
+        'so_hist_ship.OehshNbrCntrs' => 'OEHSHNBRCNTRS',
+        'Oehshreported' => 'OEHSHREPORTED',
+        'SalesOrderShipment.Oehshreported' => 'OEHSHREPORTED',
+        'oehshreported' => 'OEHSHREPORTED',
+        'salesOrderShipment.oehshreported' => 'OEHSHREPORTED',
+        'SalesOrderShipmentTableMap::COL_OEHSHREPORTED' => 'OEHSHREPORTED',
+        'COL_OEHSHREPORTED' => 'OEHSHREPORTED',
+        'OehshReported' => 'OEHSHREPORTED',
+        'so_hist_ship.OehshReported' => 'OEHSHREPORTED',
+        'Oehshcrtnnbr' => 'OEHSHCRTNNBR',
+        'SalesOrderShipment.Oehshcrtnnbr' => 'OEHSHCRTNNBR',
+        'oehshcrtnnbr' => 'OEHSHCRTNNBR',
+        'salesOrderShipment.oehshcrtnnbr' => 'OEHSHCRTNNBR',
+        'SalesOrderShipmentTableMap::COL_OEHSHCRTNNBR' => 'OEHSHCRTNNBR',
+        'COL_OEHSHCRTNNBR' => 'OEHSHCRTNNBR',
+        'OehshCrtnNbr' => 'OEHSHCRTNNBR',
+        'so_hist_ship.OehshCrtnNbr' => 'OEHSHCRTNNBR',
+        'Oehshfrtcost' => 'OEHSHFRTCOST',
+        'SalesOrderShipment.Oehshfrtcost' => 'OEHSHFRTCOST',
+        'oehshfrtcost' => 'OEHSHFRTCOST',
+        'salesOrderShipment.oehshfrtcost' => 'OEHSHFRTCOST',
+        'SalesOrderShipmentTableMap::COL_OEHSHFRTCOST' => 'OEHSHFRTCOST',
+        'COL_OEHSHFRTCOST' => 'OEHSHFRTCOST',
+        'OehshFrtCost' => 'OEHSHFRTCOST',
+        'so_hist_ship.OehshFrtCost' => 'OEHSHFRTCOST',
+        'Oehshdiscfrtcost' => 'OEHSHDISCFRTCOST',
+        'SalesOrderShipment.Oehshdiscfrtcost' => 'OEHSHDISCFRTCOST',
+        'oehshdiscfrtcost' => 'OEHSHDISCFRTCOST',
+        'salesOrderShipment.oehshdiscfrtcost' => 'OEHSHDISCFRTCOST',
+        'SalesOrderShipmentTableMap::COL_OEHSHDISCFRTCOST' => 'OEHSHDISCFRTCOST',
+        'COL_OEHSHDISCFRTCOST' => 'OEHSHDISCFRTCOST',
+        'OehshDiscFrtCost' => 'OEHSHDISCFRTCOST',
+        'so_hist_ship.OehshDiscFrtCost' => 'OEHSHDISCFRTCOST',
+        'Oehshfrtchrged' => 'OEHSHFRTCHRGED',
+        'SalesOrderShipment.Oehshfrtchrged' => 'OEHSHFRTCHRGED',
+        'oehshfrtchrged' => 'OEHSHFRTCHRGED',
+        'salesOrderShipment.oehshfrtchrged' => 'OEHSHFRTCHRGED',
+        'SalesOrderShipmentTableMap::COL_OEHSHFRTCHRGED' => 'OEHSHFRTCHRGED',
+        'COL_OEHSHFRTCHRGED' => 'OEHSHFRTCHRGED',
+        'OehshFrtChrged' => 'OEHSHFRTCHRGED',
+        'so_hist_ship.OehshFrtChrged' => 'OEHSHFRTCHRGED',
+        'Dateupdtd' => 'DATEUPDTD',
+        'SalesOrderShipment.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'salesOrderShipment.dateupdtd' => 'DATEUPDTD',
+        'SalesOrderShipmentTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'so_hist_ship.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'SalesOrderShipment.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'salesOrderShipment.timeupdtd' => 'TIMEUPDTD',
+        'SalesOrderShipmentTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'so_hist_ship.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'SalesOrderShipment.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'salesOrderShipment.dummy' => 'DUMMY',
+        'SalesOrderShipmentTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'so_hist_ship.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('so_hist_ship');
@@ -235,7 +426,7 @@ class SalesOrderShipmentTableMap extends TableMap
         $this->addForeignPrimaryKey('OehshNbr', 'Oehshnbr', 'INTEGER' , 'so_head_hist', 'OehhNbr', true, 10, 0);
         $this->addPrimaryKey('OehshSeq', 'Oehshseq', 'INTEGER', true, 4, 1);
         $this->addColumn('OehshShipRefNbr', 'Oehshshiprefnbr', 'INTEGER', true, 8, 1);
-        $this->addColumn('OehshWght', 'Oehshwght', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OehshWght', 'Oehshwght', 'DECIMAL', true, 20, 0.0);
         $this->addColumn('OehshServType', 'Oehshservtype', 'VARCHAR', true, 30, '');
         $this->addColumn('OehshShipDate', 'Oehshshipdate', 'CHAR', true, 8, '');
         $this->addColumn('OehshTrackNbr', 'Oehshtracknbr', 'VARCHAR', true, 30, '');
@@ -248,18 +439,20 @@ class SalesOrderShipmentTableMap extends TableMap
         $this->addColumn('OehshNbrCntrs', 'Oehshnbrcntrs', 'INTEGER', true, 6, 1);
         $this->addColumn('OehshReported', 'Oehshreported', 'CHAR', true, null, '');
         $this->addColumn('OehshCrtnNbr', 'Oehshcrtnnbr', 'INTEGER', true, 4, 0);
-        $this->addColumn('OehshFrtCost', 'Oehshfrtcost', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehshDiscFrtCost', 'Oehshdiscfrtcost', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehshFrtChrged', 'Oehshfrtchrged', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OehshFrtCost', 'Oehshfrtcost', 'DECIMAL', true, 20, 0.00);
+        $this->addColumn('OehshDiscFrtCost', 'Oehshdiscfrtcost', 'DECIMAL', true, 20, 0.00);
+        $this->addColumn('OehshFrtChrged', 'Oehshfrtchrged', 'DECIMAL', true, 20, 0.00);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('SalesOrder', '\\SalesOrder', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -275,7 +468,7 @@ class SalesOrderShipmentTableMap extends TableMap
     1 => ':OehhNbr',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -286,9 +479,11 @@ class SalesOrderShipmentTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \SalesOrderShipment $obj A \SalesOrderShipment object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(SalesOrderShipment $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -307,8 +502,10 @@ class SalesOrderShipmentTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \SalesOrderShipment object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \SalesOrderShipment) {
@@ -336,14 +533,14 @@ class SalesOrderShipmentTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Oehshnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Oehshseq', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -358,14 +555,14 @@ class SalesOrderShipmentTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -391,10 +588,10 @@ class SalesOrderShipmentTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? SalesOrderShipmentTableMap::CLASS_DEFAULT : SalesOrderShipmentTableMap::OM_CLASS;
     }
@@ -402,17 +599,17 @@ class SalesOrderShipmentTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (SalesOrderShipment object, last column rank)
+     * @return array (SalesOrderShipment object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = SalesOrderShipmentTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = SalesOrderShipmentTableMap::getInstanceFromPool($key))) {
@@ -428,7 +625,7 @@ class SalesOrderShipmentTableMap extends TableMap
             SalesOrderShipmentTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -436,13 +633,13 @@ class SalesOrderShipmentTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -472,12 +669,13 @@ class SalesOrderShipmentTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHNBR);
@@ -529,40 +727,92 @@ class SalesOrderShipmentTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHNBR);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHSEQ);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHSHIPREFNBR);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHWGHT);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHSERVTYPE);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHSHIPDATE);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHTRACKNBR);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHBILLOFLADING);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHVESSELNAME);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHASGDCNTRNBR);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHOCEANCONTAINER);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHAMAZONREF);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHSEALNUMBER);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHNBRCNTRS);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHREPORTED);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHCRTNNBR);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHFRTCOST);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHDISCFRTCOST);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_OEHSHFRTCHRGED);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(SalesOrderShipmentTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.OehshNbr');
+            $criteria->removeSelectColumn($alias . '.OehshSeq');
+            $criteria->removeSelectColumn($alias . '.OehshShipRefNbr');
+            $criteria->removeSelectColumn($alias . '.OehshWght');
+            $criteria->removeSelectColumn($alias . '.OehshServType');
+            $criteria->removeSelectColumn($alias . '.OehshShipDate');
+            $criteria->removeSelectColumn($alias . '.OehshTrackNbr');
+            $criteria->removeSelectColumn($alias . '.OehshBillOfLading');
+            $criteria->removeSelectColumn($alias . '.OehshVesselName');
+            $criteria->removeSelectColumn($alias . '.OehshAsgdCntrNbr');
+            $criteria->removeSelectColumn($alias . '.OehshOceanContainer');
+            $criteria->removeSelectColumn($alias . '.OehshAmazonRef');
+            $criteria->removeSelectColumn($alias . '.OehshSealNumber');
+            $criteria->removeSelectColumn($alias . '.OehshNbrCntrs');
+            $criteria->removeSelectColumn($alias . '.OehshReported');
+            $criteria->removeSelectColumn($alias . '.OehshCrtnNbr');
+            $criteria->removeSelectColumn($alias . '.OehshFrtCost');
+            $criteria->removeSelectColumn($alias . '.OehshDiscFrtCost');
+            $criteria->removeSelectColumn($alias . '.OehshFrtChrged');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(SalesOrderShipmentTableMap::DATABASE_NAME)->getTable(SalesOrderShipmentTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(SalesOrderShipmentTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(SalesOrderShipmentTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new SalesOrderShipmentTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a SalesOrderShipment or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or SalesOrderShipment object or primary key or array of primary keys
+     * @param mixed $values Criteria or SalesOrderShipment object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderShipmentTableMap::DATABASE_NAME);
@@ -580,7 +830,7 @@ class SalesOrderShipmentTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(SalesOrderShipmentTableMap::COL_OEHSHNBR, $value[0]);
@@ -608,7 +858,7 @@ class SalesOrderShipmentTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return SalesOrderShipmentQuery::create()->doDeleteAll($con);
     }
@@ -616,13 +866,13 @@ class SalesOrderShipmentTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a SalesOrderShipment or Criteria object.
      *
-     * @param mixed               $criteria Criteria or SalesOrderShipment object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or SalesOrderShipment object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderShipmentTableMap::DATABASE_NAME);
@@ -645,7 +895,4 @@ class SalesOrderShipmentTableMap extends TableMap
         });
     }
 
-} // SalesOrderShipmentTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-SalesOrderShipmentTableMap::buildTableMap();
+}

@@ -10,14 +10,12 @@ use Map\TaxCodeStateTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ar_cust_txst' table.
- *
- *
+ * Base class that represents a query for the `ar_cust_txst` table.
  *
  * @method     ChildTaxCodeStateQuery orderByArtbstate($order = Criteria::ASC) Order by the ArtbState column
  * @method     ChildTaxCodeStateQuery orderByArtbtxsttaxcode($order = Criteria::ASC) Order by the ArtbTxstTaxCode column
@@ -39,17 +37,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildTaxCodeStateQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildTaxCodeStateQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildTaxCodeState findOne(ConnectionInterface $con = null) Return the first ChildTaxCodeState matching the query
- * @method     ChildTaxCodeState findOneOrCreate(ConnectionInterface $con = null) Return the first ChildTaxCodeState matching the query, or a new ChildTaxCodeState object populated from the query conditions when no match is found
+ * @method     ChildTaxCodeState|null findOne(?ConnectionInterface $con = null) Return the first ChildTaxCodeState matching the query
+ * @method     ChildTaxCodeState findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildTaxCodeState matching the query, or a new ChildTaxCodeState object populated from the query conditions when no match is found
  *
- * @method     ChildTaxCodeState findOneByArtbstate(string $ArtbState) Return the first ChildTaxCodeState filtered by the ArtbState column
- * @method     ChildTaxCodeState findOneByArtbtxsttaxcode(string $ArtbTxstTaxCode) Return the first ChildTaxCodeState filtered by the ArtbTxstTaxCode column
- * @method     ChildTaxCodeState findOneByDateupdtd(string $DateUpdtd) Return the first ChildTaxCodeState filtered by the DateUpdtd column
- * @method     ChildTaxCodeState findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildTaxCodeState filtered by the TimeUpdtd column
- * @method     ChildTaxCodeState findOneByDummy(string $dummy) Return the first ChildTaxCodeState filtered by the dummy column *
-
- * @method     ChildTaxCodeState requirePk($key, ConnectionInterface $con = null) Return the ChildTaxCodeState by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeState requireOne(ConnectionInterface $con = null) Return the first ChildTaxCodeState matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildTaxCodeState|null findOneByArtbstate(string $ArtbState) Return the first ChildTaxCodeState filtered by the ArtbState column
+ * @method     ChildTaxCodeState|null findOneByArtbtxsttaxcode(string $ArtbTxstTaxCode) Return the first ChildTaxCodeState filtered by the ArtbTxstTaxCode column
+ * @method     ChildTaxCodeState|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildTaxCodeState filtered by the DateUpdtd column
+ * @method     ChildTaxCodeState|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildTaxCodeState filtered by the TimeUpdtd column
+ * @method     ChildTaxCodeState|null findOneByDummy(string $dummy) Return the first ChildTaxCodeState filtered by the dummy column
+ *
+ * @method     ChildTaxCodeState requirePk($key, ?ConnectionInterface $con = null) Return the ChildTaxCodeState by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildTaxCodeState requireOne(?ConnectionInterface $con = null) Return the first ChildTaxCodeState matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildTaxCodeState requireOneByArtbstate(string $ArtbState) Return the first ChildTaxCodeState filtered by the ArtbState column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildTaxCodeState requireOneByArtbtxsttaxcode(string $ArtbTxstTaxCode) Return the first ChildTaxCodeState filtered by the ArtbTxstTaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -57,14 +55,22 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildTaxCodeState requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildTaxCodeState filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildTaxCodeState requireOneByDummy(string $dummy) Return the first ChildTaxCodeState filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildTaxCodeState[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildTaxCodeState objects based on current ModelCriteria
- * @method     ChildTaxCodeState[]|ObjectCollection findByArtbstate(string $ArtbState) Return ChildTaxCodeState objects filtered by the ArtbState column
- * @method     ChildTaxCodeState[]|ObjectCollection findByArtbtxsttaxcode(string $ArtbTxstTaxCode) Return ChildTaxCodeState objects filtered by the ArtbTxstTaxCode column
- * @method     ChildTaxCodeState[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildTaxCodeState objects filtered by the DateUpdtd column
- * @method     ChildTaxCodeState[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildTaxCodeState objects filtered by the TimeUpdtd column
- * @method     ChildTaxCodeState[]|ObjectCollection findByDummy(string $dummy) Return ChildTaxCodeState objects filtered by the dummy column
- * @method     ChildTaxCodeState[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildTaxCodeState[]|Collection find(?ConnectionInterface $con = null) Return ChildTaxCodeState objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildTaxCodeState> find(?ConnectionInterface $con = null) Return ChildTaxCodeState objects based on current ModelCriteria
  *
+ * @method     ChildTaxCodeState[]|Collection findByArtbstate(string|array<string> $ArtbState) Return ChildTaxCodeState objects filtered by the ArtbState column
+ * @psalm-method Collection&\Traversable<ChildTaxCodeState> findByArtbstate(string|array<string> $ArtbState) Return ChildTaxCodeState objects filtered by the ArtbState column
+ * @method     ChildTaxCodeState[]|Collection findByArtbtxsttaxcode(string|array<string> $ArtbTxstTaxCode) Return ChildTaxCodeState objects filtered by the ArtbTxstTaxCode column
+ * @psalm-method Collection&\Traversable<ChildTaxCodeState> findByArtbtxsttaxcode(string|array<string> $ArtbTxstTaxCode) Return ChildTaxCodeState objects filtered by the ArtbTxstTaxCode column
+ * @method     ChildTaxCodeState[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildTaxCodeState objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildTaxCodeState> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildTaxCodeState objects filtered by the DateUpdtd column
+ * @method     ChildTaxCodeState[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildTaxCodeState objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildTaxCodeState> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildTaxCodeState objects filtered by the TimeUpdtd column
+ * @method     ChildTaxCodeState[]|Collection findByDummy(string|array<string> $dummy) Return ChildTaxCodeState objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildTaxCodeState> findByDummy(string|array<string> $dummy) Return ChildTaxCodeState objects filtered by the dummy column
+ *
+ * @method     ChildTaxCodeState[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildTaxCodeState> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class TaxCodeStateQuery extends ModelCriteria
 {
@@ -73,9 +79,9 @@ abstract class TaxCodeStateQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\TaxCodeStateQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\TaxCodeState', $modelAlias = null)
     {
@@ -85,12 +91,12 @@ abstract class TaxCodeStateQuery extends ModelCriteria
     /**
      * Returns a new ChildTaxCodeStateQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildTaxCodeStateQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildTaxCodeStateQuery) {
             return $criteria;
@@ -120,7 +126,7 @@ abstract class TaxCodeStateQuery extends ModelCriteria
      *
      * @return ChildTaxCodeState|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -152,8 +158,8 @@ abstract class TaxCodeStateQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -185,8 +191,8 @@ abstract class TaxCodeStateQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildTaxCodeState|array|mixed the result, formatted by the current formatter
      */
@@ -206,12 +212,12 @@ abstract class TaxCodeStateQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -228,27 +234,31 @@ abstract class TaxCodeStateQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildTaxCodeStateQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(TaxCodeStateTableMap::COL_ARTBSTATE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(TaxCodeStateTableMap::COL_ARTBSTATE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildTaxCodeStateQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(TaxCodeStateTableMap::COL_ARTBSTATE, $keys, Criteria::IN);
+        $this->addUsingAlias(TaxCodeStateTableMap::COL_ARTBSTATE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -258,14 +268,15 @@ abstract class TaxCodeStateQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbstate('fooValue');   // WHERE ArtbState = 'fooValue'
      * $query->filterByArtbstate('%fooValue%', Criteria::LIKE); // WHERE ArtbState LIKE '%fooValue%'
+     * $query->filterByArtbstate(['foo', 'bar']); // WHERE ArtbState IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbstate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbstate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeStateQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbstate($artbstate = null, $comparison = null)
+    public function filterByArtbstate($artbstate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbstate)) {
@@ -273,7 +284,9 @@ abstract class TaxCodeStateQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeStateTableMap::COL_ARTBSTATE, $artbstate, $comparison);
+        $this->addUsingAlias(TaxCodeStateTableMap::COL_ARTBSTATE, $artbstate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -283,14 +296,15 @@ abstract class TaxCodeStateQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbtxsttaxcode('fooValue');   // WHERE ArtbTxstTaxCode = 'fooValue'
      * $query->filterByArtbtxsttaxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbTxstTaxCode LIKE '%fooValue%'
+     * $query->filterByArtbtxsttaxcode(['foo', 'bar']); // WHERE ArtbTxstTaxCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbtxsttaxcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbtxsttaxcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeStateQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbtxsttaxcode($artbtxsttaxcode = null, $comparison = null)
+    public function filterByArtbtxsttaxcode($artbtxsttaxcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbtxsttaxcode)) {
@@ -298,7 +312,9 @@ abstract class TaxCodeStateQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeStateTableMap::COL_ARTBTXSTTAXCODE, $artbtxsttaxcode, $comparison);
+        $this->addUsingAlias(TaxCodeStateTableMap::COL_ARTBTXSTTAXCODE, $artbtxsttaxcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -308,14 +324,15 @@ abstract class TaxCodeStateQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeStateQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -323,7 +340,9 @@ abstract class TaxCodeStateQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeStateTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(TaxCodeStateTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -333,14 +352,15 @@ abstract class TaxCodeStateQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeStateQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -348,7 +368,9 @@ abstract class TaxCodeStateQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeStateTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(TaxCodeStateTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -358,14 +380,15 @@ abstract class TaxCodeStateQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeStateQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -373,15 +396,17 @@ abstract class TaxCodeStateQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeStateTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(TaxCodeStateTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildTaxCodeState $taxCodeState Object to remove from the list of results
+     * @param ChildTaxCodeState $taxCodeState Object to remove from the list of results
      *
-     * @return $this|ChildTaxCodeStateQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($taxCodeState = null)
     {
@@ -398,7 +423,7 @@ abstract class TaxCodeStateQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(TaxCodeStateTableMap::DATABASE_NAME);
@@ -423,12 +448,12 @@ abstract class TaxCodeStateQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(TaxCodeStateTableMap::DATABASE_NAME);
@@ -453,4 +478,4 @@ abstract class TaxCodeStateQuery extends ModelCriteria
         });
     }
 
-} // TaxCodeStateQuery
+}

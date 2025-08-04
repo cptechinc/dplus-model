@@ -10,14 +10,12 @@ use Map\InvOptCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_opt_code' table.
- *
- *
+ * Base class that represents a query for the `inv_opt_code` table.
  *
  * @method     ChildInvOptCodeQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
  * @method     ChildInvOptCodeQuery orderByInoptcode($order = Criteria::ASC) Order by the InoptCode column
@@ -47,21 +45,21 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvOptCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildInvOptCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildInvOptCode findOne(ConnectionInterface $con = null) Return the first ChildInvOptCode matching the query
- * @method     ChildInvOptCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvOptCode matching the query, or a new ChildInvOptCode object populated from the query conditions when no match is found
+ * @method     ChildInvOptCode|null findOne(?ConnectionInterface $con = null) Return the first ChildInvOptCode matching the query
+ * @method     ChildInvOptCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildInvOptCode matching the query, or a new ChildInvOptCode object populated from the query conditions when no match is found
  *
- * @method     ChildInvOptCode findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvOptCode filtered by the InitItemNbr column
- * @method     ChildInvOptCode findOneByInoptcode(string $InoptCode) Return the first ChildInvOptCode filtered by the InoptCode column
- * @method     ChildInvOptCode findOneByInoptcodedesc(string $InoptCodeDesc) Return the first ChildInvOptCode filtered by the InoptCodeDesc column
- * @method     ChildInvOptCode findOneByInoptvalue(string $InoptValue) Return the first ChildInvOptCode filtered by the InoptValue column
- * @method     ChildInvOptCode findOneByInoptvaluedesc(string $InoptValueDesc) Return the first ChildInvOptCode filtered by the InoptValueDesc column
- * @method     ChildInvOptCode findOneByInoptvaluedesc2(string $InoptValueDesc2) Return the first ChildInvOptCode filtered by the InoptValueDesc2 column
- * @method     ChildInvOptCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvOptCode filtered by the DateUpdtd column
- * @method     ChildInvOptCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvOptCode filtered by the TimeUpdtd column
- * @method     ChildInvOptCode findOneByDummy(string $dummy) Return the first ChildInvOptCode filtered by the dummy column *
-
- * @method     ChildInvOptCode requirePk($key, ConnectionInterface $con = null) Return the ChildInvOptCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvOptCode requireOne(ConnectionInterface $con = null) Return the first ChildInvOptCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCode|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvOptCode filtered by the InitItemNbr column
+ * @method     ChildInvOptCode|null findOneByInoptcode(string $InoptCode) Return the first ChildInvOptCode filtered by the InoptCode column
+ * @method     ChildInvOptCode|null findOneByInoptcodedesc(string $InoptCodeDesc) Return the first ChildInvOptCode filtered by the InoptCodeDesc column
+ * @method     ChildInvOptCode|null findOneByInoptvalue(string $InoptValue) Return the first ChildInvOptCode filtered by the InoptValue column
+ * @method     ChildInvOptCode|null findOneByInoptvaluedesc(string $InoptValueDesc) Return the first ChildInvOptCode filtered by the InoptValueDesc column
+ * @method     ChildInvOptCode|null findOneByInoptvaluedesc2(string $InoptValueDesc2) Return the first ChildInvOptCode filtered by the InoptValueDesc2 column
+ * @method     ChildInvOptCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvOptCode filtered by the DateUpdtd column
+ * @method     ChildInvOptCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvOptCode filtered by the TimeUpdtd column
+ * @method     ChildInvOptCode|null findOneByDummy(string $dummy) Return the first ChildInvOptCode filtered by the dummy column
+ *
+ * @method     ChildInvOptCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildInvOptCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCode requireOne(?ConnectionInterface $con = null) Return the first ChildInvOptCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildInvOptCode requireOneByInititemnbr(string $InitItemNbr) Return the first ChildInvOptCode filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvOptCode requireOneByInoptcode(string $InoptCode) Return the first ChildInvOptCode filtered by the InoptCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -73,18 +71,30 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvOptCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvOptCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvOptCode requireOneByDummy(string $dummy) Return the first ChildInvOptCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInvOptCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvOptCode objects based on current ModelCriteria
- * @method     ChildInvOptCode[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildInvOptCode objects filtered by the InitItemNbr column
- * @method     ChildInvOptCode[]|ObjectCollection findByInoptcode(string $InoptCode) Return ChildInvOptCode objects filtered by the InoptCode column
- * @method     ChildInvOptCode[]|ObjectCollection findByInoptcodedesc(string $InoptCodeDesc) Return ChildInvOptCode objects filtered by the InoptCodeDesc column
- * @method     ChildInvOptCode[]|ObjectCollection findByInoptvalue(string $InoptValue) Return ChildInvOptCode objects filtered by the InoptValue column
- * @method     ChildInvOptCode[]|ObjectCollection findByInoptvaluedesc(string $InoptValueDesc) Return ChildInvOptCode objects filtered by the InoptValueDesc column
- * @method     ChildInvOptCode[]|ObjectCollection findByInoptvaluedesc2(string $InoptValueDesc2) Return ChildInvOptCode objects filtered by the InoptValueDesc2 column
- * @method     ChildInvOptCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvOptCode objects filtered by the DateUpdtd column
- * @method     ChildInvOptCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvOptCode objects filtered by the TimeUpdtd column
- * @method     ChildInvOptCode[]|ObjectCollection findByDummy(string $dummy) Return ChildInvOptCode objects filtered by the dummy column
- * @method     ChildInvOptCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvOptCode[]|Collection find(?ConnectionInterface $con = null) Return ChildInvOptCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildInvOptCode> find(?ConnectionInterface $con = null) Return ChildInvOptCode objects based on current ModelCriteria
  *
+ * @method     ChildInvOptCode[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvOptCode objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildInvOptCode> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvOptCode objects filtered by the InitItemNbr column
+ * @method     ChildInvOptCode[]|Collection findByInoptcode(string|array<string> $InoptCode) Return ChildInvOptCode objects filtered by the InoptCode column
+ * @psalm-method Collection&\Traversable<ChildInvOptCode> findByInoptcode(string|array<string> $InoptCode) Return ChildInvOptCode objects filtered by the InoptCode column
+ * @method     ChildInvOptCode[]|Collection findByInoptcodedesc(string|array<string> $InoptCodeDesc) Return ChildInvOptCode objects filtered by the InoptCodeDesc column
+ * @psalm-method Collection&\Traversable<ChildInvOptCode> findByInoptcodedesc(string|array<string> $InoptCodeDesc) Return ChildInvOptCode objects filtered by the InoptCodeDesc column
+ * @method     ChildInvOptCode[]|Collection findByInoptvalue(string|array<string> $InoptValue) Return ChildInvOptCode objects filtered by the InoptValue column
+ * @psalm-method Collection&\Traversable<ChildInvOptCode> findByInoptvalue(string|array<string> $InoptValue) Return ChildInvOptCode objects filtered by the InoptValue column
+ * @method     ChildInvOptCode[]|Collection findByInoptvaluedesc(string|array<string> $InoptValueDesc) Return ChildInvOptCode objects filtered by the InoptValueDesc column
+ * @psalm-method Collection&\Traversable<ChildInvOptCode> findByInoptvaluedesc(string|array<string> $InoptValueDesc) Return ChildInvOptCode objects filtered by the InoptValueDesc column
+ * @method     ChildInvOptCode[]|Collection findByInoptvaluedesc2(string|array<string> $InoptValueDesc2) Return ChildInvOptCode objects filtered by the InoptValueDesc2 column
+ * @psalm-method Collection&\Traversable<ChildInvOptCode> findByInoptvaluedesc2(string|array<string> $InoptValueDesc2) Return ChildInvOptCode objects filtered by the InoptValueDesc2 column
+ * @method     ChildInvOptCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvOptCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvOptCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvOptCode objects filtered by the DateUpdtd column
+ * @method     ChildInvOptCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvOptCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvOptCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvOptCode objects filtered by the TimeUpdtd column
+ * @method     ChildInvOptCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildInvOptCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildInvOptCode> findByDummy(string|array<string> $dummy) Return ChildInvOptCode objects filtered by the dummy column
+ *
+ * @method     ChildInvOptCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildInvOptCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class InvOptCodeQuery extends ModelCriteria
 {
@@ -93,9 +103,9 @@ abstract class InvOptCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\InvOptCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\InvOptCode', $modelAlias = null)
     {
@@ -105,12 +115,12 @@ abstract class InvOptCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildInvOptCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildInvOptCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildInvOptCodeQuery) {
             return $criteria;
@@ -140,7 +150,7 @@ abstract class InvOptCodeQuery extends ModelCriteria
      *
      * @return ChildInvOptCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -172,8 +182,8 @@ abstract class InvOptCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -206,8 +216,8 @@ abstract class InvOptCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildInvOptCode|array|mixed the result, formatted by the current formatter
      */
@@ -227,12 +237,12 @@ abstract class InvOptCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -249,9 +259,9 @@ abstract class InvOptCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildInvOptCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -264,14 +274,16 @@ abstract class InvOptCodeQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildInvOptCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(InvOptCodeTableMap::COL_INITITEMNBR, $key[0], Criteria::EQUAL);
@@ -290,14 +302,15 @@ abstract class InvOptCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr= null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -305,7 +318,9 @@ abstract class InvOptCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(InvOptCodeTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -315,14 +330,15 @@ abstract class InvOptCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByInoptcode('fooValue');   // WHERE InoptCode = 'fooValue'
      * $query->filterByInoptcode('%fooValue%', Criteria::LIKE); // WHERE InoptCode LIKE '%fooValue%'
+     * $query->filterByInoptcode(['foo', 'bar']); // WHERE InoptCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inoptcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inoptcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInoptcode($inoptcode = null, $comparison = null)
+    public function filterByInoptcode($inoptcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inoptcode)) {
@@ -330,7 +346,9 @@ abstract class InvOptCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeTableMap::COL_INOPTCODE, $inoptcode, $comparison);
+        $this->addUsingAlias(InvOptCodeTableMap::COL_INOPTCODE, $inoptcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -340,14 +358,15 @@ abstract class InvOptCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByInoptcodedesc('fooValue');   // WHERE InoptCodeDesc = 'fooValue'
      * $query->filterByInoptcodedesc('%fooValue%', Criteria::LIKE); // WHERE InoptCodeDesc LIKE '%fooValue%'
+     * $query->filterByInoptcodedesc(['foo', 'bar']); // WHERE InoptCodeDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inoptcodedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inoptcodedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInoptcodedesc($inoptcodedesc = null, $comparison = null)
+    public function filterByInoptcodedesc($inoptcodedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inoptcodedesc)) {
@@ -355,7 +374,9 @@ abstract class InvOptCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeTableMap::COL_INOPTCODEDESC, $inoptcodedesc, $comparison);
+        $this->addUsingAlias(InvOptCodeTableMap::COL_INOPTCODEDESC, $inoptcodedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -365,14 +386,15 @@ abstract class InvOptCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByInoptvalue('fooValue');   // WHERE InoptValue = 'fooValue'
      * $query->filterByInoptvalue('%fooValue%', Criteria::LIKE); // WHERE InoptValue LIKE '%fooValue%'
+     * $query->filterByInoptvalue(['foo', 'bar']); // WHERE InoptValue IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inoptvalue The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inoptvalue The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInoptvalue($inoptvalue = null, $comparison = null)
+    public function filterByInoptvalue($inoptvalue = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inoptvalue)) {
@@ -380,7 +402,9 @@ abstract class InvOptCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeTableMap::COL_INOPTVALUE, $inoptvalue, $comparison);
+        $this->addUsingAlias(InvOptCodeTableMap::COL_INOPTVALUE, $inoptvalue, $comparison);
+
+        return $this;
     }
 
     /**
@@ -390,14 +414,15 @@ abstract class InvOptCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByInoptvaluedesc('fooValue');   // WHERE InoptValueDesc = 'fooValue'
      * $query->filterByInoptvaluedesc('%fooValue%', Criteria::LIKE); // WHERE InoptValueDesc LIKE '%fooValue%'
+     * $query->filterByInoptvaluedesc(['foo', 'bar']); // WHERE InoptValueDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inoptvaluedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inoptvaluedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInoptvaluedesc($inoptvaluedesc = null, $comparison = null)
+    public function filterByInoptvaluedesc($inoptvaluedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inoptvaluedesc)) {
@@ -405,7 +430,9 @@ abstract class InvOptCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeTableMap::COL_INOPTVALUEDESC, $inoptvaluedesc, $comparison);
+        $this->addUsingAlias(InvOptCodeTableMap::COL_INOPTVALUEDESC, $inoptvaluedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -415,14 +442,15 @@ abstract class InvOptCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByInoptvaluedesc2('fooValue');   // WHERE InoptValueDesc2 = 'fooValue'
      * $query->filterByInoptvaluedesc2('%fooValue%', Criteria::LIKE); // WHERE InoptValueDesc2 LIKE '%fooValue%'
+     * $query->filterByInoptvaluedesc2(['foo', 'bar']); // WHERE InoptValueDesc2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inoptvaluedesc2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inoptvaluedesc2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInoptvaluedesc2($inoptvaluedesc2 = null, $comparison = null)
+    public function filterByInoptvaluedesc2($inoptvaluedesc2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inoptvaluedesc2)) {
@@ -430,7 +458,9 @@ abstract class InvOptCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeTableMap::COL_INOPTVALUEDESC2, $inoptvaluedesc2, $comparison);
+        $this->addUsingAlias(InvOptCodeTableMap::COL_INOPTVALUEDESC2, $inoptvaluedesc2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -440,14 +470,15 @@ abstract class InvOptCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -455,7 +486,9 @@ abstract class InvOptCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(InvOptCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -465,14 +498,15 @@ abstract class InvOptCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -480,7 +514,9 @@ abstract class InvOptCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(InvOptCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -490,14 +526,15 @@ abstract class InvOptCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvOptCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -505,15 +542,17 @@ abstract class InvOptCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(InvOptCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildInvOptCode $invOptCode Object to remove from the list of results
+     * @param ChildInvOptCode $invOptCode Object to remove from the list of results
      *
-     * @return $this|ChildInvOptCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($invOptCode = null)
     {
@@ -532,7 +571,7 @@ abstract class InvOptCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvOptCodeTableMap::DATABASE_NAME);
@@ -557,12 +596,12 @@ abstract class InvOptCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvOptCodeTableMap::DATABASE_NAME);
@@ -587,4 +626,4 @@ abstract class InvOptCodeQuery extends ModelCriteria
         });
     }
 
-} // InvOptCodeQuery
+}

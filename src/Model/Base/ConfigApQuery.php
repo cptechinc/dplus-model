@@ -10,14 +10,12 @@ use Map\ConfigApTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ap_config' table.
- *
- *
+ * Base class that represents a query for the `ap_config` table.
  *
  * @method     ChildConfigApQuery orderByAptbconfkey($order = Criteria::ASC) Order by the AptbConfKey column
  * @method     ChildConfigApQuery orderByAptbconfglifac($order = Criteria::ASC) Order by the AptbConfGlIfac column
@@ -191,93 +189,93 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigApQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildConfigApQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildConfigAp findOne(ConnectionInterface $con = null) Return the first ChildConfigAp matching the query
- * @method     ChildConfigAp findOneOrCreate(ConnectionInterface $con = null) Return the first ChildConfigAp matching the query, or a new ChildConfigAp object populated from the query conditions when no match is found
+ * @method     ChildConfigAp|null findOne(?ConnectionInterface $con = null) Return the first ChildConfigAp matching the query
+ * @method     ChildConfigAp findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildConfigAp matching the query, or a new ChildConfigAp object populated from the query conditions when no match is found
  *
- * @method     ChildConfigAp findOneByAptbconfkey(int $AptbConfKey) Return the first ChildConfigAp filtered by the AptbConfKey column
- * @method     ChildConfigAp findOneByAptbconfglifac(string $AptbConfGlIfac) Return the first ChildConfigAp filtered by the AptbConfGlIfac column
- * @method     ChildConfigAp findOneByAptbconfinifac(string $AptbConfInIfac) Return the first ChildConfigAp filtered by the AptbConfInIfac column
- * @method     ChildConfigAp findOneByAptbconfsoifac(string $AptbConfSoIfac) Return the first ChildConfigAp filtered by the AptbConfSoIfac column
- * @method     ChildConfigAp findOneByAptbconfpoifac(string $AptbConfPoIfac) Return the first ChildConfigAp filtered by the AptbConfPoIfac column
- * @method     ChildConfigAp findOneByAptbconffrtacct(string $AptbConfFrtAcct) Return the first ChildConfigAp filtered by the AptbConfFrtAcct column
- * @method     ChildConfigAp findOneByAptbconfmiscacct(string $AptbConfMiscAcct) Return the first ChildConfigAp filtered by the AptbConfMiscAcct column
- * @method     ChildConfigAp findOneByAptbconfapacct(string $AptbConfApAcct) Return the first ChildConfigAp filtered by the AptbConfApAcct column
- * @method     ChildConfigAp findOneByAptbconfcashacct(string $AptbConfCashAcct) Return the first ChildConfigAp filtered by the AptbConfCashAcct column
- * @method     ChildConfigAp findOneByAptbconfdiscacct(string $AptbConfDiscAcct) Return the first ChildConfigAp filtered by the AptbConfDiscAcct column
- * @method     ChildConfigAp findOneByAptbconftaxacct(string $AptbConfTaxAcct) Return the first ChildConfigAp filtered by the AptbConfTaxAcct column
- * @method     ChildConfigAp findOneByAptbconfpuracct(string $AptbConfPurAcct) Return the first ChildConfigAp filtered by the AptbConfPurAcct column
- * @method     ChildConfigAp findOneByAptbconfvaracct(string $AptbConfVarAcct) Return the first ChildConfigAp filtered by the AptbConfVarAcct column
- * @method     ChildConfigAp findOneByAptbconfvenddisc(string $AptbConfVendDisc) Return the first ChildConfigAp filtered by the AptbConfVendDisc column
- * @method     ChildConfigAp findOneByAptbconfapinvvaracct(string $AptbConfApInvVarAcct) Return the first ChildConfigAp filtered by the AptbConfApInvVarAcct column
- * @method     ChildConfigAp findOneByAptbconfuseroyal(string $AptbConfUseRoyal) Return the first ChildConfigAp filtered by the AptbConfUseRoyal column
- * @method     ChildConfigAp findOneByAptbconfdefbuyrcode(string $AptbConfDefBuyrCode) Return the first ChildConfigAp filtered by the AptbConfDefBuyrCode column
- * @method     ChildConfigAp findOneByAptbconfdeftermcode(string $AptbConfDefTermCode) Return the first ChildConfigAp filtered by the AptbConfDefTermCode column
- * @method     ChildConfigAp findOneByAptbconfdefsviacode(string $AptbConfDefSviaCode) Return the first ChildConfigAp filtered by the AptbConfDefSviaCode column
- * @method     ChildConfigAp findOneByAptbconfdeftypecode(string $AptbConfDefTypeCode) Return the first ChildConfigAp filtered by the AptbConfDefTypeCode column
- * @method     ChildConfigAp findOneByAptbconfvendline(int $AptbConfVendLine) Return the first ChildConfigAp filtered by the AptbConfVendLine column
- * @method     ChildConfigAp findOneByAptbconfvendcols(int $AptbConfVendCols) Return the first ChildConfigAp filtered by the AptbConfVendCols column
- * @method     ChildConfigAp findOneByAptbconfpoline(int $AptbConfPoLine) Return the first ChildConfigAp filtered by the AptbConfPoLine column
- * @method     ChildConfigAp findOneByAptbconfpocols(int $AptbConfPoCols) Return the first ChildConfigAp filtered by the AptbConfPoCols column
- * @method     ChildConfigAp findOneByAptbconfvendgetopt(int $AptbConfVendGetOpt) Return the first ChildConfigAp filtered by the AptbConfVendGetOpt column
- * @method     ChildConfigAp findOneByAptbconfpaytoshipfr(string $AptbConfPaytoShipfr) Return the first ChildConfigAp filtered by the AptbConfPaytoShipfr column
- * @method     ChildConfigAp findOneByAptbconfholdstat(string $AptbConfHoldStat) Return the first ChildConfigAp filtered by the AptbConfHoldStat column
- * @method     ChildConfigAp findOneByAptbconfdiscret(string $AptbConfDiscRet) Return the first ChildConfigAp filtered by the AptbConfDiscRet column
- * @method     ChildConfigAp findOneByAptbconfstopvendchg(int $AptbConfStopVendChg) Return the first ChildConfigAp filtered by the AptbConfStopVendChg column
- * @method     ChildConfigAp findOneByAptbconfreqdate2(int $AptbConfReqDate2) Return the first ChildConfigAp filtered by the AptbConfReqDate2 column
- * @method     ChildConfigAp findOneByAptbconfreqdate3(int $AptbConfReqDate3) Return the first ChildConfigAp filtered by the AptbConfReqDate3 column
- * @method     ChildConfigAp findOneByAptbconfreqdate4(int $AptbConfReqDate4) Return the first ChildConfigAp filtered by the AptbConfReqDate4 column
- * @method     ChildConfigAp findOneByAptbconf1099name(string $AptbConf1099Name) Return the first ChildConfigAp filtered by the AptbConf1099Name column
- * @method     ChildConfigAp findOneByAptbconf1099adr1(string $AptbConf1099Adr1) Return the first ChildConfigAp filtered by the AptbConf1099Adr1 column
- * @method     ChildConfigAp findOneByAptbconf1099adr2(string $AptbConf1099Adr2) Return the first ChildConfigAp filtered by the AptbConf1099Adr2 column
- * @method     ChildConfigAp findOneByAptbconf1099adr3(string $AptbConf1099Adr3) Return the first ChildConfigAp filtered by the AptbConf1099Adr3 column
- * @method     ChildConfigAp findOneByAptbconf1099city(string $AptbConf1099City) Return the first ChildConfigAp filtered by the AptbConf1099City column
- * @method     ChildConfigAp findOneByAptbconf1099stat(string $AptbConf1099Stat) Return the first ChildConfigAp filtered by the AptbConf1099Stat column
- * @method     ChildConfigAp findOneByAptbconf1099zipcode(string $AptbConf1099ZipCode) Return the first ChildConfigAp filtered by the AptbConf1099ZipCode column
- * @method     ChildConfigAp findOneByAptbconf1099id(string $AptbConf1099Id) Return the first ChildConfigAp filtered by the AptbConf1099Id column
- * @method     ChildConfigAp findOneByAptbconfstubsort(string $AptbConfStubSort) Return the first ChildConfigAp filtered by the AptbConfStubSort column
- * @method     ChildConfigAp findOneByAptbConfUseAch(string $AptbConfUseAch) Return the first ChildConfigAp filtered by the AptbConfUseAch column
- * @method     ChildConfigAp findOneByAptbconfover1(int $AptbConfOver1) Return the first ChildConfigAp filtered by the AptbConfOver1 column
- * @method     ChildConfigAp findOneByAptbconfover2(int $AptbConfOver2) Return the first ChildConfigAp filtered by the AptbConfOver2 column
- * @method     ChildConfigAp findOneByAptbconfprtchk(string $AptbConfPrtChk) Return the first ChildConfigAp filtered by the AptbConfPrtChk column
- * @method     ChildConfigAp findOneByAptbconfeiunrecqty(string $AptbConfEiUnrecQty) Return the first ChildConfigAp filtered by the AptbConfEiUnrecQty column
- * @method     ChildConfigAp findOneByAptbconfeirecqtyask(string $AptbConfEiRecQtyAsk) Return the first ChildConfigAp filtered by the AptbConfEiRecQtyAsk column
- * @method     ChildConfigAp findOneByAptbconfeirecqtydef(string $AptbConfEiRecQtyDef) Return the first ChildConfigAp filtered by the AptbConfEiRecQtyDef column
- * @method     ChildConfigAp findOneByAptbconfallowmultpos(string $AptbConfAllowMultPos) Return the first ChildConfigAp filtered by the AptbConfAllowMultPos column
- * @method     ChildConfigAp findOneByAptbconfeibyclerk(string $AptbConfEiByClerk) Return the first ChildConfigAp filtered by the AptbConfEiByClerk column
- * @method     ChildConfigAp findOneByAptbconfeibatchproc(string $AptbConfEiBatchProc) Return the first ChildConfigAp filtered by the AptbConfEiBatchProc column
- * @method     ChildConfigAp findOneByAptbconfeidispstancost(string $AptbConfEiDispStanCost) Return the first ChildConfigAp filtered by the AptbConfEiDispStanCost column
- * @method     ChildConfigAp findOneByAptbconfeiassetacctchg(string $AptbConfEiAssetAcctChg) Return the first ChildConfigAp filtered by the AptbConfEiAssetAcctChg column
- * @method     ChildConfigAp findOneByAptbconfallowdupinvc(string $AptbConfAllowDupInvc) Return the first ChildConfigAp filtered by the AptbConfAllowDupInvc column
- * @method     ChildConfigAp findOneByAptbconfprtsorept(string $AptbConfPrtSoRept) Return the first ChildConfigAp filtered by the AptbConfPrtSoRept column
- * @method     ChildConfigAp findOneByAptbconfeicheckhist(string $AptbConfEiCheckHist) Return the first ChildConfigAp filtered by the AptbConfEiCheckHist column
- * @method     ChildConfigAp findOneByAptbconfsummgl(string $AptbConfSummGl) Return the first ChildConfigAp filtered by the AptbConfSummGl column
- * @method     ChildConfigAp findOneByAptbconfvxmuserlabel(string $AptbConfVxmUserLabel) Return the first ChildConfigAp filtered by the AptbConfVxmUserLabel column
- * @method     ChildConfigAp findOneByAptbconfvendcostbreaks(string $AptbConfVendCostBreaks) Return the first ChildConfigAp filtered by the AptbConfVendCostBreaks column
- * @method     ChildConfigAp findOneByAptbconfmyeclrclospo(string $AptbConfMyeClrClosPo) Return the first ChildConfigAp filtered by the AptbConfMyeClrClosPo column
- * @method     ChildConfigAp findOneByAptbconfmyeclrclosdate(string $AptbConfMyeClrClosDate) Return the first ChildConfigAp filtered by the AptbConfMyeClrClosDate column
- * @method     ChildConfigAp findOneByAptbconfmyeclrpohist(string $AptbConfMyeClrPoHist) Return the first ChildConfigAp filtered by the AptbConfMyeClrPoHist column
- * @method     ChildConfigAp findOneByAptbconfmyeclrpodate(string $AptbConfMyeClrPoDate) Return the first ChildConfigAp filtered by the AptbConfMyeClrPoDate column
- * @method     ChildConfigAp findOneByAptbconfmyeclrckhist(string $AptbConfMyeClrCkHist) Return the first ChildConfigAp filtered by the AptbConfMyeClrCkHist column
- * @method     ChildConfigAp findOneByAptbconfmyeclrckdate(string $AptbConfMyeClrCkDate) Return the first ChildConfigAp filtered by the AptbConfMyeClrCkDate column
- * @method     ChildConfigAp findOneByAptbconfmyeclropenck(string $AptbConfMyeClrOpenCk) Return the first ChildConfigAp filtered by the AptbConfMyeClrOpenCk column
- * @method     ChildConfigAp findOneByAptbconflead(string $AptbConfLead) Return the first ChildConfigAp filtered by the AptbConfLead column
- * @method     ChildConfigAp findOneByAptbconfvrreworkitem(string $AptbConfVrReworkItem) Return the first ChildConfigAp filtered by the AptbConfVrReworkItem column
- * @method     ChildConfigAp findOneByAptbconfvrqcwhse(string $AptbConfVrqcWhse) Return the first ChildConfigAp filtered by the AptbConfVrqcWhse column
- * @method     ChildConfigAp findOneByAptbconfvrglacct(string $AptbConfVrGlAcct) Return the first ChildConfigAp filtered by the AptbConfVrGlAcct column
- * @method     ChildConfigAp findOneByAptbconfvxmlistpc(string $AptbConfVxmListPc) Return the first ChildConfigAp filtered by the AptbConfVxmListPc column
- * @method     ChildConfigAp findOneByAptbconfvxmlistitemupd(string $AptbConfVxmListItemUpd) Return the first ChildConfigAp filtered by the AptbConfVxmListItemUpd column
- * @method     ChildConfigAp findOneByAptbconfvxmgrosslc(string $AptbConfVxmGrossLc) Return the first ChildConfigAp filtered by the AptbConfVxmGrossLc column
- * @method     ChildConfigAp findOneByAptbconfvxmcostlp(string $AptbConfVxmCostLp) Return the first ChildConfigAp filtered by the AptbConfVxmCostLp column
- * @method     ChildConfigAp findOneByAptbconfvxmcostitemupd(string $AptbConfVxmCostItemUpd) Return the first ChildConfigAp filtered by the AptbConfVxmCostItemUpd column
- * @method     ChildConfigAp findOneByAptbconfvxmcostrmesg(string $AptbConfVxmCostRMesg) Return the first ChildConfigAp filtered by the AptbConfVxmCostRMesg column
- * @method     ChildConfigAp findOneByAptbconfvxmcostitemupdm(string $AptbConfVxmCostItemUpdM) Return the first ChildConfigAp filtered by the AptbConfVxmCostItemUpdM column
- * @method     ChildConfigAp findOneByAptbconfvxmcostmmesg(string $AptbConfVxmCostMMesg) Return the first ChildConfigAp filtered by the AptbConfVxmCostMMesg column
- * @method     ChildConfigAp findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigAp filtered by the DateUpdtd column
- * @method     ChildConfigAp findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigAp filtered by the TimeUpdtd column
- * @method     ChildConfigAp findOneByDummy(string $dummy) Return the first ChildConfigAp filtered by the dummy column *
-
- * @method     ChildConfigAp requirePk($key, ConnectionInterface $con = null) Return the ChildConfigAp by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigAp requireOne(ConnectionInterface $con = null) Return the first ChildConfigAp matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigAp|null findOneByAptbconfkey(int $AptbConfKey) Return the first ChildConfigAp filtered by the AptbConfKey column
+ * @method     ChildConfigAp|null findOneByAptbconfglifac(string $AptbConfGlIfac) Return the first ChildConfigAp filtered by the AptbConfGlIfac column
+ * @method     ChildConfigAp|null findOneByAptbconfinifac(string $AptbConfInIfac) Return the first ChildConfigAp filtered by the AptbConfInIfac column
+ * @method     ChildConfigAp|null findOneByAptbconfsoifac(string $AptbConfSoIfac) Return the first ChildConfigAp filtered by the AptbConfSoIfac column
+ * @method     ChildConfigAp|null findOneByAptbconfpoifac(string $AptbConfPoIfac) Return the first ChildConfigAp filtered by the AptbConfPoIfac column
+ * @method     ChildConfigAp|null findOneByAptbconffrtacct(string $AptbConfFrtAcct) Return the first ChildConfigAp filtered by the AptbConfFrtAcct column
+ * @method     ChildConfigAp|null findOneByAptbconfmiscacct(string $AptbConfMiscAcct) Return the first ChildConfigAp filtered by the AptbConfMiscAcct column
+ * @method     ChildConfigAp|null findOneByAptbconfapacct(string $AptbConfApAcct) Return the first ChildConfigAp filtered by the AptbConfApAcct column
+ * @method     ChildConfigAp|null findOneByAptbconfcashacct(string $AptbConfCashAcct) Return the first ChildConfigAp filtered by the AptbConfCashAcct column
+ * @method     ChildConfigAp|null findOneByAptbconfdiscacct(string $AptbConfDiscAcct) Return the first ChildConfigAp filtered by the AptbConfDiscAcct column
+ * @method     ChildConfigAp|null findOneByAptbconftaxacct(string $AptbConfTaxAcct) Return the first ChildConfigAp filtered by the AptbConfTaxAcct column
+ * @method     ChildConfigAp|null findOneByAptbconfpuracct(string $AptbConfPurAcct) Return the first ChildConfigAp filtered by the AptbConfPurAcct column
+ * @method     ChildConfigAp|null findOneByAptbconfvaracct(string $AptbConfVarAcct) Return the first ChildConfigAp filtered by the AptbConfVarAcct column
+ * @method     ChildConfigAp|null findOneByAptbconfvenddisc(string $AptbConfVendDisc) Return the first ChildConfigAp filtered by the AptbConfVendDisc column
+ * @method     ChildConfigAp|null findOneByAptbconfapinvvaracct(string $AptbConfApInvVarAcct) Return the first ChildConfigAp filtered by the AptbConfApInvVarAcct column
+ * @method     ChildConfigAp|null findOneByAptbconfuseroyal(string $AptbConfUseRoyal) Return the first ChildConfigAp filtered by the AptbConfUseRoyal column
+ * @method     ChildConfigAp|null findOneByAptbconfdefbuyrcode(string $AptbConfDefBuyrCode) Return the first ChildConfigAp filtered by the AptbConfDefBuyrCode column
+ * @method     ChildConfigAp|null findOneByAptbconfdeftermcode(string $AptbConfDefTermCode) Return the first ChildConfigAp filtered by the AptbConfDefTermCode column
+ * @method     ChildConfigAp|null findOneByAptbconfdefsviacode(string $AptbConfDefSviaCode) Return the first ChildConfigAp filtered by the AptbConfDefSviaCode column
+ * @method     ChildConfigAp|null findOneByAptbconfdeftypecode(string $AptbConfDefTypeCode) Return the first ChildConfigAp filtered by the AptbConfDefTypeCode column
+ * @method     ChildConfigAp|null findOneByAptbconfvendline(int $AptbConfVendLine) Return the first ChildConfigAp filtered by the AptbConfVendLine column
+ * @method     ChildConfigAp|null findOneByAptbconfvendcols(int $AptbConfVendCols) Return the first ChildConfigAp filtered by the AptbConfVendCols column
+ * @method     ChildConfigAp|null findOneByAptbconfpoline(int $AptbConfPoLine) Return the first ChildConfigAp filtered by the AptbConfPoLine column
+ * @method     ChildConfigAp|null findOneByAptbconfpocols(int $AptbConfPoCols) Return the first ChildConfigAp filtered by the AptbConfPoCols column
+ * @method     ChildConfigAp|null findOneByAptbconfvendgetopt(int $AptbConfVendGetOpt) Return the first ChildConfigAp filtered by the AptbConfVendGetOpt column
+ * @method     ChildConfigAp|null findOneByAptbconfpaytoshipfr(string $AptbConfPaytoShipfr) Return the first ChildConfigAp filtered by the AptbConfPaytoShipfr column
+ * @method     ChildConfigAp|null findOneByAptbconfholdstat(string $AptbConfHoldStat) Return the first ChildConfigAp filtered by the AptbConfHoldStat column
+ * @method     ChildConfigAp|null findOneByAptbconfdiscret(string $AptbConfDiscRet) Return the first ChildConfigAp filtered by the AptbConfDiscRet column
+ * @method     ChildConfigAp|null findOneByAptbconfstopvendchg(int $AptbConfStopVendChg) Return the first ChildConfigAp filtered by the AptbConfStopVendChg column
+ * @method     ChildConfigAp|null findOneByAptbconfreqdate2(int $AptbConfReqDate2) Return the first ChildConfigAp filtered by the AptbConfReqDate2 column
+ * @method     ChildConfigAp|null findOneByAptbconfreqdate3(int $AptbConfReqDate3) Return the first ChildConfigAp filtered by the AptbConfReqDate3 column
+ * @method     ChildConfigAp|null findOneByAptbconfreqdate4(int $AptbConfReqDate4) Return the first ChildConfigAp filtered by the AptbConfReqDate4 column
+ * @method     ChildConfigAp|null findOneByAptbconf1099name(string $AptbConf1099Name) Return the first ChildConfigAp filtered by the AptbConf1099Name column
+ * @method     ChildConfigAp|null findOneByAptbconf1099adr1(string $AptbConf1099Adr1) Return the first ChildConfigAp filtered by the AptbConf1099Adr1 column
+ * @method     ChildConfigAp|null findOneByAptbconf1099adr2(string $AptbConf1099Adr2) Return the first ChildConfigAp filtered by the AptbConf1099Adr2 column
+ * @method     ChildConfigAp|null findOneByAptbconf1099adr3(string $AptbConf1099Adr3) Return the first ChildConfigAp filtered by the AptbConf1099Adr3 column
+ * @method     ChildConfigAp|null findOneByAptbconf1099city(string $AptbConf1099City) Return the first ChildConfigAp filtered by the AptbConf1099City column
+ * @method     ChildConfigAp|null findOneByAptbconf1099stat(string $AptbConf1099Stat) Return the first ChildConfigAp filtered by the AptbConf1099Stat column
+ * @method     ChildConfigAp|null findOneByAptbconf1099zipcode(string $AptbConf1099ZipCode) Return the first ChildConfigAp filtered by the AptbConf1099ZipCode column
+ * @method     ChildConfigAp|null findOneByAptbconf1099id(string $AptbConf1099Id) Return the first ChildConfigAp filtered by the AptbConf1099Id column
+ * @method     ChildConfigAp|null findOneByAptbconfstubsort(string $AptbConfStubSort) Return the first ChildConfigAp filtered by the AptbConfStubSort column
+ * @method     ChildConfigAp|null findOneByAptbConfUseAch(string $AptbConfUseAch) Return the first ChildConfigAp filtered by the AptbConfUseAch column
+ * @method     ChildConfigAp|null findOneByAptbconfover1(int $AptbConfOver1) Return the first ChildConfigAp filtered by the AptbConfOver1 column
+ * @method     ChildConfigAp|null findOneByAptbconfover2(int $AptbConfOver2) Return the first ChildConfigAp filtered by the AptbConfOver2 column
+ * @method     ChildConfigAp|null findOneByAptbconfprtchk(string $AptbConfPrtChk) Return the first ChildConfigAp filtered by the AptbConfPrtChk column
+ * @method     ChildConfigAp|null findOneByAptbconfeiunrecqty(string $AptbConfEiUnrecQty) Return the first ChildConfigAp filtered by the AptbConfEiUnrecQty column
+ * @method     ChildConfigAp|null findOneByAptbconfeirecqtyask(string $AptbConfEiRecQtyAsk) Return the first ChildConfigAp filtered by the AptbConfEiRecQtyAsk column
+ * @method     ChildConfigAp|null findOneByAptbconfeirecqtydef(string $AptbConfEiRecQtyDef) Return the first ChildConfigAp filtered by the AptbConfEiRecQtyDef column
+ * @method     ChildConfigAp|null findOneByAptbconfallowmultpos(string $AptbConfAllowMultPos) Return the first ChildConfigAp filtered by the AptbConfAllowMultPos column
+ * @method     ChildConfigAp|null findOneByAptbconfeibyclerk(string $AptbConfEiByClerk) Return the first ChildConfigAp filtered by the AptbConfEiByClerk column
+ * @method     ChildConfigAp|null findOneByAptbconfeibatchproc(string $AptbConfEiBatchProc) Return the first ChildConfigAp filtered by the AptbConfEiBatchProc column
+ * @method     ChildConfigAp|null findOneByAptbconfeidispstancost(string $AptbConfEiDispStanCost) Return the first ChildConfigAp filtered by the AptbConfEiDispStanCost column
+ * @method     ChildConfigAp|null findOneByAptbconfeiassetacctchg(string $AptbConfEiAssetAcctChg) Return the first ChildConfigAp filtered by the AptbConfEiAssetAcctChg column
+ * @method     ChildConfigAp|null findOneByAptbconfallowdupinvc(string $AptbConfAllowDupInvc) Return the first ChildConfigAp filtered by the AptbConfAllowDupInvc column
+ * @method     ChildConfigAp|null findOneByAptbconfprtsorept(string $AptbConfPrtSoRept) Return the first ChildConfigAp filtered by the AptbConfPrtSoRept column
+ * @method     ChildConfigAp|null findOneByAptbconfeicheckhist(string $AptbConfEiCheckHist) Return the first ChildConfigAp filtered by the AptbConfEiCheckHist column
+ * @method     ChildConfigAp|null findOneByAptbconfsummgl(string $AptbConfSummGl) Return the first ChildConfigAp filtered by the AptbConfSummGl column
+ * @method     ChildConfigAp|null findOneByAptbconfvxmuserlabel(string $AptbConfVxmUserLabel) Return the first ChildConfigAp filtered by the AptbConfVxmUserLabel column
+ * @method     ChildConfigAp|null findOneByAptbconfvendcostbreaks(string $AptbConfVendCostBreaks) Return the first ChildConfigAp filtered by the AptbConfVendCostBreaks column
+ * @method     ChildConfigAp|null findOneByAptbconfmyeclrclospo(string $AptbConfMyeClrClosPo) Return the first ChildConfigAp filtered by the AptbConfMyeClrClosPo column
+ * @method     ChildConfigAp|null findOneByAptbconfmyeclrclosdate(string $AptbConfMyeClrClosDate) Return the first ChildConfigAp filtered by the AptbConfMyeClrClosDate column
+ * @method     ChildConfigAp|null findOneByAptbconfmyeclrpohist(string $AptbConfMyeClrPoHist) Return the first ChildConfigAp filtered by the AptbConfMyeClrPoHist column
+ * @method     ChildConfigAp|null findOneByAptbconfmyeclrpodate(string $AptbConfMyeClrPoDate) Return the first ChildConfigAp filtered by the AptbConfMyeClrPoDate column
+ * @method     ChildConfigAp|null findOneByAptbconfmyeclrckhist(string $AptbConfMyeClrCkHist) Return the first ChildConfigAp filtered by the AptbConfMyeClrCkHist column
+ * @method     ChildConfigAp|null findOneByAptbconfmyeclrckdate(string $AptbConfMyeClrCkDate) Return the first ChildConfigAp filtered by the AptbConfMyeClrCkDate column
+ * @method     ChildConfigAp|null findOneByAptbconfmyeclropenck(string $AptbConfMyeClrOpenCk) Return the first ChildConfigAp filtered by the AptbConfMyeClrOpenCk column
+ * @method     ChildConfigAp|null findOneByAptbconflead(string $AptbConfLead) Return the first ChildConfigAp filtered by the AptbConfLead column
+ * @method     ChildConfigAp|null findOneByAptbconfvrreworkitem(string $AptbConfVrReworkItem) Return the first ChildConfigAp filtered by the AptbConfVrReworkItem column
+ * @method     ChildConfigAp|null findOneByAptbconfvrqcwhse(string $AptbConfVrqcWhse) Return the first ChildConfigAp filtered by the AptbConfVrqcWhse column
+ * @method     ChildConfigAp|null findOneByAptbconfvrglacct(string $AptbConfVrGlAcct) Return the first ChildConfigAp filtered by the AptbConfVrGlAcct column
+ * @method     ChildConfigAp|null findOneByAptbconfvxmlistpc(string $AptbConfVxmListPc) Return the first ChildConfigAp filtered by the AptbConfVxmListPc column
+ * @method     ChildConfigAp|null findOneByAptbconfvxmlistitemupd(string $AptbConfVxmListItemUpd) Return the first ChildConfigAp filtered by the AptbConfVxmListItemUpd column
+ * @method     ChildConfigAp|null findOneByAptbconfvxmgrosslc(string $AptbConfVxmGrossLc) Return the first ChildConfigAp filtered by the AptbConfVxmGrossLc column
+ * @method     ChildConfigAp|null findOneByAptbconfvxmcostlp(string $AptbConfVxmCostLp) Return the first ChildConfigAp filtered by the AptbConfVxmCostLp column
+ * @method     ChildConfigAp|null findOneByAptbconfvxmcostitemupd(string $AptbConfVxmCostItemUpd) Return the first ChildConfigAp filtered by the AptbConfVxmCostItemUpd column
+ * @method     ChildConfigAp|null findOneByAptbconfvxmcostrmesg(string $AptbConfVxmCostRMesg) Return the first ChildConfigAp filtered by the AptbConfVxmCostRMesg column
+ * @method     ChildConfigAp|null findOneByAptbconfvxmcostitemupdm(string $AptbConfVxmCostItemUpdM) Return the first ChildConfigAp filtered by the AptbConfVxmCostItemUpdM column
+ * @method     ChildConfigAp|null findOneByAptbconfvxmcostmmesg(string $AptbConfVxmCostMMesg) Return the first ChildConfigAp filtered by the AptbConfVxmCostMMesg column
+ * @method     ChildConfigAp|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigAp filtered by the DateUpdtd column
+ * @method     ChildConfigAp|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigAp filtered by the TimeUpdtd column
+ * @method     ChildConfigAp|null findOneByDummy(string $dummy) Return the first ChildConfigAp filtered by the dummy column
+ *
+ * @method     ChildConfigAp requirePk($key, ?ConnectionInterface $con = null) Return the ChildConfigAp by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigAp requireOne(?ConnectionInterface $con = null) Return the first ChildConfigAp matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildConfigAp requireOneByAptbconfkey(int $AptbConfKey) Return the first ChildConfigAp filtered by the AptbConfKey column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAp requireOneByAptbconfglifac(string $AptbConfGlIfac) Return the first ChildConfigAp filtered by the AptbConfGlIfac column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -361,90 +359,174 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigAp requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigAp filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAp requireOneByDummy(string $dummy) Return the first ChildConfigAp filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildConfigAp[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildConfigAp objects based on current ModelCriteria
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfkey(int $AptbConfKey) Return ChildConfigAp objects filtered by the AptbConfKey column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfglifac(string $AptbConfGlIfac) Return ChildConfigAp objects filtered by the AptbConfGlIfac column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfinifac(string $AptbConfInIfac) Return ChildConfigAp objects filtered by the AptbConfInIfac column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfsoifac(string $AptbConfSoIfac) Return ChildConfigAp objects filtered by the AptbConfSoIfac column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfpoifac(string $AptbConfPoIfac) Return ChildConfigAp objects filtered by the AptbConfPoIfac column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconffrtacct(string $AptbConfFrtAcct) Return ChildConfigAp objects filtered by the AptbConfFrtAcct column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfmiscacct(string $AptbConfMiscAcct) Return ChildConfigAp objects filtered by the AptbConfMiscAcct column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfapacct(string $AptbConfApAcct) Return ChildConfigAp objects filtered by the AptbConfApAcct column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfcashacct(string $AptbConfCashAcct) Return ChildConfigAp objects filtered by the AptbConfCashAcct column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfdiscacct(string $AptbConfDiscAcct) Return ChildConfigAp objects filtered by the AptbConfDiscAcct column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconftaxacct(string $AptbConfTaxAcct) Return ChildConfigAp objects filtered by the AptbConfTaxAcct column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfpuracct(string $AptbConfPurAcct) Return ChildConfigAp objects filtered by the AptbConfPurAcct column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvaracct(string $AptbConfVarAcct) Return ChildConfigAp objects filtered by the AptbConfVarAcct column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvenddisc(string $AptbConfVendDisc) Return ChildConfigAp objects filtered by the AptbConfVendDisc column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfapinvvaracct(string $AptbConfApInvVarAcct) Return ChildConfigAp objects filtered by the AptbConfApInvVarAcct column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfuseroyal(string $AptbConfUseRoyal) Return ChildConfigAp objects filtered by the AptbConfUseRoyal column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfdefbuyrcode(string $AptbConfDefBuyrCode) Return ChildConfigAp objects filtered by the AptbConfDefBuyrCode column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfdeftermcode(string $AptbConfDefTermCode) Return ChildConfigAp objects filtered by the AptbConfDefTermCode column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfdefsviacode(string $AptbConfDefSviaCode) Return ChildConfigAp objects filtered by the AptbConfDefSviaCode column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfdeftypecode(string $AptbConfDefTypeCode) Return ChildConfigAp objects filtered by the AptbConfDefTypeCode column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvendline(int $AptbConfVendLine) Return ChildConfigAp objects filtered by the AptbConfVendLine column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvendcols(int $AptbConfVendCols) Return ChildConfigAp objects filtered by the AptbConfVendCols column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfpoline(int $AptbConfPoLine) Return ChildConfigAp objects filtered by the AptbConfPoLine column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfpocols(int $AptbConfPoCols) Return ChildConfigAp objects filtered by the AptbConfPoCols column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvendgetopt(int $AptbConfVendGetOpt) Return ChildConfigAp objects filtered by the AptbConfVendGetOpt column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfpaytoshipfr(string $AptbConfPaytoShipfr) Return ChildConfigAp objects filtered by the AptbConfPaytoShipfr column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfholdstat(string $AptbConfHoldStat) Return ChildConfigAp objects filtered by the AptbConfHoldStat column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfdiscret(string $AptbConfDiscRet) Return ChildConfigAp objects filtered by the AptbConfDiscRet column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfstopvendchg(int $AptbConfStopVendChg) Return ChildConfigAp objects filtered by the AptbConfStopVendChg column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfreqdate2(int $AptbConfReqDate2) Return ChildConfigAp objects filtered by the AptbConfReqDate2 column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfreqdate3(int $AptbConfReqDate3) Return ChildConfigAp objects filtered by the AptbConfReqDate3 column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfreqdate4(int $AptbConfReqDate4) Return ChildConfigAp objects filtered by the AptbConfReqDate4 column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconf1099name(string $AptbConf1099Name) Return ChildConfigAp objects filtered by the AptbConf1099Name column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconf1099adr1(string $AptbConf1099Adr1) Return ChildConfigAp objects filtered by the AptbConf1099Adr1 column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconf1099adr2(string $AptbConf1099Adr2) Return ChildConfigAp objects filtered by the AptbConf1099Adr2 column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconf1099adr3(string $AptbConf1099Adr3) Return ChildConfigAp objects filtered by the AptbConf1099Adr3 column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconf1099city(string $AptbConf1099City) Return ChildConfigAp objects filtered by the AptbConf1099City column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconf1099stat(string $AptbConf1099Stat) Return ChildConfigAp objects filtered by the AptbConf1099Stat column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconf1099zipcode(string $AptbConf1099ZipCode) Return ChildConfigAp objects filtered by the AptbConf1099ZipCode column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconf1099id(string $AptbConf1099Id) Return ChildConfigAp objects filtered by the AptbConf1099Id column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfstubsort(string $AptbConfStubSort) Return ChildConfigAp objects filtered by the AptbConfStubSort column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbConfUseAch(string $AptbConfUseAch) Return ChildConfigAp objects filtered by the AptbConfUseAch column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfover1(int $AptbConfOver1) Return ChildConfigAp objects filtered by the AptbConfOver1 column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfover2(int $AptbConfOver2) Return ChildConfigAp objects filtered by the AptbConfOver2 column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfprtchk(string $AptbConfPrtChk) Return ChildConfigAp objects filtered by the AptbConfPrtChk column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfeiunrecqty(string $AptbConfEiUnrecQty) Return ChildConfigAp objects filtered by the AptbConfEiUnrecQty column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfeirecqtyask(string $AptbConfEiRecQtyAsk) Return ChildConfigAp objects filtered by the AptbConfEiRecQtyAsk column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfeirecqtydef(string $AptbConfEiRecQtyDef) Return ChildConfigAp objects filtered by the AptbConfEiRecQtyDef column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfallowmultpos(string $AptbConfAllowMultPos) Return ChildConfigAp objects filtered by the AptbConfAllowMultPos column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfeibyclerk(string $AptbConfEiByClerk) Return ChildConfigAp objects filtered by the AptbConfEiByClerk column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfeibatchproc(string $AptbConfEiBatchProc) Return ChildConfigAp objects filtered by the AptbConfEiBatchProc column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfeidispstancost(string $AptbConfEiDispStanCost) Return ChildConfigAp objects filtered by the AptbConfEiDispStanCost column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfeiassetacctchg(string $AptbConfEiAssetAcctChg) Return ChildConfigAp objects filtered by the AptbConfEiAssetAcctChg column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfallowdupinvc(string $AptbConfAllowDupInvc) Return ChildConfigAp objects filtered by the AptbConfAllowDupInvc column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfprtsorept(string $AptbConfPrtSoRept) Return ChildConfigAp objects filtered by the AptbConfPrtSoRept column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfeicheckhist(string $AptbConfEiCheckHist) Return ChildConfigAp objects filtered by the AptbConfEiCheckHist column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfsummgl(string $AptbConfSummGl) Return ChildConfigAp objects filtered by the AptbConfSummGl column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvxmuserlabel(string $AptbConfVxmUserLabel) Return ChildConfigAp objects filtered by the AptbConfVxmUserLabel column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvendcostbreaks(string $AptbConfVendCostBreaks) Return ChildConfigAp objects filtered by the AptbConfVendCostBreaks column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfmyeclrclospo(string $AptbConfMyeClrClosPo) Return ChildConfigAp objects filtered by the AptbConfMyeClrClosPo column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfmyeclrclosdate(string $AptbConfMyeClrClosDate) Return ChildConfigAp objects filtered by the AptbConfMyeClrClosDate column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfmyeclrpohist(string $AptbConfMyeClrPoHist) Return ChildConfigAp objects filtered by the AptbConfMyeClrPoHist column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfmyeclrpodate(string $AptbConfMyeClrPoDate) Return ChildConfigAp objects filtered by the AptbConfMyeClrPoDate column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfmyeclrckhist(string $AptbConfMyeClrCkHist) Return ChildConfigAp objects filtered by the AptbConfMyeClrCkHist column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfmyeclrckdate(string $AptbConfMyeClrCkDate) Return ChildConfigAp objects filtered by the AptbConfMyeClrCkDate column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfmyeclropenck(string $AptbConfMyeClrOpenCk) Return ChildConfigAp objects filtered by the AptbConfMyeClrOpenCk column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconflead(string $AptbConfLead) Return ChildConfigAp objects filtered by the AptbConfLead column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvrreworkitem(string $AptbConfVrReworkItem) Return ChildConfigAp objects filtered by the AptbConfVrReworkItem column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvrqcwhse(string $AptbConfVrqcWhse) Return ChildConfigAp objects filtered by the AptbConfVrqcWhse column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvrglacct(string $AptbConfVrGlAcct) Return ChildConfigAp objects filtered by the AptbConfVrGlAcct column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvxmlistpc(string $AptbConfVxmListPc) Return ChildConfigAp objects filtered by the AptbConfVxmListPc column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvxmlistitemupd(string $AptbConfVxmListItemUpd) Return ChildConfigAp objects filtered by the AptbConfVxmListItemUpd column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvxmgrosslc(string $AptbConfVxmGrossLc) Return ChildConfigAp objects filtered by the AptbConfVxmGrossLc column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvxmcostlp(string $AptbConfVxmCostLp) Return ChildConfigAp objects filtered by the AptbConfVxmCostLp column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvxmcostitemupd(string $AptbConfVxmCostItemUpd) Return ChildConfigAp objects filtered by the AptbConfVxmCostItemUpd column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvxmcostrmesg(string $AptbConfVxmCostRMesg) Return ChildConfigAp objects filtered by the AptbConfVxmCostRMesg column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvxmcostitemupdm(string $AptbConfVxmCostItemUpdM) Return ChildConfigAp objects filtered by the AptbConfVxmCostItemUpdM column
- * @method     ChildConfigAp[]|ObjectCollection findByAptbconfvxmcostmmesg(string $AptbConfVxmCostMMesg) Return ChildConfigAp objects filtered by the AptbConfVxmCostMMesg column
- * @method     ChildConfigAp[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildConfigAp objects filtered by the DateUpdtd column
- * @method     ChildConfigAp[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildConfigAp objects filtered by the TimeUpdtd column
- * @method     ChildConfigAp[]|ObjectCollection findByDummy(string $dummy) Return ChildConfigAp objects filtered by the dummy column
- * @method     ChildConfigAp[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildConfigAp[]|Collection find(?ConnectionInterface $con = null) Return ChildConfigAp objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildConfigAp> find(?ConnectionInterface $con = null) Return ChildConfigAp objects based on current ModelCriteria
  *
+ * @method     ChildConfigAp[]|Collection findByAptbconfkey(int|array<int> $AptbConfKey) Return ChildConfigAp objects filtered by the AptbConfKey column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfkey(int|array<int> $AptbConfKey) Return ChildConfigAp objects filtered by the AptbConfKey column
+ * @method     ChildConfigAp[]|Collection findByAptbconfglifac(string|array<string> $AptbConfGlIfac) Return ChildConfigAp objects filtered by the AptbConfGlIfac column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfglifac(string|array<string> $AptbConfGlIfac) Return ChildConfigAp objects filtered by the AptbConfGlIfac column
+ * @method     ChildConfigAp[]|Collection findByAptbconfinifac(string|array<string> $AptbConfInIfac) Return ChildConfigAp objects filtered by the AptbConfInIfac column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfinifac(string|array<string> $AptbConfInIfac) Return ChildConfigAp objects filtered by the AptbConfInIfac column
+ * @method     ChildConfigAp[]|Collection findByAptbconfsoifac(string|array<string> $AptbConfSoIfac) Return ChildConfigAp objects filtered by the AptbConfSoIfac column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfsoifac(string|array<string> $AptbConfSoIfac) Return ChildConfigAp objects filtered by the AptbConfSoIfac column
+ * @method     ChildConfigAp[]|Collection findByAptbconfpoifac(string|array<string> $AptbConfPoIfac) Return ChildConfigAp objects filtered by the AptbConfPoIfac column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfpoifac(string|array<string> $AptbConfPoIfac) Return ChildConfigAp objects filtered by the AptbConfPoIfac column
+ * @method     ChildConfigAp[]|Collection findByAptbconffrtacct(string|array<string> $AptbConfFrtAcct) Return ChildConfigAp objects filtered by the AptbConfFrtAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconffrtacct(string|array<string> $AptbConfFrtAcct) Return ChildConfigAp objects filtered by the AptbConfFrtAcct column
+ * @method     ChildConfigAp[]|Collection findByAptbconfmiscacct(string|array<string> $AptbConfMiscAcct) Return ChildConfigAp objects filtered by the AptbConfMiscAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfmiscacct(string|array<string> $AptbConfMiscAcct) Return ChildConfigAp objects filtered by the AptbConfMiscAcct column
+ * @method     ChildConfigAp[]|Collection findByAptbconfapacct(string|array<string> $AptbConfApAcct) Return ChildConfigAp objects filtered by the AptbConfApAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfapacct(string|array<string> $AptbConfApAcct) Return ChildConfigAp objects filtered by the AptbConfApAcct column
+ * @method     ChildConfigAp[]|Collection findByAptbconfcashacct(string|array<string> $AptbConfCashAcct) Return ChildConfigAp objects filtered by the AptbConfCashAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfcashacct(string|array<string> $AptbConfCashAcct) Return ChildConfigAp objects filtered by the AptbConfCashAcct column
+ * @method     ChildConfigAp[]|Collection findByAptbconfdiscacct(string|array<string> $AptbConfDiscAcct) Return ChildConfigAp objects filtered by the AptbConfDiscAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfdiscacct(string|array<string> $AptbConfDiscAcct) Return ChildConfigAp objects filtered by the AptbConfDiscAcct column
+ * @method     ChildConfigAp[]|Collection findByAptbconftaxacct(string|array<string> $AptbConfTaxAcct) Return ChildConfigAp objects filtered by the AptbConfTaxAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconftaxacct(string|array<string> $AptbConfTaxAcct) Return ChildConfigAp objects filtered by the AptbConfTaxAcct column
+ * @method     ChildConfigAp[]|Collection findByAptbconfpuracct(string|array<string> $AptbConfPurAcct) Return ChildConfigAp objects filtered by the AptbConfPurAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfpuracct(string|array<string> $AptbConfPurAcct) Return ChildConfigAp objects filtered by the AptbConfPurAcct column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvaracct(string|array<string> $AptbConfVarAcct) Return ChildConfigAp objects filtered by the AptbConfVarAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvaracct(string|array<string> $AptbConfVarAcct) Return ChildConfigAp objects filtered by the AptbConfVarAcct column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvenddisc(string|array<string> $AptbConfVendDisc) Return ChildConfigAp objects filtered by the AptbConfVendDisc column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvenddisc(string|array<string> $AptbConfVendDisc) Return ChildConfigAp objects filtered by the AptbConfVendDisc column
+ * @method     ChildConfigAp[]|Collection findByAptbconfapinvvaracct(string|array<string> $AptbConfApInvVarAcct) Return ChildConfigAp objects filtered by the AptbConfApInvVarAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfapinvvaracct(string|array<string> $AptbConfApInvVarAcct) Return ChildConfigAp objects filtered by the AptbConfApInvVarAcct column
+ * @method     ChildConfigAp[]|Collection findByAptbconfuseroyal(string|array<string> $AptbConfUseRoyal) Return ChildConfigAp objects filtered by the AptbConfUseRoyal column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfuseroyal(string|array<string> $AptbConfUseRoyal) Return ChildConfigAp objects filtered by the AptbConfUseRoyal column
+ * @method     ChildConfigAp[]|Collection findByAptbconfdefbuyrcode(string|array<string> $AptbConfDefBuyrCode) Return ChildConfigAp objects filtered by the AptbConfDefBuyrCode column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfdefbuyrcode(string|array<string> $AptbConfDefBuyrCode) Return ChildConfigAp objects filtered by the AptbConfDefBuyrCode column
+ * @method     ChildConfigAp[]|Collection findByAptbconfdeftermcode(string|array<string> $AptbConfDefTermCode) Return ChildConfigAp objects filtered by the AptbConfDefTermCode column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfdeftermcode(string|array<string> $AptbConfDefTermCode) Return ChildConfigAp objects filtered by the AptbConfDefTermCode column
+ * @method     ChildConfigAp[]|Collection findByAptbconfdefsviacode(string|array<string> $AptbConfDefSviaCode) Return ChildConfigAp objects filtered by the AptbConfDefSviaCode column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfdefsviacode(string|array<string> $AptbConfDefSviaCode) Return ChildConfigAp objects filtered by the AptbConfDefSviaCode column
+ * @method     ChildConfigAp[]|Collection findByAptbconfdeftypecode(string|array<string> $AptbConfDefTypeCode) Return ChildConfigAp objects filtered by the AptbConfDefTypeCode column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfdeftypecode(string|array<string> $AptbConfDefTypeCode) Return ChildConfigAp objects filtered by the AptbConfDefTypeCode column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvendline(int|array<int> $AptbConfVendLine) Return ChildConfigAp objects filtered by the AptbConfVendLine column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvendline(int|array<int> $AptbConfVendLine) Return ChildConfigAp objects filtered by the AptbConfVendLine column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvendcols(int|array<int> $AptbConfVendCols) Return ChildConfigAp objects filtered by the AptbConfVendCols column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvendcols(int|array<int> $AptbConfVendCols) Return ChildConfigAp objects filtered by the AptbConfVendCols column
+ * @method     ChildConfigAp[]|Collection findByAptbconfpoline(int|array<int> $AptbConfPoLine) Return ChildConfigAp objects filtered by the AptbConfPoLine column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfpoline(int|array<int> $AptbConfPoLine) Return ChildConfigAp objects filtered by the AptbConfPoLine column
+ * @method     ChildConfigAp[]|Collection findByAptbconfpocols(int|array<int> $AptbConfPoCols) Return ChildConfigAp objects filtered by the AptbConfPoCols column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfpocols(int|array<int> $AptbConfPoCols) Return ChildConfigAp objects filtered by the AptbConfPoCols column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvendgetopt(int|array<int> $AptbConfVendGetOpt) Return ChildConfigAp objects filtered by the AptbConfVendGetOpt column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvendgetopt(int|array<int> $AptbConfVendGetOpt) Return ChildConfigAp objects filtered by the AptbConfVendGetOpt column
+ * @method     ChildConfigAp[]|Collection findByAptbconfpaytoshipfr(string|array<string> $AptbConfPaytoShipfr) Return ChildConfigAp objects filtered by the AptbConfPaytoShipfr column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfpaytoshipfr(string|array<string> $AptbConfPaytoShipfr) Return ChildConfigAp objects filtered by the AptbConfPaytoShipfr column
+ * @method     ChildConfigAp[]|Collection findByAptbconfholdstat(string|array<string> $AptbConfHoldStat) Return ChildConfigAp objects filtered by the AptbConfHoldStat column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfholdstat(string|array<string> $AptbConfHoldStat) Return ChildConfigAp objects filtered by the AptbConfHoldStat column
+ * @method     ChildConfigAp[]|Collection findByAptbconfdiscret(string|array<string> $AptbConfDiscRet) Return ChildConfigAp objects filtered by the AptbConfDiscRet column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfdiscret(string|array<string> $AptbConfDiscRet) Return ChildConfigAp objects filtered by the AptbConfDiscRet column
+ * @method     ChildConfigAp[]|Collection findByAptbconfstopvendchg(int|array<int> $AptbConfStopVendChg) Return ChildConfigAp objects filtered by the AptbConfStopVendChg column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfstopvendchg(int|array<int> $AptbConfStopVendChg) Return ChildConfigAp objects filtered by the AptbConfStopVendChg column
+ * @method     ChildConfigAp[]|Collection findByAptbconfreqdate2(int|array<int> $AptbConfReqDate2) Return ChildConfigAp objects filtered by the AptbConfReqDate2 column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfreqdate2(int|array<int> $AptbConfReqDate2) Return ChildConfigAp objects filtered by the AptbConfReqDate2 column
+ * @method     ChildConfigAp[]|Collection findByAptbconfreqdate3(int|array<int> $AptbConfReqDate3) Return ChildConfigAp objects filtered by the AptbConfReqDate3 column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfreqdate3(int|array<int> $AptbConfReqDate3) Return ChildConfigAp objects filtered by the AptbConfReqDate3 column
+ * @method     ChildConfigAp[]|Collection findByAptbconfreqdate4(int|array<int> $AptbConfReqDate4) Return ChildConfigAp objects filtered by the AptbConfReqDate4 column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfreqdate4(int|array<int> $AptbConfReqDate4) Return ChildConfigAp objects filtered by the AptbConfReqDate4 column
+ * @method     ChildConfigAp[]|Collection findByAptbconf1099name(string|array<string> $AptbConf1099Name) Return ChildConfigAp objects filtered by the AptbConf1099Name column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconf1099name(string|array<string> $AptbConf1099Name) Return ChildConfigAp objects filtered by the AptbConf1099Name column
+ * @method     ChildConfigAp[]|Collection findByAptbconf1099adr1(string|array<string> $AptbConf1099Adr1) Return ChildConfigAp objects filtered by the AptbConf1099Adr1 column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconf1099adr1(string|array<string> $AptbConf1099Adr1) Return ChildConfigAp objects filtered by the AptbConf1099Adr1 column
+ * @method     ChildConfigAp[]|Collection findByAptbconf1099adr2(string|array<string> $AptbConf1099Adr2) Return ChildConfigAp objects filtered by the AptbConf1099Adr2 column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconf1099adr2(string|array<string> $AptbConf1099Adr2) Return ChildConfigAp objects filtered by the AptbConf1099Adr2 column
+ * @method     ChildConfigAp[]|Collection findByAptbconf1099adr3(string|array<string> $AptbConf1099Adr3) Return ChildConfigAp objects filtered by the AptbConf1099Adr3 column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconf1099adr3(string|array<string> $AptbConf1099Adr3) Return ChildConfigAp objects filtered by the AptbConf1099Adr3 column
+ * @method     ChildConfigAp[]|Collection findByAptbconf1099city(string|array<string> $AptbConf1099City) Return ChildConfigAp objects filtered by the AptbConf1099City column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconf1099city(string|array<string> $AptbConf1099City) Return ChildConfigAp objects filtered by the AptbConf1099City column
+ * @method     ChildConfigAp[]|Collection findByAptbconf1099stat(string|array<string> $AptbConf1099Stat) Return ChildConfigAp objects filtered by the AptbConf1099Stat column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconf1099stat(string|array<string> $AptbConf1099Stat) Return ChildConfigAp objects filtered by the AptbConf1099Stat column
+ * @method     ChildConfigAp[]|Collection findByAptbconf1099zipcode(string|array<string> $AptbConf1099ZipCode) Return ChildConfigAp objects filtered by the AptbConf1099ZipCode column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconf1099zipcode(string|array<string> $AptbConf1099ZipCode) Return ChildConfigAp objects filtered by the AptbConf1099ZipCode column
+ * @method     ChildConfigAp[]|Collection findByAptbconf1099id(string|array<string> $AptbConf1099Id) Return ChildConfigAp objects filtered by the AptbConf1099Id column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconf1099id(string|array<string> $AptbConf1099Id) Return ChildConfigAp objects filtered by the AptbConf1099Id column
+ * @method     ChildConfigAp[]|Collection findByAptbconfstubsort(string|array<string> $AptbConfStubSort) Return ChildConfigAp objects filtered by the AptbConfStubSort column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfstubsort(string|array<string> $AptbConfStubSort) Return ChildConfigAp objects filtered by the AptbConfStubSort column
+ * @method     ChildConfigAp[]|Collection findByAptbConfUseAch(string|array<string> $AptbConfUseAch) Return ChildConfigAp objects filtered by the AptbConfUseAch column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbConfUseAch(string|array<string> $AptbConfUseAch) Return ChildConfigAp objects filtered by the AptbConfUseAch column
+ * @method     ChildConfigAp[]|Collection findByAptbconfover1(int|array<int> $AptbConfOver1) Return ChildConfigAp objects filtered by the AptbConfOver1 column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfover1(int|array<int> $AptbConfOver1) Return ChildConfigAp objects filtered by the AptbConfOver1 column
+ * @method     ChildConfigAp[]|Collection findByAptbconfover2(int|array<int> $AptbConfOver2) Return ChildConfigAp objects filtered by the AptbConfOver2 column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfover2(int|array<int> $AptbConfOver2) Return ChildConfigAp objects filtered by the AptbConfOver2 column
+ * @method     ChildConfigAp[]|Collection findByAptbconfprtchk(string|array<string> $AptbConfPrtChk) Return ChildConfigAp objects filtered by the AptbConfPrtChk column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfprtchk(string|array<string> $AptbConfPrtChk) Return ChildConfigAp objects filtered by the AptbConfPrtChk column
+ * @method     ChildConfigAp[]|Collection findByAptbconfeiunrecqty(string|array<string> $AptbConfEiUnrecQty) Return ChildConfigAp objects filtered by the AptbConfEiUnrecQty column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfeiunrecqty(string|array<string> $AptbConfEiUnrecQty) Return ChildConfigAp objects filtered by the AptbConfEiUnrecQty column
+ * @method     ChildConfigAp[]|Collection findByAptbconfeirecqtyask(string|array<string> $AptbConfEiRecQtyAsk) Return ChildConfigAp objects filtered by the AptbConfEiRecQtyAsk column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfeirecqtyask(string|array<string> $AptbConfEiRecQtyAsk) Return ChildConfigAp objects filtered by the AptbConfEiRecQtyAsk column
+ * @method     ChildConfigAp[]|Collection findByAptbconfeirecqtydef(string|array<string> $AptbConfEiRecQtyDef) Return ChildConfigAp objects filtered by the AptbConfEiRecQtyDef column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfeirecqtydef(string|array<string> $AptbConfEiRecQtyDef) Return ChildConfigAp objects filtered by the AptbConfEiRecQtyDef column
+ * @method     ChildConfigAp[]|Collection findByAptbconfallowmultpos(string|array<string> $AptbConfAllowMultPos) Return ChildConfigAp objects filtered by the AptbConfAllowMultPos column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfallowmultpos(string|array<string> $AptbConfAllowMultPos) Return ChildConfigAp objects filtered by the AptbConfAllowMultPos column
+ * @method     ChildConfigAp[]|Collection findByAptbconfeibyclerk(string|array<string> $AptbConfEiByClerk) Return ChildConfigAp objects filtered by the AptbConfEiByClerk column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfeibyclerk(string|array<string> $AptbConfEiByClerk) Return ChildConfigAp objects filtered by the AptbConfEiByClerk column
+ * @method     ChildConfigAp[]|Collection findByAptbconfeibatchproc(string|array<string> $AptbConfEiBatchProc) Return ChildConfigAp objects filtered by the AptbConfEiBatchProc column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfeibatchproc(string|array<string> $AptbConfEiBatchProc) Return ChildConfigAp objects filtered by the AptbConfEiBatchProc column
+ * @method     ChildConfigAp[]|Collection findByAptbconfeidispstancost(string|array<string> $AptbConfEiDispStanCost) Return ChildConfigAp objects filtered by the AptbConfEiDispStanCost column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfeidispstancost(string|array<string> $AptbConfEiDispStanCost) Return ChildConfigAp objects filtered by the AptbConfEiDispStanCost column
+ * @method     ChildConfigAp[]|Collection findByAptbconfeiassetacctchg(string|array<string> $AptbConfEiAssetAcctChg) Return ChildConfigAp objects filtered by the AptbConfEiAssetAcctChg column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfeiassetacctchg(string|array<string> $AptbConfEiAssetAcctChg) Return ChildConfigAp objects filtered by the AptbConfEiAssetAcctChg column
+ * @method     ChildConfigAp[]|Collection findByAptbconfallowdupinvc(string|array<string> $AptbConfAllowDupInvc) Return ChildConfigAp objects filtered by the AptbConfAllowDupInvc column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfallowdupinvc(string|array<string> $AptbConfAllowDupInvc) Return ChildConfigAp objects filtered by the AptbConfAllowDupInvc column
+ * @method     ChildConfigAp[]|Collection findByAptbconfprtsorept(string|array<string> $AptbConfPrtSoRept) Return ChildConfigAp objects filtered by the AptbConfPrtSoRept column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfprtsorept(string|array<string> $AptbConfPrtSoRept) Return ChildConfigAp objects filtered by the AptbConfPrtSoRept column
+ * @method     ChildConfigAp[]|Collection findByAptbconfeicheckhist(string|array<string> $AptbConfEiCheckHist) Return ChildConfigAp objects filtered by the AptbConfEiCheckHist column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfeicheckhist(string|array<string> $AptbConfEiCheckHist) Return ChildConfigAp objects filtered by the AptbConfEiCheckHist column
+ * @method     ChildConfigAp[]|Collection findByAptbconfsummgl(string|array<string> $AptbConfSummGl) Return ChildConfigAp objects filtered by the AptbConfSummGl column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfsummgl(string|array<string> $AptbConfSummGl) Return ChildConfigAp objects filtered by the AptbConfSummGl column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvxmuserlabel(string|array<string> $AptbConfVxmUserLabel) Return ChildConfigAp objects filtered by the AptbConfVxmUserLabel column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvxmuserlabel(string|array<string> $AptbConfVxmUserLabel) Return ChildConfigAp objects filtered by the AptbConfVxmUserLabel column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvendcostbreaks(string|array<string> $AptbConfVendCostBreaks) Return ChildConfigAp objects filtered by the AptbConfVendCostBreaks column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvendcostbreaks(string|array<string> $AptbConfVendCostBreaks) Return ChildConfigAp objects filtered by the AptbConfVendCostBreaks column
+ * @method     ChildConfigAp[]|Collection findByAptbconfmyeclrclospo(string|array<string> $AptbConfMyeClrClosPo) Return ChildConfigAp objects filtered by the AptbConfMyeClrClosPo column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfmyeclrclospo(string|array<string> $AptbConfMyeClrClosPo) Return ChildConfigAp objects filtered by the AptbConfMyeClrClosPo column
+ * @method     ChildConfigAp[]|Collection findByAptbconfmyeclrclosdate(string|array<string> $AptbConfMyeClrClosDate) Return ChildConfigAp objects filtered by the AptbConfMyeClrClosDate column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfmyeclrclosdate(string|array<string> $AptbConfMyeClrClosDate) Return ChildConfigAp objects filtered by the AptbConfMyeClrClosDate column
+ * @method     ChildConfigAp[]|Collection findByAptbconfmyeclrpohist(string|array<string> $AptbConfMyeClrPoHist) Return ChildConfigAp objects filtered by the AptbConfMyeClrPoHist column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfmyeclrpohist(string|array<string> $AptbConfMyeClrPoHist) Return ChildConfigAp objects filtered by the AptbConfMyeClrPoHist column
+ * @method     ChildConfigAp[]|Collection findByAptbconfmyeclrpodate(string|array<string> $AptbConfMyeClrPoDate) Return ChildConfigAp objects filtered by the AptbConfMyeClrPoDate column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfmyeclrpodate(string|array<string> $AptbConfMyeClrPoDate) Return ChildConfigAp objects filtered by the AptbConfMyeClrPoDate column
+ * @method     ChildConfigAp[]|Collection findByAptbconfmyeclrckhist(string|array<string> $AptbConfMyeClrCkHist) Return ChildConfigAp objects filtered by the AptbConfMyeClrCkHist column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfmyeclrckhist(string|array<string> $AptbConfMyeClrCkHist) Return ChildConfigAp objects filtered by the AptbConfMyeClrCkHist column
+ * @method     ChildConfigAp[]|Collection findByAptbconfmyeclrckdate(string|array<string> $AptbConfMyeClrCkDate) Return ChildConfigAp objects filtered by the AptbConfMyeClrCkDate column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfmyeclrckdate(string|array<string> $AptbConfMyeClrCkDate) Return ChildConfigAp objects filtered by the AptbConfMyeClrCkDate column
+ * @method     ChildConfigAp[]|Collection findByAptbconfmyeclropenck(string|array<string> $AptbConfMyeClrOpenCk) Return ChildConfigAp objects filtered by the AptbConfMyeClrOpenCk column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfmyeclropenck(string|array<string> $AptbConfMyeClrOpenCk) Return ChildConfigAp objects filtered by the AptbConfMyeClrOpenCk column
+ * @method     ChildConfigAp[]|Collection findByAptbconflead(string|array<string> $AptbConfLead) Return ChildConfigAp objects filtered by the AptbConfLead column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconflead(string|array<string> $AptbConfLead) Return ChildConfigAp objects filtered by the AptbConfLead column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvrreworkitem(string|array<string> $AptbConfVrReworkItem) Return ChildConfigAp objects filtered by the AptbConfVrReworkItem column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvrreworkitem(string|array<string> $AptbConfVrReworkItem) Return ChildConfigAp objects filtered by the AptbConfVrReworkItem column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvrqcwhse(string|array<string> $AptbConfVrqcWhse) Return ChildConfigAp objects filtered by the AptbConfVrqcWhse column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvrqcwhse(string|array<string> $AptbConfVrqcWhse) Return ChildConfigAp objects filtered by the AptbConfVrqcWhse column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvrglacct(string|array<string> $AptbConfVrGlAcct) Return ChildConfigAp objects filtered by the AptbConfVrGlAcct column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvrglacct(string|array<string> $AptbConfVrGlAcct) Return ChildConfigAp objects filtered by the AptbConfVrGlAcct column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvxmlistpc(string|array<string> $AptbConfVxmListPc) Return ChildConfigAp objects filtered by the AptbConfVxmListPc column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvxmlistpc(string|array<string> $AptbConfVxmListPc) Return ChildConfigAp objects filtered by the AptbConfVxmListPc column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvxmlistitemupd(string|array<string> $AptbConfVxmListItemUpd) Return ChildConfigAp objects filtered by the AptbConfVxmListItemUpd column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvxmlistitemupd(string|array<string> $AptbConfVxmListItemUpd) Return ChildConfigAp objects filtered by the AptbConfVxmListItemUpd column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvxmgrosslc(string|array<string> $AptbConfVxmGrossLc) Return ChildConfigAp objects filtered by the AptbConfVxmGrossLc column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvxmgrosslc(string|array<string> $AptbConfVxmGrossLc) Return ChildConfigAp objects filtered by the AptbConfVxmGrossLc column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvxmcostlp(string|array<string> $AptbConfVxmCostLp) Return ChildConfigAp objects filtered by the AptbConfVxmCostLp column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvxmcostlp(string|array<string> $AptbConfVxmCostLp) Return ChildConfigAp objects filtered by the AptbConfVxmCostLp column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvxmcostitemupd(string|array<string> $AptbConfVxmCostItemUpd) Return ChildConfigAp objects filtered by the AptbConfVxmCostItemUpd column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvxmcostitemupd(string|array<string> $AptbConfVxmCostItemUpd) Return ChildConfigAp objects filtered by the AptbConfVxmCostItemUpd column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvxmcostrmesg(string|array<string> $AptbConfVxmCostRMesg) Return ChildConfigAp objects filtered by the AptbConfVxmCostRMesg column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvxmcostrmesg(string|array<string> $AptbConfVxmCostRMesg) Return ChildConfigAp objects filtered by the AptbConfVxmCostRMesg column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvxmcostitemupdm(string|array<string> $AptbConfVxmCostItemUpdM) Return ChildConfigAp objects filtered by the AptbConfVxmCostItemUpdM column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvxmcostitemupdm(string|array<string> $AptbConfVxmCostItemUpdM) Return ChildConfigAp objects filtered by the AptbConfVxmCostItemUpdM column
+ * @method     ChildConfigAp[]|Collection findByAptbconfvxmcostmmesg(string|array<string> $AptbConfVxmCostMMesg) Return ChildConfigAp objects filtered by the AptbConfVxmCostMMesg column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByAptbconfvxmcostmmesg(string|array<string> $AptbConfVxmCostMMesg) Return ChildConfigAp objects filtered by the AptbConfVxmCostMMesg column
+ * @method     ChildConfigAp[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigAp objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigAp objects filtered by the DateUpdtd column
+ * @method     ChildConfigAp[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigAp objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigAp objects filtered by the TimeUpdtd column
+ * @method     ChildConfigAp[]|Collection findByDummy(string|array<string> $dummy) Return ChildConfigAp objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildConfigAp> findByDummy(string|array<string> $dummy) Return ChildConfigAp objects filtered by the dummy column
+ *
+ * @method     ChildConfigAp[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildConfigAp> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ConfigApQuery extends ModelCriteria
 {
@@ -453,9 +535,9 @@ abstract class ConfigApQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ConfigApQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ConfigAp', $modelAlias = null)
     {
@@ -465,12 +547,12 @@ abstract class ConfigApQuery extends ModelCriteria
     /**
      * Returns a new ChildConfigApQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildConfigApQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildConfigApQuery) {
             return $criteria;
@@ -500,7 +582,7 @@ abstract class ConfigApQuery extends ModelCriteria
      *
      * @return ChildConfigAp|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -532,8 +614,8 @@ abstract class ConfigApQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -565,8 +647,8 @@ abstract class ConfigApQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildConfigAp|array|mixed the result, formatted by the current formatter
      */
@@ -586,12 +668,12 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -608,27 +690,31 @@ abstract class ConfigApQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFKEY, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFKEY, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFKEY, $keys, Criteria::IN);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFKEY, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -641,15 +727,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * $query->filterByAptbconfkey(array('min' => 12)); // WHERE AptbConfKey > 12
      * </code>
      *
-     * @param     mixed $aptbconfkey The value to use as filter.
+     * @param mixed $aptbconfkey The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfkey($aptbconfkey = null, $comparison = null)
+    public function filterByAptbconfkey($aptbconfkey = null, ?string $comparison = null)
     {
         if (is_array($aptbconfkey)) {
             $useMinMax = false;
@@ -669,7 +755,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFKEY, $aptbconfkey, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFKEY, $aptbconfkey, $comparison);
+
+        return $this;
     }
 
     /**
@@ -679,14 +767,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfglifac('fooValue');   // WHERE AptbConfGlIfac = 'fooValue'
      * $query->filterByAptbconfglifac('%fooValue%', Criteria::LIKE); // WHERE AptbConfGlIfac LIKE '%fooValue%'
+     * $query->filterByAptbconfglifac(['foo', 'bar']); // WHERE AptbConfGlIfac IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfglifac The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfglifac The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfglifac($aptbconfglifac = null, $comparison = null)
+    public function filterByAptbconfglifac($aptbconfglifac = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfglifac)) {
@@ -694,7 +783,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFGLIFAC, $aptbconfglifac, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFGLIFAC, $aptbconfglifac, $comparison);
+
+        return $this;
     }
 
     /**
@@ -704,14 +795,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfinifac('fooValue');   // WHERE AptbConfInIfac = 'fooValue'
      * $query->filterByAptbconfinifac('%fooValue%', Criteria::LIKE); // WHERE AptbConfInIfac LIKE '%fooValue%'
+     * $query->filterByAptbconfinifac(['foo', 'bar']); // WHERE AptbConfInIfac IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfinifac The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfinifac The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfinifac($aptbconfinifac = null, $comparison = null)
+    public function filterByAptbconfinifac($aptbconfinifac = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfinifac)) {
@@ -719,7 +811,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFINIFAC, $aptbconfinifac, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFINIFAC, $aptbconfinifac, $comparison);
+
+        return $this;
     }
 
     /**
@@ -729,14 +823,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfsoifac('fooValue');   // WHERE AptbConfSoIfac = 'fooValue'
      * $query->filterByAptbconfsoifac('%fooValue%', Criteria::LIKE); // WHERE AptbConfSoIfac LIKE '%fooValue%'
+     * $query->filterByAptbconfsoifac(['foo', 'bar']); // WHERE AptbConfSoIfac IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfsoifac The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfsoifac The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfsoifac($aptbconfsoifac = null, $comparison = null)
+    public function filterByAptbconfsoifac($aptbconfsoifac = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfsoifac)) {
@@ -744,7 +839,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFSOIFAC, $aptbconfsoifac, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFSOIFAC, $aptbconfsoifac, $comparison);
+
+        return $this;
     }
 
     /**
@@ -754,14 +851,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfpoifac('fooValue');   // WHERE AptbConfPoIfac = 'fooValue'
      * $query->filterByAptbconfpoifac('%fooValue%', Criteria::LIKE); // WHERE AptbConfPoIfac LIKE '%fooValue%'
+     * $query->filterByAptbconfpoifac(['foo', 'bar']); // WHERE AptbConfPoIfac IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfpoifac The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfpoifac The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfpoifac($aptbconfpoifac = null, $comparison = null)
+    public function filterByAptbconfpoifac($aptbconfpoifac = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfpoifac)) {
@@ -769,7 +867,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPOIFAC, $aptbconfpoifac, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPOIFAC, $aptbconfpoifac, $comparison);
+
+        return $this;
     }
 
     /**
@@ -779,14 +879,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconffrtacct('fooValue');   // WHERE AptbConfFrtAcct = 'fooValue'
      * $query->filterByAptbconffrtacct('%fooValue%', Criteria::LIKE); // WHERE AptbConfFrtAcct LIKE '%fooValue%'
+     * $query->filterByAptbconffrtacct(['foo', 'bar']); // WHERE AptbConfFrtAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconffrtacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconffrtacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconffrtacct($aptbconffrtacct = null, $comparison = null)
+    public function filterByAptbconffrtacct($aptbconffrtacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconffrtacct)) {
@@ -794,7 +895,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFFRTACCT, $aptbconffrtacct, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFFRTACCT, $aptbconffrtacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -804,14 +907,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfmiscacct('fooValue');   // WHERE AptbConfMiscAcct = 'fooValue'
      * $query->filterByAptbconfmiscacct('%fooValue%', Criteria::LIKE); // WHERE AptbConfMiscAcct LIKE '%fooValue%'
+     * $query->filterByAptbconfmiscacct(['foo', 'bar']); // WHERE AptbConfMiscAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfmiscacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfmiscacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfmiscacct($aptbconfmiscacct = null, $comparison = null)
+    public function filterByAptbconfmiscacct($aptbconfmiscacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfmiscacct)) {
@@ -819,7 +923,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMISCACCT, $aptbconfmiscacct, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMISCACCT, $aptbconfmiscacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -829,14 +935,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfapacct('fooValue');   // WHERE AptbConfApAcct = 'fooValue'
      * $query->filterByAptbconfapacct('%fooValue%', Criteria::LIKE); // WHERE AptbConfApAcct LIKE '%fooValue%'
+     * $query->filterByAptbconfapacct(['foo', 'bar']); // WHERE AptbConfApAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfapacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfapacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfapacct($aptbconfapacct = null, $comparison = null)
+    public function filterByAptbconfapacct($aptbconfapacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfapacct)) {
@@ -844,7 +951,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFAPACCT, $aptbconfapacct, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFAPACCT, $aptbconfapacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -854,14 +963,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfcashacct('fooValue');   // WHERE AptbConfCashAcct = 'fooValue'
      * $query->filterByAptbconfcashacct('%fooValue%', Criteria::LIKE); // WHERE AptbConfCashAcct LIKE '%fooValue%'
+     * $query->filterByAptbconfcashacct(['foo', 'bar']); // WHERE AptbConfCashAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfcashacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfcashacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfcashacct($aptbconfcashacct = null, $comparison = null)
+    public function filterByAptbconfcashacct($aptbconfcashacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfcashacct)) {
@@ -869,7 +979,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFCASHACCT, $aptbconfcashacct, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFCASHACCT, $aptbconfcashacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -879,14 +991,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfdiscacct('fooValue');   // WHERE AptbConfDiscAcct = 'fooValue'
      * $query->filterByAptbconfdiscacct('%fooValue%', Criteria::LIKE); // WHERE AptbConfDiscAcct LIKE '%fooValue%'
+     * $query->filterByAptbconfdiscacct(['foo', 'bar']); // WHERE AptbConfDiscAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfdiscacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfdiscacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfdiscacct($aptbconfdiscacct = null, $comparison = null)
+    public function filterByAptbconfdiscacct($aptbconfdiscacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfdiscacct)) {
@@ -894,7 +1007,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDISCACCT, $aptbconfdiscacct, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDISCACCT, $aptbconfdiscacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -904,14 +1019,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconftaxacct('fooValue');   // WHERE AptbConfTaxAcct = 'fooValue'
      * $query->filterByAptbconftaxacct('%fooValue%', Criteria::LIKE); // WHERE AptbConfTaxAcct LIKE '%fooValue%'
+     * $query->filterByAptbconftaxacct(['foo', 'bar']); // WHERE AptbConfTaxAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconftaxacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconftaxacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconftaxacct($aptbconftaxacct = null, $comparison = null)
+    public function filterByAptbconftaxacct($aptbconftaxacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconftaxacct)) {
@@ -919,7 +1035,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFTAXACCT, $aptbconftaxacct, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFTAXACCT, $aptbconftaxacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -929,14 +1047,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfpuracct('fooValue');   // WHERE AptbConfPurAcct = 'fooValue'
      * $query->filterByAptbconfpuracct('%fooValue%', Criteria::LIKE); // WHERE AptbConfPurAcct LIKE '%fooValue%'
+     * $query->filterByAptbconfpuracct(['foo', 'bar']); // WHERE AptbConfPurAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfpuracct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfpuracct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfpuracct($aptbconfpuracct = null, $comparison = null)
+    public function filterByAptbconfpuracct($aptbconfpuracct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfpuracct)) {
@@ -944,7 +1063,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPURACCT, $aptbconfpuracct, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPURACCT, $aptbconfpuracct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -954,14 +1075,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfvaracct('fooValue');   // WHERE AptbConfVarAcct = 'fooValue'
      * $query->filterByAptbconfvaracct('%fooValue%', Criteria::LIKE); // WHERE AptbConfVarAcct LIKE '%fooValue%'
+     * $query->filterByAptbconfvaracct(['foo', 'bar']); // WHERE AptbConfVarAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfvaracct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfvaracct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvaracct($aptbconfvaracct = null, $comparison = null)
+    public function filterByAptbconfvaracct($aptbconfvaracct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfvaracct)) {
@@ -969,7 +1091,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVARACCT, $aptbconfvaracct, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVARACCT, $aptbconfvaracct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -979,14 +1103,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfvenddisc('fooValue');   // WHERE AptbConfVendDisc = 'fooValue'
      * $query->filterByAptbconfvenddisc('%fooValue%', Criteria::LIKE); // WHERE AptbConfVendDisc LIKE '%fooValue%'
+     * $query->filterByAptbconfvenddisc(['foo', 'bar']); // WHERE AptbConfVendDisc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfvenddisc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfvenddisc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvenddisc($aptbconfvenddisc = null, $comparison = null)
+    public function filterByAptbconfvenddisc($aptbconfvenddisc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfvenddisc)) {
@@ -994,7 +1119,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVENDDISC, $aptbconfvenddisc, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVENDDISC, $aptbconfvenddisc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1004,14 +1131,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfapinvvaracct('fooValue');   // WHERE AptbConfApInvVarAcct = 'fooValue'
      * $query->filterByAptbconfapinvvaracct('%fooValue%', Criteria::LIKE); // WHERE AptbConfApInvVarAcct LIKE '%fooValue%'
+     * $query->filterByAptbconfapinvvaracct(['foo', 'bar']); // WHERE AptbConfApInvVarAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfapinvvaracct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfapinvvaracct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfapinvvaracct($aptbconfapinvvaracct = null, $comparison = null)
+    public function filterByAptbconfapinvvaracct($aptbconfapinvvaracct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfapinvvaracct)) {
@@ -1019,7 +1147,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFAPINVVARACCT, $aptbconfapinvvaracct, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFAPINVVARACCT, $aptbconfapinvvaracct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1029,14 +1159,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfuseroyal('fooValue');   // WHERE AptbConfUseRoyal = 'fooValue'
      * $query->filterByAptbconfuseroyal('%fooValue%', Criteria::LIKE); // WHERE AptbConfUseRoyal LIKE '%fooValue%'
+     * $query->filterByAptbconfuseroyal(['foo', 'bar']); // WHERE AptbConfUseRoyal IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfuseroyal The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfuseroyal The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfuseroyal($aptbconfuseroyal = null, $comparison = null)
+    public function filterByAptbconfuseroyal($aptbconfuseroyal = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfuseroyal)) {
@@ -1044,7 +1175,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFUSEROYAL, $aptbconfuseroyal, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFUSEROYAL, $aptbconfuseroyal, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1054,14 +1187,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfdefbuyrcode('fooValue');   // WHERE AptbConfDefBuyrCode = 'fooValue'
      * $query->filterByAptbconfdefbuyrcode('%fooValue%', Criteria::LIKE); // WHERE AptbConfDefBuyrCode LIKE '%fooValue%'
+     * $query->filterByAptbconfdefbuyrcode(['foo', 'bar']); // WHERE AptbConfDefBuyrCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfdefbuyrcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfdefbuyrcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfdefbuyrcode($aptbconfdefbuyrcode = null, $comparison = null)
+    public function filterByAptbconfdefbuyrcode($aptbconfdefbuyrcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfdefbuyrcode)) {
@@ -1069,7 +1203,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDEFBUYRCODE, $aptbconfdefbuyrcode, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDEFBUYRCODE, $aptbconfdefbuyrcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1079,14 +1215,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfdeftermcode('fooValue');   // WHERE AptbConfDefTermCode = 'fooValue'
      * $query->filterByAptbconfdeftermcode('%fooValue%', Criteria::LIKE); // WHERE AptbConfDefTermCode LIKE '%fooValue%'
+     * $query->filterByAptbconfdeftermcode(['foo', 'bar']); // WHERE AptbConfDefTermCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfdeftermcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfdeftermcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfdeftermcode($aptbconfdeftermcode = null, $comparison = null)
+    public function filterByAptbconfdeftermcode($aptbconfdeftermcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfdeftermcode)) {
@@ -1094,7 +1231,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDEFTERMCODE, $aptbconfdeftermcode, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDEFTERMCODE, $aptbconfdeftermcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1104,14 +1243,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfdefsviacode('fooValue');   // WHERE AptbConfDefSviaCode = 'fooValue'
      * $query->filterByAptbconfdefsviacode('%fooValue%', Criteria::LIKE); // WHERE AptbConfDefSviaCode LIKE '%fooValue%'
+     * $query->filterByAptbconfdefsviacode(['foo', 'bar']); // WHERE AptbConfDefSviaCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfdefsviacode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfdefsviacode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfdefsviacode($aptbconfdefsviacode = null, $comparison = null)
+    public function filterByAptbconfdefsviacode($aptbconfdefsviacode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfdefsviacode)) {
@@ -1119,7 +1259,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDEFSVIACODE, $aptbconfdefsviacode, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDEFSVIACODE, $aptbconfdefsviacode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1129,14 +1271,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfdeftypecode('fooValue');   // WHERE AptbConfDefTypeCode = 'fooValue'
      * $query->filterByAptbconfdeftypecode('%fooValue%', Criteria::LIKE); // WHERE AptbConfDefTypeCode LIKE '%fooValue%'
+     * $query->filterByAptbconfdeftypecode(['foo', 'bar']); // WHERE AptbConfDefTypeCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfdeftypecode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfdeftypecode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfdeftypecode($aptbconfdeftypecode = null, $comparison = null)
+    public function filterByAptbconfdeftypecode($aptbconfdeftypecode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfdeftypecode)) {
@@ -1144,7 +1287,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDEFTYPECODE, $aptbconfdeftypecode, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDEFTYPECODE, $aptbconfdeftypecode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1157,15 +1302,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * $query->filterByAptbconfvendline(array('min' => 12)); // WHERE AptbConfVendLine > 12
      * </code>
      *
-     * @param     mixed $aptbconfvendline The value to use as filter.
+     * @param mixed $aptbconfvendline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvendline($aptbconfvendline = null, $comparison = null)
+    public function filterByAptbconfvendline($aptbconfvendline = null, ?string $comparison = null)
     {
         if (is_array($aptbconfvendline)) {
             $useMinMax = false;
@@ -1185,7 +1330,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVENDLINE, $aptbconfvendline, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVENDLINE, $aptbconfvendline, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1198,15 +1345,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * $query->filterByAptbconfvendcols(array('min' => 12)); // WHERE AptbConfVendCols > 12
      * </code>
      *
-     * @param     mixed $aptbconfvendcols The value to use as filter.
+     * @param mixed $aptbconfvendcols The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvendcols($aptbconfvendcols = null, $comparison = null)
+    public function filterByAptbconfvendcols($aptbconfvendcols = null, ?string $comparison = null)
     {
         if (is_array($aptbconfvendcols)) {
             $useMinMax = false;
@@ -1226,7 +1373,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVENDCOLS, $aptbconfvendcols, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVENDCOLS, $aptbconfvendcols, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1239,15 +1388,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * $query->filterByAptbconfpoline(array('min' => 12)); // WHERE AptbConfPoLine > 12
      * </code>
      *
-     * @param     mixed $aptbconfpoline The value to use as filter.
+     * @param mixed $aptbconfpoline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfpoline($aptbconfpoline = null, $comparison = null)
+    public function filterByAptbconfpoline($aptbconfpoline = null, ?string $comparison = null)
     {
         if (is_array($aptbconfpoline)) {
             $useMinMax = false;
@@ -1267,7 +1416,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPOLINE, $aptbconfpoline, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPOLINE, $aptbconfpoline, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1280,15 +1431,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * $query->filterByAptbconfpocols(array('min' => 12)); // WHERE AptbConfPoCols > 12
      * </code>
      *
-     * @param     mixed $aptbconfpocols The value to use as filter.
+     * @param mixed $aptbconfpocols The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfpocols($aptbconfpocols = null, $comparison = null)
+    public function filterByAptbconfpocols($aptbconfpocols = null, ?string $comparison = null)
     {
         if (is_array($aptbconfpocols)) {
             $useMinMax = false;
@@ -1308,7 +1459,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPOCOLS, $aptbconfpocols, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPOCOLS, $aptbconfpocols, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1321,15 +1474,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * $query->filterByAptbconfvendgetopt(array('min' => 12)); // WHERE AptbConfVendGetOpt > 12
      * </code>
      *
-     * @param     mixed $aptbconfvendgetopt The value to use as filter.
+     * @param mixed $aptbconfvendgetopt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvendgetopt($aptbconfvendgetopt = null, $comparison = null)
+    public function filterByAptbconfvendgetopt($aptbconfvendgetopt = null, ?string $comparison = null)
     {
         if (is_array($aptbconfvendgetopt)) {
             $useMinMax = false;
@@ -1349,7 +1502,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVENDGETOPT, $aptbconfvendgetopt, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVENDGETOPT, $aptbconfvendgetopt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1359,14 +1514,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfpaytoshipfr('fooValue');   // WHERE AptbConfPaytoShipfr = 'fooValue'
      * $query->filterByAptbconfpaytoshipfr('%fooValue%', Criteria::LIKE); // WHERE AptbConfPaytoShipfr LIKE '%fooValue%'
+     * $query->filterByAptbconfpaytoshipfr(['foo', 'bar']); // WHERE AptbConfPaytoShipfr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfpaytoshipfr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfpaytoshipfr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfpaytoshipfr($aptbconfpaytoshipfr = null, $comparison = null)
+    public function filterByAptbconfpaytoshipfr($aptbconfpaytoshipfr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfpaytoshipfr)) {
@@ -1374,7 +1530,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPAYTOSHIPFR, $aptbconfpaytoshipfr, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPAYTOSHIPFR, $aptbconfpaytoshipfr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1384,14 +1542,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfholdstat('fooValue');   // WHERE AptbConfHoldStat = 'fooValue'
      * $query->filterByAptbconfholdstat('%fooValue%', Criteria::LIKE); // WHERE AptbConfHoldStat LIKE '%fooValue%'
+     * $query->filterByAptbconfholdstat(['foo', 'bar']); // WHERE AptbConfHoldStat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfholdstat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfholdstat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfholdstat($aptbconfholdstat = null, $comparison = null)
+    public function filterByAptbconfholdstat($aptbconfholdstat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfholdstat)) {
@@ -1399,7 +1558,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFHOLDSTAT, $aptbconfholdstat, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFHOLDSTAT, $aptbconfholdstat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1409,14 +1570,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfdiscret('fooValue');   // WHERE AptbConfDiscRet = 'fooValue'
      * $query->filterByAptbconfdiscret('%fooValue%', Criteria::LIKE); // WHERE AptbConfDiscRet LIKE '%fooValue%'
+     * $query->filterByAptbconfdiscret(['foo', 'bar']); // WHERE AptbConfDiscRet IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfdiscret The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfdiscret The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfdiscret($aptbconfdiscret = null, $comparison = null)
+    public function filterByAptbconfdiscret($aptbconfdiscret = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfdiscret)) {
@@ -1424,7 +1586,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDISCRET, $aptbconfdiscret, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFDISCRET, $aptbconfdiscret, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1437,15 +1601,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * $query->filterByAptbconfstopvendchg(array('min' => 12)); // WHERE AptbConfStopVendChg > 12
      * </code>
      *
-     * @param     mixed $aptbconfstopvendchg The value to use as filter.
+     * @param mixed $aptbconfstopvendchg The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfstopvendchg($aptbconfstopvendchg = null, $comparison = null)
+    public function filterByAptbconfstopvendchg($aptbconfstopvendchg = null, ?string $comparison = null)
     {
         if (is_array($aptbconfstopvendchg)) {
             $useMinMax = false;
@@ -1465,7 +1629,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFSTOPVENDCHG, $aptbconfstopvendchg, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFSTOPVENDCHG, $aptbconfstopvendchg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1478,15 +1644,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * $query->filterByAptbconfreqdate2(array('min' => 12)); // WHERE AptbConfReqDate2 > 12
      * </code>
      *
-     * @param     mixed $aptbconfreqdate2 The value to use as filter.
+     * @param mixed $aptbconfreqdate2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfreqdate2($aptbconfreqdate2 = null, $comparison = null)
+    public function filterByAptbconfreqdate2($aptbconfreqdate2 = null, ?string $comparison = null)
     {
         if (is_array($aptbconfreqdate2)) {
             $useMinMax = false;
@@ -1506,7 +1672,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFREQDATE2, $aptbconfreqdate2, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFREQDATE2, $aptbconfreqdate2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1519,15 +1687,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * $query->filterByAptbconfreqdate3(array('min' => 12)); // WHERE AptbConfReqDate3 > 12
      * </code>
      *
-     * @param     mixed $aptbconfreqdate3 The value to use as filter.
+     * @param mixed $aptbconfreqdate3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfreqdate3($aptbconfreqdate3 = null, $comparison = null)
+    public function filterByAptbconfreqdate3($aptbconfreqdate3 = null, ?string $comparison = null)
     {
         if (is_array($aptbconfreqdate3)) {
             $useMinMax = false;
@@ -1547,7 +1715,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFREQDATE3, $aptbconfreqdate3, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFREQDATE3, $aptbconfreqdate3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1560,15 +1730,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * $query->filterByAptbconfreqdate4(array('min' => 12)); // WHERE AptbConfReqDate4 > 12
      * </code>
      *
-     * @param     mixed $aptbconfreqdate4 The value to use as filter.
+     * @param mixed $aptbconfreqdate4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfreqdate4($aptbconfreqdate4 = null, $comparison = null)
+    public function filterByAptbconfreqdate4($aptbconfreqdate4 = null, ?string $comparison = null)
     {
         if (is_array($aptbconfreqdate4)) {
             $useMinMax = false;
@@ -1588,7 +1758,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFREQDATE4, $aptbconfreqdate4, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFREQDATE4, $aptbconfreqdate4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1598,14 +1770,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconf1099name('fooValue');   // WHERE AptbConf1099Name = 'fooValue'
      * $query->filterByAptbconf1099name('%fooValue%', Criteria::LIKE); // WHERE AptbConf1099Name LIKE '%fooValue%'
+     * $query->filterByAptbconf1099name(['foo', 'bar']); // WHERE AptbConf1099Name IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconf1099name The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconf1099name The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconf1099name($aptbconf1099name = null, $comparison = null)
+    public function filterByAptbconf1099name($aptbconf1099name = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconf1099name)) {
@@ -1613,7 +1786,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099NAME, $aptbconf1099name, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099NAME, $aptbconf1099name, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1623,14 +1798,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconf1099adr1('fooValue');   // WHERE AptbConf1099Adr1 = 'fooValue'
      * $query->filterByAptbconf1099adr1('%fooValue%', Criteria::LIKE); // WHERE AptbConf1099Adr1 LIKE '%fooValue%'
+     * $query->filterByAptbconf1099adr1(['foo', 'bar']); // WHERE AptbConf1099Adr1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconf1099adr1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconf1099adr1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconf1099adr1($aptbconf1099adr1 = null, $comparison = null)
+    public function filterByAptbconf1099adr1($aptbconf1099adr1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconf1099adr1)) {
@@ -1638,7 +1814,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099ADR1, $aptbconf1099adr1, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099ADR1, $aptbconf1099adr1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1648,14 +1826,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconf1099adr2('fooValue');   // WHERE AptbConf1099Adr2 = 'fooValue'
      * $query->filterByAptbconf1099adr2('%fooValue%', Criteria::LIKE); // WHERE AptbConf1099Adr2 LIKE '%fooValue%'
+     * $query->filterByAptbconf1099adr2(['foo', 'bar']); // WHERE AptbConf1099Adr2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconf1099adr2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconf1099adr2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconf1099adr2($aptbconf1099adr2 = null, $comparison = null)
+    public function filterByAptbconf1099adr2($aptbconf1099adr2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconf1099adr2)) {
@@ -1663,7 +1842,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099ADR2, $aptbconf1099adr2, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099ADR2, $aptbconf1099adr2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1673,14 +1854,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconf1099adr3('fooValue');   // WHERE AptbConf1099Adr3 = 'fooValue'
      * $query->filterByAptbconf1099adr3('%fooValue%', Criteria::LIKE); // WHERE AptbConf1099Adr3 LIKE '%fooValue%'
+     * $query->filterByAptbconf1099adr3(['foo', 'bar']); // WHERE AptbConf1099Adr3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconf1099adr3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconf1099adr3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconf1099adr3($aptbconf1099adr3 = null, $comparison = null)
+    public function filterByAptbconf1099adr3($aptbconf1099adr3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconf1099adr3)) {
@@ -1688,7 +1870,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099ADR3, $aptbconf1099adr3, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099ADR3, $aptbconf1099adr3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1698,14 +1882,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconf1099city('fooValue');   // WHERE AptbConf1099City = 'fooValue'
      * $query->filterByAptbconf1099city('%fooValue%', Criteria::LIKE); // WHERE AptbConf1099City LIKE '%fooValue%'
+     * $query->filterByAptbconf1099city(['foo', 'bar']); // WHERE AptbConf1099City IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconf1099city The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconf1099city The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconf1099city($aptbconf1099city = null, $comparison = null)
+    public function filterByAptbconf1099city($aptbconf1099city = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconf1099city)) {
@@ -1713,7 +1898,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099CITY, $aptbconf1099city, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099CITY, $aptbconf1099city, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1723,14 +1910,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconf1099stat('fooValue');   // WHERE AptbConf1099Stat = 'fooValue'
      * $query->filterByAptbconf1099stat('%fooValue%', Criteria::LIKE); // WHERE AptbConf1099Stat LIKE '%fooValue%'
+     * $query->filterByAptbconf1099stat(['foo', 'bar']); // WHERE AptbConf1099Stat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconf1099stat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconf1099stat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconf1099stat($aptbconf1099stat = null, $comparison = null)
+    public function filterByAptbconf1099stat($aptbconf1099stat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconf1099stat)) {
@@ -1738,7 +1926,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099STAT, $aptbconf1099stat, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099STAT, $aptbconf1099stat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1748,14 +1938,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconf1099zipcode('fooValue');   // WHERE AptbConf1099ZipCode = 'fooValue'
      * $query->filterByAptbconf1099zipcode('%fooValue%', Criteria::LIKE); // WHERE AptbConf1099ZipCode LIKE '%fooValue%'
+     * $query->filterByAptbconf1099zipcode(['foo', 'bar']); // WHERE AptbConf1099ZipCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconf1099zipcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconf1099zipcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconf1099zipcode($aptbconf1099zipcode = null, $comparison = null)
+    public function filterByAptbconf1099zipcode($aptbconf1099zipcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconf1099zipcode)) {
@@ -1763,7 +1954,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099ZIPCODE, $aptbconf1099zipcode, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099ZIPCODE, $aptbconf1099zipcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1773,14 +1966,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconf1099id('fooValue');   // WHERE AptbConf1099Id = 'fooValue'
      * $query->filterByAptbconf1099id('%fooValue%', Criteria::LIKE); // WHERE AptbConf1099Id LIKE '%fooValue%'
+     * $query->filterByAptbconf1099id(['foo', 'bar']); // WHERE AptbConf1099Id IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconf1099id The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconf1099id The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconf1099id($aptbconf1099id = null, $comparison = null)
+    public function filterByAptbconf1099id($aptbconf1099id = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconf1099id)) {
@@ -1788,7 +1982,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099ID, $aptbconf1099id, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONF1099ID, $aptbconf1099id, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1798,14 +1994,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfstubsort('fooValue');   // WHERE AptbConfStubSort = 'fooValue'
      * $query->filterByAptbconfstubsort('%fooValue%', Criteria::LIKE); // WHERE AptbConfStubSort LIKE '%fooValue%'
+     * $query->filterByAptbconfstubsort(['foo', 'bar']); // WHERE AptbConfStubSort IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfstubsort The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfstubsort The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfstubsort($aptbconfstubsort = null, $comparison = null)
+    public function filterByAptbconfstubsort($aptbconfstubsort = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfstubsort)) {
@@ -1813,7 +2010,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFSTUBSORT, $aptbconfstubsort, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFSTUBSORT, $aptbconfstubsort, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1823,14 +2022,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbConfUseAch('fooValue');   // WHERE AptbConfUseAch = 'fooValue'
      * $query->filterByAptbConfUseAch('%fooValue%', Criteria::LIKE); // WHERE AptbConfUseAch LIKE '%fooValue%'
+     * $query->filterByAptbConfUseAch(['foo', 'bar']); // WHERE AptbConfUseAch IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbConfUseAch The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbConfUseAch The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbConfUseAch($aptbConfUseAch = null, $comparison = null)
+    public function filterByAptbConfUseAch($aptbConfUseAch = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbConfUseAch)) {
@@ -1838,7 +2038,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFUSEACH, $aptbConfUseAch, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFUSEACH, $aptbConfUseAch, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1851,15 +2053,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * $query->filterByAptbconfover1(array('min' => 12)); // WHERE AptbConfOver1 > 12
      * </code>
      *
-     * @param     mixed $aptbconfover1 The value to use as filter.
+     * @param mixed $aptbconfover1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfover1($aptbconfover1 = null, $comparison = null)
+    public function filterByAptbconfover1($aptbconfover1 = null, ?string $comparison = null)
     {
         if (is_array($aptbconfover1)) {
             $useMinMax = false;
@@ -1879,7 +2081,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFOVER1, $aptbconfover1, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFOVER1, $aptbconfover1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1892,15 +2096,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * $query->filterByAptbconfover2(array('min' => 12)); // WHERE AptbConfOver2 > 12
      * </code>
      *
-     * @param     mixed $aptbconfover2 The value to use as filter.
+     * @param mixed $aptbconfover2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfover2($aptbconfover2 = null, $comparison = null)
+    public function filterByAptbconfover2($aptbconfover2 = null, ?string $comparison = null)
     {
         if (is_array($aptbconfover2)) {
             $useMinMax = false;
@@ -1920,7 +2124,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFOVER2, $aptbconfover2, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFOVER2, $aptbconfover2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1930,14 +2136,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfprtchk('fooValue');   // WHERE AptbConfPrtChk = 'fooValue'
      * $query->filterByAptbconfprtchk('%fooValue%', Criteria::LIKE); // WHERE AptbConfPrtChk LIKE '%fooValue%'
+     * $query->filterByAptbconfprtchk(['foo', 'bar']); // WHERE AptbConfPrtChk IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfprtchk The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfprtchk The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfprtchk($aptbconfprtchk = null, $comparison = null)
+    public function filterByAptbconfprtchk($aptbconfprtchk = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfprtchk)) {
@@ -1945,7 +2152,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPRTCHK, $aptbconfprtchk, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPRTCHK, $aptbconfprtchk, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1955,14 +2164,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfeiunrecqty('fooValue');   // WHERE AptbConfEiUnrecQty = 'fooValue'
      * $query->filterByAptbconfeiunrecqty('%fooValue%', Criteria::LIKE); // WHERE AptbConfEiUnrecQty LIKE '%fooValue%'
+     * $query->filterByAptbconfeiunrecqty(['foo', 'bar']); // WHERE AptbConfEiUnrecQty IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfeiunrecqty The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfeiunrecqty The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfeiunrecqty($aptbconfeiunrecqty = null, $comparison = null)
+    public function filterByAptbconfeiunrecqty($aptbconfeiunrecqty = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfeiunrecqty)) {
@@ -1970,7 +2180,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIUNRECQTY, $aptbconfeiunrecqty, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIUNRECQTY, $aptbconfeiunrecqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1980,14 +2192,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfeirecqtyask('fooValue');   // WHERE AptbConfEiRecQtyAsk = 'fooValue'
      * $query->filterByAptbconfeirecqtyask('%fooValue%', Criteria::LIKE); // WHERE AptbConfEiRecQtyAsk LIKE '%fooValue%'
+     * $query->filterByAptbconfeirecqtyask(['foo', 'bar']); // WHERE AptbConfEiRecQtyAsk IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfeirecqtyask The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfeirecqtyask The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfeirecqtyask($aptbconfeirecqtyask = null, $comparison = null)
+    public function filterByAptbconfeirecqtyask($aptbconfeirecqtyask = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfeirecqtyask)) {
@@ -1995,7 +2208,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIRECQTYASK, $aptbconfeirecqtyask, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIRECQTYASK, $aptbconfeirecqtyask, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2005,14 +2220,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfeirecqtydef('fooValue');   // WHERE AptbConfEiRecQtyDef = 'fooValue'
      * $query->filterByAptbconfeirecqtydef('%fooValue%', Criteria::LIKE); // WHERE AptbConfEiRecQtyDef LIKE '%fooValue%'
+     * $query->filterByAptbconfeirecqtydef(['foo', 'bar']); // WHERE AptbConfEiRecQtyDef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfeirecqtydef The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfeirecqtydef The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfeirecqtydef($aptbconfeirecqtydef = null, $comparison = null)
+    public function filterByAptbconfeirecqtydef($aptbconfeirecqtydef = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfeirecqtydef)) {
@@ -2020,7 +2236,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIRECQTYDEF, $aptbconfeirecqtydef, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIRECQTYDEF, $aptbconfeirecqtydef, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2030,14 +2248,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfallowmultpos('fooValue');   // WHERE AptbConfAllowMultPos = 'fooValue'
      * $query->filterByAptbconfallowmultpos('%fooValue%', Criteria::LIKE); // WHERE AptbConfAllowMultPos LIKE '%fooValue%'
+     * $query->filterByAptbconfallowmultpos(['foo', 'bar']); // WHERE AptbConfAllowMultPos IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfallowmultpos The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfallowmultpos The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfallowmultpos($aptbconfallowmultpos = null, $comparison = null)
+    public function filterByAptbconfallowmultpos($aptbconfallowmultpos = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfallowmultpos)) {
@@ -2045,7 +2264,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFALLOWMULTPOS, $aptbconfallowmultpos, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFALLOWMULTPOS, $aptbconfallowmultpos, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2055,14 +2276,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfeibyclerk('fooValue');   // WHERE AptbConfEiByClerk = 'fooValue'
      * $query->filterByAptbconfeibyclerk('%fooValue%', Criteria::LIKE); // WHERE AptbConfEiByClerk LIKE '%fooValue%'
+     * $query->filterByAptbconfeibyclerk(['foo', 'bar']); // WHERE AptbConfEiByClerk IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfeibyclerk The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfeibyclerk The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfeibyclerk($aptbconfeibyclerk = null, $comparison = null)
+    public function filterByAptbconfeibyclerk($aptbconfeibyclerk = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfeibyclerk)) {
@@ -2070,7 +2292,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIBYCLERK, $aptbconfeibyclerk, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIBYCLERK, $aptbconfeibyclerk, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2080,14 +2304,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfeibatchproc('fooValue');   // WHERE AptbConfEiBatchProc = 'fooValue'
      * $query->filterByAptbconfeibatchproc('%fooValue%', Criteria::LIKE); // WHERE AptbConfEiBatchProc LIKE '%fooValue%'
+     * $query->filterByAptbconfeibatchproc(['foo', 'bar']); // WHERE AptbConfEiBatchProc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfeibatchproc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfeibatchproc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfeibatchproc($aptbconfeibatchproc = null, $comparison = null)
+    public function filterByAptbconfeibatchproc($aptbconfeibatchproc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfeibatchproc)) {
@@ -2095,7 +2320,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIBATCHPROC, $aptbconfeibatchproc, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIBATCHPROC, $aptbconfeibatchproc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2105,14 +2332,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfeidispstancost('fooValue');   // WHERE AptbConfEiDispStanCost = 'fooValue'
      * $query->filterByAptbconfeidispstancost('%fooValue%', Criteria::LIKE); // WHERE AptbConfEiDispStanCost LIKE '%fooValue%'
+     * $query->filterByAptbconfeidispstancost(['foo', 'bar']); // WHERE AptbConfEiDispStanCost IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfeidispstancost The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfeidispstancost The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfeidispstancost($aptbconfeidispstancost = null, $comparison = null)
+    public function filterByAptbconfeidispstancost($aptbconfeidispstancost = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfeidispstancost)) {
@@ -2120,7 +2348,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIDISPSTANCOST, $aptbconfeidispstancost, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIDISPSTANCOST, $aptbconfeidispstancost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2130,14 +2360,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfeiassetacctchg('fooValue');   // WHERE AptbConfEiAssetAcctChg = 'fooValue'
      * $query->filterByAptbconfeiassetacctchg('%fooValue%', Criteria::LIKE); // WHERE AptbConfEiAssetAcctChg LIKE '%fooValue%'
+     * $query->filterByAptbconfeiassetacctchg(['foo', 'bar']); // WHERE AptbConfEiAssetAcctChg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfeiassetacctchg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfeiassetacctchg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfeiassetacctchg($aptbconfeiassetacctchg = null, $comparison = null)
+    public function filterByAptbconfeiassetacctchg($aptbconfeiassetacctchg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfeiassetacctchg)) {
@@ -2145,7 +2376,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIASSETACCTCHG, $aptbconfeiassetacctchg, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEIASSETACCTCHG, $aptbconfeiassetacctchg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2155,14 +2388,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfallowdupinvc('fooValue');   // WHERE AptbConfAllowDupInvc = 'fooValue'
      * $query->filterByAptbconfallowdupinvc('%fooValue%', Criteria::LIKE); // WHERE AptbConfAllowDupInvc LIKE '%fooValue%'
+     * $query->filterByAptbconfallowdupinvc(['foo', 'bar']); // WHERE AptbConfAllowDupInvc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfallowdupinvc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfallowdupinvc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfallowdupinvc($aptbconfallowdupinvc = null, $comparison = null)
+    public function filterByAptbconfallowdupinvc($aptbconfallowdupinvc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfallowdupinvc)) {
@@ -2170,7 +2404,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFALLOWDUPINVC, $aptbconfallowdupinvc, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFALLOWDUPINVC, $aptbconfallowdupinvc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2180,14 +2416,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfprtsorept('fooValue');   // WHERE AptbConfPrtSoRept = 'fooValue'
      * $query->filterByAptbconfprtsorept('%fooValue%', Criteria::LIKE); // WHERE AptbConfPrtSoRept LIKE '%fooValue%'
+     * $query->filterByAptbconfprtsorept(['foo', 'bar']); // WHERE AptbConfPrtSoRept IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfprtsorept The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfprtsorept The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfprtsorept($aptbconfprtsorept = null, $comparison = null)
+    public function filterByAptbconfprtsorept($aptbconfprtsorept = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfprtsorept)) {
@@ -2195,7 +2432,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPRTSOREPT, $aptbconfprtsorept, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFPRTSOREPT, $aptbconfprtsorept, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2205,14 +2444,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfeicheckhist('fooValue');   // WHERE AptbConfEiCheckHist = 'fooValue'
      * $query->filterByAptbconfeicheckhist('%fooValue%', Criteria::LIKE); // WHERE AptbConfEiCheckHist LIKE '%fooValue%'
+     * $query->filterByAptbconfeicheckhist(['foo', 'bar']); // WHERE AptbConfEiCheckHist IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfeicheckhist The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfeicheckhist The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfeicheckhist($aptbconfeicheckhist = null, $comparison = null)
+    public function filterByAptbconfeicheckhist($aptbconfeicheckhist = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfeicheckhist)) {
@@ -2220,7 +2460,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEICHECKHIST, $aptbconfeicheckhist, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFEICHECKHIST, $aptbconfeicheckhist, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2230,14 +2472,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfsummgl('fooValue');   // WHERE AptbConfSummGl = 'fooValue'
      * $query->filterByAptbconfsummgl('%fooValue%', Criteria::LIKE); // WHERE AptbConfSummGl LIKE '%fooValue%'
+     * $query->filterByAptbconfsummgl(['foo', 'bar']); // WHERE AptbConfSummGl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfsummgl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfsummgl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfsummgl($aptbconfsummgl = null, $comparison = null)
+    public function filterByAptbconfsummgl($aptbconfsummgl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfsummgl)) {
@@ -2245,7 +2488,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFSUMMGL, $aptbconfsummgl, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFSUMMGL, $aptbconfsummgl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2255,14 +2500,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfvxmuserlabel('fooValue');   // WHERE AptbConfVxmUserLabel = 'fooValue'
      * $query->filterByAptbconfvxmuserlabel('%fooValue%', Criteria::LIKE); // WHERE AptbConfVxmUserLabel LIKE '%fooValue%'
+     * $query->filterByAptbconfvxmuserlabel(['foo', 'bar']); // WHERE AptbConfVxmUserLabel IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfvxmuserlabel The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfvxmuserlabel The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvxmuserlabel($aptbconfvxmuserlabel = null, $comparison = null)
+    public function filterByAptbconfvxmuserlabel($aptbconfvxmuserlabel = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfvxmuserlabel)) {
@@ -2270,7 +2516,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMUSERLABEL, $aptbconfvxmuserlabel, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMUSERLABEL, $aptbconfvxmuserlabel, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2280,14 +2528,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfvendcostbreaks('fooValue');   // WHERE AptbConfVendCostBreaks = 'fooValue'
      * $query->filterByAptbconfvendcostbreaks('%fooValue%', Criteria::LIKE); // WHERE AptbConfVendCostBreaks LIKE '%fooValue%'
+     * $query->filterByAptbconfvendcostbreaks(['foo', 'bar']); // WHERE AptbConfVendCostBreaks IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfvendcostbreaks The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfvendcostbreaks The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvendcostbreaks($aptbconfvendcostbreaks = null, $comparison = null)
+    public function filterByAptbconfvendcostbreaks($aptbconfvendcostbreaks = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfvendcostbreaks)) {
@@ -2295,7 +2544,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVENDCOSTBREAKS, $aptbconfvendcostbreaks, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVENDCOSTBREAKS, $aptbconfvendcostbreaks, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2305,14 +2556,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfmyeclrclospo('fooValue');   // WHERE AptbConfMyeClrClosPo = 'fooValue'
      * $query->filterByAptbconfmyeclrclospo('%fooValue%', Criteria::LIKE); // WHERE AptbConfMyeClrClosPo LIKE '%fooValue%'
+     * $query->filterByAptbconfmyeclrclospo(['foo', 'bar']); // WHERE AptbConfMyeClrClosPo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfmyeclrclospo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfmyeclrclospo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfmyeclrclospo($aptbconfmyeclrclospo = null, $comparison = null)
+    public function filterByAptbconfmyeclrclospo($aptbconfmyeclrclospo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfmyeclrclospo)) {
@@ -2320,7 +2572,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRCLOSPO, $aptbconfmyeclrclospo, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRCLOSPO, $aptbconfmyeclrclospo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2330,14 +2584,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfmyeclrclosdate('fooValue');   // WHERE AptbConfMyeClrClosDate = 'fooValue'
      * $query->filterByAptbconfmyeclrclosdate('%fooValue%', Criteria::LIKE); // WHERE AptbConfMyeClrClosDate LIKE '%fooValue%'
+     * $query->filterByAptbconfmyeclrclosdate(['foo', 'bar']); // WHERE AptbConfMyeClrClosDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfmyeclrclosdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfmyeclrclosdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfmyeclrclosdate($aptbconfmyeclrclosdate = null, $comparison = null)
+    public function filterByAptbconfmyeclrclosdate($aptbconfmyeclrclosdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfmyeclrclosdate)) {
@@ -2345,7 +2600,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRCLOSDATE, $aptbconfmyeclrclosdate, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRCLOSDATE, $aptbconfmyeclrclosdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2355,14 +2612,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfmyeclrpohist('fooValue');   // WHERE AptbConfMyeClrPoHist = 'fooValue'
      * $query->filterByAptbconfmyeclrpohist('%fooValue%', Criteria::LIKE); // WHERE AptbConfMyeClrPoHist LIKE '%fooValue%'
+     * $query->filterByAptbconfmyeclrpohist(['foo', 'bar']); // WHERE AptbConfMyeClrPoHist IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfmyeclrpohist The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfmyeclrpohist The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfmyeclrpohist($aptbconfmyeclrpohist = null, $comparison = null)
+    public function filterByAptbconfmyeclrpohist($aptbconfmyeclrpohist = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfmyeclrpohist)) {
@@ -2370,7 +2628,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRPOHIST, $aptbconfmyeclrpohist, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRPOHIST, $aptbconfmyeclrpohist, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2380,14 +2640,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfmyeclrpodate('fooValue');   // WHERE AptbConfMyeClrPoDate = 'fooValue'
      * $query->filterByAptbconfmyeclrpodate('%fooValue%', Criteria::LIKE); // WHERE AptbConfMyeClrPoDate LIKE '%fooValue%'
+     * $query->filterByAptbconfmyeclrpodate(['foo', 'bar']); // WHERE AptbConfMyeClrPoDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfmyeclrpodate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfmyeclrpodate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfmyeclrpodate($aptbconfmyeclrpodate = null, $comparison = null)
+    public function filterByAptbconfmyeclrpodate($aptbconfmyeclrpodate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfmyeclrpodate)) {
@@ -2395,7 +2656,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRPODATE, $aptbconfmyeclrpodate, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRPODATE, $aptbconfmyeclrpodate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2405,14 +2668,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfmyeclrckhist('fooValue');   // WHERE AptbConfMyeClrCkHist = 'fooValue'
      * $query->filterByAptbconfmyeclrckhist('%fooValue%', Criteria::LIKE); // WHERE AptbConfMyeClrCkHist LIKE '%fooValue%'
+     * $query->filterByAptbconfmyeclrckhist(['foo', 'bar']); // WHERE AptbConfMyeClrCkHist IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfmyeclrckhist The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfmyeclrckhist The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfmyeclrckhist($aptbconfmyeclrckhist = null, $comparison = null)
+    public function filterByAptbconfmyeclrckhist($aptbconfmyeclrckhist = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfmyeclrckhist)) {
@@ -2420,7 +2684,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRCKHIST, $aptbconfmyeclrckhist, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRCKHIST, $aptbconfmyeclrckhist, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2430,14 +2696,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfmyeclrckdate('fooValue');   // WHERE AptbConfMyeClrCkDate = 'fooValue'
      * $query->filterByAptbconfmyeclrckdate('%fooValue%', Criteria::LIKE); // WHERE AptbConfMyeClrCkDate LIKE '%fooValue%'
+     * $query->filterByAptbconfmyeclrckdate(['foo', 'bar']); // WHERE AptbConfMyeClrCkDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfmyeclrckdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfmyeclrckdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfmyeclrckdate($aptbconfmyeclrckdate = null, $comparison = null)
+    public function filterByAptbconfmyeclrckdate($aptbconfmyeclrckdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfmyeclrckdate)) {
@@ -2445,7 +2712,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRCKDATE, $aptbconfmyeclrckdate, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLRCKDATE, $aptbconfmyeclrckdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2455,14 +2724,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfmyeclropenck('fooValue');   // WHERE AptbConfMyeClrOpenCk = 'fooValue'
      * $query->filterByAptbconfmyeclropenck('%fooValue%', Criteria::LIKE); // WHERE AptbConfMyeClrOpenCk LIKE '%fooValue%'
+     * $query->filterByAptbconfmyeclropenck(['foo', 'bar']); // WHERE AptbConfMyeClrOpenCk IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfmyeclropenck The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfmyeclropenck The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfmyeclropenck($aptbconfmyeclropenck = null, $comparison = null)
+    public function filterByAptbconfmyeclropenck($aptbconfmyeclropenck = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfmyeclropenck)) {
@@ -2470,7 +2740,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLROPENCK, $aptbconfmyeclropenck, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFMYECLROPENCK, $aptbconfmyeclropenck, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2480,14 +2752,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconflead('fooValue');   // WHERE AptbConfLead = 'fooValue'
      * $query->filterByAptbconflead('%fooValue%', Criteria::LIKE); // WHERE AptbConfLead LIKE '%fooValue%'
+     * $query->filterByAptbconflead(['foo', 'bar']); // WHERE AptbConfLead IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconflead The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconflead The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconflead($aptbconflead = null, $comparison = null)
+    public function filterByAptbconflead($aptbconflead = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconflead)) {
@@ -2495,7 +2768,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFLEAD, $aptbconflead, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFLEAD, $aptbconflead, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2505,14 +2780,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfvrreworkitem('fooValue');   // WHERE AptbConfVrReworkItem = 'fooValue'
      * $query->filterByAptbconfvrreworkitem('%fooValue%', Criteria::LIKE); // WHERE AptbConfVrReworkItem LIKE '%fooValue%'
+     * $query->filterByAptbconfvrreworkitem(['foo', 'bar']); // WHERE AptbConfVrReworkItem IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfvrreworkitem The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfvrreworkitem The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvrreworkitem($aptbconfvrreworkitem = null, $comparison = null)
+    public function filterByAptbconfvrreworkitem($aptbconfvrreworkitem = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfvrreworkitem)) {
@@ -2520,7 +2796,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVRREWORKITEM, $aptbconfvrreworkitem, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVRREWORKITEM, $aptbconfvrreworkitem, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2530,14 +2808,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfvrqcwhse('fooValue');   // WHERE AptbConfVrqcWhse = 'fooValue'
      * $query->filterByAptbconfvrqcwhse('%fooValue%', Criteria::LIKE); // WHERE AptbConfVrqcWhse LIKE '%fooValue%'
+     * $query->filterByAptbconfvrqcwhse(['foo', 'bar']); // WHERE AptbConfVrqcWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfvrqcwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfvrqcwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvrqcwhse($aptbconfvrqcwhse = null, $comparison = null)
+    public function filterByAptbconfvrqcwhse($aptbconfvrqcwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfvrqcwhse)) {
@@ -2545,7 +2824,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVRQCWHSE, $aptbconfvrqcwhse, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVRQCWHSE, $aptbconfvrqcwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2555,14 +2836,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfvrglacct('fooValue');   // WHERE AptbConfVrGlAcct = 'fooValue'
      * $query->filterByAptbconfvrglacct('%fooValue%', Criteria::LIKE); // WHERE AptbConfVrGlAcct LIKE '%fooValue%'
+     * $query->filterByAptbconfvrglacct(['foo', 'bar']); // WHERE AptbConfVrGlAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfvrglacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfvrglacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvrglacct($aptbconfvrglacct = null, $comparison = null)
+    public function filterByAptbconfvrglacct($aptbconfvrglacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfvrglacct)) {
@@ -2570,7 +2852,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVRGLACCT, $aptbconfvrglacct, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVRGLACCT, $aptbconfvrglacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2580,14 +2864,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfvxmlistpc('fooValue');   // WHERE AptbConfVxmListPc = 'fooValue'
      * $query->filterByAptbconfvxmlistpc('%fooValue%', Criteria::LIKE); // WHERE AptbConfVxmListPc LIKE '%fooValue%'
+     * $query->filterByAptbconfvxmlistpc(['foo', 'bar']); // WHERE AptbConfVxmListPc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfvxmlistpc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfvxmlistpc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvxmlistpc($aptbconfvxmlistpc = null, $comparison = null)
+    public function filterByAptbconfvxmlistpc($aptbconfvxmlistpc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfvxmlistpc)) {
@@ -2595,7 +2880,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMLISTPC, $aptbconfvxmlistpc, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMLISTPC, $aptbconfvxmlistpc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2605,14 +2892,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfvxmlistitemupd('fooValue');   // WHERE AptbConfVxmListItemUpd = 'fooValue'
      * $query->filterByAptbconfvxmlistitemupd('%fooValue%', Criteria::LIKE); // WHERE AptbConfVxmListItemUpd LIKE '%fooValue%'
+     * $query->filterByAptbconfvxmlistitemupd(['foo', 'bar']); // WHERE AptbConfVxmListItemUpd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfvxmlistitemupd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfvxmlistitemupd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvxmlistitemupd($aptbconfvxmlistitemupd = null, $comparison = null)
+    public function filterByAptbconfvxmlistitemupd($aptbconfvxmlistitemupd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfvxmlistitemupd)) {
@@ -2620,7 +2908,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMLISTITEMUPD, $aptbconfvxmlistitemupd, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMLISTITEMUPD, $aptbconfvxmlistitemupd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2630,14 +2920,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfvxmgrosslc('fooValue');   // WHERE AptbConfVxmGrossLc = 'fooValue'
      * $query->filterByAptbconfvxmgrosslc('%fooValue%', Criteria::LIKE); // WHERE AptbConfVxmGrossLc LIKE '%fooValue%'
+     * $query->filterByAptbconfvxmgrosslc(['foo', 'bar']); // WHERE AptbConfVxmGrossLc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfvxmgrosslc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfvxmgrosslc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvxmgrosslc($aptbconfvxmgrosslc = null, $comparison = null)
+    public function filterByAptbconfvxmgrosslc($aptbconfvxmgrosslc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfvxmgrosslc)) {
@@ -2645,7 +2936,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMGROSSLC, $aptbconfvxmgrosslc, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMGROSSLC, $aptbconfvxmgrosslc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2655,14 +2948,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfvxmcostlp('fooValue');   // WHERE AptbConfVxmCostLp = 'fooValue'
      * $query->filterByAptbconfvxmcostlp('%fooValue%', Criteria::LIKE); // WHERE AptbConfVxmCostLp LIKE '%fooValue%'
+     * $query->filterByAptbconfvxmcostlp(['foo', 'bar']); // WHERE AptbConfVxmCostLp IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfvxmcostlp The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfvxmcostlp The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvxmcostlp($aptbconfvxmcostlp = null, $comparison = null)
+    public function filterByAptbconfvxmcostlp($aptbconfvxmcostlp = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfvxmcostlp)) {
@@ -2670,7 +2964,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMCOSTLP, $aptbconfvxmcostlp, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMCOSTLP, $aptbconfvxmcostlp, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2680,14 +2976,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfvxmcostitemupd('fooValue');   // WHERE AptbConfVxmCostItemUpd = 'fooValue'
      * $query->filterByAptbconfvxmcostitemupd('%fooValue%', Criteria::LIKE); // WHERE AptbConfVxmCostItemUpd LIKE '%fooValue%'
+     * $query->filterByAptbconfvxmcostitemupd(['foo', 'bar']); // WHERE AptbConfVxmCostItemUpd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfvxmcostitemupd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfvxmcostitemupd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvxmcostitemupd($aptbconfvxmcostitemupd = null, $comparison = null)
+    public function filterByAptbconfvxmcostitemupd($aptbconfvxmcostitemupd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfvxmcostitemupd)) {
@@ -2695,7 +2992,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPD, $aptbconfvxmcostitemupd, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPD, $aptbconfvxmcostitemupd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2705,14 +3004,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfvxmcostrmesg('fooValue');   // WHERE AptbConfVxmCostRMesg = 'fooValue'
      * $query->filterByAptbconfvxmcostrmesg('%fooValue%', Criteria::LIKE); // WHERE AptbConfVxmCostRMesg LIKE '%fooValue%'
+     * $query->filterByAptbconfvxmcostrmesg(['foo', 'bar']); // WHERE AptbConfVxmCostRMesg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfvxmcostrmesg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfvxmcostrmesg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvxmcostrmesg($aptbconfvxmcostrmesg = null, $comparison = null)
+    public function filterByAptbconfvxmcostrmesg($aptbconfvxmcostrmesg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfvxmcostrmesg)) {
@@ -2720,7 +3020,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMCOSTRMESG, $aptbconfvxmcostrmesg, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMCOSTRMESG, $aptbconfvxmcostrmesg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2730,14 +3032,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfvxmcostitemupdm('fooValue');   // WHERE AptbConfVxmCostItemUpdM = 'fooValue'
      * $query->filterByAptbconfvxmcostitemupdm('%fooValue%', Criteria::LIKE); // WHERE AptbConfVxmCostItemUpdM LIKE '%fooValue%'
+     * $query->filterByAptbconfvxmcostitemupdm(['foo', 'bar']); // WHERE AptbConfVxmCostItemUpdM IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfvxmcostitemupdm The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfvxmcostitemupdm The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvxmcostitemupdm($aptbconfvxmcostitemupdm = null, $comparison = null)
+    public function filterByAptbconfvxmcostitemupdm($aptbconfvxmcostitemupdm = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfvxmcostitemupdm)) {
@@ -2745,7 +3048,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPDM, $aptbconfvxmcostitemupdm, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMCOSTITEMUPDM, $aptbconfvxmcostitemupdm, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2755,14 +3060,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbconfvxmcostmmesg('fooValue');   // WHERE AptbConfVxmCostMMesg = 'fooValue'
      * $query->filterByAptbconfvxmcostmmesg('%fooValue%', Criteria::LIKE); // WHERE AptbConfVxmCostMMesg LIKE '%fooValue%'
+     * $query->filterByAptbconfvxmcostmmesg(['foo', 'bar']); // WHERE AptbConfVxmCostMMesg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbconfvxmcostmmesg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbconfvxmcostmmesg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbconfvxmcostmmesg($aptbconfvxmcostmmesg = null, $comparison = null)
+    public function filterByAptbconfvxmcostmmesg($aptbconfvxmcostmmesg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbconfvxmcostmmesg)) {
@@ -2770,7 +3076,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMCOSTMMESG, $aptbconfvxmcostmmesg, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFVXMCOSTMMESG, $aptbconfvxmcostmmesg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2780,14 +3088,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -2795,7 +3104,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2805,14 +3116,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -2820,7 +3132,9 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2830,14 +3144,15 @@ abstract class ConfigApQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -2845,15 +3160,17 @@ abstract class ConfigApQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigApTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ConfigApTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildConfigAp $configAp Object to remove from the list of results
+     * @param ChildConfigAp $configAp Object to remove from the list of results
      *
-     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($configAp = null)
     {
@@ -2870,7 +3187,7 @@ abstract class ConfigApQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigApTableMap::DATABASE_NAME);
@@ -2895,12 +3212,12 @@ abstract class ConfigApQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigApTableMap::DATABASE_NAME);
@@ -2925,4 +3242,4 @@ abstract class ConfigApQuery extends ModelCriteria
         });
     }
 
-} // ConfigApQuery
+}

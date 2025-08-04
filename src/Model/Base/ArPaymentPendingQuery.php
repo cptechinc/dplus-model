@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ar_cash_det' table.
- *
- *
+ * Base class that represents a query for the `ar_cash_det` table.
  *
  * @method     ChildArPaymentPendingQuery orderByArcucustid($order = Criteria::ASC) Order by the ArcuCustId column
  * @method     ChildArPaymentPendingQuery orderByArcdinvnbr($order = Criteria::ASC) Order by the ArcdInvNbr column
@@ -140,56 +139,56 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \CustomerQuery|\ArCashHeadQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildArPaymentPending findOne(ConnectionInterface $con = null) Return the first ChildArPaymentPending matching the query
- * @method     ChildArPaymentPending findOneOrCreate(ConnectionInterface $con = null) Return the first ChildArPaymentPending matching the query, or a new ChildArPaymentPending object populated from the query conditions when no match is found
+ * @method     ChildArPaymentPending|null findOne(?ConnectionInterface $con = null) Return the first ChildArPaymentPending matching the query
+ * @method     ChildArPaymentPending findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildArPaymentPending matching the query, or a new ChildArPaymentPending object populated from the query conditions when no match is found
  *
- * @method     ChildArPaymentPending findOneByArcucustid(string $ArcuCustId) Return the first ChildArPaymentPending filtered by the ArcuCustId column
- * @method     ChildArPaymentPending findOneByArcdinvnbr(string $ArcdInvNbr) Return the first ChildArPaymentPending filtered by the ArcdInvNbr column
- * @method     ChildArPaymentPending findOneByArcdinvseq(int $ArcdInvSeq) Return the first ChildArPaymentPending filtered by the ArcdInvSeq column
- * @method     ChildArPaymentPending findOneByArcdpaid(string $ArcdPaid) Return the first ChildArPaymentPending filtered by the ArcdPaid column
- * @method     ChildArPaymentPending findOneByArcdinvdate(string $ArcdInvDate) Return the first ChildArPaymentPending filtered by the ArcdInvDate column
- * @method     ChildArPaymentPending findOneByArcdduedate(string $ArcdDueDate) Return the first ChildArPaymentPending filtered by the ArcdDueDate column
- * @method     ChildArPaymentPending findOneByArcdchknbr(string $ArcdChkNbr) Return the first ChildArPaymentPending filtered by the ArcdChkNbr column
- * @method     ChildArPaymentPending findOneByArcdamtdue(string $ArcdAmtDue) Return the first ChildArPaymentPending filtered by the ArcdAmtDue column
- * @method     ChildArPaymentPending findOneByArcdamtpaid(string $ArcdAmtPaid) Return the first ChildArPaymentPending filtered by the ArcdAmtPaid column
- * @method     ChildArPaymentPending findOneByArcddiscpaid(string $ArcdDiscPaid) Return the first ChildArPaymentPending filtered by the ArcdDiscPaid column
- * @method     ChildArPaymentPending findOneByArcdcashacct(string $ArcdCashAcct) Return the first ChildArPaymentPending filtered by the ArcdCashAcct column
- * @method     ChildArPaymentPending findOneByArcdcredacct(string $ArcdCredAcct) Return the first ChildArPaymentPending filtered by the ArcdCredAcct column
- * @method     ChildArPaymentPending findOneByArcdtermcode(string $ArcdTermCode) Return the first ChildArPaymentPending filtered by the ArcdTermCode column
- * @method     ChildArPaymentPending findOneByArcdfrtallow(string $ArcdFrtAllow) Return the first ChildArPaymentPending filtered by the ArcdFrtAllow column
- * @method     ChildArPaymentPending findOneByArcdcustpo(string $ArcdCustPo) Return the first ChildArPaymentPending filtered by the ArcdCustPo column
- * @method     ChildArPaymentPending findOneByArcdordrnbr(string $ArcdOrdrNbr) Return the first ChildArPaymentPending filtered by the ArcdOrdrNbr column
- * @method     ChildArPaymentPending findOneByArcdtaxcode1(string $ArcdTaxCode1) Return the first ChildArPaymentPending filtered by the ArcdTaxCode1 column
- * @method     ChildArPaymentPending findOneByArcdtaxallow1(string $ArcdTaxAllow1) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow1 column
- * @method     ChildArPaymentPending findOneByArcdtaxcode2(string $ArcdTaxCode2) Return the first ChildArPaymentPending filtered by the ArcdTaxCode2 column
- * @method     ChildArPaymentPending findOneByArcdtaxallow2(string $ArcdTaxAllow2) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow2 column
- * @method     ChildArPaymentPending findOneByArcdtaxcode3(string $ArcdTaxCode3) Return the first ChildArPaymentPending filtered by the ArcdTaxCode3 column
- * @method     ChildArPaymentPending findOneByArcdtaxallow3(string $ArcdTaxAllow3) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow3 column
- * @method     ChildArPaymentPending findOneByArcdtaxcode4(string $ArcdTaxCode4) Return the first ChildArPaymentPending filtered by the ArcdTaxCode4 column
- * @method     ChildArPaymentPending findOneByArcdtaxallow4(string $ArcdTaxAllow4) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow4 column
- * @method     ChildArPaymentPending findOneByArcdtaxcode5(string $ArcdTaxCode5) Return the first ChildArPaymentPending filtered by the ArcdTaxCode5 column
- * @method     ChildArPaymentPending findOneByArcdtaxallow5(string $ArcdTaxAllow5) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow5 column
- * @method     ChildArPaymentPending findOneByArcdtaxcode6(string $ArcdTaxCode6) Return the first ChildArPaymentPending filtered by the ArcdTaxCode6 column
- * @method     ChildArPaymentPending findOneByArcdtaxallow6(string $ArcdTaxAllow6) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow6 column
- * @method     ChildArPaymentPending findOneByArcdtaxcode7(string $ArcdTaxCode7) Return the first ChildArPaymentPending filtered by the ArcdTaxCode7 column
- * @method     ChildArPaymentPending findOneByArcdtaxallow7(string $ArcdTaxAllow7) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow7 column
- * @method     ChildArPaymentPending findOneByArcdtaxcode8(string $ArcdTaxCode8) Return the first ChildArPaymentPending filtered by the ArcdTaxCode8 column
- * @method     ChildArPaymentPending findOneByArcdtaxallow8(string $ArcdTaxAllow8) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow8 column
- * @method     ChildArPaymentPending findOneByArcdtaxcode9(string $ArcdTaxCode9) Return the first ChildArPaymentPending filtered by the ArcdTaxCode9 column
- * @method     ChildArPaymentPending findOneByArcdtaxallow9(string $ArcdTaxAllow9) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow9 column
- * @method     ChildArPaymentPending findOneByArcdwriteoff(string $ArcdWriteOff) Return the first ChildArPaymentPending filtered by the ArcdWriteOff column
- * @method     ChildArPaymentPending findOneByArcdwriteoffreas(string $ArcdWriteOffReas) Return the first ChildArPaymentPending filtered by the ArcdWriteOffReas column
- * @method     ChildArPaymentPending findOneByArcdcomrate(string $ArcdComRate) Return the first ChildArPaymentPending filtered by the ArcdComRate column
- * @method     ChildArPaymentPending findOneByArcdsalesamt(string $ArcdSalesAmt) Return the first ChildArPaymentPending filtered by the ArcdSalesAmt column
- * @method     ChildArPaymentPending findOneByArcdpaydate(string $ArcdPayDate) Return the first ChildArPaymentPending filtered by the ArcdPayDate column
- * @method     ChildArPaymentPending findOneByArcdglpd(int $ArcdGlPd) Return the first ChildArPaymentPending filtered by the ArcdGlPd column
- * @method     ChildArPaymentPending findOneByArcdref(string $ArcdRef) Return the first ChildArPaymentPending filtered by the ArcdRef column
- * @method     ChildArPaymentPending findOneByDateupdtd(string $DateUpdtd) Return the first ChildArPaymentPending filtered by the DateUpdtd column
- * @method     ChildArPaymentPending findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArPaymentPending filtered by the TimeUpdtd column
- * @method     ChildArPaymentPending findOneByDummy(string $dummy) Return the first ChildArPaymentPending filtered by the dummy column *
-
- * @method     ChildArPaymentPending requirePk($key, ConnectionInterface $con = null) Return the ChildArPaymentPending by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildArPaymentPending requireOne(ConnectionInterface $con = null) Return the first ChildArPaymentPending matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArPaymentPending|null findOneByArcucustid(string $ArcuCustId) Return the first ChildArPaymentPending filtered by the ArcuCustId column
+ * @method     ChildArPaymentPending|null findOneByArcdinvnbr(string $ArcdInvNbr) Return the first ChildArPaymentPending filtered by the ArcdInvNbr column
+ * @method     ChildArPaymentPending|null findOneByArcdinvseq(int $ArcdInvSeq) Return the first ChildArPaymentPending filtered by the ArcdInvSeq column
+ * @method     ChildArPaymentPending|null findOneByArcdpaid(string $ArcdPaid) Return the first ChildArPaymentPending filtered by the ArcdPaid column
+ * @method     ChildArPaymentPending|null findOneByArcdinvdate(string $ArcdInvDate) Return the first ChildArPaymentPending filtered by the ArcdInvDate column
+ * @method     ChildArPaymentPending|null findOneByArcdduedate(string $ArcdDueDate) Return the first ChildArPaymentPending filtered by the ArcdDueDate column
+ * @method     ChildArPaymentPending|null findOneByArcdchknbr(string $ArcdChkNbr) Return the first ChildArPaymentPending filtered by the ArcdChkNbr column
+ * @method     ChildArPaymentPending|null findOneByArcdamtdue(string $ArcdAmtDue) Return the first ChildArPaymentPending filtered by the ArcdAmtDue column
+ * @method     ChildArPaymentPending|null findOneByArcdamtpaid(string $ArcdAmtPaid) Return the first ChildArPaymentPending filtered by the ArcdAmtPaid column
+ * @method     ChildArPaymentPending|null findOneByArcddiscpaid(string $ArcdDiscPaid) Return the first ChildArPaymentPending filtered by the ArcdDiscPaid column
+ * @method     ChildArPaymentPending|null findOneByArcdcashacct(string $ArcdCashAcct) Return the first ChildArPaymentPending filtered by the ArcdCashAcct column
+ * @method     ChildArPaymentPending|null findOneByArcdcredacct(string $ArcdCredAcct) Return the first ChildArPaymentPending filtered by the ArcdCredAcct column
+ * @method     ChildArPaymentPending|null findOneByArcdtermcode(string $ArcdTermCode) Return the first ChildArPaymentPending filtered by the ArcdTermCode column
+ * @method     ChildArPaymentPending|null findOneByArcdfrtallow(string $ArcdFrtAllow) Return the first ChildArPaymentPending filtered by the ArcdFrtAllow column
+ * @method     ChildArPaymentPending|null findOneByArcdcustpo(string $ArcdCustPo) Return the first ChildArPaymentPending filtered by the ArcdCustPo column
+ * @method     ChildArPaymentPending|null findOneByArcdordrnbr(string $ArcdOrdrNbr) Return the first ChildArPaymentPending filtered by the ArcdOrdrNbr column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxcode1(string $ArcdTaxCode1) Return the first ChildArPaymentPending filtered by the ArcdTaxCode1 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxallow1(string $ArcdTaxAllow1) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow1 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxcode2(string $ArcdTaxCode2) Return the first ChildArPaymentPending filtered by the ArcdTaxCode2 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxallow2(string $ArcdTaxAllow2) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow2 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxcode3(string $ArcdTaxCode3) Return the first ChildArPaymentPending filtered by the ArcdTaxCode3 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxallow3(string $ArcdTaxAllow3) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow3 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxcode4(string $ArcdTaxCode4) Return the first ChildArPaymentPending filtered by the ArcdTaxCode4 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxallow4(string $ArcdTaxAllow4) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow4 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxcode5(string $ArcdTaxCode5) Return the first ChildArPaymentPending filtered by the ArcdTaxCode5 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxallow5(string $ArcdTaxAllow5) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow5 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxcode6(string $ArcdTaxCode6) Return the first ChildArPaymentPending filtered by the ArcdTaxCode6 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxallow6(string $ArcdTaxAllow6) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow6 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxcode7(string $ArcdTaxCode7) Return the first ChildArPaymentPending filtered by the ArcdTaxCode7 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxallow7(string $ArcdTaxAllow7) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow7 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxcode8(string $ArcdTaxCode8) Return the first ChildArPaymentPending filtered by the ArcdTaxCode8 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxallow8(string $ArcdTaxAllow8) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow8 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxcode9(string $ArcdTaxCode9) Return the first ChildArPaymentPending filtered by the ArcdTaxCode9 column
+ * @method     ChildArPaymentPending|null findOneByArcdtaxallow9(string $ArcdTaxAllow9) Return the first ChildArPaymentPending filtered by the ArcdTaxAllow9 column
+ * @method     ChildArPaymentPending|null findOneByArcdwriteoff(string $ArcdWriteOff) Return the first ChildArPaymentPending filtered by the ArcdWriteOff column
+ * @method     ChildArPaymentPending|null findOneByArcdwriteoffreas(string $ArcdWriteOffReas) Return the first ChildArPaymentPending filtered by the ArcdWriteOffReas column
+ * @method     ChildArPaymentPending|null findOneByArcdcomrate(string $ArcdComRate) Return the first ChildArPaymentPending filtered by the ArcdComRate column
+ * @method     ChildArPaymentPending|null findOneByArcdsalesamt(string $ArcdSalesAmt) Return the first ChildArPaymentPending filtered by the ArcdSalesAmt column
+ * @method     ChildArPaymentPending|null findOneByArcdpaydate(string $ArcdPayDate) Return the first ChildArPaymentPending filtered by the ArcdPayDate column
+ * @method     ChildArPaymentPending|null findOneByArcdglpd(int $ArcdGlPd) Return the first ChildArPaymentPending filtered by the ArcdGlPd column
+ * @method     ChildArPaymentPending|null findOneByArcdref(string $ArcdRef) Return the first ChildArPaymentPending filtered by the ArcdRef column
+ * @method     ChildArPaymentPending|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildArPaymentPending filtered by the DateUpdtd column
+ * @method     ChildArPaymentPending|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArPaymentPending filtered by the TimeUpdtd column
+ * @method     ChildArPaymentPending|null findOneByDummy(string $dummy) Return the first ChildArPaymentPending filtered by the dummy column
+ *
+ * @method     ChildArPaymentPending requirePk($key, ?ConnectionInterface $con = null) Return the ChildArPaymentPending by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArPaymentPending requireOne(?ConnectionInterface $con = null) Return the first ChildArPaymentPending matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildArPaymentPending requireOneByArcucustid(string $ArcuCustId) Return the first ChildArPaymentPending filtered by the ArcuCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArPaymentPending requireOneByArcdinvnbr(string $ArcdInvNbr) Return the first ChildArPaymentPending filtered by the ArcdInvNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -236,53 +235,100 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArPaymentPending requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArPaymentPending filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArPaymentPending requireOneByDummy(string $dummy) Return the first ChildArPaymentPending filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildArPaymentPending[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArPaymentPending objects based on current ModelCriteria
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcucustid(string $ArcuCustId) Return ChildArPaymentPending objects filtered by the ArcuCustId column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdinvnbr(string $ArcdInvNbr) Return ChildArPaymentPending objects filtered by the ArcdInvNbr column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdinvseq(int $ArcdInvSeq) Return ChildArPaymentPending objects filtered by the ArcdInvSeq column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdpaid(string $ArcdPaid) Return ChildArPaymentPending objects filtered by the ArcdPaid column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdinvdate(string $ArcdInvDate) Return ChildArPaymentPending objects filtered by the ArcdInvDate column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdduedate(string $ArcdDueDate) Return ChildArPaymentPending objects filtered by the ArcdDueDate column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdchknbr(string $ArcdChkNbr) Return ChildArPaymentPending objects filtered by the ArcdChkNbr column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdamtdue(string $ArcdAmtDue) Return ChildArPaymentPending objects filtered by the ArcdAmtDue column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdamtpaid(string $ArcdAmtPaid) Return ChildArPaymentPending objects filtered by the ArcdAmtPaid column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcddiscpaid(string $ArcdDiscPaid) Return ChildArPaymentPending objects filtered by the ArcdDiscPaid column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdcashacct(string $ArcdCashAcct) Return ChildArPaymentPending objects filtered by the ArcdCashAcct column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdcredacct(string $ArcdCredAcct) Return ChildArPaymentPending objects filtered by the ArcdCredAcct column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtermcode(string $ArcdTermCode) Return ChildArPaymentPending objects filtered by the ArcdTermCode column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdfrtallow(string $ArcdFrtAllow) Return ChildArPaymentPending objects filtered by the ArcdFrtAllow column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdcustpo(string $ArcdCustPo) Return ChildArPaymentPending objects filtered by the ArcdCustPo column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdordrnbr(string $ArcdOrdrNbr) Return ChildArPaymentPending objects filtered by the ArcdOrdrNbr column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxcode1(string $ArcdTaxCode1) Return ChildArPaymentPending objects filtered by the ArcdTaxCode1 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxallow1(string $ArcdTaxAllow1) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow1 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxcode2(string $ArcdTaxCode2) Return ChildArPaymentPending objects filtered by the ArcdTaxCode2 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxallow2(string $ArcdTaxAllow2) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow2 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxcode3(string $ArcdTaxCode3) Return ChildArPaymentPending objects filtered by the ArcdTaxCode3 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxallow3(string $ArcdTaxAllow3) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow3 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxcode4(string $ArcdTaxCode4) Return ChildArPaymentPending objects filtered by the ArcdTaxCode4 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxallow4(string $ArcdTaxAllow4) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow4 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxcode5(string $ArcdTaxCode5) Return ChildArPaymentPending objects filtered by the ArcdTaxCode5 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxallow5(string $ArcdTaxAllow5) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow5 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxcode6(string $ArcdTaxCode6) Return ChildArPaymentPending objects filtered by the ArcdTaxCode6 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxallow6(string $ArcdTaxAllow6) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow6 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxcode7(string $ArcdTaxCode7) Return ChildArPaymentPending objects filtered by the ArcdTaxCode7 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxallow7(string $ArcdTaxAllow7) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow7 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxcode8(string $ArcdTaxCode8) Return ChildArPaymentPending objects filtered by the ArcdTaxCode8 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxallow8(string $ArcdTaxAllow8) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow8 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxcode9(string $ArcdTaxCode9) Return ChildArPaymentPending objects filtered by the ArcdTaxCode9 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdtaxallow9(string $ArcdTaxAllow9) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow9 column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdwriteoff(string $ArcdWriteOff) Return ChildArPaymentPending objects filtered by the ArcdWriteOff column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdwriteoffreas(string $ArcdWriteOffReas) Return ChildArPaymentPending objects filtered by the ArcdWriteOffReas column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdcomrate(string $ArcdComRate) Return ChildArPaymentPending objects filtered by the ArcdComRate column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdsalesamt(string $ArcdSalesAmt) Return ChildArPaymentPending objects filtered by the ArcdSalesAmt column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdpaydate(string $ArcdPayDate) Return ChildArPaymentPending objects filtered by the ArcdPayDate column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdglpd(int $ArcdGlPd) Return ChildArPaymentPending objects filtered by the ArcdGlPd column
- * @method     ChildArPaymentPending[]|ObjectCollection findByArcdref(string $ArcdRef) Return ChildArPaymentPending objects filtered by the ArcdRef column
- * @method     ChildArPaymentPending[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArPaymentPending objects filtered by the DateUpdtd column
- * @method     ChildArPaymentPending[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArPaymentPending objects filtered by the TimeUpdtd column
- * @method     ChildArPaymentPending[]|ObjectCollection findByDummy(string $dummy) Return ChildArPaymentPending objects filtered by the dummy column
- * @method     ChildArPaymentPending[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildArPaymentPending[]|Collection find(?ConnectionInterface $con = null) Return ChildArPaymentPending objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> find(?ConnectionInterface $con = null) Return ChildArPaymentPending objects based on current ModelCriteria
  *
+ * @method     ChildArPaymentPending[]|Collection findByArcucustid(string|array<string> $ArcuCustId) Return ChildArPaymentPending objects filtered by the ArcuCustId column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcucustid(string|array<string> $ArcuCustId) Return ChildArPaymentPending objects filtered by the ArcuCustId column
+ * @method     ChildArPaymentPending[]|Collection findByArcdinvnbr(string|array<string> $ArcdInvNbr) Return ChildArPaymentPending objects filtered by the ArcdInvNbr column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdinvnbr(string|array<string> $ArcdInvNbr) Return ChildArPaymentPending objects filtered by the ArcdInvNbr column
+ * @method     ChildArPaymentPending[]|Collection findByArcdinvseq(int|array<int> $ArcdInvSeq) Return ChildArPaymentPending objects filtered by the ArcdInvSeq column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdinvseq(int|array<int> $ArcdInvSeq) Return ChildArPaymentPending objects filtered by the ArcdInvSeq column
+ * @method     ChildArPaymentPending[]|Collection findByArcdpaid(string|array<string> $ArcdPaid) Return ChildArPaymentPending objects filtered by the ArcdPaid column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdpaid(string|array<string> $ArcdPaid) Return ChildArPaymentPending objects filtered by the ArcdPaid column
+ * @method     ChildArPaymentPending[]|Collection findByArcdinvdate(string|array<string> $ArcdInvDate) Return ChildArPaymentPending objects filtered by the ArcdInvDate column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdinvdate(string|array<string> $ArcdInvDate) Return ChildArPaymentPending objects filtered by the ArcdInvDate column
+ * @method     ChildArPaymentPending[]|Collection findByArcdduedate(string|array<string> $ArcdDueDate) Return ChildArPaymentPending objects filtered by the ArcdDueDate column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdduedate(string|array<string> $ArcdDueDate) Return ChildArPaymentPending objects filtered by the ArcdDueDate column
+ * @method     ChildArPaymentPending[]|Collection findByArcdchknbr(string|array<string> $ArcdChkNbr) Return ChildArPaymentPending objects filtered by the ArcdChkNbr column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdchknbr(string|array<string> $ArcdChkNbr) Return ChildArPaymentPending objects filtered by the ArcdChkNbr column
+ * @method     ChildArPaymentPending[]|Collection findByArcdamtdue(string|array<string> $ArcdAmtDue) Return ChildArPaymentPending objects filtered by the ArcdAmtDue column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdamtdue(string|array<string> $ArcdAmtDue) Return ChildArPaymentPending objects filtered by the ArcdAmtDue column
+ * @method     ChildArPaymentPending[]|Collection findByArcdamtpaid(string|array<string> $ArcdAmtPaid) Return ChildArPaymentPending objects filtered by the ArcdAmtPaid column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdamtpaid(string|array<string> $ArcdAmtPaid) Return ChildArPaymentPending objects filtered by the ArcdAmtPaid column
+ * @method     ChildArPaymentPending[]|Collection findByArcddiscpaid(string|array<string> $ArcdDiscPaid) Return ChildArPaymentPending objects filtered by the ArcdDiscPaid column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcddiscpaid(string|array<string> $ArcdDiscPaid) Return ChildArPaymentPending objects filtered by the ArcdDiscPaid column
+ * @method     ChildArPaymentPending[]|Collection findByArcdcashacct(string|array<string> $ArcdCashAcct) Return ChildArPaymentPending objects filtered by the ArcdCashAcct column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdcashacct(string|array<string> $ArcdCashAcct) Return ChildArPaymentPending objects filtered by the ArcdCashAcct column
+ * @method     ChildArPaymentPending[]|Collection findByArcdcredacct(string|array<string> $ArcdCredAcct) Return ChildArPaymentPending objects filtered by the ArcdCredAcct column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdcredacct(string|array<string> $ArcdCredAcct) Return ChildArPaymentPending objects filtered by the ArcdCredAcct column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtermcode(string|array<string> $ArcdTermCode) Return ChildArPaymentPending objects filtered by the ArcdTermCode column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtermcode(string|array<string> $ArcdTermCode) Return ChildArPaymentPending objects filtered by the ArcdTermCode column
+ * @method     ChildArPaymentPending[]|Collection findByArcdfrtallow(string|array<string> $ArcdFrtAllow) Return ChildArPaymentPending objects filtered by the ArcdFrtAllow column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdfrtallow(string|array<string> $ArcdFrtAllow) Return ChildArPaymentPending objects filtered by the ArcdFrtAllow column
+ * @method     ChildArPaymentPending[]|Collection findByArcdcustpo(string|array<string> $ArcdCustPo) Return ChildArPaymentPending objects filtered by the ArcdCustPo column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdcustpo(string|array<string> $ArcdCustPo) Return ChildArPaymentPending objects filtered by the ArcdCustPo column
+ * @method     ChildArPaymentPending[]|Collection findByArcdordrnbr(string|array<string> $ArcdOrdrNbr) Return ChildArPaymentPending objects filtered by the ArcdOrdrNbr column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdordrnbr(string|array<string> $ArcdOrdrNbr) Return ChildArPaymentPending objects filtered by the ArcdOrdrNbr column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxcode1(string|array<string> $ArcdTaxCode1) Return ChildArPaymentPending objects filtered by the ArcdTaxCode1 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxcode1(string|array<string> $ArcdTaxCode1) Return ChildArPaymentPending objects filtered by the ArcdTaxCode1 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxallow1(string|array<string> $ArcdTaxAllow1) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow1 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxallow1(string|array<string> $ArcdTaxAllow1) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow1 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxcode2(string|array<string> $ArcdTaxCode2) Return ChildArPaymentPending objects filtered by the ArcdTaxCode2 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxcode2(string|array<string> $ArcdTaxCode2) Return ChildArPaymentPending objects filtered by the ArcdTaxCode2 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxallow2(string|array<string> $ArcdTaxAllow2) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow2 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxallow2(string|array<string> $ArcdTaxAllow2) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow2 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxcode3(string|array<string> $ArcdTaxCode3) Return ChildArPaymentPending objects filtered by the ArcdTaxCode3 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxcode3(string|array<string> $ArcdTaxCode3) Return ChildArPaymentPending objects filtered by the ArcdTaxCode3 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxallow3(string|array<string> $ArcdTaxAllow3) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow3 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxallow3(string|array<string> $ArcdTaxAllow3) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow3 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxcode4(string|array<string> $ArcdTaxCode4) Return ChildArPaymentPending objects filtered by the ArcdTaxCode4 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxcode4(string|array<string> $ArcdTaxCode4) Return ChildArPaymentPending objects filtered by the ArcdTaxCode4 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxallow4(string|array<string> $ArcdTaxAllow4) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow4 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxallow4(string|array<string> $ArcdTaxAllow4) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow4 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxcode5(string|array<string> $ArcdTaxCode5) Return ChildArPaymentPending objects filtered by the ArcdTaxCode5 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxcode5(string|array<string> $ArcdTaxCode5) Return ChildArPaymentPending objects filtered by the ArcdTaxCode5 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxallow5(string|array<string> $ArcdTaxAllow5) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow5 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxallow5(string|array<string> $ArcdTaxAllow5) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow5 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxcode6(string|array<string> $ArcdTaxCode6) Return ChildArPaymentPending objects filtered by the ArcdTaxCode6 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxcode6(string|array<string> $ArcdTaxCode6) Return ChildArPaymentPending objects filtered by the ArcdTaxCode6 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxallow6(string|array<string> $ArcdTaxAllow6) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow6 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxallow6(string|array<string> $ArcdTaxAllow6) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow6 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxcode7(string|array<string> $ArcdTaxCode7) Return ChildArPaymentPending objects filtered by the ArcdTaxCode7 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxcode7(string|array<string> $ArcdTaxCode7) Return ChildArPaymentPending objects filtered by the ArcdTaxCode7 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxallow7(string|array<string> $ArcdTaxAllow7) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow7 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxallow7(string|array<string> $ArcdTaxAllow7) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow7 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxcode8(string|array<string> $ArcdTaxCode8) Return ChildArPaymentPending objects filtered by the ArcdTaxCode8 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxcode8(string|array<string> $ArcdTaxCode8) Return ChildArPaymentPending objects filtered by the ArcdTaxCode8 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxallow8(string|array<string> $ArcdTaxAllow8) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow8 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxallow8(string|array<string> $ArcdTaxAllow8) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow8 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxcode9(string|array<string> $ArcdTaxCode9) Return ChildArPaymentPending objects filtered by the ArcdTaxCode9 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxcode9(string|array<string> $ArcdTaxCode9) Return ChildArPaymentPending objects filtered by the ArcdTaxCode9 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdtaxallow9(string|array<string> $ArcdTaxAllow9) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow9 column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdtaxallow9(string|array<string> $ArcdTaxAllow9) Return ChildArPaymentPending objects filtered by the ArcdTaxAllow9 column
+ * @method     ChildArPaymentPending[]|Collection findByArcdwriteoff(string|array<string> $ArcdWriteOff) Return ChildArPaymentPending objects filtered by the ArcdWriteOff column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdwriteoff(string|array<string> $ArcdWriteOff) Return ChildArPaymentPending objects filtered by the ArcdWriteOff column
+ * @method     ChildArPaymentPending[]|Collection findByArcdwriteoffreas(string|array<string> $ArcdWriteOffReas) Return ChildArPaymentPending objects filtered by the ArcdWriteOffReas column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdwriteoffreas(string|array<string> $ArcdWriteOffReas) Return ChildArPaymentPending objects filtered by the ArcdWriteOffReas column
+ * @method     ChildArPaymentPending[]|Collection findByArcdcomrate(string|array<string> $ArcdComRate) Return ChildArPaymentPending objects filtered by the ArcdComRate column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdcomrate(string|array<string> $ArcdComRate) Return ChildArPaymentPending objects filtered by the ArcdComRate column
+ * @method     ChildArPaymentPending[]|Collection findByArcdsalesamt(string|array<string> $ArcdSalesAmt) Return ChildArPaymentPending objects filtered by the ArcdSalesAmt column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdsalesamt(string|array<string> $ArcdSalesAmt) Return ChildArPaymentPending objects filtered by the ArcdSalesAmt column
+ * @method     ChildArPaymentPending[]|Collection findByArcdpaydate(string|array<string> $ArcdPayDate) Return ChildArPaymentPending objects filtered by the ArcdPayDate column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdpaydate(string|array<string> $ArcdPayDate) Return ChildArPaymentPending objects filtered by the ArcdPayDate column
+ * @method     ChildArPaymentPending[]|Collection findByArcdglpd(int|array<int> $ArcdGlPd) Return ChildArPaymentPending objects filtered by the ArcdGlPd column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdglpd(int|array<int> $ArcdGlPd) Return ChildArPaymentPending objects filtered by the ArcdGlPd column
+ * @method     ChildArPaymentPending[]|Collection findByArcdref(string|array<string> $ArcdRef) Return ChildArPaymentPending objects filtered by the ArcdRef column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByArcdref(string|array<string> $ArcdRef) Return ChildArPaymentPending objects filtered by the ArcdRef column
+ * @method     ChildArPaymentPending[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArPaymentPending objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArPaymentPending objects filtered by the DateUpdtd column
+ * @method     ChildArPaymentPending[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArPaymentPending objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArPaymentPending objects filtered by the TimeUpdtd column
+ * @method     ChildArPaymentPending[]|Collection findByDummy(string|array<string> $dummy) Return ChildArPaymentPending objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildArPaymentPending> findByDummy(string|array<string> $dummy) Return ChildArPaymentPending objects filtered by the dummy column
+ *
+ * @method     ChildArPaymentPending[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildArPaymentPending> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ArPaymentPendingQuery extends ModelCriteria
 {
@@ -291,9 +337,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ArPaymentPendingQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ArPaymentPending', $modelAlias = null)
     {
@@ -303,12 +349,12 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
     /**
      * Returns a new ChildArPaymentPendingQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildArPaymentPendingQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildArPaymentPendingQuery) {
             return $criteria;
@@ -338,7 +384,7 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      *
      * @return ChildArPaymentPending|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -370,8 +416,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -405,8 +451,8 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildArPaymentPending|array|mixed the result, formatted by the current formatter
      */
@@ -426,12 +472,12 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -448,9 +494,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -464,14 +510,16 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(ArPaymentPendingTableMap::COL_ARCUCUSTID, $key[0], Criteria::EQUAL);
@@ -492,14 +540,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcucustid('fooValue');   // WHERE ArcuCustId = 'fooValue'
      * $query->filterByArcucustid('%fooValue%', Criteria::LIKE); // WHERE ArcuCustId LIKE '%fooValue%'
+     * $query->filterByArcucustid(['foo', 'bar']); // WHERE ArcuCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcucustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcucustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcucustid($arcucustid = null, $comparison = null)
+    public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcucustid)) {
@@ -507,7 +556,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -517,14 +568,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdinvnbr('fooValue');   // WHERE ArcdInvNbr = 'fooValue'
      * $query->filterByArcdinvnbr('%fooValue%', Criteria::LIKE); // WHERE ArcdInvNbr LIKE '%fooValue%'
+     * $query->filterByArcdinvnbr(['foo', 'bar']); // WHERE ArcdInvNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdinvnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdinvnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdinvnbr($arcdinvnbr = null, $comparison = null)
+    public function filterByArcdinvnbr($arcdinvnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdinvnbr)) {
@@ -532,7 +584,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDINVNBR, $arcdinvnbr, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDINVNBR, $arcdinvnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -545,15 +599,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdinvseq(array('min' => 12)); // WHERE ArcdInvSeq > 12
      * </code>
      *
-     * @param     mixed $arcdinvseq The value to use as filter.
+     * @param mixed $arcdinvseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdinvseq($arcdinvseq = null, $comparison = null)
+    public function filterByArcdinvseq($arcdinvseq = null, ?string $comparison = null)
     {
         if (is_array($arcdinvseq)) {
             $useMinMax = false;
@@ -573,7 +627,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDINVSEQ, $arcdinvseq, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDINVSEQ, $arcdinvseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -583,14 +639,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdpaid('fooValue');   // WHERE ArcdPaid = 'fooValue'
      * $query->filterByArcdpaid('%fooValue%', Criteria::LIKE); // WHERE ArcdPaid LIKE '%fooValue%'
+     * $query->filterByArcdpaid(['foo', 'bar']); // WHERE ArcdPaid IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdpaid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdpaid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdpaid($arcdpaid = null, $comparison = null)
+    public function filterByArcdpaid($arcdpaid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdpaid)) {
@@ -598,7 +655,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDPAID, $arcdpaid, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDPAID, $arcdpaid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -608,14 +667,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdinvdate('fooValue');   // WHERE ArcdInvDate = 'fooValue'
      * $query->filterByArcdinvdate('%fooValue%', Criteria::LIKE); // WHERE ArcdInvDate LIKE '%fooValue%'
+     * $query->filterByArcdinvdate(['foo', 'bar']); // WHERE ArcdInvDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdinvdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdinvdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdinvdate($arcdinvdate = null, $comparison = null)
+    public function filterByArcdinvdate($arcdinvdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdinvdate)) {
@@ -623,7 +683,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDINVDATE, $arcdinvdate, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDINVDATE, $arcdinvdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -633,14 +695,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdduedate('fooValue');   // WHERE ArcdDueDate = 'fooValue'
      * $query->filterByArcdduedate('%fooValue%', Criteria::LIKE); // WHERE ArcdDueDate LIKE '%fooValue%'
+     * $query->filterByArcdduedate(['foo', 'bar']); // WHERE ArcdDueDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdduedate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdduedate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdduedate($arcdduedate = null, $comparison = null)
+    public function filterByArcdduedate($arcdduedate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdduedate)) {
@@ -648,7 +711,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDDUEDATE, $arcdduedate, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDDUEDATE, $arcdduedate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -658,14 +723,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdchknbr('fooValue');   // WHERE ArcdChkNbr = 'fooValue'
      * $query->filterByArcdchknbr('%fooValue%', Criteria::LIKE); // WHERE ArcdChkNbr LIKE '%fooValue%'
+     * $query->filterByArcdchknbr(['foo', 'bar']); // WHERE ArcdChkNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdchknbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdchknbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdchknbr($arcdchknbr = null, $comparison = null)
+    public function filterByArcdchknbr($arcdchknbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdchknbr)) {
@@ -673,7 +739,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDCHKNBR, $arcdchknbr, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDCHKNBR, $arcdchknbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -686,15 +754,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdamtdue(array('min' => 12)); // WHERE ArcdAmtDue > 12
      * </code>
      *
-     * @param     mixed $arcdamtdue The value to use as filter.
+     * @param mixed $arcdamtdue The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdamtdue($arcdamtdue = null, $comparison = null)
+    public function filterByArcdamtdue($arcdamtdue = null, ?string $comparison = null)
     {
         if (is_array($arcdamtdue)) {
             $useMinMax = false;
@@ -714,7 +782,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDAMTDUE, $arcdamtdue, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDAMTDUE, $arcdamtdue, $comparison);
+
+        return $this;
     }
 
     /**
@@ -727,15 +797,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdamtpaid(array('min' => 12)); // WHERE ArcdAmtPaid > 12
      * </code>
      *
-     * @param     mixed $arcdamtpaid The value to use as filter.
+     * @param mixed $arcdamtpaid The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdamtpaid($arcdamtpaid = null, $comparison = null)
+    public function filterByArcdamtpaid($arcdamtpaid = null, ?string $comparison = null)
     {
         if (is_array($arcdamtpaid)) {
             $useMinMax = false;
@@ -755,7 +825,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDAMTPAID, $arcdamtpaid, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDAMTPAID, $arcdamtpaid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -768,15 +840,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcddiscpaid(array('min' => 12)); // WHERE ArcdDiscPaid > 12
      * </code>
      *
-     * @param     mixed $arcddiscpaid The value to use as filter.
+     * @param mixed $arcddiscpaid The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcddiscpaid($arcddiscpaid = null, $comparison = null)
+    public function filterByArcddiscpaid($arcddiscpaid = null, ?string $comparison = null)
     {
         if (is_array($arcddiscpaid)) {
             $useMinMax = false;
@@ -796,7 +868,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDDISCPAID, $arcddiscpaid, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDDISCPAID, $arcddiscpaid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -806,14 +880,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdcashacct('fooValue');   // WHERE ArcdCashAcct = 'fooValue'
      * $query->filterByArcdcashacct('%fooValue%', Criteria::LIKE); // WHERE ArcdCashAcct LIKE '%fooValue%'
+     * $query->filterByArcdcashacct(['foo', 'bar']); // WHERE ArcdCashAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdcashacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdcashacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdcashacct($arcdcashacct = null, $comparison = null)
+    public function filterByArcdcashacct($arcdcashacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdcashacct)) {
@@ -821,7 +896,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDCASHACCT, $arcdcashacct, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDCASHACCT, $arcdcashacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -831,14 +908,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdcredacct('fooValue');   // WHERE ArcdCredAcct = 'fooValue'
      * $query->filterByArcdcredacct('%fooValue%', Criteria::LIKE); // WHERE ArcdCredAcct LIKE '%fooValue%'
+     * $query->filterByArcdcredacct(['foo', 'bar']); // WHERE ArcdCredAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdcredacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdcredacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdcredacct($arcdcredacct = null, $comparison = null)
+    public function filterByArcdcredacct($arcdcredacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdcredacct)) {
@@ -846,7 +924,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDCREDACCT, $arcdcredacct, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDCREDACCT, $arcdcredacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -856,14 +936,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdtermcode('fooValue');   // WHERE ArcdTermCode = 'fooValue'
      * $query->filterByArcdtermcode('%fooValue%', Criteria::LIKE); // WHERE ArcdTermCode LIKE '%fooValue%'
+     * $query->filterByArcdtermcode(['foo', 'bar']); // WHERE ArcdTermCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdtermcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdtermcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtermcode($arcdtermcode = null, $comparison = null)
+    public function filterByArcdtermcode($arcdtermcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdtermcode)) {
@@ -871,7 +952,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTERMCODE, $arcdtermcode, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTERMCODE, $arcdtermcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -884,15 +967,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdfrtallow(array('min' => 12)); // WHERE ArcdFrtAllow > 12
      * </code>
      *
-     * @param     mixed $arcdfrtallow The value to use as filter.
+     * @param mixed $arcdfrtallow The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdfrtallow($arcdfrtallow = null, $comparison = null)
+    public function filterByArcdfrtallow($arcdfrtallow = null, ?string $comparison = null)
     {
         if (is_array($arcdfrtallow)) {
             $useMinMax = false;
@@ -912,7 +995,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDFRTALLOW, $arcdfrtallow, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDFRTALLOW, $arcdfrtallow, $comparison);
+
+        return $this;
     }
 
     /**
@@ -922,14 +1007,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdcustpo('fooValue');   // WHERE ArcdCustPo = 'fooValue'
      * $query->filterByArcdcustpo('%fooValue%', Criteria::LIKE); // WHERE ArcdCustPo LIKE '%fooValue%'
+     * $query->filterByArcdcustpo(['foo', 'bar']); // WHERE ArcdCustPo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdcustpo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdcustpo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdcustpo($arcdcustpo = null, $comparison = null)
+    public function filterByArcdcustpo($arcdcustpo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdcustpo)) {
@@ -937,7 +1023,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDCUSTPO, $arcdcustpo, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDCUSTPO, $arcdcustpo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -947,14 +1035,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdordrnbr('fooValue');   // WHERE ArcdOrdrNbr = 'fooValue'
      * $query->filterByArcdordrnbr('%fooValue%', Criteria::LIKE); // WHERE ArcdOrdrNbr LIKE '%fooValue%'
+     * $query->filterByArcdordrnbr(['foo', 'bar']); // WHERE ArcdOrdrNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdordrnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdordrnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdordrnbr($arcdordrnbr = null, $comparison = null)
+    public function filterByArcdordrnbr($arcdordrnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdordrnbr)) {
@@ -962,7 +1051,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDORDRNBR, $arcdordrnbr, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDORDRNBR, $arcdordrnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -972,14 +1063,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdtaxcode1('fooValue');   // WHERE ArcdTaxCode1 = 'fooValue'
      * $query->filterByArcdtaxcode1('%fooValue%', Criteria::LIKE); // WHERE ArcdTaxCode1 LIKE '%fooValue%'
+     * $query->filterByArcdtaxcode1(['foo', 'bar']); // WHERE ArcdTaxCode1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdtaxcode1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdtaxcode1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxcode1($arcdtaxcode1 = null, $comparison = null)
+    public function filterByArcdtaxcode1($arcdtaxcode1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdtaxcode1)) {
@@ -987,7 +1079,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE1, $arcdtaxcode1, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE1, $arcdtaxcode1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1000,15 +1094,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdtaxallow1(array('min' => 12)); // WHERE ArcdTaxAllow1 > 12
      * </code>
      *
-     * @param     mixed $arcdtaxallow1 The value to use as filter.
+     * @param mixed $arcdtaxallow1 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxallow1($arcdtaxallow1 = null, $comparison = null)
+    public function filterByArcdtaxallow1($arcdtaxallow1 = null, ?string $comparison = null)
     {
         if (is_array($arcdtaxallow1)) {
             $useMinMax = false;
@@ -1028,7 +1122,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW1, $arcdtaxallow1, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW1, $arcdtaxallow1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1038,14 +1134,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdtaxcode2('fooValue');   // WHERE ArcdTaxCode2 = 'fooValue'
      * $query->filterByArcdtaxcode2('%fooValue%', Criteria::LIKE); // WHERE ArcdTaxCode2 LIKE '%fooValue%'
+     * $query->filterByArcdtaxcode2(['foo', 'bar']); // WHERE ArcdTaxCode2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdtaxcode2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdtaxcode2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxcode2($arcdtaxcode2 = null, $comparison = null)
+    public function filterByArcdtaxcode2($arcdtaxcode2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdtaxcode2)) {
@@ -1053,7 +1150,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE2, $arcdtaxcode2, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE2, $arcdtaxcode2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1066,15 +1165,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdtaxallow2(array('min' => 12)); // WHERE ArcdTaxAllow2 > 12
      * </code>
      *
-     * @param     mixed $arcdtaxallow2 The value to use as filter.
+     * @param mixed $arcdtaxallow2 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxallow2($arcdtaxallow2 = null, $comparison = null)
+    public function filterByArcdtaxallow2($arcdtaxallow2 = null, ?string $comparison = null)
     {
         if (is_array($arcdtaxallow2)) {
             $useMinMax = false;
@@ -1094,7 +1193,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW2, $arcdtaxallow2, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW2, $arcdtaxallow2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1104,14 +1205,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdtaxcode3('fooValue');   // WHERE ArcdTaxCode3 = 'fooValue'
      * $query->filterByArcdtaxcode3('%fooValue%', Criteria::LIKE); // WHERE ArcdTaxCode3 LIKE '%fooValue%'
+     * $query->filterByArcdtaxcode3(['foo', 'bar']); // WHERE ArcdTaxCode3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdtaxcode3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdtaxcode3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxcode3($arcdtaxcode3 = null, $comparison = null)
+    public function filterByArcdtaxcode3($arcdtaxcode3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdtaxcode3)) {
@@ -1119,7 +1221,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE3, $arcdtaxcode3, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE3, $arcdtaxcode3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1132,15 +1236,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdtaxallow3(array('min' => 12)); // WHERE ArcdTaxAllow3 > 12
      * </code>
      *
-     * @param     mixed $arcdtaxallow3 The value to use as filter.
+     * @param mixed $arcdtaxallow3 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxallow3($arcdtaxallow3 = null, $comparison = null)
+    public function filterByArcdtaxallow3($arcdtaxallow3 = null, ?string $comparison = null)
     {
         if (is_array($arcdtaxallow3)) {
             $useMinMax = false;
@@ -1160,7 +1264,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW3, $arcdtaxallow3, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW3, $arcdtaxallow3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1170,14 +1276,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdtaxcode4('fooValue');   // WHERE ArcdTaxCode4 = 'fooValue'
      * $query->filterByArcdtaxcode4('%fooValue%', Criteria::LIKE); // WHERE ArcdTaxCode4 LIKE '%fooValue%'
+     * $query->filterByArcdtaxcode4(['foo', 'bar']); // WHERE ArcdTaxCode4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdtaxcode4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdtaxcode4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxcode4($arcdtaxcode4 = null, $comparison = null)
+    public function filterByArcdtaxcode4($arcdtaxcode4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdtaxcode4)) {
@@ -1185,7 +1292,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE4, $arcdtaxcode4, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE4, $arcdtaxcode4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1198,15 +1307,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdtaxallow4(array('min' => 12)); // WHERE ArcdTaxAllow4 > 12
      * </code>
      *
-     * @param     mixed $arcdtaxallow4 The value to use as filter.
+     * @param mixed $arcdtaxallow4 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxallow4($arcdtaxallow4 = null, $comparison = null)
+    public function filterByArcdtaxallow4($arcdtaxallow4 = null, ?string $comparison = null)
     {
         if (is_array($arcdtaxallow4)) {
             $useMinMax = false;
@@ -1226,7 +1335,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW4, $arcdtaxallow4, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW4, $arcdtaxallow4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1236,14 +1347,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdtaxcode5('fooValue');   // WHERE ArcdTaxCode5 = 'fooValue'
      * $query->filterByArcdtaxcode5('%fooValue%', Criteria::LIKE); // WHERE ArcdTaxCode5 LIKE '%fooValue%'
+     * $query->filterByArcdtaxcode5(['foo', 'bar']); // WHERE ArcdTaxCode5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdtaxcode5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdtaxcode5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxcode5($arcdtaxcode5 = null, $comparison = null)
+    public function filterByArcdtaxcode5($arcdtaxcode5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdtaxcode5)) {
@@ -1251,7 +1363,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE5, $arcdtaxcode5, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE5, $arcdtaxcode5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1264,15 +1378,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdtaxallow5(array('min' => 12)); // WHERE ArcdTaxAllow5 > 12
      * </code>
      *
-     * @param     mixed $arcdtaxallow5 The value to use as filter.
+     * @param mixed $arcdtaxallow5 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxallow5($arcdtaxallow5 = null, $comparison = null)
+    public function filterByArcdtaxallow5($arcdtaxallow5 = null, ?string $comparison = null)
     {
         if (is_array($arcdtaxallow5)) {
             $useMinMax = false;
@@ -1292,7 +1406,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW5, $arcdtaxallow5, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW5, $arcdtaxallow5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1302,14 +1418,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdtaxcode6('fooValue');   // WHERE ArcdTaxCode6 = 'fooValue'
      * $query->filterByArcdtaxcode6('%fooValue%', Criteria::LIKE); // WHERE ArcdTaxCode6 LIKE '%fooValue%'
+     * $query->filterByArcdtaxcode6(['foo', 'bar']); // WHERE ArcdTaxCode6 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdtaxcode6 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdtaxcode6 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxcode6($arcdtaxcode6 = null, $comparison = null)
+    public function filterByArcdtaxcode6($arcdtaxcode6 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdtaxcode6)) {
@@ -1317,7 +1434,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE6, $arcdtaxcode6, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE6, $arcdtaxcode6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1330,15 +1449,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdtaxallow6(array('min' => 12)); // WHERE ArcdTaxAllow6 > 12
      * </code>
      *
-     * @param     mixed $arcdtaxallow6 The value to use as filter.
+     * @param mixed $arcdtaxallow6 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxallow6($arcdtaxallow6 = null, $comparison = null)
+    public function filterByArcdtaxallow6($arcdtaxallow6 = null, ?string $comparison = null)
     {
         if (is_array($arcdtaxallow6)) {
             $useMinMax = false;
@@ -1358,7 +1477,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW6, $arcdtaxallow6, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW6, $arcdtaxallow6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1368,14 +1489,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdtaxcode7('fooValue');   // WHERE ArcdTaxCode7 = 'fooValue'
      * $query->filterByArcdtaxcode7('%fooValue%', Criteria::LIKE); // WHERE ArcdTaxCode7 LIKE '%fooValue%'
+     * $query->filterByArcdtaxcode7(['foo', 'bar']); // WHERE ArcdTaxCode7 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdtaxcode7 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdtaxcode7 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxcode7($arcdtaxcode7 = null, $comparison = null)
+    public function filterByArcdtaxcode7($arcdtaxcode7 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdtaxcode7)) {
@@ -1383,7 +1505,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE7, $arcdtaxcode7, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE7, $arcdtaxcode7, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1396,15 +1520,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdtaxallow7(array('min' => 12)); // WHERE ArcdTaxAllow7 > 12
      * </code>
      *
-     * @param     mixed $arcdtaxallow7 The value to use as filter.
+     * @param mixed $arcdtaxallow7 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxallow7($arcdtaxallow7 = null, $comparison = null)
+    public function filterByArcdtaxallow7($arcdtaxallow7 = null, ?string $comparison = null)
     {
         if (is_array($arcdtaxallow7)) {
             $useMinMax = false;
@@ -1424,7 +1548,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW7, $arcdtaxallow7, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW7, $arcdtaxallow7, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1434,14 +1560,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdtaxcode8('fooValue');   // WHERE ArcdTaxCode8 = 'fooValue'
      * $query->filterByArcdtaxcode8('%fooValue%', Criteria::LIKE); // WHERE ArcdTaxCode8 LIKE '%fooValue%'
+     * $query->filterByArcdtaxcode8(['foo', 'bar']); // WHERE ArcdTaxCode8 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdtaxcode8 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdtaxcode8 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxcode8($arcdtaxcode8 = null, $comparison = null)
+    public function filterByArcdtaxcode8($arcdtaxcode8 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdtaxcode8)) {
@@ -1449,7 +1576,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE8, $arcdtaxcode8, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE8, $arcdtaxcode8, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1462,15 +1591,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdtaxallow8(array('min' => 12)); // WHERE ArcdTaxAllow8 > 12
      * </code>
      *
-     * @param     mixed $arcdtaxallow8 The value to use as filter.
+     * @param mixed $arcdtaxallow8 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxallow8($arcdtaxallow8 = null, $comparison = null)
+    public function filterByArcdtaxallow8($arcdtaxallow8 = null, ?string $comparison = null)
     {
         if (is_array($arcdtaxallow8)) {
             $useMinMax = false;
@@ -1490,7 +1619,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW8, $arcdtaxallow8, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW8, $arcdtaxallow8, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1500,14 +1631,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdtaxcode9('fooValue');   // WHERE ArcdTaxCode9 = 'fooValue'
      * $query->filterByArcdtaxcode9('%fooValue%', Criteria::LIKE); // WHERE ArcdTaxCode9 LIKE '%fooValue%'
+     * $query->filterByArcdtaxcode9(['foo', 'bar']); // WHERE ArcdTaxCode9 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdtaxcode9 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdtaxcode9 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxcode9($arcdtaxcode9 = null, $comparison = null)
+    public function filterByArcdtaxcode9($arcdtaxcode9 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdtaxcode9)) {
@@ -1515,7 +1647,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE9, $arcdtaxcode9, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXCODE9, $arcdtaxcode9, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1528,15 +1662,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdtaxallow9(array('min' => 12)); // WHERE ArcdTaxAllow9 > 12
      * </code>
      *
-     * @param     mixed $arcdtaxallow9 The value to use as filter.
+     * @param mixed $arcdtaxallow9 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdtaxallow9($arcdtaxallow9 = null, $comparison = null)
+    public function filterByArcdtaxallow9($arcdtaxallow9 = null, ?string $comparison = null)
     {
         if (is_array($arcdtaxallow9)) {
             $useMinMax = false;
@@ -1556,7 +1690,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW9, $arcdtaxallow9, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDTAXALLOW9, $arcdtaxallow9, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1569,15 +1705,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdwriteoff(array('min' => 12)); // WHERE ArcdWriteOff > 12
      * </code>
      *
-     * @param     mixed $arcdwriteoff The value to use as filter.
+     * @param mixed $arcdwriteoff The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdwriteoff($arcdwriteoff = null, $comparison = null)
+    public function filterByArcdwriteoff($arcdwriteoff = null, ?string $comparison = null)
     {
         if (is_array($arcdwriteoff)) {
             $useMinMax = false;
@@ -1597,7 +1733,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDWRITEOFF, $arcdwriteoff, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDWRITEOFF, $arcdwriteoff, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1607,14 +1745,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdwriteoffreas('fooValue');   // WHERE ArcdWriteOffReas = 'fooValue'
      * $query->filterByArcdwriteoffreas('%fooValue%', Criteria::LIKE); // WHERE ArcdWriteOffReas LIKE '%fooValue%'
+     * $query->filterByArcdwriteoffreas(['foo', 'bar']); // WHERE ArcdWriteOffReas IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdwriteoffreas The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdwriteoffreas The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdwriteoffreas($arcdwriteoffreas = null, $comparison = null)
+    public function filterByArcdwriteoffreas($arcdwriteoffreas = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdwriteoffreas)) {
@@ -1622,7 +1761,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDWRITEOFFREAS, $arcdwriteoffreas, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDWRITEOFFREAS, $arcdwriteoffreas, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1635,15 +1776,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdcomrate(array('min' => 12)); // WHERE ArcdComRate > 12
      * </code>
      *
-     * @param     mixed $arcdcomrate The value to use as filter.
+     * @param mixed $arcdcomrate The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdcomrate($arcdcomrate = null, $comparison = null)
+    public function filterByArcdcomrate($arcdcomrate = null, ?string $comparison = null)
     {
         if (is_array($arcdcomrate)) {
             $useMinMax = false;
@@ -1663,7 +1804,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDCOMRATE, $arcdcomrate, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDCOMRATE, $arcdcomrate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1676,15 +1819,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdsalesamt(array('min' => 12)); // WHERE ArcdSalesAmt > 12
      * </code>
      *
-     * @param     mixed $arcdsalesamt The value to use as filter.
+     * @param mixed $arcdsalesamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdsalesamt($arcdsalesamt = null, $comparison = null)
+    public function filterByArcdsalesamt($arcdsalesamt = null, ?string $comparison = null)
     {
         if (is_array($arcdsalesamt)) {
             $useMinMax = false;
@@ -1704,7 +1847,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDSALESAMT, $arcdsalesamt, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDSALESAMT, $arcdsalesamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1714,14 +1859,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdpaydate('fooValue');   // WHERE ArcdPayDate = 'fooValue'
      * $query->filterByArcdpaydate('%fooValue%', Criteria::LIKE); // WHERE ArcdPayDate LIKE '%fooValue%'
+     * $query->filterByArcdpaydate(['foo', 'bar']); // WHERE ArcdPayDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdpaydate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdpaydate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdpaydate($arcdpaydate = null, $comparison = null)
+    public function filterByArcdpaydate($arcdpaydate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdpaydate)) {
@@ -1729,7 +1875,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDPAYDATE, $arcdpaydate, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDPAYDATE, $arcdpaydate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1742,15 +1890,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * $query->filterByArcdglpd(array('min' => 12)); // WHERE ArcdGlPd > 12
      * </code>
      *
-     * @param     mixed $arcdglpd The value to use as filter.
+     * @param mixed $arcdglpd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdglpd($arcdglpd = null, $comparison = null)
+    public function filterByArcdglpd($arcdglpd = null, ?string $comparison = null)
     {
         if (is_array($arcdglpd)) {
             $useMinMax = false;
@@ -1770,7 +1918,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDGLPD, $arcdglpd, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDGLPD, $arcdglpd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1780,14 +1930,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByArcdref('fooValue');   // WHERE ArcdRef = 'fooValue'
      * $query->filterByArcdref('%fooValue%', Criteria::LIKE); // WHERE ArcdRef LIKE '%fooValue%'
+     * $query->filterByArcdref(['foo', 'bar']); // WHERE ArcdRef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcdref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcdref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcdref($arcdref = null, $comparison = null)
+    public function filterByArcdref($arcdref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcdref)) {
@@ -1795,7 +1946,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDREF, $arcdref, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_ARCDREF, $arcdref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1805,14 +1958,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1820,7 +1974,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1830,14 +1986,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1845,7 +2002,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1855,14 +2014,15 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1870,20 +2030,22 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPaymentPendingTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ArPaymentPendingTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \Customer object
      *
      * @param \Customer|ObjectCollection $customer The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomer($customer, $comparison = null)
+    public function filterByCustomer($customer, ?string $comparison = null)
     {
         if ($customer instanceof \Customer) {
             return $this
@@ -1893,8 +2055,10 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ArPaymentPendingTableMap::COL_ARCUCUSTID, $customer->toKeyValue('PrimaryKey', 'Arcucustid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByCustomer() only accepts arguments of type \Customer or Collection');
         }
@@ -1903,12 +2067,12 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Customer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCustomer(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Customer');
@@ -1937,9 +2101,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CustomerQuery A secondary query class using the current class as primary query
      */
@@ -1951,16 +2115,112 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
     }
 
     /**
+     * Use the Customer relation Customer object
+     *
+     * @param callable(\CustomerQuery):\CustomerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCustomerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useCustomerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Customer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CustomerQuery The inner query object of the EXISTS statement
+     */
+    public function useCustomerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT EXISTS query.
+     *
+     * @see useCustomerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCustomerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CustomerQuery The inner query object of the IN statement
+     */
+    public function useInCustomerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT IN query.
+     *
+     * @see useCustomerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCustomerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ArCashHead object
      *
      * @param \ArCashHead|ObjectCollection $arCashHead The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArCashHead($arCashHead, $comparison = null)
+    public function filterByArCashHead($arCashHead, ?string $comparison = null)
     {
         if ($arCashHead instanceof \ArCashHead) {
             return $this
@@ -1970,8 +2230,10 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ArPaymentPendingTableMap::COL_ARCUCUSTID, $arCashHead->toKeyValue('PrimaryKey', 'Arcucustid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByArCashHead() only accepts arguments of type \ArCashHead or Collection');
         }
@@ -1980,12 +2242,12 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ArCashHead relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinArCashHead($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinArCashHead(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ArCashHead');
@@ -2014,9 +2276,9 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ArCashHeadQuery A secondary query class using the current class as primary query
      */
@@ -2028,11 +2290,107 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
     }
 
     /**
+     * Use the ArCashHead relation ArCashHead object
+     *
+     * @param callable(\ArCashHeadQuery):\ArCashHeadQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withArCashHeadQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useArCashHeadQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ArCashHead table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ArCashHeadQuery The inner query object of the EXISTS statement
+     */
+    public function useArCashHeadExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ArCashHeadQuery */
+        $q = $this->useExistsQuery('ArCashHead', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ArCashHead table for a NOT EXISTS query.
+     *
+     * @see useArCashHeadExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ArCashHeadQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useArCashHeadNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ArCashHeadQuery */
+        $q = $this->useExistsQuery('ArCashHead', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ArCashHead table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ArCashHeadQuery The inner query object of the IN statement
+     */
+    public function useInArCashHeadQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ArCashHeadQuery */
+        $q = $this->useInQuery('ArCashHead', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ArCashHead table for a NOT IN query.
+     *
+     * @see useArCashHeadInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ArCashHeadQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInArCashHeadQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ArCashHeadQuery */
+        $q = $this->useInQuery('ArCashHead', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildArPaymentPending $arPaymentPending Object to remove from the list of results
+     * @param ChildArPaymentPending $arPaymentPending Object to remove from the list of results
      *
-     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($arPaymentPending = null)
     {
@@ -2052,7 +2410,7 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArPaymentPendingTableMap::DATABASE_NAME);
@@ -2077,12 +2435,12 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArPaymentPendingTableMap::DATABASE_NAME);
@@ -2107,4 +2465,4 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
         });
     }
 
-} // ArPaymentPendingQuery
+}

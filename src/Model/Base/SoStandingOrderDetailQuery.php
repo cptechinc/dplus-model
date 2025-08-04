@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'so_stand_det' table.
- *
- *
+ * Base class that represents a query for the `so_stand_det` table.
  *
  * @method     ChildSoStandingOrderDetailQuery orderByArcucustid($order = Criteria::ASC) Order by the ArcuCustId column
  * @method     ChildSoStandingOrderDetailQuery orderByArstshipid($order = Criteria::ASC) Order by the ArstShipId column
@@ -100,31 +99,31 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \CustomerQuery|\CustomerShiptoQuery|\ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildSoStandingOrderDetail findOne(ConnectionInterface $con = null) Return the first ChildSoStandingOrderDetail matching the query
- * @method     ChildSoStandingOrderDetail findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSoStandingOrderDetail matching the query, or a new ChildSoStandingOrderDetail object populated from the query conditions when no match is found
+ * @method     ChildSoStandingOrderDetail|null findOne(?ConnectionInterface $con = null) Return the first ChildSoStandingOrderDetail matching the query
+ * @method     ChildSoStandingOrderDetail findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildSoStandingOrderDetail matching the query, or a new ChildSoStandingOrderDetail object populated from the query conditions when no match is found
  *
- * @method     ChildSoStandingOrderDetail findOneByArcucustid(string $ArcuCustId) Return the first ChildSoStandingOrderDetail filtered by the ArcuCustId column
- * @method     ChildSoStandingOrderDetail findOneByArstshipid(string $ArstShipId) Return the first ChildSoStandingOrderDetail filtered by the ArstShipId column
- * @method     ChildSoStandingOrderDetail findOneByInititemnbr(string $InitItemNbr) Return the first ChildSoStandingOrderDetail filtered by the InitItemNbr column
- * @method     ChildSoStandingOrderDetail findOneByOetdseq(int $OetdSeq) Return the first ChildSoStandingOrderDetail filtered by the OetdSeq column
- * @method     ChildSoStandingOrderDetail findOneByOetddesc(string $OetdDesc) Return the first ChildSoStandingOrderDetail filtered by the OetdDesc column
- * @method     ChildSoStandingOrderDetail findOneByOetddesc2(string $OetdDesc2) Return the first ChildSoStandingOrderDetail filtered by the OetdDesc2 column
- * @method     ChildSoStandingOrderDetail findOneByOetdstat(string $OetdStat) Return the first ChildSoStandingOrderDetail filtered by the OetdStat column
- * @method     ChildSoStandingOrderDetail findOneByOetdholdcnt(int $OetdHoldCnt) Return the first ChildSoStandingOrderDetail filtered by the OetdHoldCnt column
- * @method     ChildSoStandingOrderDetail findOneByOetdpric(string $OetdPric) Return the first ChildSoStandingOrderDetail filtered by the OetdPric column
- * @method     ChildSoStandingOrderDetail findOneByOetdqty(string $OetdQty) Return the first ChildSoStandingOrderDetail filtered by the OetdQty column
- * @method     ChildSoStandingOrderDetail findOneByIntbuomsale(string $IntbUomSale) Return the first ChildSoStandingOrderDetail filtered by the IntbUomSale column
- * @method     ChildSoStandingOrderDetail findOneByOetdcycl(string $OetdCycl) Return the first ChildSoStandingOrderDetail filtered by the OetdCycl column
- * @method     ChildSoStandingOrderDetail findOneByOetdstrtdate(string $OetdStrtDate) Return the first ChildSoStandingOrderDetail filtered by the OetdStrtDate column
- * @method     ChildSoStandingOrderDetail findOneByOetdenddate(string $OetdEndDate) Return the first ChildSoStandingOrderDetail filtered by the OetdEndDate column
- * @method     ChildSoStandingOrderDetail findOneByOetdlastdate(string $OetdLastDate) Return the first ChildSoStandingOrderDetail filtered by the OetdLastDate column
- * @method     ChildSoStandingOrderDetail findOneByOetdleadcnt(int $OetdLeadCnt) Return the first ChildSoStandingOrderDetail filtered by the OetdLeadCnt column
- * @method     ChildSoStandingOrderDetail findOneByDateupdtd(string $DateUpdtd) Return the first ChildSoStandingOrderDetail filtered by the DateUpdtd column
- * @method     ChildSoStandingOrderDetail findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSoStandingOrderDetail filtered by the TimeUpdtd column
- * @method     ChildSoStandingOrderDetail findOneByDummy(string $dummy) Return the first ChildSoStandingOrderDetail filtered by the dummy column *
-
- * @method     ChildSoStandingOrderDetail requirePk($key, ConnectionInterface $con = null) Return the ChildSoStandingOrderDetail by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSoStandingOrderDetail requireOne(ConnectionInterface $con = null) Return the first ChildSoStandingOrderDetail matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSoStandingOrderDetail|null findOneByArcucustid(string $ArcuCustId) Return the first ChildSoStandingOrderDetail filtered by the ArcuCustId column
+ * @method     ChildSoStandingOrderDetail|null findOneByArstshipid(string $ArstShipId) Return the first ChildSoStandingOrderDetail filtered by the ArstShipId column
+ * @method     ChildSoStandingOrderDetail|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildSoStandingOrderDetail filtered by the InitItemNbr column
+ * @method     ChildSoStandingOrderDetail|null findOneByOetdseq(int $OetdSeq) Return the first ChildSoStandingOrderDetail filtered by the OetdSeq column
+ * @method     ChildSoStandingOrderDetail|null findOneByOetddesc(string $OetdDesc) Return the first ChildSoStandingOrderDetail filtered by the OetdDesc column
+ * @method     ChildSoStandingOrderDetail|null findOneByOetddesc2(string $OetdDesc2) Return the first ChildSoStandingOrderDetail filtered by the OetdDesc2 column
+ * @method     ChildSoStandingOrderDetail|null findOneByOetdstat(string $OetdStat) Return the first ChildSoStandingOrderDetail filtered by the OetdStat column
+ * @method     ChildSoStandingOrderDetail|null findOneByOetdholdcnt(int $OetdHoldCnt) Return the first ChildSoStandingOrderDetail filtered by the OetdHoldCnt column
+ * @method     ChildSoStandingOrderDetail|null findOneByOetdpric(string $OetdPric) Return the first ChildSoStandingOrderDetail filtered by the OetdPric column
+ * @method     ChildSoStandingOrderDetail|null findOneByOetdqty(string $OetdQty) Return the first ChildSoStandingOrderDetail filtered by the OetdQty column
+ * @method     ChildSoStandingOrderDetail|null findOneByIntbuomsale(string $IntbUomSale) Return the first ChildSoStandingOrderDetail filtered by the IntbUomSale column
+ * @method     ChildSoStandingOrderDetail|null findOneByOetdcycl(string $OetdCycl) Return the first ChildSoStandingOrderDetail filtered by the OetdCycl column
+ * @method     ChildSoStandingOrderDetail|null findOneByOetdstrtdate(string $OetdStrtDate) Return the first ChildSoStandingOrderDetail filtered by the OetdStrtDate column
+ * @method     ChildSoStandingOrderDetail|null findOneByOetdenddate(string $OetdEndDate) Return the first ChildSoStandingOrderDetail filtered by the OetdEndDate column
+ * @method     ChildSoStandingOrderDetail|null findOneByOetdlastdate(string $OetdLastDate) Return the first ChildSoStandingOrderDetail filtered by the OetdLastDate column
+ * @method     ChildSoStandingOrderDetail|null findOneByOetdleadcnt(int $OetdLeadCnt) Return the first ChildSoStandingOrderDetail filtered by the OetdLeadCnt column
+ * @method     ChildSoStandingOrderDetail|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildSoStandingOrderDetail filtered by the DateUpdtd column
+ * @method     ChildSoStandingOrderDetail|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSoStandingOrderDetail filtered by the TimeUpdtd column
+ * @method     ChildSoStandingOrderDetail|null findOneByDummy(string $dummy) Return the first ChildSoStandingOrderDetail filtered by the dummy column
+ *
+ * @method     ChildSoStandingOrderDetail requirePk($key, ?ConnectionInterface $con = null) Return the ChildSoStandingOrderDetail by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSoStandingOrderDetail requireOne(?ConnectionInterface $con = null) Return the first ChildSoStandingOrderDetail matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildSoStandingOrderDetail requireOneByArcucustid(string $ArcuCustId) Return the first ChildSoStandingOrderDetail filtered by the ArcuCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoStandingOrderDetail requireOneByArstshipid(string $ArstShipId) Return the first ChildSoStandingOrderDetail filtered by the ArstShipId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -146,28 +145,50 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSoStandingOrderDetail requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSoStandingOrderDetail filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoStandingOrderDetail requireOneByDummy(string $dummy) Return the first ChildSoStandingOrderDetail filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildSoStandingOrderDetail objects based on current ModelCriteria
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByArcucustid(string $ArcuCustId) Return ChildSoStandingOrderDetail objects filtered by the ArcuCustId column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByArstshipid(string $ArstShipId) Return ChildSoStandingOrderDetail objects filtered by the ArstShipId column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildSoStandingOrderDetail objects filtered by the InitItemNbr column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByOetdseq(int $OetdSeq) Return ChildSoStandingOrderDetail objects filtered by the OetdSeq column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByOetddesc(string $OetdDesc) Return ChildSoStandingOrderDetail objects filtered by the OetdDesc column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByOetddesc2(string $OetdDesc2) Return ChildSoStandingOrderDetail objects filtered by the OetdDesc2 column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByOetdstat(string $OetdStat) Return ChildSoStandingOrderDetail objects filtered by the OetdStat column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByOetdholdcnt(int $OetdHoldCnt) Return ChildSoStandingOrderDetail objects filtered by the OetdHoldCnt column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByOetdpric(string $OetdPric) Return ChildSoStandingOrderDetail objects filtered by the OetdPric column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByOetdqty(string $OetdQty) Return ChildSoStandingOrderDetail objects filtered by the OetdQty column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByIntbuomsale(string $IntbUomSale) Return ChildSoStandingOrderDetail objects filtered by the IntbUomSale column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByOetdcycl(string $OetdCycl) Return ChildSoStandingOrderDetail objects filtered by the OetdCycl column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByOetdstrtdate(string $OetdStrtDate) Return ChildSoStandingOrderDetail objects filtered by the OetdStrtDate column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByOetdenddate(string $OetdEndDate) Return ChildSoStandingOrderDetail objects filtered by the OetdEndDate column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByOetdlastdate(string $OetdLastDate) Return ChildSoStandingOrderDetail objects filtered by the OetdLastDate column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByOetdleadcnt(int $OetdLeadCnt) Return ChildSoStandingOrderDetail objects filtered by the OetdLeadCnt column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildSoStandingOrderDetail objects filtered by the DateUpdtd column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildSoStandingOrderDetail objects filtered by the TimeUpdtd column
- * @method     ChildSoStandingOrderDetail[]|ObjectCollection findByDummy(string $dummy) Return ChildSoStandingOrderDetail objects filtered by the dummy column
- * @method     ChildSoStandingOrderDetail[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildSoStandingOrderDetail[]|Collection find(?ConnectionInterface $con = null) Return ChildSoStandingOrderDetail objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> find(?ConnectionInterface $con = null) Return ChildSoStandingOrderDetail objects based on current ModelCriteria
  *
+ * @method     ChildSoStandingOrderDetail[]|Collection findByArcucustid(string|array<string> $ArcuCustId) Return ChildSoStandingOrderDetail objects filtered by the ArcuCustId column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByArcucustid(string|array<string> $ArcuCustId) Return ChildSoStandingOrderDetail objects filtered by the ArcuCustId column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByArstshipid(string|array<string> $ArstShipId) Return ChildSoStandingOrderDetail objects filtered by the ArstShipId column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByArstshipid(string|array<string> $ArstShipId) Return ChildSoStandingOrderDetail objects filtered by the ArstShipId column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildSoStandingOrderDetail objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildSoStandingOrderDetail objects filtered by the InitItemNbr column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByOetdseq(int|array<int> $OetdSeq) Return ChildSoStandingOrderDetail objects filtered by the OetdSeq column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByOetdseq(int|array<int> $OetdSeq) Return ChildSoStandingOrderDetail objects filtered by the OetdSeq column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByOetddesc(string|array<string> $OetdDesc) Return ChildSoStandingOrderDetail objects filtered by the OetdDesc column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByOetddesc(string|array<string> $OetdDesc) Return ChildSoStandingOrderDetail objects filtered by the OetdDesc column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByOetddesc2(string|array<string> $OetdDesc2) Return ChildSoStandingOrderDetail objects filtered by the OetdDesc2 column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByOetddesc2(string|array<string> $OetdDesc2) Return ChildSoStandingOrderDetail objects filtered by the OetdDesc2 column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByOetdstat(string|array<string> $OetdStat) Return ChildSoStandingOrderDetail objects filtered by the OetdStat column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByOetdstat(string|array<string> $OetdStat) Return ChildSoStandingOrderDetail objects filtered by the OetdStat column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByOetdholdcnt(int|array<int> $OetdHoldCnt) Return ChildSoStandingOrderDetail objects filtered by the OetdHoldCnt column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByOetdholdcnt(int|array<int> $OetdHoldCnt) Return ChildSoStandingOrderDetail objects filtered by the OetdHoldCnt column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByOetdpric(string|array<string> $OetdPric) Return ChildSoStandingOrderDetail objects filtered by the OetdPric column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByOetdpric(string|array<string> $OetdPric) Return ChildSoStandingOrderDetail objects filtered by the OetdPric column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByOetdqty(string|array<string> $OetdQty) Return ChildSoStandingOrderDetail objects filtered by the OetdQty column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByOetdqty(string|array<string> $OetdQty) Return ChildSoStandingOrderDetail objects filtered by the OetdQty column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByIntbuomsale(string|array<string> $IntbUomSale) Return ChildSoStandingOrderDetail objects filtered by the IntbUomSale column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByIntbuomsale(string|array<string> $IntbUomSale) Return ChildSoStandingOrderDetail objects filtered by the IntbUomSale column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByOetdcycl(string|array<string> $OetdCycl) Return ChildSoStandingOrderDetail objects filtered by the OetdCycl column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByOetdcycl(string|array<string> $OetdCycl) Return ChildSoStandingOrderDetail objects filtered by the OetdCycl column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByOetdstrtdate(string|array<string> $OetdStrtDate) Return ChildSoStandingOrderDetail objects filtered by the OetdStrtDate column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByOetdstrtdate(string|array<string> $OetdStrtDate) Return ChildSoStandingOrderDetail objects filtered by the OetdStrtDate column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByOetdenddate(string|array<string> $OetdEndDate) Return ChildSoStandingOrderDetail objects filtered by the OetdEndDate column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByOetdenddate(string|array<string> $OetdEndDate) Return ChildSoStandingOrderDetail objects filtered by the OetdEndDate column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByOetdlastdate(string|array<string> $OetdLastDate) Return ChildSoStandingOrderDetail objects filtered by the OetdLastDate column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByOetdlastdate(string|array<string> $OetdLastDate) Return ChildSoStandingOrderDetail objects filtered by the OetdLastDate column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByOetdleadcnt(int|array<int> $OetdLeadCnt) Return ChildSoStandingOrderDetail objects filtered by the OetdLeadCnt column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByOetdleadcnt(int|array<int> $OetdLeadCnt) Return ChildSoStandingOrderDetail objects filtered by the OetdLeadCnt column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSoStandingOrderDetail objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildSoStandingOrderDetail objects filtered by the DateUpdtd column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSoStandingOrderDetail objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildSoStandingOrderDetail objects filtered by the TimeUpdtd column
+ * @method     ChildSoStandingOrderDetail[]|Collection findByDummy(string|array<string> $dummy) Return ChildSoStandingOrderDetail objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildSoStandingOrderDetail> findByDummy(string|array<string> $dummy) Return ChildSoStandingOrderDetail objects filtered by the dummy column
+ *
+ * @method     ChildSoStandingOrderDetail[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildSoStandingOrderDetail> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class SoStandingOrderDetailQuery extends ModelCriteria
 {
@@ -176,9 +197,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\SoStandingOrderDetailQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\SoStandingOrderDetail', $modelAlias = null)
     {
@@ -188,12 +209,12 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
     /**
      * Returns a new ChildSoStandingOrderDetailQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildSoStandingOrderDetailQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildSoStandingOrderDetailQuery) {
             return $criteria;
@@ -223,7 +244,7 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      *
      * @return ChildSoStandingOrderDetail|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -255,8 +276,8 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -291,8 +312,8 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildSoStandingOrderDetail|array|mixed the result, formatted by the current formatter
      */
@@ -312,12 +333,12 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -334,9 +355,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -351,14 +372,16 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(SoStandingOrderDetailTableMap::COL_ARCUCUSTID, $key[0], Criteria::EQUAL);
@@ -381,14 +404,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByArcucustid('fooValue');   // WHERE ArcuCustId = 'fooValue'
      * $query->filterByArcucustid('%fooValue%', Criteria::LIKE); // WHERE ArcuCustId LIKE '%fooValue%'
+     * $query->filterByArcucustid(['foo', 'bar']); // WHERE ArcuCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcucustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcucustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcucustid($arcucustid = null, $comparison = null)
+    public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcucustid)) {
@@ -396,7 +420,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -406,14 +432,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByArstshipid('fooValue');   // WHERE ArstShipId = 'fooValue'
      * $query->filterByArstshipid('%fooValue%', Criteria::LIKE); // WHERE ArstShipId LIKE '%fooValue%'
+     * $query->filterByArstshipid(['foo', 'bar']); // WHERE ArstShipId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arstshipid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arstshipid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArstshipid($arstshipid = null, $comparison = null)
+    public function filterByArstshipid($arstshipid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arstshipid)) {
@@ -421,7 +448,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -431,14 +460,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -446,7 +476,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -459,15 +491,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * $query->filterByOetdseq(array('min' => 12)); // WHERE OetdSeq > 12
      * </code>
      *
-     * @param     mixed $oetdseq The value to use as filter.
+     * @param mixed $oetdseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetdseq($oetdseq = null, $comparison = null)
+    public function filterByOetdseq($oetdseq = null, ?string $comparison = null)
     {
         if (is_array($oetdseq)) {
             $useMinMax = false;
@@ -487,7 +519,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDSEQ, $oetdseq, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDSEQ, $oetdseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -497,14 +531,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByOetddesc('fooValue');   // WHERE OetdDesc = 'fooValue'
      * $query->filterByOetddesc('%fooValue%', Criteria::LIKE); // WHERE OetdDesc LIKE '%fooValue%'
+     * $query->filterByOetddesc(['foo', 'bar']); // WHERE OetdDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetddesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetddesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetddesc($oetddesc = null, $comparison = null)
+    public function filterByOetddesc($oetddesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetddesc)) {
@@ -512,7 +547,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDDESC, $oetddesc, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDDESC, $oetddesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -522,14 +559,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByOetddesc2('fooValue');   // WHERE OetdDesc2 = 'fooValue'
      * $query->filterByOetddesc2('%fooValue%', Criteria::LIKE); // WHERE OetdDesc2 LIKE '%fooValue%'
+     * $query->filterByOetddesc2(['foo', 'bar']); // WHERE OetdDesc2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetddesc2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetddesc2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetddesc2($oetddesc2 = null, $comparison = null)
+    public function filterByOetddesc2($oetddesc2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetddesc2)) {
@@ -537,7 +575,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDDESC2, $oetddesc2, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDDESC2, $oetddesc2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -547,14 +587,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByOetdstat('fooValue');   // WHERE OetdStat = 'fooValue'
      * $query->filterByOetdstat('%fooValue%', Criteria::LIKE); // WHERE OetdStat LIKE '%fooValue%'
+     * $query->filterByOetdstat(['foo', 'bar']); // WHERE OetdStat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetdstat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetdstat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetdstat($oetdstat = null, $comparison = null)
+    public function filterByOetdstat($oetdstat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetdstat)) {
@@ -562,7 +603,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDSTAT, $oetdstat, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDSTAT, $oetdstat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -575,15 +618,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * $query->filterByOetdholdcnt(array('min' => 12)); // WHERE OetdHoldCnt > 12
      * </code>
      *
-     * @param     mixed $oetdholdcnt The value to use as filter.
+     * @param mixed $oetdholdcnt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetdholdcnt($oetdholdcnt = null, $comparison = null)
+    public function filterByOetdholdcnt($oetdholdcnt = null, ?string $comparison = null)
     {
         if (is_array($oetdholdcnt)) {
             $useMinMax = false;
@@ -603,7 +646,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDHOLDCNT, $oetdholdcnt, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDHOLDCNT, $oetdholdcnt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -616,15 +661,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * $query->filterByOetdpric(array('min' => 12)); // WHERE OetdPric > 12
      * </code>
      *
-     * @param     mixed $oetdpric The value to use as filter.
+     * @param mixed $oetdpric The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetdpric($oetdpric = null, $comparison = null)
+    public function filterByOetdpric($oetdpric = null, ?string $comparison = null)
     {
         if (is_array($oetdpric)) {
             $useMinMax = false;
@@ -644,7 +689,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDPRIC, $oetdpric, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDPRIC, $oetdpric, $comparison);
+
+        return $this;
     }
 
     /**
@@ -657,15 +704,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * $query->filterByOetdqty(array('min' => 12)); // WHERE OetdQty > 12
      * </code>
      *
-     * @param     mixed $oetdqty The value to use as filter.
+     * @param mixed $oetdqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetdqty($oetdqty = null, $comparison = null)
+    public function filterByOetdqty($oetdqty = null, ?string $comparison = null)
     {
         if (is_array($oetdqty)) {
             $useMinMax = false;
@@ -685,7 +732,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDQTY, $oetdqty, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDQTY, $oetdqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -695,14 +744,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbuomsale('fooValue');   // WHERE IntbUomSale = 'fooValue'
      * $query->filterByIntbuomsale('%fooValue%', Criteria::LIKE); // WHERE IntbUomSale LIKE '%fooValue%'
+     * $query->filterByIntbuomsale(['foo', 'bar']); // WHERE IntbUomSale IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbuomsale The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbuomsale The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbuomsale($intbuomsale = null, $comparison = null)
+    public function filterByIntbuomsale($intbuomsale = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbuomsale)) {
@@ -710,7 +760,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_INTBUOMSALE, $intbuomsale, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_INTBUOMSALE, $intbuomsale, $comparison);
+
+        return $this;
     }
 
     /**
@@ -720,14 +772,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByOetdcycl('fooValue');   // WHERE OetdCycl = 'fooValue'
      * $query->filterByOetdcycl('%fooValue%', Criteria::LIKE); // WHERE OetdCycl LIKE '%fooValue%'
+     * $query->filterByOetdcycl(['foo', 'bar']); // WHERE OetdCycl IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetdcycl The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetdcycl The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetdcycl($oetdcycl = null, $comparison = null)
+    public function filterByOetdcycl($oetdcycl = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetdcycl)) {
@@ -735,7 +788,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDCYCL, $oetdcycl, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDCYCL, $oetdcycl, $comparison);
+
+        return $this;
     }
 
     /**
@@ -745,14 +800,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByOetdstrtdate('fooValue');   // WHERE OetdStrtDate = 'fooValue'
      * $query->filterByOetdstrtdate('%fooValue%', Criteria::LIKE); // WHERE OetdStrtDate LIKE '%fooValue%'
+     * $query->filterByOetdstrtdate(['foo', 'bar']); // WHERE OetdStrtDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetdstrtdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetdstrtdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetdstrtdate($oetdstrtdate = null, $comparison = null)
+    public function filterByOetdstrtdate($oetdstrtdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetdstrtdate)) {
@@ -760,7 +816,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDSTRTDATE, $oetdstrtdate, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDSTRTDATE, $oetdstrtdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -770,14 +828,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByOetdenddate('fooValue');   // WHERE OetdEndDate = 'fooValue'
      * $query->filterByOetdenddate('%fooValue%', Criteria::LIKE); // WHERE OetdEndDate LIKE '%fooValue%'
+     * $query->filterByOetdenddate(['foo', 'bar']); // WHERE OetdEndDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetdenddate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetdenddate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetdenddate($oetdenddate = null, $comparison = null)
+    public function filterByOetdenddate($oetdenddate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetdenddate)) {
@@ -785,7 +844,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDENDDATE, $oetdenddate, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDENDDATE, $oetdenddate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -795,14 +856,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByOetdlastdate('fooValue');   // WHERE OetdLastDate = 'fooValue'
      * $query->filterByOetdlastdate('%fooValue%', Criteria::LIKE); // WHERE OetdLastDate LIKE '%fooValue%'
+     * $query->filterByOetdlastdate(['foo', 'bar']); // WHERE OetdLastDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $oetdlastdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $oetdlastdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetdlastdate($oetdlastdate = null, $comparison = null)
+    public function filterByOetdlastdate($oetdlastdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($oetdlastdate)) {
@@ -810,7 +872,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDLASTDATE, $oetdlastdate, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDLASTDATE, $oetdlastdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -823,15 +887,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * $query->filterByOetdleadcnt(array('min' => 12)); // WHERE OetdLeadCnt > 12
      * </code>
      *
-     * @param     mixed $oetdleadcnt The value to use as filter.
+     * @param mixed $oetdleadcnt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByOetdleadcnt($oetdleadcnt = null, $comparison = null)
+    public function filterByOetdleadcnt($oetdleadcnt = null, ?string $comparison = null)
     {
         if (is_array($oetdleadcnt)) {
             $useMinMax = false;
@@ -851,7 +915,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDLEADCNT, $oetdleadcnt, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_OETDLEADCNT, $oetdleadcnt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -861,14 +927,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -876,7 +943,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -886,14 +955,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -901,7 +971,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -911,14 +983,15 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -926,20 +999,22 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(SoStandingOrderDetailTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \Customer object
      *
      * @param \Customer|ObjectCollection $customer The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomer($customer, $comparison = null)
+    public function filterByCustomer($customer, ?string $comparison = null)
     {
         if ($customer instanceof \Customer) {
             return $this
@@ -949,8 +1024,10 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(SoStandingOrderDetailTableMap::COL_ARCUCUSTID, $customer->toKeyValue('PrimaryKey', 'Arcucustid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByCustomer() only accepts arguments of type \Customer or Collection');
         }
@@ -959,12 +1036,12 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Customer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCustomer(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Customer');
@@ -993,9 +1070,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CustomerQuery A secondary query class using the current class as primary query
      */
@@ -1007,16 +1084,112 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
     }
 
     /**
+     * Use the Customer relation Customer object
+     *
+     * @param callable(\CustomerQuery):\CustomerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCustomerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useCustomerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Customer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CustomerQuery The inner query object of the EXISTS statement
+     */
+    public function useCustomerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT EXISTS query.
+     *
+     * @see useCustomerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCustomerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CustomerQuery The inner query object of the IN statement
+     */
+    public function useInCustomerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT IN query.
+     *
+     * @see useCustomerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCustomerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \CustomerShipto object
      *
      * @param \CustomerShipto $customerShipto The related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomerShipto($customerShipto, $comparison = null)
+    public function filterByCustomerShipto($customerShipto, ?string $comparison = null)
     {
         if ($customerShipto instanceof \CustomerShipto) {
             return $this
@@ -1030,12 +1203,12 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the CustomerShipto relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCustomerShipto($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCustomerShipto(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('CustomerShipto');
@@ -1064,9 +1237,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CustomerShiptoQuery A secondary query class using the current class as primary query
      */
@@ -1078,16 +1251,112 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
     }
 
     /**
+     * Use the CustomerShipto relation CustomerShipto object
+     *
+     * @param callable(\CustomerShiptoQuery):\CustomerShiptoQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCustomerShiptoQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useCustomerShiptoQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to CustomerShipto table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CustomerShiptoQuery The inner query object of the EXISTS statement
+     */
+    public function useCustomerShiptoExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CustomerShiptoQuery */
+        $q = $this->useExistsQuery('CustomerShipto', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to CustomerShipto table for a NOT EXISTS query.
+     *
+     * @see useCustomerShiptoExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerShiptoQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCustomerShiptoNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerShiptoQuery */
+        $q = $this->useExistsQuery('CustomerShipto', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to CustomerShipto table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CustomerShiptoQuery The inner query object of the IN statement
+     */
+    public function useInCustomerShiptoQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CustomerShiptoQuery */
+        $q = $this->useInQuery('CustomerShipto', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to CustomerShipto table for a NOT IN query.
+     *
+     * @see useCustomerShiptoInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerShiptoQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCustomerShiptoQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerShiptoQuery */
+        $q = $this->useInQuery('CustomerShipto', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -1097,8 +1366,10 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(SoStandingOrderDetailTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -1107,12 +1378,12 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -1141,9 +1412,9 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -1155,11 +1426,107 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildSoStandingOrderDetail $soStandingOrderDetail Object to remove from the list of results
+     * @param ChildSoStandingOrderDetail $soStandingOrderDetail Object to remove from the list of results
      *
-     * @return $this|ChildSoStandingOrderDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($soStandingOrderDetail = null)
     {
@@ -1180,7 +1547,7 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoStandingOrderDetailTableMap::DATABASE_NAME);
@@ -1205,12 +1572,12 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoStandingOrderDetailTableMap::DATABASE_NAME);
@@ -1235,4 +1602,4 @@ abstract class SoStandingOrderDetailQuery extends ModelCriteria
         });
     }
 
-} // SoStandingOrderDetailQuery
+}

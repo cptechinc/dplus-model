@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'inv_inv_lot' table.
- *
- *
+ * Base class that represents a query for the `inv_inv_lot` table.
  *
  * @method     ChildInvWhseLotQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
  * @method     ChildInvWhseLotQuery orderByIntbwhse($order = Criteria::ASC) Order by the IntbWhse column
@@ -148,55 +147,55 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \ItemMasterItemQuery|\WarehouseQuery|\InvLotMasterQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildInvWhseLot findOne(ConnectionInterface $con = null) Return the first ChildInvWhseLot matching the query
- * @method     ChildInvWhseLot findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvWhseLot matching the query, or a new ChildInvWhseLot object populated from the query conditions when no match is found
+ * @method     ChildInvWhseLot|null findOne(?ConnectionInterface $con = null) Return the first ChildInvWhseLot matching the query
+ * @method     ChildInvWhseLot findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildInvWhseLot matching the query, or a new ChildInvWhseLot object populated from the query conditions when no match is found
  *
- * @method     ChildInvWhseLot findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvWhseLot filtered by the InitItemNbr column
- * @method     ChildInvWhseLot findOneByIntbwhse(string $IntbWhse) Return the first ChildInvWhseLot filtered by the IntbWhse column
- * @method     ChildInvWhseLot findOneByInltlotser(string $InltLotSer) Return the first ChildInvWhseLot filtered by the InltLotSer column
- * @method     ChildInvWhseLot findOneByInltbin(string $InltBin) Return the first ChildInvWhseLot filtered by the InltBin column
- * @method     ChildInvWhseLot findOneByInltdate(string $InltDate) Return the first ChildInvWhseLot filtered by the InltDate column
- * @method     ChildInvWhseLot findOneByInltdatewrit(string $InltDateWrit) Return the first ChildInvWhseLot filtered by the InltDateWrit column
- * @method     ChildInvWhseLot findOneByInltcost(string $InltCost) Return the first ChildInvWhseLot filtered by the InltCost column
- * @method     ChildInvWhseLot findOneByInltonhand(string $InltOnHand) Return the first ChildInvWhseLot filtered by the InltOnHand column
- * @method     ChildInvWhseLot findOneByInltresv(string $InltResv) Return the first ChildInvWhseLot filtered by the InltResv column
- * @method     ChildInvWhseLot findOneByInltship(string $InltShip) Return the first ChildInvWhseLot filtered by the InltShip column
- * @method     ChildInvWhseLot findOneByInltallo(string $InltAllo) Return the first ChildInvWhseLot filtered by the InltAllo column
- * @method     ChildInvWhseLot findOneByInltfaballo(string $InltFabAllo) Return the first ChildInvWhseLot filtered by the InltFabAllo column
- * @method     ChildInvWhseLot findOneByInltintran(string $InltInTran) Return the first ChildInvWhseLot filtered by the InltInTran column
- * @method     ChildInvWhseLot findOneByInltinship(string $InltInShip) Return the first ChildInvWhseLot filtered by the InltInShip column
- * @method     ChildInvWhseLot findOneByInltlotref(string $InltLotRef) Return the first ChildInvWhseLot filtered by the InltLotRef column
- * @method     ChildInvWhseLot findOneByInltbatch(string $InltBatch) Return the first ChildInvWhseLot filtered by the InltBatch column
- * @method     ChildInvWhseLot findOneByInltlandcost(string $InltLandCost) Return the first ChildInvWhseLot filtered by the InltLandCost column
- * @method     ChildInvWhseLot findOneByInltmpfunitcost(string $InltMpfUnitCost) Return the first ChildInvWhseLot filtered by the InltMpfUnitCost column
- * @method     ChildInvWhseLot findOneByInlthmfunitcost(string $InltHmfUnitCost) Return the first ChildInvWhseLot filtered by the InltHmfUnitCost column
- * @method     ChildInvWhseLot findOneByInltdsetunitcost(string $InltDsetUnitCost) Return the first ChildInvWhseLot filtered by the InltDsetUnitCost column
- * @method     ChildInvWhseLot findOneByInltnumericfiller(string $InltNumericFiller) Return the first ChildInvWhseLot filtered by the InltNumericFiller column
- * @method     ChildInvWhseLot findOneByInlttariffcost(string $InltTariffCost) Return the first ChildInvWhseLot filtered by the InltTariffCost column
- * @method     ChildInvWhseLot findOneByInltshopcost(string $InltShopCost) Return the first ChildInvWhseLot filtered by the InltShopCost column
- * @method     ChildInvWhseLot findOneByInltisscodfsqty(string $InltIsscoDfsQty) Return the first ChildInvWhseLot filtered by the InltIsscoDfsQty column
- * @method     ChildInvWhseLot findOneByInltheadmark(string $InltHeadMark) Return the first ChildInvWhseLot filtered by the InltHeadMark column
- * @method     ChildInvWhseLot findOneByInltctry(string $InltCtry) Return the first ChildInvWhseLot filtered by the InltCtry column
- * @method     ChildInvWhseLot findOneByInltrvalorigcost(string $InltRvalOrigCost) Return the first ChildInvWhseLot filtered by the InltRvalOrigCost column
- * @method     ChildInvWhseLot findOneByInltrvalpct(string $InltRvalPct) Return the first ChildInvWhseLot filtered by the InltRvalPct column
- * @method     ChildInvWhseLot findOneByInltunitwght(string $InltUnitWght) Return the first ChildInvWhseLot filtered by the InltUnitWght column
- * @method     ChildInvWhseLot findOneByInltdestwhse(string $InltDestWhse) Return the first ChildInvWhseLot filtered by the InltDestWhse column
- * @method     ChildInvWhseLot findOneByInltcntrqty(string $InltCntrQty) Return the first ChildInvWhseLot filtered by the InltCntrQty column
- * @method     ChildInvWhseLot findOneByInltqtyperroll(string $InltQtyPerRoll) Return the first ChildInvWhseLot filtered by the InltQtyPerRoll column
- * @method     ChildInvWhseLot findOneByInlttarewght(string $InltTareWght) Return the first ChildInvWhseLot filtered by the InltTareWght column
- * @method     ChildInvWhseLot findOneByInltqcreasoncd(string $InltQcReasonCd) Return the first ChildInvWhseLot filtered by the InltQcReasonCd column
- * @method     ChildInvWhseLot findOneByInltcert(string $InltCert) Return the first ChildInvWhseLot filtered by the InltCert column
- * @method     ChildInvWhseLot findOneByInltcuredate(string $InltCureDate) Return the first ChildInvWhseLot filtered by the InltCureDate column
- * @method     ChildInvWhseLot findOneByInltexpiredatecd(string $InltExpireDateCd) Return the first ChildInvWhseLot filtered by the InltExpireDateCd column
- * @method     ChildInvWhseLot findOneByInltexpiredate(string $InltExpireDate) Return the first ChildInvWhseLot filtered by the InltExpireDate column
- * @method     ChildInvWhseLot findOneByInltorigbin(string $InltOrigBin) Return the first ChildInvWhseLot filtered by the InltOrigBin column
- * @method     ChildInvWhseLot findOneByInltshopitem(string $InltShopItem) Return the first ChildInvWhseLot filtered by the InltShopItem column
- * @method     ChildInvWhseLot findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvWhseLot filtered by the DateUpdtd column
- * @method     ChildInvWhseLot findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvWhseLot filtered by the TimeUpdtd column
- * @method     ChildInvWhseLot findOneByDummy(string $dummy) Return the first ChildInvWhseLot filtered by the dummy column *
-
- * @method     ChildInvWhseLot requirePk($key, ConnectionInterface $con = null) Return the ChildInvWhseLot by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvWhseLot requireOne(ConnectionInterface $con = null) Return the first ChildInvWhseLot matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvWhseLot filtered by the InitItemNbr column
+ * @method     ChildInvWhseLot|null findOneByIntbwhse(string $IntbWhse) Return the first ChildInvWhseLot filtered by the IntbWhse column
+ * @method     ChildInvWhseLot|null findOneByInltlotser(string $InltLotSer) Return the first ChildInvWhseLot filtered by the InltLotSer column
+ * @method     ChildInvWhseLot|null findOneByInltbin(string $InltBin) Return the first ChildInvWhseLot filtered by the InltBin column
+ * @method     ChildInvWhseLot|null findOneByInltdate(string $InltDate) Return the first ChildInvWhseLot filtered by the InltDate column
+ * @method     ChildInvWhseLot|null findOneByInltdatewrit(string $InltDateWrit) Return the first ChildInvWhseLot filtered by the InltDateWrit column
+ * @method     ChildInvWhseLot|null findOneByInltcost(string $InltCost) Return the first ChildInvWhseLot filtered by the InltCost column
+ * @method     ChildInvWhseLot|null findOneByInltonhand(string $InltOnHand) Return the first ChildInvWhseLot filtered by the InltOnHand column
+ * @method     ChildInvWhseLot|null findOneByInltresv(string $InltResv) Return the first ChildInvWhseLot filtered by the InltResv column
+ * @method     ChildInvWhseLot|null findOneByInltship(string $InltShip) Return the first ChildInvWhseLot filtered by the InltShip column
+ * @method     ChildInvWhseLot|null findOneByInltallo(string $InltAllo) Return the first ChildInvWhseLot filtered by the InltAllo column
+ * @method     ChildInvWhseLot|null findOneByInltfaballo(string $InltFabAllo) Return the first ChildInvWhseLot filtered by the InltFabAllo column
+ * @method     ChildInvWhseLot|null findOneByInltintran(string $InltInTran) Return the first ChildInvWhseLot filtered by the InltInTran column
+ * @method     ChildInvWhseLot|null findOneByInltinship(string $InltInShip) Return the first ChildInvWhseLot filtered by the InltInShip column
+ * @method     ChildInvWhseLot|null findOneByInltlotref(string $InltLotRef) Return the first ChildInvWhseLot filtered by the InltLotRef column
+ * @method     ChildInvWhseLot|null findOneByInltbatch(string $InltBatch) Return the first ChildInvWhseLot filtered by the InltBatch column
+ * @method     ChildInvWhseLot|null findOneByInltlandcost(string $InltLandCost) Return the first ChildInvWhseLot filtered by the InltLandCost column
+ * @method     ChildInvWhseLot|null findOneByInltmpfunitcost(string $InltMpfUnitCost) Return the first ChildInvWhseLot filtered by the InltMpfUnitCost column
+ * @method     ChildInvWhseLot|null findOneByInlthmfunitcost(string $InltHmfUnitCost) Return the first ChildInvWhseLot filtered by the InltHmfUnitCost column
+ * @method     ChildInvWhseLot|null findOneByInltdsetunitcost(string $InltDsetUnitCost) Return the first ChildInvWhseLot filtered by the InltDsetUnitCost column
+ * @method     ChildInvWhseLot|null findOneByInltnumericfiller(string $InltNumericFiller) Return the first ChildInvWhseLot filtered by the InltNumericFiller column
+ * @method     ChildInvWhseLot|null findOneByInlttariffcost(string $InltTariffCost) Return the first ChildInvWhseLot filtered by the InltTariffCost column
+ * @method     ChildInvWhseLot|null findOneByInltshopcost(string $InltShopCost) Return the first ChildInvWhseLot filtered by the InltShopCost column
+ * @method     ChildInvWhseLot|null findOneByInltisscodfsqty(string $InltIsscoDfsQty) Return the first ChildInvWhseLot filtered by the InltIsscoDfsQty column
+ * @method     ChildInvWhseLot|null findOneByInltheadmark(string $InltHeadMark) Return the first ChildInvWhseLot filtered by the InltHeadMark column
+ * @method     ChildInvWhseLot|null findOneByInltctry(string $InltCtry) Return the first ChildInvWhseLot filtered by the InltCtry column
+ * @method     ChildInvWhseLot|null findOneByInltrvalorigcost(string $InltRvalOrigCost) Return the first ChildInvWhseLot filtered by the InltRvalOrigCost column
+ * @method     ChildInvWhseLot|null findOneByInltrvalpct(string $InltRvalPct) Return the first ChildInvWhseLot filtered by the InltRvalPct column
+ * @method     ChildInvWhseLot|null findOneByInltunitwght(string $InltUnitWght) Return the first ChildInvWhseLot filtered by the InltUnitWght column
+ * @method     ChildInvWhseLot|null findOneByInltdestwhse(string $InltDestWhse) Return the first ChildInvWhseLot filtered by the InltDestWhse column
+ * @method     ChildInvWhseLot|null findOneByInltcntrqty(string $InltCntrQty) Return the first ChildInvWhseLot filtered by the InltCntrQty column
+ * @method     ChildInvWhseLot|null findOneByInltqtyperroll(string $InltQtyPerRoll) Return the first ChildInvWhseLot filtered by the InltQtyPerRoll column
+ * @method     ChildInvWhseLot|null findOneByInlttarewght(string $InltTareWght) Return the first ChildInvWhseLot filtered by the InltTareWght column
+ * @method     ChildInvWhseLot|null findOneByInltqcreasoncd(string $InltQcReasonCd) Return the first ChildInvWhseLot filtered by the InltQcReasonCd column
+ * @method     ChildInvWhseLot|null findOneByInltcert(string $InltCert) Return the first ChildInvWhseLot filtered by the InltCert column
+ * @method     ChildInvWhseLot|null findOneByInltcuredate(string $InltCureDate) Return the first ChildInvWhseLot filtered by the InltCureDate column
+ * @method     ChildInvWhseLot|null findOneByInltexpiredatecd(string $InltExpireDateCd) Return the first ChildInvWhseLot filtered by the InltExpireDateCd column
+ * @method     ChildInvWhseLot|null findOneByInltexpiredate(string $InltExpireDate) Return the first ChildInvWhseLot filtered by the InltExpireDate column
+ * @method     ChildInvWhseLot|null findOneByInltorigbin(string $InltOrigBin) Return the first ChildInvWhseLot filtered by the InltOrigBin column
+ * @method     ChildInvWhseLot|null findOneByInltshopitem(string $InltShopItem) Return the first ChildInvWhseLot filtered by the InltShopItem column
+ * @method     ChildInvWhseLot|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvWhseLot filtered by the DateUpdtd column
+ * @method     ChildInvWhseLot|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvWhseLot filtered by the TimeUpdtd column
+ * @method     ChildInvWhseLot|null findOneByDummy(string $dummy) Return the first ChildInvWhseLot filtered by the dummy column
+ *
+ * @method     ChildInvWhseLot requirePk($key, ?ConnectionInterface $con = null) Return the ChildInvWhseLot by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOne(?ConnectionInterface $con = null) Return the first ChildInvWhseLot matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildInvWhseLot requireOneByInititemnbr(string $InitItemNbr) Return the first ChildInvWhseLot filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvWhseLot requireOneByIntbwhse(string $IntbWhse) Return the first ChildInvWhseLot filtered by the IntbWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -242,52 +241,98 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvWhseLot requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvWhseLot filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvWhseLot requireOneByDummy(string $dummy) Return the first ChildInvWhseLot filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInvWhseLot[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvWhseLot objects based on current ModelCriteria
- * @method     ChildInvWhseLot[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildInvWhseLot objects filtered by the InitItemNbr column
- * @method     ChildInvWhseLot[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildInvWhseLot objects filtered by the IntbWhse column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltlotser(string $InltLotSer) Return ChildInvWhseLot objects filtered by the InltLotSer column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltbin(string $InltBin) Return ChildInvWhseLot objects filtered by the InltBin column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltdate(string $InltDate) Return ChildInvWhseLot objects filtered by the InltDate column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltdatewrit(string $InltDateWrit) Return ChildInvWhseLot objects filtered by the InltDateWrit column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltcost(string $InltCost) Return ChildInvWhseLot objects filtered by the InltCost column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltonhand(string $InltOnHand) Return ChildInvWhseLot objects filtered by the InltOnHand column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltresv(string $InltResv) Return ChildInvWhseLot objects filtered by the InltResv column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltship(string $InltShip) Return ChildInvWhseLot objects filtered by the InltShip column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltallo(string $InltAllo) Return ChildInvWhseLot objects filtered by the InltAllo column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltfaballo(string $InltFabAllo) Return ChildInvWhseLot objects filtered by the InltFabAllo column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltintran(string $InltInTran) Return ChildInvWhseLot objects filtered by the InltInTran column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltinship(string $InltInShip) Return ChildInvWhseLot objects filtered by the InltInShip column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltlotref(string $InltLotRef) Return ChildInvWhseLot objects filtered by the InltLotRef column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltbatch(string $InltBatch) Return ChildInvWhseLot objects filtered by the InltBatch column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltlandcost(string $InltLandCost) Return ChildInvWhseLot objects filtered by the InltLandCost column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltmpfunitcost(string $InltMpfUnitCost) Return ChildInvWhseLot objects filtered by the InltMpfUnitCost column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInlthmfunitcost(string $InltHmfUnitCost) Return ChildInvWhseLot objects filtered by the InltHmfUnitCost column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltdsetunitcost(string $InltDsetUnitCost) Return ChildInvWhseLot objects filtered by the InltDsetUnitCost column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltnumericfiller(string $InltNumericFiller) Return ChildInvWhseLot objects filtered by the InltNumericFiller column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInlttariffcost(string $InltTariffCost) Return ChildInvWhseLot objects filtered by the InltTariffCost column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltshopcost(string $InltShopCost) Return ChildInvWhseLot objects filtered by the InltShopCost column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltisscodfsqty(string $InltIsscoDfsQty) Return ChildInvWhseLot objects filtered by the InltIsscoDfsQty column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltheadmark(string $InltHeadMark) Return ChildInvWhseLot objects filtered by the InltHeadMark column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltctry(string $InltCtry) Return ChildInvWhseLot objects filtered by the InltCtry column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltrvalorigcost(string $InltRvalOrigCost) Return ChildInvWhseLot objects filtered by the InltRvalOrigCost column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltrvalpct(string $InltRvalPct) Return ChildInvWhseLot objects filtered by the InltRvalPct column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltunitwght(string $InltUnitWght) Return ChildInvWhseLot objects filtered by the InltUnitWght column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltdestwhse(string $InltDestWhse) Return ChildInvWhseLot objects filtered by the InltDestWhse column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltcntrqty(string $InltCntrQty) Return ChildInvWhseLot objects filtered by the InltCntrQty column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltqtyperroll(string $InltQtyPerRoll) Return ChildInvWhseLot objects filtered by the InltQtyPerRoll column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInlttarewght(string $InltTareWght) Return ChildInvWhseLot objects filtered by the InltTareWght column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltqcreasoncd(string $InltQcReasonCd) Return ChildInvWhseLot objects filtered by the InltQcReasonCd column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltcert(string $InltCert) Return ChildInvWhseLot objects filtered by the InltCert column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltcuredate(string $InltCureDate) Return ChildInvWhseLot objects filtered by the InltCureDate column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltexpiredatecd(string $InltExpireDateCd) Return ChildInvWhseLot objects filtered by the InltExpireDateCd column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltexpiredate(string $InltExpireDate) Return ChildInvWhseLot objects filtered by the InltExpireDate column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltorigbin(string $InltOrigBin) Return ChildInvWhseLot objects filtered by the InltOrigBin column
- * @method     ChildInvWhseLot[]|ObjectCollection findByInltshopitem(string $InltShopItem) Return ChildInvWhseLot objects filtered by the InltShopItem column
- * @method     ChildInvWhseLot[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvWhseLot objects filtered by the DateUpdtd column
- * @method     ChildInvWhseLot[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvWhseLot objects filtered by the TimeUpdtd column
- * @method     ChildInvWhseLot[]|ObjectCollection findByDummy(string $dummy) Return ChildInvWhseLot objects filtered by the dummy column
- * @method     ChildInvWhseLot[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvWhseLot[]|Collection find(?ConnectionInterface $con = null) Return ChildInvWhseLot objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> find(?ConnectionInterface $con = null) Return ChildInvWhseLot objects based on current ModelCriteria
  *
+ * @method     ChildInvWhseLot[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvWhseLot objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildInvWhseLot objects filtered by the InitItemNbr column
+ * @method     ChildInvWhseLot[]|Collection findByIntbwhse(string|array<string> $IntbWhse) Return ChildInvWhseLot objects filtered by the IntbWhse column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByIntbwhse(string|array<string> $IntbWhse) Return ChildInvWhseLot objects filtered by the IntbWhse column
+ * @method     ChildInvWhseLot[]|Collection findByInltlotser(string|array<string> $InltLotSer) Return ChildInvWhseLot objects filtered by the InltLotSer column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltlotser(string|array<string> $InltLotSer) Return ChildInvWhseLot objects filtered by the InltLotSer column
+ * @method     ChildInvWhseLot[]|Collection findByInltbin(string|array<string> $InltBin) Return ChildInvWhseLot objects filtered by the InltBin column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltbin(string|array<string> $InltBin) Return ChildInvWhseLot objects filtered by the InltBin column
+ * @method     ChildInvWhseLot[]|Collection findByInltdate(string|array<string> $InltDate) Return ChildInvWhseLot objects filtered by the InltDate column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltdate(string|array<string> $InltDate) Return ChildInvWhseLot objects filtered by the InltDate column
+ * @method     ChildInvWhseLot[]|Collection findByInltdatewrit(string|array<string> $InltDateWrit) Return ChildInvWhseLot objects filtered by the InltDateWrit column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltdatewrit(string|array<string> $InltDateWrit) Return ChildInvWhseLot objects filtered by the InltDateWrit column
+ * @method     ChildInvWhseLot[]|Collection findByInltcost(string|array<string> $InltCost) Return ChildInvWhseLot objects filtered by the InltCost column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltcost(string|array<string> $InltCost) Return ChildInvWhseLot objects filtered by the InltCost column
+ * @method     ChildInvWhseLot[]|Collection findByInltonhand(string|array<string> $InltOnHand) Return ChildInvWhseLot objects filtered by the InltOnHand column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltonhand(string|array<string> $InltOnHand) Return ChildInvWhseLot objects filtered by the InltOnHand column
+ * @method     ChildInvWhseLot[]|Collection findByInltresv(string|array<string> $InltResv) Return ChildInvWhseLot objects filtered by the InltResv column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltresv(string|array<string> $InltResv) Return ChildInvWhseLot objects filtered by the InltResv column
+ * @method     ChildInvWhseLot[]|Collection findByInltship(string|array<string> $InltShip) Return ChildInvWhseLot objects filtered by the InltShip column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltship(string|array<string> $InltShip) Return ChildInvWhseLot objects filtered by the InltShip column
+ * @method     ChildInvWhseLot[]|Collection findByInltallo(string|array<string> $InltAllo) Return ChildInvWhseLot objects filtered by the InltAllo column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltallo(string|array<string> $InltAllo) Return ChildInvWhseLot objects filtered by the InltAllo column
+ * @method     ChildInvWhseLot[]|Collection findByInltfaballo(string|array<string> $InltFabAllo) Return ChildInvWhseLot objects filtered by the InltFabAllo column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltfaballo(string|array<string> $InltFabAllo) Return ChildInvWhseLot objects filtered by the InltFabAllo column
+ * @method     ChildInvWhseLot[]|Collection findByInltintran(string|array<string> $InltInTran) Return ChildInvWhseLot objects filtered by the InltInTran column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltintran(string|array<string> $InltInTran) Return ChildInvWhseLot objects filtered by the InltInTran column
+ * @method     ChildInvWhseLot[]|Collection findByInltinship(string|array<string> $InltInShip) Return ChildInvWhseLot objects filtered by the InltInShip column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltinship(string|array<string> $InltInShip) Return ChildInvWhseLot objects filtered by the InltInShip column
+ * @method     ChildInvWhseLot[]|Collection findByInltlotref(string|array<string> $InltLotRef) Return ChildInvWhseLot objects filtered by the InltLotRef column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltlotref(string|array<string> $InltLotRef) Return ChildInvWhseLot objects filtered by the InltLotRef column
+ * @method     ChildInvWhseLot[]|Collection findByInltbatch(string|array<string> $InltBatch) Return ChildInvWhseLot objects filtered by the InltBatch column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltbatch(string|array<string> $InltBatch) Return ChildInvWhseLot objects filtered by the InltBatch column
+ * @method     ChildInvWhseLot[]|Collection findByInltlandcost(string|array<string> $InltLandCost) Return ChildInvWhseLot objects filtered by the InltLandCost column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltlandcost(string|array<string> $InltLandCost) Return ChildInvWhseLot objects filtered by the InltLandCost column
+ * @method     ChildInvWhseLot[]|Collection findByInltmpfunitcost(string|array<string> $InltMpfUnitCost) Return ChildInvWhseLot objects filtered by the InltMpfUnitCost column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltmpfunitcost(string|array<string> $InltMpfUnitCost) Return ChildInvWhseLot objects filtered by the InltMpfUnitCost column
+ * @method     ChildInvWhseLot[]|Collection findByInlthmfunitcost(string|array<string> $InltHmfUnitCost) Return ChildInvWhseLot objects filtered by the InltHmfUnitCost column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInlthmfunitcost(string|array<string> $InltHmfUnitCost) Return ChildInvWhseLot objects filtered by the InltHmfUnitCost column
+ * @method     ChildInvWhseLot[]|Collection findByInltdsetunitcost(string|array<string> $InltDsetUnitCost) Return ChildInvWhseLot objects filtered by the InltDsetUnitCost column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltdsetunitcost(string|array<string> $InltDsetUnitCost) Return ChildInvWhseLot objects filtered by the InltDsetUnitCost column
+ * @method     ChildInvWhseLot[]|Collection findByInltnumericfiller(string|array<string> $InltNumericFiller) Return ChildInvWhseLot objects filtered by the InltNumericFiller column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltnumericfiller(string|array<string> $InltNumericFiller) Return ChildInvWhseLot objects filtered by the InltNumericFiller column
+ * @method     ChildInvWhseLot[]|Collection findByInlttariffcost(string|array<string> $InltTariffCost) Return ChildInvWhseLot objects filtered by the InltTariffCost column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInlttariffcost(string|array<string> $InltTariffCost) Return ChildInvWhseLot objects filtered by the InltTariffCost column
+ * @method     ChildInvWhseLot[]|Collection findByInltshopcost(string|array<string> $InltShopCost) Return ChildInvWhseLot objects filtered by the InltShopCost column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltshopcost(string|array<string> $InltShopCost) Return ChildInvWhseLot objects filtered by the InltShopCost column
+ * @method     ChildInvWhseLot[]|Collection findByInltisscodfsqty(string|array<string> $InltIsscoDfsQty) Return ChildInvWhseLot objects filtered by the InltIsscoDfsQty column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltisscodfsqty(string|array<string> $InltIsscoDfsQty) Return ChildInvWhseLot objects filtered by the InltIsscoDfsQty column
+ * @method     ChildInvWhseLot[]|Collection findByInltheadmark(string|array<string> $InltHeadMark) Return ChildInvWhseLot objects filtered by the InltHeadMark column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltheadmark(string|array<string> $InltHeadMark) Return ChildInvWhseLot objects filtered by the InltHeadMark column
+ * @method     ChildInvWhseLot[]|Collection findByInltctry(string|array<string> $InltCtry) Return ChildInvWhseLot objects filtered by the InltCtry column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltctry(string|array<string> $InltCtry) Return ChildInvWhseLot objects filtered by the InltCtry column
+ * @method     ChildInvWhseLot[]|Collection findByInltrvalorigcost(string|array<string> $InltRvalOrigCost) Return ChildInvWhseLot objects filtered by the InltRvalOrigCost column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltrvalorigcost(string|array<string> $InltRvalOrigCost) Return ChildInvWhseLot objects filtered by the InltRvalOrigCost column
+ * @method     ChildInvWhseLot[]|Collection findByInltrvalpct(string|array<string> $InltRvalPct) Return ChildInvWhseLot objects filtered by the InltRvalPct column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltrvalpct(string|array<string> $InltRvalPct) Return ChildInvWhseLot objects filtered by the InltRvalPct column
+ * @method     ChildInvWhseLot[]|Collection findByInltunitwght(string|array<string> $InltUnitWght) Return ChildInvWhseLot objects filtered by the InltUnitWght column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltunitwght(string|array<string> $InltUnitWght) Return ChildInvWhseLot objects filtered by the InltUnitWght column
+ * @method     ChildInvWhseLot[]|Collection findByInltdestwhse(string|array<string> $InltDestWhse) Return ChildInvWhseLot objects filtered by the InltDestWhse column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltdestwhse(string|array<string> $InltDestWhse) Return ChildInvWhseLot objects filtered by the InltDestWhse column
+ * @method     ChildInvWhseLot[]|Collection findByInltcntrqty(string|array<string> $InltCntrQty) Return ChildInvWhseLot objects filtered by the InltCntrQty column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltcntrqty(string|array<string> $InltCntrQty) Return ChildInvWhseLot objects filtered by the InltCntrQty column
+ * @method     ChildInvWhseLot[]|Collection findByInltqtyperroll(string|array<string> $InltQtyPerRoll) Return ChildInvWhseLot objects filtered by the InltQtyPerRoll column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltqtyperroll(string|array<string> $InltQtyPerRoll) Return ChildInvWhseLot objects filtered by the InltQtyPerRoll column
+ * @method     ChildInvWhseLot[]|Collection findByInlttarewght(string|array<string> $InltTareWght) Return ChildInvWhseLot objects filtered by the InltTareWght column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInlttarewght(string|array<string> $InltTareWght) Return ChildInvWhseLot objects filtered by the InltTareWght column
+ * @method     ChildInvWhseLot[]|Collection findByInltqcreasoncd(string|array<string> $InltQcReasonCd) Return ChildInvWhseLot objects filtered by the InltQcReasonCd column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltqcreasoncd(string|array<string> $InltQcReasonCd) Return ChildInvWhseLot objects filtered by the InltQcReasonCd column
+ * @method     ChildInvWhseLot[]|Collection findByInltcert(string|array<string> $InltCert) Return ChildInvWhseLot objects filtered by the InltCert column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltcert(string|array<string> $InltCert) Return ChildInvWhseLot objects filtered by the InltCert column
+ * @method     ChildInvWhseLot[]|Collection findByInltcuredate(string|array<string> $InltCureDate) Return ChildInvWhseLot objects filtered by the InltCureDate column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltcuredate(string|array<string> $InltCureDate) Return ChildInvWhseLot objects filtered by the InltCureDate column
+ * @method     ChildInvWhseLot[]|Collection findByInltexpiredatecd(string|array<string> $InltExpireDateCd) Return ChildInvWhseLot objects filtered by the InltExpireDateCd column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltexpiredatecd(string|array<string> $InltExpireDateCd) Return ChildInvWhseLot objects filtered by the InltExpireDateCd column
+ * @method     ChildInvWhseLot[]|Collection findByInltexpiredate(string|array<string> $InltExpireDate) Return ChildInvWhseLot objects filtered by the InltExpireDate column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltexpiredate(string|array<string> $InltExpireDate) Return ChildInvWhseLot objects filtered by the InltExpireDate column
+ * @method     ChildInvWhseLot[]|Collection findByInltorigbin(string|array<string> $InltOrigBin) Return ChildInvWhseLot objects filtered by the InltOrigBin column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltorigbin(string|array<string> $InltOrigBin) Return ChildInvWhseLot objects filtered by the InltOrigBin column
+ * @method     ChildInvWhseLot[]|Collection findByInltshopitem(string|array<string> $InltShopItem) Return ChildInvWhseLot objects filtered by the InltShopItem column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByInltshopitem(string|array<string> $InltShopItem) Return ChildInvWhseLot objects filtered by the InltShopItem column
+ * @method     ChildInvWhseLot[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvWhseLot objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildInvWhseLot objects filtered by the DateUpdtd column
+ * @method     ChildInvWhseLot[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvWhseLot objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildInvWhseLot objects filtered by the TimeUpdtd column
+ * @method     ChildInvWhseLot[]|Collection findByDummy(string|array<string> $dummy) Return ChildInvWhseLot objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildInvWhseLot> findByDummy(string|array<string> $dummy) Return ChildInvWhseLot objects filtered by the dummy column
+ *
+ * @method     ChildInvWhseLot[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildInvWhseLot> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class InvWhseLotQuery extends ModelCriteria
 {
@@ -296,9 +341,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\InvWhseLotQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\InvWhseLot', $modelAlias = null)
     {
@@ -308,12 +353,12 @@ abstract class InvWhseLotQuery extends ModelCriteria
     /**
      * Returns a new ChildInvWhseLotQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildInvWhseLotQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildInvWhseLotQuery) {
             return $criteria;
@@ -343,7 +388,7 @@ abstract class InvWhseLotQuery extends ModelCriteria
      *
      * @return ChildInvWhseLot|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -375,8 +420,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -411,8 +456,8 @@ abstract class InvWhseLotQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildInvWhseLot|array|mixed the result, formatted by the current formatter
      */
@@ -432,12 +477,12 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -454,9 +499,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -471,14 +516,16 @@ abstract class InvWhseLotQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(InvWhseLotTableMap::COL_INITITEMNBR, $key[0], Criteria::EQUAL);
@@ -501,14 +548,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -516,7 +564,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -526,14 +576,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByIntbwhse('fooValue');   // WHERE IntbWhse = 'fooValue'
      * $query->filterByIntbwhse('%fooValue%', Criteria::LIKE); // WHERE IntbWhse LIKE '%fooValue%'
+     * $query->filterByIntbwhse(['foo', 'bar']); // WHERE IntbWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $intbwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $intbwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIntbwhse($intbwhse = null, $comparison = null)
+    public function filterByIntbwhse($intbwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($intbwhse)) {
@@ -541,7 +592,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -551,14 +604,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInltlotser('fooValue');   // WHERE InltLotSer = 'fooValue'
      * $query->filterByInltlotser('%fooValue%', Criteria::LIKE); // WHERE InltLotSer LIKE '%fooValue%'
+     * $query->filterByInltlotser(['foo', 'bar']); // WHERE InltLotSer IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inltlotser The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inltlotser The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltlotser($inltlotser = null, $comparison = null)
+    public function filterByInltlotser($inltlotser = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inltlotser)) {
@@ -566,7 +620,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLOTSER, $inltlotser, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLOTSER, $inltlotser, $comparison);
+
+        return $this;
     }
 
     /**
@@ -576,14 +632,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInltbin('fooValue');   // WHERE InltBin = 'fooValue'
      * $query->filterByInltbin('%fooValue%', Criteria::LIKE); // WHERE InltBin LIKE '%fooValue%'
+     * $query->filterByInltbin(['foo', 'bar']); // WHERE InltBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inltbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inltbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltbin($inltbin = null, $comparison = null)
+    public function filterByInltbin($inltbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inltbin)) {
@@ -591,7 +648,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTBIN, $inltbin, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTBIN, $inltbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -601,14 +660,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInltdate('fooValue');   // WHERE InltDate = 'fooValue'
      * $query->filterByInltdate('%fooValue%', Criteria::LIKE); // WHERE InltDate LIKE '%fooValue%'
+     * $query->filterByInltdate(['foo', 'bar']); // WHERE InltDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inltdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inltdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltdate($inltdate = null, $comparison = null)
+    public function filterByInltdate($inltdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inltdate)) {
@@ -616,7 +676,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDATE, $inltdate, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDATE, $inltdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -626,14 +688,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInltdatewrit('fooValue');   // WHERE InltDateWrit = 'fooValue'
      * $query->filterByInltdatewrit('%fooValue%', Criteria::LIKE); // WHERE InltDateWrit LIKE '%fooValue%'
+     * $query->filterByInltdatewrit(['foo', 'bar']); // WHERE InltDateWrit IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inltdatewrit The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inltdatewrit The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltdatewrit($inltdatewrit = null, $comparison = null)
+    public function filterByInltdatewrit($inltdatewrit = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inltdatewrit)) {
@@ -641,7 +704,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDATEWRIT, $inltdatewrit, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDATEWRIT, $inltdatewrit, $comparison);
+
+        return $this;
     }
 
     /**
@@ -654,15 +719,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltcost(array('min' => 12)); // WHERE InltCost > 12
      * </code>
      *
-     * @param     mixed $inltcost The value to use as filter.
+     * @param mixed $inltcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltcost($inltcost = null, $comparison = null)
+    public function filterByInltcost($inltcost = null, ?string $comparison = null)
     {
         if (is_array($inltcost)) {
             $useMinMax = false;
@@ -682,7 +747,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCOST, $inltcost, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCOST, $inltcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -695,15 +762,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltonhand(array('min' => 12)); // WHERE InltOnHand > 12
      * </code>
      *
-     * @param     mixed $inltonhand The value to use as filter.
+     * @param mixed $inltonhand The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltonhand($inltonhand = null, $comparison = null)
+    public function filterByInltonhand($inltonhand = null, ?string $comparison = null)
     {
         if (is_array($inltonhand)) {
             $useMinMax = false;
@@ -723,7 +790,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTONHAND, $inltonhand, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTONHAND, $inltonhand, $comparison);
+
+        return $this;
     }
 
     /**
@@ -736,15 +805,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltresv(array('min' => 12)); // WHERE InltResv > 12
      * </code>
      *
-     * @param     mixed $inltresv The value to use as filter.
+     * @param mixed $inltresv The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltresv($inltresv = null, $comparison = null)
+    public function filterByInltresv($inltresv = null, ?string $comparison = null)
     {
         if (is_array($inltresv)) {
             $useMinMax = false;
@@ -764,7 +833,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTRESV, $inltresv, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTRESV, $inltresv, $comparison);
+
+        return $this;
     }
 
     /**
@@ -777,15 +848,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltship(array('min' => 12)); // WHERE InltShip > 12
      * </code>
      *
-     * @param     mixed $inltship The value to use as filter.
+     * @param mixed $inltship The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltship($inltship = null, $comparison = null)
+    public function filterByInltship($inltship = null, ?string $comparison = null)
     {
         if (is_array($inltship)) {
             $useMinMax = false;
@@ -805,7 +876,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTSHIP, $inltship, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTSHIP, $inltship, $comparison);
+
+        return $this;
     }
 
     /**
@@ -818,15 +891,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltallo(array('min' => 12)); // WHERE InltAllo > 12
      * </code>
      *
-     * @param     mixed $inltallo The value to use as filter.
+     * @param mixed $inltallo The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltallo($inltallo = null, $comparison = null)
+    public function filterByInltallo($inltallo = null, ?string $comparison = null)
     {
         if (is_array($inltallo)) {
             $useMinMax = false;
@@ -846,7 +919,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTALLO, $inltallo, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTALLO, $inltallo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -859,15 +934,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltfaballo(array('min' => 12)); // WHERE InltFabAllo > 12
      * </code>
      *
-     * @param     mixed $inltfaballo The value to use as filter.
+     * @param mixed $inltfaballo The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltfaballo($inltfaballo = null, $comparison = null)
+    public function filterByInltfaballo($inltfaballo = null, ?string $comparison = null)
     {
         if (is_array($inltfaballo)) {
             $useMinMax = false;
@@ -887,7 +962,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTFABALLO, $inltfaballo, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTFABALLO, $inltfaballo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -900,15 +977,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltintran(array('min' => 12)); // WHERE InltInTran > 12
      * </code>
      *
-     * @param     mixed $inltintran The value to use as filter.
+     * @param mixed $inltintran The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltintran($inltintran = null, $comparison = null)
+    public function filterByInltintran($inltintran = null, ?string $comparison = null)
     {
         if (is_array($inltintran)) {
             $useMinMax = false;
@@ -928,7 +1005,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTINTRAN, $inltintran, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTINTRAN, $inltintran, $comparison);
+
+        return $this;
     }
 
     /**
@@ -941,15 +1020,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltinship(array('min' => 12)); // WHERE InltInShip > 12
      * </code>
      *
-     * @param     mixed $inltinship The value to use as filter.
+     * @param mixed $inltinship The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltinship($inltinship = null, $comparison = null)
+    public function filterByInltinship($inltinship = null, ?string $comparison = null)
     {
         if (is_array($inltinship)) {
             $useMinMax = false;
@@ -969,7 +1048,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTINSHIP, $inltinship, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTINSHIP, $inltinship, $comparison);
+
+        return $this;
     }
 
     /**
@@ -979,14 +1060,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInltlotref('fooValue');   // WHERE InltLotRef = 'fooValue'
      * $query->filterByInltlotref('%fooValue%', Criteria::LIKE); // WHERE InltLotRef LIKE '%fooValue%'
+     * $query->filterByInltlotref(['foo', 'bar']); // WHERE InltLotRef IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inltlotref The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inltlotref The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltlotref($inltlotref = null, $comparison = null)
+    public function filterByInltlotref($inltlotref = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inltlotref)) {
@@ -994,7 +1076,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLOTREF, $inltlotref, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLOTREF, $inltlotref, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1004,14 +1088,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInltbatch('fooValue');   // WHERE InltBatch = 'fooValue'
      * $query->filterByInltbatch('%fooValue%', Criteria::LIKE); // WHERE InltBatch LIKE '%fooValue%'
+     * $query->filterByInltbatch(['foo', 'bar']); // WHERE InltBatch IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inltbatch The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inltbatch The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltbatch($inltbatch = null, $comparison = null)
+    public function filterByInltbatch($inltbatch = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inltbatch)) {
@@ -1019,7 +1104,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTBATCH, $inltbatch, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTBATCH, $inltbatch, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1032,15 +1119,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltlandcost(array('min' => 12)); // WHERE InltLandCost > 12
      * </code>
      *
-     * @param     mixed $inltlandcost The value to use as filter.
+     * @param mixed $inltlandcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltlandcost($inltlandcost = null, $comparison = null)
+    public function filterByInltlandcost($inltlandcost = null, ?string $comparison = null)
     {
         if (is_array($inltlandcost)) {
             $useMinMax = false;
@@ -1060,7 +1147,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST, $inltlandcost, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST, $inltlandcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1073,15 +1162,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltmpfunitcost(array('min' => 12)); // WHERE InltMpfUnitCost > 12
      * </code>
      *
-     * @param     mixed $inltmpfunitcost The value to use as filter.
+     * @param mixed $inltmpfunitcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltmpfunitcost($inltmpfunitcost = null, $comparison = null)
+    public function filterByInltmpfunitcost($inltmpfunitcost = null, ?string $comparison = null)
     {
         if (is_array($inltmpfunitcost)) {
             $useMinMax = false;
@@ -1101,7 +1190,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTMPFUNITCOST, $inltmpfunitcost, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTMPFUNITCOST, $inltmpfunitcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1114,15 +1205,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInlthmfunitcost(array('min' => 12)); // WHERE InltHmfUnitCost > 12
      * </code>
      *
-     * @param     mixed $inlthmfunitcost The value to use as filter.
+     * @param mixed $inlthmfunitcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInlthmfunitcost($inlthmfunitcost = null, $comparison = null)
+    public function filterByInlthmfunitcost($inlthmfunitcost = null, ?string $comparison = null)
     {
         if (is_array($inlthmfunitcost)) {
             $useMinMax = false;
@@ -1142,7 +1233,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTHMFUNITCOST, $inlthmfunitcost, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTHMFUNITCOST, $inlthmfunitcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1155,15 +1248,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltdsetunitcost(array('min' => 12)); // WHERE InltDsetUnitCost > 12
      * </code>
      *
-     * @param     mixed $inltdsetunitcost The value to use as filter.
+     * @param mixed $inltdsetunitcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltdsetunitcost($inltdsetunitcost = null, $comparison = null)
+    public function filterByInltdsetunitcost($inltdsetunitcost = null, ?string $comparison = null)
     {
         if (is_array($inltdsetunitcost)) {
             $useMinMax = false;
@@ -1183,7 +1276,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDSETUNITCOST, $inltdsetunitcost, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDSETUNITCOST, $inltdsetunitcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1196,15 +1291,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltnumericfiller(array('min' => 12)); // WHERE InltNumericFiller > 12
      * </code>
      *
-     * @param     mixed $inltnumericfiller The value to use as filter.
+     * @param mixed $inltnumericfiller The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltnumericfiller($inltnumericfiller = null, $comparison = null)
+    public function filterByInltnumericfiller($inltnumericfiller = null, ?string $comparison = null)
     {
         if (is_array($inltnumericfiller)) {
             $useMinMax = false;
@@ -1224,7 +1319,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTNUMERICFILLER, $inltnumericfiller, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTNUMERICFILLER, $inltnumericfiller, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1237,15 +1334,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInlttariffcost(array('min' => 12)); // WHERE InltTariffCost > 12
      * </code>
      *
-     * @param     mixed $inlttariffcost The value to use as filter.
+     * @param mixed $inlttariffcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInlttariffcost($inlttariffcost = null, $comparison = null)
+    public function filterByInlttariffcost($inlttariffcost = null, ?string $comparison = null)
     {
         if (is_array($inlttariffcost)) {
             $useMinMax = false;
@@ -1265,7 +1362,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTTARIFFCOST, $inlttariffcost, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTTARIFFCOST, $inlttariffcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1278,15 +1377,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltshopcost(array('min' => 12)); // WHERE InltShopCost > 12
      * </code>
      *
-     * @param     mixed $inltshopcost The value to use as filter.
+     * @param mixed $inltshopcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltshopcost($inltshopcost = null, $comparison = null)
+    public function filterByInltshopcost($inltshopcost = null, ?string $comparison = null)
     {
         if (is_array($inltshopcost)) {
             $useMinMax = false;
@@ -1306,7 +1405,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTSHOPCOST, $inltshopcost, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTSHOPCOST, $inltshopcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1319,15 +1420,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltisscodfsqty(array('min' => 12)); // WHERE InltIsscoDfsQty > 12
      * </code>
      *
-     * @param     mixed $inltisscodfsqty The value to use as filter.
+     * @param mixed $inltisscodfsqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltisscodfsqty($inltisscodfsqty = null, $comparison = null)
+    public function filterByInltisscodfsqty($inltisscodfsqty = null, ?string $comparison = null)
     {
         if (is_array($inltisscodfsqty)) {
             $useMinMax = false;
@@ -1347,7 +1448,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTISSCODFSQTY, $inltisscodfsqty, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTISSCODFSQTY, $inltisscodfsqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1357,14 +1460,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInltheadmark('fooValue');   // WHERE InltHeadMark = 'fooValue'
      * $query->filterByInltheadmark('%fooValue%', Criteria::LIKE); // WHERE InltHeadMark LIKE '%fooValue%'
+     * $query->filterByInltheadmark(['foo', 'bar']); // WHERE InltHeadMark IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inltheadmark The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inltheadmark The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltheadmark($inltheadmark = null, $comparison = null)
+    public function filterByInltheadmark($inltheadmark = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inltheadmark)) {
@@ -1372,7 +1476,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTHEADMARK, $inltheadmark, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTHEADMARK, $inltheadmark, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1382,14 +1488,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInltctry('fooValue');   // WHERE InltCtry = 'fooValue'
      * $query->filterByInltctry('%fooValue%', Criteria::LIKE); // WHERE InltCtry LIKE '%fooValue%'
+     * $query->filterByInltctry(['foo', 'bar']); // WHERE InltCtry IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inltctry The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inltctry The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltctry($inltctry = null, $comparison = null)
+    public function filterByInltctry($inltctry = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inltctry)) {
@@ -1397,7 +1504,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCTRY, $inltctry, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCTRY, $inltctry, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1410,15 +1519,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltrvalorigcost(array('min' => 12)); // WHERE InltRvalOrigCost > 12
      * </code>
      *
-     * @param     mixed $inltrvalorigcost The value to use as filter.
+     * @param mixed $inltrvalorigcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltrvalorigcost($inltrvalorigcost = null, $comparison = null)
+    public function filterByInltrvalorigcost($inltrvalorigcost = null, ?string $comparison = null)
     {
         if (is_array($inltrvalorigcost)) {
             $useMinMax = false;
@@ -1438,7 +1547,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTRVALORIGCOST, $inltrvalorigcost, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTRVALORIGCOST, $inltrvalorigcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1451,15 +1562,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltrvalpct(array('min' => 12)); // WHERE InltRvalPct > 12
      * </code>
      *
-     * @param     mixed $inltrvalpct The value to use as filter.
+     * @param mixed $inltrvalpct The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltrvalpct($inltrvalpct = null, $comparison = null)
+    public function filterByInltrvalpct($inltrvalpct = null, ?string $comparison = null)
     {
         if (is_array($inltrvalpct)) {
             $useMinMax = false;
@@ -1479,7 +1590,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTRVALPCT, $inltrvalpct, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTRVALPCT, $inltrvalpct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1492,15 +1605,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltunitwght(array('min' => 12)); // WHERE InltUnitWght > 12
      * </code>
      *
-     * @param     mixed $inltunitwght The value to use as filter.
+     * @param mixed $inltunitwght The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltunitwght($inltunitwght = null, $comparison = null)
+    public function filterByInltunitwght($inltunitwght = null, ?string $comparison = null)
     {
         if (is_array($inltunitwght)) {
             $useMinMax = false;
@@ -1520,7 +1633,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTUNITWGHT, $inltunitwght, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTUNITWGHT, $inltunitwght, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1530,14 +1645,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInltdestwhse('fooValue');   // WHERE InltDestWhse = 'fooValue'
      * $query->filterByInltdestwhse('%fooValue%', Criteria::LIKE); // WHERE InltDestWhse LIKE '%fooValue%'
+     * $query->filterByInltdestwhse(['foo', 'bar']); // WHERE InltDestWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inltdestwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inltdestwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltdestwhse($inltdestwhse = null, $comparison = null)
+    public function filterByInltdestwhse($inltdestwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inltdestwhse)) {
@@ -1545,7 +1661,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDESTWHSE, $inltdestwhse, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDESTWHSE, $inltdestwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1558,15 +1676,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltcntrqty(array('min' => 12)); // WHERE InltCntrQty > 12
      * </code>
      *
-     * @param     mixed $inltcntrqty The value to use as filter.
+     * @param mixed $inltcntrqty The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltcntrqty($inltcntrqty = null, $comparison = null)
+    public function filterByInltcntrqty($inltcntrqty = null, ?string $comparison = null)
     {
         if (is_array($inltcntrqty)) {
             $useMinMax = false;
@@ -1586,7 +1704,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCNTRQTY, $inltcntrqty, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCNTRQTY, $inltcntrqty, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1599,15 +1719,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInltqtyperroll(array('min' => 12)); // WHERE InltQtyPerRoll > 12
      * </code>
      *
-     * @param     mixed $inltqtyperroll The value to use as filter.
+     * @param mixed $inltqtyperroll The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltqtyperroll($inltqtyperroll = null, $comparison = null)
+    public function filterByInltqtyperroll($inltqtyperroll = null, ?string $comparison = null)
     {
         if (is_array($inltqtyperroll)) {
             $useMinMax = false;
@@ -1627,7 +1747,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTQTYPERROLL, $inltqtyperroll, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTQTYPERROLL, $inltqtyperroll, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1640,15 +1762,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * $query->filterByInlttarewght(array('min' => 12)); // WHERE InltTareWght > 12
      * </code>
      *
-     * @param     mixed $inlttarewght The value to use as filter.
+     * @param mixed $inlttarewght The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInlttarewght($inlttarewght = null, $comparison = null)
+    public function filterByInlttarewght($inlttarewght = null, ?string $comparison = null)
     {
         if (is_array($inlttarewght)) {
             $useMinMax = false;
@@ -1668,7 +1790,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTTAREWGHT, $inlttarewght, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTTAREWGHT, $inlttarewght, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1678,14 +1802,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInltqcreasoncd('fooValue');   // WHERE InltQcReasonCd = 'fooValue'
      * $query->filterByInltqcreasoncd('%fooValue%', Criteria::LIKE); // WHERE InltQcReasonCd LIKE '%fooValue%'
+     * $query->filterByInltqcreasoncd(['foo', 'bar']); // WHERE InltQcReasonCd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inltqcreasoncd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inltqcreasoncd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltqcreasoncd($inltqcreasoncd = null, $comparison = null)
+    public function filterByInltqcreasoncd($inltqcreasoncd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inltqcreasoncd)) {
@@ -1693,7 +1818,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTQCREASONCD, $inltqcreasoncd, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTQCREASONCD, $inltqcreasoncd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1703,14 +1830,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInltcert('fooValue');   // WHERE InltCert = 'fooValue'
      * $query->filterByInltcert('%fooValue%', Criteria::LIKE); // WHERE InltCert LIKE '%fooValue%'
+     * $query->filterByInltcert(['foo', 'bar']); // WHERE InltCert IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inltcert The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inltcert The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltcert($inltcert = null, $comparison = null)
+    public function filterByInltcert($inltcert = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inltcert)) {
@@ -1718,7 +1846,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCERT, $inltcert, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCERT, $inltcert, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1728,14 +1858,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInltcuredate('fooValue');   // WHERE InltCureDate = 'fooValue'
      * $query->filterByInltcuredate('%fooValue%', Criteria::LIKE); // WHERE InltCureDate LIKE '%fooValue%'
+     * $query->filterByInltcuredate(['foo', 'bar']); // WHERE InltCureDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inltcuredate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inltcuredate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltcuredate($inltcuredate = null, $comparison = null)
+    public function filterByInltcuredate($inltcuredate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inltcuredate)) {
@@ -1743,7 +1874,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCUREDATE, $inltcuredate, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCUREDATE, $inltcuredate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1753,14 +1886,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInltexpiredatecd('fooValue');   // WHERE InltExpireDateCd = 'fooValue'
      * $query->filterByInltexpiredatecd('%fooValue%', Criteria::LIKE); // WHERE InltExpireDateCd LIKE '%fooValue%'
+     * $query->filterByInltexpiredatecd(['foo', 'bar']); // WHERE InltExpireDateCd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inltexpiredatecd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inltexpiredatecd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltexpiredatecd($inltexpiredatecd = null, $comparison = null)
+    public function filterByInltexpiredatecd($inltexpiredatecd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inltexpiredatecd)) {
@@ -1768,7 +1902,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTEXPIREDATECD, $inltexpiredatecd, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTEXPIREDATECD, $inltexpiredatecd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1778,14 +1914,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInltexpiredate('fooValue');   // WHERE InltExpireDate = 'fooValue'
      * $query->filterByInltexpiredate('%fooValue%', Criteria::LIKE); // WHERE InltExpireDate LIKE '%fooValue%'
+     * $query->filterByInltexpiredate(['foo', 'bar']); // WHERE InltExpireDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inltexpiredate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inltexpiredate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltexpiredate($inltexpiredate = null, $comparison = null)
+    public function filterByInltexpiredate($inltexpiredate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inltexpiredate)) {
@@ -1793,7 +1930,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTEXPIREDATE, $inltexpiredate, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTEXPIREDATE, $inltexpiredate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1803,14 +1942,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInltorigbin('fooValue');   // WHERE InltOrigBin = 'fooValue'
      * $query->filterByInltorigbin('%fooValue%', Criteria::LIKE); // WHERE InltOrigBin LIKE '%fooValue%'
+     * $query->filterByInltorigbin(['foo', 'bar']); // WHERE InltOrigBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inltorigbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inltorigbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltorigbin($inltorigbin = null, $comparison = null)
+    public function filterByInltorigbin($inltorigbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inltorigbin)) {
@@ -1818,7 +1958,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTORIGBIN, $inltorigbin, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTORIGBIN, $inltorigbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1828,14 +1970,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByInltshopitem('fooValue');   // WHERE InltShopItem = 'fooValue'
      * $query->filterByInltshopitem('%fooValue%', Criteria::LIKE); // WHERE InltShopItem LIKE '%fooValue%'
+     * $query->filterByInltshopitem(['foo', 'bar']); // WHERE InltShopItem IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inltshopitem The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inltshopitem The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInltshopitem($inltshopitem = null, $comparison = null)
+    public function filterByInltshopitem($inltshopitem = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inltshopitem)) {
@@ -1843,7 +1986,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTSHOPITEM, $inltshopitem, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTSHOPITEM, $inltshopitem, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1853,14 +1998,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1868,7 +2014,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1878,14 +2026,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1893,7 +2042,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1903,14 +2054,15 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1918,20 +2070,22 @@ abstract class InvWhseLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvWhseLotTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \ItemMasterItem object
      *
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    public function filterByItemMasterItem($itemMasterItem, ?string $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
@@ -1941,8 +2095,10 @@ abstract class InvWhseLotQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(InvWhseLotTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -1951,12 +2107,12 @@ abstract class InvWhseLotQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemMasterItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemMasterItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -1985,9 +2141,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
@@ -1999,16 +2155,112 @@ abstract class InvWhseLotQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @param callable(\ItemMasterItemQuery):\ItemMasterItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemMasterItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemMasterItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemMasterItemQuery The inner query object of the EXISTS statement
+     */
+    public function useItemMasterItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT EXISTS query.
+     *
+     * @see useItemMasterItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemMasterItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useExistsQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemMasterItemQuery The inner query object of the IN statement
+     */
+    public function useInItemMasterItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemMasterItem table for a NOT IN query.
+     *
+     * @see useItemMasterItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemMasterItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemMasterItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemMasterItemQuery */
+        $q = $this->useInQuery('ItemMasterItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \Warehouse object
      *
      * @param \Warehouse|ObjectCollection $warehouse The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByWarehouse($warehouse, $comparison = null)
+    public function filterByWarehouse($warehouse, ?string $comparison = null)
     {
         if ($warehouse instanceof \Warehouse) {
             return $this
@@ -2018,8 +2270,10 @@ abstract class InvWhseLotQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(InvWhseLotTableMap::COL_INTBWHSE, $warehouse->toKeyValue('PrimaryKey', 'Intbwhse'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByWarehouse() only accepts arguments of type \Warehouse or Collection');
         }
@@ -2028,12 +2282,12 @@ abstract class InvWhseLotQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Warehouse relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinWarehouse($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinWarehouse(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Warehouse');
@@ -2062,9 +2316,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \WarehouseQuery A secondary query class using the current class as primary query
      */
@@ -2076,16 +2330,112 @@ abstract class InvWhseLotQuery extends ModelCriteria
     }
 
     /**
+     * Use the Warehouse relation Warehouse object
+     *
+     * @param callable(\WarehouseQuery):\WarehouseQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withWarehouseQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useWarehouseQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Warehouse table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \WarehouseQuery The inner query object of the EXISTS statement
+     */
+    public function useWarehouseExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \WarehouseQuery */
+        $q = $this->useExistsQuery('Warehouse', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Warehouse table for a NOT EXISTS query.
+     *
+     * @see useWarehouseExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \WarehouseQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useWarehouseNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \WarehouseQuery */
+        $q = $this->useExistsQuery('Warehouse', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Warehouse table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \WarehouseQuery The inner query object of the IN statement
+     */
+    public function useInWarehouseQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \WarehouseQuery */
+        $q = $this->useInQuery('Warehouse', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Warehouse table for a NOT IN query.
+     *
+     * @see useWarehouseInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \WarehouseQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInWarehouseQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \WarehouseQuery */
+        $q = $this->useInQuery('Warehouse', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvLotMaster object
      *
      * @param \InvLotMaster $invLotMaster The related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvLotMaster($invLotMaster, $comparison = null)
+    public function filterByInvLotMaster($invLotMaster, ?string $comparison = null)
     {
         if ($invLotMaster instanceof \InvLotMaster) {
             return $this
@@ -2099,12 +2449,12 @@ abstract class InvWhseLotQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvLotMaster relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvLotMaster($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvLotMaster(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvLotMaster');
@@ -2133,9 +2483,9 @@ abstract class InvWhseLotQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvLotMasterQuery A secondary query class using the current class as primary query
      */
@@ -2147,11 +2497,107 @@ abstract class InvWhseLotQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvLotMaster relation InvLotMaster object
+     *
+     * @param callable(\InvLotMasterQuery):\InvLotMasterQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvLotMasterQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvLotMasterQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvLotMaster table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvLotMasterQuery The inner query object of the EXISTS statement
+     */
+    public function useInvLotMasterExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvLotMasterQuery */
+        $q = $this->useExistsQuery('InvLotMaster', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotMaster table for a NOT EXISTS query.
+     *
+     * @see useInvLotMasterExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvLotMasterQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvLotMasterNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvLotMasterQuery */
+        $q = $this->useExistsQuery('InvLotMaster', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotMaster table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvLotMasterQuery The inner query object of the IN statement
+     */
+    public function useInInvLotMasterQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvLotMasterQuery */
+        $q = $this->useInQuery('InvLotMaster', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvLotMaster table for a NOT IN query.
+     *
+     * @see useInvLotMasterInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvLotMasterQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvLotMasterQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvLotMasterQuery */
+        $q = $this->useInQuery('InvLotMaster', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildInvWhseLot $invWhseLot Object to remove from the list of results
+     * @param ChildInvWhseLot $invWhseLot Object to remove from the list of results
      *
-     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($invWhseLot = null)
     {
@@ -2172,7 +2618,7 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvWhseLotTableMap::DATABASE_NAME);
@@ -2197,12 +2643,12 @@ abstract class InvWhseLotQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvWhseLotTableMap::DATABASE_NAME);
@@ -2227,4 +2673,4 @@ abstract class InvWhseLotQuery extends ModelCriteria
         });
     }
 
-} // InvWhseLotQuery
+}

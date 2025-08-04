@@ -168,19 +168,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\ItemMasterItemTableMap';
+    public const TABLE_MAP = '\\Map\\ItemMasterItemTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -189,14 +191,14 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the inititemnbr field.
@@ -209,448 +211,448 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initdesc1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initdesc1;
 
     /**
      * The value for the initdesc2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initdesc2;
 
     /**
      * The value for the intbgrup field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrup;
 
     /**
      * The value for the initformatcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initformatcode;
 
     /**
      * The value for the initsplit field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initsplit;
 
     /**
      * The value for the initsherdatecd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initsherdatecd;
 
     /**
      * The value for the initcoreyn field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initcoreyn;
 
     /**
      * The value for the intbusercode1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbusercode1;
 
     /**
      * The value for the intbusercode2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbusercode2;
 
     /**
      * The value for the inittype field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $inittype;
 
     /**
      * The value for the inittax field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $inittax;
 
     /**
      * The value for the initrtlpric field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initrtlpric;
 
     /**
      * The value for the initstatchgd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initstatchgd;
 
     /**
      * The value for the initspecitemcd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initspecitemcd;
 
     /**
      * The value for the initwarrdays field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $initwarrdays;
 
     /**
      * The value for the intbuomsale field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbuomsale;
 
     /**
      * The value for the initwght field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initwght;
 
     /**
      * The value for the initbord field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initbord;
 
     /**
      * The value for the initbaseitemid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initbaseitemid;
 
     /**
      * The value for the initspecificcust field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initspecificcust;
 
     /**
      * The value for the initgivedisc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initgivedisc;
 
     /**
      * The value for the initasstcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initasstcode;
 
     /**
      * The value for the initpriclastdate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initpriclastdate;
 
     /**
      * The value for the intbuompur field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbuompur;
 
     /**
      * The value for the initstancost field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initstancost;
 
     /**
      * The value for the initstancostbase field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initstancostbase;
 
     /**
      * The value for the initstancostlastdate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initstancostlastdate;
 
     /**
      * The value for the initminmarg field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initminmarg;
 
     /**
      * The value for the initvendid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initvendid;
 
     /**
      * The value for the initinspect field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initinspect;
 
     /**
      * The value for the initstockcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initstockcode;
 
     /**
      * The value for the initsupritemnbr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initsupritemnbr;
 
     /**
      * The value for the initvendshipfrom field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initvendshipfrom;
 
     /**
      * The value for the initcntryoforigin field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initcntryoforigin;
 
     /**
      * The value for the initasstqty field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initasstqty;
 
     /**
      * The value for the intbtariffcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbtariffcode;
 
     /**
      * The value for the initpreference field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initpreference;
 
     /**
      * The value for the initproducer field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initproducer;
 
     /**
      * The value for the initdocumentation field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initdocumentation;
 
     /**
      * The value for the initpurchcrtnqty field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $initpurchcrtnqty;
 
     /**
      * The value for the aptbbuyrcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptbbuyrcode;
 
     /**
      * The value for the initlastcost field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initlastcost;
 
     /**
      * The value for the initliters field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initliters;
 
     /**
      * The value for the intbmsdscode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbmsdscode;
 
     /**
      * The value for the initrequirefrt field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initrequirefrt;
 
     /**
      * The value for the initmfrtcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initmfrtcode;
 
     /**
      * The value for the initinnerpackqty field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $initinnerpackqty;
 
     /**
      * The value for the initouterpackqty field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $initouterpackqty;
 
     /**
      * The value for the initbasestancost field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initbasestancost;
 
     /**
      * The value for the initshiptareqty field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $initshiptareqty;
 
     /**
      * The value for the initwgitem field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initwgitem;
 
     /**
      * The value for the intbpricgrup field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbpricgrup;
 
     /**
      * The value for the intbcommgrup field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbcommgrup;
 
     /**
      * The value for the initlastcostdate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initlastcostdate;
 
     /**
      * The value for the initqtypercase field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $initqtypercase;
 
     /**
      * The value for the initrevision field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initrevision;
 
     /**
      * The value for the initcommsaleqty field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $initcommsaleqty;
 
     /**
      * The value for the initcubes field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initcubes;
 
     /**
      * The value for the inittimefence field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $inittimefence;
 
     /**
      * The value for the initsrvcminchrg field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initsrvcminchrg;
 
     /**
      * The value for the initminmargbase field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $initminmargbase;
 
     /**
      * The value for the dateupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dateupdtd;
 
     /**
      * The value for the timeupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $timeupdtd;
 
     /**
      * The value for the dummy field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
@@ -686,24 +688,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * @var        ObjectCollection|ChildItemXrefCustomer[] Collection to store aggregation of ChildItemXrefCustomer objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefCustomer> Collection to store aggregation of ChildItemXrefCustomer objects.
      */
     protected $collItemXrefCustomers;
     protected $collItemXrefCustomersPartial;
 
     /**
      * @var        ObjectCollection|ChildInvWhseItemBin[] Collection to store aggregation of ChildInvWhseItemBin objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvWhseItemBin> Collection to store aggregation of ChildInvWhseItemBin objects.
      */
     protected $collInvWhseItemBins;
     protected $collInvWhseItemBinsPartial;
 
     /**
      * @var        ObjectCollection|ChildItemAddonItem[] Collection to store aggregation of ChildItemAddonItem objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemAddonItem> Collection to store aggregation of ChildItemAddonItem objects.
      */
     protected $collItemAddonItemsRelatedByInititemnbr;
     protected $collItemAddonItemsRelatedByInititemnbrPartial;
 
     /**
      * @var        ObjectCollection|ChildItemAddonItem[] Collection to store aggregation of ChildItemAddonItem objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemAddonItem> Collection to store aggregation of ChildItemAddonItem objects.
      */
     protected $collItemAddonItemsRelatedByAdonadditemnbr;
     protected $collItemAddonItemsRelatedByAdonadditemnbrPartial;
@@ -720,42 +726,49 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * @var        ObjectCollection|ChildInvWhseLot[] Collection to store aggregation of ChildInvWhseLot objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvWhseLot> Collection to store aggregation of ChildInvWhseLot objects.
      */
     protected $collInvWhseLots;
     protected $collInvWhseLotsPartial;
 
     /**
      * @var        ObjectCollection|ChildItemSubstitute[] Collection to store aggregation of ChildItemSubstitute objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemSubstitute> Collection to store aggregation of ChildItemSubstitute objects.
      */
     protected $collItemSubstitutesRelatedByInititemnbr;
     protected $collItemSubstitutesRelatedByInititemnbrPartial;
 
     /**
      * @var        ObjectCollection|ChildItemSubstitute[] Collection to store aggregation of ChildItemSubstitute objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemSubstitute> Collection to store aggregation of ChildItemSubstitute objects.
      */
     protected $collItemSubstitutesRelatedByInsisubitemnbr;
     protected $collItemSubstitutesRelatedByInsisubitemnbrPartial;
 
     /**
      * @var        ObjectCollection|ChildInvLotTag[] Collection to store aggregation of ChildInvLotTag objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvLotTag> Collection to store aggregation of ChildInvLotTag objects.
      */
     protected $collInvLotTags;
     protected $collInvLotTagsPartial;
 
     /**
      * @var        ObjectCollection|ChildInvItem2Item[] Collection to store aggregation of ChildInvItem2Item objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvItem2Item> Collection to store aggregation of ChildInvItem2Item objects.
      */
     protected $collInvItem2ItemsRelatedByI2imstritemid;
     protected $collInvItem2ItemsRelatedByI2imstritemidPartial;
 
     /**
      * @var        ObjectCollection|ChildInvItem2Item[] Collection to store aggregation of ChildInvItem2Item objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvItem2Item> Collection to store aggregation of ChildInvItem2Item objects.
      */
     protected $collInvItem2ItemsRelatedByI2ichilditemid;
     protected $collInvItem2ItemsRelatedByI2ichilditemidPartial;
 
     /**
      * @var        ObjectCollection|ChildInvKitComponent[] Collection to store aggregation of ChildInvKitComponent objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvKitComponent> Collection to store aggregation of ChildInvKitComponent objects.
      */
     protected $collInvKitComponents;
     protected $collInvKitComponentsPartial;
@@ -767,120 +780,140 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * @var        ObjectCollection|ChildInvLotMaster[] Collection to store aggregation of ChildInvLotMaster objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvLotMaster> Collection to store aggregation of ChildInvLotMaster objects.
      */
     protected $collInvLotMasters;
     protected $collInvLotMastersPartial;
 
     /**
      * @var        ObjectCollection|ChildInvSerialMaster[] Collection to store aggregation of ChildInvSerialMaster objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvSerialMaster> Collection to store aggregation of ChildInvSerialMaster objects.
      */
     protected $collInvSerialMasters;
     protected $collInvSerialMastersPartial;
 
     /**
      * @var        ObjectCollection|ChildInvTransferDetail[] Collection to store aggregation of ChildInvTransferDetail objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferDetail> Collection to store aggregation of ChildInvTransferDetail objects.
      */
     protected $collInvTransferDetails;
     protected $collInvTransferDetailsPartial;
 
     /**
      * @var        ObjectCollection|ChildInvTransferLotserial[] Collection to store aggregation of ChildInvTransferLotserial objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferLotserial> Collection to store aggregation of ChildInvTransferLotserial objects.
      */
     protected $collInvTransferLotserials;
     protected $collInvTransferLotserialsPartial;
 
     /**
      * @var        ObjectCollection|ChildInvTransferPreAllocatedLotserial[] Collection to store aggregation of ChildInvTransferPreAllocatedLotserial objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferPreAllocatedLotserial> Collection to store aggregation of ChildInvTransferPreAllocatedLotserial objects.
      */
     protected $collInvTransferPreAllocatedLotserials;
     protected $collInvTransferPreAllocatedLotserialsPartial;
 
     /**
      * @var        ObjectCollection|ChildInvTransferPickedLotserial[] Collection to store aggregation of ChildInvTransferPickedLotserial objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferPickedLotserial> Collection to store aggregation of ChildInvTransferPickedLotserial objects.
      */
     protected $collInvTransferPickedLotserials;
     protected $collInvTransferPickedLotserialsPartial;
 
     /**
      * @var        ObjectCollection|ChildInvSerialWarranty[] Collection to store aggregation of ChildInvSerialWarranty objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvSerialWarranty> Collection to store aggregation of ChildInvSerialWarranty objects.
      */
     protected $collInvSerialWarranties;
     protected $collInvSerialWarrantiesPartial;
 
     /**
      * @var        ObjectCollection|ChildWarehouseInventory[] Collection to store aggregation of ChildWarehouseInventory objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildWarehouseInventory> Collection to store aggregation of ChildWarehouseInventory objects.
      */
     protected $collWarehouseInventories;
     protected $collWarehouseInventoriesPartial;
 
     /**
      * @var        ObjectCollection|ChildItemXrefKey[] Collection to store aggregation of ChildItemXrefKey objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefKey> Collection to store aggregation of ChildItemXrefKey objects.
      */
     protected $collItemXrefKeys;
     protected $collItemXrefKeysPartial;
 
     /**
      * @var        ObjectCollection|ChildItemXrefManufacturer[] Collection to store aggregation of ChildItemXrefManufacturer objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefManufacturer> Collection to store aggregation of ChildItemXrefManufacturer objects.
      */
     protected $collItemXrefManufacturers;
     protected $collItemXrefManufacturersPartial;
 
     /**
      * @var        ObjectCollection|ChildItemXrefCustomerNote[] Collection to store aggregation of ChildItemXrefCustomerNote objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefCustomerNote> Collection to store aggregation of ChildItemXrefCustomerNote objects.
      */
     protected $collItemXrefCustomerNotes;
     protected $collItemXrefCustomerNotesPartial;
 
     /**
      * @var        ObjectCollection|ChildInvOptCodeNote[] Collection to store aggregation of ChildInvOptCodeNote objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvOptCodeNote> Collection to store aggregation of ChildInvOptCodeNote objects.
      */
     protected $collInvOptCodeNotes;
     protected $collInvOptCodeNotesPartial;
 
     /**
      * @var        ObjectCollection|ChildItemXrefVendorNoteDetail[] Collection to store aggregation of ChildItemXrefVendorNoteDetail objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendorNoteDetail> Collection to store aggregation of ChildItemXrefVendorNoteDetail objects.
      */
     protected $collItemXrefVendorNoteDetails;
     protected $collItemXrefVendorNoteDetailsPartial;
 
     /**
      * @var        ObjectCollection|ChildItemXrefVendorNoteInternal[] Collection to store aggregation of ChildItemXrefVendorNoteInternal objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendorNoteInternal> Collection to store aggregation of ChildItemXrefVendorNoteInternal objects.
      */
     protected $collItemXrefVendorNoteInternals;
     protected $collItemXrefVendorNoteInternalsPartial;
 
     /**
      * @var        ObjectCollection|ChildInvPallet[] Collection to store aggregation of ChildInvPallet objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvPallet> Collection to store aggregation of ChildInvPallet objects.
      */
     protected $collInvPallets;
     protected $collInvPalletsPartial;
 
     /**
      * @var        ObjectCollection|ChildPurchaseOrderDetail[] Collection to store aggregation of ChildPurchaseOrderDetail objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetail> Collection to store aggregation of ChildPurchaseOrderDetail objects.
      */
     protected $collPurchaseOrderDetails;
     protected $collPurchaseOrderDetailsPartial;
 
     /**
      * @var        ObjectCollection|ChildPurchaseOrderDetailReceipt[] Collection to store aggregation of ChildPurchaseOrderDetailReceipt objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceipt> Collection to store aggregation of ChildPurchaseOrderDetailReceipt objects.
      */
     protected $collPurchaseOrderDetailReceipts;
     protected $collPurchaseOrderDetailReceiptsPartial;
 
     /**
      * @var        ObjectCollection|ChildPurchaseOrderDetailReceiving[] Collection to store aggregation of ChildPurchaseOrderDetailReceiving objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving> Collection to store aggregation of ChildPurchaseOrderDetailReceiving objects.
      */
     protected $collPurchaseOrderDetailReceivings;
     protected $collPurchaseOrderDetailReceivingsPartial;
 
     /**
      * @var        ObjectCollection|ChildPurchaseOrderDetailLotReceiving[] Collection to store aggregation of ChildPurchaseOrderDetailLotReceiving objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailLotReceiving> Collection to store aggregation of ChildPurchaseOrderDetailLotReceiving objects.
      */
     protected $collPurchaseOrderDetailLotReceivings;
     protected $collPurchaseOrderDetailLotReceivingsPartial;
 
     /**
      * @var        ObjectCollection|ChildBomComponent[] Collection to store aggregation of ChildBomComponent objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildBomComponent> Collection to store aggregation of ChildBomComponent objects.
      */
     protected $collBomComponents;
     protected $collBomComponentsPartial;
@@ -892,66 +925,77 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * @var        ObjectCollection|ChildBookingDetail[] Collection to store aggregation of ChildBookingDetail objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildBookingDetail> Collection to store aggregation of ChildBookingDetail objects.
      */
     protected $collBookingDetails;
     protected $collBookingDetailsPartial;
 
     /**
      * @var        ObjectCollection|ChildSalesHistoryDetail[] Collection to store aggregation of ChildSalesHistoryDetail objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesHistoryDetail> Collection to store aggregation of ChildSalesHistoryDetail objects.
      */
     protected $collSalesHistoryDetails;
     protected $collSalesHistoryDetailsPartial;
 
     /**
      * @var        ObjectCollection|ChildSalesOrderDetail[] Collection to store aggregation of ChildSalesOrderDetail objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderDetail> Collection to store aggregation of ChildSalesOrderDetail objects.
      */
     protected $collSalesOrderDetails;
     protected $collSalesOrderDetailsPartial;
 
     /**
      * @var        ObjectCollection|ChildSalesOrderLotserial[] Collection to store aggregation of ChildSalesOrderLotserial objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderLotserial> Collection to store aggregation of ChildSalesOrderLotserial objects.
      */
     protected $collSalesOrderLotserials;
     protected $collSalesOrderLotserialsPartial;
 
     /**
      * @var        ObjectCollection|ChildSalesHistoryLotserial[] Collection to store aggregation of ChildSalesHistoryLotserial objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesHistoryLotserial> Collection to store aggregation of ChildSalesHistoryLotserial objects.
      */
     protected $collSalesHistoryLotserials;
     protected $collSalesHistoryLotserialsPartial;
 
     /**
      * @var        ObjectCollection|ChildSoAllocatedLotserial[] Collection to store aggregation of ChildSoAllocatedLotserial objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSoAllocatedLotserial> Collection to store aggregation of ChildSoAllocatedLotserial objects.
      */
     protected $collSoAllocatedLotserials;
     protected $collSoAllocatedLotserialsPartial;
 
     /**
      * @var        ObjectCollection|ChildItemPricingDiscount[] Collection to store aggregation of ChildItemPricingDiscount objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemPricingDiscount> Collection to store aggregation of ChildItemPricingDiscount objects.
      */
     protected $collItemPricingDiscounts;
     protected $collItemPricingDiscountsPartial;
 
     /**
      * @var        ObjectCollection|ChildSoPickedLotserial[] Collection to store aggregation of ChildSoPickedLotserial objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSoPickedLotserial> Collection to store aggregation of ChildSoPickedLotserial objects.
      */
     protected $collSoPickedLotserials;
     protected $collSoPickedLotserialsPartial;
 
     /**
      * @var        ObjectCollection|ChildSoStandingOrderDetail[] Collection to store aggregation of ChildSoStandingOrderDetail objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildSoStandingOrderDetail> Collection to store aggregation of ChildSoStandingOrderDetail objects.
      */
     protected $collSoStandingOrderDetails;
     protected $collSoStandingOrderDetailsPartial;
 
     /**
      * @var        ObjectCollection|ChildItemXrefUpc[] Collection to store aggregation of ChildItemXrefUpc objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefUpc> Collection to store aggregation of ChildItemXrefUpc objects.
      */
     protected $collItemXrefUpcs;
     protected $collItemXrefUpcsPartial;
 
     /**
      * @var        ObjectCollection|ChildItemXrefVendor[] Collection to store aggregation of ChildItemXrefVendor objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendor> Collection to store aggregation of ChildItemXrefVendor objects.
      */
     protected $collItemXrefVendors;
     protected $collItemXrefVendorsPartial;
@@ -960,259 +1004,301 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefCustomer[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefCustomer>
      */
     protected $itemXrefCustomersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvWhseItemBin[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvWhseItemBin>
      */
     protected $invWhseItemBinsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemAddonItem[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemAddonItem>
      */
     protected $itemAddonItemsRelatedByInititemnbrScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemAddonItem[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemAddonItem>
      */
     protected $itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvWhseLot[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvWhseLot>
      */
     protected $invWhseLotsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemSubstitute[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemSubstitute>
      */
     protected $itemSubstitutesRelatedByInititemnbrScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemSubstitute[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemSubstitute>
      */
     protected $itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvLotTag[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvLotTag>
      */
     protected $invLotTagsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvItem2Item[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvItem2Item>
      */
     protected $invItem2ItemsRelatedByI2imstritemidScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvItem2Item[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvItem2Item>
      */
     protected $invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvKitComponent[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvKitComponent>
      */
     protected $invKitComponentsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvLotMaster[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvLotMaster>
      */
     protected $invLotMastersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvSerialMaster[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvSerialMaster>
      */
     protected $invSerialMastersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferDetail[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferDetail>
      */
     protected $invTransferDetailsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferLotserial[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferLotserial>
      */
     protected $invTransferLotserialsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferPreAllocatedLotserial[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferPreAllocatedLotserial>
      */
     protected $invTransferPreAllocatedLotserialsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvTransferPickedLotserial[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvTransferPickedLotserial>
      */
     protected $invTransferPickedLotserialsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvSerialWarranty[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvSerialWarranty>
      */
     protected $invSerialWarrantiesScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildWarehouseInventory[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildWarehouseInventory>
      */
     protected $warehouseInventoriesScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefKey[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefKey>
      */
     protected $itemXrefKeysScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefManufacturer[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefManufacturer>
      */
     protected $itemXrefManufacturersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefCustomerNote[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefCustomerNote>
      */
     protected $itemXrefCustomerNotesScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvOptCodeNote[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvOptCodeNote>
      */
     protected $invOptCodeNotesScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefVendorNoteDetail[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendorNoteDetail>
      */
     protected $itemXrefVendorNoteDetailsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefVendorNoteInternal[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendorNoteInternal>
      */
     protected $itemXrefVendorNoteInternalsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvPallet[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvPallet>
      */
     protected $invPalletsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrderDetail[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetail>
      */
     protected $purchaseOrderDetailsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrderDetailReceipt[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceipt>
      */
     protected $purchaseOrderDetailReceiptsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrderDetailReceiving[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving>
      */
     protected $purchaseOrderDetailReceivingsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrderDetailLotReceiving[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrderDetailLotReceiving>
      */
     protected $purchaseOrderDetailLotReceivingsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBomComponent[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildBomComponent>
      */
     protected $bomComponentsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildBookingDetail[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildBookingDetail>
      */
     protected $bookingDetailsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesHistoryDetail[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesHistoryDetail>
      */
     protected $salesHistoryDetailsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesOrderDetail[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderDetail>
      */
     protected $salesOrderDetailsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesOrderLotserial[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesOrderLotserial>
      */
     protected $salesOrderLotserialsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSalesHistoryLotserial[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSalesHistoryLotserial>
      */
     protected $salesHistoryLotserialsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSoAllocatedLotserial[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSoAllocatedLotserial>
      */
     protected $soAllocatedLotserialsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemPricingDiscount[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemPricingDiscount>
      */
     protected $itemPricingDiscountsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSoPickedLotserial[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSoPickedLotserial>
      */
     protected $soPickedLotserialsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildSoStandingOrderDetail[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildSoStandingOrderDetail>
      */
     protected $soStandingOrderDetailsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefUpc[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefUpc>
      */
     protected $itemXrefUpcsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemXrefVendor[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemXrefVendor>
      */
     protected $itemXrefVendorsScheduledForDeletion = null;
 
@@ -1222,7 +1308,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->inititemnbr = '';
     }
@@ -1239,9 +1325,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -1249,10 +1335,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -1261,7 +1347,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -1271,9 +1357,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -1282,45 +1368,43 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -1329,10 +1413,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>ItemMasterItem</code>, delegates to
      * <code>equals(ItemMasterItem)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -1354,7 +1438,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -1362,10 +1446,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -1373,15 +1457,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -1390,12 +1474,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|ItemMasterItem The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -1405,13 +1489,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -1422,24 +1506,27 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -1467,7 +1554,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initdesc1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitdesc1()
     {
@@ -1477,7 +1564,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initdesc2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitdesc2()
     {
@@ -1487,7 +1574,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [intbgrup] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrup()
     {
@@ -1497,7 +1584,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initformatcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitformatcode()
     {
@@ -1507,7 +1594,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initsplit] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitsplit()
     {
@@ -1517,7 +1604,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initsherdatecd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitsherdatecd()
     {
@@ -1527,7 +1614,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initcoreyn] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitcoreyn()
     {
@@ -1537,7 +1624,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [intbusercode1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbusercode1()
     {
@@ -1547,7 +1634,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [intbusercode2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbusercode2()
     {
@@ -1557,7 +1644,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [inittype] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInittype()
     {
@@ -1567,7 +1654,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [inittax] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInittax()
     {
@@ -1577,7 +1664,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initrtlpric] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitrtlpric()
     {
@@ -1587,7 +1674,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initstatchgd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitstatchgd()
     {
@@ -1597,7 +1684,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initspecitemcd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitspecitemcd()
     {
@@ -1607,7 +1694,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initwarrdays] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getInitwarrdays()
     {
@@ -1617,7 +1704,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [intbuomsale] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbuomsale()
     {
@@ -1627,7 +1714,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initwght] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitwght()
     {
@@ -1637,7 +1724,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initbord] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitbord()
     {
@@ -1647,7 +1734,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initbaseitemid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitbaseitemid()
     {
@@ -1657,7 +1744,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initspecificcust] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitspecificcust()
     {
@@ -1667,7 +1754,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initgivedisc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitgivedisc()
     {
@@ -1677,7 +1764,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initasstcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitasstcode()
     {
@@ -1687,7 +1774,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initpriclastdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitpriclastdate()
     {
@@ -1697,7 +1784,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [intbuompur] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbuompur()
     {
@@ -1707,7 +1794,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initstancost] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitstancost()
     {
@@ -1717,7 +1804,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initstancostbase] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitstancostbase()
     {
@@ -1727,7 +1814,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initstancostlastdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitstancostlastdate()
     {
@@ -1737,7 +1824,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initminmarg] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitminmarg()
     {
@@ -1747,7 +1834,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initvendid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitvendid()
     {
@@ -1757,7 +1844,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initinspect] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitinspect()
     {
@@ -1767,7 +1854,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initstockcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitstockcode()
     {
@@ -1777,7 +1864,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initsupritemnbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitsupritemnbr()
     {
@@ -1787,7 +1874,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initvendshipfrom] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitvendshipfrom()
     {
@@ -1797,7 +1884,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initcntryoforigin] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitcntryoforigin()
     {
@@ -1807,7 +1894,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initasstqty] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitasstqty()
     {
@@ -1817,7 +1904,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [intbtariffcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbtariffcode()
     {
@@ -1827,7 +1914,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initpreference] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitpreference()
     {
@@ -1837,7 +1924,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initproducer] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitproducer()
     {
@@ -1847,7 +1934,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initdocumentation] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitdocumentation()
     {
@@ -1857,7 +1944,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initpurchcrtnqty] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getInitpurchcrtnqty()
     {
@@ -1867,7 +1954,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [aptbbuyrcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptbbuyrcode()
     {
@@ -1877,7 +1964,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initlastcost] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitlastcost()
     {
@@ -1887,7 +1974,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initliters] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitliters()
     {
@@ -1897,7 +1984,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [intbmsdscode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbmsdscode()
     {
@@ -1907,7 +1994,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initrequirefrt] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitrequirefrt()
     {
@@ -1917,7 +2004,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initmfrtcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitmfrtcode()
     {
@@ -1927,7 +2014,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initinnerpackqty] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getInitinnerpackqty()
     {
@@ -1937,7 +2024,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initouterpackqty] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getInitouterpackqty()
     {
@@ -1947,7 +2034,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initbasestancost] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitbasestancost()
     {
@@ -1957,7 +2044,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initshiptareqty] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getInitshiptareqty()
     {
@@ -1967,7 +2054,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initwgitem] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitwgitem()
     {
@@ -1977,7 +2064,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [intbpricgrup] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbpricgrup()
     {
@@ -1987,7 +2074,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [intbcommgrup] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbcommgrup()
     {
@@ -1997,7 +2084,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initlastcostdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitlastcostdate()
     {
@@ -2007,7 +2094,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initqtypercase] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getInitqtypercase()
     {
@@ -2017,7 +2104,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initrevision] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitrevision()
     {
@@ -2027,7 +2114,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initcommsaleqty] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getInitcommsaleqty()
     {
@@ -2037,7 +2124,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initcubes] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitcubes()
     {
@@ -2047,7 +2134,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [inittimefence] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getInittimefence()
     {
@@ -2057,7 +2144,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initsrvcminchrg] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitsrvcminchrg()
     {
@@ -2067,7 +2154,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [initminmargbase] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getInitMinMargBase()
     {
@@ -2077,7 +2164,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [dateupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDateupdtd()
     {
@@ -2087,7 +2174,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [timeupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTimeupdtd()
     {
@@ -2097,7 +2184,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -2107,8 +2194,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Set the value of [inititemnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInititemnbr($v)
     {
@@ -2126,13 +2213,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInititemnbr()
+    }
 
     /**
      * Set the value of [initdesc1] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitdesc1($v)
     {
@@ -2146,13 +2233,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitdesc1()
+    }
 
     /**
      * Set the value of [initdesc2] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitdesc2($v)
     {
@@ -2166,13 +2253,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitdesc2()
+    }
 
     /**
      * Set the value of [intbgrup] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrup($v)
     {
@@ -2190,13 +2277,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrup()
+    }
 
     /**
      * Set the value of [initformatcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitformatcode($v)
     {
@@ -2210,13 +2297,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitformatcode()
+    }
 
     /**
      * Set the value of [initsplit] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitsplit($v)
     {
@@ -2230,13 +2317,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitsplit()
+    }
 
     /**
      * Set the value of [initsherdatecd] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitsherdatecd($v)
     {
@@ -2250,13 +2337,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitsherdatecd()
+    }
 
     /**
      * Set the value of [initcoreyn] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitcoreyn($v)
     {
@@ -2270,13 +2357,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitcoreyn()
+    }
 
     /**
      * Set the value of [intbusercode1] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbusercode1($v)
     {
@@ -2290,13 +2377,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbusercode1()
+    }
 
     /**
      * Set the value of [intbusercode2] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbusercode2($v)
     {
@@ -2310,13 +2397,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbusercode2()
+    }
 
     /**
      * Set the value of [inittype] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInittype($v)
     {
@@ -2330,13 +2417,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInittype()
+    }
 
     /**
      * Set the value of [inittax] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInittax($v)
     {
@@ -2350,13 +2437,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInittax()
+    }
 
     /**
      * Set the value of [initrtlpric] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitrtlpric($v)
     {
@@ -2370,13 +2457,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitrtlpric()
+    }
 
     /**
      * Set the value of [initstatchgd] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitstatchgd($v)
     {
@@ -2390,13 +2477,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitstatchgd()
+    }
 
     /**
      * Set the value of [initspecitemcd] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitspecitemcd($v)
     {
@@ -2410,13 +2497,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitspecitemcd()
+    }
 
     /**
      * Set the value of [initwarrdays] column.
      *
-     * @param int $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitwarrdays($v)
     {
@@ -2430,13 +2517,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitwarrdays()
+    }
 
     /**
      * Set the value of [intbuomsale] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbuomsale($v)
     {
@@ -2454,13 +2541,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbuomsale()
+    }
 
     /**
      * Set the value of [initwght] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitwght($v)
     {
@@ -2474,13 +2561,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitwght()
+    }
 
     /**
      * Set the value of [initbord] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitbord($v)
     {
@@ -2494,13 +2581,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitbord()
+    }
 
     /**
      * Set the value of [initbaseitemid] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitbaseitemid($v)
     {
@@ -2514,13 +2601,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitbaseitemid()
+    }
 
     /**
      * Set the value of [initspecificcust] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitspecificcust($v)
     {
@@ -2534,13 +2621,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitspecificcust()
+    }
 
     /**
      * Set the value of [initgivedisc] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitgivedisc($v)
     {
@@ -2554,13 +2641,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitgivedisc()
+    }
 
     /**
      * Set the value of [initasstcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitasstcode($v)
     {
@@ -2574,13 +2661,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitasstcode()
+    }
 
     /**
      * Set the value of [initpriclastdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitpriclastdate($v)
     {
@@ -2594,13 +2681,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitpriclastdate()
+    }
 
     /**
      * Set the value of [intbuompur] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbuompur($v)
     {
@@ -2618,13 +2705,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbuompur()
+    }
 
     /**
      * Set the value of [initstancost] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitstancost($v)
     {
@@ -2638,13 +2725,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitstancost()
+    }
 
     /**
      * Set the value of [initstancostbase] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitstancostbase($v)
     {
@@ -2658,13 +2745,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitstancostbase()
+    }
 
     /**
      * Set the value of [initstancostlastdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitstancostlastdate($v)
     {
@@ -2678,13 +2765,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitstancostlastdate()
+    }
 
     /**
      * Set the value of [initminmarg] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitminmarg($v)
     {
@@ -2698,13 +2785,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitminmarg()
+    }
 
     /**
      * Set the value of [initvendid] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitvendid($v)
     {
@@ -2718,13 +2805,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitvendid()
+    }
 
     /**
      * Set the value of [initinspect] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitinspect($v)
     {
@@ -2738,13 +2825,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitinspect()
+    }
 
     /**
      * Set the value of [initstockcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitstockcode($v)
     {
@@ -2758,13 +2845,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitstockcode()
+    }
 
     /**
      * Set the value of [initsupritemnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitsupritemnbr($v)
     {
@@ -2778,13 +2865,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitsupritemnbr()
+    }
 
     /**
      * Set the value of [initvendshipfrom] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitvendshipfrom($v)
     {
@@ -2798,13 +2885,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitvendshipfrom()
+    }
 
     /**
      * Set the value of [initcntryoforigin] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitcntryoforigin($v)
     {
@@ -2818,13 +2905,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitcntryoforigin()
+    }
 
     /**
      * Set the value of [initasstqty] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitasstqty($v)
     {
@@ -2838,13 +2925,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitasstqty()
+    }
 
     /**
      * Set the value of [intbtariffcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbtariffcode($v)
     {
@@ -2858,13 +2945,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbtariffcode()
+    }
 
     /**
      * Set the value of [initpreference] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitpreference($v)
     {
@@ -2878,13 +2965,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitpreference()
+    }
 
     /**
      * Set the value of [initproducer] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitproducer($v)
     {
@@ -2898,13 +2985,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitproducer()
+    }
 
     /**
      * Set the value of [initdocumentation] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitdocumentation($v)
     {
@@ -2918,13 +3005,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitdocumentation()
+    }
 
     /**
      * Set the value of [initpurchcrtnqty] column.
      *
-     * @param int $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitpurchcrtnqty($v)
     {
@@ -2938,13 +3025,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitpurchcrtnqty()
+    }
 
     /**
      * Set the value of [aptbbuyrcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptbbuyrcode($v)
     {
@@ -2958,13 +3045,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptbbuyrcode()
+    }
 
     /**
      * Set the value of [initlastcost] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitlastcost($v)
     {
@@ -2978,13 +3065,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitlastcost()
+    }
 
     /**
      * Set the value of [initliters] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitliters($v)
     {
@@ -2998,13 +3085,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitliters()
+    }
 
     /**
      * Set the value of [intbmsdscode] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbmsdscode($v)
     {
@@ -3018,13 +3105,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbmsdscode()
+    }
 
     /**
      * Set the value of [initrequirefrt] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitrequirefrt($v)
     {
@@ -3038,13 +3125,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitrequirefrt()
+    }
 
     /**
      * Set the value of [initmfrtcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitmfrtcode($v)
     {
@@ -3058,13 +3145,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitmfrtcode()
+    }
 
     /**
      * Set the value of [initinnerpackqty] column.
      *
-     * @param int $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitinnerpackqty($v)
     {
@@ -3078,13 +3165,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitinnerpackqty()
+    }
 
     /**
      * Set the value of [initouterpackqty] column.
      *
-     * @param int $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitouterpackqty($v)
     {
@@ -3098,13 +3185,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitouterpackqty()
+    }
 
     /**
      * Set the value of [initbasestancost] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitbasestancost($v)
     {
@@ -3118,13 +3205,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitbasestancost()
+    }
 
     /**
      * Set the value of [initshiptareqty] column.
      *
-     * @param int $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitshiptareqty($v)
     {
@@ -3138,13 +3225,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitshiptareqty()
+    }
 
     /**
      * Set the value of [initwgitem] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitwgitem($v)
     {
@@ -3158,13 +3245,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitwgitem()
+    }
 
     /**
      * Set the value of [intbpricgrup] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbpricgrup($v)
     {
@@ -3182,13 +3269,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbpricgrup()
+    }
 
     /**
      * Set the value of [intbcommgrup] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbcommgrup($v)
     {
@@ -3206,13 +3293,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbcommgrup()
+    }
 
     /**
      * Set the value of [initlastcostdate] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitlastcostdate($v)
     {
@@ -3226,13 +3313,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitlastcostdate()
+    }
 
     /**
      * Set the value of [initqtypercase] column.
      *
-     * @param int $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitqtypercase($v)
     {
@@ -3246,13 +3333,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitqtypercase()
+    }
 
     /**
      * Set the value of [initrevision] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitrevision($v)
     {
@@ -3266,13 +3353,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitrevision()
+    }
 
     /**
      * Set the value of [initcommsaleqty] column.
      *
-     * @param int $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitcommsaleqty($v)
     {
@@ -3286,13 +3373,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitcommsaleqty()
+    }
 
     /**
      * Set the value of [initcubes] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitcubes($v)
     {
@@ -3306,13 +3393,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitcubes()
+    }
 
     /**
      * Set the value of [inittimefence] column.
      *
-     * @param int $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInittimefence($v)
     {
@@ -3326,13 +3413,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInittimefence()
+    }
 
     /**
      * Set the value of [initsrvcminchrg] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitsrvcminchrg($v)
     {
@@ -3346,13 +3433,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitsrvcminchrg()
+    }
 
     /**
      * Set the value of [initminmargbase] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setInitMinMargBase($v)
     {
@@ -3366,13 +3453,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitMinMargBase()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -3386,13 +3473,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -3406,13 +3493,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -3426,7 +3513,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -3434,9 +3521,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->inititemnbr !== '') {
                 return false;
@@ -3444,7 +3531,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -3454,17 +3541,17 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -3662,8 +3749,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ItemMasterItemTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -3688,9 +3775,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
         if ($this->aItemPricing !== null && $this->inititemnbr !== $this->aItemPricing->getInititemnbr()) {
             $this->aItemPricing = null;
@@ -3710,19 +3798,19 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if ($this->aInvCommissionCode !== null && $this->intbcommgrup !== $this->aInvCommissionCode->getIntbcommgrup()) {
             $this->aInvCommissionCode = null;
         }
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -3853,13 +3941,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see ItemMasterItem::setDeleted()
      * @see ItemMasterItem::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -3889,12 +3977,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -3939,12 +4027,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -4757,19 +4845,19 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -4982,198 +5070,263 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'InitItemNbr':
                         $stmt->bindValue($identifier, $this->inititemnbr, PDO::PARAM_STR);
+
                         break;
                     case 'InitDesc1':
                         $stmt->bindValue($identifier, $this->initdesc1, PDO::PARAM_STR);
+
                         break;
                     case 'InitDesc2':
                         $stmt->bindValue($identifier, $this->initdesc2, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrup':
                         $stmt->bindValue($identifier, $this->intbgrup, PDO::PARAM_STR);
+
                         break;
                     case 'InitFormatCode':
                         $stmt->bindValue($identifier, $this->initformatcode, PDO::PARAM_STR);
+
                         break;
                     case 'InitSplit':
                         $stmt->bindValue($identifier, $this->initsplit, PDO::PARAM_STR);
+
                         break;
                     case 'InitSherDateCd':
                         $stmt->bindValue($identifier, $this->initsherdatecd, PDO::PARAM_STR);
+
                         break;
                     case 'InitCoreYN':
                         $stmt->bindValue($identifier, $this->initcoreyn, PDO::PARAM_STR);
+
                         break;
                     case 'IntbUserCode1':
                         $stmt->bindValue($identifier, $this->intbusercode1, PDO::PARAM_STR);
+
                         break;
                     case 'IntbUserCode2':
                         $stmt->bindValue($identifier, $this->intbusercode2, PDO::PARAM_STR);
+
                         break;
                     case 'InitType':
                         $stmt->bindValue($identifier, $this->inittype, PDO::PARAM_STR);
+
                         break;
                     case 'InitTax':
                         $stmt->bindValue($identifier, $this->inittax, PDO::PARAM_STR);
+
                         break;
                     case 'InitRtlPric':
                         $stmt->bindValue($identifier, $this->initrtlpric, PDO::PARAM_STR);
+
                         break;
                     case 'InitStatChgd':
                         $stmt->bindValue($identifier, $this->initstatchgd, PDO::PARAM_STR);
+
                         break;
                     case 'InitSpecItemCd':
                         $stmt->bindValue($identifier, $this->initspecitemcd, PDO::PARAM_STR);
+
                         break;
                     case 'InitWarrDays':
                         $stmt->bindValue($identifier, $this->initwarrdays, PDO::PARAM_INT);
+
                         break;
                     case 'IntbUomSale':
                         $stmt->bindValue($identifier, $this->intbuomsale, PDO::PARAM_STR);
+
                         break;
                     case 'InitWght':
                         $stmt->bindValue($identifier, $this->initwght, PDO::PARAM_STR);
+
                         break;
                     case 'InitBord':
                         $stmt->bindValue($identifier, $this->initbord, PDO::PARAM_STR);
+
                         break;
                     case 'InitBaseItemId':
                         $stmt->bindValue($identifier, $this->initbaseitemid, PDO::PARAM_STR);
+
                         break;
                     case 'InitSpecificCust':
                         $stmt->bindValue($identifier, $this->initspecificcust, PDO::PARAM_STR);
+
                         break;
                     case 'InitGiveDisc':
                         $stmt->bindValue($identifier, $this->initgivedisc, PDO::PARAM_STR);
+
                         break;
                     case 'InitAsstCode':
                         $stmt->bindValue($identifier, $this->initasstcode, PDO::PARAM_STR);
+
                         break;
                     case 'InitPricLastDate':
                         $stmt->bindValue($identifier, $this->initpriclastdate, PDO::PARAM_STR);
+
                         break;
                     case 'IntbUomPur':
                         $stmt->bindValue($identifier, $this->intbuompur, PDO::PARAM_STR);
+
                         break;
                     case 'InitStanCost':
                         $stmt->bindValue($identifier, $this->initstancost, PDO::PARAM_STR);
+
                         break;
                     case 'InitStanCostBase':
                         $stmt->bindValue($identifier, $this->initstancostbase, PDO::PARAM_STR);
+
                         break;
                     case 'InitStanCostLastDate':
                         $stmt->bindValue($identifier, $this->initstancostlastdate, PDO::PARAM_STR);
+
                         break;
                     case 'InitMinMarg':
                         $stmt->bindValue($identifier, $this->initminmarg, PDO::PARAM_STR);
+
                         break;
                     case 'InitVendId':
                         $stmt->bindValue($identifier, $this->initvendid, PDO::PARAM_STR);
+
                         break;
                     case 'InitInspect':
                         $stmt->bindValue($identifier, $this->initinspect, PDO::PARAM_STR);
+
                         break;
                     case 'InitStockCode':
                         $stmt->bindValue($identifier, $this->initstockcode, PDO::PARAM_STR);
+
                         break;
                     case 'InitSuprItemNbr':
                         $stmt->bindValue($identifier, $this->initsupritemnbr, PDO::PARAM_STR);
+
                         break;
                     case 'InitVendShipFrom':
                         $stmt->bindValue($identifier, $this->initvendshipfrom, PDO::PARAM_STR);
+
                         break;
                     case 'InitCntryOfOrigin':
                         $stmt->bindValue($identifier, $this->initcntryoforigin, PDO::PARAM_STR);
+
                         break;
                     case 'InitAsstQty':
                         $stmt->bindValue($identifier, $this->initasstqty, PDO::PARAM_STR);
+
                         break;
                     case 'IntbTariffCode':
                         $stmt->bindValue($identifier, $this->intbtariffcode, PDO::PARAM_STR);
+
                         break;
                     case 'InitPreference':
                         $stmt->bindValue($identifier, $this->initpreference, PDO::PARAM_STR);
+
                         break;
                     case 'InitProducer':
                         $stmt->bindValue($identifier, $this->initproducer, PDO::PARAM_STR);
+
                         break;
                     case 'InitDocumentation':
                         $stmt->bindValue($identifier, $this->initdocumentation, PDO::PARAM_STR);
+
                         break;
                     case 'InitPurchCrtnQty':
                         $stmt->bindValue($identifier, $this->initpurchcrtnqty, PDO::PARAM_INT);
+
                         break;
                     case 'AptbBuyrCode':
                         $stmt->bindValue($identifier, $this->aptbbuyrcode, PDO::PARAM_STR);
+
                         break;
                     case 'InitLastCost':
                         $stmt->bindValue($identifier, $this->initlastcost, PDO::PARAM_STR);
+
                         break;
                     case 'InitLiters':
                         $stmt->bindValue($identifier, $this->initliters, PDO::PARAM_STR);
+
                         break;
                     case 'IntbMsdsCode':
                         $stmt->bindValue($identifier, $this->intbmsdscode, PDO::PARAM_STR);
+
                         break;
                     case 'InitRequireFrt':
                         $stmt->bindValue($identifier, $this->initrequirefrt, PDO::PARAM_STR);
+
                         break;
                     case 'InitMfrtCode':
                         $stmt->bindValue($identifier, $this->initmfrtcode, PDO::PARAM_STR);
+
                         break;
                     case 'InitInnerPackQty':
                         $stmt->bindValue($identifier, $this->initinnerpackqty, PDO::PARAM_INT);
+
                         break;
                     case 'InitOuterPackQty':
                         $stmt->bindValue($identifier, $this->initouterpackqty, PDO::PARAM_INT);
+
                         break;
                     case 'InitBaseStanCost':
                         $stmt->bindValue($identifier, $this->initbasestancost, PDO::PARAM_STR);
+
                         break;
                     case 'InitShipTareQty':
                         $stmt->bindValue($identifier, $this->initshiptareqty, PDO::PARAM_INT);
+
                         break;
                     case 'InitWgItem':
                         $stmt->bindValue($identifier, $this->initwgitem, PDO::PARAM_STR);
+
                         break;
                     case 'IntbPricGrup':
                         $stmt->bindValue($identifier, $this->intbpricgrup, PDO::PARAM_STR);
+
                         break;
                     case 'IntbCommGrup':
                         $stmt->bindValue($identifier, $this->intbcommgrup, PDO::PARAM_STR);
+
                         break;
                     case 'InitLastCostDate':
                         $stmt->bindValue($identifier, $this->initlastcostdate, PDO::PARAM_STR);
+
                         break;
                     case 'InitQtyPerCase':
                         $stmt->bindValue($identifier, $this->initqtypercase, PDO::PARAM_INT);
+
                         break;
                     case 'InitRevision':
                         $stmt->bindValue($identifier, $this->initrevision, PDO::PARAM_STR);
+
                         break;
                     case 'InitCommSaleQty':
                         $stmt->bindValue($identifier, $this->initcommsaleqty, PDO::PARAM_INT);
+
                         break;
                     case 'InitCubes':
                         $stmt->bindValue($identifier, $this->initcubes, PDO::PARAM_STR);
+
                         break;
                     case 'InitTimeFence':
                         $stmt->bindValue($identifier, $this->inittimefence, PDO::PARAM_INT);
+
                         break;
                     case 'InitSrvcMinChrg':
                         $stmt->bindValue($identifier, $this->initsrvcminchrg, PDO::PARAM_STR);
+
                         break;
                     case 'InitMinMargBase':
                         $stmt->bindValue($identifier, $this->initminmargbase, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -5189,12 +5342,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -5205,14 +5358,14 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ItemMasterItemTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -5224,210 +5377,209 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getInititemnbr();
-                break;
+
             case 1:
                 return $this->getInitdesc1();
-                break;
+
             case 2:
                 return $this->getInitdesc2();
-                break;
+
             case 3:
                 return $this->getIntbgrup();
-                break;
+
             case 4:
                 return $this->getInitformatcode();
-                break;
+
             case 5:
                 return $this->getInitsplit();
-                break;
+
             case 6:
                 return $this->getInitsherdatecd();
-                break;
+
             case 7:
                 return $this->getInitcoreyn();
-                break;
+
             case 8:
                 return $this->getIntbusercode1();
-                break;
+
             case 9:
                 return $this->getIntbusercode2();
-                break;
+
             case 10:
                 return $this->getInittype();
-                break;
+
             case 11:
                 return $this->getInittax();
-                break;
+
             case 12:
                 return $this->getInitrtlpric();
-                break;
+
             case 13:
                 return $this->getInitstatchgd();
-                break;
+
             case 14:
                 return $this->getInitspecitemcd();
-                break;
+
             case 15:
                 return $this->getInitwarrdays();
-                break;
+
             case 16:
                 return $this->getIntbuomsale();
-                break;
+
             case 17:
                 return $this->getInitwght();
-                break;
+
             case 18:
                 return $this->getInitbord();
-                break;
+
             case 19:
                 return $this->getInitbaseitemid();
-                break;
+
             case 20:
                 return $this->getInitspecificcust();
-                break;
+
             case 21:
                 return $this->getInitgivedisc();
-                break;
+
             case 22:
                 return $this->getInitasstcode();
-                break;
+
             case 23:
                 return $this->getInitpriclastdate();
-                break;
+
             case 24:
                 return $this->getIntbuompur();
-                break;
+
             case 25:
                 return $this->getInitstancost();
-                break;
+
             case 26:
                 return $this->getInitstancostbase();
-                break;
+
             case 27:
                 return $this->getInitstancostlastdate();
-                break;
+
             case 28:
                 return $this->getInitminmarg();
-                break;
+
             case 29:
                 return $this->getInitvendid();
-                break;
+
             case 30:
                 return $this->getInitinspect();
-                break;
+
             case 31:
                 return $this->getInitstockcode();
-                break;
+
             case 32:
                 return $this->getInitsupritemnbr();
-                break;
+
             case 33:
                 return $this->getInitvendshipfrom();
-                break;
+
             case 34:
                 return $this->getInitcntryoforigin();
-                break;
+
             case 35:
                 return $this->getInitasstqty();
-                break;
+
             case 36:
                 return $this->getIntbtariffcode();
-                break;
+
             case 37:
                 return $this->getInitpreference();
-                break;
+
             case 38:
                 return $this->getInitproducer();
-                break;
+
             case 39:
                 return $this->getInitdocumentation();
-                break;
+
             case 40:
                 return $this->getInitpurchcrtnqty();
-                break;
+
             case 41:
                 return $this->getAptbbuyrcode();
-                break;
+
             case 42:
                 return $this->getInitlastcost();
-                break;
+
             case 43:
                 return $this->getInitliters();
-                break;
+
             case 44:
                 return $this->getIntbmsdscode();
-                break;
+
             case 45:
                 return $this->getInitrequirefrt();
-                break;
+
             case 46:
                 return $this->getInitmfrtcode();
-                break;
+
             case 47:
                 return $this->getInitinnerpackqty();
-                break;
+
             case 48:
                 return $this->getInitouterpackqty();
-                break;
+
             case 49:
                 return $this->getInitbasestancost();
-                break;
+
             case 50:
                 return $this->getInitshiptareqty();
-                break;
+
             case 51:
                 return $this->getInitwgitem();
-                break;
+
             case 52:
                 return $this->getIntbpricgrup();
-                break;
+
             case 53:
                 return $this->getIntbcommgrup();
-                break;
+
             case 54:
                 return $this->getInitlastcostdate();
-                break;
+
             case 55:
                 return $this->getInitqtypercase();
-                break;
+
             case 56:
                 return $this->getInitrevision();
-                break;
+
             case 57:
                 return $this->getInitcommsaleqty();
-                break;
+
             case 58:
                 return $this->getInitcubes();
-                break;
+
             case 59:
                 return $this->getInittimefence();
-                break;
+
             case 60:
                 return $this->getInitsrvcminchrg();
-                break;
+
             case 61:
                 return $this->getInitMinMargBase();
-                break;
+
             case 62:
                 return $this->getDateupdtd();
-                break;
+
             case 63:
                 return $this->getTimeupdtd();
-                break;
+
             case 64:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -5437,24 +5589,23 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
-     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = [], bool $includeForeignObjects = false): array
     {
-
         if (isset($alreadyDumpedObjects['ItemMasterItem'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['ItemMasterItem'][$this->hashCode()] = true;
         $keys = ItemMasterItemTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getInititemnbr(),
             $keys[1] => $this->getInitdesc1(),
             $keys[2] => $this->getInitdesc2(),
@@ -5520,7 +5671,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $keys[62] => $this->getDateupdtd(),
             $keys[63] => $this->getTimeupdtd(),
             $keys[64] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -6315,30 +6466,32 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\ItemMasterItem
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ItemMasterItemTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\ItemMasterItem
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -6554,11 +6707,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = ItemMasterItemTableMap::getFieldNames($keyType);
 
@@ -6757,6 +6910,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (array_key_exists($keys[64], $arr)) {
             $this->setDummy($arr[$keys[64]]);
         }
+
+        return $this;
     }
 
      /**
@@ -6776,9 +6931,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\ItemMasterItem The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -6792,9 +6947,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(ItemMasterItemTableMap::DATABASE_NAME);
 
@@ -7001,13 +7156,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildItemMasterItemQuery::create();
         $criteria->add(ItemMasterItemTableMap::COL_INITITEMNBR, $this->inititemnbr);
@@ -7019,7 +7174,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -7056,19 +7211,20 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (inititemnbr column).
      *
-     * @param       string $key Primary key.
+     * @param string|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?string $key = null): void
     {
         $this->setInititemnbr($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getInititemnbr();
     }
@@ -7079,12 +7235,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \ItemMasterItem (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \ItemMasterItem (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setInititemnbr($this->getInititemnbr());
         $copyObj->setInitdesc1($this->getInitdesc1());
@@ -7444,11 +7601,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \ItemMasterItem Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -7461,9 +7618,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildUnitofMeasureSale object.
      *
-     * @param  ChildUnitofMeasureSale $v
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildUnitofMeasureSale|null $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setUnitofMeasureSale(ChildUnitofMeasureSale $v = null)
     {
@@ -7489,11 +7646,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the associated ChildUnitofMeasureSale object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildUnitofMeasureSale The associated ChildUnitofMeasureSale object.
-     * @throws PropelException
+     * @param ConnectionInterface $con Optional Connection object.
+     * @return ChildUnitofMeasureSale|null The associated ChildUnitofMeasureSale object.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getUnitofMeasureSale(ConnectionInterface $con = null)
+    public function getUnitofMeasureSale(?ConnectionInterface $con = null)
     {
         if ($this->aUnitofMeasureSale === null && (($this->intbuomsale !== "" && $this->intbuomsale !== null))) {
             $this->aUnitofMeasureSale = ChildUnitofMeasureSaleQuery::create()->findPk($this->intbuomsale, $con);
@@ -7512,9 +7669,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildUnitofMeasurePurchase object.
      *
-     * @param  ChildUnitofMeasurePurchase $v
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildUnitofMeasurePurchase|null $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setUnitofMeasurePurchase(ChildUnitofMeasurePurchase $v = null)
     {
@@ -7540,11 +7697,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the associated ChildUnitofMeasurePurchase object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildUnitofMeasurePurchase The associated ChildUnitofMeasurePurchase object.
-     * @throws PropelException
+     * @param ConnectionInterface $con Optional Connection object.
+     * @return ChildUnitofMeasurePurchase|null The associated ChildUnitofMeasurePurchase object.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getUnitofMeasurePurchase(ConnectionInterface $con = null)
+    public function getUnitofMeasurePurchase(?ConnectionInterface $con = null)
     {
         if ($this->aUnitofMeasurePurchase === null && (($this->intbuompur !== "" && $this->intbuompur !== null))) {
             $this->aUnitofMeasurePurchase = ChildUnitofMeasurePurchaseQuery::create()->findPk($this->intbuompur, $con);
@@ -7563,9 +7720,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildInvGroupCode object.
      *
-     * @param  ChildInvGroupCode $v
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildInvGroupCode|null $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setInvGroupCode(ChildInvGroupCode $v = null)
     {
@@ -7591,11 +7748,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the associated ChildInvGroupCode object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildInvGroupCode The associated ChildInvGroupCode object.
-     * @throws PropelException
+     * @param ConnectionInterface $con Optional Connection object.
+     * @return ChildInvGroupCode|null The associated ChildInvGroupCode object.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvGroupCode(ConnectionInterface $con = null)
+    public function getInvGroupCode(?ConnectionInterface $con = null)
     {
         if ($this->aInvGroupCode === null && (($this->intbgrup !== "" && $this->intbgrup !== null))) {
             $this->aInvGroupCode = ChildInvGroupCodeQuery::create()->findPk($this->intbgrup, $con);
@@ -7614,9 +7771,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildInvPriceCode object.
      *
-     * @param  ChildInvPriceCode $v
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildInvPriceCode|null $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setInvPriceCode(ChildInvPriceCode $v = null)
     {
@@ -7642,11 +7799,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the associated ChildInvPriceCode object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildInvPriceCode The associated ChildInvPriceCode object.
-     * @throws PropelException
+     * @param ConnectionInterface $con Optional Connection object.
+     * @return ChildInvPriceCode|null The associated ChildInvPriceCode object.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvPriceCode(ConnectionInterface $con = null)
+    public function getInvPriceCode(?ConnectionInterface $con = null)
     {
         if ($this->aInvPriceCode === null && (($this->intbpricgrup !== "" && $this->intbpricgrup !== null))) {
             $this->aInvPriceCode = ChildInvPriceCodeQuery::create()->findPk($this->intbpricgrup, $con);
@@ -7665,9 +7822,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildInvCommissionCode object.
      *
-     * @param  ChildInvCommissionCode $v
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildInvCommissionCode|null $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setInvCommissionCode(ChildInvCommissionCode $v = null)
     {
@@ -7693,11 +7850,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the associated ChildInvCommissionCode object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildInvCommissionCode The associated ChildInvCommissionCode object.
-     * @throws PropelException
+     * @param ConnectionInterface $con Optional Connection object.
+     * @return ChildInvCommissionCode|null The associated ChildInvCommissionCode object.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvCommissionCode(ConnectionInterface $con = null)
+    public function getInvCommissionCode(?ConnectionInterface $con = null)
     {
         if ($this->aInvCommissionCode === null && (($this->intbcommgrup !== "" && $this->intbcommgrup !== null))) {
             $this->aInvCommissionCode = ChildInvCommissionCodeQuery::create()->findPk($this->intbcommgrup, $con);
@@ -7716,9 +7873,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildItemPricing object.
      *
-     * @param  ChildItemPricing $v
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildItemPricing $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setItemPricing(ChildItemPricing $v = null)
     {
@@ -7743,11 +7900,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Get the associated ChildItemPricing object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
+     * @param ConnectionInterface $con Optional Connection object.
      * @return ChildItemPricing The associated ChildItemPricing object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemPricing(ConnectionInterface $con = null)
+    public function getItemPricing(?ConnectionInterface $con = null)
     {
         if ($this->aItemPricing === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
             $this->aItemPricing = ChildItemPricingQuery::create()->findPk($this->inititemnbr, $con);
@@ -7764,176 +7921,176 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Avoids crafting an 'init[$relationName]s' method name
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
-     * @param      string $relationName The name of the relation to initialize
+     * @param string $relationName The name of the relation to initialize
      * @return void
      */
-    public function initRelation($relationName)
+    public function initRelation($relationName): void
     {
-        if ('ItemXrefCustomer' == $relationName) {
+        if ('ItemXrefCustomer' === $relationName) {
             $this->initItemXrefCustomers();
             return;
         }
-        if ('InvWhseItemBin' == $relationName) {
+        if ('InvWhseItemBin' === $relationName) {
             $this->initInvWhseItemBins();
             return;
         }
-        if ('ItemAddonItemRelatedByInititemnbr' == $relationName) {
+        if ('ItemAddonItemRelatedByInititemnbr' === $relationName) {
             $this->initItemAddonItemsRelatedByInititemnbr();
             return;
         }
-        if ('ItemAddonItemRelatedByAdonadditemnbr' == $relationName) {
+        if ('ItemAddonItemRelatedByAdonadditemnbr' === $relationName) {
             $this->initItemAddonItemsRelatedByAdonadditemnbr();
             return;
         }
-        if ('InvWhseLot' == $relationName) {
+        if ('InvWhseLot' === $relationName) {
             $this->initInvWhseLots();
             return;
         }
-        if ('ItemSubstituteRelatedByInititemnbr' == $relationName) {
+        if ('ItemSubstituteRelatedByInititemnbr' === $relationName) {
             $this->initItemSubstitutesRelatedByInititemnbr();
             return;
         }
-        if ('ItemSubstituteRelatedByInsisubitemnbr' == $relationName) {
+        if ('ItemSubstituteRelatedByInsisubitemnbr' === $relationName) {
             $this->initItemSubstitutesRelatedByInsisubitemnbr();
             return;
         }
-        if ('InvLotTag' == $relationName) {
+        if ('InvLotTag' === $relationName) {
             $this->initInvLotTags();
             return;
         }
-        if ('InvItem2ItemRelatedByI2imstritemid' == $relationName) {
+        if ('InvItem2ItemRelatedByI2imstritemid' === $relationName) {
             $this->initInvItem2ItemsRelatedByI2imstritemid();
             return;
         }
-        if ('InvItem2ItemRelatedByI2ichilditemid' == $relationName) {
+        if ('InvItem2ItemRelatedByI2ichilditemid' === $relationName) {
             $this->initInvItem2ItemsRelatedByI2ichilditemid();
             return;
         }
-        if ('InvKitComponent' == $relationName) {
+        if ('InvKitComponent' === $relationName) {
             $this->initInvKitComponents();
             return;
         }
-        if ('InvLotMaster' == $relationName) {
+        if ('InvLotMaster' === $relationName) {
             $this->initInvLotMasters();
             return;
         }
-        if ('InvSerialMaster' == $relationName) {
+        if ('InvSerialMaster' === $relationName) {
             $this->initInvSerialMasters();
             return;
         }
-        if ('InvTransferDetail' == $relationName) {
+        if ('InvTransferDetail' === $relationName) {
             $this->initInvTransferDetails();
             return;
         }
-        if ('InvTransferLotserial' == $relationName) {
+        if ('InvTransferLotserial' === $relationName) {
             $this->initInvTransferLotserials();
             return;
         }
-        if ('InvTransferPreAllocatedLotserial' == $relationName) {
+        if ('InvTransferPreAllocatedLotserial' === $relationName) {
             $this->initInvTransferPreAllocatedLotserials();
             return;
         }
-        if ('InvTransferPickedLotserial' == $relationName) {
+        if ('InvTransferPickedLotserial' === $relationName) {
             $this->initInvTransferPickedLotserials();
             return;
         }
-        if ('InvSerialWarranty' == $relationName) {
+        if ('InvSerialWarranty' === $relationName) {
             $this->initInvSerialWarranties();
             return;
         }
-        if ('WarehouseInventory' == $relationName) {
+        if ('WarehouseInventory' === $relationName) {
             $this->initWarehouseInventories();
             return;
         }
-        if ('ItemXrefKey' == $relationName) {
+        if ('ItemXrefKey' === $relationName) {
             $this->initItemXrefKeys();
             return;
         }
-        if ('ItemXrefManufacturer' == $relationName) {
+        if ('ItemXrefManufacturer' === $relationName) {
             $this->initItemXrefManufacturers();
             return;
         }
-        if ('ItemXrefCustomerNote' == $relationName) {
+        if ('ItemXrefCustomerNote' === $relationName) {
             $this->initItemXrefCustomerNotes();
             return;
         }
-        if ('InvOptCodeNote' == $relationName) {
+        if ('InvOptCodeNote' === $relationName) {
             $this->initInvOptCodeNotes();
             return;
         }
-        if ('ItemXrefVendorNoteDetail' == $relationName) {
+        if ('ItemXrefVendorNoteDetail' === $relationName) {
             $this->initItemXrefVendorNoteDetails();
             return;
         }
-        if ('ItemXrefVendorNoteInternal' == $relationName) {
+        if ('ItemXrefVendorNoteInternal' === $relationName) {
             $this->initItemXrefVendorNoteInternals();
             return;
         }
-        if ('InvPallet' == $relationName) {
+        if ('InvPallet' === $relationName) {
             $this->initInvPallets();
             return;
         }
-        if ('PurchaseOrderDetail' == $relationName) {
+        if ('PurchaseOrderDetail' === $relationName) {
             $this->initPurchaseOrderDetails();
             return;
         }
-        if ('PurchaseOrderDetailReceipt' == $relationName) {
+        if ('PurchaseOrderDetailReceipt' === $relationName) {
             $this->initPurchaseOrderDetailReceipts();
             return;
         }
-        if ('PurchaseOrderDetailReceiving' == $relationName) {
+        if ('PurchaseOrderDetailReceiving' === $relationName) {
             $this->initPurchaseOrderDetailReceivings();
             return;
         }
-        if ('PurchaseOrderDetailLotReceiving' == $relationName) {
+        if ('PurchaseOrderDetailLotReceiving' === $relationName) {
             $this->initPurchaseOrderDetailLotReceivings();
             return;
         }
-        if ('BomComponent' == $relationName) {
+        if ('BomComponent' === $relationName) {
             $this->initBomComponents();
             return;
         }
-        if ('BookingDetail' == $relationName) {
+        if ('BookingDetail' === $relationName) {
             $this->initBookingDetails();
             return;
         }
-        if ('SalesHistoryDetail' == $relationName) {
+        if ('SalesHistoryDetail' === $relationName) {
             $this->initSalesHistoryDetails();
             return;
         }
-        if ('SalesOrderDetail' == $relationName) {
+        if ('SalesOrderDetail' === $relationName) {
             $this->initSalesOrderDetails();
             return;
         }
-        if ('SalesOrderLotserial' == $relationName) {
+        if ('SalesOrderLotserial' === $relationName) {
             $this->initSalesOrderLotserials();
             return;
         }
-        if ('SalesHistoryLotserial' == $relationName) {
+        if ('SalesHistoryLotserial' === $relationName) {
             $this->initSalesHistoryLotserials();
             return;
         }
-        if ('SoAllocatedLotserial' == $relationName) {
+        if ('SoAllocatedLotserial' === $relationName) {
             $this->initSoAllocatedLotserials();
             return;
         }
-        if ('ItemPricingDiscount' == $relationName) {
+        if ('ItemPricingDiscount' === $relationName) {
             $this->initItemPricingDiscounts();
             return;
         }
-        if ('SoPickedLotserial' == $relationName) {
+        if ('SoPickedLotserial' === $relationName) {
             $this->initSoPickedLotserials();
             return;
         }
-        if ('SoStandingOrderDetail' == $relationName) {
+        if ('SoStandingOrderDetail' === $relationName) {
             $this->initSoStandingOrderDetails();
             return;
         }
-        if ('ItemXrefUpc' == $relationName) {
+        if ('ItemXrefUpc' === $relationName) {
             $this->initItemXrefUpcs();
             return;
         }
-        if ('ItemXrefVendor' == $relationName) {
+        if ('ItemXrefVendor' === $relationName) {
             $this->initItemXrefVendors();
             return;
         }
@@ -7945,18 +8102,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemXrefCustomers()
+     * @return $this
+     * @see addItemXrefCustomers()
      */
     public function clearItemXrefCustomers()
     {
         $this->collItemXrefCustomers = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemXrefCustomers collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemXrefCustomers($v = true)
+    public function resetPartialItemXrefCustomers($v = true): void
     {
         $this->collItemXrefCustomersPartial = $v;
     }
@@ -7968,12 +8129,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemXrefCustomers($overrideExisting = true)
+    public function initItemXrefCustomers(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemXrefCustomers && !$overrideExisting) {
             return;
@@ -7994,18 +8155,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemXrefCustomer[] List of ChildItemXrefCustomer objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefCustomer> List of ChildItemXrefCustomer objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemXrefCustomers(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemXrefCustomers(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefCustomersPartial && !$this->isNew();
-        if (null === $this->collItemXrefCustomers || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemXrefCustomers) {
+        if (null === $this->collItemXrefCustomers || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemXrefCustomers();
+                if (null === $this->collItemXrefCustomers) {
+                    $this->initItemXrefCustomers();
+                } else {
+                    $collectionClassName = ItemXrefCustomerTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemXrefCustomers = new $collectionClassName;
+                    $collItemXrefCustomers->setModel('\ItemXrefCustomer');
+
+                    return $collItemXrefCustomers;
+                }
             } else {
                 $collItemXrefCustomers = ChildItemXrefCustomerQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -8049,11 +8220,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemXrefCustomers A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $itemXrefCustomers A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemXrefCustomers(Collection $itemXrefCustomers, ConnectionInterface $con = null)
+    public function setItemXrefCustomers(Collection $itemXrefCustomers, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemXrefCustomer[] $itemXrefCustomersToDelete */
         $itemXrefCustomersToDelete = $this->getItemXrefCustomers(new Criteria(), $con)->diff($itemXrefCustomers);
@@ -8079,13 +8250,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related ItemXrefCustomer objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemXrefCustomer objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemXrefCustomer objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemXrefCustomers(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemXrefCustomers(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefCustomersPartial && !$this->isNew();
         if (null === $this->collItemXrefCustomers || null !== $criteria || $partial) {
@@ -8114,8 +8285,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildItemXrefCustomer object to this object
      * through the ChildItemXrefCustomer foreign key attribute.
      *
-     * @param  ChildItemXrefCustomer $l ChildItemXrefCustomer
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildItemXrefCustomer $l ChildItemXrefCustomer
+     * @return $this The current object (for fluent API support)
      */
     public function addItemXrefCustomer(ChildItemXrefCustomer $l)
     {
@@ -8138,15 +8309,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildItemXrefCustomer $itemXrefCustomer The ChildItemXrefCustomer object to add.
      */
-    protected function doAddItemXrefCustomer(ChildItemXrefCustomer $itemXrefCustomer)
+    protected function doAddItemXrefCustomer(ChildItemXrefCustomer $itemXrefCustomer): void
     {
         $this->collItemXrefCustomers[]= $itemXrefCustomer;
         $itemXrefCustomer->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildItemXrefCustomer $itemXrefCustomer The ChildItemXrefCustomer object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildItemXrefCustomer $itemXrefCustomer The ChildItemXrefCustomer object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemXrefCustomer(ChildItemXrefCustomer $itemXrefCustomer)
     {
@@ -8170,18 +8341,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvWhseItemBins()
+     * @return $this
+     * @see addInvWhseItemBins()
      */
     public function clearInvWhseItemBins()
     {
         $this->collInvWhseItemBins = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvWhseItemBins collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvWhseItemBins($v = true)
+    public function resetPartialInvWhseItemBins($v = true): void
     {
         $this->collInvWhseItemBinsPartial = $v;
     }
@@ -8193,12 +8368,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvWhseItemBins($overrideExisting = true)
+    public function initInvWhseItemBins(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvWhseItemBins && !$overrideExisting) {
             return;
@@ -8219,18 +8394,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvWhseItemBin[] List of ChildInvWhseItemBin objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvWhseItemBin> List of ChildInvWhseItemBin objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvWhseItemBins(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvWhseItemBins(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvWhseItemBinsPartial && !$this->isNew();
-        if (null === $this->collInvWhseItemBins || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvWhseItemBins) {
+        if (null === $this->collInvWhseItemBins || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvWhseItemBins();
+                if (null === $this->collInvWhseItemBins) {
+                    $this->initInvWhseItemBins();
+                } else {
+                    $collectionClassName = InvWhseItemBinTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvWhseItemBins = new $collectionClassName;
+                    $collInvWhseItemBins->setModel('\InvWhseItemBin');
+
+                    return $collInvWhseItemBins;
+                }
             } else {
                 $collInvWhseItemBins = ChildInvWhseItemBinQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -8274,11 +8459,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invWhseItemBins A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $invWhseItemBins A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvWhseItemBins(Collection $invWhseItemBins, ConnectionInterface $con = null)
+    public function setInvWhseItemBins(Collection $invWhseItemBins, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvWhseItemBin[] $invWhseItemBinsToDelete */
         $invWhseItemBinsToDelete = $this->getInvWhseItemBins(new Criteria(), $con)->diff($invWhseItemBins);
@@ -8307,13 +8492,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related InvWhseItemBin objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvWhseItemBin objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvWhseItemBin objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvWhseItemBins(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvWhseItemBins(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvWhseItemBinsPartial && !$this->isNew();
         if (null === $this->collInvWhseItemBins || null !== $criteria || $partial) {
@@ -8342,8 +8527,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildInvWhseItemBin object to this object
      * through the ChildInvWhseItemBin foreign key attribute.
      *
-     * @param  ChildInvWhseItemBin $l ChildInvWhseItemBin
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildInvWhseItemBin $l ChildInvWhseItemBin
+     * @return $this The current object (for fluent API support)
      */
     public function addInvWhseItemBin(ChildInvWhseItemBin $l)
     {
@@ -8366,15 +8551,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildInvWhseItemBin $invWhseItemBin The ChildInvWhseItemBin object to add.
      */
-    protected function doAddInvWhseItemBin(ChildInvWhseItemBin $invWhseItemBin)
+    protected function doAddInvWhseItemBin(ChildInvWhseItemBin $invWhseItemBin): void
     {
         $this->collInvWhseItemBins[]= $invWhseItemBin;
         $invWhseItemBin->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvWhseItemBin $invWhseItemBin The ChildInvWhseItemBin object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildInvWhseItemBin $invWhseItemBin The ChildInvWhseItemBin object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvWhseItemBin(ChildInvWhseItemBin $invWhseItemBin)
     {
@@ -8404,12 +8589,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvWhseItemBin[] List of ChildInvWhseItemBin objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvWhseItemBin}> List of ChildInvWhseItemBin objects
      */
-    public function getInvWhseItemBinsJoinWarehouse(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvWhseItemBinsJoinWarehouse(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvWhseItemBinQuery::create(null, $criteria);
         $query->joinWith('Warehouse', $joinBehavior);
@@ -8429,12 +8615,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvWhseItemBin[] List of ChildInvWhseItemBin objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvWhseItemBin}> List of ChildInvWhseItemBin objects
      */
-    public function getInvWhseItemBinsJoinWarehouseInventory(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvWhseItemBinsJoinWarehouseInventory(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvWhseItemBinQuery::create(null, $criteria);
         $query->joinWith('WarehouseInventory', $joinBehavior);
@@ -8448,18 +8635,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemAddonItemsRelatedByInititemnbr()
+     * @return $this
+     * @see addItemAddonItemsRelatedByInititemnbr()
      */
     public function clearItemAddonItemsRelatedByInititemnbr()
     {
         $this->collItemAddonItemsRelatedByInititemnbr = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemAddonItemsRelatedByInititemnbr collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemAddonItemsRelatedByInititemnbr($v = true)
+    public function resetPartialItemAddonItemsRelatedByInititemnbr($v = true): void
     {
         $this->collItemAddonItemsRelatedByInititemnbrPartial = $v;
     }
@@ -8471,12 +8662,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemAddonItemsRelatedByInititemnbr($overrideExisting = true)
+    public function initItemAddonItemsRelatedByInititemnbr(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemAddonItemsRelatedByInititemnbr && !$overrideExisting) {
             return;
@@ -8497,18 +8688,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemAddonItem[] List of ChildItemAddonItem objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemAddonItem> List of ChildItemAddonItem objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemAddonItemsRelatedByInititemnbr(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemAddonItemsRelatedByInititemnbr(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemAddonItemsRelatedByInititemnbrPartial && !$this->isNew();
-        if (null === $this->collItemAddonItemsRelatedByInititemnbr || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemAddonItemsRelatedByInititemnbr) {
+        if (null === $this->collItemAddonItemsRelatedByInititemnbr || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemAddonItemsRelatedByInititemnbr();
+                if (null === $this->collItemAddonItemsRelatedByInititemnbr) {
+                    $this->initItemAddonItemsRelatedByInititemnbr();
+                } else {
+                    $collectionClassName = ItemAddonItemTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemAddonItemsRelatedByInititemnbr = new $collectionClassName;
+                    $collItemAddonItemsRelatedByInititemnbr->setModel('\ItemAddonItem');
+
+                    return $collItemAddonItemsRelatedByInititemnbr;
+                }
             } else {
                 $collItemAddonItemsRelatedByInititemnbr = ChildItemAddonItemQuery::create(null, $criteria)
                     ->filterByItemMasterItemRelatedByInititemnbr($this)
@@ -8552,11 +8753,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemAddonItemsRelatedByInititemnbr A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $itemAddonItemsRelatedByInititemnbr A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemAddonItemsRelatedByInititemnbr(Collection $itemAddonItemsRelatedByInititemnbr, ConnectionInterface $con = null)
+    public function setItemAddonItemsRelatedByInititemnbr(Collection $itemAddonItemsRelatedByInititemnbr, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemAddonItem[] $itemAddonItemsRelatedByInititemnbrToDelete */
         $itemAddonItemsRelatedByInititemnbrToDelete = $this->getItemAddonItemsRelatedByInititemnbr(new Criteria(), $con)->diff($itemAddonItemsRelatedByInititemnbr);
@@ -8585,13 +8786,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related ItemAddonItem objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemAddonItem objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemAddonItem objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemAddonItemsRelatedByInititemnbr(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemAddonItemsRelatedByInititemnbr(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemAddonItemsRelatedByInititemnbrPartial && !$this->isNew();
         if (null === $this->collItemAddonItemsRelatedByInititemnbr || null !== $criteria || $partial) {
@@ -8620,8 +8821,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildItemAddonItem object to this object
      * through the ChildItemAddonItem foreign key attribute.
      *
-     * @param  ChildItemAddonItem $l ChildItemAddonItem
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildItemAddonItem $l ChildItemAddonItem
+     * @return $this The current object (for fluent API support)
      */
     public function addItemAddonItemRelatedByInititemnbr(ChildItemAddonItem $l)
     {
@@ -8644,15 +8845,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildItemAddonItem $itemAddonItemRelatedByInititemnbr The ChildItemAddonItem object to add.
      */
-    protected function doAddItemAddonItemRelatedByInititemnbr(ChildItemAddonItem $itemAddonItemRelatedByInititemnbr)
+    protected function doAddItemAddonItemRelatedByInititemnbr(ChildItemAddonItem $itemAddonItemRelatedByInititemnbr): void
     {
         $this->collItemAddonItemsRelatedByInititemnbr[]= $itemAddonItemRelatedByInititemnbr;
         $itemAddonItemRelatedByInititemnbr->setItemMasterItemRelatedByInititemnbr($this);
     }
 
     /**
-     * @param  ChildItemAddonItem $itemAddonItemRelatedByInititemnbr The ChildItemAddonItem object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildItemAddonItem $itemAddonItemRelatedByInititemnbr The ChildItemAddonItem object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemAddonItemRelatedByInititemnbr(ChildItemAddonItem $itemAddonItemRelatedByInititemnbr)
     {
@@ -8676,18 +8877,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemAddonItemsRelatedByAdonadditemnbr()
+     * @return $this
+     * @see addItemAddonItemsRelatedByAdonadditemnbr()
      */
     public function clearItemAddonItemsRelatedByAdonadditemnbr()
     {
         $this->collItemAddonItemsRelatedByAdonadditemnbr = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemAddonItemsRelatedByAdonadditemnbr collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemAddonItemsRelatedByAdonadditemnbr($v = true)
+    public function resetPartialItemAddonItemsRelatedByAdonadditemnbr($v = true): void
     {
         $this->collItemAddonItemsRelatedByAdonadditemnbrPartial = $v;
     }
@@ -8699,12 +8904,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemAddonItemsRelatedByAdonadditemnbr($overrideExisting = true)
+    public function initItemAddonItemsRelatedByAdonadditemnbr(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemAddonItemsRelatedByAdonadditemnbr && !$overrideExisting) {
             return;
@@ -8725,18 +8930,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemAddonItem[] List of ChildItemAddonItem objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemAddonItem> List of ChildItemAddonItem objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemAddonItemsRelatedByAdonadditemnbr(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemAddonItemsRelatedByAdonadditemnbr(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemAddonItemsRelatedByAdonadditemnbrPartial && !$this->isNew();
-        if (null === $this->collItemAddonItemsRelatedByAdonadditemnbr || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemAddonItemsRelatedByAdonadditemnbr) {
+        if (null === $this->collItemAddonItemsRelatedByAdonadditemnbr || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemAddonItemsRelatedByAdonadditemnbr();
+                if (null === $this->collItemAddonItemsRelatedByAdonadditemnbr) {
+                    $this->initItemAddonItemsRelatedByAdonadditemnbr();
+                } else {
+                    $collectionClassName = ItemAddonItemTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemAddonItemsRelatedByAdonadditemnbr = new $collectionClassName;
+                    $collItemAddonItemsRelatedByAdonadditemnbr->setModel('\ItemAddonItem');
+
+                    return $collItemAddonItemsRelatedByAdonadditemnbr;
+                }
             } else {
                 $collItemAddonItemsRelatedByAdonadditemnbr = ChildItemAddonItemQuery::create(null, $criteria)
                     ->filterByItemMasterItemRelatedByAdonadditemnbr($this)
@@ -8780,11 +8995,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemAddonItemsRelatedByAdonadditemnbr A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $itemAddonItemsRelatedByAdonadditemnbr A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemAddonItemsRelatedByAdonadditemnbr(Collection $itemAddonItemsRelatedByAdonadditemnbr, ConnectionInterface $con = null)
+    public function setItemAddonItemsRelatedByAdonadditemnbr(Collection $itemAddonItemsRelatedByAdonadditemnbr, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemAddonItem[] $itemAddonItemsRelatedByAdonadditemnbrToDelete */
         $itemAddonItemsRelatedByAdonadditemnbrToDelete = $this->getItemAddonItemsRelatedByAdonadditemnbr(new Criteria(), $con)->diff($itemAddonItemsRelatedByAdonadditemnbr);
@@ -8813,13 +9028,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related ItemAddonItem objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemAddonItem objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemAddonItem objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemAddonItemsRelatedByAdonadditemnbr(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemAddonItemsRelatedByAdonadditemnbr(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemAddonItemsRelatedByAdonadditemnbrPartial && !$this->isNew();
         if (null === $this->collItemAddonItemsRelatedByAdonadditemnbr || null !== $criteria || $partial) {
@@ -8848,8 +9063,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildItemAddonItem object to this object
      * through the ChildItemAddonItem foreign key attribute.
      *
-     * @param  ChildItemAddonItem $l ChildItemAddonItem
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildItemAddonItem $l ChildItemAddonItem
+     * @return $this The current object (for fluent API support)
      */
     public function addItemAddonItemRelatedByAdonadditemnbr(ChildItemAddonItem $l)
     {
@@ -8872,15 +9087,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildItemAddonItem $itemAddonItemRelatedByAdonadditemnbr The ChildItemAddonItem object to add.
      */
-    protected function doAddItemAddonItemRelatedByAdonadditemnbr(ChildItemAddonItem $itemAddonItemRelatedByAdonadditemnbr)
+    protected function doAddItemAddonItemRelatedByAdonadditemnbr(ChildItemAddonItem $itemAddonItemRelatedByAdonadditemnbr): void
     {
         $this->collItemAddonItemsRelatedByAdonadditemnbr[]= $itemAddonItemRelatedByAdonadditemnbr;
         $itemAddonItemRelatedByAdonadditemnbr->setItemMasterItemRelatedByAdonadditemnbr($this);
     }
 
     /**
-     * @param  ChildItemAddonItem $itemAddonItemRelatedByAdonadditemnbr The ChildItemAddonItem object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildItemAddonItem $itemAddonItemRelatedByAdonadditemnbr The ChildItemAddonItem object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemAddonItemRelatedByAdonadditemnbr(ChildItemAddonItem $itemAddonItemRelatedByAdonadditemnbr)
     {
@@ -8901,11 +9116,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Gets a single ChildItmDimension object, which is related to this object by a one-to-one relationship.
      *
-     * @param  ConnectionInterface $con optional connection object
-     * @return ChildItmDimension
-     * @throws PropelException
+     * @param ConnectionInterface $con optional connection object
+     * @return ChildItmDimension|null
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItmDimension(ConnectionInterface $con = null)
+    public function getItmDimension(?ConnectionInterface $con = null)
     {
 
         if ($this->singleItmDimension === null && !$this->isNew()) {
@@ -8918,9 +9133,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Sets a single ChildItmDimension object as related to this object by a one-to-one relationship.
      *
-     * @param  ChildItmDimension $v ChildItmDimension
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildItmDimension $v ChildItmDimension
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setItmDimension(ChildItmDimension $v = null)
     {
@@ -8937,11 +9152,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Gets a single ChildInvHazmatItem object, which is related to this object by a one-to-one relationship.
      *
-     * @param  ConnectionInterface $con optional connection object
-     * @return ChildInvHazmatItem
-     * @throws PropelException
+     * @param ConnectionInterface $con optional connection object
+     * @return ChildInvHazmatItem|null
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvHazmatItem(ConnectionInterface $con = null)
+    public function getInvHazmatItem(?ConnectionInterface $con = null)
     {
 
         if ($this->singleInvHazmatItem === null && !$this->isNew()) {
@@ -8954,9 +9169,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Sets a single ChildInvHazmatItem object as related to this object by a one-to-one relationship.
      *
-     * @param  ChildInvHazmatItem $v ChildInvHazmatItem
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildInvHazmatItem $v ChildInvHazmatItem
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setInvHazmatItem(ChildInvHazmatItem $v = null)
     {
@@ -8976,18 +9191,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvWhseLots()
+     * @return $this
+     * @see addInvWhseLots()
      */
     public function clearInvWhseLots()
     {
         $this->collInvWhseLots = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvWhseLots collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvWhseLots($v = true)
+    public function resetPartialInvWhseLots($v = true): void
     {
         $this->collInvWhseLotsPartial = $v;
     }
@@ -8999,12 +9218,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvWhseLots($overrideExisting = true)
+    public function initInvWhseLots(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvWhseLots && !$overrideExisting) {
             return;
@@ -9025,18 +9244,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvWhseLot[] List of ChildInvWhseLot objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvWhseLot> List of ChildInvWhseLot objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvWhseLots(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvWhseLots(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvWhseLotsPartial && !$this->isNew();
-        if (null === $this->collInvWhseLots || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvWhseLots) {
+        if (null === $this->collInvWhseLots || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvWhseLots();
+                if (null === $this->collInvWhseLots) {
+                    $this->initInvWhseLots();
+                } else {
+                    $collectionClassName = InvWhseLotTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvWhseLots = new $collectionClassName;
+                    $collInvWhseLots->setModel('\InvWhseLot');
+
+                    return $collInvWhseLots;
+                }
             } else {
                 $collInvWhseLots = ChildInvWhseLotQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -9080,11 +9309,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invWhseLots A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $invWhseLots A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvWhseLots(Collection $invWhseLots, ConnectionInterface $con = null)
+    public function setInvWhseLots(Collection $invWhseLots, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvWhseLot[] $invWhseLotsToDelete */
         $invWhseLotsToDelete = $this->getInvWhseLots(new Criteria(), $con)->diff($invWhseLots);
@@ -9113,13 +9342,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related InvWhseLot objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvWhseLot objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvWhseLot objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvWhseLots(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvWhseLots(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvWhseLotsPartial && !$this->isNew();
         if (null === $this->collInvWhseLots || null !== $criteria || $partial) {
@@ -9148,8 +9377,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildInvWhseLot object to this object
      * through the ChildInvWhseLot foreign key attribute.
      *
-     * @param  ChildInvWhseLot $l ChildInvWhseLot
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildInvWhseLot $l ChildInvWhseLot
+     * @return $this The current object (for fluent API support)
      */
     public function addInvWhseLot(ChildInvWhseLot $l)
     {
@@ -9172,15 +9401,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildInvWhseLot $invWhseLot The ChildInvWhseLot object to add.
      */
-    protected function doAddInvWhseLot(ChildInvWhseLot $invWhseLot)
+    protected function doAddInvWhseLot(ChildInvWhseLot $invWhseLot): void
     {
         $this->collInvWhseLots[]= $invWhseLot;
         $invWhseLot->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvWhseLot $invWhseLot The ChildInvWhseLot object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildInvWhseLot $invWhseLot The ChildInvWhseLot object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvWhseLot(ChildInvWhseLot $invWhseLot)
     {
@@ -9210,12 +9439,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvWhseLot[] List of ChildInvWhseLot objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvWhseLot}> List of ChildInvWhseLot objects
      */
-    public function getInvWhseLotsJoinWarehouse(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvWhseLotsJoinWarehouse(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvWhseLotQuery::create(null, $criteria);
         $query->joinWith('Warehouse', $joinBehavior);
@@ -9235,12 +9465,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvWhseLot[] List of ChildInvWhseLot objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvWhseLot}> List of ChildInvWhseLot objects
      */
-    public function getInvWhseLotsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvWhseLotsJoinInvLotMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvWhseLotQuery::create(null, $criteria);
         $query->joinWith('InvLotMaster', $joinBehavior);
@@ -9254,18 +9485,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemSubstitutesRelatedByInititemnbr()
+     * @return $this
+     * @see addItemSubstitutesRelatedByInititemnbr()
      */
     public function clearItemSubstitutesRelatedByInititemnbr()
     {
         $this->collItemSubstitutesRelatedByInititemnbr = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemSubstitutesRelatedByInititemnbr collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemSubstitutesRelatedByInititemnbr($v = true)
+    public function resetPartialItemSubstitutesRelatedByInititemnbr($v = true): void
     {
         $this->collItemSubstitutesRelatedByInititemnbrPartial = $v;
     }
@@ -9277,12 +9512,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemSubstitutesRelatedByInititemnbr($overrideExisting = true)
+    public function initItemSubstitutesRelatedByInititemnbr(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemSubstitutesRelatedByInititemnbr && !$overrideExisting) {
             return;
@@ -9303,18 +9538,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemSubstitute[] List of ChildItemSubstitute objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemSubstitute> List of ChildItemSubstitute objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemSubstitutesRelatedByInititemnbr(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemSubstitutesRelatedByInititemnbr(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemSubstitutesRelatedByInititemnbrPartial && !$this->isNew();
-        if (null === $this->collItemSubstitutesRelatedByInititemnbr || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemSubstitutesRelatedByInititemnbr) {
+        if (null === $this->collItemSubstitutesRelatedByInititemnbr || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemSubstitutesRelatedByInititemnbr();
+                if (null === $this->collItemSubstitutesRelatedByInititemnbr) {
+                    $this->initItemSubstitutesRelatedByInititemnbr();
+                } else {
+                    $collectionClassName = ItemSubstituteTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemSubstitutesRelatedByInititemnbr = new $collectionClassName;
+                    $collItemSubstitutesRelatedByInititemnbr->setModel('\ItemSubstitute');
+
+                    return $collItemSubstitutesRelatedByInititemnbr;
+                }
             } else {
                 $collItemSubstitutesRelatedByInititemnbr = ChildItemSubstituteQuery::create(null, $criteria)
                     ->filterByItemMasterItemRelatedByInititemnbr($this)
@@ -9358,11 +9603,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemSubstitutesRelatedByInititemnbr A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $itemSubstitutesRelatedByInititemnbr A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemSubstitutesRelatedByInititemnbr(Collection $itemSubstitutesRelatedByInititemnbr, ConnectionInterface $con = null)
+    public function setItemSubstitutesRelatedByInititemnbr(Collection $itemSubstitutesRelatedByInititemnbr, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemSubstitute[] $itemSubstitutesRelatedByInititemnbrToDelete */
         $itemSubstitutesRelatedByInititemnbrToDelete = $this->getItemSubstitutesRelatedByInititemnbr(new Criteria(), $con)->diff($itemSubstitutesRelatedByInititemnbr);
@@ -9391,13 +9636,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related ItemSubstitute objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemSubstitute objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemSubstitute objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemSubstitutesRelatedByInititemnbr(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemSubstitutesRelatedByInititemnbr(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemSubstitutesRelatedByInititemnbrPartial && !$this->isNew();
         if (null === $this->collItemSubstitutesRelatedByInititemnbr || null !== $criteria || $partial) {
@@ -9426,8 +9671,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildItemSubstitute object to this object
      * through the ChildItemSubstitute foreign key attribute.
      *
-     * @param  ChildItemSubstitute $l ChildItemSubstitute
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildItemSubstitute $l ChildItemSubstitute
+     * @return $this The current object (for fluent API support)
      */
     public function addItemSubstituteRelatedByInititemnbr(ChildItemSubstitute $l)
     {
@@ -9450,15 +9695,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildItemSubstitute $itemSubstituteRelatedByInititemnbr The ChildItemSubstitute object to add.
      */
-    protected function doAddItemSubstituteRelatedByInititemnbr(ChildItemSubstitute $itemSubstituteRelatedByInititemnbr)
+    protected function doAddItemSubstituteRelatedByInititemnbr(ChildItemSubstitute $itemSubstituteRelatedByInititemnbr): void
     {
         $this->collItemSubstitutesRelatedByInititemnbr[]= $itemSubstituteRelatedByInititemnbr;
         $itemSubstituteRelatedByInititemnbr->setItemMasterItemRelatedByInititemnbr($this);
     }
 
     /**
-     * @param  ChildItemSubstitute $itemSubstituteRelatedByInititemnbr The ChildItemSubstitute object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildItemSubstitute $itemSubstituteRelatedByInititemnbr The ChildItemSubstitute object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemSubstituteRelatedByInititemnbr(ChildItemSubstitute $itemSubstituteRelatedByInititemnbr)
     {
@@ -9482,18 +9727,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemSubstitutesRelatedByInsisubitemnbr()
+     * @return $this
+     * @see addItemSubstitutesRelatedByInsisubitemnbr()
      */
     public function clearItemSubstitutesRelatedByInsisubitemnbr()
     {
         $this->collItemSubstitutesRelatedByInsisubitemnbr = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemSubstitutesRelatedByInsisubitemnbr collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemSubstitutesRelatedByInsisubitemnbr($v = true)
+    public function resetPartialItemSubstitutesRelatedByInsisubitemnbr($v = true): void
     {
         $this->collItemSubstitutesRelatedByInsisubitemnbrPartial = $v;
     }
@@ -9505,12 +9754,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemSubstitutesRelatedByInsisubitemnbr($overrideExisting = true)
+    public function initItemSubstitutesRelatedByInsisubitemnbr(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemSubstitutesRelatedByInsisubitemnbr && !$overrideExisting) {
             return;
@@ -9531,18 +9780,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemSubstitute[] List of ChildItemSubstitute objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemSubstitute> List of ChildItemSubstitute objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemSubstitutesRelatedByInsisubitemnbr(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemSubstitutesRelatedByInsisubitemnbr(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemSubstitutesRelatedByInsisubitemnbrPartial && !$this->isNew();
-        if (null === $this->collItemSubstitutesRelatedByInsisubitemnbr || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemSubstitutesRelatedByInsisubitemnbr) {
+        if (null === $this->collItemSubstitutesRelatedByInsisubitemnbr || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemSubstitutesRelatedByInsisubitemnbr();
+                if (null === $this->collItemSubstitutesRelatedByInsisubitemnbr) {
+                    $this->initItemSubstitutesRelatedByInsisubitemnbr();
+                } else {
+                    $collectionClassName = ItemSubstituteTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemSubstitutesRelatedByInsisubitemnbr = new $collectionClassName;
+                    $collItemSubstitutesRelatedByInsisubitemnbr->setModel('\ItemSubstitute');
+
+                    return $collItemSubstitutesRelatedByInsisubitemnbr;
+                }
             } else {
                 $collItemSubstitutesRelatedByInsisubitemnbr = ChildItemSubstituteQuery::create(null, $criteria)
                     ->filterByItemMasterItemRelatedByInsisubitemnbr($this)
@@ -9586,11 +9845,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemSubstitutesRelatedByInsisubitemnbr A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $itemSubstitutesRelatedByInsisubitemnbr A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemSubstitutesRelatedByInsisubitemnbr(Collection $itemSubstitutesRelatedByInsisubitemnbr, ConnectionInterface $con = null)
+    public function setItemSubstitutesRelatedByInsisubitemnbr(Collection $itemSubstitutesRelatedByInsisubitemnbr, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemSubstitute[] $itemSubstitutesRelatedByInsisubitemnbrToDelete */
         $itemSubstitutesRelatedByInsisubitemnbrToDelete = $this->getItemSubstitutesRelatedByInsisubitemnbr(new Criteria(), $con)->diff($itemSubstitutesRelatedByInsisubitemnbr);
@@ -9619,13 +9878,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related ItemSubstitute objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemSubstitute objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemSubstitute objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemSubstitutesRelatedByInsisubitemnbr(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemSubstitutesRelatedByInsisubitemnbr(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemSubstitutesRelatedByInsisubitemnbrPartial && !$this->isNew();
         if (null === $this->collItemSubstitutesRelatedByInsisubitemnbr || null !== $criteria || $partial) {
@@ -9654,8 +9913,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildItemSubstitute object to this object
      * through the ChildItemSubstitute foreign key attribute.
      *
-     * @param  ChildItemSubstitute $l ChildItemSubstitute
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildItemSubstitute $l ChildItemSubstitute
+     * @return $this The current object (for fluent API support)
      */
     public function addItemSubstituteRelatedByInsisubitemnbr(ChildItemSubstitute $l)
     {
@@ -9678,15 +9937,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildItemSubstitute $itemSubstituteRelatedByInsisubitemnbr The ChildItemSubstitute object to add.
      */
-    protected function doAddItemSubstituteRelatedByInsisubitemnbr(ChildItemSubstitute $itemSubstituteRelatedByInsisubitemnbr)
+    protected function doAddItemSubstituteRelatedByInsisubitemnbr(ChildItemSubstitute $itemSubstituteRelatedByInsisubitemnbr): void
     {
         $this->collItemSubstitutesRelatedByInsisubitemnbr[]= $itemSubstituteRelatedByInsisubitemnbr;
         $itemSubstituteRelatedByInsisubitemnbr->setItemMasterItemRelatedByInsisubitemnbr($this);
     }
 
     /**
-     * @param  ChildItemSubstitute $itemSubstituteRelatedByInsisubitemnbr The ChildItemSubstitute object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildItemSubstitute $itemSubstituteRelatedByInsisubitemnbr The ChildItemSubstitute object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemSubstituteRelatedByInsisubitemnbr(ChildItemSubstitute $itemSubstituteRelatedByInsisubitemnbr)
     {
@@ -9710,18 +9969,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvLotTags()
+     * @return $this
+     * @see addInvLotTags()
      */
     public function clearInvLotTags()
     {
         $this->collInvLotTags = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvLotTags collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvLotTags($v = true)
+    public function resetPartialInvLotTags($v = true): void
     {
         $this->collInvLotTagsPartial = $v;
     }
@@ -9733,12 +9996,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvLotTags($overrideExisting = true)
+    public function initInvLotTags(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvLotTags && !$overrideExisting) {
             return;
@@ -9759,18 +10022,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvLotTag> List of ChildInvLotTag objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvLotTags(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvLotTags(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvLotTagsPartial && !$this->isNew();
-        if (null === $this->collInvLotTags || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvLotTags) {
+        if (null === $this->collInvLotTags || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvLotTags();
+                if (null === $this->collInvLotTags) {
+                    $this->initInvLotTags();
+                } else {
+                    $collectionClassName = InvLotTagTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvLotTags = new $collectionClassName;
+                    $collInvLotTags->setModel('\InvLotTag');
+
+                    return $collInvLotTags;
+                }
             } else {
                 $collInvLotTags = ChildInvLotTagQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -9814,11 +10087,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invLotTags A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $invLotTags A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvLotTags(Collection $invLotTags, ConnectionInterface $con = null)
+    public function setInvLotTags(Collection $invLotTags, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvLotTag[] $invLotTagsToDelete */
         $invLotTagsToDelete = $this->getInvLotTags(new Criteria(), $con)->diff($invLotTags);
@@ -9844,13 +10117,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related InvLotTag objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvLotTag objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvLotTag objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvLotTags(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvLotTags(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvLotTagsPartial && !$this->isNew();
         if (null === $this->collInvLotTags || null !== $criteria || $partial) {
@@ -9879,8 +10152,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildInvLotTag object to this object
      * through the ChildInvLotTag foreign key attribute.
      *
-     * @param  ChildInvLotTag $l ChildInvLotTag
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildInvLotTag $l ChildInvLotTag
+     * @return $this The current object (for fluent API support)
      */
     public function addInvLotTag(ChildInvLotTag $l)
     {
@@ -9903,15 +10176,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildInvLotTag $invLotTag The ChildInvLotTag object to add.
      */
-    protected function doAddInvLotTag(ChildInvLotTag $invLotTag)
+    protected function doAddInvLotTag(ChildInvLotTag $invLotTag): void
     {
         $this->collInvLotTags[]= $invLotTag;
         $invLotTag->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvLotTag $invLotTag The ChildInvLotTag object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildInvLotTag $invLotTag The ChildInvLotTag object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvLotTag(ChildInvLotTag $invLotTag)
     {
@@ -9941,12 +10214,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvLotTag}> List of ChildInvLotTag objects
      */
-    public function getInvLotTagsJoinWarehouse(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvLotTagsJoinWarehouse(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvLotTagQuery::create(null, $criteria);
         $query->joinWith('Warehouse', $joinBehavior);
@@ -9966,12 +10240,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvLotTag}> List of ChildInvLotTag objects
      */
-    public function getInvLotTagsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvLotTagsJoinInvLotMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvLotTagQuery::create(null, $criteria);
         $query->joinWith('InvLotMaster', $joinBehavior);
@@ -9991,12 +10266,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvLotTag}> List of ChildInvLotTag objects
      */
-    public function getInvLotTagsJoinInvSerialMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvLotTagsJoinInvSerialMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvLotTagQuery::create(null, $criteria);
         $query->joinWith('InvSerialMaster', $joinBehavior);
@@ -10016,12 +10292,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvLotTag}> List of ChildInvLotTag objects
      */
-    public function getInvLotTagsJoinDplusUser(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvLotTagsJoinDplusUser(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvLotTagQuery::create(null, $criteria);
         $query->joinWith('DplusUser', $joinBehavior);
@@ -10035,18 +10312,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvItem2ItemsRelatedByI2imstritemid()
+     * @return $this
+     * @see addInvItem2ItemsRelatedByI2imstritemid()
      */
     public function clearInvItem2ItemsRelatedByI2imstritemid()
     {
         $this->collInvItem2ItemsRelatedByI2imstritemid = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvItem2ItemsRelatedByI2imstritemid collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvItem2ItemsRelatedByI2imstritemid($v = true)
+    public function resetPartialInvItem2ItemsRelatedByI2imstritemid($v = true): void
     {
         $this->collInvItem2ItemsRelatedByI2imstritemidPartial = $v;
     }
@@ -10058,12 +10339,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvItem2ItemsRelatedByI2imstritemid($overrideExisting = true)
+    public function initInvItem2ItemsRelatedByI2imstritemid(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvItem2ItemsRelatedByI2imstritemid && !$overrideExisting) {
             return;
@@ -10084,18 +10365,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvItem2Item[] List of ChildInvItem2Item objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvItem2Item> List of ChildInvItem2Item objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvItem2ItemsRelatedByI2imstritemid(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvItem2ItemsRelatedByI2imstritemid(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvItem2ItemsRelatedByI2imstritemidPartial && !$this->isNew();
-        if (null === $this->collInvItem2ItemsRelatedByI2imstritemid || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvItem2ItemsRelatedByI2imstritemid) {
+        if (null === $this->collInvItem2ItemsRelatedByI2imstritemid || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvItem2ItemsRelatedByI2imstritemid();
+                if (null === $this->collInvItem2ItemsRelatedByI2imstritemid) {
+                    $this->initInvItem2ItemsRelatedByI2imstritemid();
+                } else {
+                    $collectionClassName = InvItem2ItemTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvItem2ItemsRelatedByI2imstritemid = new $collectionClassName;
+                    $collInvItem2ItemsRelatedByI2imstritemid->setModel('\InvItem2Item');
+
+                    return $collInvItem2ItemsRelatedByI2imstritemid;
+                }
             } else {
                 $collInvItem2ItemsRelatedByI2imstritemid = ChildInvItem2ItemQuery::create(null, $criteria)
                     ->filterByItemMasterItemRelatedByI2imstritemid($this)
@@ -10139,11 +10430,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invItem2ItemsRelatedByI2imstritemid A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $invItem2ItemsRelatedByI2imstritemid A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvItem2ItemsRelatedByI2imstritemid(Collection $invItem2ItemsRelatedByI2imstritemid, ConnectionInterface $con = null)
+    public function setInvItem2ItemsRelatedByI2imstritemid(Collection $invItem2ItemsRelatedByI2imstritemid, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvItem2Item[] $invItem2ItemsRelatedByI2imstritemidToDelete */
         $invItem2ItemsRelatedByI2imstritemidToDelete = $this->getInvItem2ItemsRelatedByI2imstritemid(new Criteria(), $con)->diff($invItem2ItemsRelatedByI2imstritemid);
@@ -10172,13 +10463,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related InvItem2Item objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvItem2Item objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvItem2Item objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvItem2ItemsRelatedByI2imstritemid(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvItem2ItemsRelatedByI2imstritemid(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvItem2ItemsRelatedByI2imstritemidPartial && !$this->isNew();
         if (null === $this->collInvItem2ItemsRelatedByI2imstritemid || null !== $criteria || $partial) {
@@ -10207,8 +10498,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildInvItem2Item object to this object
      * through the ChildInvItem2Item foreign key attribute.
      *
-     * @param  ChildInvItem2Item $l ChildInvItem2Item
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildInvItem2Item $l ChildInvItem2Item
+     * @return $this The current object (for fluent API support)
      */
     public function addInvItem2ItemRelatedByI2imstritemid(ChildInvItem2Item $l)
     {
@@ -10231,15 +10522,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildInvItem2Item $invItem2ItemRelatedByI2imstritemid The ChildInvItem2Item object to add.
      */
-    protected function doAddInvItem2ItemRelatedByI2imstritemid(ChildInvItem2Item $invItem2ItemRelatedByI2imstritemid)
+    protected function doAddInvItem2ItemRelatedByI2imstritemid(ChildInvItem2Item $invItem2ItemRelatedByI2imstritemid): void
     {
         $this->collInvItem2ItemsRelatedByI2imstritemid[]= $invItem2ItemRelatedByI2imstritemid;
         $invItem2ItemRelatedByI2imstritemid->setItemMasterItemRelatedByI2imstritemid($this);
     }
 
     /**
-     * @param  ChildInvItem2Item $invItem2ItemRelatedByI2imstritemid The ChildInvItem2Item object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildInvItem2Item $invItem2ItemRelatedByI2imstritemid The ChildInvItem2Item object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvItem2ItemRelatedByI2imstritemid(ChildInvItem2Item $invItem2ItemRelatedByI2imstritemid)
     {
@@ -10263,18 +10554,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvItem2ItemsRelatedByI2ichilditemid()
+     * @return $this
+     * @see addInvItem2ItemsRelatedByI2ichilditemid()
      */
     public function clearInvItem2ItemsRelatedByI2ichilditemid()
     {
         $this->collInvItem2ItemsRelatedByI2ichilditemid = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvItem2ItemsRelatedByI2ichilditemid collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvItem2ItemsRelatedByI2ichilditemid($v = true)
+    public function resetPartialInvItem2ItemsRelatedByI2ichilditemid($v = true): void
     {
         $this->collInvItem2ItemsRelatedByI2ichilditemidPartial = $v;
     }
@@ -10286,12 +10581,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvItem2ItemsRelatedByI2ichilditemid($overrideExisting = true)
+    public function initInvItem2ItemsRelatedByI2ichilditemid(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvItem2ItemsRelatedByI2ichilditemid && !$overrideExisting) {
             return;
@@ -10312,18 +10607,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvItem2Item[] List of ChildInvItem2Item objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvItem2Item> List of ChildInvItem2Item objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvItem2ItemsRelatedByI2ichilditemid(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvItem2ItemsRelatedByI2ichilditemid(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvItem2ItemsRelatedByI2ichilditemidPartial && !$this->isNew();
-        if (null === $this->collInvItem2ItemsRelatedByI2ichilditemid || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvItem2ItemsRelatedByI2ichilditemid) {
+        if (null === $this->collInvItem2ItemsRelatedByI2ichilditemid || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvItem2ItemsRelatedByI2ichilditemid();
+                if (null === $this->collInvItem2ItemsRelatedByI2ichilditemid) {
+                    $this->initInvItem2ItemsRelatedByI2ichilditemid();
+                } else {
+                    $collectionClassName = InvItem2ItemTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvItem2ItemsRelatedByI2ichilditemid = new $collectionClassName;
+                    $collInvItem2ItemsRelatedByI2ichilditemid->setModel('\InvItem2Item');
+
+                    return $collInvItem2ItemsRelatedByI2ichilditemid;
+                }
             } else {
                 $collInvItem2ItemsRelatedByI2ichilditemid = ChildInvItem2ItemQuery::create(null, $criteria)
                     ->filterByItemMasterItemRelatedByI2ichilditemid($this)
@@ -10367,11 +10672,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invItem2ItemsRelatedByI2ichilditemid A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $invItem2ItemsRelatedByI2ichilditemid A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvItem2ItemsRelatedByI2ichilditemid(Collection $invItem2ItemsRelatedByI2ichilditemid, ConnectionInterface $con = null)
+    public function setInvItem2ItemsRelatedByI2ichilditemid(Collection $invItem2ItemsRelatedByI2ichilditemid, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvItem2Item[] $invItem2ItemsRelatedByI2ichilditemidToDelete */
         $invItem2ItemsRelatedByI2ichilditemidToDelete = $this->getInvItem2ItemsRelatedByI2ichilditemid(new Criteria(), $con)->diff($invItem2ItemsRelatedByI2ichilditemid);
@@ -10400,13 +10705,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related InvItem2Item objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvItem2Item objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvItem2Item objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvItem2ItemsRelatedByI2ichilditemid(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvItem2ItemsRelatedByI2ichilditemid(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvItem2ItemsRelatedByI2ichilditemidPartial && !$this->isNew();
         if (null === $this->collInvItem2ItemsRelatedByI2ichilditemid || null !== $criteria || $partial) {
@@ -10435,8 +10740,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildInvItem2Item object to this object
      * through the ChildInvItem2Item foreign key attribute.
      *
-     * @param  ChildInvItem2Item $l ChildInvItem2Item
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildInvItem2Item $l ChildInvItem2Item
+     * @return $this The current object (for fluent API support)
      */
     public function addInvItem2ItemRelatedByI2ichilditemid(ChildInvItem2Item $l)
     {
@@ -10459,15 +10764,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildInvItem2Item $invItem2ItemRelatedByI2ichilditemid The ChildInvItem2Item object to add.
      */
-    protected function doAddInvItem2ItemRelatedByI2ichilditemid(ChildInvItem2Item $invItem2ItemRelatedByI2ichilditemid)
+    protected function doAddInvItem2ItemRelatedByI2ichilditemid(ChildInvItem2Item $invItem2ItemRelatedByI2ichilditemid): void
     {
         $this->collInvItem2ItemsRelatedByI2ichilditemid[]= $invItem2ItemRelatedByI2ichilditemid;
         $invItem2ItemRelatedByI2ichilditemid->setItemMasterItemRelatedByI2ichilditemid($this);
     }
 
     /**
-     * @param  ChildInvItem2Item $invItem2ItemRelatedByI2ichilditemid The ChildInvItem2Item object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildInvItem2Item $invItem2ItemRelatedByI2ichilditemid The ChildInvItem2Item object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvItem2ItemRelatedByI2ichilditemid(ChildInvItem2Item $invItem2ItemRelatedByI2ichilditemid)
     {
@@ -10491,18 +10796,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvKitComponents()
+     * @return $this
+     * @see addInvKitComponents()
      */
     public function clearInvKitComponents()
     {
         $this->collInvKitComponents = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvKitComponents collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvKitComponents($v = true)
+    public function resetPartialInvKitComponents($v = true): void
     {
         $this->collInvKitComponentsPartial = $v;
     }
@@ -10514,12 +10823,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvKitComponents($overrideExisting = true)
+    public function initInvKitComponents(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvKitComponents && !$overrideExisting) {
             return;
@@ -10540,18 +10849,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvKitComponent[] List of ChildInvKitComponent objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvKitComponent> List of ChildInvKitComponent objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvKitComponents(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvKitComponents(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvKitComponentsPartial && !$this->isNew();
-        if (null === $this->collInvKitComponents || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvKitComponents) {
+        if (null === $this->collInvKitComponents || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvKitComponents();
+                if (null === $this->collInvKitComponents) {
+                    $this->initInvKitComponents();
+                } else {
+                    $collectionClassName = InvKitComponentTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvKitComponents = new $collectionClassName;
+                    $collInvKitComponents->setModel('\InvKitComponent');
+
+                    return $collInvKitComponents;
+                }
             } else {
                 $collInvKitComponents = ChildInvKitComponentQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -10595,11 +10914,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invKitComponents A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $invKitComponents A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvKitComponents(Collection $invKitComponents, ConnectionInterface $con = null)
+    public function setInvKitComponents(Collection $invKitComponents, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvKitComponent[] $invKitComponentsToDelete */
         $invKitComponentsToDelete = $this->getInvKitComponents(new Criteria(), $con)->diff($invKitComponents);
@@ -10628,13 +10947,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related InvKitComponent objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvKitComponent objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvKitComponent objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvKitComponents(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvKitComponents(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvKitComponentsPartial && !$this->isNew();
         if (null === $this->collInvKitComponents || null !== $criteria || $partial) {
@@ -10663,8 +10982,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildInvKitComponent object to this object
      * through the ChildInvKitComponent foreign key attribute.
      *
-     * @param  ChildInvKitComponent $l ChildInvKitComponent
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildInvKitComponent $l ChildInvKitComponent
+     * @return $this The current object (for fluent API support)
      */
     public function addInvKitComponent(ChildInvKitComponent $l)
     {
@@ -10687,15 +11006,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildInvKitComponent $invKitComponent The ChildInvKitComponent object to add.
      */
-    protected function doAddInvKitComponent(ChildInvKitComponent $invKitComponent)
+    protected function doAddInvKitComponent(ChildInvKitComponent $invKitComponent): void
     {
         $this->collInvKitComponents[]= $invKitComponent;
         $invKitComponent->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvKitComponent $invKitComponent The ChildInvKitComponent object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildInvKitComponent $invKitComponent The ChildInvKitComponent object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvKitComponent(ChildInvKitComponent $invKitComponent)
     {
@@ -10725,12 +11044,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvKitComponent[] List of ChildInvKitComponent objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvKitComponent}> List of ChildInvKitComponent objects
      */
-    public function getInvKitComponentsJoinInvKit(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvKitComponentsJoinInvKit(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvKitComponentQuery::create(null, $criteria);
         $query->joinWith('InvKit', $joinBehavior);
@@ -10741,11 +11061,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Gets a single ChildInvKit object, which is related to this object by a one-to-one relationship.
      *
-     * @param  ConnectionInterface $con optional connection object
-     * @return ChildInvKit
-     * @throws PropelException
+     * @param ConnectionInterface $con optional connection object
+     * @return ChildInvKit|null
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvKit(ConnectionInterface $con = null)
+    public function getInvKit(?ConnectionInterface $con = null)
     {
 
         if ($this->singleInvKit === null && !$this->isNew()) {
@@ -10758,9 +11078,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Sets a single ChildInvKit object as related to this object by a one-to-one relationship.
      *
-     * @param  ChildInvKit $v ChildInvKit
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildInvKit $v ChildInvKit
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setInvKit(ChildInvKit $v = null)
     {
@@ -10780,18 +11100,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvLotMasters()
+     * @return $this
+     * @see addInvLotMasters()
      */
     public function clearInvLotMasters()
     {
         $this->collInvLotMasters = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvLotMasters collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvLotMasters($v = true)
+    public function resetPartialInvLotMasters($v = true): void
     {
         $this->collInvLotMastersPartial = $v;
     }
@@ -10803,12 +11127,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvLotMasters($overrideExisting = true)
+    public function initInvLotMasters(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvLotMasters && !$overrideExisting) {
             return;
@@ -10829,18 +11153,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvLotMaster[] List of ChildInvLotMaster objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvLotMaster> List of ChildInvLotMaster objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvLotMasters(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvLotMasters(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvLotMastersPartial && !$this->isNew();
-        if (null === $this->collInvLotMasters || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvLotMasters) {
+        if (null === $this->collInvLotMasters || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvLotMasters();
+                if (null === $this->collInvLotMasters) {
+                    $this->initInvLotMasters();
+                } else {
+                    $collectionClassName = InvLotMasterTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvLotMasters = new $collectionClassName;
+                    $collInvLotMasters->setModel('\InvLotMaster');
+
+                    return $collInvLotMasters;
+                }
             } else {
                 $collInvLotMasters = ChildInvLotMasterQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -10884,11 +11218,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invLotMasters A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $invLotMasters A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvLotMasters(Collection $invLotMasters, ConnectionInterface $con = null)
+    public function setInvLotMasters(Collection $invLotMasters, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvLotMaster[] $invLotMastersToDelete */
         $invLotMastersToDelete = $this->getInvLotMasters(new Criteria(), $con)->diff($invLotMasters);
@@ -10917,13 +11251,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related InvLotMaster objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvLotMaster objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvLotMaster objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvLotMasters(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvLotMasters(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvLotMastersPartial && !$this->isNew();
         if (null === $this->collInvLotMasters || null !== $criteria || $partial) {
@@ -10952,8 +11286,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildInvLotMaster object to this object
      * through the ChildInvLotMaster foreign key attribute.
      *
-     * @param  ChildInvLotMaster $l ChildInvLotMaster
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildInvLotMaster $l ChildInvLotMaster
+     * @return $this The current object (for fluent API support)
      */
     public function addInvLotMaster(ChildInvLotMaster $l)
     {
@@ -10976,15 +11310,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildInvLotMaster $invLotMaster The ChildInvLotMaster object to add.
      */
-    protected function doAddInvLotMaster(ChildInvLotMaster $invLotMaster)
+    protected function doAddInvLotMaster(ChildInvLotMaster $invLotMaster): void
     {
         $this->collInvLotMasters[]= $invLotMaster;
         $invLotMaster->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvLotMaster $invLotMaster The ChildInvLotMaster object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildInvLotMaster $invLotMaster The ChildInvLotMaster object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvLotMaster(ChildInvLotMaster $invLotMaster)
     {
@@ -11008,18 +11342,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvSerialMasters()
+     * @return $this
+     * @see addInvSerialMasters()
      */
     public function clearInvSerialMasters()
     {
         $this->collInvSerialMasters = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvSerialMasters collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvSerialMasters($v = true)
+    public function resetPartialInvSerialMasters($v = true): void
     {
         $this->collInvSerialMastersPartial = $v;
     }
@@ -11031,12 +11369,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvSerialMasters($overrideExisting = true)
+    public function initInvSerialMasters(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvSerialMasters && !$overrideExisting) {
             return;
@@ -11057,18 +11395,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvSerialMaster[] List of ChildInvSerialMaster objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvSerialMaster> List of ChildInvSerialMaster objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvSerialMasters(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvSerialMasters(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvSerialMastersPartial && !$this->isNew();
-        if (null === $this->collInvSerialMasters || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvSerialMasters) {
+        if (null === $this->collInvSerialMasters || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvSerialMasters();
+                if (null === $this->collInvSerialMasters) {
+                    $this->initInvSerialMasters();
+                } else {
+                    $collectionClassName = InvSerialMasterTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvSerialMasters = new $collectionClassName;
+                    $collInvSerialMasters->setModel('\InvSerialMaster');
+
+                    return $collInvSerialMasters;
+                }
             } else {
                 $collInvSerialMasters = ChildInvSerialMasterQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -11112,11 +11460,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invSerialMasters A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $invSerialMasters A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvSerialMasters(Collection $invSerialMasters, ConnectionInterface $con = null)
+    public function setInvSerialMasters(Collection $invSerialMasters, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvSerialMaster[] $invSerialMastersToDelete */
         $invSerialMastersToDelete = $this->getInvSerialMasters(new Criteria(), $con)->diff($invSerialMasters);
@@ -11145,13 +11493,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related InvSerialMaster objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvSerialMaster objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvSerialMaster objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvSerialMasters(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvSerialMasters(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvSerialMastersPartial && !$this->isNew();
         if (null === $this->collInvSerialMasters || null !== $criteria || $partial) {
@@ -11180,8 +11528,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildInvSerialMaster object to this object
      * through the ChildInvSerialMaster foreign key attribute.
      *
-     * @param  ChildInvSerialMaster $l ChildInvSerialMaster
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildInvSerialMaster $l ChildInvSerialMaster
+     * @return $this The current object (for fluent API support)
      */
     public function addInvSerialMaster(ChildInvSerialMaster $l)
     {
@@ -11204,15 +11552,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildInvSerialMaster $invSerialMaster The ChildInvSerialMaster object to add.
      */
-    protected function doAddInvSerialMaster(ChildInvSerialMaster $invSerialMaster)
+    protected function doAddInvSerialMaster(ChildInvSerialMaster $invSerialMaster): void
     {
         $this->collInvSerialMasters[]= $invSerialMaster;
         $invSerialMaster->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvSerialMaster $invSerialMaster The ChildInvSerialMaster object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildInvSerialMaster $invSerialMaster The ChildInvSerialMaster object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvSerialMaster(ChildInvSerialMaster $invSerialMaster)
     {
@@ -11236,18 +11584,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvTransferDetails()
+     * @return $this
+     * @see addInvTransferDetails()
      */
     public function clearInvTransferDetails()
     {
         $this->collInvTransferDetails = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvTransferDetails collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvTransferDetails($v = true)
+    public function resetPartialInvTransferDetails($v = true): void
     {
         $this->collInvTransferDetailsPartial = $v;
     }
@@ -11259,12 +11611,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvTransferDetails($overrideExisting = true)
+    public function initInvTransferDetails(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvTransferDetails && !$overrideExisting) {
             return;
@@ -11285,18 +11637,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvTransferDetail[] List of ChildInvTransferDetail objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferDetail> List of ChildInvTransferDetail objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvTransferDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvTransferDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferDetailsPartial && !$this->isNew();
-        if (null === $this->collInvTransferDetails || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvTransferDetails) {
+        if (null === $this->collInvTransferDetails || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvTransferDetails();
+                if (null === $this->collInvTransferDetails) {
+                    $this->initInvTransferDetails();
+                } else {
+                    $collectionClassName = InvTransferDetailTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvTransferDetails = new $collectionClassName;
+                    $collInvTransferDetails->setModel('\InvTransferDetail');
+
+                    return $collInvTransferDetails;
+                }
             } else {
                 $collInvTransferDetails = ChildInvTransferDetailQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -11340,11 +11702,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invTransferDetails A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $invTransferDetails A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvTransferDetails(Collection $invTransferDetails, ConnectionInterface $con = null)
+    public function setInvTransferDetails(Collection $invTransferDetails, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvTransferDetail[] $invTransferDetailsToDelete */
         $invTransferDetailsToDelete = $this->getInvTransferDetails(new Criteria(), $con)->diff($invTransferDetails);
@@ -11370,13 +11732,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related InvTransferDetail objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvTransferDetail objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvTransferDetail objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvTransferDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvTransferDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferDetailsPartial && !$this->isNew();
         if (null === $this->collInvTransferDetails || null !== $criteria || $partial) {
@@ -11405,8 +11767,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildInvTransferDetail object to this object
      * through the ChildInvTransferDetail foreign key attribute.
      *
-     * @param  ChildInvTransferDetail $l ChildInvTransferDetail
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildInvTransferDetail $l ChildInvTransferDetail
+     * @return $this The current object (for fluent API support)
      */
     public function addInvTransferDetail(ChildInvTransferDetail $l)
     {
@@ -11429,15 +11791,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildInvTransferDetail $invTransferDetail The ChildInvTransferDetail object to add.
      */
-    protected function doAddInvTransferDetail(ChildInvTransferDetail $invTransferDetail)
+    protected function doAddInvTransferDetail(ChildInvTransferDetail $invTransferDetail): void
     {
         $this->collInvTransferDetails[]= $invTransferDetail;
         $invTransferDetail->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvTransferDetail $invTransferDetail The ChildInvTransferDetail object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildInvTransferDetail $invTransferDetail The ChildInvTransferDetail object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvTransferDetail(ChildInvTransferDetail $invTransferDetail)
     {
@@ -11467,12 +11829,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferDetail[] List of ChildInvTransferDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferDetail}> List of ChildInvTransferDetail objects
      */
-    public function getInvTransferDetailsJoinInvTransferOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferDetailsJoinInvTransferOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferDetailQuery::create(null, $criteria);
         $query->joinWith('InvTransferOrder', $joinBehavior);
@@ -11486,18 +11849,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvTransferLotserials()
+     * @return $this
+     * @see addInvTransferLotserials()
      */
     public function clearInvTransferLotserials()
     {
         $this->collInvTransferLotserials = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvTransferLotserials collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvTransferLotserials($v = true)
+    public function resetPartialInvTransferLotserials($v = true): void
     {
         $this->collInvTransferLotserialsPartial = $v;
     }
@@ -11509,12 +11876,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvTransferLotserials($overrideExisting = true)
+    public function initInvTransferLotserials(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvTransferLotserials && !$overrideExisting) {
             return;
@@ -11535,18 +11902,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvTransferLotserial[] List of ChildInvTransferLotserial objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferLotserial> List of ChildInvTransferLotserial objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvTransferLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvTransferLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferLotserials || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvTransferLotserials) {
+        if (null === $this->collInvTransferLotserials || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvTransferLotserials();
+                if (null === $this->collInvTransferLotserials) {
+                    $this->initInvTransferLotserials();
+                } else {
+                    $collectionClassName = InvTransferLotserialTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvTransferLotserials = new $collectionClassName;
+                    $collInvTransferLotserials->setModel('\InvTransferLotserial');
+
+                    return $collInvTransferLotserials;
+                }
             } else {
                 $collInvTransferLotserials = ChildInvTransferLotserialQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -11590,11 +11967,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invTransferLotserials A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $invTransferLotserials A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvTransferLotserials(Collection $invTransferLotserials, ConnectionInterface $con = null)
+    public function setInvTransferLotserials(Collection $invTransferLotserials, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvTransferLotserial[] $invTransferLotserialsToDelete */
         $invTransferLotserialsToDelete = $this->getInvTransferLotserials(new Criteria(), $con)->diff($invTransferLotserials);
@@ -11623,13 +12000,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related InvTransferLotserial objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvTransferLotserial objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvTransferLotserial objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvTransferLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvTransferLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferLotserialsPartial && !$this->isNew();
         if (null === $this->collInvTransferLotserials || null !== $criteria || $partial) {
@@ -11658,8 +12035,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildInvTransferLotserial object to this object
      * through the ChildInvTransferLotserial foreign key attribute.
      *
-     * @param  ChildInvTransferLotserial $l ChildInvTransferLotserial
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildInvTransferLotserial $l ChildInvTransferLotserial
+     * @return $this The current object (for fluent API support)
      */
     public function addInvTransferLotserial(ChildInvTransferLotserial $l)
     {
@@ -11682,15 +12059,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildInvTransferLotserial $invTransferLotserial The ChildInvTransferLotserial object to add.
      */
-    protected function doAddInvTransferLotserial(ChildInvTransferLotserial $invTransferLotserial)
+    protected function doAddInvTransferLotserial(ChildInvTransferLotserial $invTransferLotserial): void
     {
         $this->collInvTransferLotserials[]= $invTransferLotserial;
         $invTransferLotserial->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvTransferLotserial $invTransferLotserial The ChildInvTransferLotserial object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildInvTransferLotserial $invTransferLotserial The ChildInvTransferLotserial object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvTransferLotserial(ChildInvTransferLotserial $invTransferLotserial)
     {
@@ -11720,12 +12097,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferLotserial[] List of ChildInvTransferLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferLotserial}> List of ChildInvTransferLotserial objects
      */
-    public function getInvTransferLotserialsJoinInvTransferOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferLotserialsJoinInvTransferOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferLotserialQuery::create(null, $criteria);
         $query->joinWith('InvTransferOrder', $joinBehavior);
@@ -11745,12 +12123,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferLotserial[] List of ChildInvTransferLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferLotserial}> List of ChildInvTransferLotserial objects
      */
-    public function getInvTransferLotserialsJoinInvTransferDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferLotserialsJoinInvTransferDetail(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferLotserialQuery::create(null, $criteria);
         $query->joinWith('InvTransferDetail', $joinBehavior);
@@ -11770,12 +12149,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferLotserial[] List of ChildInvTransferLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferLotserial}> List of ChildInvTransferLotserial objects
      */
-    public function getInvTransferLotserialsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferLotserialsJoinInvLotMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferLotserialQuery::create(null, $criteria);
         $query->joinWith('InvLotMaster', $joinBehavior);
@@ -11795,12 +12175,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferLotserial[] List of ChildInvTransferLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferLotserial}> List of ChildInvTransferLotserial objects
      */
-    public function getInvTransferLotserialsJoinInvSerialMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferLotserialsJoinInvSerialMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferLotserialQuery::create(null, $criteria);
         $query->joinWith('InvSerialMaster', $joinBehavior);
@@ -11814,18 +12195,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvTransferPreAllocatedLotserials()
+     * @return $this
+     * @see addInvTransferPreAllocatedLotserials()
      */
     public function clearInvTransferPreAllocatedLotserials()
     {
         $this->collInvTransferPreAllocatedLotserials = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvTransferPreAllocatedLotserials collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvTransferPreAllocatedLotserials($v = true)
+    public function resetPartialInvTransferPreAllocatedLotserials($v = true): void
     {
         $this->collInvTransferPreAllocatedLotserialsPartial = $v;
     }
@@ -11837,12 +12222,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvTransferPreAllocatedLotserials($overrideExisting = true)
+    public function initInvTransferPreAllocatedLotserials(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvTransferPreAllocatedLotserials && !$overrideExisting) {
             return;
@@ -11863,18 +12248,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvTransferPreAllocatedLotserial[] List of ChildInvTransferPreAllocatedLotserial objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferPreAllocatedLotserial> List of ChildInvTransferPreAllocatedLotserial objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvTransferPreAllocatedLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvTransferPreAllocatedLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferPreAllocatedLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferPreAllocatedLotserials || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvTransferPreAllocatedLotserials) {
+        if (null === $this->collInvTransferPreAllocatedLotserials || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvTransferPreAllocatedLotserials();
+                if (null === $this->collInvTransferPreAllocatedLotserials) {
+                    $this->initInvTransferPreAllocatedLotserials();
+                } else {
+                    $collectionClassName = InvTransferPreAllocatedLotserialTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvTransferPreAllocatedLotserials = new $collectionClassName;
+                    $collInvTransferPreAllocatedLotserials->setModel('\InvTransferPreAllocatedLotserial');
+
+                    return $collInvTransferPreAllocatedLotserials;
+                }
             } else {
                 $collInvTransferPreAllocatedLotserials = ChildInvTransferPreAllocatedLotserialQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -11918,11 +12313,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invTransferPreAllocatedLotserials A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $invTransferPreAllocatedLotserials A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvTransferPreAllocatedLotserials(Collection $invTransferPreAllocatedLotserials, ConnectionInterface $con = null)
+    public function setInvTransferPreAllocatedLotserials(Collection $invTransferPreAllocatedLotserials, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvTransferPreAllocatedLotserial[] $invTransferPreAllocatedLotserialsToDelete */
         $invTransferPreAllocatedLotserialsToDelete = $this->getInvTransferPreAllocatedLotserials(new Criteria(), $con)->diff($invTransferPreAllocatedLotserials);
@@ -11951,13 +12346,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related InvTransferPreAllocatedLotserial objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvTransferPreAllocatedLotserial objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvTransferPreAllocatedLotserial objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvTransferPreAllocatedLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvTransferPreAllocatedLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferPreAllocatedLotserialsPartial && !$this->isNew();
         if (null === $this->collInvTransferPreAllocatedLotserials || null !== $criteria || $partial) {
@@ -11986,8 +12381,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildInvTransferPreAllocatedLotserial object to this object
      * through the ChildInvTransferPreAllocatedLotserial foreign key attribute.
      *
-     * @param  ChildInvTransferPreAllocatedLotserial $l ChildInvTransferPreAllocatedLotserial
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildInvTransferPreAllocatedLotserial $l ChildInvTransferPreAllocatedLotserial
+     * @return $this The current object (for fluent API support)
      */
     public function addInvTransferPreAllocatedLotserial(ChildInvTransferPreAllocatedLotserial $l)
     {
@@ -12010,15 +12405,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildInvTransferPreAllocatedLotserial $invTransferPreAllocatedLotserial The ChildInvTransferPreAllocatedLotserial object to add.
      */
-    protected function doAddInvTransferPreAllocatedLotserial(ChildInvTransferPreAllocatedLotserial $invTransferPreAllocatedLotserial)
+    protected function doAddInvTransferPreAllocatedLotserial(ChildInvTransferPreAllocatedLotserial $invTransferPreAllocatedLotserial): void
     {
         $this->collInvTransferPreAllocatedLotserials[]= $invTransferPreAllocatedLotserial;
         $invTransferPreAllocatedLotserial->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvTransferPreAllocatedLotserial $invTransferPreAllocatedLotserial The ChildInvTransferPreAllocatedLotserial object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildInvTransferPreAllocatedLotserial $invTransferPreAllocatedLotserial The ChildInvTransferPreAllocatedLotserial object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvTransferPreAllocatedLotserial(ChildInvTransferPreAllocatedLotserial $invTransferPreAllocatedLotserial)
     {
@@ -12048,12 +12443,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferPreAllocatedLotserial[] List of ChildInvTransferPreAllocatedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferPreAllocatedLotserial}> List of ChildInvTransferPreAllocatedLotserial objects
      */
-    public function getInvTransferPreAllocatedLotserialsJoinInvTransferOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferPreAllocatedLotserialsJoinInvTransferOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferPreAllocatedLotserialQuery::create(null, $criteria);
         $query->joinWith('InvTransferOrder', $joinBehavior);
@@ -12073,12 +12469,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferPreAllocatedLotserial[] List of ChildInvTransferPreAllocatedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferPreAllocatedLotserial}> List of ChildInvTransferPreAllocatedLotserial objects
      */
-    public function getInvTransferPreAllocatedLotserialsJoinInvTransferDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferPreAllocatedLotserialsJoinInvTransferDetail(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferPreAllocatedLotserialQuery::create(null, $criteria);
         $query->joinWith('InvTransferDetail', $joinBehavior);
@@ -12098,12 +12495,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferPreAllocatedLotserial[] List of ChildInvTransferPreAllocatedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferPreAllocatedLotserial}> List of ChildInvTransferPreAllocatedLotserial objects
      */
-    public function getInvTransferPreAllocatedLotserialsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferPreAllocatedLotserialsJoinInvLotMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferPreAllocatedLotserialQuery::create(null, $criteria);
         $query->joinWith('InvLotMaster', $joinBehavior);
@@ -12123,12 +12521,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferPreAllocatedLotserial[] List of ChildInvTransferPreAllocatedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferPreAllocatedLotserial}> List of ChildInvTransferPreAllocatedLotserial objects
      */
-    public function getInvTransferPreAllocatedLotserialsJoinInvSerialMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferPreAllocatedLotserialsJoinInvSerialMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferPreAllocatedLotserialQuery::create(null, $criteria);
         $query->joinWith('InvSerialMaster', $joinBehavior);
@@ -12142,18 +12541,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvTransferPickedLotserials()
+     * @return $this
+     * @see addInvTransferPickedLotserials()
      */
     public function clearInvTransferPickedLotserials()
     {
         $this->collInvTransferPickedLotserials = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvTransferPickedLotserials collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvTransferPickedLotserials($v = true)
+    public function resetPartialInvTransferPickedLotserials($v = true): void
     {
         $this->collInvTransferPickedLotserialsPartial = $v;
     }
@@ -12165,12 +12568,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvTransferPickedLotserials($overrideExisting = true)
+    public function initInvTransferPickedLotserials(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvTransferPickedLotserials && !$overrideExisting) {
             return;
@@ -12191,18 +12594,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvTransferPickedLotserial[] List of ChildInvTransferPickedLotserial objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferPickedLotserial> List of ChildInvTransferPickedLotserial objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvTransferPickedLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvTransferPickedLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvTransferPickedLotserialsPartial && !$this->isNew();
-        if (null === $this->collInvTransferPickedLotserials || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvTransferPickedLotserials) {
+        if (null === $this->collInvTransferPickedLotserials || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvTransferPickedLotserials();
+                if (null === $this->collInvTransferPickedLotserials) {
+                    $this->initInvTransferPickedLotserials();
+                } else {
+                    $collectionClassName = InvTransferPickedLotserialTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvTransferPickedLotserials = new $collectionClassName;
+                    $collInvTransferPickedLotserials->setModel('\InvTransferPickedLotserial');
+
+                    return $collInvTransferPickedLotserials;
+                }
             } else {
                 $collInvTransferPickedLotserials = ChildInvTransferPickedLotserialQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -12246,11 +12659,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invTransferPickedLotserials A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $invTransferPickedLotserials A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvTransferPickedLotserials(Collection $invTransferPickedLotserials, ConnectionInterface $con = null)
+    public function setInvTransferPickedLotserials(Collection $invTransferPickedLotserials, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvTransferPickedLotserial[] $invTransferPickedLotserialsToDelete */
         $invTransferPickedLotserialsToDelete = $this->getInvTransferPickedLotserials(new Criteria(), $con)->diff($invTransferPickedLotserials);
@@ -12279,13 +12692,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related InvTransferPickedLotserial objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvTransferPickedLotserial objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvTransferPickedLotserial objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvTransferPickedLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvTransferPickedLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvTransferPickedLotserialsPartial && !$this->isNew();
         if (null === $this->collInvTransferPickedLotserials || null !== $criteria || $partial) {
@@ -12314,8 +12727,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildInvTransferPickedLotserial object to this object
      * through the ChildInvTransferPickedLotserial foreign key attribute.
      *
-     * @param  ChildInvTransferPickedLotserial $l ChildInvTransferPickedLotserial
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildInvTransferPickedLotserial $l ChildInvTransferPickedLotserial
+     * @return $this The current object (for fluent API support)
      */
     public function addInvTransferPickedLotserial(ChildInvTransferPickedLotserial $l)
     {
@@ -12338,15 +12751,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildInvTransferPickedLotserial $invTransferPickedLotserial The ChildInvTransferPickedLotserial object to add.
      */
-    protected function doAddInvTransferPickedLotserial(ChildInvTransferPickedLotserial $invTransferPickedLotserial)
+    protected function doAddInvTransferPickedLotserial(ChildInvTransferPickedLotserial $invTransferPickedLotserial): void
     {
         $this->collInvTransferPickedLotserials[]= $invTransferPickedLotserial;
         $invTransferPickedLotserial->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvTransferPickedLotserial $invTransferPickedLotserial The ChildInvTransferPickedLotserial object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildInvTransferPickedLotserial $invTransferPickedLotserial The ChildInvTransferPickedLotserial object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvTransferPickedLotserial(ChildInvTransferPickedLotserial $invTransferPickedLotserial)
     {
@@ -12376,12 +12789,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferPickedLotserial[] List of ChildInvTransferPickedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferPickedLotserial}> List of ChildInvTransferPickedLotserial objects
      */
-    public function getInvTransferPickedLotserialsJoinInvTransferOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferPickedLotserialsJoinInvTransferOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferPickedLotserialQuery::create(null, $criteria);
         $query->joinWith('InvTransferOrder', $joinBehavior);
@@ -12401,12 +12815,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferPickedLotserial[] List of ChildInvTransferPickedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferPickedLotserial}> List of ChildInvTransferPickedLotserial objects
      */
-    public function getInvTransferPickedLotserialsJoinInvTransferDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferPickedLotserialsJoinInvTransferDetail(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferPickedLotserialQuery::create(null, $criteria);
         $query->joinWith('InvTransferDetail', $joinBehavior);
@@ -12426,12 +12841,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferPickedLotserial[] List of ChildInvTransferPickedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferPickedLotserial}> List of ChildInvTransferPickedLotserial objects
      */
-    public function getInvTransferPickedLotserialsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferPickedLotserialsJoinInvLotMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferPickedLotserialQuery::create(null, $criteria);
         $query->joinWith('InvLotMaster', $joinBehavior);
@@ -12451,12 +12867,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvTransferPickedLotserial[] List of ChildInvTransferPickedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvTransferPickedLotserial}> List of ChildInvTransferPickedLotserial objects
      */
-    public function getInvTransferPickedLotserialsJoinInvSerialMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvTransferPickedLotserialsJoinInvSerialMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvTransferPickedLotserialQuery::create(null, $criteria);
         $query->joinWith('InvSerialMaster', $joinBehavior);
@@ -12470,18 +12887,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvSerialWarranties()
+     * @return $this
+     * @see addInvSerialWarranties()
      */
     public function clearInvSerialWarranties()
     {
         $this->collInvSerialWarranties = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvSerialWarranties collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvSerialWarranties($v = true)
+    public function resetPartialInvSerialWarranties($v = true): void
     {
         $this->collInvSerialWarrantiesPartial = $v;
     }
@@ -12493,12 +12914,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvSerialWarranties($overrideExisting = true)
+    public function initInvSerialWarranties(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvSerialWarranties && !$overrideExisting) {
             return;
@@ -12519,18 +12940,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvSerialWarranty[] List of ChildInvSerialWarranty objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvSerialWarranty> List of ChildInvSerialWarranty objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvSerialWarranties(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvSerialWarranties(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvSerialWarrantiesPartial && !$this->isNew();
-        if (null === $this->collInvSerialWarranties || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvSerialWarranties) {
+        if (null === $this->collInvSerialWarranties || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvSerialWarranties();
+                if (null === $this->collInvSerialWarranties) {
+                    $this->initInvSerialWarranties();
+                } else {
+                    $collectionClassName = InvSerialWarrantyTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvSerialWarranties = new $collectionClassName;
+                    $collInvSerialWarranties->setModel('\InvSerialWarranty');
+
+                    return $collInvSerialWarranties;
+                }
             } else {
                 $collInvSerialWarranties = ChildInvSerialWarrantyQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -12574,11 +13005,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invSerialWarranties A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $invSerialWarranties A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvSerialWarranties(Collection $invSerialWarranties, ConnectionInterface $con = null)
+    public function setInvSerialWarranties(Collection $invSerialWarranties, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvSerialWarranty[] $invSerialWarrantiesToDelete */
         $invSerialWarrantiesToDelete = $this->getInvSerialWarranties(new Criteria(), $con)->diff($invSerialWarranties);
@@ -12607,13 +13038,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related InvSerialWarranty objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvSerialWarranty objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvSerialWarranty objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvSerialWarranties(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvSerialWarranties(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvSerialWarrantiesPartial && !$this->isNew();
         if (null === $this->collInvSerialWarranties || null !== $criteria || $partial) {
@@ -12642,8 +13073,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildInvSerialWarranty object to this object
      * through the ChildInvSerialWarranty foreign key attribute.
      *
-     * @param  ChildInvSerialWarranty $l ChildInvSerialWarranty
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildInvSerialWarranty $l ChildInvSerialWarranty
+     * @return $this The current object (for fluent API support)
      */
     public function addInvSerialWarranty(ChildInvSerialWarranty $l)
     {
@@ -12666,15 +13097,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildInvSerialWarranty $invSerialWarranty The ChildInvSerialWarranty object to add.
      */
-    protected function doAddInvSerialWarranty(ChildInvSerialWarranty $invSerialWarranty)
+    protected function doAddInvSerialWarranty(ChildInvSerialWarranty $invSerialWarranty): void
     {
         $this->collInvSerialWarranties[]= $invSerialWarranty;
         $invSerialWarranty->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvSerialWarranty $invSerialWarranty The ChildInvSerialWarranty object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildInvSerialWarranty $invSerialWarranty The ChildInvSerialWarranty object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvSerialWarranty(ChildInvSerialWarranty $invSerialWarranty)
     {
@@ -12704,12 +13135,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvSerialWarranty[] List of ChildInvSerialWarranty objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvSerialWarranty}> List of ChildInvSerialWarranty objects
      */
-    public function getInvSerialWarrantiesJoinInvSerialMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvSerialWarrantiesJoinInvSerialMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvSerialWarrantyQuery::create(null, $criteria);
         $query->joinWith('InvSerialMaster', $joinBehavior);
@@ -12729,12 +13161,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvSerialWarranty[] List of ChildInvSerialWarranty objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvSerialWarranty}> List of ChildInvSerialWarranty objects
      */
-    public function getInvSerialWarrantiesJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvSerialWarrantiesJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvSerialWarrantyQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -12748,18 +13181,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addWarehouseInventories()
+     * @return $this
+     * @see addWarehouseInventories()
      */
     public function clearWarehouseInventories()
     {
         $this->collWarehouseInventories = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collWarehouseInventories collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialWarehouseInventories($v = true)
+    public function resetPartialWarehouseInventories($v = true): void
     {
         $this->collWarehouseInventoriesPartial = $v;
     }
@@ -12771,12 +13208,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initWarehouseInventories($overrideExisting = true)
+    public function initWarehouseInventories(bool $overrideExisting = true): void
     {
         if (null !== $this->collWarehouseInventories && !$overrideExisting) {
             return;
@@ -12797,18 +13234,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildWarehouseInventory[] List of ChildWarehouseInventory objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildWarehouseInventory> List of ChildWarehouseInventory objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getWarehouseInventories(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getWarehouseInventories(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collWarehouseInventoriesPartial && !$this->isNew();
-        if (null === $this->collWarehouseInventories || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collWarehouseInventories) {
+        if (null === $this->collWarehouseInventories || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initWarehouseInventories();
+                if (null === $this->collWarehouseInventories) {
+                    $this->initWarehouseInventories();
+                } else {
+                    $collectionClassName = WarehouseInventoryTableMap::getTableMap()->getCollectionClassName();
+
+                    $collWarehouseInventories = new $collectionClassName;
+                    $collWarehouseInventories->setModel('\WarehouseInventory');
+
+                    return $collWarehouseInventories;
+                }
             } else {
                 $collWarehouseInventories = ChildWarehouseInventoryQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -12852,11 +13299,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $warehouseInventories A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $warehouseInventories A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setWarehouseInventories(Collection $warehouseInventories, ConnectionInterface $con = null)
+    public function setWarehouseInventories(Collection $warehouseInventories, ?ConnectionInterface $con = null)
     {
         /** @var ChildWarehouseInventory[] $warehouseInventoriesToDelete */
         $warehouseInventoriesToDelete = $this->getWarehouseInventories(new Criteria(), $con)->diff($warehouseInventories);
@@ -12885,13 +13332,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related WarehouseInventory objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related WarehouseInventory objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related WarehouseInventory objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countWarehouseInventories(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countWarehouseInventories(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collWarehouseInventoriesPartial && !$this->isNew();
         if (null === $this->collWarehouseInventories || null !== $criteria || $partial) {
@@ -12920,8 +13367,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildWarehouseInventory object to this object
      * through the ChildWarehouseInventory foreign key attribute.
      *
-     * @param  ChildWarehouseInventory $l ChildWarehouseInventory
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildWarehouseInventory $l ChildWarehouseInventory
+     * @return $this The current object (for fluent API support)
      */
     public function addWarehouseInventory(ChildWarehouseInventory $l)
     {
@@ -12944,15 +13391,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildWarehouseInventory $warehouseInventory The ChildWarehouseInventory object to add.
      */
-    protected function doAddWarehouseInventory(ChildWarehouseInventory $warehouseInventory)
+    protected function doAddWarehouseInventory(ChildWarehouseInventory $warehouseInventory): void
     {
         $this->collWarehouseInventories[]= $warehouseInventory;
         $warehouseInventory->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildWarehouseInventory $warehouseInventory The ChildWarehouseInventory object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildWarehouseInventory $warehouseInventory The ChildWarehouseInventory object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeWarehouseInventory(ChildWarehouseInventory $warehouseInventory)
     {
@@ -12982,12 +13429,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildWarehouseInventory[] List of ChildWarehouseInventory objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildWarehouseInventory}> List of ChildWarehouseInventory objects
      */
-    public function getWarehouseInventoriesJoinWarehouse(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getWarehouseInventoriesJoinWarehouse(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildWarehouseInventoryQuery::create(null, $criteria);
         $query->joinWith('Warehouse', $joinBehavior);
@@ -13001,18 +13449,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemXrefKeys()
+     * @return $this
+     * @see addItemXrefKeys()
      */
     public function clearItemXrefKeys()
     {
         $this->collItemXrefKeys = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemXrefKeys collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemXrefKeys($v = true)
+    public function resetPartialItemXrefKeys($v = true): void
     {
         $this->collItemXrefKeysPartial = $v;
     }
@@ -13024,12 +13476,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemXrefKeys($overrideExisting = true)
+    public function initItemXrefKeys(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemXrefKeys && !$overrideExisting) {
             return;
@@ -13050,18 +13502,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemXrefKey[] List of ChildItemXrefKey objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefKey> List of ChildItemXrefKey objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemXrefKeys(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemXrefKeys(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefKeysPartial && !$this->isNew();
-        if (null === $this->collItemXrefKeys || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemXrefKeys) {
+        if (null === $this->collItemXrefKeys || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemXrefKeys();
+                if (null === $this->collItemXrefKeys) {
+                    $this->initItemXrefKeys();
+                } else {
+                    $collectionClassName = ItemXrefKeyTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemXrefKeys = new $collectionClassName;
+                    $collItemXrefKeys->setModel('\ItemXrefKey');
+
+                    return $collItemXrefKeys;
+                }
             } else {
                 $collItemXrefKeys = ChildItemXrefKeyQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -13105,11 +13567,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemXrefKeys A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $itemXrefKeys A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemXrefKeys(Collection $itemXrefKeys, ConnectionInterface $con = null)
+    public function setItemXrefKeys(Collection $itemXrefKeys, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemXrefKey[] $itemXrefKeysToDelete */
         $itemXrefKeysToDelete = $this->getItemXrefKeys(new Criteria(), $con)->diff($itemXrefKeys);
@@ -13138,13 +13600,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related ItemXrefKey objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemXrefKey objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemXrefKey objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemXrefKeys(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemXrefKeys(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefKeysPartial && !$this->isNew();
         if (null === $this->collItemXrefKeys || null !== $criteria || $partial) {
@@ -13173,8 +13635,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildItemXrefKey object to this object
      * through the ChildItemXrefKey foreign key attribute.
      *
-     * @param  ChildItemXrefKey $l ChildItemXrefKey
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildItemXrefKey $l ChildItemXrefKey
+     * @return $this The current object (for fluent API support)
      */
     public function addItemXrefKey(ChildItemXrefKey $l)
     {
@@ -13197,15 +13659,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildItemXrefKey $itemXrefKey The ChildItemXrefKey object to add.
      */
-    protected function doAddItemXrefKey(ChildItemXrefKey $itemXrefKey)
+    protected function doAddItemXrefKey(ChildItemXrefKey $itemXrefKey): void
     {
         $this->collItemXrefKeys[]= $itemXrefKey;
         $itemXrefKey->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildItemXrefKey $itemXrefKey The ChildItemXrefKey object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildItemXrefKey $itemXrefKey The ChildItemXrefKey object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemXrefKey(ChildItemXrefKey $itemXrefKey)
     {
@@ -13235,12 +13697,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemXrefKey[] List of ChildItemXrefKey objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefKey}> List of ChildItemXrefKey objects
      */
-    public function getItemXrefKeysJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemXrefKeysJoinVendor(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemXrefKeyQuery::create(null, $criteria);
         $query->joinWith('Vendor', $joinBehavior);
@@ -13260,12 +13723,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemXrefKey[] List of ChildItemXrefKey objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefKey}> List of ChildItemXrefKey objects
      */
-    public function getItemXrefKeysJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemXrefKeysJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemXrefKeyQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -13279,18 +13743,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemXrefManufacturers()
+     * @return $this
+     * @see addItemXrefManufacturers()
      */
     public function clearItemXrefManufacturers()
     {
         $this->collItemXrefManufacturers = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemXrefManufacturers collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemXrefManufacturers($v = true)
+    public function resetPartialItemXrefManufacturers($v = true): void
     {
         $this->collItemXrefManufacturersPartial = $v;
     }
@@ -13302,12 +13770,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemXrefManufacturers($overrideExisting = true)
+    public function initItemXrefManufacturers(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemXrefManufacturers && !$overrideExisting) {
             return;
@@ -13328,18 +13796,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemXrefManufacturer[] List of ChildItemXrefManufacturer objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefManufacturer> List of ChildItemXrefManufacturer objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemXrefManufacturers(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemXrefManufacturers(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefManufacturersPartial && !$this->isNew();
-        if (null === $this->collItemXrefManufacturers || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemXrefManufacturers) {
+        if (null === $this->collItemXrefManufacturers || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemXrefManufacturers();
+                if (null === $this->collItemXrefManufacturers) {
+                    $this->initItemXrefManufacturers();
+                } else {
+                    $collectionClassName = ItemXrefManufacturerTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemXrefManufacturers = new $collectionClassName;
+                    $collItemXrefManufacturers->setModel('\ItemXrefManufacturer');
+
+                    return $collItemXrefManufacturers;
+                }
             } else {
                 $collItemXrefManufacturers = ChildItemXrefManufacturerQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -13383,11 +13861,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemXrefManufacturers A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $itemXrefManufacturers A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemXrefManufacturers(Collection $itemXrefManufacturers, ConnectionInterface $con = null)
+    public function setItemXrefManufacturers(Collection $itemXrefManufacturers, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemXrefManufacturer[] $itemXrefManufacturersToDelete */
         $itemXrefManufacturersToDelete = $this->getItemXrefManufacturers(new Criteria(), $con)->diff($itemXrefManufacturers);
@@ -13416,13 +13894,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related ItemXrefManufacturer objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemXrefManufacturer objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemXrefManufacturer objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemXrefManufacturers(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemXrefManufacturers(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefManufacturersPartial && !$this->isNew();
         if (null === $this->collItemXrefManufacturers || null !== $criteria || $partial) {
@@ -13451,8 +13929,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildItemXrefManufacturer object to this object
      * through the ChildItemXrefManufacturer foreign key attribute.
      *
-     * @param  ChildItemXrefManufacturer $l ChildItemXrefManufacturer
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildItemXrefManufacturer $l ChildItemXrefManufacturer
+     * @return $this The current object (for fluent API support)
      */
     public function addItemXrefManufacturer(ChildItemXrefManufacturer $l)
     {
@@ -13475,15 +13953,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildItemXrefManufacturer $itemXrefManufacturer The ChildItemXrefManufacturer object to add.
      */
-    protected function doAddItemXrefManufacturer(ChildItemXrefManufacturer $itemXrefManufacturer)
+    protected function doAddItemXrefManufacturer(ChildItemXrefManufacturer $itemXrefManufacturer): void
     {
         $this->collItemXrefManufacturers[]= $itemXrefManufacturer;
         $itemXrefManufacturer->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildItemXrefManufacturer $itemXrefManufacturer The ChildItemXrefManufacturer object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildItemXrefManufacturer $itemXrefManufacturer The ChildItemXrefManufacturer object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemXrefManufacturer(ChildItemXrefManufacturer $itemXrefManufacturer)
     {
@@ -13513,12 +13991,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemXrefManufacturer[] List of ChildItemXrefManufacturer objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefManufacturer}> List of ChildItemXrefManufacturer objects
      */
-    public function getItemXrefManufacturersJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemXrefManufacturersJoinVendor(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemXrefManufacturerQuery::create(null, $criteria);
         $query->joinWith('Vendor', $joinBehavior);
@@ -13532,18 +14011,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemXrefCustomerNotes()
+     * @return $this
+     * @see addItemXrefCustomerNotes()
      */
     public function clearItemXrefCustomerNotes()
     {
         $this->collItemXrefCustomerNotes = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemXrefCustomerNotes collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemXrefCustomerNotes($v = true)
+    public function resetPartialItemXrefCustomerNotes($v = true): void
     {
         $this->collItemXrefCustomerNotesPartial = $v;
     }
@@ -13555,12 +14038,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemXrefCustomerNotes($overrideExisting = true)
+    public function initItemXrefCustomerNotes(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemXrefCustomerNotes && !$overrideExisting) {
             return;
@@ -13581,18 +14064,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemXrefCustomerNote[] List of ChildItemXrefCustomerNote objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefCustomerNote> List of ChildItemXrefCustomerNote objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemXrefCustomerNotes(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemXrefCustomerNotes(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefCustomerNotesPartial && !$this->isNew();
-        if (null === $this->collItemXrefCustomerNotes || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemXrefCustomerNotes) {
+        if (null === $this->collItemXrefCustomerNotes || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemXrefCustomerNotes();
+                if (null === $this->collItemXrefCustomerNotes) {
+                    $this->initItemXrefCustomerNotes();
+                } else {
+                    $collectionClassName = ItemXrefCustomerNoteTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemXrefCustomerNotes = new $collectionClassName;
+                    $collItemXrefCustomerNotes->setModel('\ItemXrefCustomerNote');
+
+                    return $collItemXrefCustomerNotes;
+                }
             } else {
                 $collItemXrefCustomerNotes = ChildItemXrefCustomerNoteQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -13636,11 +14129,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemXrefCustomerNotes A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $itemXrefCustomerNotes A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemXrefCustomerNotes(Collection $itemXrefCustomerNotes, ConnectionInterface $con = null)
+    public function setItemXrefCustomerNotes(Collection $itemXrefCustomerNotes, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemXrefCustomerNote[] $itemXrefCustomerNotesToDelete */
         $itemXrefCustomerNotesToDelete = $this->getItemXrefCustomerNotes(new Criteria(), $con)->diff($itemXrefCustomerNotes);
@@ -13666,13 +14159,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related ItemXrefCustomerNote objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemXrefCustomerNote objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemXrefCustomerNote objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemXrefCustomerNotes(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemXrefCustomerNotes(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefCustomerNotesPartial && !$this->isNew();
         if (null === $this->collItemXrefCustomerNotes || null !== $criteria || $partial) {
@@ -13701,8 +14194,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildItemXrefCustomerNote object to this object
      * through the ChildItemXrefCustomerNote foreign key attribute.
      *
-     * @param  ChildItemXrefCustomerNote $l ChildItemXrefCustomerNote
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildItemXrefCustomerNote $l ChildItemXrefCustomerNote
+     * @return $this The current object (for fluent API support)
      */
     public function addItemXrefCustomerNote(ChildItemXrefCustomerNote $l)
     {
@@ -13725,15 +14218,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildItemXrefCustomerNote $itemXrefCustomerNote The ChildItemXrefCustomerNote object to add.
      */
-    protected function doAddItemXrefCustomerNote(ChildItemXrefCustomerNote $itemXrefCustomerNote)
+    protected function doAddItemXrefCustomerNote(ChildItemXrefCustomerNote $itemXrefCustomerNote): void
     {
         $this->collItemXrefCustomerNotes[]= $itemXrefCustomerNote;
         $itemXrefCustomerNote->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildItemXrefCustomerNote $itemXrefCustomerNote The ChildItemXrefCustomerNote object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildItemXrefCustomerNote $itemXrefCustomerNote The ChildItemXrefCustomerNote object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemXrefCustomerNote(ChildItemXrefCustomerNote $itemXrefCustomerNote)
     {
@@ -13763,12 +14256,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemXrefCustomerNote[] List of ChildItemXrefCustomerNote objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefCustomerNote}> List of ChildItemXrefCustomerNote objects
      */
-    public function getItemXrefCustomerNotesJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemXrefCustomerNotesJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemXrefCustomerNoteQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -13782,18 +14276,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvOptCodeNotes()
+     * @return $this
+     * @see addInvOptCodeNotes()
      */
     public function clearInvOptCodeNotes()
     {
         $this->collInvOptCodeNotes = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvOptCodeNotes collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvOptCodeNotes($v = true)
+    public function resetPartialInvOptCodeNotes($v = true): void
     {
         $this->collInvOptCodeNotesPartial = $v;
     }
@@ -13805,12 +14303,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvOptCodeNotes($overrideExisting = true)
+    public function initInvOptCodeNotes(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvOptCodeNotes && !$overrideExisting) {
             return;
@@ -13831,18 +14329,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvOptCodeNote[] List of ChildInvOptCodeNote objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvOptCodeNote> List of ChildInvOptCodeNote objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvOptCodeNotes(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvOptCodeNotes(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvOptCodeNotesPartial && !$this->isNew();
-        if (null === $this->collInvOptCodeNotes || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvOptCodeNotes) {
+        if (null === $this->collInvOptCodeNotes || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvOptCodeNotes();
+                if (null === $this->collInvOptCodeNotes) {
+                    $this->initInvOptCodeNotes();
+                } else {
+                    $collectionClassName = InvOptCodeNoteTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvOptCodeNotes = new $collectionClassName;
+                    $collInvOptCodeNotes->setModel('\InvOptCodeNote');
+
+                    return $collInvOptCodeNotes;
+                }
             } else {
                 $collInvOptCodeNotes = ChildInvOptCodeNoteQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -13886,11 +14394,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invOptCodeNotes A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $invOptCodeNotes A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvOptCodeNotes(Collection $invOptCodeNotes, ConnectionInterface $con = null)
+    public function setInvOptCodeNotes(Collection $invOptCodeNotes, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvOptCodeNote[] $invOptCodeNotesToDelete */
         $invOptCodeNotesToDelete = $this->getInvOptCodeNotes(new Criteria(), $con)->diff($invOptCodeNotes);
@@ -13916,13 +14424,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related InvOptCodeNote objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvOptCodeNote objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvOptCodeNote objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvOptCodeNotes(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvOptCodeNotes(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvOptCodeNotesPartial && !$this->isNew();
         if (null === $this->collInvOptCodeNotes || null !== $criteria || $partial) {
@@ -13951,8 +14459,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildInvOptCodeNote object to this object
      * through the ChildInvOptCodeNote foreign key attribute.
      *
-     * @param  ChildInvOptCodeNote $l ChildInvOptCodeNote
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildInvOptCodeNote $l ChildInvOptCodeNote
+     * @return $this The current object (for fluent API support)
      */
     public function addInvOptCodeNote(ChildInvOptCodeNote $l)
     {
@@ -13975,15 +14483,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildInvOptCodeNote $invOptCodeNote The ChildInvOptCodeNote object to add.
      */
-    protected function doAddInvOptCodeNote(ChildInvOptCodeNote $invOptCodeNote)
+    protected function doAddInvOptCodeNote(ChildInvOptCodeNote $invOptCodeNote): void
     {
         $this->collInvOptCodeNotes[]= $invOptCodeNote;
         $invOptCodeNote->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvOptCodeNote $invOptCodeNote The ChildInvOptCodeNote object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildInvOptCodeNote $invOptCodeNote The ChildInvOptCodeNote object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvOptCodeNote(ChildInvOptCodeNote $invOptCodeNote)
     {
@@ -14007,18 +14515,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemXrefVendorNoteDetails()
+     * @return $this
+     * @see addItemXrefVendorNoteDetails()
      */
     public function clearItemXrefVendorNoteDetails()
     {
         $this->collItemXrefVendorNoteDetails = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemXrefVendorNoteDetails collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemXrefVendorNoteDetails($v = true)
+    public function resetPartialItemXrefVendorNoteDetails($v = true): void
     {
         $this->collItemXrefVendorNoteDetailsPartial = $v;
     }
@@ -14030,12 +14542,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemXrefVendorNoteDetails($overrideExisting = true)
+    public function initItemXrefVendorNoteDetails(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemXrefVendorNoteDetails && !$overrideExisting) {
             return;
@@ -14056,18 +14568,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemXrefVendorNoteDetail[] List of ChildItemXrefVendorNoteDetail objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefVendorNoteDetail> List of ChildItemXrefVendorNoteDetail objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemXrefVendorNoteDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemXrefVendorNoteDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefVendorNoteDetailsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendorNoteDetails || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemXrefVendorNoteDetails) {
+        if (null === $this->collItemXrefVendorNoteDetails || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemXrefVendorNoteDetails();
+                if (null === $this->collItemXrefVendorNoteDetails) {
+                    $this->initItemXrefVendorNoteDetails();
+                } else {
+                    $collectionClassName = ItemXrefVendorNoteDetailTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemXrefVendorNoteDetails = new $collectionClassName;
+                    $collItemXrefVendorNoteDetails->setModel('\ItemXrefVendorNoteDetail');
+
+                    return $collItemXrefVendorNoteDetails;
+                }
             } else {
                 $collItemXrefVendorNoteDetails = ChildItemXrefVendorNoteDetailQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -14111,11 +14633,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemXrefVendorNoteDetails A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $itemXrefVendorNoteDetails A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemXrefVendorNoteDetails(Collection $itemXrefVendorNoteDetails, ConnectionInterface $con = null)
+    public function setItemXrefVendorNoteDetails(Collection $itemXrefVendorNoteDetails, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemXrefVendorNoteDetail[] $itemXrefVendorNoteDetailsToDelete */
         $itemXrefVendorNoteDetailsToDelete = $this->getItemXrefVendorNoteDetails(new Criteria(), $con)->diff($itemXrefVendorNoteDetails);
@@ -14141,13 +14663,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related ItemXrefVendorNoteDetail objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemXrefVendorNoteDetail objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemXrefVendorNoteDetail objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemXrefVendorNoteDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemXrefVendorNoteDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefVendorNoteDetailsPartial && !$this->isNew();
         if (null === $this->collItemXrefVendorNoteDetails || null !== $criteria || $partial) {
@@ -14176,8 +14698,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildItemXrefVendorNoteDetail object to this object
      * through the ChildItemXrefVendorNoteDetail foreign key attribute.
      *
-     * @param  ChildItemXrefVendorNoteDetail $l ChildItemXrefVendorNoteDetail
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildItemXrefVendorNoteDetail $l ChildItemXrefVendorNoteDetail
+     * @return $this The current object (for fluent API support)
      */
     public function addItemXrefVendorNoteDetail(ChildItemXrefVendorNoteDetail $l)
     {
@@ -14200,15 +14722,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildItemXrefVendorNoteDetail $itemXrefVendorNoteDetail The ChildItemXrefVendorNoteDetail object to add.
      */
-    protected function doAddItemXrefVendorNoteDetail(ChildItemXrefVendorNoteDetail $itemXrefVendorNoteDetail)
+    protected function doAddItemXrefVendorNoteDetail(ChildItemXrefVendorNoteDetail $itemXrefVendorNoteDetail): void
     {
         $this->collItemXrefVendorNoteDetails[]= $itemXrefVendorNoteDetail;
         $itemXrefVendorNoteDetail->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildItemXrefVendorNoteDetail $itemXrefVendorNoteDetail The ChildItemXrefVendorNoteDetail object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildItemXrefVendorNoteDetail $itemXrefVendorNoteDetail The ChildItemXrefVendorNoteDetail object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemXrefVendorNoteDetail(ChildItemXrefVendorNoteDetail $itemXrefVendorNoteDetail)
     {
@@ -14238,12 +14760,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemXrefVendorNoteDetail[] List of ChildItemXrefVendorNoteDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefVendorNoteDetail}> List of ChildItemXrefVendorNoteDetail objects
      */
-    public function getItemXrefVendorNoteDetailsJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemXrefVendorNoteDetailsJoinVendor(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemXrefVendorNoteDetailQuery::create(null, $criteria);
         $query->joinWith('Vendor', $joinBehavior);
@@ -14257,18 +14780,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemXrefVendorNoteInternals()
+     * @return $this
+     * @see addItemXrefVendorNoteInternals()
      */
     public function clearItemXrefVendorNoteInternals()
     {
         $this->collItemXrefVendorNoteInternals = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemXrefVendorNoteInternals collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemXrefVendorNoteInternals($v = true)
+    public function resetPartialItemXrefVendorNoteInternals($v = true): void
     {
         $this->collItemXrefVendorNoteInternalsPartial = $v;
     }
@@ -14280,12 +14807,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemXrefVendorNoteInternals($overrideExisting = true)
+    public function initItemXrefVendorNoteInternals(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemXrefVendorNoteInternals && !$overrideExisting) {
             return;
@@ -14306,18 +14833,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemXrefVendorNoteInternal[] List of ChildItemXrefVendorNoteInternal objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefVendorNoteInternal> List of ChildItemXrefVendorNoteInternal objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemXrefVendorNoteInternals(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemXrefVendorNoteInternals(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefVendorNoteInternalsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendorNoteInternals || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemXrefVendorNoteInternals) {
+        if (null === $this->collItemXrefVendorNoteInternals || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemXrefVendorNoteInternals();
+                if (null === $this->collItemXrefVendorNoteInternals) {
+                    $this->initItemXrefVendorNoteInternals();
+                } else {
+                    $collectionClassName = ItemXrefVendorNoteInternalTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemXrefVendorNoteInternals = new $collectionClassName;
+                    $collItemXrefVendorNoteInternals->setModel('\ItemXrefVendorNoteInternal');
+
+                    return $collItemXrefVendorNoteInternals;
+                }
             } else {
                 $collItemXrefVendorNoteInternals = ChildItemXrefVendorNoteInternalQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -14361,11 +14898,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemXrefVendorNoteInternals A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $itemXrefVendorNoteInternals A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemXrefVendorNoteInternals(Collection $itemXrefVendorNoteInternals, ConnectionInterface $con = null)
+    public function setItemXrefVendorNoteInternals(Collection $itemXrefVendorNoteInternals, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemXrefVendorNoteInternal[] $itemXrefVendorNoteInternalsToDelete */
         $itemXrefVendorNoteInternalsToDelete = $this->getItemXrefVendorNoteInternals(new Criteria(), $con)->diff($itemXrefVendorNoteInternals);
@@ -14391,13 +14928,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related ItemXrefVendorNoteInternal objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemXrefVendorNoteInternal objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemXrefVendorNoteInternal objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemXrefVendorNoteInternals(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemXrefVendorNoteInternals(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefVendorNoteInternalsPartial && !$this->isNew();
         if (null === $this->collItemXrefVendorNoteInternals || null !== $criteria || $partial) {
@@ -14426,8 +14963,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildItemXrefVendorNoteInternal object to this object
      * through the ChildItemXrefVendorNoteInternal foreign key attribute.
      *
-     * @param  ChildItemXrefVendorNoteInternal $l ChildItemXrefVendorNoteInternal
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildItemXrefVendorNoteInternal $l ChildItemXrefVendorNoteInternal
+     * @return $this The current object (for fluent API support)
      */
     public function addItemXrefVendorNoteInternal(ChildItemXrefVendorNoteInternal $l)
     {
@@ -14450,15 +14987,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildItemXrefVendorNoteInternal $itemXrefVendorNoteInternal The ChildItemXrefVendorNoteInternal object to add.
      */
-    protected function doAddItemXrefVendorNoteInternal(ChildItemXrefVendorNoteInternal $itemXrefVendorNoteInternal)
+    protected function doAddItemXrefVendorNoteInternal(ChildItemXrefVendorNoteInternal $itemXrefVendorNoteInternal): void
     {
         $this->collItemXrefVendorNoteInternals[]= $itemXrefVendorNoteInternal;
         $itemXrefVendorNoteInternal->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildItemXrefVendorNoteInternal $itemXrefVendorNoteInternal The ChildItemXrefVendorNoteInternal object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildItemXrefVendorNoteInternal $itemXrefVendorNoteInternal The ChildItemXrefVendorNoteInternal object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemXrefVendorNoteInternal(ChildItemXrefVendorNoteInternal $itemXrefVendorNoteInternal)
     {
@@ -14488,12 +15025,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemXrefVendorNoteInternal[] List of ChildItemXrefVendorNoteInternal objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefVendorNoteInternal}> List of ChildItemXrefVendorNoteInternal objects
      */
-    public function getItemXrefVendorNoteInternalsJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemXrefVendorNoteInternalsJoinVendor(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemXrefVendorNoteInternalQuery::create(null, $criteria);
         $query->joinWith('Vendor', $joinBehavior);
@@ -14507,18 +15045,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvPallets()
+     * @return $this
+     * @see addInvPallets()
      */
     public function clearInvPallets()
     {
         $this->collInvPallets = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvPallets collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvPallets($v = true)
+    public function resetPartialInvPallets($v = true): void
     {
         $this->collInvPalletsPartial = $v;
     }
@@ -14530,12 +15072,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvPallets($overrideExisting = true)
+    public function initInvPallets(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvPallets && !$overrideExisting) {
             return;
@@ -14556,18 +15098,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvPallet[] List of ChildInvPallet objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvPallet> List of ChildInvPallet objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvPallets(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvPallets(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvPalletsPartial && !$this->isNew();
-        if (null === $this->collInvPallets || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvPallets) {
+        if (null === $this->collInvPallets || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvPallets();
+                if (null === $this->collInvPallets) {
+                    $this->initInvPallets();
+                } else {
+                    $collectionClassName = InvPalletTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvPallets = new $collectionClassName;
+                    $collInvPallets->setModel('\InvPallet');
+
+                    return $collInvPallets;
+                }
             } else {
                 $collInvPallets = ChildInvPalletQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -14611,11 +15163,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invPallets A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $invPallets A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvPallets(Collection $invPallets, ConnectionInterface $con = null)
+    public function setInvPallets(Collection $invPallets, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvPallet[] $invPalletsToDelete */
         $invPalletsToDelete = $this->getInvPallets(new Criteria(), $con)->diff($invPallets);
@@ -14641,13 +15193,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related InvPallet objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvPallet objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvPallet objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvPallets(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvPallets(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvPalletsPartial && !$this->isNew();
         if (null === $this->collInvPallets || null !== $criteria || $partial) {
@@ -14676,8 +15228,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildInvPallet object to this object
      * through the ChildInvPallet foreign key attribute.
      *
-     * @param  ChildInvPallet $l ChildInvPallet
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildInvPallet $l ChildInvPallet
+     * @return $this The current object (for fluent API support)
      */
     public function addInvPallet(ChildInvPallet $l)
     {
@@ -14700,15 +15252,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildInvPallet $invPallet The ChildInvPallet object to add.
      */
-    protected function doAddInvPallet(ChildInvPallet $invPallet)
+    protected function doAddInvPallet(ChildInvPallet $invPallet): void
     {
         $this->collInvPallets[]= $invPallet;
         $invPallet->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvPallet $invPallet The ChildInvPallet object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildInvPallet $invPallet The ChildInvPallet object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvPallet(ChildInvPallet $invPallet)
     {
@@ -14732,18 +15284,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addPurchaseOrderDetails()
+     * @return $this
+     * @see addPurchaseOrderDetails()
      */
     public function clearPurchaseOrderDetails()
     {
         $this->collPurchaseOrderDetails = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collPurchaseOrderDetails collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialPurchaseOrderDetails($v = true)
+    public function resetPartialPurchaseOrderDetails($v = true): void
     {
         $this->collPurchaseOrderDetailsPartial = $v;
     }
@@ -14755,12 +15311,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initPurchaseOrderDetails($overrideExisting = true)
+    public function initPurchaseOrderDetails(bool $overrideExisting = true): void
     {
         if (null !== $this->collPurchaseOrderDetails && !$overrideExisting) {
             return;
@@ -14781,18 +15337,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildPurchaseOrderDetail[] List of ChildPurchaseOrderDetail objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetail> List of ChildPurchaseOrderDetail objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getPurchaseOrderDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getPurchaseOrderDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetails || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collPurchaseOrderDetails) {
+        if (null === $this->collPurchaseOrderDetails || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initPurchaseOrderDetails();
+                if (null === $this->collPurchaseOrderDetails) {
+                    $this->initPurchaseOrderDetails();
+                } else {
+                    $collectionClassName = PurchaseOrderDetailTableMap::getTableMap()->getCollectionClassName();
+
+                    $collPurchaseOrderDetails = new $collectionClassName;
+                    $collPurchaseOrderDetails->setModel('\PurchaseOrderDetail');
+
+                    return $collPurchaseOrderDetails;
+                }
             } else {
                 $collPurchaseOrderDetails = ChildPurchaseOrderDetailQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -14836,11 +15402,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $purchaseOrderDetails A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $purchaseOrderDetails A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setPurchaseOrderDetails(Collection $purchaseOrderDetails, ConnectionInterface $con = null)
+    public function setPurchaseOrderDetails(Collection $purchaseOrderDetails, ?ConnectionInterface $con = null)
     {
         /** @var ChildPurchaseOrderDetail[] $purchaseOrderDetailsToDelete */
         $purchaseOrderDetailsToDelete = $this->getPurchaseOrderDetails(new Criteria(), $con)->diff($purchaseOrderDetails);
@@ -14866,13 +15432,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related PurchaseOrderDetail objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related PurchaseOrderDetail objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related PurchaseOrderDetail objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countPurchaseOrderDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countPurchaseOrderDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailsPartial && !$this->isNew();
         if (null === $this->collPurchaseOrderDetails || null !== $criteria || $partial) {
@@ -14901,8 +15467,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildPurchaseOrderDetail object to this object
      * through the ChildPurchaseOrderDetail foreign key attribute.
      *
-     * @param  ChildPurchaseOrderDetail $l ChildPurchaseOrderDetail
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildPurchaseOrderDetail $l ChildPurchaseOrderDetail
+     * @return $this The current object (for fluent API support)
      */
     public function addPurchaseOrderDetail(ChildPurchaseOrderDetail $l)
     {
@@ -14925,15 +15491,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildPurchaseOrderDetail $purchaseOrderDetail The ChildPurchaseOrderDetail object to add.
      */
-    protected function doAddPurchaseOrderDetail(ChildPurchaseOrderDetail $purchaseOrderDetail)
+    protected function doAddPurchaseOrderDetail(ChildPurchaseOrderDetail $purchaseOrderDetail): void
     {
         $this->collPurchaseOrderDetails[]= $purchaseOrderDetail;
         $purchaseOrderDetail->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildPurchaseOrderDetail $purchaseOrderDetail The ChildPurchaseOrderDetail object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildPurchaseOrderDetail $purchaseOrderDetail The ChildPurchaseOrderDetail object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removePurchaseOrderDetail(ChildPurchaseOrderDetail $purchaseOrderDetail)
     {
@@ -14963,12 +15529,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetail[] List of ChildPurchaseOrderDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetail}> List of ChildPurchaseOrderDetail objects
      */
-    public function getPurchaseOrderDetailsJoinPurchaseOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailsJoinPurchaseOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailQuery::create(null, $criteria);
         $query->joinWith('PurchaseOrder', $joinBehavior);
@@ -14982,18 +15549,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addPurchaseOrderDetailReceipts()
+     * @return $this
+     * @see addPurchaseOrderDetailReceipts()
      */
     public function clearPurchaseOrderDetailReceipts()
     {
         $this->collPurchaseOrderDetailReceipts = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collPurchaseOrderDetailReceipts collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialPurchaseOrderDetailReceipts($v = true)
+    public function resetPartialPurchaseOrderDetailReceipts($v = true): void
     {
         $this->collPurchaseOrderDetailReceiptsPartial = $v;
     }
@@ -15005,12 +15576,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initPurchaseOrderDetailReceipts($overrideExisting = true)
+    public function initPurchaseOrderDetailReceipts(bool $overrideExisting = true): void
     {
         if (null !== $this->collPurchaseOrderDetailReceipts && !$overrideExisting) {
             return;
@@ -15031,18 +15602,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildPurchaseOrderDetailReceipt[] List of ChildPurchaseOrderDetailReceipt objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceipt> List of ChildPurchaseOrderDetailReceipt objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getPurchaseOrderDetailReceipts(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getPurchaseOrderDetailReceipts(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailReceiptsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailReceipts || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collPurchaseOrderDetailReceipts) {
+        if (null === $this->collPurchaseOrderDetailReceipts || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initPurchaseOrderDetailReceipts();
+                if (null === $this->collPurchaseOrderDetailReceipts) {
+                    $this->initPurchaseOrderDetailReceipts();
+                } else {
+                    $collectionClassName = PurchaseOrderDetailReceiptTableMap::getTableMap()->getCollectionClassName();
+
+                    $collPurchaseOrderDetailReceipts = new $collectionClassName;
+                    $collPurchaseOrderDetailReceipts->setModel('\PurchaseOrderDetailReceipt');
+
+                    return $collPurchaseOrderDetailReceipts;
+                }
             } else {
                 $collPurchaseOrderDetailReceipts = ChildPurchaseOrderDetailReceiptQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -15086,11 +15667,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $purchaseOrderDetailReceipts A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $purchaseOrderDetailReceipts A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setPurchaseOrderDetailReceipts(Collection $purchaseOrderDetailReceipts, ConnectionInterface $con = null)
+    public function setPurchaseOrderDetailReceipts(Collection $purchaseOrderDetailReceipts, ?ConnectionInterface $con = null)
     {
         /** @var ChildPurchaseOrderDetailReceipt[] $purchaseOrderDetailReceiptsToDelete */
         $purchaseOrderDetailReceiptsToDelete = $this->getPurchaseOrderDetailReceipts(new Criteria(), $con)->diff($purchaseOrderDetailReceipts);
@@ -15119,13 +15700,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related PurchaseOrderDetailReceipt objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related PurchaseOrderDetailReceipt objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related PurchaseOrderDetailReceipt objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countPurchaseOrderDetailReceipts(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countPurchaseOrderDetailReceipts(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailReceiptsPartial && !$this->isNew();
         if (null === $this->collPurchaseOrderDetailReceipts || null !== $criteria || $partial) {
@@ -15154,8 +15735,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildPurchaseOrderDetailReceipt object to this object
      * through the ChildPurchaseOrderDetailReceipt foreign key attribute.
      *
-     * @param  ChildPurchaseOrderDetailReceipt $l ChildPurchaseOrderDetailReceipt
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildPurchaseOrderDetailReceipt $l ChildPurchaseOrderDetailReceipt
+     * @return $this The current object (for fluent API support)
      */
     public function addPurchaseOrderDetailReceipt(ChildPurchaseOrderDetailReceipt $l)
     {
@@ -15178,15 +15759,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildPurchaseOrderDetailReceipt $purchaseOrderDetailReceipt The ChildPurchaseOrderDetailReceipt object to add.
      */
-    protected function doAddPurchaseOrderDetailReceipt(ChildPurchaseOrderDetailReceipt $purchaseOrderDetailReceipt)
+    protected function doAddPurchaseOrderDetailReceipt(ChildPurchaseOrderDetailReceipt $purchaseOrderDetailReceipt): void
     {
         $this->collPurchaseOrderDetailReceipts[]= $purchaseOrderDetailReceipt;
         $purchaseOrderDetailReceipt->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildPurchaseOrderDetailReceipt $purchaseOrderDetailReceipt The ChildPurchaseOrderDetailReceipt object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildPurchaseOrderDetailReceipt $purchaseOrderDetailReceipt The ChildPurchaseOrderDetailReceipt object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removePurchaseOrderDetailReceipt(ChildPurchaseOrderDetailReceipt $purchaseOrderDetailReceipt)
     {
@@ -15216,12 +15797,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailReceipt[] List of ChildPurchaseOrderDetailReceipt objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceipt}> List of ChildPurchaseOrderDetailReceipt objects
      */
-    public function getPurchaseOrderDetailReceiptsJoinPurchaseOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailReceiptsJoinPurchaseOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailReceiptQuery::create(null, $criteria);
         $query->joinWith('PurchaseOrder', $joinBehavior);
@@ -15241,12 +15823,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailReceipt[] List of ChildPurchaseOrderDetailReceipt objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceipt}> List of ChildPurchaseOrderDetailReceipt objects
      */
-    public function getPurchaseOrderDetailReceiptsJoinPurchaseOrderDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailReceiptsJoinPurchaseOrderDetail(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailReceiptQuery::create(null, $criteria);
         $query->joinWith('PurchaseOrderDetail', $joinBehavior);
@@ -15260,18 +15843,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addPurchaseOrderDetailReceivings()
+     * @return $this
+     * @see addPurchaseOrderDetailReceivings()
      */
     public function clearPurchaseOrderDetailReceivings()
     {
         $this->collPurchaseOrderDetailReceivings = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collPurchaseOrderDetailReceivings collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialPurchaseOrderDetailReceivings($v = true)
+    public function resetPartialPurchaseOrderDetailReceivings($v = true): void
     {
         $this->collPurchaseOrderDetailReceivingsPartial = $v;
     }
@@ -15283,12 +15870,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initPurchaseOrderDetailReceivings($overrideExisting = true)
+    public function initPurchaseOrderDetailReceivings(bool $overrideExisting = true): void
     {
         if (null !== $this->collPurchaseOrderDetailReceivings && !$overrideExisting) {
             return;
@@ -15309,18 +15896,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving> List of ChildPurchaseOrderDetailReceiving objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getPurchaseOrderDetailReceivings(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getPurchaseOrderDetailReceivings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collPurchaseOrderDetailReceivings) {
+        if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initPurchaseOrderDetailReceivings();
+                if (null === $this->collPurchaseOrderDetailReceivings) {
+                    $this->initPurchaseOrderDetailReceivings();
+                } else {
+                    $collectionClassName = PurchaseOrderDetailReceivingTableMap::getTableMap()->getCollectionClassName();
+
+                    $collPurchaseOrderDetailReceivings = new $collectionClassName;
+                    $collPurchaseOrderDetailReceivings->setModel('\PurchaseOrderDetailReceiving');
+
+                    return $collPurchaseOrderDetailReceivings;
+                }
             } else {
                 $collPurchaseOrderDetailReceivings = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -15364,11 +15961,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $purchaseOrderDetailReceivings A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $purchaseOrderDetailReceivings A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setPurchaseOrderDetailReceivings(Collection $purchaseOrderDetailReceivings, ConnectionInterface $con = null)
+    public function setPurchaseOrderDetailReceivings(Collection $purchaseOrderDetailReceivings, ?ConnectionInterface $con = null)
     {
         /** @var ChildPurchaseOrderDetailReceiving[] $purchaseOrderDetailReceivingsToDelete */
         $purchaseOrderDetailReceivingsToDelete = $this->getPurchaseOrderDetailReceivings(new Criteria(), $con)->diff($purchaseOrderDetailReceivings);
@@ -15394,13 +15991,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related PurchaseOrderDetailReceiving objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related PurchaseOrderDetailReceiving objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related PurchaseOrderDetailReceiving objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countPurchaseOrderDetailReceivings(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countPurchaseOrderDetailReceivings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailReceivingsPartial && !$this->isNew();
         if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria || $partial) {
@@ -15429,8 +16026,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildPurchaseOrderDetailReceiving object to this object
      * through the ChildPurchaseOrderDetailReceiving foreign key attribute.
      *
-     * @param  ChildPurchaseOrderDetailReceiving $l ChildPurchaseOrderDetailReceiving
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildPurchaseOrderDetailReceiving $l ChildPurchaseOrderDetailReceiving
+     * @return $this The current object (for fluent API support)
      */
     public function addPurchaseOrderDetailReceiving(ChildPurchaseOrderDetailReceiving $l)
     {
@@ -15453,15 +16050,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving The ChildPurchaseOrderDetailReceiving object to add.
      */
-    protected function doAddPurchaseOrderDetailReceiving(ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving)
+    protected function doAddPurchaseOrderDetailReceiving(ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving): void
     {
         $this->collPurchaseOrderDetailReceivings[]= $purchaseOrderDetailReceiving;
         $purchaseOrderDetailReceiving->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving The ChildPurchaseOrderDetailReceiving object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving The ChildPurchaseOrderDetailReceiving object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removePurchaseOrderDetailReceiving(ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving)
     {
@@ -15491,12 +16088,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving}> List of ChildPurchaseOrderDetailReceiving objects
      */
-    public function getPurchaseOrderDetailReceivingsJoinPurchaseOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailReceivingsJoinPurchaseOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
         $query->joinWith('PurchaseOrder', $joinBehavior);
@@ -15516,12 +16114,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving}> List of ChildPurchaseOrderDetailReceiving objects
      */
-    public function getPurchaseOrderDetailReceivingsJoinPoReceivingHead(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailReceivingsJoinPoReceivingHead(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
         $query->joinWith('PoReceivingHead', $joinBehavior);
@@ -15541,12 +16140,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving}> List of ChildPurchaseOrderDetailReceiving objects
      */
-    public function getPurchaseOrderDetailReceivingsJoinPurchaseOrderDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailReceivingsJoinPurchaseOrderDetail(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
         $query->joinWith('PurchaseOrderDetail', $joinBehavior);
@@ -15566,12 +16166,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailReceiving}> List of ChildPurchaseOrderDetailReceiving objects
      */
-    public function getPurchaseOrderDetailReceivingsJoinUnitofMeasureSale(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailReceivingsJoinUnitofMeasureSale(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
         $query->joinWith('UnitofMeasureSale', $joinBehavior);
@@ -15585,18 +16186,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addPurchaseOrderDetailLotReceivings()
+     * @return $this
+     * @see addPurchaseOrderDetailLotReceivings()
      */
     public function clearPurchaseOrderDetailLotReceivings()
     {
         $this->collPurchaseOrderDetailLotReceivings = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collPurchaseOrderDetailLotReceivings collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialPurchaseOrderDetailLotReceivings($v = true)
+    public function resetPartialPurchaseOrderDetailLotReceivings($v = true): void
     {
         $this->collPurchaseOrderDetailLotReceivingsPartial = $v;
     }
@@ -15608,12 +16213,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initPurchaseOrderDetailLotReceivings($overrideExisting = true)
+    public function initPurchaseOrderDetailLotReceivings(bool $overrideExisting = true): void
     {
         if (null !== $this->collPurchaseOrderDetailLotReceivings && !$overrideExisting) {
             return;
@@ -15634,18 +16239,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildPurchaseOrderDetailLotReceiving[] List of ChildPurchaseOrderDetailLotReceiving objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailLotReceiving> List of ChildPurchaseOrderDetailLotReceiving objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getPurchaseOrderDetailLotReceivings(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getPurchaseOrderDetailLotReceivings(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrderDetailLotReceivingsPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrderDetailLotReceivings || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collPurchaseOrderDetailLotReceivings) {
+        if (null === $this->collPurchaseOrderDetailLotReceivings || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initPurchaseOrderDetailLotReceivings();
+                if (null === $this->collPurchaseOrderDetailLotReceivings) {
+                    $this->initPurchaseOrderDetailLotReceivings();
+                } else {
+                    $collectionClassName = PurchaseOrderDetailLotReceivingTableMap::getTableMap()->getCollectionClassName();
+
+                    $collPurchaseOrderDetailLotReceivings = new $collectionClassName;
+                    $collPurchaseOrderDetailLotReceivings->setModel('\PurchaseOrderDetailLotReceiving');
+
+                    return $collPurchaseOrderDetailLotReceivings;
+                }
             } else {
                 $collPurchaseOrderDetailLotReceivings = ChildPurchaseOrderDetailLotReceivingQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -15689,11 +16304,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $purchaseOrderDetailLotReceivings A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $purchaseOrderDetailLotReceivings A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setPurchaseOrderDetailLotReceivings(Collection $purchaseOrderDetailLotReceivings, ConnectionInterface $con = null)
+    public function setPurchaseOrderDetailLotReceivings(Collection $purchaseOrderDetailLotReceivings, ?ConnectionInterface $con = null)
     {
         /** @var ChildPurchaseOrderDetailLotReceiving[] $purchaseOrderDetailLotReceivingsToDelete */
         $purchaseOrderDetailLotReceivingsToDelete = $this->getPurchaseOrderDetailLotReceivings(new Criteria(), $con)->diff($purchaseOrderDetailLotReceivings);
@@ -15722,13 +16337,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related PurchaseOrderDetailLotReceiving objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related PurchaseOrderDetailLotReceiving objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related PurchaseOrderDetailLotReceiving objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countPurchaseOrderDetailLotReceivings(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countPurchaseOrderDetailLotReceivings(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrderDetailLotReceivingsPartial && !$this->isNew();
         if (null === $this->collPurchaseOrderDetailLotReceivings || null !== $criteria || $partial) {
@@ -15757,8 +16372,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildPurchaseOrderDetailLotReceiving object to this object
      * through the ChildPurchaseOrderDetailLotReceiving foreign key attribute.
      *
-     * @param  ChildPurchaseOrderDetailLotReceiving $l ChildPurchaseOrderDetailLotReceiving
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildPurchaseOrderDetailLotReceiving $l ChildPurchaseOrderDetailLotReceiving
+     * @return $this The current object (for fluent API support)
      */
     public function addPurchaseOrderDetailLotReceiving(ChildPurchaseOrderDetailLotReceiving $l)
     {
@@ -15781,15 +16396,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving The ChildPurchaseOrderDetailLotReceiving object to add.
      */
-    protected function doAddPurchaseOrderDetailLotReceiving(ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving)
+    protected function doAddPurchaseOrderDetailLotReceiving(ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving): void
     {
         $this->collPurchaseOrderDetailLotReceivings[]= $purchaseOrderDetailLotReceiving;
         $purchaseOrderDetailLotReceiving->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving The ChildPurchaseOrderDetailLotReceiving object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving The ChildPurchaseOrderDetailLotReceiving object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removePurchaseOrderDetailLotReceiving(ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving)
     {
@@ -15819,12 +16434,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailLotReceiving[] List of ChildPurchaseOrderDetailLotReceiving objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailLotReceiving}> List of ChildPurchaseOrderDetailLotReceiving objects
      */
-    public function getPurchaseOrderDetailLotReceivingsJoinPurchaseOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailLotReceivingsJoinPurchaseOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailLotReceivingQuery::create(null, $criteria);
         $query->joinWith('PurchaseOrder', $joinBehavior);
@@ -15844,12 +16460,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailLotReceiving[] List of ChildPurchaseOrderDetailLotReceiving objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailLotReceiving}> List of ChildPurchaseOrderDetailLotReceiving objects
      */
-    public function getPurchaseOrderDetailLotReceivingsJoinPoReceivingHead(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailLotReceivingsJoinPoReceivingHead(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailLotReceivingQuery::create(null, $criteria);
         $query->joinWith('PoReceivingHead', $joinBehavior);
@@ -15869,12 +16486,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrderDetailLotReceiving[] List of ChildPurchaseOrderDetailLotReceiving objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrderDetailLotReceiving}> List of ChildPurchaseOrderDetailLotReceiving objects
      */
-    public function getPurchaseOrderDetailLotReceivingsJoinPurchaseOrderDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrderDetailLotReceivingsJoinPurchaseOrderDetail(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderDetailLotReceivingQuery::create(null, $criteria);
         $query->joinWith('PurchaseOrderDetail', $joinBehavior);
@@ -15888,18 +16506,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addBomComponents()
+     * @return $this
+     * @see addBomComponents()
      */
     public function clearBomComponents()
     {
         $this->collBomComponents = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collBomComponents collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialBomComponents($v = true)
+    public function resetPartialBomComponents($v = true): void
     {
         $this->collBomComponentsPartial = $v;
     }
@@ -15911,12 +16533,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initBomComponents($overrideExisting = true)
+    public function initBomComponents(bool $overrideExisting = true): void
     {
         if (null !== $this->collBomComponents && !$overrideExisting) {
             return;
@@ -15937,18 +16559,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildBomComponent[] List of ChildBomComponent objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildBomComponent> List of ChildBomComponent objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getBomComponents(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getBomComponents(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBomComponentsPartial && !$this->isNew();
-        if (null === $this->collBomComponents || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collBomComponents) {
+        if (null === $this->collBomComponents || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initBomComponents();
+                if (null === $this->collBomComponents) {
+                    $this->initBomComponents();
+                } else {
+                    $collectionClassName = BomComponentTableMap::getTableMap()->getCollectionClassName();
+
+                    $collBomComponents = new $collectionClassName;
+                    $collBomComponents->setModel('\BomComponent');
+
+                    return $collBomComponents;
+                }
             } else {
                 $collBomComponents = ChildBomComponentQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -15992,11 +16624,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $bomComponents A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $bomComponents A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setBomComponents(Collection $bomComponents, ConnectionInterface $con = null)
+    public function setBomComponents(Collection $bomComponents, ?ConnectionInterface $con = null)
     {
         /** @var ChildBomComponent[] $bomComponentsToDelete */
         $bomComponentsToDelete = $this->getBomComponents(new Criteria(), $con)->diff($bomComponents);
@@ -16025,13 +16657,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related BomComponent objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related BomComponent objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related BomComponent objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countBomComponents(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countBomComponents(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBomComponentsPartial && !$this->isNew();
         if (null === $this->collBomComponents || null !== $criteria || $partial) {
@@ -16060,8 +16692,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildBomComponent object to this object
      * through the ChildBomComponent foreign key attribute.
      *
-     * @param  ChildBomComponent $l ChildBomComponent
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildBomComponent $l ChildBomComponent
+     * @return $this The current object (for fluent API support)
      */
     public function addBomComponent(ChildBomComponent $l)
     {
@@ -16084,15 +16716,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildBomComponent $bomComponent The ChildBomComponent object to add.
      */
-    protected function doAddBomComponent(ChildBomComponent $bomComponent)
+    protected function doAddBomComponent(ChildBomComponent $bomComponent): void
     {
         $this->collBomComponents[]= $bomComponent;
         $bomComponent->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildBomComponent $bomComponent The ChildBomComponent object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildBomComponent $bomComponent The ChildBomComponent object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeBomComponent(ChildBomComponent $bomComponent)
     {
@@ -16122,12 +16754,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildBomComponent[] List of ChildBomComponent objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildBomComponent}> List of ChildBomComponent objects
      */
-    public function getBomComponentsJoinBomItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getBomComponentsJoinBomItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildBomComponentQuery::create(null, $criteria);
         $query->joinWith('BomItem', $joinBehavior);
@@ -16138,11 +16771,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Gets a single ChildBomItem object, which is related to this object by a one-to-one relationship.
      *
-     * @param  ConnectionInterface $con optional connection object
-     * @return ChildBomItem
-     * @throws PropelException
+     * @param ConnectionInterface $con optional connection object
+     * @return ChildBomItem|null
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getBomItem(ConnectionInterface $con = null)
+    public function getBomItem(?ConnectionInterface $con = null)
     {
 
         if ($this->singleBomItem === null && !$this->isNew()) {
@@ -16155,9 +16788,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Sets a single ChildBomItem object as related to this object by a one-to-one relationship.
      *
-     * @param  ChildBomItem $v ChildBomItem
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildBomItem $v ChildBomItem
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setBomItem(ChildBomItem $v = null)
     {
@@ -16177,18 +16810,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addBookingDetails()
+     * @return $this
+     * @see addBookingDetails()
      */
     public function clearBookingDetails()
     {
         $this->collBookingDetails = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collBookingDetails collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialBookingDetails($v = true)
+    public function resetPartialBookingDetails($v = true): void
     {
         $this->collBookingDetailsPartial = $v;
     }
@@ -16200,12 +16837,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initBookingDetails($overrideExisting = true)
+    public function initBookingDetails(bool $overrideExisting = true): void
     {
         if (null !== $this->collBookingDetails && !$overrideExisting) {
             return;
@@ -16226,18 +16863,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildBookingDetail[] List of ChildBookingDetail objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildBookingDetail> List of ChildBookingDetail objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getBookingDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getBookingDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collBookingDetailsPartial && !$this->isNew();
-        if (null === $this->collBookingDetails || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collBookingDetails) {
+        if (null === $this->collBookingDetails || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initBookingDetails();
+                if (null === $this->collBookingDetails) {
+                    $this->initBookingDetails();
+                } else {
+                    $collectionClassName = BookingDetailTableMap::getTableMap()->getCollectionClassName();
+
+                    $collBookingDetails = new $collectionClassName;
+                    $collBookingDetails->setModel('\BookingDetail');
+
+                    return $collBookingDetails;
+                }
             } else {
                 $collBookingDetails = ChildBookingDetailQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -16281,11 +16928,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $bookingDetails A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $bookingDetails A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setBookingDetails(Collection $bookingDetails, ConnectionInterface $con = null)
+    public function setBookingDetails(Collection $bookingDetails, ?ConnectionInterface $con = null)
     {
         /** @var ChildBookingDetail[] $bookingDetailsToDelete */
         $bookingDetailsToDelete = $this->getBookingDetails(new Criteria(), $con)->diff($bookingDetails);
@@ -16311,13 +16958,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related BookingDetail objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related BookingDetail objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related BookingDetail objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countBookingDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countBookingDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collBookingDetailsPartial && !$this->isNew();
         if (null === $this->collBookingDetails || null !== $criteria || $partial) {
@@ -16346,8 +16993,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildBookingDetail object to this object
      * through the ChildBookingDetail foreign key attribute.
      *
-     * @param  ChildBookingDetail $l ChildBookingDetail
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildBookingDetail $l ChildBookingDetail
+     * @return $this The current object (for fluent API support)
      */
     public function addBookingDetail(ChildBookingDetail $l)
     {
@@ -16370,15 +17017,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildBookingDetail $bookingDetail The ChildBookingDetail object to add.
      */
-    protected function doAddBookingDetail(ChildBookingDetail $bookingDetail)
+    protected function doAddBookingDetail(ChildBookingDetail $bookingDetail): void
     {
         $this->collBookingDetails[]= $bookingDetail;
         $bookingDetail->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildBookingDetail $bookingDetail The ChildBookingDetail object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildBookingDetail $bookingDetail The ChildBookingDetail object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeBookingDetail(ChildBookingDetail $bookingDetail)
     {
@@ -16402,18 +17049,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSalesHistoryDetails()
+     * @return $this
+     * @see addSalesHistoryDetails()
      */
     public function clearSalesHistoryDetails()
     {
         $this->collSalesHistoryDetails = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSalesHistoryDetails collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSalesHistoryDetails($v = true)
+    public function resetPartialSalesHistoryDetails($v = true): void
     {
         $this->collSalesHistoryDetailsPartial = $v;
     }
@@ -16425,12 +17076,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSalesHistoryDetails($overrideExisting = true)
+    public function initSalesHistoryDetails(bool $overrideExisting = true): void
     {
         if (null !== $this->collSalesHistoryDetails && !$overrideExisting) {
             return;
@@ -16451,18 +17102,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSalesHistoryDetail[] List of ChildSalesHistoryDetail objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesHistoryDetail> List of ChildSalesHistoryDetail objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSalesHistoryDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSalesHistoryDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesHistoryDetailsPartial && !$this->isNew();
-        if (null === $this->collSalesHistoryDetails || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSalesHistoryDetails) {
+        if (null === $this->collSalesHistoryDetails || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSalesHistoryDetails();
+                if (null === $this->collSalesHistoryDetails) {
+                    $this->initSalesHistoryDetails();
+                } else {
+                    $collectionClassName = SalesHistoryDetailTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSalesHistoryDetails = new $collectionClassName;
+                    $collSalesHistoryDetails->setModel('\SalesHistoryDetail');
+
+                    return $collSalesHistoryDetails;
+                }
             } else {
                 $collSalesHistoryDetails = ChildSalesHistoryDetailQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -16506,11 +17167,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $salesHistoryDetails A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $salesHistoryDetails A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSalesHistoryDetails(Collection $salesHistoryDetails, ConnectionInterface $con = null)
+    public function setSalesHistoryDetails(Collection $salesHistoryDetails, ?ConnectionInterface $con = null)
     {
         /** @var ChildSalesHistoryDetail[] $salesHistoryDetailsToDelete */
         $salesHistoryDetailsToDelete = $this->getSalesHistoryDetails(new Criteria(), $con)->diff($salesHistoryDetails);
@@ -16536,13 +17197,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related SalesHistoryDetail objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SalesHistoryDetail objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SalesHistoryDetail objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSalesHistoryDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSalesHistoryDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesHistoryDetailsPartial && !$this->isNew();
         if (null === $this->collSalesHistoryDetails || null !== $criteria || $partial) {
@@ -16571,8 +17232,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildSalesHistoryDetail object to this object
      * through the ChildSalesHistoryDetail foreign key attribute.
      *
-     * @param  ChildSalesHistoryDetail $l ChildSalesHistoryDetail
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildSalesHistoryDetail $l ChildSalesHistoryDetail
+     * @return $this The current object (for fluent API support)
      */
     public function addSalesHistoryDetail(ChildSalesHistoryDetail $l)
     {
@@ -16595,15 +17256,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildSalesHistoryDetail $salesHistoryDetail The ChildSalesHistoryDetail object to add.
      */
-    protected function doAddSalesHistoryDetail(ChildSalesHistoryDetail $salesHistoryDetail)
+    protected function doAddSalesHistoryDetail(ChildSalesHistoryDetail $salesHistoryDetail): void
     {
         $this->collSalesHistoryDetails[]= $salesHistoryDetail;
         $salesHistoryDetail->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildSalesHistoryDetail $salesHistoryDetail The ChildSalesHistoryDetail object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildSalesHistoryDetail $salesHistoryDetail The ChildSalesHistoryDetail object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSalesHistoryDetail(ChildSalesHistoryDetail $salesHistoryDetail)
     {
@@ -16633,12 +17294,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSalesHistoryDetail[] List of ChildSalesHistoryDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesHistoryDetail}> List of ChildSalesHistoryDetail objects
      */
-    public function getSalesHistoryDetailsJoinSalesHistory(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSalesHistoryDetailsJoinSalesHistory(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSalesHistoryDetailQuery::create(null, $criteria);
         $query->joinWith('SalesHistory', $joinBehavior);
@@ -16652,18 +17314,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSalesOrderDetails()
+     * @return $this
+     * @see addSalesOrderDetails()
      */
     public function clearSalesOrderDetails()
     {
         $this->collSalesOrderDetails = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSalesOrderDetails collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSalesOrderDetails($v = true)
+    public function resetPartialSalesOrderDetails($v = true): void
     {
         $this->collSalesOrderDetailsPartial = $v;
     }
@@ -16675,12 +17341,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSalesOrderDetails($overrideExisting = true)
+    public function initSalesOrderDetails(bool $overrideExisting = true): void
     {
         if (null !== $this->collSalesOrderDetails && !$overrideExisting) {
             return;
@@ -16701,18 +17367,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSalesOrderDetail[] List of ChildSalesOrderDetail objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesOrderDetail> List of ChildSalesOrderDetail objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSalesOrderDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSalesOrderDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collSalesOrderDetails || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSalesOrderDetails) {
+        if (null === $this->collSalesOrderDetails || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSalesOrderDetails();
+                if (null === $this->collSalesOrderDetails) {
+                    $this->initSalesOrderDetails();
+                } else {
+                    $collectionClassName = SalesOrderDetailTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSalesOrderDetails = new $collectionClassName;
+                    $collSalesOrderDetails->setModel('\SalesOrderDetail');
+
+                    return $collSalesOrderDetails;
+                }
             } else {
                 $collSalesOrderDetails = ChildSalesOrderDetailQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -16756,11 +17432,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $salesOrderDetails A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $salesOrderDetails A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSalesOrderDetails(Collection $salesOrderDetails, ConnectionInterface $con = null)
+    public function setSalesOrderDetails(Collection $salesOrderDetails, ?ConnectionInterface $con = null)
     {
         /** @var ChildSalesOrderDetail[] $salesOrderDetailsToDelete */
         $salesOrderDetailsToDelete = $this->getSalesOrderDetails(new Criteria(), $con)->diff($salesOrderDetails);
@@ -16786,13 +17462,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related SalesOrderDetail objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SalesOrderDetail objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SalesOrderDetail objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSalesOrderDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSalesOrderDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesOrderDetailsPartial && !$this->isNew();
         if (null === $this->collSalesOrderDetails || null !== $criteria || $partial) {
@@ -16821,8 +17497,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildSalesOrderDetail object to this object
      * through the ChildSalesOrderDetail foreign key attribute.
      *
-     * @param  ChildSalesOrderDetail $l ChildSalesOrderDetail
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildSalesOrderDetail $l ChildSalesOrderDetail
+     * @return $this The current object (for fluent API support)
      */
     public function addSalesOrderDetail(ChildSalesOrderDetail $l)
     {
@@ -16845,15 +17521,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildSalesOrderDetail $salesOrderDetail The ChildSalesOrderDetail object to add.
      */
-    protected function doAddSalesOrderDetail(ChildSalesOrderDetail $salesOrderDetail)
+    protected function doAddSalesOrderDetail(ChildSalesOrderDetail $salesOrderDetail): void
     {
         $this->collSalesOrderDetails[]= $salesOrderDetail;
         $salesOrderDetail->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildSalesOrderDetail $salesOrderDetail The ChildSalesOrderDetail object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildSalesOrderDetail $salesOrderDetail The ChildSalesOrderDetail object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSalesOrderDetail(ChildSalesOrderDetail $salesOrderDetail)
     {
@@ -16883,12 +17559,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSalesOrderDetail[] List of ChildSalesOrderDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesOrderDetail}> List of ChildSalesOrderDetail objects
      */
-    public function getSalesOrderDetailsJoinSalesOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSalesOrderDetailsJoinSalesOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSalesOrderDetailQuery::create(null, $criteria);
         $query->joinWith('SalesOrder', $joinBehavior);
@@ -16902,18 +17579,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSalesOrderLotserials()
+     * @return $this
+     * @see addSalesOrderLotserials()
      */
     public function clearSalesOrderLotserials()
     {
         $this->collSalesOrderLotserials = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSalesOrderLotserials collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSalesOrderLotserials($v = true)
+    public function resetPartialSalesOrderLotserials($v = true): void
     {
         $this->collSalesOrderLotserialsPartial = $v;
     }
@@ -16925,12 +17606,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSalesOrderLotserials($overrideExisting = true)
+    public function initSalesOrderLotserials(bool $overrideExisting = true): void
     {
         if (null !== $this->collSalesOrderLotserials && !$overrideExisting) {
             return;
@@ -16951,18 +17632,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSalesOrderLotserial[] List of ChildSalesOrderLotserial objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesOrderLotserial> List of ChildSalesOrderLotserial objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSalesOrderLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSalesOrderLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesOrderLotserialsPartial && !$this->isNew();
-        if (null === $this->collSalesOrderLotserials || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSalesOrderLotserials) {
+        if (null === $this->collSalesOrderLotserials || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSalesOrderLotserials();
+                if (null === $this->collSalesOrderLotserials) {
+                    $this->initSalesOrderLotserials();
+                } else {
+                    $collectionClassName = SalesOrderLotserialTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSalesOrderLotserials = new $collectionClassName;
+                    $collSalesOrderLotserials->setModel('\SalesOrderLotserial');
+
+                    return $collSalesOrderLotserials;
+                }
             } else {
                 $collSalesOrderLotserials = ChildSalesOrderLotserialQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -17006,11 +17697,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $salesOrderLotserials A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $salesOrderLotserials A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSalesOrderLotserials(Collection $salesOrderLotserials, ConnectionInterface $con = null)
+    public function setSalesOrderLotserials(Collection $salesOrderLotserials, ?ConnectionInterface $con = null)
     {
         /** @var ChildSalesOrderLotserial[] $salesOrderLotserialsToDelete */
         $salesOrderLotserialsToDelete = $this->getSalesOrderLotserials(new Criteria(), $con)->diff($salesOrderLotserials);
@@ -17039,13 +17730,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related SalesOrderLotserial objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SalesOrderLotserial objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SalesOrderLotserial objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSalesOrderLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSalesOrderLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesOrderLotserialsPartial && !$this->isNew();
         if (null === $this->collSalesOrderLotserials || null !== $criteria || $partial) {
@@ -17074,8 +17765,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildSalesOrderLotserial object to this object
      * through the ChildSalesOrderLotserial foreign key attribute.
      *
-     * @param  ChildSalesOrderLotserial $l ChildSalesOrderLotserial
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildSalesOrderLotserial $l ChildSalesOrderLotserial
+     * @return $this The current object (for fluent API support)
      */
     public function addSalesOrderLotserial(ChildSalesOrderLotserial $l)
     {
@@ -17098,15 +17789,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildSalesOrderLotserial $salesOrderLotserial The ChildSalesOrderLotserial object to add.
      */
-    protected function doAddSalesOrderLotserial(ChildSalesOrderLotserial $salesOrderLotserial)
+    protected function doAddSalesOrderLotserial(ChildSalesOrderLotserial $salesOrderLotserial): void
     {
         $this->collSalesOrderLotserials[]= $salesOrderLotserial;
         $salesOrderLotserial->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildSalesOrderLotserial $salesOrderLotserial The ChildSalesOrderLotserial object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildSalesOrderLotserial $salesOrderLotserial The ChildSalesOrderLotserial object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSalesOrderLotserial(ChildSalesOrderLotserial $salesOrderLotserial)
     {
@@ -17136,12 +17827,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSalesOrderLotserial[] List of ChildSalesOrderLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesOrderLotserial}> List of ChildSalesOrderLotserial objects
      */
-    public function getSalesOrderLotserialsJoinSalesOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSalesOrderLotserialsJoinSalesOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSalesOrderLotserialQuery::create(null, $criteria);
         $query->joinWith('SalesOrder', $joinBehavior);
@@ -17161,12 +17853,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSalesOrderLotserial[] List of ChildSalesOrderLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesOrderLotserial}> List of ChildSalesOrderLotserial objects
      */
-    public function getSalesOrderLotserialsJoinSalesOrderDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSalesOrderLotserialsJoinSalesOrderDetail(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSalesOrderLotserialQuery::create(null, $criteria);
         $query->joinWith('SalesOrderDetail', $joinBehavior);
@@ -17180,18 +17873,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSalesHistoryLotserials()
+     * @return $this
+     * @see addSalesHistoryLotserials()
      */
     public function clearSalesHistoryLotserials()
     {
         $this->collSalesHistoryLotserials = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSalesHistoryLotserials collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSalesHistoryLotserials($v = true)
+    public function resetPartialSalesHistoryLotserials($v = true): void
     {
         $this->collSalesHistoryLotserialsPartial = $v;
     }
@@ -17203,12 +17900,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSalesHistoryLotserials($overrideExisting = true)
+    public function initSalesHistoryLotserials(bool $overrideExisting = true): void
     {
         if (null !== $this->collSalesHistoryLotserials && !$overrideExisting) {
             return;
@@ -17229,18 +17926,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSalesHistoryLotserial[] List of ChildSalesHistoryLotserial objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesHistoryLotserial> List of ChildSalesHistoryLotserial objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSalesHistoryLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSalesHistoryLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSalesHistoryLotserialsPartial && !$this->isNew();
-        if (null === $this->collSalesHistoryLotserials || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSalesHistoryLotserials) {
+        if (null === $this->collSalesHistoryLotserials || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSalesHistoryLotserials();
+                if (null === $this->collSalesHistoryLotserials) {
+                    $this->initSalesHistoryLotserials();
+                } else {
+                    $collectionClassName = SalesHistoryLotserialTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSalesHistoryLotserials = new $collectionClassName;
+                    $collSalesHistoryLotserials->setModel('\SalesHistoryLotserial');
+
+                    return $collSalesHistoryLotserials;
+                }
             } else {
                 $collSalesHistoryLotserials = ChildSalesHistoryLotserialQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -17284,11 +17991,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $salesHistoryLotserials A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $salesHistoryLotserials A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSalesHistoryLotserials(Collection $salesHistoryLotserials, ConnectionInterface $con = null)
+    public function setSalesHistoryLotserials(Collection $salesHistoryLotserials, ?ConnectionInterface $con = null)
     {
         /** @var ChildSalesHistoryLotserial[] $salesHistoryLotserialsToDelete */
         $salesHistoryLotserialsToDelete = $this->getSalesHistoryLotserials(new Criteria(), $con)->diff($salesHistoryLotserials);
@@ -17317,13 +18024,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related SalesHistoryLotserial objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SalesHistoryLotserial objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SalesHistoryLotserial objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSalesHistoryLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSalesHistoryLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSalesHistoryLotserialsPartial && !$this->isNew();
         if (null === $this->collSalesHistoryLotserials || null !== $criteria || $partial) {
@@ -17352,8 +18059,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildSalesHistoryLotserial object to this object
      * through the ChildSalesHistoryLotserial foreign key attribute.
      *
-     * @param  ChildSalesHistoryLotserial $l ChildSalesHistoryLotserial
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildSalesHistoryLotserial $l ChildSalesHistoryLotserial
+     * @return $this The current object (for fluent API support)
      */
     public function addSalesHistoryLotserial(ChildSalesHistoryLotserial $l)
     {
@@ -17376,15 +18083,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildSalesHistoryLotserial $salesHistoryLotserial The ChildSalesHistoryLotserial object to add.
      */
-    protected function doAddSalesHistoryLotserial(ChildSalesHistoryLotserial $salesHistoryLotserial)
+    protected function doAddSalesHistoryLotserial(ChildSalesHistoryLotserial $salesHistoryLotserial): void
     {
         $this->collSalesHistoryLotserials[]= $salesHistoryLotserial;
         $salesHistoryLotserial->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildSalesHistoryLotserial $salesHistoryLotserial The ChildSalesHistoryLotserial object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildSalesHistoryLotserial $salesHistoryLotserial The ChildSalesHistoryLotserial object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSalesHistoryLotserial(ChildSalesHistoryLotserial $salesHistoryLotserial)
     {
@@ -17414,12 +18121,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSalesHistoryLotserial[] List of ChildSalesHistoryLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesHistoryLotserial}> List of ChildSalesHistoryLotserial objects
      */
-    public function getSalesHistoryLotserialsJoinSalesHistory(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSalesHistoryLotserialsJoinSalesHistory(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSalesHistoryLotserialQuery::create(null, $criteria);
         $query->joinWith('SalesHistory', $joinBehavior);
@@ -17439,12 +18147,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSalesHistoryLotserial[] List of ChildSalesHistoryLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSalesHistoryLotserial}> List of ChildSalesHistoryLotserial objects
      */
-    public function getSalesHistoryLotserialsJoinSalesHistoryDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSalesHistoryLotserialsJoinSalesHistoryDetail(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSalesHistoryLotserialQuery::create(null, $criteria);
         $query->joinWith('SalesHistoryDetail', $joinBehavior);
@@ -17458,18 +18167,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSoAllocatedLotserials()
+     * @return $this
+     * @see addSoAllocatedLotserials()
      */
     public function clearSoAllocatedLotserials()
     {
         $this->collSoAllocatedLotserials = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSoAllocatedLotserials collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSoAllocatedLotserials($v = true)
+    public function resetPartialSoAllocatedLotserials($v = true): void
     {
         $this->collSoAllocatedLotserialsPartial = $v;
     }
@@ -17481,12 +18194,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSoAllocatedLotserials($overrideExisting = true)
+    public function initSoAllocatedLotserials(bool $overrideExisting = true): void
     {
         if (null !== $this->collSoAllocatedLotserials && !$overrideExisting) {
             return;
@@ -17507,18 +18220,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSoAllocatedLotserial[] List of ChildSoAllocatedLotserial objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoAllocatedLotserial> List of ChildSoAllocatedLotserial objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSoAllocatedLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSoAllocatedLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSoAllocatedLotserialsPartial && !$this->isNew();
-        if (null === $this->collSoAllocatedLotserials || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSoAllocatedLotserials) {
+        if (null === $this->collSoAllocatedLotserials || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSoAllocatedLotserials();
+                if (null === $this->collSoAllocatedLotserials) {
+                    $this->initSoAllocatedLotserials();
+                } else {
+                    $collectionClassName = SoAllocatedLotserialTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSoAllocatedLotserials = new $collectionClassName;
+                    $collSoAllocatedLotserials->setModel('\SoAllocatedLotserial');
+
+                    return $collSoAllocatedLotserials;
+                }
             } else {
                 $collSoAllocatedLotserials = ChildSoAllocatedLotserialQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -17562,11 +18285,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $soAllocatedLotserials A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $soAllocatedLotserials A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSoAllocatedLotserials(Collection $soAllocatedLotserials, ConnectionInterface $con = null)
+    public function setSoAllocatedLotserials(Collection $soAllocatedLotserials, ?ConnectionInterface $con = null)
     {
         /** @var ChildSoAllocatedLotserial[] $soAllocatedLotserialsToDelete */
         $soAllocatedLotserialsToDelete = $this->getSoAllocatedLotserials(new Criteria(), $con)->diff($soAllocatedLotserials);
@@ -17595,13 +18318,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related SoAllocatedLotserial objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SoAllocatedLotserial objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SoAllocatedLotserial objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSoAllocatedLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSoAllocatedLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSoAllocatedLotserialsPartial && !$this->isNew();
         if (null === $this->collSoAllocatedLotserials || null !== $criteria || $partial) {
@@ -17630,8 +18353,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildSoAllocatedLotserial object to this object
      * through the ChildSoAllocatedLotserial foreign key attribute.
      *
-     * @param  ChildSoAllocatedLotserial $l ChildSoAllocatedLotserial
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildSoAllocatedLotserial $l ChildSoAllocatedLotserial
+     * @return $this The current object (for fluent API support)
      */
     public function addSoAllocatedLotserial(ChildSoAllocatedLotserial $l)
     {
@@ -17654,15 +18377,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildSoAllocatedLotserial $soAllocatedLotserial The ChildSoAllocatedLotserial object to add.
      */
-    protected function doAddSoAllocatedLotserial(ChildSoAllocatedLotserial $soAllocatedLotserial)
+    protected function doAddSoAllocatedLotserial(ChildSoAllocatedLotserial $soAllocatedLotserial): void
     {
         $this->collSoAllocatedLotserials[]= $soAllocatedLotserial;
         $soAllocatedLotserial->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildSoAllocatedLotserial $soAllocatedLotserial The ChildSoAllocatedLotserial object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildSoAllocatedLotserial $soAllocatedLotserial The ChildSoAllocatedLotserial object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSoAllocatedLotserial(ChildSoAllocatedLotserial $soAllocatedLotserial)
     {
@@ -17692,12 +18415,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoAllocatedLotserial[] List of ChildSoAllocatedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoAllocatedLotserial}> List of ChildSoAllocatedLotserial objects
      */
-    public function getSoAllocatedLotserialsJoinSalesOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoAllocatedLotserialsJoinSalesOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoAllocatedLotserialQuery::create(null, $criteria);
         $query->joinWith('SalesOrder', $joinBehavior);
@@ -17717,12 +18441,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoAllocatedLotserial[] List of ChildSoAllocatedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoAllocatedLotserial}> List of ChildSoAllocatedLotserial objects
      */
-    public function getSoAllocatedLotserialsJoinSalesOrderDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoAllocatedLotserialsJoinSalesOrderDetail(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoAllocatedLotserialQuery::create(null, $criteria);
         $query->joinWith('SalesOrderDetail', $joinBehavior);
@@ -17742,12 +18467,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoAllocatedLotserial[] List of ChildSoAllocatedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoAllocatedLotserial}> List of ChildSoAllocatedLotserial objects
      */
-    public function getSoAllocatedLotserialsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoAllocatedLotserialsJoinInvLotMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoAllocatedLotserialQuery::create(null, $criteria);
         $query->joinWith('InvLotMaster', $joinBehavior);
@@ -17761,18 +18487,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemPricingDiscounts()
+     * @return $this
+     * @see addItemPricingDiscounts()
      */
     public function clearItemPricingDiscounts()
     {
         $this->collItemPricingDiscounts = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemPricingDiscounts collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemPricingDiscounts($v = true)
+    public function resetPartialItemPricingDiscounts($v = true): void
     {
         $this->collItemPricingDiscountsPartial = $v;
     }
@@ -17784,12 +18514,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemPricingDiscounts($overrideExisting = true)
+    public function initItemPricingDiscounts(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemPricingDiscounts && !$overrideExisting) {
             return;
@@ -17810,18 +18540,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemPricingDiscount[] List of ChildItemPricingDiscount objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemPricingDiscount> List of ChildItemPricingDiscount objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemPricingDiscounts(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemPricingDiscounts(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemPricingDiscountsPartial && !$this->isNew();
-        if (null === $this->collItemPricingDiscounts || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemPricingDiscounts) {
+        if (null === $this->collItemPricingDiscounts || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemPricingDiscounts();
+                if (null === $this->collItemPricingDiscounts) {
+                    $this->initItemPricingDiscounts();
+                } else {
+                    $collectionClassName = ItemPricingDiscountTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemPricingDiscounts = new $collectionClassName;
+                    $collItemPricingDiscounts->setModel('\ItemPricingDiscount');
+
+                    return $collItemPricingDiscounts;
+                }
             } else {
                 $collItemPricingDiscounts = ChildItemPricingDiscountQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -17865,11 +18605,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemPricingDiscounts A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $itemPricingDiscounts A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemPricingDiscounts(Collection $itemPricingDiscounts, ConnectionInterface $con = null)
+    public function setItemPricingDiscounts(Collection $itemPricingDiscounts, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemPricingDiscount[] $itemPricingDiscountsToDelete */
         $itemPricingDiscountsToDelete = $this->getItemPricingDiscounts(new Criteria(), $con)->diff($itemPricingDiscounts);
@@ -17898,13 +18638,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related ItemPricingDiscount objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemPricingDiscount objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemPricingDiscount objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemPricingDiscounts(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemPricingDiscounts(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemPricingDiscountsPartial && !$this->isNew();
         if (null === $this->collItemPricingDiscounts || null !== $criteria || $partial) {
@@ -17933,8 +18673,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildItemPricingDiscount object to this object
      * through the ChildItemPricingDiscount foreign key attribute.
      *
-     * @param  ChildItemPricingDiscount $l ChildItemPricingDiscount
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildItemPricingDiscount $l ChildItemPricingDiscount
+     * @return $this The current object (for fluent API support)
      */
     public function addItemPricingDiscount(ChildItemPricingDiscount $l)
     {
@@ -17957,15 +18697,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildItemPricingDiscount $itemPricingDiscount The ChildItemPricingDiscount object to add.
      */
-    protected function doAddItemPricingDiscount(ChildItemPricingDiscount $itemPricingDiscount)
+    protected function doAddItemPricingDiscount(ChildItemPricingDiscount $itemPricingDiscount): void
     {
         $this->collItemPricingDiscounts[]= $itemPricingDiscount;
         $itemPricingDiscount->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildItemPricingDiscount $itemPricingDiscount The ChildItemPricingDiscount object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildItemPricingDiscount $itemPricingDiscount The ChildItemPricingDiscount object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemPricingDiscount(ChildItemPricingDiscount $itemPricingDiscount)
     {
@@ -17995,12 +18735,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemPricingDiscount[] List of ChildItemPricingDiscount objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemPricingDiscount}> List of ChildItemPricingDiscount objects
      */
-    public function getItemPricingDiscountsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemPricingDiscountsJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemPricingDiscountQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -18014,18 +18755,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSoPickedLotserials()
+     * @return $this
+     * @see addSoPickedLotserials()
      */
     public function clearSoPickedLotserials()
     {
         $this->collSoPickedLotserials = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSoPickedLotserials collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSoPickedLotserials($v = true)
+    public function resetPartialSoPickedLotserials($v = true): void
     {
         $this->collSoPickedLotserialsPartial = $v;
     }
@@ -18037,12 +18782,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSoPickedLotserials($overrideExisting = true)
+    public function initSoPickedLotserials(bool $overrideExisting = true): void
     {
         if (null !== $this->collSoPickedLotserials && !$overrideExisting) {
             return;
@@ -18063,18 +18808,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSoPickedLotserial[] List of ChildSoPickedLotserial objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoPickedLotserial> List of ChildSoPickedLotserial objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSoPickedLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSoPickedLotserials(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSoPickedLotserialsPartial && !$this->isNew();
-        if (null === $this->collSoPickedLotserials || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSoPickedLotserials) {
+        if (null === $this->collSoPickedLotserials || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSoPickedLotserials();
+                if (null === $this->collSoPickedLotserials) {
+                    $this->initSoPickedLotserials();
+                } else {
+                    $collectionClassName = SoPickedLotserialTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSoPickedLotserials = new $collectionClassName;
+                    $collSoPickedLotserials->setModel('\SoPickedLotserial');
+
+                    return $collSoPickedLotserials;
+                }
             } else {
                 $collSoPickedLotserials = ChildSoPickedLotserialQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -18118,11 +18873,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $soPickedLotserials A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $soPickedLotserials A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSoPickedLotserials(Collection $soPickedLotserials, ConnectionInterface $con = null)
+    public function setSoPickedLotserials(Collection $soPickedLotserials, ?ConnectionInterface $con = null)
     {
         /** @var ChildSoPickedLotserial[] $soPickedLotserialsToDelete */
         $soPickedLotserialsToDelete = $this->getSoPickedLotserials(new Criteria(), $con)->diff($soPickedLotserials);
@@ -18151,13 +18906,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related SoPickedLotserial objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SoPickedLotserial objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SoPickedLotserial objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSoPickedLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSoPickedLotserials(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSoPickedLotserialsPartial && !$this->isNew();
         if (null === $this->collSoPickedLotserials || null !== $criteria || $partial) {
@@ -18186,8 +18941,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildSoPickedLotserial object to this object
      * through the ChildSoPickedLotserial foreign key attribute.
      *
-     * @param  ChildSoPickedLotserial $l ChildSoPickedLotserial
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildSoPickedLotserial $l ChildSoPickedLotserial
+     * @return $this The current object (for fluent API support)
      */
     public function addSoPickedLotserial(ChildSoPickedLotserial $l)
     {
@@ -18210,15 +18965,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildSoPickedLotserial $soPickedLotserial The ChildSoPickedLotserial object to add.
      */
-    protected function doAddSoPickedLotserial(ChildSoPickedLotserial $soPickedLotserial)
+    protected function doAddSoPickedLotserial(ChildSoPickedLotserial $soPickedLotserial): void
     {
         $this->collSoPickedLotserials[]= $soPickedLotserial;
         $soPickedLotserial->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildSoPickedLotserial $soPickedLotserial The ChildSoPickedLotserial object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildSoPickedLotserial $soPickedLotserial The ChildSoPickedLotserial object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSoPickedLotserial(ChildSoPickedLotserial $soPickedLotserial)
     {
@@ -18248,12 +19003,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoPickedLotserial[] List of ChildSoPickedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoPickedLotserial}> List of ChildSoPickedLotserial objects
      */
-    public function getSoPickedLotserialsJoinSalesOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoPickedLotserialsJoinSalesOrder(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoPickedLotserialQuery::create(null, $criteria);
         $query->joinWith('SalesOrder', $joinBehavior);
@@ -18273,12 +19029,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoPickedLotserial[] List of ChildSoPickedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoPickedLotserial}> List of ChildSoPickedLotserial objects
      */
-    public function getSoPickedLotserialsJoinSalesOrderDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoPickedLotserialsJoinSalesOrderDetail(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoPickedLotserialQuery::create(null, $criteria);
         $query->joinWith('SalesOrderDetail', $joinBehavior);
@@ -18298,12 +19055,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoPickedLotserial[] List of ChildSoPickedLotserial objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoPickedLotserial}> List of ChildSoPickedLotserial objects
      */
-    public function getSoPickedLotserialsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoPickedLotserialsJoinInvLotMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoPickedLotserialQuery::create(null, $criteria);
         $query->joinWith('InvLotMaster', $joinBehavior);
@@ -18317,18 +19075,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addSoStandingOrderDetails()
+     * @return $this
+     * @see addSoStandingOrderDetails()
      */
     public function clearSoStandingOrderDetails()
     {
         $this->collSoStandingOrderDetails = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collSoStandingOrderDetails collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialSoStandingOrderDetails($v = true)
+    public function resetPartialSoStandingOrderDetails($v = true): void
     {
         $this->collSoStandingOrderDetailsPartial = $v;
     }
@@ -18340,12 +19102,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initSoStandingOrderDetails($overrideExisting = true)
+    public function initSoStandingOrderDetails(bool $overrideExisting = true): void
     {
         if (null !== $this->collSoStandingOrderDetails && !$overrideExisting) {
             return;
@@ -18366,18 +19128,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildSoStandingOrderDetail[] List of ChildSoStandingOrderDetail objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoStandingOrderDetail> List of ChildSoStandingOrderDetail objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSoStandingOrderDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSoStandingOrderDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collSoStandingOrderDetailsPartial && !$this->isNew();
-        if (null === $this->collSoStandingOrderDetails || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collSoStandingOrderDetails) {
+        if (null === $this->collSoStandingOrderDetails || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initSoStandingOrderDetails();
+                if (null === $this->collSoStandingOrderDetails) {
+                    $this->initSoStandingOrderDetails();
+                } else {
+                    $collectionClassName = SoStandingOrderDetailTableMap::getTableMap()->getCollectionClassName();
+
+                    $collSoStandingOrderDetails = new $collectionClassName;
+                    $collSoStandingOrderDetails->setModel('\SoStandingOrderDetail');
+
+                    return $collSoStandingOrderDetails;
+                }
             } else {
                 $collSoStandingOrderDetails = ChildSoStandingOrderDetailQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -18421,11 +19193,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $soStandingOrderDetails A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $soStandingOrderDetails A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setSoStandingOrderDetails(Collection $soStandingOrderDetails, ConnectionInterface $con = null)
+    public function setSoStandingOrderDetails(Collection $soStandingOrderDetails, ?ConnectionInterface $con = null)
     {
         /** @var ChildSoStandingOrderDetail[] $soStandingOrderDetailsToDelete */
         $soStandingOrderDetailsToDelete = $this->getSoStandingOrderDetails(new Criteria(), $con)->diff($soStandingOrderDetails);
@@ -18454,13 +19226,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related SoStandingOrderDetail objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related SoStandingOrderDetail objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related SoStandingOrderDetail objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countSoStandingOrderDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSoStandingOrderDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collSoStandingOrderDetailsPartial && !$this->isNew();
         if (null === $this->collSoStandingOrderDetails || null !== $criteria || $partial) {
@@ -18489,8 +19261,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildSoStandingOrderDetail object to this object
      * through the ChildSoStandingOrderDetail foreign key attribute.
      *
-     * @param  ChildSoStandingOrderDetail $l ChildSoStandingOrderDetail
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildSoStandingOrderDetail $l ChildSoStandingOrderDetail
+     * @return $this The current object (for fluent API support)
      */
     public function addSoStandingOrderDetail(ChildSoStandingOrderDetail $l)
     {
@@ -18513,15 +19285,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildSoStandingOrderDetail $soStandingOrderDetail The ChildSoStandingOrderDetail object to add.
      */
-    protected function doAddSoStandingOrderDetail(ChildSoStandingOrderDetail $soStandingOrderDetail)
+    protected function doAddSoStandingOrderDetail(ChildSoStandingOrderDetail $soStandingOrderDetail): void
     {
         $this->collSoStandingOrderDetails[]= $soStandingOrderDetail;
         $soStandingOrderDetail->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildSoStandingOrderDetail $soStandingOrderDetail The ChildSoStandingOrderDetail object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildSoStandingOrderDetail $soStandingOrderDetail The ChildSoStandingOrderDetail object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeSoStandingOrderDetail(ChildSoStandingOrderDetail $soStandingOrderDetail)
     {
@@ -18551,12 +19323,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoStandingOrderDetail[] List of ChildSoStandingOrderDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoStandingOrderDetail}> List of ChildSoStandingOrderDetail objects
      */
-    public function getSoStandingOrderDetailsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoStandingOrderDetailsJoinCustomer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoStandingOrderDetailQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
@@ -18576,12 +19349,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoStandingOrderDetail[] List of ChildSoStandingOrderDetail objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildSoStandingOrderDetail}> List of ChildSoStandingOrderDetail objects
      */
-    public function getSoStandingOrderDetailsJoinCustomerShipto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoStandingOrderDetailsJoinCustomerShipto(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoStandingOrderDetailQuery::create(null, $criteria);
         $query->joinWith('CustomerShipto', $joinBehavior);
@@ -18595,18 +19369,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemXrefUpcs()
+     * @return $this
+     * @see addItemXrefUpcs()
      */
     public function clearItemXrefUpcs()
     {
         $this->collItemXrefUpcs = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemXrefUpcs collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemXrefUpcs($v = true)
+    public function resetPartialItemXrefUpcs($v = true): void
     {
         $this->collItemXrefUpcsPartial = $v;
     }
@@ -18618,12 +19396,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemXrefUpcs($overrideExisting = true)
+    public function initItemXrefUpcs(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemXrefUpcs && !$overrideExisting) {
             return;
@@ -18644,18 +19422,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemXrefUpc[] List of ChildItemXrefUpc objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefUpc> List of ChildItemXrefUpc objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemXrefUpcs(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemXrefUpcs(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefUpcsPartial && !$this->isNew();
-        if (null === $this->collItemXrefUpcs || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemXrefUpcs) {
+        if (null === $this->collItemXrefUpcs || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemXrefUpcs();
+                if (null === $this->collItemXrefUpcs) {
+                    $this->initItemXrefUpcs();
+                } else {
+                    $collectionClassName = ItemXrefUpcTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemXrefUpcs = new $collectionClassName;
+                    $collItemXrefUpcs->setModel('\ItemXrefUpc');
+
+                    return $collItemXrefUpcs;
+                }
             } else {
                 $collItemXrefUpcs = ChildItemXrefUpcQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -18699,11 +19487,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemXrefUpcs A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $itemXrefUpcs A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemXrefUpcs(Collection $itemXrefUpcs, ConnectionInterface $con = null)
+    public function setItemXrefUpcs(Collection $itemXrefUpcs, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemXrefUpc[] $itemXrefUpcsToDelete */
         $itemXrefUpcsToDelete = $this->getItemXrefUpcs(new Criteria(), $con)->diff($itemXrefUpcs);
@@ -18732,13 +19520,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related ItemXrefUpc objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemXrefUpc objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemXrefUpc objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemXrefUpcs(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemXrefUpcs(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefUpcsPartial && !$this->isNew();
         if (null === $this->collItemXrefUpcs || null !== $criteria || $partial) {
@@ -18767,8 +19555,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildItemXrefUpc object to this object
      * through the ChildItemXrefUpc foreign key attribute.
      *
-     * @param  ChildItemXrefUpc $l ChildItemXrefUpc
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildItemXrefUpc $l ChildItemXrefUpc
+     * @return $this The current object (for fluent API support)
      */
     public function addItemXrefUpc(ChildItemXrefUpc $l)
     {
@@ -18791,15 +19579,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildItemXrefUpc $itemXrefUpc The ChildItemXrefUpc object to add.
      */
-    protected function doAddItemXrefUpc(ChildItemXrefUpc $itemXrefUpc)
+    protected function doAddItemXrefUpc(ChildItemXrefUpc $itemXrefUpc): void
     {
         $this->collItemXrefUpcs[]= $itemXrefUpc;
         $itemXrefUpc->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildItemXrefUpc $itemXrefUpc The ChildItemXrefUpc object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildItemXrefUpc $itemXrefUpc The ChildItemXrefUpc object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemXrefUpc(ChildItemXrefUpc $itemXrefUpc)
     {
@@ -18823,18 +19611,22 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemXrefVendors()
+     * @return $this
+     * @see addItemXrefVendors()
      */
     public function clearItemXrefVendors()
     {
         $this->collItemXrefVendors = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemXrefVendors collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemXrefVendors($v = true)
+    public function resetPartialItemXrefVendors($v = true): void
     {
         $this->collItemXrefVendorsPartial = $v;
     }
@@ -18846,12 +19638,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemXrefVendors($overrideExisting = true)
+    public function initItemXrefVendors(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemXrefVendors && !$overrideExisting) {
             return;
@@ -18872,18 +19664,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * If this ChildItemMasterItem is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemXrefVendor[] List of ChildItemXrefVendor objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefVendor> List of ChildItemXrefVendor objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemXrefVendors(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemXrefVendors(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemXrefVendorsPartial && !$this->isNew();
-        if (null === $this->collItemXrefVendors || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemXrefVendors) {
+        if (null === $this->collItemXrefVendors || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemXrefVendors();
+                if (null === $this->collItemXrefVendors) {
+                    $this->initItemXrefVendors();
+                } else {
+                    $collectionClassName = ItemXrefVendorTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemXrefVendors = new $collectionClassName;
+                    $collItemXrefVendors->setModel('\ItemXrefVendor');
+
+                    return $collItemXrefVendors;
+                }
             } else {
                 $collItemXrefVendors = ChildItemXrefVendorQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
@@ -18927,11 +19729,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemXrefVendors A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param Collection $itemXrefVendors A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemXrefVendors(Collection $itemXrefVendors, ConnectionInterface $con = null)
+    public function setItemXrefVendors(Collection $itemXrefVendors, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemXrefVendor[] $itemXrefVendorsToDelete */
         $itemXrefVendorsToDelete = $this->getItemXrefVendors(new Criteria(), $con)->diff($itemXrefVendors);
@@ -18960,13 +19762,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * Returns the number of related ItemXrefVendor objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemXrefVendor objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemXrefVendor objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemXrefVendors(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemXrefVendors(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemXrefVendorsPartial && !$this->isNew();
         if (null === $this->collItemXrefVendors || null !== $criteria || $partial) {
@@ -18995,8 +19797,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Method called to associate a ChildItemXrefVendor object to this object
      * through the ChildItemXrefVendor foreign key attribute.
      *
-     * @param  ChildItemXrefVendor $l ChildItemXrefVendor
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @param ChildItemXrefVendor $l ChildItemXrefVendor
+     * @return $this The current object (for fluent API support)
      */
     public function addItemXrefVendor(ChildItemXrefVendor $l)
     {
@@ -19019,15 +19821,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @param ChildItemXrefVendor $itemXrefVendor The ChildItemXrefVendor object to add.
      */
-    protected function doAddItemXrefVendor(ChildItemXrefVendor $itemXrefVendor)
+    protected function doAddItemXrefVendor(ChildItemXrefVendor $itemXrefVendor): void
     {
         $this->collItemXrefVendors[]= $itemXrefVendor;
         $itemXrefVendor->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildItemXrefVendor $itemXrefVendor The ChildItemXrefVendor object to remove.
-     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     * @param ChildItemXrefVendor $itemXrefVendor The ChildItemXrefVendor object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemXrefVendor(ChildItemXrefVendor $itemXrefVendor)
     {
@@ -19057,12 +19859,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemXrefVendor[] List of ChildItemXrefVendor objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefVendor}> List of ChildItemXrefVendor objects
      */
-    public function getItemXrefVendorsJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemXrefVendorsJoinVendor(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemXrefVendorQuery::create(null, $criteria);
         $query->joinWith('Vendor', $joinBehavior);
@@ -19082,12 +19885,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ItemMasterItem.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemXrefVendor[] List of ChildItemXrefVendor objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemXrefVendor}> List of ChildItemXrefVendor objects
      */
-    public function getItemXrefVendorsJoinUnitofMeasurePurchase(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemXrefVendorsJoinUnitofMeasurePurchase(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemXrefVendorQuery::create(null, $criteria);
         $query->joinWith('UnitofMeasurePurchase', $joinBehavior);
@@ -19099,6 +19903,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -19191,6 +19997,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -19199,9 +20007,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
             if ($this->collItemXrefCustomers) {
@@ -19480,6 +20289,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->aInvPriceCode = null;
         $this->aInvCommissionCode = null;
         $this->aItemPricing = null;
+        return $this;
     }
 
     /**
@@ -19494,99 +20304,79 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // return parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // return parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // return parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // return parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -19596,7 +20386,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -19616,15 +20406,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

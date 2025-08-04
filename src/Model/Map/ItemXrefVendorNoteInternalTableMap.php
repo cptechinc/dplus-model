@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ItemXrefVendorNoteInternalTableMap extends TableMap
 {
@@ -34,154 +33,281 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ItemXrefVendorNoteInternalTableMap';
+    public const CLASS_NAME = '.Map.ItemXrefVendorNoteInternalTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'notes_vend_xref_internal';
+    public const TABLE_NAME = 'notes_vend_xref_internal';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ItemXrefVendorNoteInternal';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ItemXrefVendorNoteInternal';
+    public const OM_CLASS = '\\ItemXrefVendorNoteInternal';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ItemXrefVendorNoteInternal';
+    public const CLASS_DEFAULT = 'ItemXrefVendorNoteInternal';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 14;
+    public const NUM_COLUMNS = 14;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 14;
+    public const NUM_HYDRATE_COLUMNS = 14;
 
     /**
      * the column name for the PontType field
      */
-    const COL_PONTTYPE = 'notes_vend_xref_internal.PontType';
+    public const COL_PONTTYPE = 'notes_vend_xref_internal.PontType';
 
     /**
      * the column name for the PontTypeDesc field
      */
-    const COL_PONTTYPEDESC = 'notes_vend_xref_internal.PontTypeDesc';
+    public const COL_PONTTYPEDESC = 'notes_vend_xref_internal.PontTypeDesc';
 
     /**
      * the column name for the ApveVendId field
      */
-    const COL_APVEVENDID = 'notes_vend_xref_internal.ApveVendId';
+    public const COL_APVEVENDID = 'notes_vend_xref_internal.ApveVendId';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'notes_vend_xref_internal.InitItemNbr';
+    public const COL_INITITEMNBR = 'notes_vend_xref_internal.InitItemNbr';
 
     /**
      * the column name for the PontIntvDate field
      */
-    const COL_PONTINTVDATE = 'notes_vend_xref_internal.PontIntvDate';
+    public const COL_PONTINTVDATE = 'notes_vend_xref_internal.PontIntvDate';
 
     /**
      * the column name for the PontIntvTime field
      */
-    const COL_PONTINTVTIME = 'notes_vend_xref_internal.PontIntvTime';
+    public const COL_PONTINTVTIME = 'notes_vend_xref_internal.PontIntvTime';
 
     /**
      * the column name for the PontIntvUser field
      */
-    const COL_PONTINTVUSER = 'notes_vend_xref_internal.PontIntvUser';
+    public const COL_PONTINTVUSER = 'notes_vend_xref_internal.PontIntvUser';
 
     /**
      * the column name for the PontForm field
      */
-    const COL_PONTFORM = 'notes_vend_xref_internal.PontForm';
+    public const COL_PONTFORM = 'notes_vend_xref_internal.PontForm';
 
     /**
      * the column name for the PontSeq field
      */
-    const COL_PONTSEQ = 'notes_vend_xref_internal.PontSeq';
+    public const COL_PONTSEQ = 'notes_vend_xref_internal.PontSeq';
 
     /**
      * the column name for the PontNote field
      */
-    const COL_PONTNOTE = 'notes_vend_xref_internal.PontNote';
+    public const COL_PONTNOTE = 'notes_vend_xref_internal.PontNote';
 
     /**
      * the column name for the PontKey2 field
      */
-    const COL_PONTKEY2 = 'notes_vend_xref_internal.PontKey2';
+    public const COL_PONTKEY2 = 'notes_vend_xref_internal.PontKey2';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'notes_vend_xref_internal.DateUpdtd';
+    public const COL_DATEUPDTD = 'notes_vend_xref_internal.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'notes_vend_xref_internal.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'notes_vend_xref_internal.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'notes_vend_xref_internal.dummy';
+    public const COL_DUMMY = 'notes_vend_xref_internal.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Ponttype', 'Ponttypedesc', 'Apvevendid', 'InitItemNbr', 'Pontintvdate', 'Pontintvtime', 'Pontintvuser', 'Pontform', 'Pontseq', 'Pontnote', 'Pontkey2', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('ponttype', 'ponttypedesc', 'apvevendid', 'initItemNbr', 'pontintvdate', 'pontintvtime', 'pontintvuser', 'pontform', 'pontseq', 'pontnote', 'pontkey2', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemXrefVendorNoteInternalTableMap::COL_PONTTYPE, ItemXrefVendorNoteInternalTableMap::COL_PONTTYPEDESC, ItemXrefVendorNoteInternalTableMap::COL_APVEVENDID, ItemXrefVendorNoteInternalTableMap::COL_INITITEMNBR, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVDATE, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVTIME, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVUSER, ItemXrefVendorNoteInternalTableMap::COL_PONTFORM, ItemXrefVendorNoteInternalTableMap::COL_PONTSEQ, ItemXrefVendorNoteInternalTableMap::COL_PONTNOTE, ItemXrefVendorNoteInternalTableMap::COL_PONTKEY2, ItemXrefVendorNoteInternalTableMap::COL_DATEUPDTD, ItemXrefVendorNoteInternalTableMap::COL_TIMEUPDTD, ItemXrefVendorNoteInternalTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('PontType', 'PontTypeDesc', 'ApveVendId', 'InitItemNbr', 'PontIntvDate', 'PontIntvTime', 'PontIntvUser', 'PontForm', 'PontSeq', 'PontNote', 'PontKey2', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Ponttype', 'Ponttypedesc', 'Apvevendid', 'InitItemNbr', 'Pontintvdate', 'Pontintvtime', 'Pontintvuser', 'Pontform', 'Pontseq', 'Pontnote', 'Pontkey2', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['ponttype', 'ponttypedesc', 'apvevendid', 'initItemNbr', 'pontintvdate', 'pontintvtime', 'pontintvuser', 'pontform', 'pontseq', 'pontnote', 'pontkey2', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ItemXrefVendorNoteInternalTableMap::COL_PONTTYPE, ItemXrefVendorNoteInternalTableMap::COL_PONTTYPEDESC, ItemXrefVendorNoteInternalTableMap::COL_APVEVENDID, ItemXrefVendorNoteInternalTableMap::COL_INITITEMNBR, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVDATE, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVTIME, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVUSER, ItemXrefVendorNoteInternalTableMap::COL_PONTFORM, ItemXrefVendorNoteInternalTableMap::COL_PONTSEQ, ItemXrefVendorNoteInternalTableMap::COL_PONTNOTE, ItemXrefVendorNoteInternalTableMap::COL_PONTKEY2, ItemXrefVendorNoteInternalTableMap::COL_DATEUPDTD, ItemXrefVendorNoteInternalTableMap::COL_TIMEUPDTD, ItemXrefVendorNoteInternalTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['PontType', 'PontTypeDesc', 'ApveVendId', 'InitItemNbr', 'PontIntvDate', 'PontIntvTime', 'PontIntvUser', 'PontForm', 'PontSeq', 'PontNote', 'PontKey2', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Ponttype' => 0, 'Ponttypedesc' => 1, 'Apvevendid' => 2, 'InitItemNbr' => 3, 'Pontintvdate' => 4, 'Pontintvtime' => 5, 'Pontintvuser' => 6, 'Pontform' => 7, 'Pontseq' => 8, 'Pontnote' => 9, 'Pontkey2' => 10, 'Dateupdtd' => 11, 'Timeupdtd' => 12, 'Dummy' => 13, ),
-        self::TYPE_CAMELNAME     => array('ponttype' => 0, 'ponttypedesc' => 1, 'apvevendid' => 2, 'initItemNbr' => 3, 'pontintvdate' => 4, 'pontintvtime' => 5, 'pontintvuser' => 6, 'pontform' => 7, 'pontseq' => 8, 'pontnote' => 9, 'pontkey2' => 10, 'dateupdtd' => 11, 'timeupdtd' => 12, 'dummy' => 13, ),
-        self::TYPE_COLNAME       => array(ItemXrefVendorNoteInternalTableMap::COL_PONTTYPE => 0, ItemXrefVendorNoteInternalTableMap::COL_PONTTYPEDESC => 1, ItemXrefVendorNoteInternalTableMap::COL_APVEVENDID => 2, ItemXrefVendorNoteInternalTableMap::COL_INITITEMNBR => 3, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVDATE => 4, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVTIME => 5, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVUSER => 6, ItemXrefVendorNoteInternalTableMap::COL_PONTFORM => 7, ItemXrefVendorNoteInternalTableMap::COL_PONTSEQ => 8, ItemXrefVendorNoteInternalTableMap::COL_PONTNOTE => 9, ItemXrefVendorNoteInternalTableMap::COL_PONTKEY2 => 10, ItemXrefVendorNoteInternalTableMap::COL_DATEUPDTD => 11, ItemXrefVendorNoteInternalTableMap::COL_TIMEUPDTD => 12, ItemXrefVendorNoteInternalTableMap::COL_DUMMY => 13, ),
-        self::TYPE_FIELDNAME     => array('PontType' => 0, 'PontTypeDesc' => 1, 'ApveVendId' => 2, 'InitItemNbr' => 3, 'PontIntvDate' => 4, 'PontIntvTime' => 5, 'PontIntvUser' => 6, 'PontForm' => 7, 'PontSeq' => 8, 'PontNote' => 9, 'PontKey2' => 10, 'DateUpdtd' => 11, 'TimeUpdtd' => 12, 'dummy' => 13, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Ponttype' => 0, 'Ponttypedesc' => 1, 'Apvevendid' => 2, 'InitItemNbr' => 3, 'Pontintvdate' => 4, 'Pontintvtime' => 5, 'Pontintvuser' => 6, 'Pontform' => 7, 'Pontseq' => 8, 'Pontnote' => 9, 'Pontkey2' => 10, 'Dateupdtd' => 11, 'Timeupdtd' => 12, 'Dummy' => 13, ],
+        self::TYPE_CAMELNAME     => ['ponttype' => 0, 'ponttypedesc' => 1, 'apvevendid' => 2, 'initItemNbr' => 3, 'pontintvdate' => 4, 'pontintvtime' => 5, 'pontintvuser' => 6, 'pontform' => 7, 'pontseq' => 8, 'pontnote' => 9, 'pontkey2' => 10, 'dateupdtd' => 11, 'timeupdtd' => 12, 'dummy' => 13, ],
+        self::TYPE_COLNAME       => [ItemXrefVendorNoteInternalTableMap::COL_PONTTYPE => 0, ItemXrefVendorNoteInternalTableMap::COL_PONTTYPEDESC => 1, ItemXrefVendorNoteInternalTableMap::COL_APVEVENDID => 2, ItemXrefVendorNoteInternalTableMap::COL_INITITEMNBR => 3, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVDATE => 4, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVTIME => 5, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVUSER => 6, ItemXrefVendorNoteInternalTableMap::COL_PONTFORM => 7, ItemXrefVendorNoteInternalTableMap::COL_PONTSEQ => 8, ItemXrefVendorNoteInternalTableMap::COL_PONTNOTE => 9, ItemXrefVendorNoteInternalTableMap::COL_PONTKEY2 => 10, ItemXrefVendorNoteInternalTableMap::COL_DATEUPDTD => 11, ItemXrefVendorNoteInternalTableMap::COL_TIMEUPDTD => 12, ItemXrefVendorNoteInternalTableMap::COL_DUMMY => 13, ],
+        self::TYPE_FIELDNAME     => ['PontType' => 0, 'PontTypeDesc' => 1, 'ApveVendId' => 2, 'InitItemNbr' => 3, 'PontIntvDate' => 4, 'PontIntvTime' => 5, 'PontIntvUser' => 6, 'PontForm' => 7, 'PontSeq' => 8, 'PontNote' => 9, 'PontKey2' => 10, 'DateUpdtd' => 11, 'TimeUpdtd' => 12, 'dummy' => 13, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Ponttype' => 'PONTTYPE',
+        'ItemXrefVendorNoteInternal.Ponttype' => 'PONTTYPE',
+        'ponttype' => 'PONTTYPE',
+        'itemXrefVendorNoteInternal.ponttype' => 'PONTTYPE',
+        'ItemXrefVendorNoteInternalTableMap::COL_PONTTYPE' => 'PONTTYPE',
+        'COL_PONTTYPE' => 'PONTTYPE',
+        'PontType' => 'PONTTYPE',
+        'notes_vend_xref_internal.PontType' => 'PONTTYPE',
+        'Ponttypedesc' => 'PONTTYPEDESC',
+        'ItemXrefVendorNoteInternal.Ponttypedesc' => 'PONTTYPEDESC',
+        'ponttypedesc' => 'PONTTYPEDESC',
+        'itemXrefVendorNoteInternal.ponttypedesc' => 'PONTTYPEDESC',
+        'ItemXrefVendorNoteInternalTableMap::COL_PONTTYPEDESC' => 'PONTTYPEDESC',
+        'COL_PONTTYPEDESC' => 'PONTTYPEDESC',
+        'PontTypeDesc' => 'PONTTYPEDESC',
+        'notes_vend_xref_internal.PontTypeDesc' => 'PONTTYPEDESC',
+        'Apvevendid' => 'APVEVENDID',
+        'ItemXrefVendorNoteInternal.Apvevendid' => 'APVEVENDID',
+        'apvevendid' => 'APVEVENDID',
+        'itemXrefVendorNoteInternal.apvevendid' => 'APVEVENDID',
+        'ItemXrefVendorNoteInternalTableMap::COL_APVEVENDID' => 'APVEVENDID',
+        'COL_APVEVENDID' => 'APVEVENDID',
+        'ApveVendId' => 'APVEVENDID',
+        'notes_vend_xref_internal.ApveVendId' => 'APVEVENDID',
+        'InitItemNbr' => 'INITITEMNBR',
+        'ItemXrefVendorNoteInternal.InitItemNbr' => 'INITITEMNBR',
+        'initItemNbr' => 'INITITEMNBR',
+        'itemXrefVendorNoteInternal.initItemNbr' => 'INITITEMNBR',
+        'ItemXrefVendorNoteInternalTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'notes_vend_xref_internal.InitItemNbr' => 'INITITEMNBR',
+        'Pontintvdate' => 'PONTINTVDATE',
+        'ItemXrefVendorNoteInternal.Pontintvdate' => 'PONTINTVDATE',
+        'pontintvdate' => 'PONTINTVDATE',
+        'itemXrefVendorNoteInternal.pontintvdate' => 'PONTINTVDATE',
+        'ItemXrefVendorNoteInternalTableMap::COL_PONTINTVDATE' => 'PONTINTVDATE',
+        'COL_PONTINTVDATE' => 'PONTINTVDATE',
+        'PontIntvDate' => 'PONTINTVDATE',
+        'notes_vend_xref_internal.PontIntvDate' => 'PONTINTVDATE',
+        'Pontintvtime' => 'PONTINTVTIME',
+        'ItemXrefVendorNoteInternal.Pontintvtime' => 'PONTINTVTIME',
+        'pontintvtime' => 'PONTINTVTIME',
+        'itemXrefVendorNoteInternal.pontintvtime' => 'PONTINTVTIME',
+        'ItemXrefVendorNoteInternalTableMap::COL_PONTINTVTIME' => 'PONTINTVTIME',
+        'COL_PONTINTVTIME' => 'PONTINTVTIME',
+        'PontIntvTime' => 'PONTINTVTIME',
+        'notes_vend_xref_internal.PontIntvTime' => 'PONTINTVTIME',
+        'Pontintvuser' => 'PONTINTVUSER',
+        'ItemXrefVendorNoteInternal.Pontintvuser' => 'PONTINTVUSER',
+        'pontintvuser' => 'PONTINTVUSER',
+        'itemXrefVendorNoteInternal.pontintvuser' => 'PONTINTVUSER',
+        'ItemXrefVendorNoteInternalTableMap::COL_PONTINTVUSER' => 'PONTINTVUSER',
+        'COL_PONTINTVUSER' => 'PONTINTVUSER',
+        'PontIntvUser' => 'PONTINTVUSER',
+        'notes_vend_xref_internal.PontIntvUser' => 'PONTINTVUSER',
+        'Pontform' => 'PONTFORM',
+        'ItemXrefVendorNoteInternal.Pontform' => 'PONTFORM',
+        'pontform' => 'PONTFORM',
+        'itemXrefVendorNoteInternal.pontform' => 'PONTFORM',
+        'ItemXrefVendorNoteInternalTableMap::COL_PONTFORM' => 'PONTFORM',
+        'COL_PONTFORM' => 'PONTFORM',
+        'PontForm' => 'PONTFORM',
+        'notes_vend_xref_internal.PontForm' => 'PONTFORM',
+        'Pontseq' => 'PONTSEQ',
+        'ItemXrefVendorNoteInternal.Pontseq' => 'PONTSEQ',
+        'pontseq' => 'PONTSEQ',
+        'itemXrefVendorNoteInternal.pontseq' => 'PONTSEQ',
+        'ItemXrefVendorNoteInternalTableMap::COL_PONTSEQ' => 'PONTSEQ',
+        'COL_PONTSEQ' => 'PONTSEQ',
+        'PontSeq' => 'PONTSEQ',
+        'notes_vend_xref_internal.PontSeq' => 'PONTSEQ',
+        'Pontnote' => 'PONTNOTE',
+        'ItemXrefVendorNoteInternal.Pontnote' => 'PONTNOTE',
+        'pontnote' => 'PONTNOTE',
+        'itemXrefVendorNoteInternal.pontnote' => 'PONTNOTE',
+        'ItemXrefVendorNoteInternalTableMap::COL_PONTNOTE' => 'PONTNOTE',
+        'COL_PONTNOTE' => 'PONTNOTE',
+        'PontNote' => 'PONTNOTE',
+        'notes_vend_xref_internal.PontNote' => 'PONTNOTE',
+        'Pontkey2' => 'PONTKEY2',
+        'ItemXrefVendorNoteInternal.Pontkey2' => 'PONTKEY2',
+        'pontkey2' => 'PONTKEY2',
+        'itemXrefVendorNoteInternal.pontkey2' => 'PONTKEY2',
+        'ItemXrefVendorNoteInternalTableMap::COL_PONTKEY2' => 'PONTKEY2',
+        'COL_PONTKEY2' => 'PONTKEY2',
+        'PontKey2' => 'PONTKEY2',
+        'notes_vend_xref_internal.PontKey2' => 'PONTKEY2',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ItemXrefVendorNoteInternal.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'itemXrefVendorNoteInternal.dateupdtd' => 'DATEUPDTD',
+        'ItemXrefVendorNoteInternalTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'notes_vend_xref_internal.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ItemXrefVendorNoteInternal.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'itemXrefVendorNoteInternal.timeupdtd' => 'TIMEUPDTD',
+        'ItemXrefVendorNoteInternalTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'notes_vend_xref_internal.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ItemXrefVendorNoteInternal.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'itemXrefVendorNoteInternal.dummy' => 'DUMMY',
+        'ItemXrefVendorNoteInternalTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'notes_vend_xref_internal.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('notes_vend_xref_internal');
@@ -205,12 +331,14 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('Vendor', '\\Vendor', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -226,7 +354,7 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -237,9 +365,11 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \ItemXrefVendorNoteInternal $obj A \ItemXrefVendorNoteInternal object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(ItemXrefVendorNoteInternal $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -258,8 +388,10 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \ItemXrefVendorNoteInternal object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \ItemXrefVendorNoteInternal) {
@@ -287,14 +419,14 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Ponttype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 7 + $offset : static::translateFieldName('Pontform', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 8 + $offset : static::translateFieldName('Pontseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Pontkey2', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -309,14 +441,14 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -352,10 +484,10 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ItemXrefVendorNoteInternalTableMap::CLASS_DEFAULT : ItemXrefVendorNoteInternalTableMap::OM_CLASS;
     }
@@ -363,17 +495,17 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ItemXrefVendorNoteInternal object, last column rank)
+     * @return array (ItemXrefVendorNoteInternal object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ItemXrefVendorNoteInternalTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ItemXrefVendorNoteInternalTableMap::getInstanceFromPool($key))) {
@@ -389,7 +521,7 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
             ItemXrefVendorNoteInternalTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -397,13 +529,13 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -433,12 +565,13 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_PONTTYPE);
@@ -474,40 +607,76 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_PONTTYPE);
+            $criteria->removeSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_PONTTYPEDESC);
+            $criteria->removeSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_APVEVENDID);
+            $criteria->removeSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_PONTINTVDATE);
+            $criteria->removeSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_PONTINTVTIME);
+            $criteria->removeSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_PONTINTVUSER);
+            $criteria->removeSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_PONTFORM);
+            $criteria->removeSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_PONTSEQ);
+            $criteria->removeSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_PONTNOTE);
+            $criteria->removeSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_PONTKEY2);
+            $criteria->removeSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.PontType');
+            $criteria->removeSelectColumn($alias . '.PontTypeDesc');
+            $criteria->removeSelectColumn($alias . '.ApveVendId');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.PontIntvDate');
+            $criteria->removeSelectColumn($alias . '.PontIntvTime');
+            $criteria->removeSelectColumn($alias . '.PontIntvUser');
+            $criteria->removeSelectColumn($alias . '.PontForm');
+            $criteria->removeSelectColumn($alias . '.PontSeq');
+            $criteria->removeSelectColumn($alias . '.PontNote');
+            $criteria->removeSelectColumn($alias . '.PontKey2');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ItemXrefVendorNoteInternalTableMap::DATABASE_NAME)->getTable(ItemXrefVendorNoteInternalTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ItemXrefVendorNoteInternalTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ItemXrefVendorNoteInternalTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ItemXrefVendorNoteInternalTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ItemXrefVendorNoteInternal or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ItemXrefVendorNoteInternal object or primary key or array of primary keys
+     * @param mixed $values Criteria or ItemXrefVendorNoteInternal object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefVendorNoteInternalTableMap::DATABASE_NAME);
@@ -525,7 +694,7 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(ItemXrefVendorNoteInternalTableMap::COL_PONTTYPE, $value[0]);
@@ -555,7 +724,7 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ItemXrefVendorNoteInternalQuery::create()->doDeleteAll($con);
     }
@@ -563,13 +732,13 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ItemXrefVendorNoteInternal or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ItemXrefVendorNoteInternal object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ItemXrefVendorNoteInternal object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefVendorNoteInternalTableMap::DATABASE_NAME);
@@ -592,7 +761,4 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
         });
     }
 
-} // ItemXrefVendorNoteInternalTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ItemXrefVendorNoteInternalTableMap::buildTableMap();
+}

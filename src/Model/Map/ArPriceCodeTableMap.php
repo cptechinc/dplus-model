@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ArPriceCodeTableMap extends TableMap
 {
@@ -34,119 +33,191 @@ class ArPriceCodeTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ArPriceCodeTableMap';
+    public const CLASS_NAME = '.Map.ArPriceCodeTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'ar_cust_price';
+    public const TABLE_NAME = 'ar_cust_price';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ArPriceCode';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ArPriceCode';
+    public const OM_CLASS = '\\ArPriceCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ArPriceCode';
+    public const CLASS_DEFAULT = 'ArPriceCode';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 7;
+    public const NUM_COLUMNS = 7;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 7;
+    public const NUM_HYDRATE_COLUMNS = 7;
 
     /**
      * the column name for the ArtbPricCode field
      */
-    const COL_ARTBPRICCODE = 'ar_cust_price.ArtbPricCode';
+    public const COL_ARTBPRICCODE = 'ar_cust_price.ArtbPricCode';
 
     /**
      * the column name for the ArtbPricDesc field
      */
-    const COL_ARTBPRICDESC = 'ar_cust_price.ArtbPricDesc';
+    public const COL_ARTBPRICDESC = 'ar_cust_price.ArtbPricDesc';
 
     /**
      * the column name for the ArtbPricUseSurchg field
      */
-    const COL_ARTBPRICUSESURCHG = 'ar_cust_price.ArtbPricUseSurchg';
+    public const COL_ARTBPRICUSESURCHG = 'ar_cust_price.ArtbPricUseSurchg';
 
     /**
      * the column name for the ArtbPricSurchgPct field
      */
-    const COL_ARTBPRICSURCHGPCT = 'ar_cust_price.ArtbPricSurchgPct';
+    public const COL_ARTBPRICSURCHGPCT = 'ar_cust_price.ArtbPricSurchgPct';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'ar_cust_price.DateUpdtd';
+    public const COL_DATEUPDTD = 'ar_cust_price.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'ar_cust_price.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'ar_cust_price.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'ar_cust_price.dummy';
+    public const COL_DUMMY = 'ar_cust_price.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Artbpriccode', 'Artbpricdesc', 'Artbpricusesurchg', 'Artbpricsurchgpct', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('artbpriccode', 'artbpricdesc', 'artbpricusesurchg', 'artbpricsurchgpct', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ArPriceCodeTableMap::COL_ARTBPRICCODE, ArPriceCodeTableMap::COL_ARTBPRICDESC, ArPriceCodeTableMap::COL_ARTBPRICUSESURCHG, ArPriceCodeTableMap::COL_ARTBPRICSURCHGPCT, ArPriceCodeTableMap::COL_DATEUPDTD, ArPriceCodeTableMap::COL_TIMEUPDTD, ArPriceCodeTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ArtbPricCode', 'ArtbPricDesc', 'ArtbPricUseSurchg', 'ArtbPricSurchgPct', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Artbpriccode', 'Artbpricdesc', 'Artbpricusesurchg', 'Artbpricsurchgpct', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['artbpriccode', 'artbpricdesc', 'artbpricusesurchg', 'artbpricsurchgpct', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ArPriceCodeTableMap::COL_ARTBPRICCODE, ArPriceCodeTableMap::COL_ARTBPRICDESC, ArPriceCodeTableMap::COL_ARTBPRICUSESURCHG, ArPriceCodeTableMap::COL_ARTBPRICSURCHGPCT, ArPriceCodeTableMap::COL_DATEUPDTD, ArPriceCodeTableMap::COL_TIMEUPDTD, ArPriceCodeTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['ArtbPricCode', 'ArtbPricDesc', 'ArtbPricUseSurchg', 'ArtbPricSurchgPct', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Artbpriccode' => 0, 'Artbpricdesc' => 1, 'Artbpricusesurchg' => 2, 'Artbpricsurchgpct' => 3, 'Dateupdtd' => 4, 'Timeupdtd' => 5, 'Dummy' => 6, ),
-        self::TYPE_CAMELNAME     => array('artbpriccode' => 0, 'artbpricdesc' => 1, 'artbpricusesurchg' => 2, 'artbpricsurchgpct' => 3, 'dateupdtd' => 4, 'timeupdtd' => 5, 'dummy' => 6, ),
-        self::TYPE_COLNAME       => array(ArPriceCodeTableMap::COL_ARTBPRICCODE => 0, ArPriceCodeTableMap::COL_ARTBPRICDESC => 1, ArPriceCodeTableMap::COL_ARTBPRICUSESURCHG => 2, ArPriceCodeTableMap::COL_ARTBPRICSURCHGPCT => 3, ArPriceCodeTableMap::COL_DATEUPDTD => 4, ArPriceCodeTableMap::COL_TIMEUPDTD => 5, ArPriceCodeTableMap::COL_DUMMY => 6, ),
-        self::TYPE_FIELDNAME     => array('ArtbPricCode' => 0, 'ArtbPricDesc' => 1, 'ArtbPricUseSurchg' => 2, 'ArtbPricSurchgPct' => 3, 'DateUpdtd' => 4, 'TimeUpdtd' => 5, 'dummy' => 6, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Artbpriccode' => 0, 'Artbpricdesc' => 1, 'Artbpricusesurchg' => 2, 'Artbpricsurchgpct' => 3, 'Dateupdtd' => 4, 'Timeupdtd' => 5, 'Dummy' => 6, ],
+        self::TYPE_CAMELNAME     => ['artbpriccode' => 0, 'artbpricdesc' => 1, 'artbpricusesurchg' => 2, 'artbpricsurchgpct' => 3, 'dateupdtd' => 4, 'timeupdtd' => 5, 'dummy' => 6, ],
+        self::TYPE_COLNAME       => [ArPriceCodeTableMap::COL_ARTBPRICCODE => 0, ArPriceCodeTableMap::COL_ARTBPRICDESC => 1, ArPriceCodeTableMap::COL_ARTBPRICUSESURCHG => 2, ArPriceCodeTableMap::COL_ARTBPRICSURCHGPCT => 3, ArPriceCodeTableMap::COL_DATEUPDTD => 4, ArPriceCodeTableMap::COL_TIMEUPDTD => 5, ArPriceCodeTableMap::COL_DUMMY => 6, ],
+        self::TYPE_FIELDNAME     => ['ArtbPricCode' => 0, 'ArtbPricDesc' => 1, 'ArtbPricUseSurchg' => 2, 'ArtbPricSurchgPct' => 3, 'DateUpdtd' => 4, 'TimeUpdtd' => 5, 'dummy' => 6, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Artbpriccode' => 'ARTBPRICCODE',
+        'ArPriceCode.Artbpriccode' => 'ARTBPRICCODE',
+        'artbpriccode' => 'ARTBPRICCODE',
+        'arPriceCode.artbpriccode' => 'ARTBPRICCODE',
+        'ArPriceCodeTableMap::COL_ARTBPRICCODE' => 'ARTBPRICCODE',
+        'COL_ARTBPRICCODE' => 'ARTBPRICCODE',
+        'ArtbPricCode' => 'ARTBPRICCODE',
+        'ar_cust_price.ArtbPricCode' => 'ARTBPRICCODE',
+        'Artbpricdesc' => 'ARTBPRICDESC',
+        'ArPriceCode.Artbpricdesc' => 'ARTBPRICDESC',
+        'artbpricdesc' => 'ARTBPRICDESC',
+        'arPriceCode.artbpricdesc' => 'ARTBPRICDESC',
+        'ArPriceCodeTableMap::COL_ARTBPRICDESC' => 'ARTBPRICDESC',
+        'COL_ARTBPRICDESC' => 'ARTBPRICDESC',
+        'ArtbPricDesc' => 'ARTBPRICDESC',
+        'ar_cust_price.ArtbPricDesc' => 'ARTBPRICDESC',
+        'Artbpricusesurchg' => 'ARTBPRICUSESURCHG',
+        'ArPriceCode.Artbpricusesurchg' => 'ARTBPRICUSESURCHG',
+        'artbpricusesurchg' => 'ARTBPRICUSESURCHG',
+        'arPriceCode.artbpricusesurchg' => 'ARTBPRICUSESURCHG',
+        'ArPriceCodeTableMap::COL_ARTBPRICUSESURCHG' => 'ARTBPRICUSESURCHG',
+        'COL_ARTBPRICUSESURCHG' => 'ARTBPRICUSESURCHG',
+        'ArtbPricUseSurchg' => 'ARTBPRICUSESURCHG',
+        'ar_cust_price.ArtbPricUseSurchg' => 'ARTBPRICUSESURCHG',
+        'Artbpricsurchgpct' => 'ARTBPRICSURCHGPCT',
+        'ArPriceCode.Artbpricsurchgpct' => 'ARTBPRICSURCHGPCT',
+        'artbpricsurchgpct' => 'ARTBPRICSURCHGPCT',
+        'arPriceCode.artbpricsurchgpct' => 'ARTBPRICSURCHGPCT',
+        'ArPriceCodeTableMap::COL_ARTBPRICSURCHGPCT' => 'ARTBPRICSURCHGPCT',
+        'COL_ARTBPRICSURCHGPCT' => 'ARTBPRICSURCHGPCT',
+        'ArtbPricSurchgPct' => 'ARTBPRICSURCHGPCT',
+        'ar_cust_price.ArtbPricSurchgPct' => 'ARTBPRICSURCHGPCT',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ArPriceCode.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'arPriceCode.dateupdtd' => 'DATEUPDTD',
+        'ArPriceCodeTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'ar_cust_price.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ArPriceCode.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'arPriceCode.timeupdtd' => 'TIMEUPDTD',
+        'ArPriceCodeTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'ar_cust_price.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ArPriceCode.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'arPriceCode.dummy' => 'DUMMY',
+        'ArPriceCodeTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'ar_cust_price.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('ar_cust_price');
@@ -163,14 +234,16 @@ class ArPriceCodeTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -178,14 +251,14 @@ class ArPriceCodeTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Artbpriccode', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -200,14 +273,14 @@ class ArPriceCodeTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
             $indexType == TableMap::TYPE_NUM
@@ -224,10 +297,10 @@ class ArPriceCodeTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ArPriceCodeTableMap::CLASS_DEFAULT : ArPriceCodeTableMap::OM_CLASS;
     }
@@ -235,17 +308,17 @@ class ArPriceCodeTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ArPriceCode object, last column rank)
+     * @return array (ArPriceCode object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ArPriceCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ArPriceCodeTableMap::getInstanceFromPool($key))) {
@@ -261,7 +334,7 @@ class ArPriceCodeTableMap extends TableMap
             ArPriceCodeTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -269,13 +342,13 @@ class ArPriceCodeTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -305,12 +378,13 @@ class ArPriceCodeTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ArPriceCodeTableMap::COL_ARTBPRICCODE);
@@ -332,40 +406,62 @@ class ArPriceCodeTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ArPriceCodeTableMap::COL_ARTBPRICCODE);
+            $criteria->removeSelectColumn(ArPriceCodeTableMap::COL_ARTBPRICDESC);
+            $criteria->removeSelectColumn(ArPriceCodeTableMap::COL_ARTBPRICUSESURCHG);
+            $criteria->removeSelectColumn(ArPriceCodeTableMap::COL_ARTBPRICSURCHGPCT);
+            $criteria->removeSelectColumn(ArPriceCodeTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ArPriceCodeTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ArPriceCodeTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.ArtbPricCode');
+            $criteria->removeSelectColumn($alias . '.ArtbPricDesc');
+            $criteria->removeSelectColumn($alias . '.ArtbPricUseSurchg');
+            $criteria->removeSelectColumn($alias . '.ArtbPricSurchgPct');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ArPriceCodeTableMap::DATABASE_NAME)->getTable(ArPriceCodeTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ArPriceCodeTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ArPriceCodeTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ArPriceCodeTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ArPriceCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ArPriceCode object or primary key or array of primary keys
+     * @param mixed $values Criteria or ArPriceCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArPriceCodeTableMap::DATABASE_NAME);
@@ -401,7 +497,7 @@ class ArPriceCodeTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ArPriceCodeQuery::create()->doDeleteAll($con);
     }
@@ -409,13 +505,13 @@ class ArPriceCodeTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ArPriceCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ArPriceCode object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ArPriceCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArPriceCodeTableMap::DATABASE_NAME);
@@ -438,7 +534,4 @@ class ArPriceCodeTableMap extends TableMap
         });
     }
 
-} // ArPriceCodeTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ArPriceCodeTableMap::buildTableMap();
+}

@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ar_inv' table.
- *
- *
+ * Base class that represents a query for the `ar_inv` table.
  *
  * @method     ChildArInvoiceQuery orderByArcucustid($order = Criteria::ASC) Order by the ArcuCustId column
  * @method     ChildArInvoiceQuery orderByArininvnbr($order = Criteria::ASC) Order by the ArinInvNbr column
@@ -90,36 +89,36 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \CustomerQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildArInvoice findOne(ConnectionInterface $con = null) Return the first ChildArInvoice matching the query
- * @method     ChildArInvoice findOneOrCreate(ConnectionInterface $con = null) Return the first ChildArInvoice matching the query, or a new ChildArInvoice object populated from the query conditions when no match is found
+ * @method     ChildArInvoice|null findOne(?ConnectionInterface $con = null) Return the first ChildArInvoice matching the query
+ * @method     ChildArInvoice findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildArInvoice matching the query, or a new ChildArInvoice object populated from the query conditions when no match is found
  *
- * @method     ChildArInvoice findOneByArcucustid(string $ArcuCustId) Return the first ChildArInvoice filtered by the ArcuCustId column
- * @method     ChildArInvoice findOneByArininvnbr(string $ArinInvNbr) Return the first ChildArInvoice filtered by the ArinInvNbr column
- * @method     ChildArInvoice findOneByArininvseq(int $ArinInvSeq) Return the first ChildArInvoice filtered by the ArinInvSeq column
- * @method     ChildArInvoice findOneByArintype(string $ArinType) Return the first ChildArInvoice filtered by the ArinType column
- * @method     ChildArInvoice findOneByArinseq(int $ArinSeq) Return the first ChildArInvoice filtered by the ArinSeq column
- * @method     ChildArInvoice findOneByArinhold(string $ArinHold) Return the first ChildArInvoice filtered by the ArinHold column
- * @method     ChildArInvoice findOneByArininvdate(string $ArinInvDate) Return the first ChildArInvoice filtered by the ArinInvDate column
- * @method     ChildArInvoice findOneByArindiscdate(string $ArinDiscDate) Return the first ChildArInvoice filtered by the ArinDiscDate column
- * @method     ChildArInvoice findOneByArinduedate(string $ArinDueDate) Return the first ChildArInvoice filtered by the ArinDueDate column
- * @method     ChildArInvoice findOneByArintotamt(string $ArinTotAmt) Return the first ChildArInvoice filtered by the ArinTotAmt column
- * @method     ChildArInvoice findOneByArindiscamt(string $ArinDiscAmt) Return the first ChildArInvoice filtered by the ArinDiscAmt column
- * @method     ChildArInvoice findOneByArinchknbr(string $ArinChkNbr) Return the first ChildArInvoice filtered by the ArinChkNbr column
- * @method     ChildArInvoice findOneByArincustpo(string $ArinCustPo) Return the first ChildArInvoice filtered by the ArinCustPo column
- * @method     ChildArInvoice findOneByArintermcode(string $ArinTermCode) Return the first ChildArInvoice filtered by the ArinTermCode column
- * @method     ChildArInvoice findOneByArinfrtallow(string $ArinFrtAllow) Return the first ChildArInvoice filtered by the ArinFrtAllow column
- * @method     ChildArInvoice findOneByArinordrnbr(string $ArinOrdrNbr) Return the first ChildArInvoice filtered by the ArinOrdrNbr column
- * @method     ChildArInvoice findOneByArincomrate(string $ArinComRate) Return the first ChildArInvoice filtered by the ArinComRate column
- * @method     ChildArInvoice findOneByArinsalesamt(string $ArinSalesAmt) Return the first ChildArInvoice filtered by the ArinSalesAmt column
- * @method     ChildArInvoice findOneByArinorigwhse(string $ArinOrigWhse) Return the first ChildArInvoice filtered by the ArinOrigWhse column
- * @method     ChildArInvoice findOneByArinwriteoffdate(string $ArinWriteOffDate) Return the first ChildArInvoice filtered by the ArinWriteOffDate column
- * @method     ChildArInvoice findOneByArinwriteoffamt(string $ArinWriteOffAmt) Return the first ChildArInvoice filtered by the ArinWriteOffAmt column
- * @method     ChildArInvoice findOneByDateupdtd(string $DateUpdtd) Return the first ChildArInvoice filtered by the DateUpdtd column
- * @method     ChildArInvoice findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArInvoice filtered by the TimeUpdtd column
- * @method     ChildArInvoice findOneByDummy(string $dummy) Return the first ChildArInvoice filtered by the dummy column *
-
- * @method     ChildArInvoice requirePk($key, ConnectionInterface $con = null) Return the ChildArInvoice by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildArInvoice requireOne(ConnectionInterface $con = null) Return the first ChildArInvoice matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArInvoice|null findOneByArcucustid(string $ArcuCustId) Return the first ChildArInvoice filtered by the ArcuCustId column
+ * @method     ChildArInvoice|null findOneByArininvnbr(string $ArinInvNbr) Return the first ChildArInvoice filtered by the ArinInvNbr column
+ * @method     ChildArInvoice|null findOneByArininvseq(int $ArinInvSeq) Return the first ChildArInvoice filtered by the ArinInvSeq column
+ * @method     ChildArInvoice|null findOneByArintype(string $ArinType) Return the first ChildArInvoice filtered by the ArinType column
+ * @method     ChildArInvoice|null findOneByArinseq(int $ArinSeq) Return the first ChildArInvoice filtered by the ArinSeq column
+ * @method     ChildArInvoice|null findOneByArinhold(string $ArinHold) Return the first ChildArInvoice filtered by the ArinHold column
+ * @method     ChildArInvoice|null findOneByArininvdate(string $ArinInvDate) Return the first ChildArInvoice filtered by the ArinInvDate column
+ * @method     ChildArInvoice|null findOneByArindiscdate(string $ArinDiscDate) Return the first ChildArInvoice filtered by the ArinDiscDate column
+ * @method     ChildArInvoice|null findOneByArinduedate(string $ArinDueDate) Return the first ChildArInvoice filtered by the ArinDueDate column
+ * @method     ChildArInvoice|null findOneByArintotamt(string $ArinTotAmt) Return the first ChildArInvoice filtered by the ArinTotAmt column
+ * @method     ChildArInvoice|null findOneByArindiscamt(string $ArinDiscAmt) Return the first ChildArInvoice filtered by the ArinDiscAmt column
+ * @method     ChildArInvoice|null findOneByArinchknbr(string $ArinChkNbr) Return the first ChildArInvoice filtered by the ArinChkNbr column
+ * @method     ChildArInvoice|null findOneByArincustpo(string $ArinCustPo) Return the first ChildArInvoice filtered by the ArinCustPo column
+ * @method     ChildArInvoice|null findOneByArintermcode(string $ArinTermCode) Return the first ChildArInvoice filtered by the ArinTermCode column
+ * @method     ChildArInvoice|null findOneByArinfrtallow(string $ArinFrtAllow) Return the first ChildArInvoice filtered by the ArinFrtAllow column
+ * @method     ChildArInvoice|null findOneByArinordrnbr(string $ArinOrdrNbr) Return the first ChildArInvoice filtered by the ArinOrdrNbr column
+ * @method     ChildArInvoice|null findOneByArincomrate(string $ArinComRate) Return the first ChildArInvoice filtered by the ArinComRate column
+ * @method     ChildArInvoice|null findOneByArinsalesamt(string $ArinSalesAmt) Return the first ChildArInvoice filtered by the ArinSalesAmt column
+ * @method     ChildArInvoice|null findOneByArinorigwhse(string $ArinOrigWhse) Return the first ChildArInvoice filtered by the ArinOrigWhse column
+ * @method     ChildArInvoice|null findOneByArinwriteoffdate(string $ArinWriteOffDate) Return the first ChildArInvoice filtered by the ArinWriteOffDate column
+ * @method     ChildArInvoice|null findOneByArinwriteoffamt(string $ArinWriteOffAmt) Return the first ChildArInvoice filtered by the ArinWriteOffAmt column
+ * @method     ChildArInvoice|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildArInvoice filtered by the DateUpdtd column
+ * @method     ChildArInvoice|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArInvoice filtered by the TimeUpdtd column
+ * @method     ChildArInvoice|null findOneByDummy(string $dummy) Return the first ChildArInvoice filtered by the dummy column
+ *
+ * @method     ChildArInvoice requirePk($key, ?ConnectionInterface $con = null) Return the ChildArInvoice by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArInvoice requireOne(?ConnectionInterface $con = null) Return the first ChildArInvoice matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildArInvoice requireOneByArcucustid(string $ArcuCustId) Return the first ChildArInvoice filtered by the ArcuCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArInvoice requireOneByArininvnbr(string $ArinInvNbr) Return the first ChildArInvoice filtered by the ArinInvNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -146,33 +145,60 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArInvoice requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArInvoice filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArInvoice requireOneByDummy(string $dummy) Return the first ChildArInvoice filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildArInvoice[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArInvoice objects based on current ModelCriteria
- * @method     ChildArInvoice[]|ObjectCollection findByArcucustid(string $ArcuCustId) Return ChildArInvoice objects filtered by the ArcuCustId column
- * @method     ChildArInvoice[]|ObjectCollection findByArininvnbr(string $ArinInvNbr) Return ChildArInvoice objects filtered by the ArinInvNbr column
- * @method     ChildArInvoice[]|ObjectCollection findByArininvseq(int $ArinInvSeq) Return ChildArInvoice objects filtered by the ArinInvSeq column
- * @method     ChildArInvoice[]|ObjectCollection findByArintype(string $ArinType) Return ChildArInvoice objects filtered by the ArinType column
- * @method     ChildArInvoice[]|ObjectCollection findByArinseq(int $ArinSeq) Return ChildArInvoice objects filtered by the ArinSeq column
- * @method     ChildArInvoice[]|ObjectCollection findByArinhold(string $ArinHold) Return ChildArInvoice objects filtered by the ArinHold column
- * @method     ChildArInvoice[]|ObjectCollection findByArininvdate(string $ArinInvDate) Return ChildArInvoice objects filtered by the ArinInvDate column
- * @method     ChildArInvoice[]|ObjectCollection findByArindiscdate(string $ArinDiscDate) Return ChildArInvoice objects filtered by the ArinDiscDate column
- * @method     ChildArInvoice[]|ObjectCollection findByArinduedate(string $ArinDueDate) Return ChildArInvoice objects filtered by the ArinDueDate column
- * @method     ChildArInvoice[]|ObjectCollection findByArintotamt(string $ArinTotAmt) Return ChildArInvoice objects filtered by the ArinTotAmt column
- * @method     ChildArInvoice[]|ObjectCollection findByArindiscamt(string $ArinDiscAmt) Return ChildArInvoice objects filtered by the ArinDiscAmt column
- * @method     ChildArInvoice[]|ObjectCollection findByArinchknbr(string $ArinChkNbr) Return ChildArInvoice objects filtered by the ArinChkNbr column
- * @method     ChildArInvoice[]|ObjectCollection findByArincustpo(string $ArinCustPo) Return ChildArInvoice objects filtered by the ArinCustPo column
- * @method     ChildArInvoice[]|ObjectCollection findByArintermcode(string $ArinTermCode) Return ChildArInvoice objects filtered by the ArinTermCode column
- * @method     ChildArInvoice[]|ObjectCollection findByArinfrtallow(string $ArinFrtAllow) Return ChildArInvoice objects filtered by the ArinFrtAllow column
- * @method     ChildArInvoice[]|ObjectCollection findByArinordrnbr(string $ArinOrdrNbr) Return ChildArInvoice objects filtered by the ArinOrdrNbr column
- * @method     ChildArInvoice[]|ObjectCollection findByArincomrate(string $ArinComRate) Return ChildArInvoice objects filtered by the ArinComRate column
- * @method     ChildArInvoice[]|ObjectCollection findByArinsalesamt(string $ArinSalesAmt) Return ChildArInvoice objects filtered by the ArinSalesAmt column
- * @method     ChildArInvoice[]|ObjectCollection findByArinorigwhse(string $ArinOrigWhse) Return ChildArInvoice objects filtered by the ArinOrigWhse column
- * @method     ChildArInvoice[]|ObjectCollection findByArinwriteoffdate(string $ArinWriteOffDate) Return ChildArInvoice objects filtered by the ArinWriteOffDate column
- * @method     ChildArInvoice[]|ObjectCollection findByArinwriteoffamt(string $ArinWriteOffAmt) Return ChildArInvoice objects filtered by the ArinWriteOffAmt column
- * @method     ChildArInvoice[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArInvoice objects filtered by the DateUpdtd column
- * @method     ChildArInvoice[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArInvoice objects filtered by the TimeUpdtd column
- * @method     ChildArInvoice[]|ObjectCollection findByDummy(string $dummy) Return ChildArInvoice objects filtered by the dummy column
- * @method     ChildArInvoice[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildArInvoice[]|Collection find(?ConnectionInterface $con = null) Return ChildArInvoice objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildArInvoice> find(?ConnectionInterface $con = null) Return ChildArInvoice objects based on current ModelCriteria
  *
+ * @method     ChildArInvoice[]|Collection findByArcucustid(string|array<string> $ArcuCustId) Return ChildArInvoice objects filtered by the ArcuCustId column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArcucustid(string|array<string> $ArcuCustId) Return ChildArInvoice objects filtered by the ArcuCustId column
+ * @method     ChildArInvoice[]|Collection findByArininvnbr(string|array<string> $ArinInvNbr) Return ChildArInvoice objects filtered by the ArinInvNbr column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArininvnbr(string|array<string> $ArinInvNbr) Return ChildArInvoice objects filtered by the ArinInvNbr column
+ * @method     ChildArInvoice[]|Collection findByArininvseq(int|array<int> $ArinInvSeq) Return ChildArInvoice objects filtered by the ArinInvSeq column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArininvseq(int|array<int> $ArinInvSeq) Return ChildArInvoice objects filtered by the ArinInvSeq column
+ * @method     ChildArInvoice[]|Collection findByArintype(string|array<string> $ArinType) Return ChildArInvoice objects filtered by the ArinType column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArintype(string|array<string> $ArinType) Return ChildArInvoice objects filtered by the ArinType column
+ * @method     ChildArInvoice[]|Collection findByArinseq(int|array<int> $ArinSeq) Return ChildArInvoice objects filtered by the ArinSeq column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArinseq(int|array<int> $ArinSeq) Return ChildArInvoice objects filtered by the ArinSeq column
+ * @method     ChildArInvoice[]|Collection findByArinhold(string|array<string> $ArinHold) Return ChildArInvoice objects filtered by the ArinHold column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArinhold(string|array<string> $ArinHold) Return ChildArInvoice objects filtered by the ArinHold column
+ * @method     ChildArInvoice[]|Collection findByArininvdate(string|array<string> $ArinInvDate) Return ChildArInvoice objects filtered by the ArinInvDate column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArininvdate(string|array<string> $ArinInvDate) Return ChildArInvoice objects filtered by the ArinInvDate column
+ * @method     ChildArInvoice[]|Collection findByArindiscdate(string|array<string> $ArinDiscDate) Return ChildArInvoice objects filtered by the ArinDiscDate column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArindiscdate(string|array<string> $ArinDiscDate) Return ChildArInvoice objects filtered by the ArinDiscDate column
+ * @method     ChildArInvoice[]|Collection findByArinduedate(string|array<string> $ArinDueDate) Return ChildArInvoice objects filtered by the ArinDueDate column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArinduedate(string|array<string> $ArinDueDate) Return ChildArInvoice objects filtered by the ArinDueDate column
+ * @method     ChildArInvoice[]|Collection findByArintotamt(string|array<string> $ArinTotAmt) Return ChildArInvoice objects filtered by the ArinTotAmt column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArintotamt(string|array<string> $ArinTotAmt) Return ChildArInvoice objects filtered by the ArinTotAmt column
+ * @method     ChildArInvoice[]|Collection findByArindiscamt(string|array<string> $ArinDiscAmt) Return ChildArInvoice objects filtered by the ArinDiscAmt column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArindiscamt(string|array<string> $ArinDiscAmt) Return ChildArInvoice objects filtered by the ArinDiscAmt column
+ * @method     ChildArInvoice[]|Collection findByArinchknbr(string|array<string> $ArinChkNbr) Return ChildArInvoice objects filtered by the ArinChkNbr column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArinchknbr(string|array<string> $ArinChkNbr) Return ChildArInvoice objects filtered by the ArinChkNbr column
+ * @method     ChildArInvoice[]|Collection findByArincustpo(string|array<string> $ArinCustPo) Return ChildArInvoice objects filtered by the ArinCustPo column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArincustpo(string|array<string> $ArinCustPo) Return ChildArInvoice objects filtered by the ArinCustPo column
+ * @method     ChildArInvoice[]|Collection findByArintermcode(string|array<string> $ArinTermCode) Return ChildArInvoice objects filtered by the ArinTermCode column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArintermcode(string|array<string> $ArinTermCode) Return ChildArInvoice objects filtered by the ArinTermCode column
+ * @method     ChildArInvoice[]|Collection findByArinfrtallow(string|array<string> $ArinFrtAllow) Return ChildArInvoice objects filtered by the ArinFrtAllow column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArinfrtallow(string|array<string> $ArinFrtAllow) Return ChildArInvoice objects filtered by the ArinFrtAllow column
+ * @method     ChildArInvoice[]|Collection findByArinordrnbr(string|array<string> $ArinOrdrNbr) Return ChildArInvoice objects filtered by the ArinOrdrNbr column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArinordrnbr(string|array<string> $ArinOrdrNbr) Return ChildArInvoice objects filtered by the ArinOrdrNbr column
+ * @method     ChildArInvoice[]|Collection findByArincomrate(string|array<string> $ArinComRate) Return ChildArInvoice objects filtered by the ArinComRate column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArincomrate(string|array<string> $ArinComRate) Return ChildArInvoice objects filtered by the ArinComRate column
+ * @method     ChildArInvoice[]|Collection findByArinsalesamt(string|array<string> $ArinSalesAmt) Return ChildArInvoice objects filtered by the ArinSalesAmt column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArinsalesamt(string|array<string> $ArinSalesAmt) Return ChildArInvoice objects filtered by the ArinSalesAmt column
+ * @method     ChildArInvoice[]|Collection findByArinorigwhse(string|array<string> $ArinOrigWhse) Return ChildArInvoice objects filtered by the ArinOrigWhse column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArinorigwhse(string|array<string> $ArinOrigWhse) Return ChildArInvoice objects filtered by the ArinOrigWhse column
+ * @method     ChildArInvoice[]|Collection findByArinwriteoffdate(string|array<string> $ArinWriteOffDate) Return ChildArInvoice objects filtered by the ArinWriteOffDate column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArinwriteoffdate(string|array<string> $ArinWriteOffDate) Return ChildArInvoice objects filtered by the ArinWriteOffDate column
+ * @method     ChildArInvoice[]|Collection findByArinwriteoffamt(string|array<string> $ArinWriteOffAmt) Return ChildArInvoice objects filtered by the ArinWriteOffAmt column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByArinwriteoffamt(string|array<string> $ArinWriteOffAmt) Return ChildArInvoice objects filtered by the ArinWriteOffAmt column
+ * @method     ChildArInvoice[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArInvoice objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArInvoice objects filtered by the DateUpdtd column
+ * @method     ChildArInvoice[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArInvoice objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArInvoice objects filtered by the TimeUpdtd column
+ * @method     ChildArInvoice[]|Collection findByDummy(string|array<string> $dummy) Return ChildArInvoice objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildArInvoice> findByDummy(string|array<string> $dummy) Return ChildArInvoice objects filtered by the dummy column
+ *
+ * @method     ChildArInvoice[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildArInvoice> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ArInvoiceQuery extends ModelCriteria
 {
@@ -181,9 +207,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ArInvoiceQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ArInvoice', $modelAlias = null)
     {
@@ -193,12 +219,12 @@ abstract class ArInvoiceQuery extends ModelCriteria
     /**
      * Returns a new ChildArInvoiceQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildArInvoiceQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildArInvoiceQuery) {
             return $criteria;
@@ -228,7 +254,7 @@ abstract class ArInvoiceQuery extends ModelCriteria
      *
      * @return ChildArInvoice|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -260,8 +286,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -297,8 +323,8 @@ abstract class ArInvoiceQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildArInvoice|array|mixed the result, formatted by the current formatter
      */
@@ -318,12 +344,12 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -340,9 +366,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -358,14 +384,16 @@ abstract class ArInvoiceQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(ArInvoiceTableMap::COL_ARCUCUSTID, $key[0], Criteria::EQUAL);
@@ -390,14 +418,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $query->filterByArcucustid('fooValue');   // WHERE ArcuCustId = 'fooValue'
      * $query->filterByArcucustid('%fooValue%', Criteria::LIKE); // WHERE ArcuCustId LIKE '%fooValue%'
+     * $query->filterByArcucustid(['foo', 'bar']); // WHERE ArcuCustId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arcucustid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arcucustid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArcucustid($arcucustid = null, $comparison = null)
+    public function filterByArcucustid($arcucustid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arcucustid)) {
@@ -405,7 +434,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -415,14 +446,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $query->filterByArininvnbr('fooValue');   // WHERE ArinInvNbr = 'fooValue'
      * $query->filterByArininvnbr('%fooValue%', Criteria::LIKE); // WHERE ArinInvNbr LIKE '%fooValue%'
+     * $query->filterByArininvnbr(['foo', 'bar']); // WHERE ArinInvNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arininvnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arininvnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArininvnbr($arininvnbr = null, $comparison = null)
+    public function filterByArininvnbr($arininvnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arininvnbr)) {
@@ -430,7 +462,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARININVNBR, $arininvnbr, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARININVNBR, $arininvnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -443,15 +477,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * $query->filterByArininvseq(array('min' => 12)); // WHERE ArinInvSeq > 12
      * </code>
      *
-     * @param     mixed $arininvseq The value to use as filter.
+     * @param mixed $arininvseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArininvseq($arininvseq = null, $comparison = null)
+    public function filterByArininvseq($arininvseq = null, ?string $comparison = null)
     {
         if (is_array($arininvseq)) {
             $useMinMax = false;
@@ -471,7 +505,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARININVSEQ, $arininvseq, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARININVSEQ, $arininvseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -481,14 +517,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $query->filterByArintype('fooValue');   // WHERE ArinType = 'fooValue'
      * $query->filterByArintype('%fooValue%', Criteria::LIKE); // WHERE ArinType LIKE '%fooValue%'
+     * $query->filterByArintype(['foo', 'bar']); // WHERE ArinType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arintype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arintype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArintype($arintype = null, $comparison = null)
+    public function filterByArintype($arintype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arintype)) {
@@ -496,7 +533,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINTYPE, $arintype, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINTYPE, $arintype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -509,15 +548,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * $query->filterByArinseq(array('min' => 12)); // WHERE ArinSeq > 12
      * </code>
      *
-     * @param     mixed $arinseq The value to use as filter.
+     * @param mixed $arinseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArinseq($arinseq = null, $comparison = null)
+    public function filterByArinseq($arinseq = null, ?string $comparison = null)
     {
         if (is_array($arinseq)) {
             $useMinMax = false;
@@ -537,7 +576,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINSEQ, $arinseq, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINSEQ, $arinseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -547,14 +588,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $query->filterByArinhold('fooValue');   // WHERE ArinHold = 'fooValue'
      * $query->filterByArinhold('%fooValue%', Criteria::LIKE); // WHERE ArinHold LIKE '%fooValue%'
+     * $query->filterByArinhold(['foo', 'bar']); // WHERE ArinHold IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arinhold The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arinhold The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArinhold($arinhold = null, $comparison = null)
+    public function filterByArinhold($arinhold = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arinhold)) {
@@ -562,7 +604,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINHOLD, $arinhold, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINHOLD, $arinhold, $comparison);
+
+        return $this;
     }
 
     /**
@@ -572,14 +616,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $query->filterByArininvdate('fooValue');   // WHERE ArinInvDate = 'fooValue'
      * $query->filterByArininvdate('%fooValue%', Criteria::LIKE); // WHERE ArinInvDate LIKE '%fooValue%'
+     * $query->filterByArininvdate(['foo', 'bar']); // WHERE ArinInvDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arininvdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arininvdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArininvdate($arininvdate = null, $comparison = null)
+    public function filterByArininvdate($arininvdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arininvdate)) {
@@ -587,7 +632,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARININVDATE, $arininvdate, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARININVDATE, $arininvdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -597,14 +644,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $query->filterByArindiscdate('fooValue');   // WHERE ArinDiscDate = 'fooValue'
      * $query->filterByArindiscdate('%fooValue%', Criteria::LIKE); // WHERE ArinDiscDate LIKE '%fooValue%'
+     * $query->filterByArindiscdate(['foo', 'bar']); // WHERE ArinDiscDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arindiscdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arindiscdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArindiscdate($arindiscdate = null, $comparison = null)
+    public function filterByArindiscdate($arindiscdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arindiscdate)) {
@@ -612,7 +660,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINDISCDATE, $arindiscdate, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINDISCDATE, $arindiscdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -622,14 +672,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $query->filterByArinduedate('fooValue');   // WHERE ArinDueDate = 'fooValue'
      * $query->filterByArinduedate('%fooValue%', Criteria::LIKE); // WHERE ArinDueDate LIKE '%fooValue%'
+     * $query->filterByArinduedate(['foo', 'bar']); // WHERE ArinDueDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arinduedate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arinduedate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArinduedate($arinduedate = null, $comparison = null)
+    public function filterByArinduedate($arinduedate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arinduedate)) {
@@ -637,7 +688,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINDUEDATE, $arinduedate, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINDUEDATE, $arinduedate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -650,15 +703,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * $query->filterByArintotamt(array('min' => 12)); // WHERE ArinTotAmt > 12
      * </code>
      *
-     * @param     mixed $arintotamt The value to use as filter.
+     * @param mixed $arintotamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArintotamt($arintotamt = null, $comparison = null)
+    public function filterByArintotamt($arintotamt = null, ?string $comparison = null)
     {
         if (is_array($arintotamt)) {
             $useMinMax = false;
@@ -678,7 +731,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINTOTAMT, $arintotamt, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINTOTAMT, $arintotamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -691,15 +746,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * $query->filterByArindiscamt(array('min' => 12)); // WHERE ArinDiscAmt > 12
      * </code>
      *
-     * @param     mixed $arindiscamt The value to use as filter.
+     * @param mixed $arindiscamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArindiscamt($arindiscamt = null, $comparison = null)
+    public function filterByArindiscamt($arindiscamt = null, ?string $comparison = null)
     {
         if (is_array($arindiscamt)) {
             $useMinMax = false;
@@ -719,7 +774,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINDISCAMT, $arindiscamt, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINDISCAMT, $arindiscamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -729,14 +786,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $query->filterByArinchknbr('fooValue');   // WHERE ArinChkNbr = 'fooValue'
      * $query->filterByArinchknbr('%fooValue%', Criteria::LIKE); // WHERE ArinChkNbr LIKE '%fooValue%'
+     * $query->filterByArinchknbr(['foo', 'bar']); // WHERE ArinChkNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arinchknbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arinchknbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArinchknbr($arinchknbr = null, $comparison = null)
+    public function filterByArinchknbr($arinchknbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arinchknbr)) {
@@ -744,7 +802,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINCHKNBR, $arinchknbr, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINCHKNBR, $arinchknbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -754,14 +814,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $query->filterByArincustpo('fooValue');   // WHERE ArinCustPo = 'fooValue'
      * $query->filterByArincustpo('%fooValue%', Criteria::LIKE); // WHERE ArinCustPo LIKE '%fooValue%'
+     * $query->filterByArincustpo(['foo', 'bar']); // WHERE ArinCustPo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arincustpo The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arincustpo The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArincustpo($arincustpo = null, $comparison = null)
+    public function filterByArincustpo($arincustpo = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arincustpo)) {
@@ -769,7 +830,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINCUSTPO, $arincustpo, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINCUSTPO, $arincustpo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -779,14 +842,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $query->filterByArintermcode('fooValue');   // WHERE ArinTermCode = 'fooValue'
      * $query->filterByArintermcode('%fooValue%', Criteria::LIKE); // WHERE ArinTermCode LIKE '%fooValue%'
+     * $query->filterByArintermcode(['foo', 'bar']); // WHERE ArinTermCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arintermcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arintermcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArintermcode($arintermcode = null, $comparison = null)
+    public function filterByArintermcode($arintermcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arintermcode)) {
@@ -794,7 +858,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINTERMCODE, $arintermcode, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINTERMCODE, $arintermcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -807,15 +873,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * $query->filterByArinfrtallow(array('min' => 12)); // WHERE ArinFrtAllow > 12
      * </code>
      *
-     * @param     mixed $arinfrtallow The value to use as filter.
+     * @param mixed $arinfrtallow The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArinfrtallow($arinfrtallow = null, $comparison = null)
+    public function filterByArinfrtallow($arinfrtallow = null, ?string $comparison = null)
     {
         if (is_array($arinfrtallow)) {
             $useMinMax = false;
@@ -835,7 +901,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINFRTALLOW, $arinfrtallow, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINFRTALLOW, $arinfrtallow, $comparison);
+
+        return $this;
     }
 
     /**
@@ -845,14 +913,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $query->filterByArinordrnbr('fooValue');   // WHERE ArinOrdrNbr = 'fooValue'
      * $query->filterByArinordrnbr('%fooValue%', Criteria::LIKE); // WHERE ArinOrdrNbr LIKE '%fooValue%'
+     * $query->filterByArinordrnbr(['foo', 'bar']); // WHERE ArinOrdrNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arinordrnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arinordrnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArinordrnbr($arinordrnbr = null, $comparison = null)
+    public function filterByArinordrnbr($arinordrnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arinordrnbr)) {
@@ -860,7 +929,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINORDRNBR, $arinordrnbr, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINORDRNBR, $arinordrnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -873,15 +944,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * $query->filterByArincomrate(array('min' => 12)); // WHERE ArinComRate > 12
      * </code>
      *
-     * @param     mixed $arincomrate The value to use as filter.
+     * @param mixed $arincomrate The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArincomrate($arincomrate = null, $comparison = null)
+    public function filterByArincomrate($arincomrate = null, ?string $comparison = null)
     {
         if (is_array($arincomrate)) {
             $useMinMax = false;
@@ -901,7 +972,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINCOMRATE, $arincomrate, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINCOMRATE, $arincomrate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -914,15 +987,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * $query->filterByArinsalesamt(array('min' => 12)); // WHERE ArinSalesAmt > 12
      * </code>
      *
-     * @param     mixed $arinsalesamt The value to use as filter.
+     * @param mixed $arinsalesamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArinsalesamt($arinsalesamt = null, $comparison = null)
+    public function filterByArinsalesamt($arinsalesamt = null, ?string $comparison = null)
     {
         if (is_array($arinsalesamt)) {
             $useMinMax = false;
@@ -942,7 +1015,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINSALESAMT, $arinsalesamt, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINSALESAMT, $arinsalesamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -952,14 +1027,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $query->filterByArinorigwhse('fooValue');   // WHERE ArinOrigWhse = 'fooValue'
      * $query->filterByArinorigwhse('%fooValue%', Criteria::LIKE); // WHERE ArinOrigWhse LIKE '%fooValue%'
+     * $query->filterByArinorigwhse(['foo', 'bar']); // WHERE ArinOrigWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arinorigwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arinorigwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArinorigwhse($arinorigwhse = null, $comparison = null)
+    public function filterByArinorigwhse($arinorigwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arinorigwhse)) {
@@ -967,7 +1043,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINORIGWHSE, $arinorigwhse, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINORIGWHSE, $arinorigwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -977,14 +1055,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $query->filterByArinwriteoffdate('fooValue');   // WHERE ArinWriteOffDate = 'fooValue'
      * $query->filterByArinwriteoffdate('%fooValue%', Criteria::LIKE); // WHERE ArinWriteOffDate LIKE '%fooValue%'
+     * $query->filterByArinwriteoffdate(['foo', 'bar']); // WHERE ArinWriteOffDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $arinwriteoffdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $arinwriteoffdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArinwriteoffdate($arinwriteoffdate = null, $comparison = null)
+    public function filterByArinwriteoffdate($arinwriteoffdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($arinwriteoffdate)) {
@@ -992,7 +1071,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINWRITEOFFDATE, $arinwriteoffdate, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINWRITEOFFDATE, $arinwriteoffdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1005,15 +1086,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * $query->filterByArinwriteoffamt(array('min' => 12)); // WHERE ArinWriteOffAmt > 12
      * </code>
      *
-     * @param     mixed $arinwriteoffamt The value to use as filter.
+     * @param mixed $arinwriteoffamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArinwriteoffamt($arinwriteoffamt = null, $comparison = null)
+    public function filterByArinwriteoffamt($arinwriteoffamt = null, ?string $comparison = null)
     {
         if (is_array($arinwriteoffamt)) {
             $useMinMax = false;
@@ -1033,7 +1114,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_ARINWRITEOFFAMT, $arinwriteoffamt, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_ARINWRITEOFFAMT, $arinwriteoffamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1043,14 +1126,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1058,7 +1142,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1068,14 +1154,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1083,7 +1170,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1093,14 +1182,15 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1108,20 +1198,22 @@ abstract class ArInvoiceQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArInvoiceTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ArInvoiceTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \Customer object
      *
      * @param \Customer|ObjectCollection $customer The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomer($customer, $comparison = null)
+    public function filterByCustomer($customer, ?string $comparison = null)
     {
         if ($customer instanceof \Customer) {
             return $this
@@ -1131,8 +1223,10 @@ abstract class ArInvoiceQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ArInvoiceTableMap::COL_ARCUCUSTID, $customer->toKeyValue('PrimaryKey', 'Arcucustid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByCustomer() only accepts arguments of type \Customer or Collection');
         }
@@ -1141,12 +1235,12 @@ abstract class ArInvoiceQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Customer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCustomer(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Customer');
@@ -1175,9 +1269,9 @@ abstract class ArInvoiceQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CustomerQuery A secondary query class using the current class as primary query
      */
@@ -1189,11 +1283,107 @@ abstract class ArInvoiceQuery extends ModelCriteria
     }
 
     /**
+     * Use the Customer relation Customer object
+     *
+     * @param callable(\CustomerQuery):\CustomerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCustomerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useCustomerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Customer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CustomerQuery The inner query object of the EXISTS statement
+     */
+    public function useCustomerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT EXISTS query.
+     *
+     * @see useCustomerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCustomerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CustomerQuery The inner query object of the IN statement
+     */
+    public function useInCustomerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT IN query.
+     *
+     * @see useCustomerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCustomerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildArInvoice $arInvoice Object to remove from the list of results
+     * @param ChildArInvoice $arInvoice Object to remove from the list of results
      *
-     * @return $this|ChildArInvoiceQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($arInvoice = null)
     {
@@ -1215,7 +1405,7 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArInvoiceTableMap::DATABASE_NAME);
@@ -1240,12 +1430,12 @@ abstract class ArInvoiceQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArInvoiceTableMap::DATABASE_NAME);
@@ -1270,4 +1460,4 @@ abstract class ArInvoiceQuery extends ModelCriteria
         });
     }
 
-} // ArInvoiceQuery
+}

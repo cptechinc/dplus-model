@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ConfigKtTableMap extends TableMap
 {
@@ -34,134 +33,230 @@ class ConfigKtTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ConfigKtTableMap';
+    public const CLASS_NAME = '.Map.ConfigKtTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'kt_config';
+    public const TABLE_NAME = 'kt_config';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ConfigKt';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ConfigKt';
+    public const OM_CLASS = '\\ConfigKt';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ConfigKt';
+    public const CLASS_DEFAULT = 'ConfigKt';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 10;
+    public const NUM_COLUMNS = 10;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 10;
+    public const NUM_HYDRATE_COLUMNS = 10;
 
     /**
      * the column name for the KttbConfKey field
      */
-    const COL_KTTBCONFKEY = 'kt_config.KttbConfKey';
+    public const COL_KTTBCONFKEY = 'kt_config.KttbConfKey';
 
     /**
      * the column name for the KttbConfEditSo field
      */
-    const COL_KTTBCONFEDITSO = 'kt_config.KttbConfEditSo';
+    public const COL_KTTBCONFEDITSO = 'kt_config.KttbConfEditSo';
 
     /**
      * the column name for the KttbConfValu field
      */
-    const COL_KTTBCONFVALU = 'kt_config.KttbConfValu';
+    public const COL_KTTBCONFVALU = 'kt_config.KttbConfValu';
 
     /**
      * the column name for the KttbConfEntryDecPos field
      */
-    const COL_KTTBCONFENTRYDECPOS = 'kt_config.KttbConfEntryDecPos';
+    public const COL_KTTBCONFENTRYDECPOS = 'kt_config.KttbConfEntryDecPos';
 
     /**
      * the column name for the KttbConfAllowKitInKit field
      */
-    const COL_KTTBCONFALLOWKITINKIT = 'kt_config.KttbConfAllowKitInKit';
+    public const COL_KTTBCONFALLOWKITINKIT = 'kt_config.KttbConfAllowKitInKit';
 
     /**
      * the column name for the KttbConfBackordrKitComp field
      */
-    const COL_KTTBCONFBACKORDRKITCOMP = 'kt_config.KttbConfBackordrKitComp';
+    public const COL_KTTBCONFBACKORDRKITCOMP = 'kt_config.KttbConfBackordrKitComp';
 
     /**
      * the column name for the KttbConfFreeOrTag field
      */
-    const COL_KTTBCONFFREEORTAG = 'kt_config.KttbConfFreeOrTag';
+    public const COL_KTTBCONFFREEORTAG = 'kt_config.KttbConfFreeOrTag';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'kt_config.DateUpdtd';
+    public const COL_DATEUPDTD = 'kt_config.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'kt_config.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'kt_config.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'kt_config.dummy';
+    public const COL_DUMMY = 'kt_config.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Kttbconfkey', 'Kttbconfeditso', 'Kttbconfvalu', 'Kttbconfentrydecpos', 'Kttbconfallowkitinkit', 'Kttbconfbackordrkitcomp', 'Kttbconffreeortag', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('kttbconfkey', 'kttbconfeditso', 'kttbconfvalu', 'kttbconfentrydecpos', 'kttbconfallowkitinkit', 'kttbconfbackordrkitcomp', 'kttbconffreeortag', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ConfigKtTableMap::COL_KTTBCONFKEY, ConfigKtTableMap::COL_KTTBCONFEDITSO, ConfigKtTableMap::COL_KTTBCONFVALU, ConfigKtTableMap::COL_KTTBCONFENTRYDECPOS, ConfigKtTableMap::COL_KTTBCONFALLOWKITINKIT, ConfigKtTableMap::COL_KTTBCONFBACKORDRKITCOMP, ConfigKtTableMap::COL_KTTBCONFFREEORTAG, ConfigKtTableMap::COL_DATEUPDTD, ConfigKtTableMap::COL_TIMEUPDTD, ConfigKtTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('KttbConfKey', 'KttbConfEditSo', 'KttbConfValu', 'KttbConfEntryDecPos', 'KttbConfAllowKitInKit', 'KttbConfBackordrKitComp', 'KttbConfFreeOrTag', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Kttbconfkey', 'Kttbconfeditso', 'Kttbconfvalu', 'Kttbconfentrydecpos', 'Kttbconfallowkitinkit', 'Kttbconfbackordrkitcomp', 'Kttbconffreeortag', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['kttbconfkey', 'kttbconfeditso', 'kttbconfvalu', 'kttbconfentrydecpos', 'kttbconfallowkitinkit', 'kttbconfbackordrkitcomp', 'kttbconffreeortag', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ConfigKtTableMap::COL_KTTBCONFKEY, ConfigKtTableMap::COL_KTTBCONFEDITSO, ConfigKtTableMap::COL_KTTBCONFVALU, ConfigKtTableMap::COL_KTTBCONFENTRYDECPOS, ConfigKtTableMap::COL_KTTBCONFALLOWKITINKIT, ConfigKtTableMap::COL_KTTBCONFBACKORDRKITCOMP, ConfigKtTableMap::COL_KTTBCONFFREEORTAG, ConfigKtTableMap::COL_DATEUPDTD, ConfigKtTableMap::COL_TIMEUPDTD, ConfigKtTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['KttbConfKey', 'KttbConfEditSo', 'KttbConfValu', 'KttbConfEntryDecPos', 'KttbConfAllowKitInKit', 'KttbConfBackordrKitComp', 'KttbConfFreeOrTag', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Kttbconfkey' => 0, 'Kttbconfeditso' => 1, 'Kttbconfvalu' => 2, 'Kttbconfentrydecpos' => 3, 'Kttbconfallowkitinkit' => 4, 'Kttbconfbackordrkitcomp' => 5, 'Kttbconffreeortag' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ),
-        self::TYPE_CAMELNAME     => array('kttbconfkey' => 0, 'kttbconfeditso' => 1, 'kttbconfvalu' => 2, 'kttbconfentrydecpos' => 3, 'kttbconfallowkitinkit' => 4, 'kttbconfbackordrkitcomp' => 5, 'kttbconffreeortag' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ),
-        self::TYPE_COLNAME       => array(ConfigKtTableMap::COL_KTTBCONFKEY => 0, ConfigKtTableMap::COL_KTTBCONFEDITSO => 1, ConfigKtTableMap::COL_KTTBCONFVALU => 2, ConfigKtTableMap::COL_KTTBCONFENTRYDECPOS => 3, ConfigKtTableMap::COL_KTTBCONFALLOWKITINKIT => 4, ConfigKtTableMap::COL_KTTBCONFBACKORDRKITCOMP => 5, ConfigKtTableMap::COL_KTTBCONFFREEORTAG => 6, ConfigKtTableMap::COL_DATEUPDTD => 7, ConfigKtTableMap::COL_TIMEUPDTD => 8, ConfigKtTableMap::COL_DUMMY => 9, ),
-        self::TYPE_FIELDNAME     => array('KttbConfKey' => 0, 'KttbConfEditSo' => 1, 'KttbConfValu' => 2, 'KttbConfEntryDecPos' => 3, 'KttbConfAllowKitInKit' => 4, 'KttbConfBackordrKitComp' => 5, 'KttbConfFreeOrTag' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Kttbconfkey' => 0, 'Kttbconfeditso' => 1, 'Kttbconfvalu' => 2, 'Kttbconfentrydecpos' => 3, 'Kttbconfallowkitinkit' => 4, 'Kttbconfbackordrkitcomp' => 5, 'Kttbconffreeortag' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ],
+        self::TYPE_CAMELNAME     => ['kttbconfkey' => 0, 'kttbconfeditso' => 1, 'kttbconfvalu' => 2, 'kttbconfentrydecpos' => 3, 'kttbconfallowkitinkit' => 4, 'kttbconfbackordrkitcomp' => 5, 'kttbconffreeortag' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ],
+        self::TYPE_COLNAME       => [ConfigKtTableMap::COL_KTTBCONFKEY => 0, ConfigKtTableMap::COL_KTTBCONFEDITSO => 1, ConfigKtTableMap::COL_KTTBCONFVALU => 2, ConfigKtTableMap::COL_KTTBCONFENTRYDECPOS => 3, ConfigKtTableMap::COL_KTTBCONFALLOWKITINKIT => 4, ConfigKtTableMap::COL_KTTBCONFBACKORDRKITCOMP => 5, ConfigKtTableMap::COL_KTTBCONFFREEORTAG => 6, ConfigKtTableMap::COL_DATEUPDTD => 7, ConfigKtTableMap::COL_TIMEUPDTD => 8, ConfigKtTableMap::COL_DUMMY => 9, ],
+        self::TYPE_FIELDNAME     => ['KttbConfKey' => 0, 'KttbConfEditSo' => 1, 'KttbConfValu' => 2, 'KttbConfEntryDecPos' => 3, 'KttbConfAllowKitInKit' => 4, 'KttbConfBackordrKitComp' => 5, 'KttbConfFreeOrTag' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Kttbconfkey' => 'KTTBCONFKEY',
+        'ConfigKt.Kttbconfkey' => 'KTTBCONFKEY',
+        'kttbconfkey' => 'KTTBCONFKEY',
+        'configKt.kttbconfkey' => 'KTTBCONFKEY',
+        'ConfigKtTableMap::COL_KTTBCONFKEY' => 'KTTBCONFKEY',
+        'COL_KTTBCONFKEY' => 'KTTBCONFKEY',
+        'KttbConfKey' => 'KTTBCONFKEY',
+        'kt_config.KttbConfKey' => 'KTTBCONFKEY',
+        'Kttbconfeditso' => 'KTTBCONFEDITSO',
+        'ConfigKt.Kttbconfeditso' => 'KTTBCONFEDITSO',
+        'kttbconfeditso' => 'KTTBCONFEDITSO',
+        'configKt.kttbconfeditso' => 'KTTBCONFEDITSO',
+        'ConfigKtTableMap::COL_KTTBCONFEDITSO' => 'KTTBCONFEDITSO',
+        'COL_KTTBCONFEDITSO' => 'KTTBCONFEDITSO',
+        'KttbConfEditSo' => 'KTTBCONFEDITSO',
+        'kt_config.KttbConfEditSo' => 'KTTBCONFEDITSO',
+        'Kttbconfvalu' => 'KTTBCONFVALU',
+        'ConfigKt.Kttbconfvalu' => 'KTTBCONFVALU',
+        'kttbconfvalu' => 'KTTBCONFVALU',
+        'configKt.kttbconfvalu' => 'KTTBCONFVALU',
+        'ConfigKtTableMap::COL_KTTBCONFVALU' => 'KTTBCONFVALU',
+        'COL_KTTBCONFVALU' => 'KTTBCONFVALU',
+        'KttbConfValu' => 'KTTBCONFVALU',
+        'kt_config.KttbConfValu' => 'KTTBCONFVALU',
+        'Kttbconfentrydecpos' => 'KTTBCONFENTRYDECPOS',
+        'ConfigKt.Kttbconfentrydecpos' => 'KTTBCONFENTRYDECPOS',
+        'kttbconfentrydecpos' => 'KTTBCONFENTRYDECPOS',
+        'configKt.kttbconfentrydecpos' => 'KTTBCONFENTRYDECPOS',
+        'ConfigKtTableMap::COL_KTTBCONFENTRYDECPOS' => 'KTTBCONFENTRYDECPOS',
+        'COL_KTTBCONFENTRYDECPOS' => 'KTTBCONFENTRYDECPOS',
+        'KttbConfEntryDecPos' => 'KTTBCONFENTRYDECPOS',
+        'kt_config.KttbConfEntryDecPos' => 'KTTBCONFENTRYDECPOS',
+        'Kttbconfallowkitinkit' => 'KTTBCONFALLOWKITINKIT',
+        'ConfigKt.Kttbconfallowkitinkit' => 'KTTBCONFALLOWKITINKIT',
+        'kttbconfallowkitinkit' => 'KTTBCONFALLOWKITINKIT',
+        'configKt.kttbconfallowkitinkit' => 'KTTBCONFALLOWKITINKIT',
+        'ConfigKtTableMap::COL_KTTBCONFALLOWKITINKIT' => 'KTTBCONFALLOWKITINKIT',
+        'COL_KTTBCONFALLOWKITINKIT' => 'KTTBCONFALLOWKITINKIT',
+        'KttbConfAllowKitInKit' => 'KTTBCONFALLOWKITINKIT',
+        'kt_config.KttbConfAllowKitInKit' => 'KTTBCONFALLOWKITINKIT',
+        'Kttbconfbackordrkitcomp' => 'KTTBCONFBACKORDRKITCOMP',
+        'ConfigKt.Kttbconfbackordrkitcomp' => 'KTTBCONFBACKORDRKITCOMP',
+        'kttbconfbackordrkitcomp' => 'KTTBCONFBACKORDRKITCOMP',
+        'configKt.kttbconfbackordrkitcomp' => 'KTTBCONFBACKORDRKITCOMP',
+        'ConfigKtTableMap::COL_KTTBCONFBACKORDRKITCOMP' => 'KTTBCONFBACKORDRKITCOMP',
+        'COL_KTTBCONFBACKORDRKITCOMP' => 'KTTBCONFBACKORDRKITCOMP',
+        'KttbConfBackordrKitComp' => 'KTTBCONFBACKORDRKITCOMP',
+        'kt_config.KttbConfBackordrKitComp' => 'KTTBCONFBACKORDRKITCOMP',
+        'Kttbconffreeortag' => 'KTTBCONFFREEORTAG',
+        'ConfigKt.Kttbconffreeortag' => 'KTTBCONFFREEORTAG',
+        'kttbconffreeortag' => 'KTTBCONFFREEORTAG',
+        'configKt.kttbconffreeortag' => 'KTTBCONFFREEORTAG',
+        'ConfigKtTableMap::COL_KTTBCONFFREEORTAG' => 'KTTBCONFFREEORTAG',
+        'COL_KTTBCONFFREEORTAG' => 'KTTBCONFFREEORTAG',
+        'KttbConfFreeOrTag' => 'KTTBCONFFREEORTAG',
+        'kt_config.KttbConfFreeOrTag' => 'KTTBCONFFREEORTAG',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ConfigKt.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'configKt.dateupdtd' => 'DATEUPDTD',
+        'ConfigKtTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'kt_config.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ConfigKt.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'configKt.timeupdtd' => 'TIMEUPDTD',
+        'ConfigKtTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'kt_config.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ConfigKt.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'configKt.dummy' => 'DUMMY',
+        'ConfigKtTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'kt_config.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('kt_config');
@@ -181,14 +276,16 @@ class ConfigKtTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -196,14 +293,14 @@ class ConfigKtTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Kttbconfkey', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -218,14 +315,14 @@ class ConfigKtTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (int) $row[
             $indexType == TableMap::TYPE_NUM
@@ -242,10 +339,10 @@ class ConfigKtTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ConfigKtTableMap::CLASS_DEFAULT : ConfigKtTableMap::OM_CLASS;
     }
@@ -253,17 +350,17 @@ class ConfigKtTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ConfigKt object, last column rank)
+     * @return array (ConfigKt object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ConfigKtTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ConfigKtTableMap::getInstanceFromPool($key))) {
@@ -279,7 +376,7 @@ class ConfigKtTableMap extends TableMap
             ConfigKtTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -287,13 +384,13 @@ class ConfigKtTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -323,12 +420,13 @@ class ConfigKtTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ConfigKtTableMap::COL_KTTBCONFKEY);
@@ -356,40 +454,68 @@ class ConfigKtTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ConfigKtTableMap::COL_KTTBCONFKEY);
+            $criteria->removeSelectColumn(ConfigKtTableMap::COL_KTTBCONFEDITSO);
+            $criteria->removeSelectColumn(ConfigKtTableMap::COL_KTTBCONFVALU);
+            $criteria->removeSelectColumn(ConfigKtTableMap::COL_KTTBCONFENTRYDECPOS);
+            $criteria->removeSelectColumn(ConfigKtTableMap::COL_KTTBCONFALLOWKITINKIT);
+            $criteria->removeSelectColumn(ConfigKtTableMap::COL_KTTBCONFBACKORDRKITCOMP);
+            $criteria->removeSelectColumn(ConfigKtTableMap::COL_KTTBCONFFREEORTAG);
+            $criteria->removeSelectColumn(ConfigKtTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ConfigKtTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ConfigKtTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.KttbConfKey');
+            $criteria->removeSelectColumn($alias . '.KttbConfEditSo');
+            $criteria->removeSelectColumn($alias . '.KttbConfValu');
+            $criteria->removeSelectColumn($alias . '.KttbConfEntryDecPos');
+            $criteria->removeSelectColumn($alias . '.KttbConfAllowKitInKit');
+            $criteria->removeSelectColumn($alias . '.KttbConfBackordrKitComp');
+            $criteria->removeSelectColumn($alias . '.KttbConfFreeOrTag');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ConfigKtTableMap::DATABASE_NAME)->getTable(ConfigKtTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ConfigKtTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ConfigKtTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ConfigKtTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ConfigKt or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ConfigKt object or primary key or array of primary keys
+     * @param mixed $values Criteria or ConfigKt object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigKtTableMap::DATABASE_NAME);
@@ -425,7 +551,7 @@ class ConfigKtTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ConfigKtQuery::create()->doDeleteAll($con);
     }
@@ -433,13 +559,13 @@ class ConfigKtTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ConfigKt or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ConfigKt object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ConfigKt object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigKtTableMap::DATABASE_NAME);
@@ -462,7 +588,4 @@ class ConfigKtTableMap extends TableMap
         });
     }
 
-} // ConfigKtTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ConfigKtTableMap::buildTableMap();
+}

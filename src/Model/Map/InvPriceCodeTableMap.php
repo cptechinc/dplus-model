@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class InvPriceCodeTableMap extends TableMap
 {
@@ -34,119 +33,191 @@ class InvPriceCodeTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.InvPriceCodeTableMap';
+    public const CLASS_NAME = '.Map.InvPriceCodeTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'inv_pric_code';
+    public const TABLE_NAME = 'inv_pric_code';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'InvPriceCode';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\InvPriceCode';
+    public const OM_CLASS = '\\InvPriceCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'InvPriceCode';
+    public const CLASS_DEFAULT = 'InvPriceCode';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 7;
+    public const NUM_COLUMNS = 7;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 7;
+    public const NUM_HYDRATE_COLUMNS = 7;
 
     /**
      * the column name for the IntbPricGrup field
      */
-    const COL_INTBPRICGRUP = 'inv_pric_code.IntbPricGrup';
+    public const COL_INTBPRICGRUP = 'inv_pric_code.IntbPricGrup';
 
     /**
      * the column name for the IntbPricDesc field
      */
-    const COL_INTBPRICDESC = 'inv_pric_code.IntbPricDesc';
+    public const COL_INTBPRICDESC = 'inv_pric_code.IntbPricDesc';
 
     /**
      * the column name for the IntbPricSaleProg field
      */
-    const COL_INTBPRICSALEPROG = 'inv_pric_code.IntbPricSaleProg';
+    public const COL_INTBPRICSALEPROG = 'inv_pric_code.IntbPricSaleProg';
 
     /**
      * the column name for the IntbPricCostPct field
      */
-    const COL_INTBPRICCOSTPCT = 'inv_pric_code.IntbPricCostPct';
+    public const COL_INTBPRICCOSTPCT = 'inv_pric_code.IntbPricCostPct';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'inv_pric_code.DateUpdtd';
+    public const COL_DATEUPDTD = 'inv_pric_code.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'inv_pric_code.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'inv_pric_code.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'inv_pric_code.dummy';
+    public const COL_DUMMY = 'inv_pric_code.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Intbpricgrup', 'Intbpricdesc', 'Intbpricsaleprog', 'Intbpriccostpct', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('intbpricgrup', 'intbpricdesc', 'intbpricsaleprog', 'intbpriccostpct', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvPriceCodeTableMap::COL_INTBPRICGRUP, InvPriceCodeTableMap::COL_INTBPRICDESC, InvPriceCodeTableMap::COL_INTBPRICSALEPROG, InvPriceCodeTableMap::COL_INTBPRICCOSTPCT, InvPriceCodeTableMap::COL_DATEUPDTD, InvPriceCodeTableMap::COL_TIMEUPDTD, InvPriceCodeTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('IntbPricGrup', 'IntbPricDesc', 'IntbPricSaleProg', 'IntbPricCostPct', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Intbpricgrup', 'Intbpricdesc', 'Intbpricsaleprog', 'Intbpriccostpct', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['intbpricgrup', 'intbpricdesc', 'intbpricsaleprog', 'intbpriccostpct', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [InvPriceCodeTableMap::COL_INTBPRICGRUP, InvPriceCodeTableMap::COL_INTBPRICDESC, InvPriceCodeTableMap::COL_INTBPRICSALEPROG, InvPriceCodeTableMap::COL_INTBPRICCOSTPCT, InvPriceCodeTableMap::COL_DATEUPDTD, InvPriceCodeTableMap::COL_TIMEUPDTD, InvPriceCodeTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['IntbPricGrup', 'IntbPricDesc', 'IntbPricSaleProg', 'IntbPricCostPct', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Intbpricgrup' => 0, 'Intbpricdesc' => 1, 'Intbpricsaleprog' => 2, 'Intbpriccostpct' => 3, 'Dateupdtd' => 4, 'Timeupdtd' => 5, 'Dummy' => 6, ),
-        self::TYPE_CAMELNAME     => array('intbpricgrup' => 0, 'intbpricdesc' => 1, 'intbpricsaleprog' => 2, 'intbpriccostpct' => 3, 'dateupdtd' => 4, 'timeupdtd' => 5, 'dummy' => 6, ),
-        self::TYPE_COLNAME       => array(InvPriceCodeTableMap::COL_INTBPRICGRUP => 0, InvPriceCodeTableMap::COL_INTBPRICDESC => 1, InvPriceCodeTableMap::COL_INTBPRICSALEPROG => 2, InvPriceCodeTableMap::COL_INTBPRICCOSTPCT => 3, InvPriceCodeTableMap::COL_DATEUPDTD => 4, InvPriceCodeTableMap::COL_TIMEUPDTD => 5, InvPriceCodeTableMap::COL_DUMMY => 6, ),
-        self::TYPE_FIELDNAME     => array('IntbPricGrup' => 0, 'IntbPricDesc' => 1, 'IntbPricSaleProg' => 2, 'IntbPricCostPct' => 3, 'DateUpdtd' => 4, 'TimeUpdtd' => 5, 'dummy' => 6, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Intbpricgrup' => 0, 'Intbpricdesc' => 1, 'Intbpricsaleprog' => 2, 'Intbpriccostpct' => 3, 'Dateupdtd' => 4, 'Timeupdtd' => 5, 'Dummy' => 6, ],
+        self::TYPE_CAMELNAME     => ['intbpricgrup' => 0, 'intbpricdesc' => 1, 'intbpricsaleprog' => 2, 'intbpriccostpct' => 3, 'dateupdtd' => 4, 'timeupdtd' => 5, 'dummy' => 6, ],
+        self::TYPE_COLNAME       => [InvPriceCodeTableMap::COL_INTBPRICGRUP => 0, InvPriceCodeTableMap::COL_INTBPRICDESC => 1, InvPriceCodeTableMap::COL_INTBPRICSALEPROG => 2, InvPriceCodeTableMap::COL_INTBPRICCOSTPCT => 3, InvPriceCodeTableMap::COL_DATEUPDTD => 4, InvPriceCodeTableMap::COL_TIMEUPDTD => 5, InvPriceCodeTableMap::COL_DUMMY => 6, ],
+        self::TYPE_FIELDNAME     => ['IntbPricGrup' => 0, 'IntbPricDesc' => 1, 'IntbPricSaleProg' => 2, 'IntbPricCostPct' => 3, 'DateUpdtd' => 4, 'TimeUpdtd' => 5, 'dummy' => 6, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Intbpricgrup' => 'INTBPRICGRUP',
+        'InvPriceCode.Intbpricgrup' => 'INTBPRICGRUP',
+        'intbpricgrup' => 'INTBPRICGRUP',
+        'invPriceCode.intbpricgrup' => 'INTBPRICGRUP',
+        'InvPriceCodeTableMap::COL_INTBPRICGRUP' => 'INTBPRICGRUP',
+        'COL_INTBPRICGRUP' => 'INTBPRICGRUP',
+        'IntbPricGrup' => 'INTBPRICGRUP',
+        'inv_pric_code.IntbPricGrup' => 'INTBPRICGRUP',
+        'Intbpricdesc' => 'INTBPRICDESC',
+        'InvPriceCode.Intbpricdesc' => 'INTBPRICDESC',
+        'intbpricdesc' => 'INTBPRICDESC',
+        'invPriceCode.intbpricdesc' => 'INTBPRICDESC',
+        'InvPriceCodeTableMap::COL_INTBPRICDESC' => 'INTBPRICDESC',
+        'COL_INTBPRICDESC' => 'INTBPRICDESC',
+        'IntbPricDesc' => 'INTBPRICDESC',
+        'inv_pric_code.IntbPricDesc' => 'INTBPRICDESC',
+        'Intbpricsaleprog' => 'INTBPRICSALEPROG',
+        'InvPriceCode.Intbpricsaleprog' => 'INTBPRICSALEPROG',
+        'intbpricsaleprog' => 'INTBPRICSALEPROG',
+        'invPriceCode.intbpricsaleprog' => 'INTBPRICSALEPROG',
+        'InvPriceCodeTableMap::COL_INTBPRICSALEPROG' => 'INTBPRICSALEPROG',
+        'COL_INTBPRICSALEPROG' => 'INTBPRICSALEPROG',
+        'IntbPricSaleProg' => 'INTBPRICSALEPROG',
+        'inv_pric_code.IntbPricSaleProg' => 'INTBPRICSALEPROG',
+        'Intbpriccostpct' => 'INTBPRICCOSTPCT',
+        'InvPriceCode.Intbpriccostpct' => 'INTBPRICCOSTPCT',
+        'intbpriccostpct' => 'INTBPRICCOSTPCT',
+        'invPriceCode.intbpriccostpct' => 'INTBPRICCOSTPCT',
+        'InvPriceCodeTableMap::COL_INTBPRICCOSTPCT' => 'INTBPRICCOSTPCT',
+        'COL_INTBPRICCOSTPCT' => 'INTBPRICCOSTPCT',
+        'IntbPricCostPct' => 'INTBPRICCOSTPCT',
+        'inv_pric_code.IntbPricCostPct' => 'INTBPRICCOSTPCT',
+        'Dateupdtd' => 'DATEUPDTD',
+        'InvPriceCode.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'invPriceCode.dateupdtd' => 'DATEUPDTD',
+        'InvPriceCodeTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'inv_pric_code.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'InvPriceCode.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'invPriceCode.timeupdtd' => 'TIMEUPDTD',
+        'InvPriceCodeTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'inv_pric_code.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'InvPriceCode.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'invPriceCode.dummy' => 'DUMMY',
+        'InvPriceCodeTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'inv_pric_code.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('inv_pric_code');
@@ -163,12 +234,14 @@ class InvPriceCodeTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::ONE_TO_MANY, array (
   0 =>
@@ -177,7 +250,7 @@ class InvPriceCodeTableMap extends TableMap
     1 => ':IntbPricGrup',
   ),
 ), null, null, 'ItemMasterItems', false);
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -185,14 +258,14 @@ class InvPriceCodeTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Intbpricgrup', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -207,14 +280,14 @@ class InvPriceCodeTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
             $indexType == TableMap::TYPE_NUM
@@ -231,10 +304,10 @@ class InvPriceCodeTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? InvPriceCodeTableMap::CLASS_DEFAULT : InvPriceCodeTableMap::OM_CLASS;
     }
@@ -242,17 +315,17 @@ class InvPriceCodeTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (InvPriceCode object, last column rank)
+     * @return array (InvPriceCode object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = InvPriceCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = InvPriceCodeTableMap::getInstanceFromPool($key))) {
@@ -268,7 +341,7 @@ class InvPriceCodeTableMap extends TableMap
             InvPriceCodeTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -276,13 +349,13 @@ class InvPriceCodeTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -312,12 +385,13 @@ class InvPriceCodeTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(InvPriceCodeTableMap::COL_INTBPRICGRUP);
@@ -339,40 +413,62 @@ class InvPriceCodeTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(InvPriceCodeTableMap::COL_INTBPRICGRUP);
+            $criteria->removeSelectColumn(InvPriceCodeTableMap::COL_INTBPRICDESC);
+            $criteria->removeSelectColumn(InvPriceCodeTableMap::COL_INTBPRICSALEPROG);
+            $criteria->removeSelectColumn(InvPriceCodeTableMap::COL_INTBPRICCOSTPCT);
+            $criteria->removeSelectColumn(InvPriceCodeTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(InvPriceCodeTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(InvPriceCodeTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.IntbPricGrup');
+            $criteria->removeSelectColumn($alias . '.IntbPricDesc');
+            $criteria->removeSelectColumn($alias . '.IntbPricSaleProg');
+            $criteria->removeSelectColumn($alias . '.IntbPricCostPct');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(InvPriceCodeTableMap::DATABASE_NAME)->getTable(InvPriceCodeTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvPriceCodeTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(InvPriceCodeTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new InvPriceCodeTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a InvPriceCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or InvPriceCode object or primary key or array of primary keys
+     * @param mixed $values Criteria or InvPriceCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvPriceCodeTableMap::DATABASE_NAME);
@@ -408,7 +504,7 @@ class InvPriceCodeTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return InvPriceCodeQuery::create()->doDeleteAll($con);
     }
@@ -416,13 +512,13 @@ class InvPriceCodeTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a InvPriceCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or InvPriceCode object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or InvPriceCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvPriceCodeTableMap::DATABASE_NAME);
@@ -445,7 +541,4 @@ class InvPriceCodeTableMap extends TableMap
         });
     }
 
-} // InvPriceCodeTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-InvPriceCodeTableMap::buildTableMap();
+}

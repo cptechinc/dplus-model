@@ -10,14 +10,12 @@ use Map\VendorInternalNoteTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'notes_vend_ship_internal' table.
- *
- *
+ * Base class that represents a query for the `notes_vend_ship_internal` table.
  *
  * @method     ChildVendorInternalNoteQuery orderByQntype($order = Criteria::ASC) Order by the QnType column
  * @method     ChildVendorInternalNoteQuery orderByQntypedesc($order = Criteria::ASC) Order by the QnTypeDesc column
@@ -51,23 +49,23 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVendorInternalNoteQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildVendorInternalNoteQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildVendorInternalNote findOne(ConnectionInterface $con = null) Return the first ChildVendorInternalNote matching the query
- * @method     ChildVendorInternalNote findOneOrCreate(ConnectionInterface $con = null) Return the first ChildVendorInternalNote matching the query, or a new ChildVendorInternalNote object populated from the query conditions when no match is found
+ * @method     ChildVendorInternalNote|null findOne(?ConnectionInterface $con = null) Return the first ChildVendorInternalNote matching the query
+ * @method     ChildVendorInternalNote findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildVendorInternalNote matching the query, or a new ChildVendorInternalNote object populated from the query conditions when no match is found
  *
- * @method     ChildVendorInternalNote findOneByQntype(string $QnType) Return the first ChildVendorInternalNote filtered by the QnType column
- * @method     ChildVendorInternalNote findOneByQntypedesc(string $QnTypeDesc) Return the first ChildVendorInternalNote filtered by the QnTypeDesc column
- * @method     ChildVendorInternalNote findOneByApvevendid(string $ApveVendId) Return the first ChildVendorInternalNote filtered by the ApveVendId column
- * @method     ChildVendorInternalNote findOneByApfmshipid(string $ApfmShipId) Return the first ChildVendorInternalNote filtered by the ApfmShipId column
- * @method     ChildVendorInternalNote findOneByQnseq(int $QnSeq) Return the first ChildVendorInternalNote filtered by the QnSeq column
- * @method     ChildVendorInternalNote findOneByQnnote(string $QnNote) Return the first ChildVendorInternalNote filtered by the QnNote column
- * @method     ChildVendorInternalNote findOneByQnkey2(string $QnKey2) Return the first ChildVendorInternalNote filtered by the QnKey2 column
- * @method     ChildVendorInternalNote findOneByQnform(string $QnForm) Return the first ChildVendorInternalNote filtered by the QnForm column
- * @method     ChildVendorInternalNote findOneByDateupdtd(string $DateUpdtd) Return the first ChildVendorInternalNote filtered by the DateUpdtd column
- * @method     ChildVendorInternalNote findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildVendorInternalNote filtered by the TimeUpdtd column
- * @method     ChildVendorInternalNote findOneByDummy(string $dummy) Return the first ChildVendorInternalNote filtered by the dummy column *
-
- * @method     ChildVendorInternalNote requirePk($key, ConnectionInterface $con = null) Return the ChildVendorInternalNote by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildVendorInternalNote requireOne(ConnectionInterface $con = null) Return the first ChildVendorInternalNote matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorInternalNote|null findOneByQntype(string $QnType) Return the first ChildVendorInternalNote filtered by the QnType column
+ * @method     ChildVendorInternalNote|null findOneByQntypedesc(string $QnTypeDesc) Return the first ChildVendorInternalNote filtered by the QnTypeDesc column
+ * @method     ChildVendorInternalNote|null findOneByApvevendid(string $ApveVendId) Return the first ChildVendorInternalNote filtered by the ApveVendId column
+ * @method     ChildVendorInternalNote|null findOneByApfmshipid(string $ApfmShipId) Return the first ChildVendorInternalNote filtered by the ApfmShipId column
+ * @method     ChildVendorInternalNote|null findOneByQnseq(int $QnSeq) Return the first ChildVendorInternalNote filtered by the QnSeq column
+ * @method     ChildVendorInternalNote|null findOneByQnnote(string $QnNote) Return the first ChildVendorInternalNote filtered by the QnNote column
+ * @method     ChildVendorInternalNote|null findOneByQnkey2(string $QnKey2) Return the first ChildVendorInternalNote filtered by the QnKey2 column
+ * @method     ChildVendorInternalNote|null findOneByQnform(string $QnForm) Return the first ChildVendorInternalNote filtered by the QnForm column
+ * @method     ChildVendorInternalNote|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildVendorInternalNote filtered by the DateUpdtd column
+ * @method     ChildVendorInternalNote|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildVendorInternalNote filtered by the TimeUpdtd column
+ * @method     ChildVendorInternalNote|null findOneByDummy(string $dummy) Return the first ChildVendorInternalNote filtered by the dummy column
+ *
+ * @method     ChildVendorInternalNote requirePk($key, ?ConnectionInterface $con = null) Return the ChildVendorInternalNote by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorInternalNote requireOne(?ConnectionInterface $con = null) Return the first ChildVendorInternalNote matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildVendorInternalNote requireOneByQntype(string $QnType) Return the first ChildVendorInternalNote filtered by the QnType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVendorInternalNote requireOneByQntypedesc(string $QnTypeDesc) Return the first ChildVendorInternalNote filtered by the QnTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -81,20 +79,34 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVendorInternalNote requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildVendorInternalNote filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVendorInternalNote requireOneByDummy(string $dummy) Return the first ChildVendorInternalNote filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildVendorInternalNote[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildVendorInternalNote objects based on current ModelCriteria
- * @method     ChildVendorInternalNote[]|ObjectCollection findByQntype(string $QnType) Return ChildVendorInternalNote objects filtered by the QnType column
- * @method     ChildVendorInternalNote[]|ObjectCollection findByQntypedesc(string $QnTypeDesc) Return ChildVendorInternalNote objects filtered by the QnTypeDesc column
- * @method     ChildVendorInternalNote[]|ObjectCollection findByApvevendid(string $ApveVendId) Return ChildVendorInternalNote objects filtered by the ApveVendId column
- * @method     ChildVendorInternalNote[]|ObjectCollection findByApfmshipid(string $ApfmShipId) Return ChildVendorInternalNote objects filtered by the ApfmShipId column
- * @method     ChildVendorInternalNote[]|ObjectCollection findByQnseq(int $QnSeq) Return ChildVendorInternalNote objects filtered by the QnSeq column
- * @method     ChildVendorInternalNote[]|ObjectCollection findByQnnote(string $QnNote) Return ChildVendorInternalNote objects filtered by the QnNote column
- * @method     ChildVendorInternalNote[]|ObjectCollection findByQnkey2(string $QnKey2) Return ChildVendorInternalNote objects filtered by the QnKey2 column
- * @method     ChildVendorInternalNote[]|ObjectCollection findByQnform(string $QnForm) Return ChildVendorInternalNote objects filtered by the QnForm column
- * @method     ChildVendorInternalNote[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildVendorInternalNote objects filtered by the DateUpdtd column
- * @method     ChildVendorInternalNote[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildVendorInternalNote objects filtered by the TimeUpdtd column
- * @method     ChildVendorInternalNote[]|ObjectCollection findByDummy(string $dummy) Return ChildVendorInternalNote objects filtered by the dummy column
- * @method     ChildVendorInternalNote[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildVendorInternalNote[]|Collection find(?ConnectionInterface $con = null) Return ChildVendorInternalNote objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildVendorInternalNote> find(?ConnectionInterface $con = null) Return ChildVendorInternalNote objects based on current ModelCriteria
  *
+ * @method     ChildVendorInternalNote[]|Collection findByQntype(string|array<string> $QnType) Return ChildVendorInternalNote objects filtered by the QnType column
+ * @psalm-method Collection&\Traversable<ChildVendorInternalNote> findByQntype(string|array<string> $QnType) Return ChildVendorInternalNote objects filtered by the QnType column
+ * @method     ChildVendorInternalNote[]|Collection findByQntypedesc(string|array<string> $QnTypeDesc) Return ChildVendorInternalNote objects filtered by the QnTypeDesc column
+ * @psalm-method Collection&\Traversable<ChildVendorInternalNote> findByQntypedesc(string|array<string> $QnTypeDesc) Return ChildVendorInternalNote objects filtered by the QnTypeDesc column
+ * @method     ChildVendorInternalNote[]|Collection findByApvevendid(string|array<string> $ApveVendId) Return ChildVendorInternalNote objects filtered by the ApveVendId column
+ * @psalm-method Collection&\Traversable<ChildVendorInternalNote> findByApvevendid(string|array<string> $ApveVendId) Return ChildVendorInternalNote objects filtered by the ApveVendId column
+ * @method     ChildVendorInternalNote[]|Collection findByApfmshipid(string|array<string> $ApfmShipId) Return ChildVendorInternalNote objects filtered by the ApfmShipId column
+ * @psalm-method Collection&\Traversable<ChildVendorInternalNote> findByApfmshipid(string|array<string> $ApfmShipId) Return ChildVendorInternalNote objects filtered by the ApfmShipId column
+ * @method     ChildVendorInternalNote[]|Collection findByQnseq(int|array<int> $QnSeq) Return ChildVendorInternalNote objects filtered by the QnSeq column
+ * @psalm-method Collection&\Traversable<ChildVendorInternalNote> findByQnseq(int|array<int> $QnSeq) Return ChildVendorInternalNote objects filtered by the QnSeq column
+ * @method     ChildVendorInternalNote[]|Collection findByQnnote(string|array<string> $QnNote) Return ChildVendorInternalNote objects filtered by the QnNote column
+ * @psalm-method Collection&\Traversable<ChildVendorInternalNote> findByQnnote(string|array<string> $QnNote) Return ChildVendorInternalNote objects filtered by the QnNote column
+ * @method     ChildVendorInternalNote[]|Collection findByQnkey2(string|array<string> $QnKey2) Return ChildVendorInternalNote objects filtered by the QnKey2 column
+ * @psalm-method Collection&\Traversable<ChildVendorInternalNote> findByQnkey2(string|array<string> $QnKey2) Return ChildVendorInternalNote objects filtered by the QnKey2 column
+ * @method     ChildVendorInternalNote[]|Collection findByQnform(string|array<string> $QnForm) Return ChildVendorInternalNote objects filtered by the QnForm column
+ * @psalm-method Collection&\Traversable<ChildVendorInternalNote> findByQnform(string|array<string> $QnForm) Return ChildVendorInternalNote objects filtered by the QnForm column
+ * @method     ChildVendorInternalNote[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildVendorInternalNote objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildVendorInternalNote> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildVendorInternalNote objects filtered by the DateUpdtd column
+ * @method     ChildVendorInternalNote[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildVendorInternalNote objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildVendorInternalNote> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildVendorInternalNote objects filtered by the TimeUpdtd column
+ * @method     ChildVendorInternalNote[]|Collection findByDummy(string|array<string> $dummy) Return ChildVendorInternalNote objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildVendorInternalNote> findByDummy(string|array<string> $dummy) Return ChildVendorInternalNote objects filtered by the dummy column
+ *
+ * @method     ChildVendorInternalNote[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildVendorInternalNote> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class VendorInternalNoteQuery extends ModelCriteria
 {
@@ -103,9 +115,9 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\VendorInternalNoteQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\VendorInternalNote', $modelAlias = null)
     {
@@ -115,12 +127,12 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
     /**
      * Returns a new ChildVendorInternalNoteQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildVendorInternalNoteQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildVendorInternalNoteQuery) {
             return $criteria;
@@ -150,7 +162,7 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
      *
      * @return ChildVendorInternalNote|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -182,8 +194,8 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -218,8 +230,8 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildVendorInternalNote|array|mixed the result, formatted by the current formatter
      */
@@ -239,12 +251,12 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -261,9 +273,9 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildVendorInternalNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -278,14 +290,16 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildVendorInternalNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(VendorInternalNoteTableMap::COL_QNTYPE, $key[0], Criteria::EQUAL);
@@ -308,14 +322,15 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQntype('fooValue');   // WHERE QnType = 'fooValue'
      * $query->filterByQntype('%fooValue%', Criteria::LIKE); // WHERE QnType LIKE '%fooValue%'
+     * $query->filterByQntype(['foo', 'bar']); // WHERE QnType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qntype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qntype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorInternalNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQntype($qntype = null, $comparison = null)
+    public function filterByQntype($qntype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qntype)) {
@@ -323,7 +338,9 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorInternalNoteTableMap::COL_QNTYPE, $qntype, $comparison);
+        $this->addUsingAlias(VendorInternalNoteTableMap::COL_QNTYPE, $qntype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -333,14 +350,15 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQntypedesc('fooValue');   // WHERE QnTypeDesc = 'fooValue'
      * $query->filterByQntypedesc('%fooValue%', Criteria::LIKE); // WHERE QnTypeDesc LIKE '%fooValue%'
+     * $query->filterByQntypedesc(['foo', 'bar']); // WHERE QnTypeDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qntypedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qntypedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorInternalNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQntypedesc($qntypedesc = null, $comparison = null)
+    public function filterByQntypedesc($qntypedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qntypedesc)) {
@@ -348,7 +366,9 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorInternalNoteTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
+        $this->addUsingAlias(VendorInternalNoteTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -358,14 +378,15 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByApvevendid('fooValue');   // WHERE ApveVendId = 'fooValue'
      * $query->filterByApvevendid('%fooValue%', Criteria::LIKE); // WHERE ApveVendId LIKE '%fooValue%'
+     * $query->filterByApvevendid(['foo', 'bar']); // WHERE ApveVendId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvevendid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvevendid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorInternalNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvevendid($apvevendid = null, $comparison = null)
+    public function filterByApvevendid($apvevendid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvevendid)) {
@@ -373,7 +394,9 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorInternalNoteTableMap::COL_APVEVENDID, $apvevendid, $comparison);
+        $this->addUsingAlias(VendorInternalNoteTableMap::COL_APVEVENDID, $apvevendid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -383,14 +406,15 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByApfmshipid('fooValue');   // WHERE ApfmShipId = 'fooValue'
      * $query->filterByApfmshipid('%fooValue%', Criteria::LIKE); // WHERE ApfmShipId LIKE '%fooValue%'
+     * $query->filterByApfmshipid(['foo', 'bar']); // WHERE ApfmShipId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apfmshipid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apfmshipid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorInternalNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApfmshipid($apfmshipid = null, $comparison = null)
+    public function filterByApfmshipid($apfmshipid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apfmshipid)) {
@@ -398,7 +422,9 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorInternalNoteTableMap::COL_APFMSHIPID, $apfmshipid, $comparison);
+        $this->addUsingAlias(VendorInternalNoteTableMap::COL_APFMSHIPID, $apfmshipid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -411,15 +437,15 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
      * $query->filterByQnseq(array('min' => 12)); // WHERE QnSeq > 12
      * </code>
      *
-     * @param     mixed $qnseq The value to use as filter.
+     * @param mixed $qnseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorInternalNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnseq($qnseq = null, $comparison = null)
+    public function filterByQnseq($qnseq = null, ?string $comparison = null)
     {
         if (is_array($qnseq)) {
             $useMinMax = false;
@@ -439,7 +465,9 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorInternalNoteTableMap::COL_QNSEQ, $qnseq, $comparison);
+        $this->addUsingAlias(VendorInternalNoteTableMap::COL_QNSEQ, $qnseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -449,14 +477,15 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnnote('fooValue');   // WHERE QnNote = 'fooValue'
      * $query->filterByQnnote('%fooValue%', Criteria::LIKE); // WHERE QnNote LIKE '%fooValue%'
+     * $query->filterByQnnote(['foo', 'bar']); // WHERE QnNote IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnnote The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnnote The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorInternalNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnnote($qnnote = null, $comparison = null)
+    public function filterByQnnote($qnnote = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnnote)) {
@@ -464,7 +493,9 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorInternalNoteTableMap::COL_QNNOTE, $qnnote, $comparison);
+        $this->addUsingAlias(VendorInternalNoteTableMap::COL_QNNOTE, $qnnote, $comparison);
+
+        return $this;
     }
 
     /**
@@ -474,14 +505,15 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnkey2('fooValue');   // WHERE QnKey2 = 'fooValue'
      * $query->filterByQnkey2('%fooValue%', Criteria::LIKE); // WHERE QnKey2 LIKE '%fooValue%'
+     * $query->filterByQnkey2(['foo', 'bar']); // WHERE QnKey2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnkey2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnkey2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorInternalNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnkey2($qnkey2 = null, $comparison = null)
+    public function filterByQnkey2($qnkey2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnkey2)) {
@@ -489,7 +521,9 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorInternalNoteTableMap::COL_QNKEY2, $qnkey2, $comparison);
+        $this->addUsingAlias(VendorInternalNoteTableMap::COL_QNKEY2, $qnkey2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -499,14 +533,15 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByQnform('fooValue');   // WHERE QnForm = 'fooValue'
      * $query->filterByQnform('%fooValue%', Criteria::LIKE); // WHERE QnForm LIKE '%fooValue%'
+     * $query->filterByQnform(['foo', 'bar']); // WHERE QnForm IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnform The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnform The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorInternalNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnform($qnform = null, $comparison = null)
+    public function filterByQnform($qnform = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnform)) {
@@ -514,7 +549,9 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorInternalNoteTableMap::COL_QNFORM, $qnform, $comparison);
+        $this->addUsingAlias(VendorInternalNoteTableMap::COL_QNFORM, $qnform, $comparison);
+
+        return $this;
     }
 
     /**
@@ -524,14 +561,15 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorInternalNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -539,7 +577,9 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorInternalNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(VendorInternalNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -549,14 +589,15 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorInternalNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -564,7 +605,9 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorInternalNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(VendorInternalNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -574,14 +617,15 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorInternalNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -589,15 +633,17 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorInternalNoteTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(VendorInternalNoteTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildVendorInternalNote $vendorInternalNote Object to remove from the list of results
+     * @param ChildVendorInternalNote $vendorInternalNote Object to remove from the list of results
      *
-     * @return $this|ChildVendorInternalNoteQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($vendorInternalNote = null)
     {
@@ -618,7 +664,7 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(VendorInternalNoteTableMap::DATABASE_NAME);
@@ -643,12 +689,12 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(VendorInternalNoteTableMap::DATABASE_NAME);
@@ -673,4 +719,4 @@ abstract class VendorInternalNoteQuery extends ModelCriteria
         });
     }
 
-} // VendorInternalNoteQuery
+}

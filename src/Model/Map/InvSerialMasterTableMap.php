@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class InvSerialMasterTableMap extends TableMap
 {
@@ -34,149 +33,269 @@ class InvSerialMasterTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.InvSerialMasterTableMap';
+    public const CLASS_NAME = '.Map.InvSerialMasterTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'inv_ser_mast';
+    public const TABLE_NAME = 'inv_ser_mast';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'InvSerialMaster';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\InvSerialMaster';
+    public const OM_CLASS = '\\InvSerialMaster';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'InvSerialMaster';
+    public const CLASS_DEFAULT = 'InvSerialMaster';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 13;
+    public const NUM_COLUMNS = 13;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 13;
+    public const NUM_HYDRATE_COLUMNS = 13;
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'inv_ser_mast.InitItemNbr';
+    public const COL_INITITEMNBR = 'inv_ser_mast.InitItemNbr';
 
     /**
      * the column name for the SermSerNbr field
      */
-    const COL_SERMSERNBR = 'inv_ser_mast.SermSerNbr';
+    public const COL_SERMSERNBR = 'inv_ser_mast.SermSerNbr';
 
     /**
      * the column name for the SermProdDate field
      */
-    const COL_SERMPRODDATE = 'inv_ser_mast.SermProdDate';
+    public const COL_SERMPRODDATE = 'inv_ser_mast.SermProdDate';
 
     /**
      * the column name for the SermPrntCnt field
      */
-    const COL_SERMPRNTCNT = 'inv_ser_mast.SermPrntCnt';
+    public const COL_SERMPRNTCNT = 'inv_ser_mast.SermPrntCnt';
 
     /**
      * the column name for the SermSordNbr field
      */
-    const COL_SERMSORDNBR = 'inv_ser_mast.SermSordNbr';
+    public const COL_SERMSORDNBR = 'inv_ser_mast.SermSordNbr';
 
     /**
      * the column name for the SermInvcDate field
      */
-    const COL_SERMINVCDATE = 'inv_ser_mast.SermInvcDate';
+    public const COL_SERMINVCDATE = 'inv_ser_mast.SermInvcDate';
 
     /**
      * the column name for the SermRevision field
      */
-    const COL_SERMREVISION = 'inv_ser_mast.SermRevision';
+    public const COL_SERMREVISION = 'inv_ser_mast.SermRevision';
 
     /**
      * the column name for the SermCtry field
      */
-    const COL_SERMCTRY = 'inv_ser_mast.SermCtry';
+    public const COL_SERMCTRY = 'inv_ser_mast.SermCtry';
 
     /**
      * the column name for the SermAcAllocOrdr field
      */
-    const COL_SERMACALLOCORDR = 'inv_ser_mast.SermAcAllocOrdr';
+    public const COL_SERMACALLOCORDR = 'inv_ser_mast.SermAcAllocOrdr';
 
     /**
      * the column name for the SermRefSerNbr field
      */
-    const COL_SERMREFSERNBR = 'inv_ser_mast.SermRefSerNbr';
+    public const COL_SERMREFSERNBR = 'inv_ser_mast.SermRefSerNbr';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'inv_ser_mast.DateUpdtd';
+    public const COL_DATEUPDTD = 'inv_ser_mast.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'inv_ser_mast.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'inv_ser_mast.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'inv_ser_mast.dummy';
+    public const COL_DUMMY = 'inv_ser_mast.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr', 'Sermsernbr', 'Sermproddate', 'Sermprntcnt', 'Sermsordnbr', 'Serminvcdate', 'Sermrevision', 'Sermctry', 'Sermacallocordr', 'Sermrefsernbr', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('inititemnbr', 'sermsernbr', 'sermproddate', 'sermprntcnt', 'sermsordnbr', 'serminvcdate', 'sermrevision', 'sermctry', 'sermacallocordr', 'sermrefsernbr', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvSerialMasterTableMap::COL_INITITEMNBR, InvSerialMasterTableMap::COL_SERMSERNBR, InvSerialMasterTableMap::COL_SERMPRODDATE, InvSerialMasterTableMap::COL_SERMPRNTCNT, InvSerialMasterTableMap::COL_SERMSORDNBR, InvSerialMasterTableMap::COL_SERMINVCDATE, InvSerialMasterTableMap::COL_SERMREVISION, InvSerialMasterTableMap::COL_SERMCTRY, InvSerialMasterTableMap::COL_SERMACALLOCORDR, InvSerialMasterTableMap::COL_SERMREFSERNBR, InvSerialMasterTableMap::COL_DATEUPDTD, InvSerialMasterTableMap::COL_TIMEUPDTD, InvSerialMasterTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr', 'SermSerNbr', 'SermProdDate', 'SermPrntCnt', 'SermSordNbr', 'SermInvcDate', 'SermRevision', 'SermCtry', 'SermAcAllocOrdr', 'SermRefSerNbr', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Inititemnbr', 'Sermsernbr', 'Sermproddate', 'Sermprntcnt', 'Sermsordnbr', 'Serminvcdate', 'Sermrevision', 'Sermctry', 'Sermacallocordr', 'Sermrefsernbr', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['inititemnbr', 'sermsernbr', 'sermproddate', 'sermprntcnt', 'sermsordnbr', 'serminvcdate', 'sermrevision', 'sermctry', 'sermacallocordr', 'sermrefsernbr', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [InvSerialMasterTableMap::COL_INITITEMNBR, InvSerialMasterTableMap::COL_SERMSERNBR, InvSerialMasterTableMap::COL_SERMPRODDATE, InvSerialMasterTableMap::COL_SERMPRNTCNT, InvSerialMasterTableMap::COL_SERMSORDNBR, InvSerialMasterTableMap::COL_SERMINVCDATE, InvSerialMasterTableMap::COL_SERMREVISION, InvSerialMasterTableMap::COL_SERMCTRY, InvSerialMasterTableMap::COL_SERMACALLOCORDR, InvSerialMasterTableMap::COL_SERMREFSERNBR, InvSerialMasterTableMap::COL_DATEUPDTD, InvSerialMasterTableMap::COL_TIMEUPDTD, InvSerialMasterTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['InitItemNbr', 'SermSerNbr', 'SermProdDate', 'SermPrntCnt', 'SermSordNbr', 'SermInvcDate', 'SermRevision', 'SermCtry', 'SermAcAllocOrdr', 'SermRefSerNbr', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Sermsernbr' => 1, 'Sermproddate' => 2, 'Sermprntcnt' => 3, 'Sermsordnbr' => 4, 'Serminvcdate' => 5, 'Sermrevision' => 6, 'Sermctry' => 7, 'Sermacallocordr' => 8, 'Sermrefsernbr' => 9, 'Dateupdtd' => 10, 'Timeupdtd' => 11, 'Dummy' => 12, ),
-        self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'sermsernbr' => 1, 'sermproddate' => 2, 'sermprntcnt' => 3, 'sermsordnbr' => 4, 'serminvcdate' => 5, 'sermrevision' => 6, 'sermctry' => 7, 'sermacallocordr' => 8, 'sermrefsernbr' => 9, 'dateupdtd' => 10, 'timeupdtd' => 11, 'dummy' => 12, ),
-        self::TYPE_COLNAME       => array(InvSerialMasterTableMap::COL_INITITEMNBR => 0, InvSerialMasterTableMap::COL_SERMSERNBR => 1, InvSerialMasterTableMap::COL_SERMPRODDATE => 2, InvSerialMasterTableMap::COL_SERMPRNTCNT => 3, InvSerialMasterTableMap::COL_SERMSORDNBR => 4, InvSerialMasterTableMap::COL_SERMINVCDATE => 5, InvSerialMasterTableMap::COL_SERMREVISION => 6, InvSerialMasterTableMap::COL_SERMCTRY => 7, InvSerialMasterTableMap::COL_SERMACALLOCORDR => 8, InvSerialMasterTableMap::COL_SERMREFSERNBR => 9, InvSerialMasterTableMap::COL_DATEUPDTD => 10, InvSerialMasterTableMap::COL_TIMEUPDTD => 11, InvSerialMasterTableMap::COL_DUMMY => 12, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'SermSerNbr' => 1, 'SermProdDate' => 2, 'SermPrntCnt' => 3, 'SermSordNbr' => 4, 'SermInvcDate' => 5, 'SermRevision' => 6, 'SermCtry' => 7, 'SermAcAllocOrdr' => 8, 'SermRefSerNbr' => 9, 'DateUpdtd' => 10, 'TimeUpdtd' => 11, 'dummy' => 12, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Inititemnbr' => 0, 'Sermsernbr' => 1, 'Sermproddate' => 2, 'Sermprntcnt' => 3, 'Sermsordnbr' => 4, 'Serminvcdate' => 5, 'Sermrevision' => 6, 'Sermctry' => 7, 'Sermacallocordr' => 8, 'Sermrefsernbr' => 9, 'Dateupdtd' => 10, 'Timeupdtd' => 11, 'Dummy' => 12, ],
+        self::TYPE_CAMELNAME     => ['inititemnbr' => 0, 'sermsernbr' => 1, 'sermproddate' => 2, 'sermprntcnt' => 3, 'sermsordnbr' => 4, 'serminvcdate' => 5, 'sermrevision' => 6, 'sermctry' => 7, 'sermacallocordr' => 8, 'sermrefsernbr' => 9, 'dateupdtd' => 10, 'timeupdtd' => 11, 'dummy' => 12, ],
+        self::TYPE_COLNAME       => [InvSerialMasterTableMap::COL_INITITEMNBR => 0, InvSerialMasterTableMap::COL_SERMSERNBR => 1, InvSerialMasterTableMap::COL_SERMPRODDATE => 2, InvSerialMasterTableMap::COL_SERMPRNTCNT => 3, InvSerialMasterTableMap::COL_SERMSORDNBR => 4, InvSerialMasterTableMap::COL_SERMINVCDATE => 5, InvSerialMasterTableMap::COL_SERMREVISION => 6, InvSerialMasterTableMap::COL_SERMCTRY => 7, InvSerialMasterTableMap::COL_SERMACALLOCORDR => 8, InvSerialMasterTableMap::COL_SERMREFSERNBR => 9, InvSerialMasterTableMap::COL_DATEUPDTD => 10, InvSerialMasterTableMap::COL_TIMEUPDTD => 11, InvSerialMasterTableMap::COL_DUMMY => 12, ],
+        self::TYPE_FIELDNAME     => ['InitItemNbr' => 0, 'SermSerNbr' => 1, 'SermProdDate' => 2, 'SermPrntCnt' => 3, 'SermSordNbr' => 4, 'SermInvcDate' => 5, 'SermRevision' => 6, 'SermCtry' => 7, 'SermAcAllocOrdr' => 8, 'SermRefSerNbr' => 9, 'DateUpdtd' => 10, 'TimeUpdtd' => 11, 'dummy' => 12, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Inititemnbr' => 'INITITEMNBR',
+        'InvSerialMaster.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'invSerialMaster.inititemnbr' => 'INITITEMNBR',
+        'InvSerialMasterTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'inv_ser_mast.InitItemNbr' => 'INITITEMNBR',
+        'Sermsernbr' => 'SERMSERNBR',
+        'InvSerialMaster.Sermsernbr' => 'SERMSERNBR',
+        'sermsernbr' => 'SERMSERNBR',
+        'invSerialMaster.sermsernbr' => 'SERMSERNBR',
+        'InvSerialMasterTableMap::COL_SERMSERNBR' => 'SERMSERNBR',
+        'COL_SERMSERNBR' => 'SERMSERNBR',
+        'SermSerNbr' => 'SERMSERNBR',
+        'inv_ser_mast.SermSerNbr' => 'SERMSERNBR',
+        'Sermproddate' => 'SERMPRODDATE',
+        'InvSerialMaster.Sermproddate' => 'SERMPRODDATE',
+        'sermproddate' => 'SERMPRODDATE',
+        'invSerialMaster.sermproddate' => 'SERMPRODDATE',
+        'InvSerialMasterTableMap::COL_SERMPRODDATE' => 'SERMPRODDATE',
+        'COL_SERMPRODDATE' => 'SERMPRODDATE',
+        'SermProdDate' => 'SERMPRODDATE',
+        'inv_ser_mast.SermProdDate' => 'SERMPRODDATE',
+        'Sermprntcnt' => 'SERMPRNTCNT',
+        'InvSerialMaster.Sermprntcnt' => 'SERMPRNTCNT',
+        'sermprntcnt' => 'SERMPRNTCNT',
+        'invSerialMaster.sermprntcnt' => 'SERMPRNTCNT',
+        'InvSerialMasterTableMap::COL_SERMPRNTCNT' => 'SERMPRNTCNT',
+        'COL_SERMPRNTCNT' => 'SERMPRNTCNT',
+        'SermPrntCnt' => 'SERMPRNTCNT',
+        'inv_ser_mast.SermPrntCnt' => 'SERMPRNTCNT',
+        'Sermsordnbr' => 'SERMSORDNBR',
+        'InvSerialMaster.Sermsordnbr' => 'SERMSORDNBR',
+        'sermsordnbr' => 'SERMSORDNBR',
+        'invSerialMaster.sermsordnbr' => 'SERMSORDNBR',
+        'InvSerialMasterTableMap::COL_SERMSORDNBR' => 'SERMSORDNBR',
+        'COL_SERMSORDNBR' => 'SERMSORDNBR',
+        'SermSordNbr' => 'SERMSORDNBR',
+        'inv_ser_mast.SermSordNbr' => 'SERMSORDNBR',
+        'Serminvcdate' => 'SERMINVCDATE',
+        'InvSerialMaster.Serminvcdate' => 'SERMINVCDATE',
+        'serminvcdate' => 'SERMINVCDATE',
+        'invSerialMaster.serminvcdate' => 'SERMINVCDATE',
+        'InvSerialMasterTableMap::COL_SERMINVCDATE' => 'SERMINVCDATE',
+        'COL_SERMINVCDATE' => 'SERMINVCDATE',
+        'SermInvcDate' => 'SERMINVCDATE',
+        'inv_ser_mast.SermInvcDate' => 'SERMINVCDATE',
+        'Sermrevision' => 'SERMREVISION',
+        'InvSerialMaster.Sermrevision' => 'SERMREVISION',
+        'sermrevision' => 'SERMREVISION',
+        'invSerialMaster.sermrevision' => 'SERMREVISION',
+        'InvSerialMasterTableMap::COL_SERMREVISION' => 'SERMREVISION',
+        'COL_SERMREVISION' => 'SERMREVISION',
+        'SermRevision' => 'SERMREVISION',
+        'inv_ser_mast.SermRevision' => 'SERMREVISION',
+        'Sermctry' => 'SERMCTRY',
+        'InvSerialMaster.Sermctry' => 'SERMCTRY',
+        'sermctry' => 'SERMCTRY',
+        'invSerialMaster.sermctry' => 'SERMCTRY',
+        'InvSerialMasterTableMap::COL_SERMCTRY' => 'SERMCTRY',
+        'COL_SERMCTRY' => 'SERMCTRY',
+        'SermCtry' => 'SERMCTRY',
+        'inv_ser_mast.SermCtry' => 'SERMCTRY',
+        'Sermacallocordr' => 'SERMACALLOCORDR',
+        'InvSerialMaster.Sermacallocordr' => 'SERMACALLOCORDR',
+        'sermacallocordr' => 'SERMACALLOCORDR',
+        'invSerialMaster.sermacallocordr' => 'SERMACALLOCORDR',
+        'InvSerialMasterTableMap::COL_SERMACALLOCORDR' => 'SERMACALLOCORDR',
+        'COL_SERMACALLOCORDR' => 'SERMACALLOCORDR',
+        'SermAcAllocOrdr' => 'SERMACALLOCORDR',
+        'inv_ser_mast.SermAcAllocOrdr' => 'SERMACALLOCORDR',
+        'Sermrefsernbr' => 'SERMREFSERNBR',
+        'InvSerialMaster.Sermrefsernbr' => 'SERMREFSERNBR',
+        'sermrefsernbr' => 'SERMREFSERNBR',
+        'invSerialMaster.sermrefsernbr' => 'SERMREFSERNBR',
+        'InvSerialMasterTableMap::COL_SERMREFSERNBR' => 'SERMREFSERNBR',
+        'COL_SERMREFSERNBR' => 'SERMREFSERNBR',
+        'SermRefSerNbr' => 'SERMREFSERNBR',
+        'inv_ser_mast.SermRefSerNbr' => 'SERMREFSERNBR',
+        'Dateupdtd' => 'DATEUPDTD',
+        'InvSerialMaster.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'invSerialMaster.dateupdtd' => 'DATEUPDTD',
+        'InvSerialMasterTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'inv_ser_mast.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'InvSerialMaster.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'invSerialMaster.timeupdtd' => 'TIMEUPDTD',
+        'InvSerialMasterTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'inv_ser_mast.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'InvSerialMaster.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'invSerialMaster.dummy' => 'DUMMY',
+        'InvSerialMasterTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'inv_ser_mast.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('inv_ser_mast');
@@ -199,12 +318,14 @@ class InvSerialMasterTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -273,7 +394,7 @@ class InvSerialMasterTableMap extends TableMap
     1 => ':SermSerNbr',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -284,9 +405,11 @@ class InvSerialMasterTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \InvSerialMaster $obj A \InvSerialMaster object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(InvSerialMaster $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -305,8 +428,10 @@ class InvSerialMasterTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \InvSerialMaster object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \InvSerialMaster) {
@@ -334,14 +459,14 @@ class InvSerialMasterTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Sermsernbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -356,14 +481,14 @@ class InvSerialMasterTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -389,10 +514,10 @@ class InvSerialMasterTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? InvSerialMasterTableMap::CLASS_DEFAULT : InvSerialMasterTableMap::OM_CLASS;
     }
@@ -400,17 +525,17 @@ class InvSerialMasterTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (InvSerialMaster object, last column rank)
+     * @return array (InvSerialMaster object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = InvSerialMasterTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = InvSerialMasterTableMap::getInstanceFromPool($key))) {
@@ -426,7 +551,7 @@ class InvSerialMasterTableMap extends TableMap
             InvSerialMasterTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -434,13 +559,13 @@ class InvSerialMasterTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -470,12 +595,13 @@ class InvSerialMasterTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(InvSerialMasterTableMap::COL_INITITEMNBR);
@@ -509,40 +635,74 @@ class InvSerialMasterTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(InvSerialMasterTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(InvSerialMasterTableMap::COL_SERMSERNBR);
+            $criteria->removeSelectColumn(InvSerialMasterTableMap::COL_SERMPRODDATE);
+            $criteria->removeSelectColumn(InvSerialMasterTableMap::COL_SERMPRNTCNT);
+            $criteria->removeSelectColumn(InvSerialMasterTableMap::COL_SERMSORDNBR);
+            $criteria->removeSelectColumn(InvSerialMasterTableMap::COL_SERMINVCDATE);
+            $criteria->removeSelectColumn(InvSerialMasterTableMap::COL_SERMREVISION);
+            $criteria->removeSelectColumn(InvSerialMasterTableMap::COL_SERMCTRY);
+            $criteria->removeSelectColumn(InvSerialMasterTableMap::COL_SERMACALLOCORDR);
+            $criteria->removeSelectColumn(InvSerialMasterTableMap::COL_SERMREFSERNBR);
+            $criteria->removeSelectColumn(InvSerialMasterTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(InvSerialMasterTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(InvSerialMasterTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.SermSerNbr');
+            $criteria->removeSelectColumn($alias . '.SermProdDate');
+            $criteria->removeSelectColumn($alias . '.SermPrntCnt');
+            $criteria->removeSelectColumn($alias . '.SermSordNbr');
+            $criteria->removeSelectColumn($alias . '.SermInvcDate');
+            $criteria->removeSelectColumn($alias . '.SermRevision');
+            $criteria->removeSelectColumn($alias . '.SermCtry');
+            $criteria->removeSelectColumn($alias . '.SermAcAllocOrdr');
+            $criteria->removeSelectColumn($alias . '.SermRefSerNbr');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(InvSerialMasterTableMap::DATABASE_NAME)->getTable(InvSerialMasterTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvSerialMasterTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(InvSerialMasterTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new InvSerialMasterTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a InvSerialMaster or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or InvSerialMaster object or primary key or array of primary keys
+     * @param mixed $values Criteria or InvSerialMaster object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvSerialMasterTableMap::DATABASE_NAME);
@@ -560,7 +720,7 @@ class InvSerialMasterTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(InvSerialMasterTableMap::COL_INITITEMNBR, $value[0]);
@@ -588,7 +748,7 @@ class InvSerialMasterTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return InvSerialMasterQuery::create()->doDeleteAll($con);
     }
@@ -596,13 +756,13 @@ class InvSerialMasterTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a InvSerialMaster or Criteria object.
      *
-     * @param mixed               $criteria Criteria or InvSerialMaster object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or InvSerialMaster object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvSerialMasterTableMap::DATABASE_NAME);
@@ -625,7 +785,4 @@ class InvSerialMasterTableMap extends TableMap
         });
     }
 
-} // InvSerialMasterTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-InvSerialMasterTableMap::buildTableMap();
+}

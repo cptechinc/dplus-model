@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class SoStandingOrderDetailTableMap extends TableMap
 {
@@ -34,179 +33,347 @@ class SoStandingOrderDetailTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.SoStandingOrderDetailTableMap';
+    public const CLASS_NAME = '.Map.SoStandingOrderDetailTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'so_stand_det';
+    public const TABLE_NAME = 'so_stand_det';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'SoStandingOrderDetail';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\SoStandingOrderDetail';
+    public const OM_CLASS = '\\SoStandingOrderDetail';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'SoStandingOrderDetail';
+    public const CLASS_DEFAULT = 'SoStandingOrderDetail';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 19;
+    public const NUM_COLUMNS = 19;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 19;
+    public const NUM_HYDRATE_COLUMNS = 19;
 
     /**
      * the column name for the ArcuCustId field
      */
-    const COL_ARCUCUSTID = 'so_stand_det.ArcuCustId';
+    public const COL_ARCUCUSTID = 'so_stand_det.ArcuCustId';
 
     /**
      * the column name for the ArstShipId field
      */
-    const COL_ARSTSHIPID = 'so_stand_det.ArstShipId';
+    public const COL_ARSTSHIPID = 'so_stand_det.ArstShipId';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'so_stand_det.InitItemNbr';
+    public const COL_INITITEMNBR = 'so_stand_det.InitItemNbr';
 
     /**
      * the column name for the OetdSeq field
      */
-    const COL_OETDSEQ = 'so_stand_det.OetdSeq';
+    public const COL_OETDSEQ = 'so_stand_det.OetdSeq';
 
     /**
      * the column name for the OetdDesc field
      */
-    const COL_OETDDESC = 'so_stand_det.OetdDesc';
+    public const COL_OETDDESC = 'so_stand_det.OetdDesc';
 
     /**
      * the column name for the OetdDesc2 field
      */
-    const COL_OETDDESC2 = 'so_stand_det.OetdDesc2';
+    public const COL_OETDDESC2 = 'so_stand_det.OetdDesc2';
 
     /**
      * the column name for the OetdStat field
      */
-    const COL_OETDSTAT = 'so_stand_det.OetdStat';
+    public const COL_OETDSTAT = 'so_stand_det.OetdStat';
 
     /**
      * the column name for the OetdHoldCnt field
      */
-    const COL_OETDHOLDCNT = 'so_stand_det.OetdHoldCnt';
+    public const COL_OETDHOLDCNT = 'so_stand_det.OetdHoldCnt';
 
     /**
      * the column name for the OetdPric field
      */
-    const COL_OETDPRIC = 'so_stand_det.OetdPric';
+    public const COL_OETDPRIC = 'so_stand_det.OetdPric';
 
     /**
      * the column name for the OetdQty field
      */
-    const COL_OETDQTY = 'so_stand_det.OetdQty';
+    public const COL_OETDQTY = 'so_stand_det.OetdQty';
 
     /**
      * the column name for the IntbUomSale field
      */
-    const COL_INTBUOMSALE = 'so_stand_det.IntbUomSale';
+    public const COL_INTBUOMSALE = 'so_stand_det.IntbUomSale';
 
     /**
      * the column name for the OetdCycl field
      */
-    const COL_OETDCYCL = 'so_stand_det.OetdCycl';
+    public const COL_OETDCYCL = 'so_stand_det.OetdCycl';
 
     /**
      * the column name for the OetdStrtDate field
      */
-    const COL_OETDSTRTDATE = 'so_stand_det.OetdStrtDate';
+    public const COL_OETDSTRTDATE = 'so_stand_det.OetdStrtDate';
 
     /**
      * the column name for the OetdEndDate field
      */
-    const COL_OETDENDDATE = 'so_stand_det.OetdEndDate';
+    public const COL_OETDENDDATE = 'so_stand_det.OetdEndDate';
 
     /**
      * the column name for the OetdLastDate field
      */
-    const COL_OETDLASTDATE = 'so_stand_det.OetdLastDate';
+    public const COL_OETDLASTDATE = 'so_stand_det.OetdLastDate';
 
     /**
      * the column name for the OetdLeadCnt field
      */
-    const COL_OETDLEADCNT = 'so_stand_det.OetdLeadCnt';
+    public const COL_OETDLEADCNT = 'so_stand_det.OetdLeadCnt';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'so_stand_det.DateUpdtd';
+    public const COL_DATEUPDTD = 'so_stand_det.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'so_stand_det.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'so_stand_det.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'so_stand_det.dummy';
+    public const COL_DUMMY = 'so_stand_det.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Arcucustid', 'Arstshipid', 'Inititemnbr', 'Oetdseq', 'Oetddesc', 'Oetddesc2', 'Oetdstat', 'Oetdholdcnt', 'Oetdpric', 'Oetdqty', 'Intbuomsale', 'Oetdcycl', 'Oetdstrtdate', 'Oetdenddate', 'Oetdlastdate', 'Oetdleadcnt', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('arcucustid', 'arstshipid', 'inititemnbr', 'oetdseq', 'oetddesc', 'oetddesc2', 'oetdstat', 'oetdholdcnt', 'oetdpric', 'oetdqty', 'intbuomsale', 'oetdcycl', 'oetdstrtdate', 'oetdenddate', 'oetdlastdate', 'oetdleadcnt', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(SoStandingOrderDetailTableMap::COL_ARCUCUSTID, SoStandingOrderDetailTableMap::COL_ARSTSHIPID, SoStandingOrderDetailTableMap::COL_INITITEMNBR, SoStandingOrderDetailTableMap::COL_OETDSEQ, SoStandingOrderDetailTableMap::COL_OETDDESC, SoStandingOrderDetailTableMap::COL_OETDDESC2, SoStandingOrderDetailTableMap::COL_OETDSTAT, SoStandingOrderDetailTableMap::COL_OETDHOLDCNT, SoStandingOrderDetailTableMap::COL_OETDPRIC, SoStandingOrderDetailTableMap::COL_OETDQTY, SoStandingOrderDetailTableMap::COL_INTBUOMSALE, SoStandingOrderDetailTableMap::COL_OETDCYCL, SoStandingOrderDetailTableMap::COL_OETDSTRTDATE, SoStandingOrderDetailTableMap::COL_OETDENDDATE, SoStandingOrderDetailTableMap::COL_OETDLASTDATE, SoStandingOrderDetailTableMap::COL_OETDLEADCNT, SoStandingOrderDetailTableMap::COL_DATEUPDTD, SoStandingOrderDetailTableMap::COL_TIMEUPDTD, SoStandingOrderDetailTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ArcuCustId', 'ArstShipId', 'InitItemNbr', 'OetdSeq', 'OetdDesc', 'OetdDesc2', 'OetdStat', 'OetdHoldCnt', 'OetdPric', 'OetdQty', 'IntbUomSale', 'OetdCycl', 'OetdStrtDate', 'OetdEndDate', 'OetdLastDate', 'OetdLeadCnt', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Arcucustid', 'Arstshipid', 'Inititemnbr', 'Oetdseq', 'Oetddesc', 'Oetddesc2', 'Oetdstat', 'Oetdholdcnt', 'Oetdpric', 'Oetdqty', 'Intbuomsale', 'Oetdcycl', 'Oetdstrtdate', 'Oetdenddate', 'Oetdlastdate', 'Oetdleadcnt', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['arcucustid', 'arstshipid', 'inititemnbr', 'oetdseq', 'oetddesc', 'oetddesc2', 'oetdstat', 'oetdholdcnt', 'oetdpric', 'oetdqty', 'intbuomsale', 'oetdcycl', 'oetdstrtdate', 'oetdenddate', 'oetdlastdate', 'oetdleadcnt', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [SoStandingOrderDetailTableMap::COL_ARCUCUSTID, SoStandingOrderDetailTableMap::COL_ARSTSHIPID, SoStandingOrderDetailTableMap::COL_INITITEMNBR, SoStandingOrderDetailTableMap::COL_OETDSEQ, SoStandingOrderDetailTableMap::COL_OETDDESC, SoStandingOrderDetailTableMap::COL_OETDDESC2, SoStandingOrderDetailTableMap::COL_OETDSTAT, SoStandingOrderDetailTableMap::COL_OETDHOLDCNT, SoStandingOrderDetailTableMap::COL_OETDPRIC, SoStandingOrderDetailTableMap::COL_OETDQTY, SoStandingOrderDetailTableMap::COL_INTBUOMSALE, SoStandingOrderDetailTableMap::COL_OETDCYCL, SoStandingOrderDetailTableMap::COL_OETDSTRTDATE, SoStandingOrderDetailTableMap::COL_OETDENDDATE, SoStandingOrderDetailTableMap::COL_OETDLASTDATE, SoStandingOrderDetailTableMap::COL_OETDLEADCNT, SoStandingOrderDetailTableMap::COL_DATEUPDTD, SoStandingOrderDetailTableMap::COL_TIMEUPDTD, SoStandingOrderDetailTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['ArcuCustId', 'ArstShipId', 'InitItemNbr', 'OetdSeq', 'OetdDesc', 'OetdDesc2', 'OetdStat', 'OetdHoldCnt', 'OetdPric', 'OetdQty', 'IntbUomSale', 'OetdCycl', 'OetdStrtDate', 'OetdEndDate', 'OetdLastDate', 'OetdLeadCnt', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Arcucustid' => 0, 'Arstshipid' => 1, 'Inititemnbr' => 2, 'Oetdseq' => 3, 'Oetddesc' => 4, 'Oetddesc2' => 5, 'Oetdstat' => 6, 'Oetdholdcnt' => 7, 'Oetdpric' => 8, 'Oetdqty' => 9, 'Intbuomsale' => 10, 'Oetdcycl' => 11, 'Oetdstrtdate' => 12, 'Oetdenddate' => 13, 'Oetdlastdate' => 14, 'Oetdleadcnt' => 15, 'Dateupdtd' => 16, 'Timeupdtd' => 17, 'Dummy' => 18, ),
-        self::TYPE_CAMELNAME     => array('arcucustid' => 0, 'arstshipid' => 1, 'inititemnbr' => 2, 'oetdseq' => 3, 'oetddesc' => 4, 'oetddesc2' => 5, 'oetdstat' => 6, 'oetdholdcnt' => 7, 'oetdpric' => 8, 'oetdqty' => 9, 'intbuomsale' => 10, 'oetdcycl' => 11, 'oetdstrtdate' => 12, 'oetdenddate' => 13, 'oetdlastdate' => 14, 'oetdleadcnt' => 15, 'dateupdtd' => 16, 'timeupdtd' => 17, 'dummy' => 18, ),
-        self::TYPE_COLNAME       => array(SoStandingOrderDetailTableMap::COL_ARCUCUSTID => 0, SoStandingOrderDetailTableMap::COL_ARSTSHIPID => 1, SoStandingOrderDetailTableMap::COL_INITITEMNBR => 2, SoStandingOrderDetailTableMap::COL_OETDSEQ => 3, SoStandingOrderDetailTableMap::COL_OETDDESC => 4, SoStandingOrderDetailTableMap::COL_OETDDESC2 => 5, SoStandingOrderDetailTableMap::COL_OETDSTAT => 6, SoStandingOrderDetailTableMap::COL_OETDHOLDCNT => 7, SoStandingOrderDetailTableMap::COL_OETDPRIC => 8, SoStandingOrderDetailTableMap::COL_OETDQTY => 9, SoStandingOrderDetailTableMap::COL_INTBUOMSALE => 10, SoStandingOrderDetailTableMap::COL_OETDCYCL => 11, SoStandingOrderDetailTableMap::COL_OETDSTRTDATE => 12, SoStandingOrderDetailTableMap::COL_OETDENDDATE => 13, SoStandingOrderDetailTableMap::COL_OETDLASTDATE => 14, SoStandingOrderDetailTableMap::COL_OETDLEADCNT => 15, SoStandingOrderDetailTableMap::COL_DATEUPDTD => 16, SoStandingOrderDetailTableMap::COL_TIMEUPDTD => 17, SoStandingOrderDetailTableMap::COL_DUMMY => 18, ),
-        self::TYPE_FIELDNAME     => array('ArcuCustId' => 0, 'ArstShipId' => 1, 'InitItemNbr' => 2, 'OetdSeq' => 3, 'OetdDesc' => 4, 'OetdDesc2' => 5, 'OetdStat' => 6, 'OetdHoldCnt' => 7, 'OetdPric' => 8, 'OetdQty' => 9, 'IntbUomSale' => 10, 'OetdCycl' => 11, 'OetdStrtDate' => 12, 'OetdEndDate' => 13, 'OetdLastDate' => 14, 'OetdLeadCnt' => 15, 'DateUpdtd' => 16, 'TimeUpdtd' => 17, 'dummy' => 18, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Arcucustid' => 0, 'Arstshipid' => 1, 'Inititemnbr' => 2, 'Oetdseq' => 3, 'Oetddesc' => 4, 'Oetddesc2' => 5, 'Oetdstat' => 6, 'Oetdholdcnt' => 7, 'Oetdpric' => 8, 'Oetdqty' => 9, 'Intbuomsale' => 10, 'Oetdcycl' => 11, 'Oetdstrtdate' => 12, 'Oetdenddate' => 13, 'Oetdlastdate' => 14, 'Oetdleadcnt' => 15, 'Dateupdtd' => 16, 'Timeupdtd' => 17, 'Dummy' => 18, ],
+        self::TYPE_CAMELNAME     => ['arcucustid' => 0, 'arstshipid' => 1, 'inititemnbr' => 2, 'oetdseq' => 3, 'oetddesc' => 4, 'oetddesc2' => 5, 'oetdstat' => 6, 'oetdholdcnt' => 7, 'oetdpric' => 8, 'oetdqty' => 9, 'intbuomsale' => 10, 'oetdcycl' => 11, 'oetdstrtdate' => 12, 'oetdenddate' => 13, 'oetdlastdate' => 14, 'oetdleadcnt' => 15, 'dateupdtd' => 16, 'timeupdtd' => 17, 'dummy' => 18, ],
+        self::TYPE_COLNAME       => [SoStandingOrderDetailTableMap::COL_ARCUCUSTID => 0, SoStandingOrderDetailTableMap::COL_ARSTSHIPID => 1, SoStandingOrderDetailTableMap::COL_INITITEMNBR => 2, SoStandingOrderDetailTableMap::COL_OETDSEQ => 3, SoStandingOrderDetailTableMap::COL_OETDDESC => 4, SoStandingOrderDetailTableMap::COL_OETDDESC2 => 5, SoStandingOrderDetailTableMap::COL_OETDSTAT => 6, SoStandingOrderDetailTableMap::COL_OETDHOLDCNT => 7, SoStandingOrderDetailTableMap::COL_OETDPRIC => 8, SoStandingOrderDetailTableMap::COL_OETDQTY => 9, SoStandingOrderDetailTableMap::COL_INTBUOMSALE => 10, SoStandingOrderDetailTableMap::COL_OETDCYCL => 11, SoStandingOrderDetailTableMap::COL_OETDSTRTDATE => 12, SoStandingOrderDetailTableMap::COL_OETDENDDATE => 13, SoStandingOrderDetailTableMap::COL_OETDLASTDATE => 14, SoStandingOrderDetailTableMap::COL_OETDLEADCNT => 15, SoStandingOrderDetailTableMap::COL_DATEUPDTD => 16, SoStandingOrderDetailTableMap::COL_TIMEUPDTD => 17, SoStandingOrderDetailTableMap::COL_DUMMY => 18, ],
+        self::TYPE_FIELDNAME     => ['ArcuCustId' => 0, 'ArstShipId' => 1, 'InitItemNbr' => 2, 'OetdSeq' => 3, 'OetdDesc' => 4, 'OetdDesc2' => 5, 'OetdStat' => 6, 'OetdHoldCnt' => 7, 'OetdPric' => 8, 'OetdQty' => 9, 'IntbUomSale' => 10, 'OetdCycl' => 11, 'OetdStrtDate' => 12, 'OetdEndDate' => 13, 'OetdLastDate' => 14, 'OetdLeadCnt' => 15, 'DateUpdtd' => 16, 'TimeUpdtd' => 17, 'dummy' => 18, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Arcucustid' => 'ARCUCUSTID',
+        'SoStandingOrderDetail.Arcucustid' => 'ARCUCUSTID',
+        'arcucustid' => 'ARCUCUSTID',
+        'soStandingOrderDetail.arcucustid' => 'ARCUCUSTID',
+        'SoStandingOrderDetailTableMap::COL_ARCUCUSTID' => 'ARCUCUSTID',
+        'COL_ARCUCUSTID' => 'ARCUCUSTID',
+        'ArcuCustId' => 'ARCUCUSTID',
+        'so_stand_det.ArcuCustId' => 'ARCUCUSTID',
+        'Arstshipid' => 'ARSTSHIPID',
+        'SoStandingOrderDetail.Arstshipid' => 'ARSTSHIPID',
+        'arstshipid' => 'ARSTSHIPID',
+        'soStandingOrderDetail.arstshipid' => 'ARSTSHIPID',
+        'SoStandingOrderDetailTableMap::COL_ARSTSHIPID' => 'ARSTSHIPID',
+        'COL_ARSTSHIPID' => 'ARSTSHIPID',
+        'ArstShipId' => 'ARSTSHIPID',
+        'so_stand_det.ArstShipId' => 'ARSTSHIPID',
+        'Inititemnbr' => 'INITITEMNBR',
+        'SoStandingOrderDetail.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'soStandingOrderDetail.inititemnbr' => 'INITITEMNBR',
+        'SoStandingOrderDetailTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'so_stand_det.InitItemNbr' => 'INITITEMNBR',
+        'Oetdseq' => 'OETDSEQ',
+        'SoStandingOrderDetail.Oetdseq' => 'OETDSEQ',
+        'oetdseq' => 'OETDSEQ',
+        'soStandingOrderDetail.oetdseq' => 'OETDSEQ',
+        'SoStandingOrderDetailTableMap::COL_OETDSEQ' => 'OETDSEQ',
+        'COL_OETDSEQ' => 'OETDSEQ',
+        'OetdSeq' => 'OETDSEQ',
+        'so_stand_det.OetdSeq' => 'OETDSEQ',
+        'Oetddesc' => 'OETDDESC',
+        'SoStandingOrderDetail.Oetddesc' => 'OETDDESC',
+        'oetddesc' => 'OETDDESC',
+        'soStandingOrderDetail.oetddesc' => 'OETDDESC',
+        'SoStandingOrderDetailTableMap::COL_OETDDESC' => 'OETDDESC',
+        'COL_OETDDESC' => 'OETDDESC',
+        'OetdDesc' => 'OETDDESC',
+        'so_stand_det.OetdDesc' => 'OETDDESC',
+        'Oetddesc2' => 'OETDDESC2',
+        'SoStandingOrderDetail.Oetddesc2' => 'OETDDESC2',
+        'oetddesc2' => 'OETDDESC2',
+        'soStandingOrderDetail.oetddesc2' => 'OETDDESC2',
+        'SoStandingOrderDetailTableMap::COL_OETDDESC2' => 'OETDDESC2',
+        'COL_OETDDESC2' => 'OETDDESC2',
+        'OetdDesc2' => 'OETDDESC2',
+        'so_stand_det.OetdDesc2' => 'OETDDESC2',
+        'Oetdstat' => 'OETDSTAT',
+        'SoStandingOrderDetail.Oetdstat' => 'OETDSTAT',
+        'oetdstat' => 'OETDSTAT',
+        'soStandingOrderDetail.oetdstat' => 'OETDSTAT',
+        'SoStandingOrderDetailTableMap::COL_OETDSTAT' => 'OETDSTAT',
+        'COL_OETDSTAT' => 'OETDSTAT',
+        'OetdStat' => 'OETDSTAT',
+        'so_stand_det.OetdStat' => 'OETDSTAT',
+        'Oetdholdcnt' => 'OETDHOLDCNT',
+        'SoStandingOrderDetail.Oetdholdcnt' => 'OETDHOLDCNT',
+        'oetdholdcnt' => 'OETDHOLDCNT',
+        'soStandingOrderDetail.oetdholdcnt' => 'OETDHOLDCNT',
+        'SoStandingOrderDetailTableMap::COL_OETDHOLDCNT' => 'OETDHOLDCNT',
+        'COL_OETDHOLDCNT' => 'OETDHOLDCNT',
+        'OetdHoldCnt' => 'OETDHOLDCNT',
+        'so_stand_det.OetdHoldCnt' => 'OETDHOLDCNT',
+        'Oetdpric' => 'OETDPRIC',
+        'SoStandingOrderDetail.Oetdpric' => 'OETDPRIC',
+        'oetdpric' => 'OETDPRIC',
+        'soStandingOrderDetail.oetdpric' => 'OETDPRIC',
+        'SoStandingOrderDetailTableMap::COL_OETDPRIC' => 'OETDPRIC',
+        'COL_OETDPRIC' => 'OETDPRIC',
+        'OetdPric' => 'OETDPRIC',
+        'so_stand_det.OetdPric' => 'OETDPRIC',
+        'Oetdqty' => 'OETDQTY',
+        'SoStandingOrderDetail.Oetdqty' => 'OETDQTY',
+        'oetdqty' => 'OETDQTY',
+        'soStandingOrderDetail.oetdqty' => 'OETDQTY',
+        'SoStandingOrderDetailTableMap::COL_OETDQTY' => 'OETDQTY',
+        'COL_OETDQTY' => 'OETDQTY',
+        'OetdQty' => 'OETDQTY',
+        'so_stand_det.OetdQty' => 'OETDQTY',
+        'Intbuomsale' => 'INTBUOMSALE',
+        'SoStandingOrderDetail.Intbuomsale' => 'INTBUOMSALE',
+        'intbuomsale' => 'INTBUOMSALE',
+        'soStandingOrderDetail.intbuomsale' => 'INTBUOMSALE',
+        'SoStandingOrderDetailTableMap::COL_INTBUOMSALE' => 'INTBUOMSALE',
+        'COL_INTBUOMSALE' => 'INTBUOMSALE',
+        'IntbUomSale' => 'INTBUOMSALE',
+        'so_stand_det.IntbUomSale' => 'INTBUOMSALE',
+        'Oetdcycl' => 'OETDCYCL',
+        'SoStandingOrderDetail.Oetdcycl' => 'OETDCYCL',
+        'oetdcycl' => 'OETDCYCL',
+        'soStandingOrderDetail.oetdcycl' => 'OETDCYCL',
+        'SoStandingOrderDetailTableMap::COL_OETDCYCL' => 'OETDCYCL',
+        'COL_OETDCYCL' => 'OETDCYCL',
+        'OetdCycl' => 'OETDCYCL',
+        'so_stand_det.OetdCycl' => 'OETDCYCL',
+        'Oetdstrtdate' => 'OETDSTRTDATE',
+        'SoStandingOrderDetail.Oetdstrtdate' => 'OETDSTRTDATE',
+        'oetdstrtdate' => 'OETDSTRTDATE',
+        'soStandingOrderDetail.oetdstrtdate' => 'OETDSTRTDATE',
+        'SoStandingOrderDetailTableMap::COL_OETDSTRTDATE' => 'OETDSTRTDATE',
+        'COL_OETDSTRTDATE' => 'OETDSTRTDATE',
+        'OetdStrtDate' => 'OETDSTRTDATE',
+        'so_stand_det.OetdStrtDate' => 'OETDSTRTDATE',
+        'Oetdenddate' => 'OETDENDDATE',
+        'SoStandingOrderDetail.Oetdenddate' => 'OETDENDDATE',
+        'oetdenddate' => 'OETDENDDATE',
+        'soStandingOrderDetail.oetdenddate' => 'OETDENDDATE',
+        'SoStandingOrderDetailTableMap::COL_OETDENDDATE' => 'OETDENDDATE',
+        'COL_OETDENDDATE' => 'OETDENDDATE',
+        'OetdEndDate' => 'OETDENDDATE',
+        'so_stand_det.OetdEndDate' => 'OETDENDDATE',
+        'Oetdlastdate' => 'OETDLASTDATE',
+        'SoStandingOrderDetail.Oetdlastdate' => 'OETDLASTDATE',
+        'oetdlastdate' => 'OETDLASTDATE',
+        'soStandingOrderDetail.oetdlastdate' => 'OETDLASTDATE',
+        'SoStandingOrderDetailTableMap::COL_OETDLASTDATE' => 'OETDLASTDATE',
+        'COL_OETDLASTDATE' => 'OETDLASTDATE',
+        'OetdLastDate' => 'OETDLASTDATE',
+        'so_stand_det.OetdLastDate' => 'OETDLASTDATE',
+        'Oetdleadcnt' => 'OETDLEADCNT',
+        'SoStandingOrderDetail.Oetdleadcnt' => 'OETDLEADCNT',
+        'oetdleadcnt' => 'OETDLEADCNT',
+        'soStandingOrderDetail.oetdleadcnt' => 'OETDLEADCNT',
+        'SoStandingOrderDetailTableMap::COL_OETDLEADCNT' => 'OETDLEADCNT',
+        'COL_OETDLEADCNT' => 'OETDLEADCNT',
+        'OetdLeadCnt' => 'OETDLEADCNT',
+        'so_stand_det.OetdLeadCnt' => 'OETDLEADCNT',
+        'Dateupdtd' => 'DATEUPDTD',
+        'SoStandingOrderDetail.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'soStandingOrderDetail.dateupdtd' => 'DATEUPDTD',
+        'SoStandingOrderDetailTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'so_stand_det.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'SoStandingOrderDetail.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'soStandingOrderDetail.timeupdtd' => 'TIMEUPDTD',
+        'SoStandingOrderDetailTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'so_stand_det.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'SoStandingOrderDetail.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'soStandingOrderDetail.dummy' => 'DUMMY',
+        'SoStandingOrderDetailTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'so_stand_det.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('so_stand_det');
@@ -225,8 +392,8 @@ class SoStandingOrderDetailTableMap extends TableMap
         $this->addColumn('OetdDesc2', 'Oetddesc2', 'VARCHAR', true, 35, '');
         $this->addColumn('OetdStat', 'Oetdstat', 'VARCHAR', true, 1, 'A');
         $this->addColumn('OetdHoldCnt', 'Oetdholdcnt', 'INTEGER', true, 2, 0);
-        $this->addColumn('OetdPric', 'Oetdpric', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OetdQty', 'Oetdqty', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OetdPric', 'Oetdpric', 'DECIMAL', true, 20, 0.0000000);
+        $this->addColumn('OetdQty', 'Oetdqty', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('IntbUomSale', 'Intbuomsale', 'VARCHAR', true, 4, '');
         $this->addColumn('OetdCycl', 'Oetdcycl', 'VARCHAR', true, 1, 'M');
         $this->addColumn('OetdStrtDate', 'Oetdstrtdate', 'VARCHAR', true, 8, '');
@@ -236,12 +403,14 @@ class SoStandingOrderDetailTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', true, 1, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('Customer', '\\Customer', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -269,7 +438,7 @@ class SoStandingOrderDetailTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -280,9 +449,11 @@ class SoStandingOrderDetailTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \SoStandingOrderDetail $obj A \SoStandingOrderDetail object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(SoStandingOrderDetail $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -301,8 +472,10 @@ class SoStandingOrderDetailTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \SoStandingOrderDetail object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \SoStandingOrderDetail) {
@@ -330,14 +503,14 @@ class SoStandingOrderDetailTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Oetdseq', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -352,14 +525,14 @@ class SoStandingOrderDetailTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -395,10 +568,10 @@ class SoStandingOrderDetailTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? SoStandingOrderDetailTableMap::CLASS_DEFAULT : SoStandingOrderDetailTableMap::OM_CLASS;
     }
@@ -406,17 +579,17 @@ class SoStandingOrderDetailTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (SoStandingOrderDetail object, last column rank)
+     * @return array (SoStandingOrderDetail object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = SoStandingOrderDetailTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = SoStandingOrderDetailTableMap::getInstanceFromPool($key))) {
@@ -432,7 +605,7 @@ class SoStandingOrderDetailTableMap extends TableMap
             SoStandingOrderDetailTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -440,13 +613,13 @@ class SoStandingOrderDetailTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -476,12 +649,13 @@ class SoStandingOrderDetailTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(SoStandingOrderDetailTableMap::COL_ARCUCUSTID);
@@ -527,40 +701,86 @@ class SoStandingOrderDetailTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_ARCUCUSTID);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_ARSTSHIPID);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_OETDSEQ);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_OETDDESC);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_OETDDESC2);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_OETDSTAT);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_OETDHOLDCNT);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_OETDPRIC);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_OETDQTY);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_INTBUOMSALE);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_OETDCYCL);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_OETDSTRTDATE);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_OETDENDDATE);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_OETDLASTDATE);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_OETDLEADCNT);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(SoStandingOrderDetailTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.ArcuCustId');
+            $criteria->removeSelectColumn($alias . '.ArstShipId');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.OetdSeq');
+            $criteria->removeSelectColumn($alias . '.OetdDesc');
+            $criteria->removeSelectColumn($alias . '.OetdDesc2');
+            $criteria->removeSelectColumn($alias . '.OetdStat');
+            $criteria->removeSelectColumn($alias . '.OetdHoldCnt');
+            $criteria->removeSelectColumn($alias . '.OetdPric');
+            $criteria->removeSelectColumn($alias . '.OetdQty');
+            $criteria->removeSelectColumn($alias . '.IntbUomSale');
+            $criteria->removeSelectColumn($alias . '.OetdCycl');
+            $criteria->removeSelectColumn($alias . '.OetdStrtDate');
+            $criteria->removeSelectColumn($alias . '.OetdEndDate');
+            $criteria->removeSelectColumn($alias . '.OetdLastDate');
+            $criteria->removeSelectColumn($alias . '.OetdLeadCnt');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(SoStandingOrderDetailTableMap::DATABASE_NAME)->getTable(SoStandingOrderDetailTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(SoStandingOrderDetailTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(SoStandingOrderDetailTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new SoStandingOrderDetailTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a SoStandingOrderDetail or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or SoStandingOrderDetail object or primary key or array of primary keys
+     * @param mixed $values Criteria or SoStandingOrderDetail object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoStandingOrderDetailTableMap::DATABASE_NAME);
@@ -578,7 +798,7 @@ class SoStandingOrderDetailTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(SoStandingOrderDetailTableMap::COL_ARCUCUSTID, $value[0]);
@@ -608,7 +828,7 @@ class SoStandingOrderDetailTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return SoStandingOrderDetailQuery::create()->doDeleteAll($con);
     }
@@ -616,13 +836,13 @@ class SoStandingOrderDetailTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a SoStandingOrderDetail or Criteria object.
      *
-     * @param mixed               $criteria Criteria or SoStandingOrderDetail object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or SoStandingOrderDetail object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(SoStandingOrderDetailTableMap::DATABASE_NAME);
@@ -645,7 +865,4 @@ class SoStandingOrderDetailTableMap extends TableMap
         });
     }
 
-} // SoStandingOrderDetailTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-SoStandingOrderDetailTableMap::buildTableMap();
+}

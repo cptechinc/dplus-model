@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ap_invoice_det' table.
- *
- *
+ * Base class that represents a query for the `ap_invoice_det` table.
  *
  * @method     ChildApInvoiceDetailQuery orderByApvevendid($order = Criteria::ASC) Order by the ApveVendId column
  * @method     ChildApInvoiceDetailQuery orderByApidpaytokey($order = Criteria::ASC) Order by the ApidPayToKey column
@@ -98,35 +97,35 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \ApInvoiceQuery|\VendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildApInvoiceDetail findOne(ConnectionInterface $con = null) Return the first ChildApInvoiceDetail matching the query
- * @method     ChildApInvoiceDetail findOneOrCreate(ConnectionInterface $con = null) Return the first ChildApInvoiceDetail matching the query, or a new ChildApInvoiceDetail object populated from the query conditions when no match is found
+ * @method     ChildApInvoiceDetail|null findOne(?ConnectionInterface $con = null) Return the first ChildApInvoiceDetail matching the query
+ * @method     ChildApInvoiceDetail findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildApInvoiceDetail matching the query, or a new ChildApInvoiceDetail object populated from the query conditions when no match is found
  *
- * @method     ChildApInvoiceDetail findOneByApvevendid(string $ApveVendId) Return the first ChildApInvoiceDetail filtered by the ApveVendId column
- * @method     ChildApInvoiceDetail findOneByApidpaytokey(string $ApidPayToKey) Return the first ChildApInvoiceDetail filtered by the ApidPayToKey column
- * @method     ChildApInvoiceDetail findOneByApidptname(string $ApidPtName) Return the first ChildApInvoiceDetail filtered by the ApidPtName column
- * @method     ChildApInvoiceDetail findOneByApidptadr1(string $ApidPtAdr1) Return the first ChildApInvoiceDetail filtered by the ApidPtAdr1 column
- * @method     ChildApInvoiceDetail findOneByApidptadr2(string $ApidPtAdr2) Return the first ChildApInvoiceDetail filtered by the ApidPtAdr2 column
- * @method     ChildApInvoiceDetail findOneByApidptadr3(string $ApidPtAdr3) Return the first ChildApInvoiceDetail filtered by the ApidPtAdr3 column
- * @method     ChildApInvoiceDetail findOneByApidptctry(string $ApidPtCtry) Return the first ChildApInvoiceDetail filtered by the ApidPtCtry column
- * @method     ChildApInvoiceDetail findOneByApidptcity(string $ApidPtCity) Return the first ChildApInvoiceDetail filtered by the ApidPtCity column
- * @method     ChildApInvoiceDetail findOneByApidptstat(string $ApidPtStat) Return the first ChildApInvoiceDetail filtered by the ApidPtStat column
- * @method     ChildApInvoiceDetail findOneByApidptzipcode(string $ApidPtZipCode) Return the first ChildApInvoiceDetail filtered by the ApidPtZipCode column
- * @method     ChildApInvoiceDetail findOneByApidponbr(string $ApidPoNbr) Return the first ChildApInvoiceDetail filtered by the ApidPoNbr column
- * @method     ChildApInvoiceDetail findOneByApidctrlnbr(string $ApidCtrlNbr) Return the first ChildApInvoiceDetail filtered by the ApidCtrlNbr column
- * @method     ChildApInvoiceDetail findOneByApidinvnbr(string $ApidInvNbr) Return the first ChildApInvoiceDetail filtered by the ApidInvNbr column
- * @method     ChildApInvoiceDetail findOneByApidseq(int $ApidSeq) Return the first ChildApInvoiceDetail filtered by the ApidSeq column
- * @method     ChildApInvoiceDetail findOneByApidline(int $ApidLine) Return the first ChildApInvoiceDetail filtered by the ApidLine column
- * @method     ChildApInvoiceDetail findOneByApidamt(string $ApidAmt) Return the first ChildApInvoiceDetail filtered by the ApidAmt column
- * @method     ChildApInvoiceDetail findOneByApidglacct(string $ApidGlAcct) Return the first ChildApInvoiceDetail filtered by the ApidGlAcct column
- * @method     ChildApInvoiceDetail findOneByInititemnbr(string $InitItemNbr) Return the first ChildApInvoiceDetail filtered by the InitItemNbr column
- * @method     ChildApInvoiceDetail findOneByApidqtyrec(string $ApidQtyRec) Return the first ChildApInvoiceDetail filtered by the ApidQtyRec column
- * @method     ChildApInvoiceDetail findOneByApiddesc(string $ApidDesc) Return the first ChildApInvoiceDetail filtered by the ApidDesc column
- * @method     ChildApInvoiceDetail findOneByDateupdtd(string $DateUpdtd) Return the first ChildApInvoiceDetail filtered by the DateUpdtd column
- * @method     ChildApInvoiceDetail findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildApInvoiceDetail filtered by the TimeUpdtd column
- * @method     ChildApInvoiceDetail findOneByDummy(string $dummy) Return the first ChildApInvoiceDetail filtered by the dummy column *
-
- * @method     ChildApInvoiceDetail requirePk($key, ConnectionInterface $con = null) Return the ChildApInvoiceDetail by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildApInvoiceDetail requireOne(ConnectionInterface $con = null) Return the first ChildApInvoiceDetail matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildApInvoiceDetail|null findOneByApvevendid(string $ApveVendId) Return the first ChildApInvoiceDetail filtered by the ApveVendId column
+ * @method     ChildApInvoiceDetail|null findOneByApidpaytokey(string $ApidPayToKey) Return the first ChildApInvoiceDetail filtered by the ApidPayToKey column
+ * @method     ChildApInvoiceDetail|null findOneByApidptname(string $ApidPtName) Return the first ChildApInvoiceDetail filtered by the ApidPtName column
+ * @method     ChildApInvoiceDetail|null findOneByApidptadr1(string $ApidPtAdr1) Return the first ChildApInvoiceDetail filtered by the ApidPtAdr1 column
+ * @method     ChildApInvoiceDetail|null findOneByApidptadr2(string $ApidPtAdr2) Return the first ChildApInvoiceDetail filtered by the ApidPtAdr2 column
+ * @method     ChildApInvoiceDetail|null findOneByApidptadr3(string $ApidPtAdr3) Return the first ChildApInvoiceDetail filtered by the ApidPtAdr3 column
+ * @method     ChildApInvoiceDetail|null findOneByApidptctry(string $ApidPtCtry) Return the first ChildApInvoiceDetail filtered by the ApidPtCtry column
+ * @method     ChildApInvoiceDetail|null findOneByApidptcity(string $ApidPtCity) Return the first ChildApInvoiceDetail filtered by the ApidPtCity column
+ * @method     ChildApInvoiceDetail|null findOneByApidptstat(string $ApidPtStat) Return the first ChildApInvoiceDetail filtered by the ApidPtStat column
+ * @method     ChildApInvoiceDetail|null findOneByApidptzipcode(string $ApidPtZipCode) Return the first ChildApInvoiceDetail filtered by the ApidPtZipCode column
+ * @method     ChildApInvoiceDetail|null findOneByApidponbr(string $ApidPoNbr) Return the first ChildApInvoiceDetail filtered by the ApidPoNbr column
+ * @method     ChildApInvoiceDetail|null findOneByApidctrlnbr(string $ApidCtrlNbr) Return the first ChildApInvoiceDetail filtered by the ApidCtrlNbr column
+ * @method     ChildApInvoiceDetail|null findOneByApidinvnbr(string $ApidInvNbr) Return the first ChildApInvoiceDetail filtered by the ApidInvNbr column
+ * @method     ChildApInvoiceDetail|null findOneByApidseq(int $ApidSeq) Return the first ChildApInvoiceDetail filtered by the ApidSeq column
+ * @method     ChildApInvoiceDetail|null findOneByApidline(int $ApidLine) Return the first ChildApInvoiceDetail filtered by the ApidLine column
+ * @method     ChildApInvoiceDetail|null findOneByApidamt(string $ApidAmt) Return the first ChildApInvoiceDetail filtered by the ApidAmt column
+ * @method     ChildApInvoiceDetail|null findOneByApidglacct(string $ApidGlAcct) Return the first ChildApInvoiceDetail filtered by the ApidGlAcct column
+ * @method     ChildApInvoiceDetail|null findOneByInititemnbr(string $InitItemNbr) Return the first ChildApInvoiceDetail filtered by the InitItemNbr column
+ * @method     ChildApInvoiceDetail|null findOneByApidqtyrec(string $ApidQtyRec) Return the first ChildApInvoiceDetail filtered by the ApidQtyRec column
+ * @method     ChildApInvoiceDetail|null findOneByApiddesc(string $ApidDesc) Return the first ChildApInvoiceDetail filtered by the ApidDesc column
+ * @method     ChildApInvoiceDetail|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildApInvoiceDetail filtered by the DateUpdtd column
+ * @method     ChildApInvoiceDetail|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildApInvoiceDetail filtered by the TimeUpdtd column
+ * @method     ChildApInvoiceDetail|null findOneByDummy(string $dummy) Return the first ChildApInvoiceDetail filtered by the dummy column
+ *
+ * @method     ChildApInvoiceDetail requirePk($key, ?ConnectionInterface $con = null) Return the ChildApInvoiceDetail by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildApInvoiceDetail requireOne(?ConnectionInterface $con = null) Return the first ChildApInvoiceDetail matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildApInvoiceDetail requireOneByApvevendid(string $ApveVendId) Return the first ChildApInvoiceDetail filtered by the ApveVendId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildApInvoiceDetail requireOneByApidpaytokey(string $ApidPayToKey) Return the first ChildApInvoiceDetail filtered by the ApidPayToKey column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -152,32 +151,58 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildApInvoiceDetail requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildApInvoiceDetail filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildApInvoiceDetail requireOneByDummy(string $dummy) Return the first ChildApInvoiceDetail filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildApInvoiceDetail[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildApInvoiceDetail objects based on current ModelCriteria
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApvevendid(string $ApveVendId) Return ChildApInvoiceDetail objects filtered by the ApveVendId column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidpaytokey(string $ApidPayToKey) Return ChildApInvoiceDetail objects filtered by the ApidPayToKey column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidptname(string $ApidPtName) Return ChildApInvoiceDetail objects filtered by the ApidPtName column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidptadr1(string $ApidPtAdr1) Return ChildApInvoiceDetail objects filtered by the ApidPtAdr1 column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidptadr2(string $ApidPtAdr2) Return ChildApInvoiceDetail objects filtered by the ApidPtAdr2 column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidptadr3(string $ApidPtAdr3) Return ChildApInvoiceDetail objects filtered by the ApidPtAdr3 column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidptctry(string $ApidPtCtry) Return ChildApInvoiceDetail objects filtered by the ApidPtCtry column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidptcity(string $ApidPtCity) Return ChildApInvoiceDetail objects filtered by the ApidPtCity column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidptstat(string $ApidPtStat) Return ChildApInvoiceDetail objects filtered by the ApidPtStat column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidptzipcode(string $ApidPtZipCode) Return ChildApInvoiceDetail objects filtered by the ApidPtZipCode column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidponbr(string $ApidPoNbr) Return ChildApInvoiceDetail objects filtered by the ApidPoNbr column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidctrlnbr(string $ApidCtrlNbr) Return ChildApInvoiceDetail objects filtered by the ApidCtrlNbr column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidinvnbr(string $ApidInvNbr) Return ChildApInvoiceDetail objects filtered by the ApidInvNbr column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidseq(int $ApidSeq) Return ChildApInvoiceDetail objects filtered by the ApidSeq column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidline(int $ApidLine) Return ChildApInvoiceDetail objects filtered by the ApidLine column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidamt(string $ApidAmt) Return ChildApInvoiceDetail objects filtered by the ApidAmt column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidglacct(string $ApidGlAcct) Return ChildApInvoiceDetail objects filtered by the ApidGlAcct column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildApInvoiceDetail objects filtered by the InitItemNbr column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApidqtyrec(string $ApidQtyRec) Return ChildApInvoiceDetail objects filtered by the ApidQtyRec column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByApiddesc(string $ApidDesc) Return ChildApInvoiceDetail objects filtered by the ApidDesc column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildApInvoiceDetail objects filtered by the DateUpdtd column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildApInvoiceDetail objects filtered by the TimeUpdtd column
- * @method     ChildApInvoiceDetail[]|ObjectCollection findByDummy(string $dummy) Return ChildApInvoiceDetail objects filtered by the dummy column
- * @method     ChildApInvoiceDetail[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildApInvoiceDetail[]|Collection find(?ConnectionInterface $con = null) Return ChildApInvoiceDetail objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> find(?ConnectionInterface $con = null) Return ChildApInvoiceDetail objects based on current ModelCriteria
  *
+ * @method     ChildApInvoiceDetail[]|Collection findByApvevendid(string|array<string> $ApveVendId) Return ChildApInvoiceDetail objects filtered by the ApveVendId column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApvevendid(string|array<string> $ApveVendId) Return ChildApInvoiceDetail objects filtered by the ApveVendId column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidpaytokey(string|array<string> $ApidPayToKey) Return ChildApInvoiceDetail objects filtered by the ApidPayToKey column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidpaytokey(string|array<string> $ApidPayToKey) Return ChildApInvoiceDetail objects filtered by the ApidPayToKey column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidptname(string|array<string> $ApidPtName) Return ChildApInvoiceDetail objects filtered by the ApidPtName column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidptname(string|array<string> $ApidPtName) Return ChildApInvoiceDetail objects filtered by the ApidPtName column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidptadr1(string|array<string> $ApidPtAdr1) Return ChildApInvoiceDetail objects filtered by the ApidPtAdr1 column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidptadr1(string|array<string> $ApidPtAdr1) Return ChildApInvoiceDetail objects filtered by the ApidPtAdr1 column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidptadr2(string|array<string> $ApidPtAdr2) Return ChildApInvoiceDetail objects filtered by the ApidPtAdr2 column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidptadr2(string|array<string> $ApidPtAdr2) Return ChildApInvoiceDetail objects filtered by the ApidPtAdr2 column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidptadr3(string|array<string> $ApidPtAdr3) Return ChildApInvoiceDetail objects filtered by the ApidPtAdr3 column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidptadr3(string|array<string> $ApidPtAdr3) Return ChildApInvoiceDetail objects filtered by the ApidPtAdr3 column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidptctry(string|array<string> $ApidPtCtry) Return ChildApInvoiceDetail objects filtered by the ApidPtCtry column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidptctry(string|array<string> $ApidPtCtry) Return ChildApInvoiceDetail objects filtered by the ApidPtCtry column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidptcity(string|array<string> $ApidPtCity) Return ChildApInvoiceDetail objects filtered by the ApidPtCity column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidptcity(string|array<string> $ApidPtCity) Return ChildApInvoiceDetail objects filtered by the ApidPtCity column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidptstat(string|array<string> $ApidPtStat) Return ChildApInvoiceDetail objects filtered by the ApidPtStat column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidptstat(string|array<string> $ApidPtStat) Return ChildApInvoiceDetail objects filtered by the ApidPtStat column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidptzipcode(string|array<string> $ApidPtZipCode) Return ChildApInvoiceDetail objects filtered by the ApidPtZipCode column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidptzipcode(string|array<string> $ApidPtZipCode) Return ChildApInvoiceDetail objects filtered by the ApidPtZipCode column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidponbr(string|array<string> $ApidPoNbr) Return ChildApInvoiceDetail objects filtered by the ApidPoNbr column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidponbr(string|array<string> $ApidPoNbr) Return ChildApInvoiceDetail objects filtered by the ApidPoNbr column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidctrlnbr(string|array<string> $ApidCtrlNbr) Return ChildApInvoiceDetail objects filtered by the ApidCtrlNbr column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidctrlnbr(string|array<string> $ApidCtrlNbr) Return ChildApInvoiceDetail objects filtered by the ApidCtrlNbr column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidinvnbr(string|array<string> $ApidInvNbr) Return ChildApInvoiceDetail objects filtered by the ApidInvNbr column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidinvnbr(string|array<string> $ApidInvNbr) Return ChildApInvoiceDetail objects filtered by the ApidInvNbr column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidseq(int|array<int> $ApidSeq) Return ChildApInvoiceDetail objects filtered by the ApidSeq column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidseq(int|array<int> $ApidSeq) Return ChildApInvoiceDetail objects filtered by the ApidSeq column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidline(int|array<int> $ApidLine) Return ChildApInvoiceDetail objects filtered by the ApidLine column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidline(int|array<int> $ApidLine) Return ChildApInvoiceDetail objects filtered by the ApidLine column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidamt(string|array<string> $ApidAmt) Return ChildApInvoiceDetail objects filtered by the ApidAmt column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidamt(string|array<string> $ApidAmt) Return ChildApInvoiceDetail objects filtered by the ApidAmt column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidglacct(string|array<string> $ApidGlAcct) Return ChildApInvoiceDetail objects filtered by the ApidGlAcct column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidglacct(string|array<string> $ApidGlAcct) Return ChildApInvoiceDetail objects filtered by the ApidGlAcct column
+ * @method     ChildApInvoiceDetail[]|Collection findByInititemnbr(string|array<string> $InitItemNbr) Return ChildApInvoiceDetail objects filtered by the InitItemNbr column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByInititemnbr(string|array<string> $InitItemNbr) Return ChildApInvoiceDetail objects filtered by the InitItemNbr column
+ * @method     ChildApInvoiceDetail[]|Collection findByApidqtyrec(string|array<string> $ApidQtyRec) Return ChildApInvoiceDetail objects filtered by the ApidQtyRec column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApidqtyrec(string|array<string> $ApidQtyRec) Return ChildApInvoiceDetail objects filtered by the ApidQtyRec column
+ * @method     ChildApInvoiceDetail[]|Collection findByApiddesc(string|array<string> $ApidDesc) Return ChildApInvoiceDetail objects filtered by the ApidDesc column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByApiddesc(string|array<string> $ApidDesc) Return ChildApInvoiceDetail objects filtered by the ApidDesc column
+ * @method     ChildApInvoiceDetail[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildApInvoiceDetail objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildApInvoiceDetail objects filtered by the DateUpdtd column
+ * @method     ChildApInvoiceDetail[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildApInvoiceDetail objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildApInvoiceDetail objects filtered by the TimeUpdtd column
+ * @method     ChildApInvoiceDetail[]|Collection findByDummy(string|array<string> $dummy) Return ChildApInvoiceDetail objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildApInvoiceDetail> findByDummy(string|array<string> $dummy) Return ChildApInvoiceDetail objects filtered by the dummy column
+ *
+ * @method     ChildApInvoiceDetail[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildApInvoiceDetail> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ApInvoiceDetailQuery extends ModelCriteria
 {
@@ -186,9 +211,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ApInvoiceDetailQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ApInvoiceDetail', $modelAlias = null)
     {
@@ -198,12 +223,12 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
     /**
      * Returns a new ChildApInvoiceDetailQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildApInvoiceDetailQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildApInvoiceDetailQuery) {
             return $criteria;
@@ -233,7 +258,7 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      *
      * @return ChildApInvoiceDetail|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -265,8 +290,8 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -304,8 +329,8 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildApInvoiceDetail|array|mixed the result, formatted by the current formatter
      */
@@ -325,12 +350,12 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -347,9 +372,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -367,14 +392,16 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(ApInvoiceDetailTableMap::COL_APVEVENDID, $key[0], Criteria::EQUAL);
@@ -403,14 +430,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByApvevendid('fooValue');   // WHERE ApveVendId = 'fooValue'
      * $query->filterByApvevendid('%fooValue%', Criteria::LIKE); // WHERE ApveVendId LIKE '%fooValue%'
+     * $query->filterByApvevendid(['foo', 'bar']); // WHERE ApveVendId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvevendid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvevendid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvevendid($apvevendid = null, $comparison = null)
+    public function filterByApvevendid($apvevendid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvevendid)) {
@@ -418,7 +446,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APVEVENDID, $apvevendid, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APVEVENDID, $apvevendid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -428,14 +458,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByApidpaytokey('fooValue');   // WHERE ApidPayToKey = 'fooValue'
      * $query->filterByApidpaytokey('%fooValue%', Criteria::LIKE); // WHERE ApidPayToKey LIKE '%fooValue%'
+     * $query->filterByApidpaytokey(['foo', 'bar']); // WHERE ApidPayToKey IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apidpaytokey The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apidpaytokey The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidpaytokey($apidpaytokey = null, $comparison = null)
+    public function filterByApidpaytokey($apidpaytokey = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apidpaytokey)) {
@@ -443,7 +474,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPAYTOKEY, $apidpaytokey, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPAYTOKEY, $apidpaytokey, $comparison);
+
+        return $this;
     }
 
     /**
@@ -453,14 +486,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByApidptname('fooValue');   // WHERE ApidPtName = 'fooValue'
      * $query->filterByApidptname('%fooValue%', Criteria::LIKE); // WHERE ApidPtName LIKE '%fooValue%'
+     * $query->filterByApidptname(['foo', 'bar']); // WHERE ApidPtName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apidptname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apidptname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidptname($apidptname = null, $comparison = null)
+    public function filterByApidptname($apidptname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apidptname)) {
@@ -468,7 +502,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPTNAME, $apidptname, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPTNAME, $apidptname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -478,14 +514,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByApidptadr1('fooValue');   // WHERE ApidPtAdr1 = 'fooValue'
      * $query->filterByApidptadr1('%fooValue%', Criteria::LIKE); // WHERE ApidPtAdr1 LIKE '%fooValue%'
+     * $query->filterByApidptadr1(['foo', 'bar']); // WHERE ApidPtAdr1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apidptadr1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apidptadr1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidptadr1($apidptadr1 = null, $comparison = null)
+    public function filterByApidptadr1($apidptadr1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apidptadr1)) {
@@ -493,7 +530,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPTADR1, $apidptadr1, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPTADR1, $apidptadr1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -503,14 +542,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByApidptadr2('fooValue');   // WHERE ApidPtAdr2 = 'fooValue'
      * $query->filterByApidptadr2('%fooValue%', Criteria::LIKE); // WHERE ApidPtAdr2 LIKE '%fooValue%'
+     * $query->filterByApidptadr2(['foo', 'bar']); // WHERE ApidPtAdr2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apidptadr2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apidptadr2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidptadr2($apidptadr2 = null, $comparison = null)
+    public function filterByApidptadr2($apidptadr2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apidptadr2)) {
@@ -518,7 +558,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPTADR2, $apidptadr2, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPTADR2, $apidptadr2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -528,14 +570,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByApidptadr3('fooValue');   // WHERE ApidPtAdr3 = 'fooValue'
      * $query->filterByApidptadr3('%fooValue%', Criteria::LIKE); // WHERE ApidPtAdr3 LIKE '%fooValue%'
+     * $query->filterByApidptadr3(['foo', 'bar']); // WHERE ApidPtAdr3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apidptadr3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apidptadr3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidptadr3($apidptadr3 = null, $comparison = null)
+    public function filterByApidptadr3($apidptadr3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apidptadr3)) {
@@ -543,7 +586,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPTADR3, $apidptadr3, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPTADR3, $apidptadr3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -553,14 +598,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByApidptctry('fooValue');   // WHERE ApidPtCtry = 'fooValue'
      * $query->filterByApidptctry('%fooValue%', Criteria::LIKE); // WHERE ApidPtCtry LIKE '%fooValue%'
+     * $query->filterByApidptctry(['foo', 'bar']); // WHERE ApidPtCtry IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apidptctry The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apidptctry The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidptctry($apidptctry = null, $comparison = null)
+    public function filterByApidptctry($apidptctry = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apidptctry)) {
@@ -568,7 +614,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPTCTRY, $apidptctry, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPTCTRY, $apidptctry, $comparison);
+
+        return $this;
     }
 
     /**
@@ -578,14 +626,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByApidptcity('fooValue');   // WHERE ApidPtCity = 'fooValue'
      * $query->filterByApidptcity('%fooValue%', Criteria::LIKE); // WHERE ApidPtCity LIKE '%fooValue%'
+     * $query->filterByApidptcity(['foo', 'bar']); // WHERE ApidPtCity IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apidptcity The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apidptcity The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidptcity($apidptcity = null, $comparison = null)
+    public function filterByApidptcity($apidptcity = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apidptcity)) {
@@ -593,7 +642,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPTCITY, $apidptcity, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPTCITY, $apidptcity, $comparison);
+
+        return $this;
     }
 
     /**
@@ -603,14 +654,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByApidptstat('fooValue');   // WHERE ApidPtStat = 'fooValue'
      * $query->filterByApidptstat('%fooValue%', Criteria::LIKE); // WHERE ApidPtStat LIKE '%fooValue%'
+     * $query->filterByApidptstat(['foo', 'bar']); // WHERE ApidPtStat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apidptstat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apidptstat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidptstat($apidptstat = null, $comparison = null)
+    public function filterByApidptstat($apidptstat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apidptstat)) {
@@ -618,7 +670,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPTSTAT, $apidptstat, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPTSTAT, $apidptstat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -628,14 +682,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByApidptzipcode('fooValue');   // WHERE ApidPtZipCode = 'fooValue'
      * $query->filterByApidptzipcode('%fooValue%', Criteria::LIKE); // WHERE ApidPtZipCode LIKE '%fooValue%'
+     * $query->filterByApidptzipcode(['foo', 'bar']); // WHERE ApidPtZipCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apidptzipcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apidptzipcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidptzipcode($apidptzipcode = null, $comparison = null)
+    public function filterByApidptzipcode($apidptzipcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apidptzipcode)) {
@@ -643,7 +698,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPTZIPCODE, $apidptzipcode, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPTZIPCODE, $apidptzipcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -653,14 +710,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByApidponbr('fooValue');   // WHERE ApidPoNbr = 'fooValue'
      * $query->filterByApidponbr('%fooValue%', Criteria::LIKE); // WHERE ApidPoNbr LIKE '%fooValue%'
+     * $query->filterByApidponbr(['foo', 'bar']); // WHERE ApidPoNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apidponbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apidponbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidponbr($apidponbr = null, $comparison = null)
+    public function filterByApidponbr($apidponbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apidponbr)) {
@@ -668,7 +726,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPONBR, $apidponbr, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDPONBR, $apidponbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -678,14 +738,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByApidctrlnbr('fooValue');   // WHERE ApidCtrlNbr = 'fooValue'
      * $query->filterByApidctrlnbr('%fooValue%', Criteria::LIKE); // WHERE ApidCtrlNbr LIKE '%fooValue%'
+     * $query->filterByApidctrlnbr(['foo', 'bar']); // WHERE ApidCtrlNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apidctrlnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apidctrlnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidctrlnbr($apidctrlnbr = null, $comparison = null)
+    public function filterByApidctrlnbr($apidctrlnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apidctrlnbr)) {
@@ -693,7 +754,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDCTRLNBR, $apidctrlnbr, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDCTRLNBR, $apidctrlnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -703,14 +766,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByApidinvnbr('fooValue');   // WHERE ApidInvNbr = 'fooValue'
      * $query->filterByApidinvnbr('%fooValue%', Criteria::LIKE); // WHERE ApidInvNbr LIKE '%fooValue%'
+     * $query->filterByApidinvnbr(['foo', 'bar']); // WHERE ApidInvNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apidinvnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apidinvnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidinvnbr($apidinvnbr = null, $comparison = null)
+    public function filterByApidinvnbr($apidinvnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apidinvnbr)) {
@@ -718,7 +782,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDINVNBR, $apidinvnbr, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDINVNBR, $apidinvnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -733,15 +799,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      *
      * @see       filterByApInvoice()
      *
-     * @param     mixed $apidseq The value to use as filter.
+     * @param mixed $apidseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidseq($apidseq = null, $comparison = null)
+    public function filterByApidseq($apidseq = null, ?string $comparison = null)
     {
         if (is_array($apidseq)) {
             $useMinMax = false;
@@ -761,7 +827,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDSEQ, $apidseq, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDSEQ, $apidseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -774,15 +842,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * $query->filterByApidline(array('min' => 12)); // WHERE ApidLine > 12
      * </code>
      *
-     * @param     mixed $apidline The value to use as filter.
+     * @param mixed $apidline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidline($apidline = null, $comparison = null)
+    public function filterByApidline($apidline = null, ?string $comparison = null)
     {
         if (is_array($apidline)) {
             $useMinMax = false;
@@ -802,7 +870,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDLINE, $apidline, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDLINE, $apidline, $comparison);
+
+        return $this;
     }
 
     /**
@@ -815,15 +885,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * $query->filterByApidamt(array('min' => 12)); // WHERE ApidAmt > 12
      * </code>
      *
-     * @param     mixed $apidamt The value to use as filter.
+     * @param mixed $apidamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidamt($apidamt = null, $comparison = null)
+    public function filterByApidamt($apidamt = null, ?string $comparison = null)
     {
         if (is_array($apidamt)) {
             $useMinMax = false;
@@ -843,7 +913,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDAMT, $apidamt, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDAMT, $apidamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -853,14 +925,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByApidglacct('fooValue');   // WHERE ApidGlAcct = 'fooValue'
      * $query->filterByApidglacct('%fooValue%', Criteria::LIKE); // WHERE ApidGlAcct LIKE '%fooValue%'
+     * $query->filterByApidglacct(['foo', 'bar']); // WHERE ApidGlAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apidglacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apidglacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidglacct($apidglacct = null, $comparison = null)
+    public function filterByApidglacct($apidglacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apidglacct)) {
@@ -868,7 +941,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDGLACCT, $apidglacct, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDGLACCT, $apidglacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -878,14 +953,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
      * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
+     * $query->filterByInititemnbr(['foo', 'bar']); // WHERE InitItemNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $inititemnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $inititemnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInititemnbr($inititemnbr = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($inititemnbr)) {
@@ -893,7 +969,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -906,15 +984,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * $query->filterByApidqtyrec(array('min' => 12)); // WHERE ApidQtyRec > 12
      * </code>
      *
-     * @param     mixed $apidqtyrec The value to use as filter.
+     * @param mixed $apidqtyrec The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApidqtyrec($apidqtyrec = null, $comparison = null)
+    public function filterByApidqtyrec($apidqtyrec = null, ?string $comparison = null)
     {
         if (is_array($apidqtyrec)) {
             $useMinMax = false;
@@ -934,7 +1012,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDQTYREC, $apidqtyrec, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDQTYREC, $apidqtyrec, $comparison);
+
+        return $this;
     }
 
     /**
@@ -944,14 +1024,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByApiddesc('fooValue');   // WHERE ApidDesc = 'fooValue'
      * $query->filterByApiddesc('%fooValue%', Criteria::LIKE); // WHERE ApidDesc LIKE '%fooValue%'
+     * $query->filterByApiddesc(['foo', 'bar']); // WHERE ApidDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apiddesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apiddesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApiddesc($apiddesc = null, $comparison = null)
+    public function filterByApiddesc($apiddesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apiddesc)) {
@@ -959,7 +1040,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDDESC, $apiddesc, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_APIDDESC, $apiddesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -969,14 +1052,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -984,7 +1068,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -994,14 +1080,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1009,7 +1096,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1019,14 +1108,15 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1034,20 +1124,22 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ApInvoiceDetailTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ApInvoiceDetailTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \ApInvoice object
      *
      * @param \ApInvoice $apInvoice The related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApInvoice($apInvoice, $comparison = null)
+    public function filterByApInvoice($apInvoice, ?string $comparison = null)
     {
         if ($apInvoice instanceof \ApInvoice) {
             return $this
@@ -1065,12 +1157,12 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ApInvoice relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinApInvoice($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinApInvoice(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ApInvoice');
@@ -1099,9 +1191,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ApInvoiceQuery A secondary query class using the current class as primary query
      */
@@ -1113,16 +1205,112 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
     }
 
     /**
+     * Use the ApInvoice relation ApInvoice object
+     *
+     * @param callable(\ApInvoiceQuery):\ApInvoiceQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withApInvoiceQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useApInvoiceQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ApInvoice table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ApInvoiceQuery The inner query object of the EXISTS statement
+     */
+    public function useApInvoiceExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ApInvoiceQuery */
+        $q = $this->useExistsQuery('ApInvoice', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApInvoice table for a NOT EXISTS query.
+     *
+     * @see useApInvoiceExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ApInvoiceQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useApInvoiceNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ApInvoiceQuery */
+        $q = $this->useExistsQuery('ApInvoice', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApInvoice table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ApInvoiceQuery The inner query object of the IN statement
+     */
+    public function useInApInvoiceQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ApInvoiceQuery */
+        $q = $this->useInQuery('ApInvoice', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApInvoice table for a NOT IN query.
+     *
+     * @see useApInvoiceInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ApInvoiceQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInApInvoiceQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ApInvoiceQuery */
+        $q = $this->useInQuery('ApInvoice', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \Vendor object
      *
      * @param \Vendor|ObjectCollection $vendor The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVendor($vendor, $comparison = null)
+    public function filterByVendor($vendor, ?string $comparison = null)
     {
         if ($vendor instanceof \Vendor) {
             return $this
@@ -1132,8 +1320,10 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(ApInvoiceDetailTableMap::COL_APVEVENDID, $vendor->toKeyValue('PrimaryKey', 'Apvevendid'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByVendor() only accepts arguments of type \Vendor or Collection');
         }
@@ -1142,12 +1332,12 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Vendor relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinVendor($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinVendor(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Vendor');
@@ -1176,9 +1366,9 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \VendorQuery A secondary query class using the current class as primary query
      */
@@ -1190,11 +1380,107 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
     }
 
     /**
+     * Use the Vendor relation Vendor object
+     *
+     * @param callable(\VendorQuery):\VendorQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withVendorQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useVendorQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Vendor table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \VendorQuery The inner query object of the EXISTS statement
+     */
+    public function useVendorExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useExistsQuery('Vendor', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Vendor table for a NOT EXISTS query.
+     *
+     * @see useVendorExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \VendorQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useVendorNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useExistsQuery('Vendor', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Vendor table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \VendorQuery The inner query object of the IN statement
+     */
+    public function useInVendorQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useInQuery('Vendor', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Vendor table for a NOT IN query.
+     *
+     * @see useVendorInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \VendorQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInVendorQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useInQuery('Vendor', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildApInvoiceDetail $apInvoiceDetail Object to remove from the list of results
+     * @param ChildApInvoiceDetail $apInvoiceDetail Object to remove from the list of results
      *
-     * @return $this|ChildApInvoiceDetailQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($apInvoiceDetail = null)
     {
@@ -1218,7 +1504,7 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApInvoiceDetailTableMap::DATABASE_NAME);
@@ -1243,12 +1529,12 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ApInvoiceDetailTableMap::DATABASE_NAME);
@@ -1273,4 +1559,4 @@ abstract class ApInvoiceDetailQuery extends ModelCriteria
         });
     }
 
-} // ApInvoiceDetailQuery
+}

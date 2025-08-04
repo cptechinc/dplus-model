@@ -10,14 +10,12 @@ use Map\NotePredefinedTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'notes_pre_defined' table.
- *
- *
+ * Base class that represents a query for the `notes_pre_defined` table.
  *
  * @method     ChildNotePredefinedQuery orderByQntype($order = Criteria::ASC) Order by the QnType column
  * @method     ChildNotePredefinedQuery orderByQntypedesc($order = Criteria::ASC) Order by the QnTypeDesc column
@@ -49,22 +47,22 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNotePredefinedQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildNotePredefinedQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildNotePredefined findOne(ConnectionInterface $con = null) Return the first ChildNotePredefined matching the query
- * @method     ChildNotePredefined findOneOrCreate(ConnectionInterface $con = null) Return the first ChildNotePredefined matching the query, or a new ChildNotePredefined object populated from the query conditions when no match is found
+ * @method     ChildNotePredefined|null findOne(?ConnectionInterface $con = null) Return the first ChildNotePredefined matching the query
+ * @method     ChildNotePredefined findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildNotePredefined matching the query, or a new ChildNotePredefined object populated from the query conditions when no match is found
  *
- * @method     ChildNotePredefined findOneByQntype(string $QnType) Return the first ChildNotePredefined filtered by the QnType column
- * @method     ChildNotePredefined findOneByQntypedesc(string $QnTypeDesc) Return the first ChildNotePredefined filtered by the QnTypeDesc column
- * @method     ChildNotePredefined findOneByQnpdntcode(string $QnPdntCode) Return the first ChildNotePredefined filtered by the QnPdntCode column
- * @method     ChildNotePredefined findOneByQnseq(int $QnSeq) Return the first ChildNotePredefined filtered by the QnSeq column
- * @method     ChildNotePredefined findOneByQnnote(string $QnNote) Return the first ChildNotePredefined filtered by the QnNote column
- * @method     ChildNotePredefined findOneByQnkey2(string $QnKey2) Return the first ChildNotePredefined filtered by the QnKey2 column
- * @method     ChildNotePredefined findOneByQnform(string $QnForm) Return the first ChildNotePredefined filtered by the QnForm column
- * @method     ChildNotePredefined findOneByDateupdtd(string $DateUpdtd) Return the first ChildNotePredefined filtered by the DateUpdtd column
- * @method     ChildNotePredefined findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildNotePredefined filtered by the TimeUpdtd column
- * @method     ChildNotePredefined findOneByDummy(string $dummy) Return the first ChildNotePredefined filtered by the dummy column *
-
- * @method     ChildNotePredefined requirePk($key, ConnectionInterface $con = null) Return the ChildNotePredefined by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNotePredefined requireOne(ConnectionInterface $con = null) Return the first ChildNotePredefined matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNotePredefined|null findOneByQntype(string $QnType) Return the first ChildNotePredefined filtered by the QnType column
+ * @method     ChildNotePredefined|null findOneByQntypedesc(string $QnTypeDesc) Return the first ChildNotePredefined filtered by the QnTypeDesc column
+ * @method     ChildNotePredefined|null findOneByQnpdntcode(string $QnPdntCode) Return the first ChildNotePredefined filtered by the QnPdntCode column
+ * @method     ChildNotePredefined|null findOneByQnseq(int $QnSeq) Return the first ChildNotePredefined filtered by the QnSeq column
+ * @method     ChildNotePredefined|null findOneByQnnote(string $QnNote) Return the first ChildNotePredefined filtered by the QnNote column
+ * @method     ChildNotePredefined|null findOneByQnkey2(string $QnKey2) Return the first ChildNotePredefined filtered by the QnKey2 column
+ * @method     ChildNotePredefined|null findOneByQnform(string $QnForm) Return the first ChildNotePredefined filtered by the QnForm column
+ * @method     ChildNotePredefined|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildNotePredefined filtered by the DateUpdtd column
+ * @method     ChildNotePredefined|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildNotePredefined filtered by the TimeUpdtd column
+ * @method     ChildNotePredefined|null findOneByDummy(string $dummy) Return the first ChildNotePredefined filtered by the dummy column
+ *
+ * @method     ChildNotePredefined requirePk($key, ?ConnectionInterface $con = null) Return the ChildNotePredefined by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNotePredefined requireOne(?ConnectionInterface $con = null) Return the first ChildNotePredefined matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildNotePredefined requireOneByQntype(string $QnType) Return the first ChildNotePredefined filtered by the QnType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNotePredefined requireOneByQntypedesc(string $QnTypeDesc) Return the first ChildNotePredefined filtered by the QnTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -77,19 +75,32 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNotePredefined requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildNotePredefined filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNotePredefined requireOneByDummy(string $dummy) Return the first ChildNotePredefined filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildNotePredefined[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildNotePredefined objects based on current ModelCriteria
- * @method     ChildNotePredefined[]|ObjectCollection findByQntype(string $QnType) Return ChildNotePredefined objects filtered by the QnType column
- * @method     ChildNotePredefined[]|ObjectCollection findByQntypedesc(string $QnTypeDesc) Return ChildNotePredefined objects filtered by the QnTypeDesc column
- * @method     ChildNotePredefined[]|ObjectCollection findByQnpdntcode(string $QnPdntCode) Return ChildNotePredefined objects filtered by the QnPdntCode column
- * @method     ChildNotePredefined[]|ObjectCollection findByQnseq(int $QnSeq) Return ChildNotePredefined objects filtered by the QnSeq column
- * @method     ChildNotePredefined[]|ObjectCollection findByQnnote(string $QnNote) Return ChildNotePredefined objects filtered by the QnNote column
- * @method     ChildNotePredefined[]|ObjectCollection findByQnkey2(string $QnKey2) Return ChildNotePredefined objects filtered by the QnKey2 column
- * @method     ChildNotePredefined[]|ObjectCollection findByQnform(string $QnForm) Return ChildNotePredefined objects filtered by the QnForm column
- * @method     ChildNotePredefined[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildNotePredefined objects filtered by the DateUpdtd column
- * @method     ChildNotePredefined[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildNotePredefined objects filtered by the TimeUpdtd column
- * @method     ChildNotePredefined[]|ObjectCollection findByDummy(string $dummy) Return ChildNotePredefined objects filtered by the dummy column
- * @method     ChildNotePredefined[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildNotePredefined[]|Collection find(?ConnectionInterface $con = null) Return ChildNotePredefined objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildNotePredefined> find(?ConnectionInterface $con = null) Return ChildNotePredefined objects based on current ModelCriteria
  *
+ * @method     ChildNotePredefined[]|Collection findByQntype(string|array<string> $QnType) Return ChildNotePredefined objects filtered by the QnType column
+ * @psalm-method Collection&\Traversable<ChildNotePredefined> findByQntype(string|array<string> $QnType) Return ChildNotePredefined objects filtered by the QnType column
+ * @method     ChildNotePredefined[]|Collection findByQntypedesc(string|array<string> $QnTypeDesc) Return ChildNotePredefined objects filtered by the QnTypeDesc column
+ * @psalm-method Collection&\Traversable<ChildNotePredefined> findByQntypedesc(string|array<string> $QnTypeDesc) Return ChildNotePredefined objects filtered by the QnTypeDesc column
+ * @method     ChildNotePredefined[]|Collection findByQnpdntcode(string|array<string> $QnPdntCode) Return ChildNotePredefined objects filtered by the QnPdntCode column
+ * @psalm-method Collection&\Traversable<ChildNotePredefined> findByQnpdntcode(string|array<string> $QnPdntCode) Return ChildNotePredefined objects filtered by the QnPdntCode column
+ * @method     ChildNotePredefined[]|Collection findByQnseq(int|array<int> $QnSeq) Return ChildNotePredefined objects filtered by the QnSeq column
+ * @psalm-method Collection&\Traversable<ChildNotePredefined> findByQnseq(int|array<int> $QnSeq) Return ChildNotePredefined objects filtered by the QnSeq column
+ * @method     ChildNotePredefined[]|Collection findByQnnote(string|array<string> $QnNote) Return ChildNotePredefined objects filtered by the QnNote column
+ * @psalm-method Collection&\Traversable<ChildNotePredefined> findByQnnote(string|array<string> $QnNote) Return ChildNotePredefined objects filtered by the QnNote column
+ * @method     ChildNotePredefined[]|Collection findByQnkey2(string|array<string> $QnKey2) Return ChildNotePredefined objects filtered by the QnKey2 column
+ * @psalm-method Collection&\Traversable<ChildNotePredefined> findByQnkey2(string|array<string> $QnKey2) Return ChildNotePredefined objects filtered by the QnKey2 column
+ * @method     ChildNotePredefined[]|Collection findByQnform(string|array<string> $QnForm) Return ChildNotePredefined objects filtered by the QnForm column
+ * @psalm-method Collection&\Traversable<ChildNotePredefined> findByQnform(string|array<string> $QnForm) Return ChildNotePredefined objects filtered by the QnForm column
+ * @method     ChildNotePredefined[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildNotePredefined objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildNotePredefined> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildNotePredefined objects filtered by the DateUpdtd column
+ * @method     ChildNotePredefined[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildNotePredefined objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildNotePredefined> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildNotePredefined objects filtered by the TimeUpdtd column
+ * @method     ChildNotePredefined[]|Collection findByDummy(string|array<string> $dummy) Return ChildNotePredefined objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildNotePredefined> findByDummy(string|array<string> $dummy) Return ChildNotePredefined objects filtered by the dummy column
+ *
+ * @method     ChildNotePredefined[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildNotePredefined> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class NotePredefinedQuery extends ModelCriteria
 {
@@ -98,9 +109,9 @@ abstract class NotePredefinedQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\NotePredefinedQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\NotePredefined', $modelAlias = null)
     {
@@ -110,12 +121,12 @@ abstract class NotePredefinedQuery extends ModelCriteria
     /**
      * Returns a new ChildNotePredefinedQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildNotePredefinedQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildNotePredefinedQuery) {
             return $criteria;
@@ -145,7 +156,7 @@ abstract class NotePredefinedQuery extends ModelCriteria
      *
      * @return ChildNotePredefined|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -177,8 +188,8 @@ abstract class NotePredefinedQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -213,8 +224,8 @@ abstract class NotePredefinedQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildNotePredefined|array|mixed the result, formatted by the current formatter
      */
@@ -234,12 +245,12 @@ abstract class NotePredefinedQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(array(12, 56), array(832, 123), array(123, 456)), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -256,9 +267,9 @@ abstract class NotePredefinedQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildNotePredefinedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
@@ -273,14 +284,16 @@ abstract class NotePredefinedQuery extends ModelCriteria
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildNotePredefinedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
         if (empty($keys)) {
-            return $this->add(null, '1<>1', Criteria::CUSTOM);
+            $this->add(null, '1<>1', Criteria::CUSTOM);
+
+            return $this;
         }
         foreach ($keys as $key) {
             $cton0 = $this->getNewCriterion(NotePredefinedTableMap::COL_QNTYPE, $key[0], Criteria::EQUAL);
@@ -303,14 +316,15 @@ abstract class NotePredefinedQuery extends ModelCriteria
      * <code>
      * $query->filterByQntype('fooValue');   // WHERE QnType = 'fooValue'
      * $query->filterByQntype('%fooValue%', Criteria::LIKE); // WHERE QnType LIKE '%fooValue%'
+     * $query->filterByQntype(['foo', 'bar']); // WHERE QnType IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qntype The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qntype The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotePredefinedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQntype($qntype = null, $comparison = null)
+    public function filterByQntype($qntype = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qntype)) {
@@ -318,7 +332,9 @@ abstract class NotePredefinedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotePredefinedTableMap::COL_QNTYPE, $qntype, $comparison);
+        $this->addUsingAlias(NotePredefinedTableMap::COL_QNTYPE, $qntype, $comparison);
+
+        return $this;
     }
 
     /**
@@ -328,14 +344,15 @@ abstract class NotePredefinedQuery extends ModelCriteria
      * <code>
      * $query->filterByQntypedesc('fooValue');   // WHERE QnTypeDesc = 'fooValue'
      * $query->filterByQntypedesc('%fooValue%', Criteria::LIKE); // WHERE QnTypeDesc LIKE '%fooValue%'
+     * $query->filterByQntypedesc(['foo', 'bar']); // WHERE QnTypeDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qntypedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qntypedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotePredefinedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQntypedesc($qntypedesc = null, $comparison = null)
+    public function filterByQntypedesc($qntypedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qntypedesc)) {
@@ -343,7 +360,9 @@ abstract class NotePredefinedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotePredefinedTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
+        $this->addUsingAlias(NotePredefinedTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -353,14 +372,15 @@ abstract class NotePredefinedQuery extends ModelCriteria
      * <code>
      * $query->filterByQnpdntcode('fooValue');   // WHERE QnPdntCode = 'fooValue'
      * $query->filterByQnpdntcode('%fooValue%', Criteria::LIKE); // WHERE QnPdntCode LIKE '%fooValue%'
+     * $query->filterByQnpdntcode(['foo', 'bar']); // WHERE QnPdntCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnpdntcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnpdntcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotePredefinedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnpdntcode($qnpdntcode = null, $comparison = null)
+    public function filterByQnpdntcode($qnpdntcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnpdntcode)) {
@@ -368,7 +388,9 @@ abstract class NotePredefinedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotePredefinedTableMap::COL_QNPDNTCODE, $qnpdntcode, $comparison);
+        $this->addUsingAlias(NotePredefinedTableMap::COL_QNPDNTCODE, $qnpdntcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -381,15 +403,15 @@ abstract class NotePredefinedQuery extends ModelCriteria
      * $query->filterByQnseq(array('min' => 12)); // WHERE QnSeq > 12
      * </code>
      *
-     * @param     mixed $qnseq The value to use as filter.
+     * @param mixed $qnseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotePredefinedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnseq($qnseq = null, $comparison = null)
+    public function filterByQnseq($qnseq = null, ?string $comparison = null)
     {
         if (is_array($qnseq)) {
             $useMinMax = false;
@@ -409,7 +431,9 @@ abstract class NotePredefinedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotePredefinedTableMap::COL_QNSEQ, $qnseq, $comparison);
+        $this->addUsingAlias(NotePredefinedTableMap::COL_QNSEQ, $qnseq, $comparison);
+
+        return $this;
     }
 
     /**
@@ -419,14 +443,15 @@ abstract class NotePredefinedQuery extends ModelCriteria
      * <code>
      * $query->filterByQnnote('fooValue');   // WHERE QnNote = 'fooValue'
      * $query->filterByQnnote('%fooValue%', Criteria::LIKE); // WHERE QnNote LIKE '%fooValue%'
+     * $query->filterByQnnote(['foo', 'bar']); // WHERE QnNote IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnnote The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnnote The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotePredefinedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnnote($qnnote = null, $comparison = null)
+    public function filterByQnnote($qnnote = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnnote)) {
@@ -434,7 +459,9 @@ abstract class NotePredefinedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotePredefinedTableMap::COL_QNNOTE, $qnnote, $comparison);
+        $this->addUsingAlias(NotePredefinedTableMap::COL_QNNOTE, $qnnote, $comparison);
+
+        return $this;
     }
 
     /**
@@ -444,14 +471,15 @@ abstract class NotePredefinedQuery extends ModelCriteria
      * <code>
      * $query->filterByQnkey2('fooValue');   // WHERE QnKey2 = 'fooValue'
      * $query->filterByQnkey2('%fooValue%', Criteria::LIKE); // WHERE QnKey2 LIKE '%fooValue%'
+     * $query->filterByQnkey2(['foo', 'bar']); // WHERE QnKey2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnkey2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnkey2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotePredefinedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnkey2($qnkey2 = null, $comparison = null)
+    public function filterByQnkey2($qnkey2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnkey2)) {
@@ -459,7 +487,9 @@ abstract class NotePredefinedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotePredefinedTableMap::COL_QNKEY2, $qnkey2, $comparison);
+        $this->addUsingAlias(NotePredefinedTableMap::COL_QNKEY2, $qnkey2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -469,14 +499,15 @@ abstract class NotePredefinedQuery extends ModelCriteria
      * <code>
      * $query->filterByQnform('fooValue');   // WHERE QnForm = 'fooValue'
      * $query->filterByQnform('%fooValue%', Criteria::LIKE); // WHERE QnForm LIKE '%fooValue%'
+     * $query->filterByQnform(['foo', 'bar']); // WHERE QnForm IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $qnform The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $qnform The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotePredefinedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByQnform($qnform = null, $comparison = null)
+    public function filterByQnform($qnform = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($qnform)) {
@@ -484,7 +515,9 @@ abstract class NotePredefinedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotePredefinedTableMap::COL_QNFORM, $qnform, $comparison);
+        $this->addUsingAlias(NotePredefinedTableMap::COL_QNFORM, $qnform, $comparison);
+
+        return $this;
     }
 
     /**
@@ -494,14 +527,15 @@ abstract class NotePredefinedQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotePredefinedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -509,7 +543,9 @@ abstract class NotePredefinedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotePredefinedTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(NotePredefinedTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -519,14 +555,15 @@ abstract class NotePredefinedQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotePredefinedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -534,7 +571,9 @@ abstract class NotePredefinedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotePredefinedTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(NotePredefinedTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -544,14 +583,15 @@ abstract class NotePredefinedQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNotePredefinedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -559,15 +599,17 @@ abstract class NotePredefinedQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NotePredefinedTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(NotePredefinedTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildNotePredefined $notePredefined Object to remove from the list of results
+     * @param ChildNotePredefined $notePredefined Object to remove from the list of results
      *
-     * @return $this|ChildNotePredefinedQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($notePredefined = null)
     {
@@ -588,7 +630,7 @@ abstract class NotePredefinedQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(NotePredefinedTableMap::DATABASE_NAME);
@@ -613,12 +655,12 @@ abstract class NotePredefinedQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(NotePredefinedTableMap::DATABASE_NAME);
@@ -643,4 +685,4 @@ abstract class NotePredefinedQuery extends ModelCriteria
         });
     }
 
-} // NotePredefinedQuery
+}

@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ar_cust_svia' table.
- *
- *
+ * Base class that represents a query for the `ar_cust_svia` table.
  *
  * @method     ChildShipviaQuery orderByArtbshipvia($order = Criteria::ASC) Order by the ArtbShipVia column
  * @method     ChildShipviaQuery orderByArtbsviadesc($order = Criteria::ASC) Order by the ArtbSviaDesc column
@@ -112,32 +111,32 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \VendorShipfromQuery|\VendorQuery|\CustomerQuery|\PurchaseOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildShipvia findOne(ConnectionInterface $con = null) Return the first ChildShipvia matching the query
- * @method     ChildShipvia findOneOrCreate(ConnectionInterface $con = null) Return the first ChildShipvia matching the query, or a new ChildShipvia object populated from the query conditions when no match is found
+ * @method     ChildShipvia|null findOne(?ConnectionInterface $con = null) Return the first ChildShipvia matching the query
+ * @method     ChildShipvia findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildShipvia matching the query, or a new ChildShipvia object populated from the query conditions when no match is found
  *
- * @method     ChildShipvia findOneByArtbshipvia(string $ArtbShipVia) Return the first ChildShipvia filtered by the ArtbShipVia column
- * @method     ChildShipvia findOneByArtbsviadesc(string $ArtbSviaDesc) Return the first ChildShipvia filtered by the ArtbSviaDesc column
- * @method     ChildShipvia findOneByArtbsviaprio(string $ArtbSviaPrio) Return the first ChildShipvia filtered by the ArtbSviaPrio column
- * @method     ChildShipvia findOneByArtbsviaweb(string $ArtbSviaWeb) Return the first ChildShipvia filtered by the ArtbSviaWeb column
- * @method     ChildShipvia findOneByArtbsviaair(string $ArtbSviaAir) Return the first ChildShipvia filtered by the ArtbSviaAir column
- * @method     ChildShipvia findOneByArtbsviaupsserv(string $ArtbSviaUpsServ) Return the first ChildShipvia filtered by the ArtbSviaUpsServ column
- * @method     ChildShipvia findOneByArtbsviaupsbilling(string $ArtbSviaUpsBilling) Return the first ChildShipvia filtered by the ArtbSviaUpsBilling column
- * @method     ChildShipvia findOneByArtbsviascaccd(string $ArtbSviaScacCd) Return the first ChildShipvia filtered by the ArtbSviaScacCd column
- * @method     ChildShipvia findOneByArtbsviaedimethcd(string $ArtbSviaEdiMethCd) Return the first ChildShipvia filtered by the ArtbSviaEdiMethCd column
- * @method     ChildShipvia findOneByArtbsviaupsresidential(string $ArtbSviaUpsResidential) Return the first ChildShipvia filtered by the ArtbSviaUpsResidential column
- * @method     ChildShipvia findOneByArtbsviachrgfrt(string $ArtbSviaChrgFrt) Return the first ChildShipvia filtered by the ArtbSviaChrgFrt column
- * @method     ChildShipvia findOneByArtbsviauseroute(string $ArtbSviaUseRoute) Return the first ChildShipvia filtered by the ArtbSviaUseRoute column
- * @method     ChildShipvia findOneByArtbsviacommfrght(string $ArtbSviaCommFrght) Return the first ChildShipvia filtered by the ArtbSviaCommFrght column
- * @method     ChildShipvia findOneByArtbsviashiparea(string $ArtbSviaShipArea) Return the first ChildShipvia filtered by the ArtbSviaShipArea column
- * @method     ChildShipvia findOneByArtbsviausesurchg(string $ArtbSviaUseSurchg) Return the first ChildShipvia filtered by the ArtbSviaUseSurchg column
- * @method     ChildShipvia findOneByArtbsviasurchgpct(string $ArtbSviaSurchgPct) Return the first ChildShipvia filtered by the ArtbSviaSurchgPct column
- * @method     ChildShipvia findOneByArtbsviataxcode(string $ArtbSviaTaxCode) Return the first ChildShipvia filtered by the ArtbSviaTaxCode column
- * @method     ChildShipvia findOneByDateupdtd(string $DateUpdtd) Return the first ChildShipvia filtered by the DateUpdtd column
- * @method     ChildShipvia findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildShipvia filtered by the TimeUpdtd column
- * @method     ChildShipvia findOneByDummy(string $dummy) Return the first ChildShipvia filtered by the dummy column *
-
- * @method     ChildShipvia requirePk($key, ConnectionInterface $con = null) Return the ChildShipvia by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildShipvia requireOne(ConnectionInterface $con = null) Return the first ChildShipvia matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildShipvia|null findOneByArtbshipvia(string $ArtbShipVia) Return the first ChildShipvia filtered by the ArtbShipVia column
+ * @method     ChildShipvia|null findOneByArtbsviadesc(string $ArtbSviaDesc) Return the first ChildShipvia filtered by the ArtbSviaDesc column
+ * @method     ChildShipvia|null findOneByArtbsviaprio(string $ArtbSviaPrio) Return the first ChildShipvia filtered by the ArtbSviaPrio column
+ * @method     ChildShipvia|null findOneByArtbsviaweb(string $ArtbSviaWeb) Return the first ChildShipvia filtered by the ArtbSviaWeb column
+ * @method     ChildShipvia|null findOneByArtbsviaair(string $ArtbSviaAir) Return the first ChildShipvia filtered by the ArtbSviaAir column
+ * @method     ChildShipvia|null findOneByArtbsviaupsserv(string $ArtbSviaUpsServ) Return the first ChildShipvia filtered by the ArtbSviaUpsServ column
+ * @method     ChildShipvia|null findOneByArtbsviaupsbilling(string $ArtbSviaUpsBilling) Return the first ChildShipvia filtered by the ArtbSviaUpsBilling column
+ * @method     ChildShipvia|null findOneByArtbsviascaccd(string $ArtbSviaScacCd) Return the first ChildShipvia filtered by the ArtbSviaScacCd column
+ * @method     ChildShipvia|null findOneByArtbsviaedimethcd(string $ArtbSviaEdiMethCd) Return the first ChildShipvia filtered by the ArtbSviaEdiMethCd column
+ * @method     ChildShipvia|null findOneByArtbsviaupsresidential(string $ArtbSviaUpsResidential) Return the first ChildShipvia filtered by the ArtbSviaUpsResidential column
+ * @method     ChildShipvia|null findOneByArtbsviachrgfrt(string $ArtbSviaChrgFrt) Return the first ChildShipvia filtered by the ArtbSviaChrgFrt column
+ * @method     ChildShipvia|null findOneByArtbsviauseroute(string $ArtbSviaUseRoute) Return the first ChildShipvia filtered by the ArtbSviaUseRoute column
+ * @method     ChildShipvia|null findOneByArtbsviacommfrght(string $ArtbSviaCommFrght) Return the first ChildShipvia filtered by the ArtbSviaCommFrght column
+ * @method     ChildShipvia|null findOneByArtbsviashiparea(string $ArtbSviaShipArea) Return the first ChildShipvia filtered by the ArtbSviaShipArea column
+ * @method     ChildShipvia|null findOneByArtbsviausesurchg(string $ArtbSviaUseSurchg) Return the first ChildShipvia filtered by the ArtbSviaUseSurchg column
+ * @method     ChildShipvia|null findOneByArtbsviasurchgpct(string $ArtbSviaSurchgPct) Return the first ChildShipvia filtered by the ArtbSviaSurchgPct column
+ * @method     ChildShipvia|null findOneByArtbsviataxcode(string $ArtbSviaTaxCode) Return the first ChildShipvia filtered by the ArtbSviaTaxCode column
+ * @method     ChildShipvia|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildShipvia filtered by the DateUpdtd column
+ * @method     ChildShipvia|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildShipvia filtered by the TimeUpdtd column
+ * @method     ChildShipvia|null findOneByDummy(string $dummy) Return the first ChildShipvia filtered by the dummy column
+ *
+ * @method     ChildShipvia requirePk($key, ?ConnectionInterface $con = null) Return the ChildShipvia by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildShipvia requireOne(?ConnectionInterface $con = null) Return the first ChildShipvia matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildShipvia requireOneByArtbshipvia(string $ArtbShipVia) Return the first ChildShipvia filtered by the ArtbShipVia column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildShipvia requireOneByArtbsviadesc(string $ArtbSviaDesc) Return the first ChildShipvia filtered by the ArtbSviaDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -160,29 +159,52 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildShipvia requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildShipvia filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildShipvia requireOneByDummy(string $dummy) Return the first ChildShipvia filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildShipvia[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildShipvia objects based on current ModelCriteria
- * @method     ChildShipvia[]|ObjectCollection findByArtbshipvia(string $ArtbShipVia) Return ChildShipvia objects filtered by the ArtbShipVia column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviadesc(string $ArtbSviaDesc) Return ChildShipvia objects filtered by the ArtbSviaDesc column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviaprio(string $ArtbSviaPrio) Return ChildShipvia objects filtered by the ArtbSviaPrio column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviaweb(string $ArtbSviaWeb) Return ChildShipvia objects filtered by the ArtbSviaWeb column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviaair(string $ArtbSviaAir) Return ChildShipvia objects filtered by the ArtbSviaAir column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviaupsserv(string $ArtbSviaUpsServ) Return ChildShipvia objects filtered by the ArtbSviaUpsServ column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviaupsbilling(string $ArtbSviaUpsBilling) Return ChildShipvia objects filtered by the ArtbSviaUpsBilling column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviascaccd(string $ArtbSviaScacCd) Return ChildShipvia objects filtered by the ArtbSviaScacCd column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviaedimethcd(string $ArtbSviaEdiMethCd) Return ChildShipvia objects filtered by the ArtbSviaEdiMethCd column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviaupsresidential(string $ArtbSviaUpsResidential) Return ChildShipvia objects filtered by the ArtbSviaUpsResidential column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviachrgfrt(string $ArtbSviaChrgFrt) Return ChildShipvia objects filtered by the ArtbSviaChrgFrt column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviauseroute(string $ArtbSviaUseRoute) Return ChildShipvia objects filtered by the ArtbSviaUseRoute column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviacommfrght(string $ArtbSviaCommFrght) Return ChildShipvia objects filtered by the ArtbSviaCommFrght column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviashiparea(string $ArtbSviaShipArea) Return ChildShipvia objects filtered by the ArtbSviaShipArea column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviausesurchg(string $ArtbSviaUseSurchg) Return ChildShipvia objects filtered by the ArtbSviaUseSurchg column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviasurchgpct(string $ArtbSviaSurchgPct) Return ChildShipvia objects filtered by the ArtbSviaSurchgPct column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviataxcode(string $ArtbSviaTaxCode) Return ChildShipvia objects filtered by the ArtbSviaTaxCode column
- * @method     ChildShipvia[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildShipvia objects filtered by the DateUpdtd column
- * @method     ChildShipvia[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildShipvia objects filtered by the TimeUpdtd column
- * @method     ChildShipvia[]|ObjectCollection findByDummy(string $dummy) Return ChildShipvia objects filtered by the dummy column
- * @method     ChildShipvia[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildShipvia[]|Collection find(?ConnectionInterface $con = null) Return ChildShipvia objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildShipvia> find(?ConnectionInterface $con = null) Return ChildShipvia objects based on current ModelCriteria
  *
+ * @method     ChildShipvia[]|Collection findByArtbshipvia(string|array<string> $ArtbShipVia) Return ChildShipvia objects filtered by the ArtbShipVia column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbshipvia(string|array<string> $ArtbShipVia) Return ChildShipvia objects filtered by the ArtbShipVia column
+ * @method     ChildShipvia[]|Collection findByArtbsviadesc(string|array<string> $ArtbSviaDesc) Return ChildShipvia objects filtered by the ArtbSviaDesc column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbsviadesc(string|array<string> $ArtbSviaDesc) Return ChildShipvia objects filtered by the ArtbSviaDesc column
+ * @method     ChildShipvia[]|Collection findByArtbsviaprio(string|array<string> $ArtbSviaPrio) Return ChildShipvia objects filtered by the ArtbSviaPrio column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbsviaprio(string|array<string> $ArtbSviaPrio) Return ChildShipvia objects filtered by the ArtbSviaPrio column
+ * @method     ChildShipvia[]|Collection findByArtbsviaweb(string|array<string> $ArtbSviaWeb) Return ChildShipvia objects filtered by the ArtbSviaWeb column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbsviaweb(string|array<string> $ArtbSviaWeb) Return ChildShipvia objects filtered by the ArtbSviaWeb column
+ * @method     ChildShipvia[]|Collection findByArtbsviaair(string|array<string> $ArtbSviaAir) Return ChildShipvia objects filtered by the ArtbSviaAir column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbsviaair(string|array<string> $ArtbSviaAir) Return ChildShipvia objects filtered by the ArtbSviaAir column
+ * @method     ChildShipvia[]|Collection findByArtbsviaupsserv(string|array<string> $ArtbSviaUpsServ) Return ChildShipvia objects filtered by the ArtbSviaUpsServ column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbsviaupsserv(string|array<string> $ArtbSviaUpsServ) Return ChildShipvia objects filtered by the ArtbSviaUpsServ column
+ * @method     ChildShipvia[]|Collection findByArtbsviaupsbilling(string|array<string> $ArtbSviaUpsBilling) Return ChildShipvia objects filtered by the ArtbSviaUpsBilling column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbsviaupsbilling(string|array<string> $ArtbSviaUpsBilling) Return ChildShipvia objects filtered by the ArtbSviaUpsBilling column
+ * @method     ChildShipvia[]|Collection findByArtbsviascaccd(string|array<string> $ArtbSviaScacCd) Return ChildShipvia objects filtered by the ArtbSviaScacCd column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbsviascaccd(string|array<string> $ArtbSviaScacCd) Return ChildShipvia objects filtered by the ArtbSviaScacCd column
+ * @method     ChildShipvia[]|Collection findByArtbsviaedimethcd(string|array<string> $ArtbSviaEdiMethCd) Return ChildShipvia objects filtered by the ArtbSviaEdiMethCd column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbsviaedimethcd(string|array<string> $ArtbSviaEdiMethCd) Return ChildShipvia objects filtered by the ArtbSviaEdiMethCd column
+ * @method     ChildShipvia[]|Collection findByArtbsviaupsresidential(string|array<string> $ArtbSviaUpsResidential) Return ChildShipvia objects filtered by the ArtbSviaUpsResidential column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbsviaupsresidential(string|array<string> $ArtbSviaUpsResidential) Return ChildShipvia objects filtered by the ArtbSviaUpsResidential column
+ * @method     ChildShipvia[]|Collection findByArtbsviachrgfrt(string|array<string> $ArtbSviaChrgFrt) Return ChildShipvia objects filtered by the ArtbSviaChrgFrt column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbsviachrgfrt(string|array<string> $ArtbSviaChrgFrt) Return ChildShipvia objects filtered by the ArtbSviaChrgFrt column
+ * @method     ChildShipvia[]|Collection findByArtbsviauseroute(string|array<string> $ArtbSviaUseRoute) Return ChildShipvia objects filtered by the ArtbSviaUseRoute column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbsviauseroute(string|array<string> $ArtbSviaUseRoute) Return ChildShipvia objects filtered by the ArtbSviaUseRoute column
+ * @method     ChildShipvia[]|Collection findByArtbsviacommfrght(string|array<string> $ArtbSviaCommFrght) Return ChildShipvia objects filtered by the ArtbSviaCommFrght column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbsviacommfrght(string|array<string> $ArtbSviaCommFrght) Return ChildShipvia objects filtered by the ArtbSviaCommFrght column
+ * @method     ChildShipvia[]|Collection findByArtbsviashiparea(string|array<string> $ArtbSviaShipArea) Return ChildShipvia objects filtered by the ArtbSviaShipArea column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbsviashiparea(string|array<string> $ArtbSviaShipArea) Return ChildShipvia objects filtered by the ArtbSviaShipArea column
+ * @method     ChildShipvia[]|Collection findByArtbsviausesurchg(string|array<string> $ArtbSviaUseSurchg) Return ChildShipvia objects filtered by the ArtbSviaUseSurchg column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbsviausesurchg(string|array<string> $ArtbSviaUseSurchg) Return ChildShipvia objects filtered by the ArtbSviaUseSurchg column
+ * @method     ChildShipvia[]|Collection findByArtbsviasurchgpct(string|array<string> $ArtbSviaSurchgPct) Return ChildShipvia objects filtered by the ArtbSviaSurchgPct column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbsviasurchgpct(string|array<string> $ArtbSviaSurchgPct) Return ChildShipvia objects filtered by the ArtbSviaSurchgPct column
+ * @method     ChildShipvia[]|Collection findByArtbsviataxcode(string|array<string> $ArtbSviaTaxCode) Return ChildShipvia objects filtered by the ArtbSviaTaxCode column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByArtbsviataxcode(string|array<string> $ArtbSviaTaxCode) Return ChildShipvia objects filtered by the ArtbSviaTaxCode column
+ * @method     ChildShipvia[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildShipvia objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildShipvia objects filtered by the DateUpdtd column
+ * @method     ChildShipvia[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildShipvia objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildShipvia objects filtered by the TimeUpdtd column
+ * @method     ChildShipvia[]|Collection findByDummy(string|array<string> $dummy) Return ChildShipvia objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildShipvia> findByDummy(string|array<string> $dummy) Return ChildShipvia objects filtered by the dummy column
+ *
+ * @method     ChildShipvia[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildShipvia> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ShipviaQuery extends ModelCriteria
 {
@@ -191,9 +213,9 @@ abstract class ShipviaQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ShipviaQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\Shipvia', $modelAlias = null)
     {
@@ -203,12 +225,12 @@ abstract class ShipviaQuery extends ModelCriteria
     /**
      * Returns a new ChildShipviaQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildShipviaQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildShipviaQuery) {
             return $criteria;
@@ -238,7 +260,7 @@ abstract class ShipviaQuery extends ModelCriteria
      *
      * @return ChildShipvia|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -270,8 +292,8 @@ abstract class ShipviaQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -303,8 +325,8 @@ abstract class ShipviaQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildShipvia|array|mixed the result, formatted by the current formatter
      */
@@ -324,12 +346,12 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -346,27 +368,31 @@ abstract class ShipviaQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSHIPVIA, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSHIPVIA, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSHIPVIA, $keys, Criteria::IN);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSHIPVIA, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -376,14 +402,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbshipvia('fooValue');   // WHERE ArtbShipVia = 'fooValue'
      * $query->filterByArtbshipvia('%fooValue%', Criteria::LIKE); // WHERE ArtbShipVia LIKE '%fooValue%'
+     * $query->filterByArtbshipvia(['foo', 'bar']); // WHERE ArtbShipVia IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbshipvia The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbshipvia The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbshipvia($artbshipvia = null, $comparison = null)
+    public function filterByArtbshipvia($artbshipvia = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbshipvia)) {
@@ -391,7 +418,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSHIPVIA, $artbshipvia, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSHIPVIA, $artbshipvia, $comparison);
+
+        return $this;
     }
 
     /**
@@ -401,14 +430,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbsviadesc('fooValue');   // WHERE ArtbSviaDesc = 'fooValue'
      * $query->filterByArtbsviadesc('%fooValue%', Criteria::LIKE); // WHERE ArtbSviaDesc LIKE '%fooValue%'
+     * $query->filterByArtbsviadesc(['foo', 'bar']); // WHERE ArtbSviaDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbsviadesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbsviadesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbsviadesc($artbsviadesc = null, $comparison = null)
+    public function filterByArtbsviadesc($artbsviadesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbsviadesc)) {
@@ -416,7 +446,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIADESC, $artbsviadesc, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIADESC, $artbsviadesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -426,14 +458,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbsviaprio('fooValue');   // WHERE ArtbSviaPrio = 'fooValue'
      * $query->filterByArtbsviaprio('%fooValue%', Criteria::LIKE); // WHERE ArtbSviaPrio LIKE '%fooValue%'
+     * $query->filterByArtbsviaprio(['foo', 'bar']); // WHERE ArtbSviaPrio IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbsviaprio The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbsviaprio The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbsviaprio($artbsviaprio = null, $comparison = null)
+    public function filterByArtbsviaprio($artbsviaprio = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbsviaprio)) {
@@ -441,7 +474,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAPRIO, $artbsviaprio, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAPRIO, $artbsviaprio, $comparison);
+
+        return $this;
     }
 
     /**
@@ -451,14 +486,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbsviaweb('fooValue');   // WHERE ArtbSviaWeb = 'fooValue'
      * $query->filterByArtbsviaweb('%fooValue%', Criteria::LIKE); // WHERE ArtbSviaWeb LIKE '%fooValue%'
+     * $query->filterByArtbsviaweb(['foo', 'bar']); // WHERE ArtbSviaWeb IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbsviaweb The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbsviaweb The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbsviaweb($artbsviaweb = null, $comparison = null)
+    public function filterByArtbsviaweb($artbsviaweb = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbsviaweb)) {
@@ -466,7 +502,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAWEB, $artbsviaweb, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAWEB, $artbsviaweb, $comparison);
+
+        return $this;
     }
 
     /**
@@ -476,14 +514,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbsviaair('fooValue');   // WHERE ArtbSviaAir = 'fooValue'
      * $query->filterByArtbsviaair('%fooValue%', Criteria::LIKE); // WHERE ArtbSviaAir LIKE '%fooValue%'
+     * $query->filterByArtbsviaair(['foo', 'bar']); // WHERE ArtbSviaAir IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbsviaair The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbsviaair The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbsviaair($artbsviaair = null, $comparison = null)
+    public function filterByArtbsviaair($artbsviaair = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbsviaair)) {
@@ -491,7 +530,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAAIR, $artbsviaair, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAAIR, $artbsviaair, $comparison);
+
+        return $this;
     }
 
     /**
@@ -501,14 +542,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbsviaupsserv('fooValue');   // WHERE ArtbSviaUpsServ = 'fooValue'
      * $query->filterByArtbsviaupsserv('%fooValue%', Criteria::LIKE); // WHERE ArtbSviaUpsServ LIKE '%fooValue%'
+     * $query->filterByArtbsviaupsserv(['foo', 'bar']); // WHERE ArtbSviaUpsServ IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbsviaupsserv The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbsviaupsserv The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbsviaupsserv($artbsviaupsserv = null, $comparison = null)
+    public function filterByArtbsviaupsserv($artbsviaupsserv = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbsviaupsserv)) {
@@ -516,7 +558,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAUPSSERV, $artbsviaupsserv, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAUPSSERV, $artbsviaupsserv, $comparison);
+
+        return $this;
     }
 
     /**
@@ -526,14 +570,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbsviaupsbilling('fooValue');   // WHERE ArtbSviaUpsBilling = 'fooValue'
      * $query->filterByArtbsviaupsbilling('%fooValue%', Criteria::LIKE); // WHERE ArtbSviaUpsBilling LIKE '%fooValue%'
+     * $query->filterByArtbsviaupsbilling(['foo', 'bar']); // WHERE ArtbSviaUpsBilling IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbsviaupsbilling The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbsviaupsbilling The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbsviaupsbilling($artbsviaupsbilling = null, $comparison = null)
+    public function filterByArtbsviaupsbilling($artbsviaupsbilling = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbsviaupsbilling)) {
@@ -541,7 +586,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAUPSBILLING, $artbsviaupsbilling, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAUPSBILLING, $artbsviaupsbilling, $comparison);
+
+        return $this;
     }
 
     /**
@@ -551,14 +598,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbsviascaccd('fooValue');   // WHERE ArtbSviaScacCd = 'fooValue'
      * $query->filterByArtbsviascaccd('%fooValue%', Criteria::LIKE); // WHERE ArtbSviaScacCd LIKE '%fooValue%'
+     * $query->filterByArtbsviascaccd(['foo', 'bar']); // WHERE ArtbSviaScacCd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbsviascaccd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbsviascaccd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbsviascaccd($artbsviascaccd = null, $comparison = null)
+    public function filterByArtbsviascaccd($artbsviascaccd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbsviascaccd)) {
@@ -566,7 +614,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIASCACCD, $artbsviascaccd, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIASCACCD, $artbsviascaccd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -576,14 +626,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbsviaedimethcd('fooValue');   // WHERE ArtbSviaEdiMethCd = 'fooValue'
      * $query->filterByArtbsviaedimethcd('%fooValue%', Criteria::LIKE); // WHERE ArtbSviaEdiMethCd LIKE '%fooValue%'
+     * $query->filterByArtbsviaedimethcd(['foo', 'bar']); // WHERE ArtbSviaEdiMethCd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbsviaedimethcd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbsviaedimethcd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbsviaedimethcd($artbsviaedimethcd = null, $comparison = null)
+    public function filterByArtbsviaedimethcd($artbsviaedimethcd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbsviaedimethcd)) {
@@ -591,7 +642,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAEDIMETHCD, $artbsviaedimethcd, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAEDIMETHCD, $artbsviaedimethcd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -601,14 +654,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbsviaupsresidential('fooValue');   // WHERE ArtbSviaUpsResidential = 'fooValue'
      * $query->filterByArtbsviaupsresidential('%fooValue%', Criteria::LIKE); // WHERE ArtbSviaUpsResidential LIKE '%fooValue%'
+     * $query->filterByArtbsviaupsresidential(['foo', 'bar']); // WHERE ArtbSviaUpsResidential IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbsviaupsresidential The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbsviaupsresidential The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbsviaupsresidential($artbsviaupsresidential = null, $comparison = null)
+    public function filterByArtbsviaupsresidential($artbsviaupsresidential = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbsviaupsresidential)) {
@@ -616,7 +670,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAUPSRESIDENTIAL, $artbsviaupsresidential, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAUPSRESIDENTIAL, $artbsviaupsresidential, $comparison);
+
+        return $this;
     }
 
     /**
@@ -626,14 +682,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbsviachrgfrt('fooValue');   // WHERE ArtbSviaChrgFrt = 'fooValue'
      * $query->filterByArtbsviachrgfrt('%fooValue%', Criteria::LIKE); // WHERE ArtbSviaChrgFrt LIKE '%fooValue%'
+     * $query->filterByArtbsviachrgfrt(['foo', 'bar']); // WHERE ArtbSviaChrgFrt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbsviachrgfrt The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbsviachrgfrt The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbsviachrgfrt($artbsviachrgfrt = null, $comparison = null)
+    public function filterByArtbsviachrgfrt($artbsviachrgfrt = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbsviachrgfrt)) {
@@ -641,7 +698,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIACHRGFRT, $artbsviachrgfrt, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIACHRGFRT, $artbsviachrgfrt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -651,14 +710,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbsviauseroute('fooValue');   // WHERE ArtbSviaUseRoute = 'fooValue'
      * $query->filterByArtbsviauseroute('%fooValue%', Criteria::LIKE); // WHERE ArtbSviaUseRoute LIKE '%fooValue%'
+     * $query->filterByArtbsviauseroute(['foo', 'bar']); // WHERE ArtbSviaUseRoute IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbsviauseroute The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbsviauseroute The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbsviauseroute($artbsviauseroute = null, $comparison = null)
+    public function filterByArtbsviauseroute($artbsviauseroute = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbsviauseroute)) {
@@ -666,7 +726,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAUSEROUTE, $artbsviauseroute, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAUSEROUTE, $artbsviauseroute, $comparison);
+
+        return $this;
     }
 
     /**
@@ -676,14 +738,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbsviacommfrght('fooValue');   // WHERE ArtbSviaCommFrght = 'fooValue'
      * $query->filterByArtbsviacommfrght('%fooValue%', Criteria::LIKE); // WHERE ArtbSviaCommFrght LIKE '%fooValue%'
+     * $query->filterByArtbsviacommfrght(['foo', 'bar']); // WHERE ArtbSviaCommFrght IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbsviacommfrght The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbsviacommfrght The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbsviacommfrght($artbsviacommfrght = null, $comparison = null)
+    public function filterByArtbsviacommfrght($artbsviacommfrght = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbsviacommfrght)) {
@@ -691,7 +754,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIACOMMFRGHT, $artbsviacommfrght, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIACOMMFRGHT, $artbsviacommfrght, $comparison);
+
+        return $this;
     }
 
     /**
@@ -701,14 +766,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbsviashiparea('fooValue');   // WHERE ArtbSviaShipArea = 'fooValue'
      * $query->filterByArtbsviashiparea('%fooValue%', Criteria::LIKE); // WHERE ArtbSviaShipArea LIKE '%fooValue%'
+     * $query->filterByArtbsviashiparea(['foo', 'bar']); // WHERE ArtbSviaShipArea IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbsviashiparea The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbsviashiparea The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbsviashiparea($artbsviashiparea = null, $comparison = null)
+    public function filterByArtbsviashiparea($artbsviashiparea = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbsviashiparea)) {
@@ -716,7 +782,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIASHIPAREA, $artbsviashiparea, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIASHIPAREA, $artbsviashiparea, $comparison);
+
+        return $this;
     }
 
     /**
@@ -726,14 +794,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbsviausesurchg('fooValue');   // WHERE ArtbSviaUseSurchg = 'fooValue'
      * $query->filterByArtbsviausesurchg('%fooValue%', Criteria::LIKE); // WHERE ArtbSviaUseSurchg LIKE '%fooValue%'
+     * $query->filterByArtbsviausesurchg(['foo', 'bar']); // WHERE ArtbSviaUseSurchg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbsviausesurchg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbsviausesurchg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbsviausesurchg($artbsviausesurchg = null, $comparison = null)
+    public function filterByArtbsviausesurchg($artbsviausesurchg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbsviausesurchg)) {
@@ -741,7 +810,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAUSESURCHG, $artbsviausesurchg, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIAUSESURCHG, $artbsviausesurchg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -754,15 +825,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * $query->filterByArtbsviasurchgpct(array('min' => 12)); // WHERE ArtbSviaSurchgPct > 12
      * </code>
      *
-     * @param     mixed $artbsviasurchgpct The value to use as filter.
+     * @param mixed $artbsviasurchgpct The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbsviasurchgpct($artbsviasurchgpct = null, $comparison = null)
+    public function filterByArtbsviasurchgpct($artbsviasurchgpct = null, ?string $comparison = null)
     {
         if (is_array($artbsviasurchgpct)) {
             $useMinMax = false;
@@ -782,7 +853,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIASURCHGPCT, $artbsviasurchgpct, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIASURCHGPCT, $artbsviasurchgpct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -792,14 +865,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbsviataxcode('fooValue');   // WHERE ArtbSviaTaxCode = 'fooValue'
      * $query->filterByArtbsviataxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbSviaTaxCode LIKE '%fooValue%'
+     * $query->filterByArtbsviataxcode(['foo', 'bar']); // WHERE ArtbSviaTaxCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbsviataxcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbsviataxcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbsviataxcode($artbsviataxcode = null, $comparison = null)
+    public function filterByArtbsviataxcode($artbsviataxcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbsviataxcode)) {
@@ -807,7 +881,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIATAXCODE, $artbsviataxcode, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIATAXCODE, $artbsviataxcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -817,14 +893,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -832,7 +909,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -842,14 +921,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -857,7 +937,9 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -867,14 +949,15 @@ abstract class ShipviaQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -882,27 +965,33 @@ abstract class ShipviaQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShipviaTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ShipviaTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \VendorShipfrom object
      *
      * @param \VendorShipfrom|ObjectCollection $vendorShipfrom the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVendorShipfrom($vendorShipfrom, $comparison = null)
+    public function filterByVendorShipfrom($vendorShipfrom, ?string $comparison = null)
     {
         if ($vendorShipfrom instanceof \VendorShipfrom) {
-            return $this
+            $this
                 ->addUsingAlias(ShipviaTableMap::COL_ARTBSHIPVIA, $vendorShipfrom->getArtbsviacode(), $comparison);
+
+            return $this;
         } elseif ($vendorShipfrom instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useVendorShipfromQuery()
                 ->filterByPrimaryKeys($vendorShipfrom->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByVendorShipfrom() only accepts arguments of type \VendorShipfrom or Collection');
         }
@@ -911,12 +1000,12 @@ abstract class ShipviaQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the VendorShipfrom relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinVendorShipfrom($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinVendorShipfrom(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('VendorShipfrom');
@@ -945,9 +1034,9 @@ abstract class ShipviaQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \VendorShipfromQuery A secondary query class using the current class as primary query
      */
@@ -959,23 +1048,123 @@ abstract class ShipviaQuery extends ModelCriteria
     }
 
     /**
+     * Use the VendorShipfrom relation VendorShipfrom object
+     *
+     * @param callable(\VendorShipfromQuery):\VendorShipfromQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withVendorShipfromQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useVendorShipfromQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to VendorShipfrom table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \VendorShipfromQuery The inner query object of the EXISTS statement
+     */
+    public function useVendorShipfromExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \VendorShipfromQuery */
+        $q = $this->useExistsQuery('VendorShipfrom', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to VendorShipfrom table for a NOT EXISTS query.
+     *
+     * @see useVendorShipfromExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \VendorShipfromQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useVendorShipfromNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \VendorShipfromQuery */
+        $q = $this->useExistsQuery('VendorShipfrom', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to VendorShipfrom table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \VendorShipfromQuery The inner query object of the IN statement
+     */
+    public function useInVendorShipfromQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \VendorShipfromQuery */
+        $q = $this->useInQuery('VendorShipfrom', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to VendorShipfrom table for a NOT IN query.
+     *
+     * @see useVendorShipfromInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \VendorShipfromQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInVendorShipfromQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \VendorShipfromQuery */
+        $q = $this->useInQuery('VendorShipfrom', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \Vendor object
      *
      * @param \Vendor|ObjectCollection $vendor the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVendor($vendor, $comparison = null)
+    public function filterByVendor($vendor, ?string $comparison = null)
     {
         if ($vendor instanceof \Vendor) {
-            return $this
+            $this
                 ->addUsingAlias(ShipviaTableMap::COL_ARTBSHIPVIA, $vendor->getApvesviacode(), $comparison);
+
+            return $this;
         } elseif ($vendor instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useVendorQuery()
                 ->filterByPrimaryKeys($vendor->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByVendor() only accepts arguments of type \Vendor or Collection');
         }
@@ -984,12 +1173,12 @@ abstract class ShipviaQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Vendor relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinVendor($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinVendor(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Vendor');
@@ -1018,9 +1207,9 @@ abstract class ShipviaQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \VendorQuery A secondary query class using the current class as primary query
      */
@@ -1032,23 +1221,123 @@ abstract class ShipviaQuery extends ModelCriteria
     }
 
     /**
+     * Use the Vendor relation Vendor object
+     *
+     * @param callable(\VendorQuery):\VendorQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withVendorQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useVendorQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Vendor table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \VendorQuery The inner query object of the EXISTS statement
+     */
+    public function useVendorExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useExistsQuery('Vendor', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Vendor table for a NOT EXISTS query.
+     *
+     * @see useVendorExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \VendorQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useVendorNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useExistsQuery('Vendor', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Vendor table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \VendorQuery The inner query object of the IN statement
+     */
+    public function useInVendorQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useInQuery('Vendor', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Vendor table for a NOT IN query.
+     *
+     * @see useVendorInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \VendorQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInVendorQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \VendorQuery */
+        $q = $this->useInQuery('Vendor', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \Customer object
      *
      * @param \Customer|ObjectCollection $customer the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCustomer($customer, $comparison = null)
+    public function filterByCustomer($customer, ?string $comparison = null)
     {
         if ($customer instanceof \Customer) {
-            return $this
+            $this
                 ->addUsingAlias(ShipviaTableMap::COL_ARTBSHIPVIA, $customer->getArtbshipvia(), $comparison);
+
+            return $this;
         } elseif ($customer instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useCustomerQuery()
                 ->filterByPrimaryKeys($customer->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByCustomer() only accepts arguments of type \Customer or Collection');
         }
@@ -1057,12 +1346,12 @@ abstract class ShipviaQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Customer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinCustomer($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinCustomer(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Customer');
@@ -1091,9 +1380,9 @@ abstract class ShipviaQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \CustomerQuery A secondary query class using the current class as primary query
      */
@@ -1105,23 +1394,123 @@ abstract class ShipviaQuery extends ModelCriteria
     }
 
     /**
+     * Use the Customer relation Customer object
+     *
+     * @param callable(\CustomerQuery):\CustomerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withCustomerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useCustomerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Customer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \CustomerQuery The inner query object of the EXISTS statement
+     */
+    public function useCustomerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT EXISTS query.
+     *
+     * @see useCustomerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useCustomerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useExistsQuery('Customer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \CustomerQuery The inner query object of the IN statement
+     */
+    public function useInCustomerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Customer table for a NOT IN query.
+     *
+     * @see useCustomerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \CustomerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInCustomerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \CustomerQuery */
+        $q = $this->useInQuery('Customer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \PurchaseOrder object
      *
      * @param \PurchaseOrder|ObjectCollection $purchaseOrder the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPurchaseOrder($purchaseOrder, $comparison = null)
+    public function filterByPurchaseOrder($purchaseOrder, ?string $comparison = null)
     {
         if ($purchaseOrder instanceof \PurchaseOrder) {
-            return $this
+            $this
                 ->addUsingAlias(ShipviaTableMap::COL_ARTBSHIPVIA, $purchaseOrder->getArtbsviacode(), $comparison);
+
+            return $this;
         } elseif ($purchaseOrder instanceof ObjectCollection) {
-            return $this
+            $this
                 ->usePurchaseOrderQuery()
                 ->filterByPrimaryKeys($purchaseOrder->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByPurchaseOrder() only accepts arguments of type \PurchaseOrder or Collection');
         }
@@ -1130,12 +1519,12 @@ abstract class ShipviaQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the PurchaseOrder relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinPurchaseOrder($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinPurchaseOrder(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('PurchaseOrder');
@@ -1164,9 +1553,9 @@ abstract class ShipviaQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \PurchaseOrderQuery A secondary query class using the current class as primary query
      */
@@ -1178,11 +1567,107 @@ abstract class ShipviaQuery extends ModelCriteria
     }
 
     /**
+     * Use the PurchaseOrder relation PurchaseOrder object
+     *
+     * @param callable(\PurchaseOrderQuery):\PurchaseOrderQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withPurchaseOrderQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->usePurchaseOrderQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to PurchaseOrder table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \PurchaseOrderQuery The inner query object of the EXISTS statement
+     */
+    public function usePurchaseOrderExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \PurchaseOrderQuery */
+        $q = $this->useExistsQuery('PurchaseOrder', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrder table for a NOT EXISTS query.
+     *
+     * @see usePurchaseOrderExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderQuery The inner query object of the NOT EXISTS statement
+     */
+    public function usePurchaseOrderNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderQuery */
+        $q = $this->useExistsQuery('PurchaseOrder', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrder table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \PurchaseOrderQuery The inner query object of the IN statement
+     */
+    public function useInPurchaseOrderQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \PurchaseOrderQuery */
+        $q = $this->useInQuery('PurchaseOrder', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrder table for a NOT IN query.
+     *
+     * @see usePurchaseOrderInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInPurchaseOrderQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderQuery */
+        $q = $this->useInQuery('PurchaseOrder', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildShipvia $shipvia Object to remove from the list of results
+     * @param ChildShipvia $shipvia Object to remove from the list of results
      *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($shipvia = null)
     {
@@ -1199,7 +1684,7 @@ abstract class ShipviaQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ShipviaTableMap::DATABASE_NAME);
@@ -1224,12 +1709,12 @@ abstract class ShipviaQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ShipviaTableMap::DATABASE_NAME);
@@ -1254,4 +1739,4 @@ abstract class ShipviaQuery extends ModelCriteria
         });
     }
 
-} // ShipviaQuery
+}

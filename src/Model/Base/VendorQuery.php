@@ -11,14 +11,13 @@ use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveQuery\ModelJoin;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ap_vend_mast' table.
- *
- *
+ * Base class that represents a query for the `ap_vend_mast` table.
  *
  * @method     ChildVendorQuery orderByApvevendid($order = Criteria::ASC) Order by the ApveVendId column
  * @method     ChildVendorQuery orderByApvename($order = Criteria::ASC) Order by the ApveName column
@@ -540,186 +539,186 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     \ApTypeCodeQuery|\ApTermsCodeQuery|\ShipviaQuery|\ApBuyerQuery|\ApContactQuery|\ApInvoiceDetailQuery|\ApInvoiceQuery|\VendorShipfromQuery|\InvNonstockItemQuery|\InvTransferOrderQuery|\ItemXrefKeyQuery|\ItemXrefManufacturerQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\PurchaseOrderQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildVendor findOne(ConnectionInterface $con = null) Return the first ChildVendor matching the query
- * @method     ChildVendor findOneOrCreate(ConnectionInterface $con = null) Return the first ChildVendor matching the query, or a new ChildVendor object populated from the query conditions when no match is found
+ * @method     ChildVendor|null findOne(?ConnectionInterface $con = null) Return the first ChildVendor matching the query
+ * @method     ChildVendor findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildVendor matching the query, or a new ChildVendor object populated from the query conditions when no match is found
  *
- * @method     ChildVendor findOneByApvevendid(string $ApveVendId) Return the first ChildVendor filtered by the ApveVendId column
- * @method     ChildVendor findOneByApvename(string $ApveName) Return the first ChildVendor filtered by the ApveName column
- * @method     ChildVendor findOneByApveadr1(string $ApveAdr1) Return the first ChildVendor filtered by the ApveAdr1 column
- * @method     ChildVendor findOneByApveadr2(string $ApveAdr2) Return the first ChildVendor filtered by the ApveAdr2 column
- * @method     ChildVendor findOneByApveadr3(string $ApveAdr3) Return the first ChildVendor filtered by the ApveAdr3 column
- * @method     ChildVendor findOneByApvectry(string $ApveCtry) Return the first ChildVendor filtered by the ApveCtry column
- * @method     ChildVendor findOneByApvecity(string $ApveCity) Return the first ChildVendor filtered by the ApveCity column
- * @method     ChildVendor findOneByApvestat(string $ApveStat) Return the first ChildVendor filtered by the ApveStat column
- * @method     ChildVendor findOneByApvezipcode(string $ApveZipCode) Return the first ChildVendor filtered by the ApveZipCode column
- * @method     ChildVendor findOneByApvepayname(string $ApvePayName) Return the first ChildVendor filtered by the ApvePayName column
- * @method     ChildVendor findOneByApvepayadr1(string $ApvePayAdr1) Return the first ChildVendor filtered by the ApvePayAdr1 column
- * @method     ChildVendor findOneByApvepayadr2(string $ApvePayAdr2) Return the first ChildVendor filtered by the ApvePayAdr2 column
- * @method     ChildVendor findOneByApvepayadr3(string $ApvePayAdr3) Return the first ChildVendor filtered by the ApvePayAdr3 column
- * @method     ChildVendor findOneByApvepayctry(string $ApvePayCtry) Return the first ChildVendor filtered by the ApvePayCtry column
- * @method     ChildVendor findOneByApvepaycity(string $ApvePayCity) Return the first ChildVendor filtered by the ApvePayCity column
- * @method     ChildVendor findOneByApvepaystat(string $ApvePayStat) Return the first ChildVendor filtered by the ApvePayStat column
- * @method     ChildVendor findOneByApvepayzipcode(string $ApvePayZipCode) Return the first ChildVendor filtered by the ApvePayZipCode column
- * @method     ChildVendor findOneByApvestatus(string $ApveStatus) Return the first ChildVendor filtered by the ApveStatus column
- * @method     ChildVendor findOneByApvetakeexpireddisc(string $ApveTakeExpiredDisc) Return the first ChildVendor filtered by the ApveTakeExpiredDisc column
- * @method     ChildVendor findOneByApveprinthts(string $ApvePrintHts) Return the first ChildVendor filtered by the ApvePrintHts column
- * @method     ChildVendor findOneByApvefabbin(string $ApveFabBin) Return the first ChildVendor filtered by the ApveFabBin column
- * @method     ChildVendor findOneByApvelmprntbulk(string $ApveLmPrntBulk) Return the first ChildVendor filtered by the ApveLmPrntBulk column
- * @method     ChildVendor findOneByApveallowdropship(string $ApveAllowDropShip) Return the first ChildVendor filtered by the ApveAllowDropShip column
- * @method     ChildVendor findOneByAptbtypecode(string $AptbTypeCode) Return the first ChildVendor filtered by the AptbTypeCode column
- * @method     ChildVendor findOneByAptmtermcode(string $AptmTermCode) Return the first ChildVendor filtered by the AptmTermCode column
- * @method     ChildVendor findOneByApvesviacode(string $ApveSviaCode) Return the first ChildVendor filtered by the ApveSviaCode column
- * @method     ChildVendor findOneByApveoldfob(string $ApveOldFob) Return the first ChildVendor filtered by the ApveOldFob column
- * @method     ChildVendor findOneByApveleaddays(int $ApveLeadDays) Return the first ChildVendor filtered by the ApveLeadDays column
- * @method     ChildVendor findOneByApveglacct(string $ApveGlAcct) Return the first ChildVendor filtered by the ApveGlAcct column
- * @method     ChildVendor findOneByApve1099ssnbr(string $Apve1099SsNbr) Return the first ChildVendor filtered by the Apve1099SsNbr column
- * @method     ChildVendor findOneByApveminordrcode(string $ApveMinOrdrCode) Return the first ChildVendor filtered by the ApveMinOrdrCode column
- * @method     ChildVendor findOneByApveminordrvalue(int $ApveMinOrdrValue) Return the first ChildVendor filtered by the ApveMinOrdrValue column
- * @method     ChildVendor findOneByApvepurmtd(string $ApvePurMtd) Return the first ChildVendor filtered by the ApvePurMtd column
- * @method     ChildVendor findOneByApvepomtd(int $ApvePoMtd) Return the first ChildVendor filtered by the ApvePoMtd column
- * @method     ChildVendor findOneByApveinvcmtd(string $ApveInvcMtd) Return the first ChildVendor filtered by the ApveInvcMtd column
- * @method     ChildVendor findOneByApveicntmtd(int $ApveIcntMtd) Return the first ChildVendor filtered by the ApveIcntMtd column
- * @method     ChildVendor findOneByApvedateopen(string $ApveDateOpen) Return the first ChildVendor filtered by the ApveDateOpen column
- * @method     ChildVendor findOneByApvelastpurdate(string $ApveLastPurDate) Return the first ChildVendor filtered by the ApveLastPurDate column
- * @method     ChildVendor findOneByApvepur24mo01(string $ApvePur24mo01) Return the first ChildVendor filtered by the ApvePur24mo01 column
- * @method     ChildVendor findOneByApvepo24mo01(int $ApvePo24mo01) Return the first ChildVendor filtered by the ApvePo24mo01 column
- * @method     ChildVendor findOneByApveinvc24mo01(string $ApveInvc24mo01) Return the first ChildVendor filtered by the ApveInvc24mo01 column
- * @method     ChildVendor findOneByApveicnt24mo01(int $ApveIcnt24mo01) Return the first ChildVendor filtered by the ApveIcnt24mo01 column
- * @method     ChildVendor findOneByApvepur24mo02(string $ApvePur24mo02) Return the first ChildVendor filtered by the ApvePur24mo02 column
- * @method     ChildVendor findOneByApvepo24mo02(int $ApvePo24mo02) Return the first ChildVendor filtered by the ApvePo24mo02 column
- * @method     ChildVendor findOneByApveinvc24mo02(string $ApveInvc24mo02) Return the first ChildVendor filtered by the ApveInvc24mo02 column
- * @method     ChildVendor findOneByApveicnt24mo02(int $ApveIcnt24mo02) Return the first ChildVendor filtered by the ApveIcnt24mo02 column
- * @method     ChildVendor findOneByApvepur24mo03(string $ApvePur24mo03) Return the first ChildVendor filtered by the ApvePur24mo03 column
- * @method     ChildVendor findOneByApvepo24mo03(int $ApvePo24mo03) Return the first ChildVendor filtered by the ApvePo24mo03 column
- * @method     ChildVendor findOneByApveinvc24mo03(string $ApveInvc24mo03) Return the first ChildVendor filtered by the ApveInvc24mo03 column
- * @method     ChildVendor findOneByApveicnt24mo03(int $ApveIcnt24mo03) Return the first ChildVendor filtered by the ApveIcnt24mo03 column
- * @method     ChildVendor findOneByApvepur24mo04(string $ApvePur24mo04) Return the first ChildVendor filtered by the ApvePur24mo04 column
- * @method     ChildVendor findOneByApvepo24mo04(int $ApvePo24mo04) Return the first ChildVendor filtered by the ApvePo24mo04 column
- * @method     ChildVendor findOneByApveinvc24mo04(string $ApveInvc24mo04) Return the first ChildVendor filtered by the ApveInvc24mo04 column
- * @method     ChildVendor findOneByApveicnt24mo04(int $ApveIcnt24mo04) Return the first ChildVendor filtered by the ApveIcnt24mo04 column
- * @method     ChildVendor findOneByApvepur24mo05(string $ApvePur24mo05) Return the first ChildVendor filtered by the ApvePur24mo05 column
- * @method     ChildVendor findOneByApvepo24mo05(int $ApvePo24mo05) Return the first ChildVendor filtered by the ApvePo24mo05 column
- * @method     ChildVendor findOneByApveinvc24mo05(string $ApveInvc24mo05) Return the first ChildVendor filtered by the ApveInvc24mo05 column
- * @method     ChildVendor findOneByApveicnt24mo05(int $ApveIcnt24mo05) Return the first ChildVendor filtered by the ApveIcnt24mo05 column
- * @method     ChildVendor findOneByApvepur24mo06(string $ApvePur24mo06) Return the first ChildVendor filtered by the ApvePur24mo06 column
- * @method     ChildVendor findOneByApvepo24mo06(int $ApvePo24mo06) Return the first ChildVendor filtered by the ApvePo24mo06 column
- * @method     ChildVendor findOneByApveinvc24mo06(string $ApveInvc24mo06) Return the first ChildVendor filtered by the ApveInvc24mo06 column
- * @method     ChildVendor findOneByApveicnt24mo06(int $ApveIcnt24mo06) Return the first ChildVendor filtered by the ApveIcnt24mo06 column
- * @method     ChildVendor findOneByApvepur24mo07(string $ApvePur24mo07) Return the first ChildVendor filtered by the ApvePur24mo07 column
- * @method     ChildVendor findOneByApvepo24mo07(int $ApvePo24mo07) Return the first ChildVendor filtered by the ApvePo24mo07 column
- * @method     ChildVendor findOneByApveinvc24mo07(string $ApveInvc24mo07) Return the first ChildVendor filtered by the ApveInvc24mo07 column
- * @method     ChildVendor findOneByApveicnt24mo07(int $ApveIcnt24mo07) Return the first ChildVendor filtered by the ApveIcnt24mo07 column
- * @method     ChildVendor findOneByApvepur24mo08(string $ApvePur24mo08) Return the first ChildVendor filtered by the ApvePur24mo08 column
- * @method     ChildVendor findOneByApvepo24mo08(int $ApvePo24mo08) Return the first ChildVendor filtered by the ApvePo24mo08 column
- * @method     ChildVendor findOneByApveinvc24mo08(string $ApveInvc24mo08) Return the first ChildVendor filtered by the ApveInvc24mo08 column
- * @method     ChildVendor findOneByApveicnt24mo08(int $ApveIcnt24mo08) Return the first ChildVendor filtered by the ApveIcnt24mo08 column
- * @method     ChildVendor findOneByApvepur24mo09(string $ApvePur24mo09) Return the first ChildVendor filtered by the ApvePur24mo09 column
- * @method     ChildVendor findOneByApvepo24mo09(int $ApvePo24mo09) Return the first ChildVendor filtered by the ApvePo24mo09 column
- * @method     ChildVendor findOneByApveinvc24mo09(string $ApveInvc24mo09) Return the first ChildVendor filtered by the ApveInvc24mo09 column
- * @method     ChildVendor findOneByApveicnt24mo09(int $ApveIcnt24mo09) Return the first ChildVendor filtered by the ApveIcnt24mo09 column
- * @method     ChildVendor findOneByApvepur24mo10(string $ApvePur24mo10) Return the first ChildVendor filtered by the ApvePur24mo10 column
- * @method     ChildVendor findOneByApvepo24mo10(int $ApvePo24mo10) Return the first ChildVendor filtered by the ApvePo24mo10 column
- * @method     ChildVendor findOneByApveinvc24mo10(string $ApveInvc24mo10) Return the first ChildVendor filtered by the ApveInvc24mo10 column
- * @method     ChildVendor findOneByApveicnt24mo10(int $ApveIcnt24mo10) Return the first ChildVendor filtered by the ApveIcnt24mo10 column
- * @method     ChildVendor findOneByApvepur24mo11(string $ApvePur24mo11) Return the first ChildVendor filtered by the ApvePur24mo11 column
- * @method     ChildVendor findOneByApvepo24mo11(int $ApvePo24mo11) Return the first ChildVendor filtered by the ApvePo24mo11 column
- * @method     ChildVendor findOneByApveinvc24mo11(string $ApveInvc24mo11) Return the first ChildVendor filtered by the ApveInvc24mo11 column
- * @method     ChildVendor findOneByApveicnt24mo11(int $ApveIcnt24mo11) Return the first ChildVendor filtered by the ApveIcnt24mo11 column
- * @method     ChildVendor findOneByApvepur24mo12(string $ApvePur24mo12) Return the first ChildVendor filtered by the ApvePur24mo12 column
- * @method     ChildVendor findOneByApvepo24mo12(int $ApvePo24mo12) Return the first ChildVendor filtered by the ApvePo24mo12 column
- * @method     ChildVendor findOneByApveinvc24mo12(string $ApveInvc24mo12) Return the first ChildVendor filtered by the ApveInvc24mo12 column
- * @method     ChildVendor findOneByApveicnt24mo12(int $ApveIcnt24mo12) Return the first ChildVendor filtered by the ApveIcnt24mo12 column
- * @method     ChildVendor findOneByApvepur24mo13(string $ApvePur24mo13) Return the first ChildVendor filtered by the ApvePur24mo13 column
- * @method     ChildVendor findOneByApvepo24mo13(int $ApvePo24mo13) Return the first ChildVendor filtered by the ApvePo24mo13 column
- * @method     ChildVendor findOneByApveinvc24mo13(string $ApveInvc24mo13) Return the first ChildVendor filtered by the ApveInvc24mo13 column
- * @method     ChildVendor findOneByApveicnt24mo13(int $ApveIcnt24mo13) Return the first ChildVendor filtered by the ApveIcnt24mo13 column
- * @method     ChildVendor findOneByApvepur24mo14(string $ApvePur24mo14) Return the first ChildVendor filtered by the ApvePur24mo14 column
- * @method     ChildVendor findOneByApvepo24mo14(int $ApvePo24mo14) Return the first ChildVendor filtered by the ApvePo24mo14 column
- * @method     ChildVendor findOneByApveinvc24mo14(string $ApveInvc24mo14) Return the first ChildVendor filtered by the ApveInvc24mo14 column
- * @method     ChildVendor findOneByApveicnt24mo14(int $ApveIcnt24mo14) Return the first ChildVendor filtered by the ApveIcnt24mo14 column
- * @method     ChildVendor findOneByApvepur24mo15(string $ApvePur24mo15) Return the first ChildVendor filtered by the ApvePur24mo15 column
- * @method     ChildVendor findOneByApvepo24mo15(int $ApvePo24mo15) Return the first ChildVendor filtered by the ApvePo24mo15 column
- * @method     ChildVendor findOneByApveinvc24mo15(string $ApveInvc24mo15) Return the first ChildVendor filtered by the ApveInvc24mo15 column
- * @method     ChildVendor findOneByApveicnt24mo15(int $ApveIcnt24mo15) Return the first ChildVendor filtered by the ApveIcnt24mo15 column
- * @method     ChildVendor findOneByApvepur24mo16(string $ApvePur24mo16) Return the first ChildVendor filtered by the ApvePur24mo16 column
- * @method     ChildVendor findOneByApvepo24mo16(int $ApvePo24mo16) Return the first ChildVendor filtered by the ApvePo24mo16 column
- * @method     ChildVendor findOneByApveinvc24mo16(string $ApveInvc24mo16) Return the first ChildVendor filtered by the ApveInvc24mo16 column
- * @method     ChildVendor findOneByApveicnt24mo16(int $ApveIcnt24mo16) Return the first ChildVendor filtered by the ApveIcnt24mo16 column
- * @method     ChildVendor findOneByApvepur24mo17(string $ApvePur24mo17) Return the first ChildVendor filtered by the ApvePur24mo17 column
- * @method     ChildVendor findOneByApvepo24mo17(int $ApvePo24mo17) Return the first ChildVendor filtered by the ApvePo24mo17 column
- * @method     ChildVendor findOneByApveinvc24mo17(string $ApveInvc24mo17) Return the first ChildVendor filtered by the ApveInvc24mo17 column
- * @method     ChildVendor findOneByApveicnt24mo17(int $ApveIcnt24mo17) Return the first ChildVendor filtered by the ApveIcnt24mo17 column
- * @method     ChildVendor findOneByApvepur24mo18(string $ApvePur24mo18) Return the first ChildVendor filtered by the ApvePur24mo18 column
- * @method     ChildVendor findOneByApvepo24mo18(int $ApvePo24mo18) Return the first ChildVendor filtered by the ApvePo24mo18 column
- * @method     ChildVendor findOneByApveinvc24mo18(string $ApveInvc24mo18) Return the first ChildVendor filtered by the ApveInvc24mo18 column
- * @method     ChildVendor findOneByApveicnt24mo18(int $ApveIcnt24mo18) Return the first ChildVendor filtered by the ApveIcnt24mo18 column
- * @method     ChildVendor findOneByApvepur24mo19(string $ApvePur24mo19) Return the first ChildVendor filtered by the ApvePur24mo19 column
- * @method     ChildVendor findOneByApvepo24mo19(int $ApvePo24mo19) Return the first ChildVendor filtered by the ApvePo24mo19 column
- * @method     ChildVendor findOneByApveinvc24mo19(string $ApveInvc24mo19) Return the first ChildVendor filtered by the ApveInvc24mo19 column
- * @method     ChildVendor findOneByApveicnt24mo19(int $ApveIcnt24mo19) Return the first ChildVendor filtered by the ApveIcnt24mo19 column
- * @method     ChildVendor findOneByApvepur24mo20(string $ApvePur24mo20) Return the first ChildVendor filtered by the ApvePur24mo20 column
- * @method     ChildVendor findOneByApvepo24mo20(int $ApvePo24mo20) Return the first ChildVendor filtered by the ApvePo24mo20 column
- * @method     ChildVendor findOneByApveinvc24mo20(string $ApveInvc24mo20) Return the first ChildVendor filtered by the ApveInvc24mo20 column
- * @method     ChildVendor findOneByApveicnt24mo20(int $ApveIcnt24mo20) Return the first ChildVendor filtered by the ApveIcnt24mo20 column
- * @method     ChildVendor findOneByApvepur24mo21(string $ApvePur24mo21) Return the first ChildVendor filtered by the ApvePur24mo21 column
- * @method     ChildVendor findOneByApvepo24mo21(int $ApvePo24mo21) Return the first ChildVendor filtered by the ApvePo24mo21 column
- * @method     ChildVendor findOneByApveinvc24mo21(string $ApveInvc24mo21) Return the first ChildVendor filtered by the ApveInvc24mo21 column
- * @method     ChildVendor findOneByApveicnt24mo21(int $ApveIcnt24mo21) Return the first ChildVendor filtered by the ApveIcnt24mo21 column
- * @method     ChildVendor findOneByApvepur24mo22(string $ApvePur24mo22) Return the first ChildVendor filtered by the ApvePur24mo22 column
- * @method     ChildVendor findOneByApvepo24mo22(int $ApvePo24mo22) Return the first ChildVendor filtered by the ApvePo24mo22 column
- * @method     ChildVendor findOneByApveinvc24mo22(string $ApveInvc24mo22) Return the first ChildVendor filtered by the ApveInvc24mo22 column
- * @method     ChildVendor findOneByApveicnt24mo22(int $ApveIcnt24mo22) Return the first ChildVendor filtered by the ApveIcnt24mo22 column
- * @method     ChildVendor findOneByApvepur24mo23(string $ApvePur24mo23) Return the first ChildVendor filtered by the ApvePur24mo23 column
- * @method     ChildVendor findOneByApvepo24mo23(int $ApvePo24mo23) Return the first ChildVendor filtered by the ApvePo24mo23 column
- * @method     ChildVendor findOneByApveinvc24mo23(string $ApveInvc24mo23) Return the first ChildVendor filtered by the ApveInvc24mo23 column
- * @method     ChildVendor findOneByApveicnt24mo23(int $ApveIcnt24mo23) Return the first ChildVendor filtered by the ApveIcnt24mo23 column
- * @method     ChildVendor findOneByApvepur24mo24(string $ApvePur24mo24) Return the first ChildVendor filtered by the ApvePur24mo24 column
- * @method     ChildVendor findOneByApvepo24mo24(int $ApvePo24mo24) Return the first ChildVendor filtered by the ApvePo24mo24 column
- * @method     ChildVendor findOneByApveinvc24mo24(string $ApveInvc24mo24) Return the first ChildVendor filtered by the ApveInvc24mo24 column
- * @method     ChildVendor findOneByApveicnt24mo24(int $ApveIcnt24mo24) Return the first ChildVendor filtered by the ApveIcnt24mo24 column
- * @method     ChildVendor findOneByApvecrncy(string $ApveCrncy) Return the first ChildVendor filtered by the ApveCrncy column
- * @method     ChildVendor findOneByApvefrtinamt(string $ApveFrtInAmt) Return the first ChildVendor filtered by the ApveFrtInAmt column
- * @method     ChildVendor findOneByApveouracctnbr(string $ApveOurAcctNbr) Return the first ChildVendor filtered by the ApveOurAcctNbr column
- * @method     ChildVendor findOneByApvevenddisc(string $ApveVendDisc) Return the first ChildVendor filtered by the ApveVendDisc column
- * @method     ChildVendor findOneByApvefob(string $ApveFob) Return the first ChildVendor filtered by the ApveFob column
- * @method     ChildVendor findOneByApveroylpct(string $ApveRoylPct) Return the first ChildVendor filtered by the ApveRoylPct column
- * @method     ChildVendor findOneByApveprtpoeoru(string $ApvePrtPoEOrU) Return the first ChildVendor filtered by the ApvePrtPoEOrU column
- * @method     ChildVendor findOneByApvecomrate(string $ApveComRate) Return the first ChildVendor filtered by the ApveComRate column
- * @method     ChildVendor findOneByApveuselandonrcpt(string $ApveUseLandOnRcpt) Return the first ChildVendor filtered by the ApveUseLandOnRcpt column
- * @method     ChildVendor findOneByApvebuyrwhse1(string $ApveBuyrWhse1) Return the first ChildVendor filtered by the ApveBuyrWhse1 column
- * @method     ChildVendor findOneByApvebuyrcode1(string $ApveBuyrCode1) Return the first ChildVendor filtered by the ApveBuyrCode1 column
- * @method     ChildVendor findOneByApvebuyrwhse2(string $ApveBuyrWhse2) Return the first ChildVendor filtered by the ApveBuyrWhse2 column
- * @method     ChildVendor findOneByApvebuyrcode2(string $ApveBuyrCode2) Return the first ChildVendor filtered by the ApveBuyrCode2 column
- * @method     ChildVendor findOneByApvebuyrwhse3(string $ApveBuyrWhse3) Return the first ChildVendor filtered by the ApveBuyrWhse3 column
- * @method     ChildVendor findOneByApvebuyrcode3(string $ApveBuyrCode3) Return the first ChildVendor filtered by the ApveBuyrCode3 column
- * @method     ChildVendor findOneByApvebuyrwhse4(string $ApveBuyrWhse4) Return the first ChildVendor filtered by the ApveBuyrWhse4 column
- * @method     ChildVendor findOneByApvebuyrcode4(string $ApveBuyrCode4) Return the first ChildVendor filtered by the ApveBuyrCode4 column
- * @method     ChildVendor findOneByApvebuyrwhse5(string $ApveBuyrWhse5) Return the first ChildVendor filtered by the ApveBuyrWhse5 column
- * @method     ChildVendor findOneByApvebuyrcode5(string $ApveBuyrCode5) Return the first ChildVendor filtered by the ApveBuyrCode5 column
- * @method     ChildVendor findOneByApvebuyrwhse6(string $ApveBuyrWhse6) Return the first ChildVendor filtered by the ApveBuyrWhse6 column
- * @method     ChildVendor findOneByApvebuyrcode6(string $ApveBuyrCode6) Return the first ChildVendor filtered by the ApveBuyrCode6 column
- * @method     ChildVendor findOneByApvebuyrwhse7(string $ApveBuyrWhse7) Return the first ChildVendor filtered by the ApveBuyrWhse7 column
- * @method     ChildVendor findOneByApvebuyrcode7(string $ApveBuyrCode7) Return the first ChildVendor filtered by the ApveBuyrCode7 column
- * @method     ChildVendor findOneByApvebuyrwhse8(string $ApveBuyrWhse8) Return the first ChildVendor filtered by the ApveBuyrWhse8 column
- * @method     ChildVendor findOneByApvebuyrcode8(string $ApveBuyrCode8) Return the first ChildVendor filtered by the ApveBuyrCode8 column
- * @method     ChildVendor findOneByApvebuyrwhse9(string $ApveBuyrWhse9) Return the first ChildVendor filtered by the ApveBuyrWhse9 column
- * @method     ChildVendor findOneByApvebuyrcode9(string $ApveBuyrCode9) Return the first ChildVendor filtered by the ApveBuyrCode9 column
- * @method     ChildVendor findOneByApvebuyrwhse10(string $ApveBuyrWhse10) Return the first ChildVendor filtered by the ApveBuyrWhse10 column
- * @method     ChildVendor findOneByApvebuyrcode10(string $ApveBuyrCode10) Return the first ChildVendor filtered by the ApveBuyrCode10 column
- * @method     ChildVendor findOneByApvelandcost(string $ApveLandCost) Return the first ChildVendor filtered by the ApveLandCost column
- * @method     ChildVendor findOneByApvereleasenbr(int $ApveReleaseNbr) Return the first ChildVendor filtered by the ApveReleaseNbr column
- * @method     ChildVendor findOneByApvescanstartpos(int $ApveScanStartPos) Return the first ChildVendor filtered by the ApveScanStartPos column
- * @method     ChildVendor findOneByApvescanlength(int $ApveScanLength) Return the first ChildVendor filtered by the ApveScanLength column
- * @method     ChildVendor findOneByApvePurYtd(string $ApvePurYtd) Return the first ChildVendor filtered by the ApvePurYtd column
- * @method     ChildVendor findOneByApvePoYtd(int $ApvePoYtd) Return the first ChildVendor filtered by the ApvePoYtd column
- * @method     ChildVendor findOneByApveInvcYtd(string $ApveInvcYtd) Return the first ChildVendor filtered by the ApveInvcYtd column
- * @method     ChildVendor findOneByApveIcntYtd(int $ApveIcntYtd) Return the first ChildVendor filtered by the ApveIcntYtd column
- * @method     ChildVendor findOneByDateupdtd(string $DateUpdtd) Return the first ChildVendor filtered by the DateUpdtd column
- * @method     ChildVendor findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildVendor filtered by the TimeUpdtd column
- * @method     ChildVendor findOneByDummy(string $dummy) Return the first ChildVendor filtered by the dummy column *
-
- * @method     ChildVendor requirePk($key, ConnectionInterface $con = null) Return the ChildVendor by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildVendor requireOne(ConnectionInterface $con = null) Return the first ChildVendor matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendor|null findOneByApvevendid(string $ApveVendId) Return the first ChildVendor filtered by the ApveVendId column
+ * @method     ChildVendor|null findOneByApvename(string $ApveName) Return the first ChildVendor filtered by the ApveName column
+ * @method     ChildVendor|null findOneByApveadr1(string $ApveAdr1) Return the first ChildVendor filtered by the ApveAdr1 column
+ * @method     ChildVendor|null findOneByApveadr2(string $ApveAdr2) Return the first ChildVendor filtered by the ApveAdr2 column
+ * @method     ChildVendor|null findOneByApveadr3(string $ApveAdr3) Return the first ChildVendor filtered by the ApveAdr3 column
+ * @method     ChildVendor|null findOneByApvectry(string $ApveCtry) Return the first ChildVendor filtered by the ApveCtry column
+ * @method     ChildVendor|null findOneByApvecity(string $ApveCity) Return the first ChildVendor filtered by the ApveCity column
+ * @method     ChildVendor|null findOneByApvestat(string $ApveStat) Return the first ChildVendor filtered by the ApveStat column
+ * @method     ChildVendor|null findOneByApvezipcode(string $ApveZipCode) Return the first ChildVendor filtered by the ApveZipCode column
+ * @method     ChildVendor|null findOneByApvepayname(string $ApvePayName) Return the first ChildVendor filtered by the ApvePayName column
+ * @method     ChildVendor|null findOneByApvepayadr1(string $ApvePayAdr1) Return the first ChildVendor filtered by the ApvePayAdr1 column
+ * @method     ChildVendor|null findOneByApvepayadr2(string $ApvePayAdr2) Return the first ChildVendor filtered by the ApvePayAdr2 column
+ * @method     ChildVendor|null findOneByApvepayadr3(string $ApvePayAdr3) Return the first ChildVendor filtered by the ApvePayAdr3 column
+ * @method     ChildVendor|null findOneByApvepayctry(string $ApvePayCtry) Return the first ChildVendor filtered by the ApvePayCtry column
+ * @method     ChildVendor|null findOneByApvepaycity(string $ApvePayCity) Return the first ChildVendor filtered by the ApvePayCity column
+ * @method     ChildVendor|null findOneByApvepaystat(string $ApvePayStat) Return the first ChildVendor filtered by the ApvePayStat column
+ * @method     ChildVendor|null findOneByApvepayzipcode(string $ApvePayZipCode) Return the first ChildVendor filtered by the ApvePayZipCode column
+ * @method     ChildVendor|null findOneByApvestatus(string $ApveStatus) Return the first ChildVendor filtered by the ApveStatus column
+ * @method     ChildVendor|null findOneByApvetakeexpireddisc(string $ApveTakeExpiredDisc) Return the first ChildVendor filtered by the ApveTakeExpiredDisc column
+ * @method     ChildVendor|null findOneByApveprinthts(string $ApvePrintHts) Return the first ChildVendor filtered by the ApvePrintHts column
+ * @method     ChildVendor|null findOneByApvefabbin(string $ApveFabBin) Return the first ChildVendor filtered by the ApveFabBin column
+ * @method     ChildVendor|null findOneByApvelmprntbulk(string $ApveLmPrntBulk) Return the first ChildVendor filtered by the ApveLmPrntBulk column
+ * @method     ChildVendor|null findOneByApveallowdropship(string $ApveAllowDropShip) Return the first ChildVendor filtered by the ApveAllowDropShip column
+ * @method     ChildVendor|null findOneByAptbtypecode(string $AptbTypeCode) Return the first ChildVendor filtered by the AptbTypeCode column
+ * @method     ChildVendor|null findOneByAptmtermcode(string $AptmTermCode) Return the first ChildVendor filtered by the AptmTermCode column
+ * @method     ChildVendor|null findOneByApvesviacode(string $ApveSviaCode) Return the first ChildVendor filtered by the ApveSviaCode column
+ * @method     ChildVendor|null findOneByApveoldfob(string $ApveOldFob) Return the first ChildVendor filtered by the ApveOldFob column
+ * @method     ChildVendor|null findOneByApveleaddays(int $ApveLeadDays) Return the first ChildVendor filtered by the ApveLeadDays column
+ * @method     ChildVendor|null findOneByApveglacct(string $ApveGlAcct) Return the first ChildVendor filtered by the ApveGlAcct column
+ * @method     ChildVendor|null findOneByApve1099ssnbr(string $Apve1099SsNbr) Return the first ChildVendor filtered by the Apve1099SsNbr column
+ * @method     ChildVendor|null findOneByApveminordrcode(string $ApveMinOrdrCode) Return the first ChildVendor filtered by the ApveMinOrdrCode column
+ * @method     ChildVendor|null findOneByApveminordrvalue(int $ApveMinOrdrValue) Return the first ChildVendor filtered by the ApveMinOrdrValue column
+ * @method     ChildVendor|null findOneByApvepurmtd(string $ApvePurMtd) Return the first ChildVendor filtered by the ApvePurMtd column
+ * @method     ChildVendor|null findOneByApvepomtd(int $ApvePoMtd) Return the first ChildVendor filtered by the ApvePoMtd column
+ * @method     ChildVendor|null findOneByApveinvcmtd(string $ApveInvcMtd) Return the first ChildVendor filtered by the ApveInvcMtd column
+ * @method     ChildVendor|null findOneByApveicntmtd(int $ApveIcntMtd) Return the first ChildVendor filtered by the ApveIcntMtd column
+ * @method     ChildVendor|null findOneByApvedateopen(string $ApveDateOpen) Return the first ChildVendor filtered by the ApveDateOpen column
+ * @method     ChildVendor|null findOneByApvelastpurdate(string $ApveLastPurDate) Return the first ChildVendor filtered by the ApveLastPurDate column
+ * @method     ChildVendor|null findOneByApvepur24mo01(string $ApvePur24mo01) Return the first ChildVendor filtered by the ApvePur24mo01 column
+ * @method     ChildVendor|null findOneByApvepo24mo01(int $ApvePo24mo01) Return the first ChildVendor filtered by the ApvePo24mo01 column
+ * @method     ChildVendor|null findOneByApveinvc24mo01(string $ApveInvc24mo01) Return the first ChildVendor filtered by the ApveInvc24mo01 column
+ * @method     ChildVendor|null findOneByApveicnt24mo01(int $ApveIcnt24mo01) Return the first ChildVendor filtered by the ApveIcnt24mo01 column
+ * @method     ChildVendor|null findOneByApvepur24mo02(string $ApvePur24mo02) Return the first ChildVendor filtered by the ApvePur24mo02 column
+ * @method     ChildVendor|null findOneByApvepo24mo02(int $ApvePo24mo02) Return the first ChildVendor filtered by the ApvePo24mo02 column
+ * @method     ChildVendor|null findOneByApveinvc24mo02(string $ApveInvc24mo02) Return the first ChildVendor filtered by the ApveInvc24mo02 column
+ * @method     ChildVendor|null findOneByApveicnt24mo02(int $ApveIcnt24mo02) Return the first ChildVendor filtered by the ApveIcnt24mo02 column
+ * @method     ChildVendor|null findOneByApvepur24mo03(string $ApvePur24mo03) Return the first ChildVendor filtered by the ApvePur24mo03 column
+ * @method     ChildVendor|null findOneByApvepo24mo03(int $ApvePo24mo03) Return the first ChildVendor filtered by the ApvePo24mo03 column
+ * @method     ChildVendor|null findOneByApveinvc24mo03(string $ApveInvc24mo03) Return the first ChildVendor filtered by the ApveInvc24mo03 column
+ * @method     ChildVendor|null findOneByApveicnt24mo03(int $ApveIcnt24mo03) Return the first ChildVendor filtered by the ApveIcnt24mo03 column
+ * @method     ChildVendor|null findOneByApvepur24mo04(string $ApvePur24mo04) Return the first ChildVendor filtered by the ApvePur24mo04 column
+ * @method     ChildVendor|null findOneByApvepo24mo04(int $ApvePo24mo04) Return the first ChildVendor filtered by the ApvePo24mo04 column
+ * @method     ChildVendor|null findOneByApveinvc24mo04(string $ApveInvc24mo04) Return the first ChildVendor filtered by the ApveInvc24mo04 column
+ * @method     ChildVendor|null findOneByApveicnt24mo04(int $ApveIcnt24mo04) Return the first ChildVendor filtered by the ApveIcnt24mo04 column
+ * @method     ChildVendor|null findOneByApvepur24mo05(string $ApvePur24mo05) Return the first ChildVendor filtered by the ApvePur24mo05 column
+ * @method     ChildVendor|null findOneByApvepo24mo05(int $ApvePo24mo05) Return the first ChildVendor filtered by the ApvePo24mo05 column
+ * @method     ChildVendor|null findOneByApveinvc24mo05(string $ApveInvc24mo05) Return the first ChildVendor filtered by the ApveInvc24mo05 column
+ * @method     ChildVendor|null findOneByApveicnt24mo05(int $ApveIcnt24mo05) Return the first ChildVendor filtered by the ApveIcnt24mo05 column
+ * @method     ChildVendor|null findOneByApvepur24mo06(string $ApvePur24mo06) Return the first ChildVendor filtered by the ApvePur24mo06 column
+ * @method     ChildVendor|null findOneByApvepo24mo06(int $ApvePo24mo06) Return the first ChildVendor filtered by the ApvePo24mo06 column
+ * @method     ChildVendor|null findOneByApveinvc24mo06(string $ApveInvc24mo06) Return the first ChildVendor filtered by the ApveInvc24mo06 column
+ * @method     ChildVendor|null findOneByApveicnt24mo06(int $ApveIcnt24mo06) Return the first ChildVendor filtered by the ApveIcnt24mo06 column
+ * @method     ChildVendor|null findOneByApvepur24mo07(string $ApvePur24mo07) Return the first ChildVendor filtered by the ApvePur24mo07 column
+ * @method     ChildVendor|null findOneByApvepo24mo07(int $ApvePo24mo07) Return the first ChildVendor filtered by the ApvePo24mo07 column
+ * @method     ChildVendor|null findOneByApveinvc24mo07(string $ApveInvc24mo07) Return the first ChildVendor filtered by the ApveInvc24mo07 column
+ * @method     ChildVendor|null findOneByApveicnt24mo07(int $ApveIcnt24mo07) Return the first ChildVendor filtered by the ApveIcnt24mo07 column
+ * @method     ChildVendor|null findOneByApvepur24mo08(string $ApvePur24mo08) Return the first ChildVendor filtered by the ApvePur24mo08 column
+ * @method     ChildVendor|null findOneByApvepo24mo08(int $ApvePo24mo08) Return the first ChildVendor filtered by the ApvePo24mo08 column
+ * @method     ChildVendor|null findOneByApveinvc24mo08(string $ApveInvc24mo08) Return the first ChildVendor filtered by the ApveInvc24mo08 column
+ * @method     ChildVendor|null findOneByApveicnt24mo08(int $ApveIcnt24mo08) Return the first ChildVendor filtered by the ApveIcnt24mo08 column
+ * @method     ChildVendor|null findOneByApvepur24mo09(string $ApvePur24mo09) Return the first ChildVendor filtered by the ApvePur24mo09 column
+ * @method     ChildVendor|null findOneByApvepo24mo09(int $ApvePo24mo09) Return the first ChildVendor filtered by the ApvePo24mo09 column
+ * @method     ChildVendor|null findOneByApveinvc24mo09(string $ApveInvc24mo09) Return the first ChildVendor filtered by the ApveInvc24mo09 column
+ * @method     ChildVendor|null findOneByApveicnt24mo09(int $ApveIcnt24mo09) Return the first ChildVendor filtered by the ApveIcnt24mo09 column
+ * @method     ChildVendor|null findOneByApvepur24mo10(string $ApvePur24mo10) Return the first ChildVendor filtered by the ApvePur24mo10 column
+ * @method     ChildVendor|null findOneByApvepo24mo10(int $ApvePo24mo10) Return the first ChildVendor filtered by the ApvePo24mo10 column
+ * @method     ChildVendor|null findOneByApveinvc24mo10(string $ApveInvc24mo10) Return the first ChildVendor filtered by the ApveInvc24mo10 column
+ * @method     ChildVendor|null findOneByApveicnt24mo10(int $ApveIcnt24mo10) Return the first ChildVendor filtered by the ApveIcnt24mo10 column
+ * @method     ChildVendor|null findOneByApvepur24mo11(string $ApvePur24mo11) Return the first ChildVendor filtered by the ApvePur24mo11 column
+ * @method     ChildVendor|null findOneByApvepo24mo11(int $ApvePo24mo11) Return the first ChildVendor filtered by the ApvePo24mo11 column
+ * @method     ChildVendor|null findOneByApveinvc24mo11(string $ApveInvc24mo11) Return the first ChildVendor filtered by the ApveInvc24mo11 column
+ * @method     ChildVendor|null findOneByApveicnt24mo11(int $ApveIcnt24mo11) Return the first ChildVendor filtered by the ApveIcnt24mo11 column
+ * @method     ChildVendor|null findOneByApvepur24mo12(string $ApvePur24mo12) Return the first ChildVendor filtered by the ApvePur24mo12 column
+ * @method     ChildVendor|null findOneByApvepo24mo12(int $ApvePo24mo12) Return the first ChildVendor filtered by the ApvePo24mo12 column
+ * @method     ChildVendor|null findOneByApveinvc24mo12(string $ApveInvc24mo12) Return the first ChildVendor filtered by the ApveInvc24mo12 column
+ * @method     ChildVendor|null findOneByApveicnt24mo12(int $ApveIcnt24mo12) Return the first ChildVendor filtered by the ApveIcnt24mo12 column
+ * @method     ChildVendor|null findOneByApvepur24mo13(string $ApvePur24mo13) Return the first ChildVendor filtered by the ApvePur24mo13 column
+ * @method     ChildVendor|null findOneByApvepo24mo13(int $ApvePo24mo13) Return the first ChildVendor filtered by the ApvePo24mo13 column
+ * @method     ChildVendor|null findOneByApveinvc24mo13(string $ApveInvc24mo13) Return the first ChildVendor filtered by the ApveInvc24mo13 column
+ * @method     ChildVendor|null findOneByApveicnt24mo13(int $ApveIcnt24mo13) Return the first ChildVendor filtered by the ApveIcnt24mo13 column
+ * @method     ChildVendor|null findOneByApvepur24mo14(string $ApvePur24mo14) Return the first ChildVendor filtered by the ApvePur24mo14 column
+ * @method     ChildVendor|null findOneByApvepo24mo14(int $ApvePo24mo14) Return the first ChildVendor filtered by the ApvePo24mo14 column
+ * @method     ChildVendor|null findOneByApveinvc24mo14(string $ApveInvc24mo14) Return the first ChildVendor filtered by the ApveInvc24mo14 column
+ * @method     ChildVendor|null findOneByApveicnt24mo14(int $ApveIcnt24mo14) Return the first ChildVendor filtered by the ApveIcnt24mo14 column
+ * @method     ChildVendor|null findOneByApvepur24mo15(string $ApvePur24mo15) Return the first ChildVendor filtered by the ApvePur24mo15 column
+ * @method     ChildVendor|null findOneByApvepo24mo15(int $ApvePo24mo15) Return the first ChildVendor filtered by the ApvePo24mo15 column
+ * @method     ChildVendor|null findOneByApveinvc24mo15(string $ApveInvc24mo15) Return the first ChildVendor filtered by the ApveInvc24mo15 column
+ * @method     ChildVendor|null findOneByApveicnt24mo15(int $ApveIcnt24mo15) Return the first ChildVendor filtered by the ApveIcnt24mo15 column
+ * @method     ChildVendor|null findOneByApvepur24mo16(string $ApvePur24mo16) Return the first ChildVendor filtered by the ApvePur24mo16 column
+ * @method     ChildVendor|null findOneByApvepo24mo16(int $ApvePo24mo16) Return the first ChildVendor filtered by the ApvePo24mo16 column
+ * @method     ChildVendor|null findOneByApveinvc24mo16(string $ApveInvc24mo16) Return the first ChildVendor filtered by the ApveInvc24mo16 column
+ * @method     ChildVendor|null findOneByApveicnt24mo16(int $ApveIcnt24mo16) Return the first ChildVendor filtered by the ApveIcnt24mo16 column
+ * @method     ChildVendor|null findOneByApvepur24mo17(string $ApvePur24mo17) Return the first ChildVendor filtered by the ApvePur24mo17 column
+ * @method     ChildVendor|null findOneByApvepo24mo17(int $ApvePo24mo17) Return the first ChildVendor filtered by the ApvePo24mo17 column
+ * @method     ChildVendor|null findOneByApveinvc24mo17(string $ApveInvc24mo17) Return the first ChildVendor filtered by the ApveInvc24mo17 column
+ * @method     ChildVendor|null findOneByApveicnt24mo17(int $ApveIcnt24mo17) Return the first ChildVendor filtered by the ApveIcnt24mo17 column
+ * @method     ChildVendor|null findOneByApvepur24mo18(string $ApvePur24mo18) Return the first ChildVendor filtered by the ApvePur24mo18 column
+ * @method     ChildVendor|null findOneByApvepo24mo18(int $ApvePo24mo18) Return the first ChildVendor filtered by the ApvePo24mo18 column
+ * @method     ChildVendor|null findOneByApveinvc24mo18(string $ApveInvc24mo18) Return the first ChildVendor filtered by the ApveInvc24mo18 column
+ * @method     ChildVendor|null findOneByApveicnt24mo18(int $ApveIcnt24mo18) Return the first ChildVendor filtered by the ApveIcnt24mo18 column
+ * @method     ChildVendor|null findOneByApvepur24mo19(string $ApvePur24mo19) Return the first ChildVendor filtered by the ApvePur24mo19 column
+ * @method     ChildVendor|null findOneByApvepo24mo19(int $ApvePo24mo19) Return the first ChildVendor filtered by the ApvePo24mo19 column
+ * @method     ChildVendor|null findOneByApveinvc24mo19(string $ApveInvc24mo19) Return the first ChildVendor filtered by the ApveInvc24mo19 column
+ * @method     ChildVendor|null findOneByApveicnt24mo19(int $ApveIcnt24mo19) Return the first ChildVendor filtered by the ApveIcnt24mo19 column
+ * @method     ChildVendor|null findOneByApvepur24mo20(string $ApvePur24mo20) Return the first ChildVendor filtered by the ApvePur24mo20 column
+ * @method     ChildVendor|null findOneByApvepo24mo20(int $ApvePo24mo20) Return the first ChildVendor filtered by the ApvePo24mo20 column
+ * @method     ChildVendor|null findOneByApveinvc24mo20(string $ApveInvc24mo20) Return the first ChildVendor filtered by the ApveInvc24mo20 column
+ * @method     ChildVendor|null findOneByApveicnt24mo20(int $ApveIcnt24mo20) Return the first ChildVendor filtered by the ApveIcnt24mo20 column
+ * @method     ChildVendor|null findOneByApvepur24mo21(string $ApvePur24mo21) Return the first ChildVendor filtered by the ApvePur24mo21 column
+ * @method     ChildVendor|null findOneByApvepo24mo21(int $ApvePo24mo21) Return the first ChildVendor filtered by the ApvePo24mo21 column
+ * @method     ChildVendor|null findOneByApveinvc24mo21(string $ApveInvc24mo21) Return the first ChildVendor filtered by the ApveInvc24mo21 column
+ * @method     ChildVendor|null findOneByApveicnt24mo21(int $ApveIcnt24mo21) Return the first ChildVendor filtered by the ApveIcnt24mo21 column
+ * @method     ChildVendor|null findOneByApvepur24mo22(string $ApvePur24mo22) Return the first ChildVendor filtered by the ApvePur24mo22 column
+ * @method     ChildVendor|null findOneByApvepo24mo22(int $ApvePo24mo22) Return the first ChildVendor filtered by the ApvePo24mo22 column
+ * @method     ChildVendor|null findOneByApveinvc24mo22(string $ApveInvc24mo22) Return the first ChildVendor filtered by the ApveInvc24mo22 column
+ * @method     ChildVendor|null findOneByApveicnt24mo22(int $ApveIcnt24mo22) Return the first ChildVendor filtered by the ApveIcnt24mo22 column
+ * @method     ChildVendor|null findOneByApvepur24mo23(string $ApvePur24mo23) Return the first ChildVendor filtered by the ApvePur24mo23 column
+ * @method     ChildVendor|null findOneByApvepo24mo23(int $ApvePo24mo23) Return the first ChildVendor filtered by the ApvePo24mo23 column
+ * @method     ChildVendor|null findOneByApveinvc24mo23(string $ApveInvc24mo23) Return the first ChildVendor filtered by the ApveInvc24mo23 column
+ * @method     ChildVendor|null findOneByApveicnt24mo23(int $ApveIcnt24mo23) Return the first ChildVendor filtered by the ApveIcnt24mo23 column
+ * @method     ChildVendor|null findOneByApvepur24mo24(string $ApvePur24mo24) Return the first ChildVendor filtered by the ApvePur24mo24 column
+ * @method     ChildVendor|null findOneByApvepo24mo24(int $ApvePo24mo24) Return the first ChildVendor filtered by the ApvePo24mo24 column
+ * @method     ChildVendor|null findOneByApveinvc24mo24(string $ApveInvc24mo24) Return the first ChildVendor filtered by the ApveInvc24mo24 column
+ * @method     ChildVendor|null findOneByApveicnt24mo24(int $ApveIcnt24mo24) Return the first ChildVendor filtered by the ApveIcnt24mo24 column
+ * @method     ChildVendor|null findOneByApvecrncy(string $ApveCrncy) Return the first ChildVendor filtered by the ApveCrncy column
+ * @method     ChildVendor|null findOneByApvefrtinamt(string $ApveFrtInAmt) Return the first ChildVendor filtered by the ApveFrtInAmt column
+ * @method     ChildVendor|null findOneByApveouracctnbr(string $ApveOurAcctNbr) Return the first ChildVendor filtered by the ApveOurAcctNbr column
+ * @method     ChildVendor|null findOneByApvevenddisc(string $ApveVendDisc) Return the first ChildVendor filtered by the ApveVendDisc column
+ * @method     ChildVendor|null findOneByApvefob(string $ApveFob) Return the first ChildVendor filtered by the ApveFob column
+ * @method     ChildVendor|null findOneByApveroylpct(string $ApveRoylPct) Return the first ChildVendor filtered by the ApveRoylPct column
+ * @method     ChildVendor|null findOneByApveprtpoeoru(string $ApvePrtPoEOrU) Return the first ChildVendor filtered by the ApvePrtPoEOrU column
+ * @method     ChildVendor|null findOneByApvecomrate(string $ApveComRate) Return the first ChildVendor filtered by the ApveComRate column
+ * @method     ChildVendor|null findOneByApveuselandonrcpt(string $ApveUseLandOnRcpt) Return the first ChildVendor filtered by the ApveUseLandOnRcpt column
+ * @method     ChildVendor|null findOneByApvebuyrwhse1(string $ApveBuyrWhse1) Return the first ChildVendor filtered by the ApveBuyrWhse1 column
+ * @method     ChildVendor|null findOneByApvebuyrcode1(string $ApveBuyrCode1) Return the first ChildVendor filtered by the ApveBuyrCode1 column
+ * @method     ChildVendor|null findOneByApvebuyrwhse2(string $ApveBuyrWhse2) Return the first ChildVendor filtered by the ApveBuyrWhse2 column
+ * @method     ChildVendor|null findOneByApvebuyrcode2(string $ApveBuyrCode2) Return the first ChildVendor filtered by the ApveBuyrCode2 column
+ * @method     ChildVendor|null findOneByApvebuyrwhse3(string $ApveBuyrWhse3) Return the first ChildVendor filtered by the ApveBuyrWhse3 column
+ * @method     ChildVendor|null findOneByApvebuyrcode3(string $ApveBuyrCode3) Return the first ChildVendor filtered by the ApveBuyrCode3 column
+ * @method     ChildVendor|null findOneByApvebuyrwhse4(string $ApveBuyrWhse4) Return the first ChildVendor filtered by the ApveBuyrWhse4 column
+ * @method     ChildVendor|null findOneByApvebuyrcode4(string $ApveBuyrCode4) Return the first ChildVendor filtered by the ApveBuyrCode4 column
+ * @method     ChildVendor|null findOneByApvebuyrwhse5(string $ApveBuyrWhse5) Return the first ChildVendor filtered by the ApveBuyrWhse5 column
+ * @method     ChildVendor|null findOneByApvebuyrcode5(string $ApveBuyrCode5) Return the first ChildVendor filtered by the ApveBuyrCode5 column
+ * @method     ChildVendor|null findOneByApvebuyrwhse6(string $ApveBuyrWhse6) Return the first ChildVendor filtered by the ApveBuyrWhse6 column
+ * @method     ChildVendor|null findOneByApvebuyrcode6(string $ApveBuyrCode6) Return the first ChildVendor filtered by the ApveBuyrCode6 column
+ * @method     ChildVendor|null findOneByApvebuyrwhse7(string $ApveBuyrWhse7) Return the first ChildVendor filtered by the ApveBuyrWhse7 column
+ * @method     ChildVendor|null findOneByApvebuyrcode7(string $ApveBuyrCode7) Return the first ChildVendor filtered by the ApveBuyrCode7 column
+ * @method     ChildVendor|null findOneByApvebuyrwhse8(string $ApveBuyrWhse8) Return the first ChildVendor filtered by the ApveBuyrWhse8 column
+ * @method     ChildVendor|null findOneByApvebuyrcode8(string $ApveBuyrCode8) Return the first ChildVendor filtered by the ApveBuyrCode8 column
+ * @method     ChildVendor|null findOneByApvebuyrwhse9(string $ApveBuyrWhse9) Return the first ChildVendor filtered by the ApveBuyrWhse9 column
+ * @method     ChildVendor|null findOneByApvebuyrcode9(string $ApveBuyrCode9) Return the first ChildVendor filtered by the ApveBuyrCode9 column
+ * @method     ChildVendor|null findOneByApvebuyrwhse10(string $ApveBuyrWhse10) Return the first ChildVendor filtered by the ApveBuyrWhse10 column
+ * @method     ChildVendor|null findOneByApvebuyrcode10(string $ApveBuyrCode10) Return the first ChildVendor filtered by the ApveBuyrCode10 column
+ * @method     ChildVendor|null findOneByApvelandcost(string $ApveLandCost) Return the first ChildVendor filtered by the ApveLandCost column
+ * @method     ChildVendor|null findOneByApvereleasenbr(int $ApveReleaseNbr) Return the first ChildVendor filtered by the ApveReleaseNbr column
+ * @method     ChildVendor|null findOneByApvescanstartpos(int $ApveScanStartPos) Return the first ChildVendor filtered by the ApveScanStartPos column
+ * @method     ChildVendor|null findOneByApvescanlength(int $ApveScanLength) Return the first ChildVendor filtered by the ApveScanLength column
+ * @method     ChildVendor|null findOneByApvePurYtd(string $ApvePurYtd) Return the first ChildVendor filtered by the ApvePurYtd column
+ * @method     ChildVendor|null findOneByApvePoYtd(int $ApvePoYtd) Return the first ChildVendor filtered by the ApvePoYtd column
+ * @method     ChildVendor|null findOneByApveInvcYtd(string $ApveInvcYtd) Return the first ChildVendor filtered by the ApveInvcYtd column
+ * @method     ChildVendor|null findOneByApveIcntYtd(int $ApveIcntYtd) Return the first ChildVendor filtered by the ApveIcntYtd column
+ * @method     ChildVendor|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildVendor filtered by the DateUpdtd column
+ * @method     ChildVendor|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildVendor filtered by the TimeUpdtd column
+ * @method     ChildVendor|null findOneByDummy(string $dummy) Return the first ChildVendor filtered by the dummy column
+ *
+ * @method     ChildVendor requirePk($key, ?ConnectionInterface $con = null) Return the ChildVendor by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendor requireOne(?ConnectionInterface $con = null) Return the first ChildVendor matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildVendor requireOneByApvevendid(string $ApveVendId) Return the first ChildVendor filtered by the ApveVendId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVendor requireOneByApvename(string $ApveName) Return the first ChildVendor filtered by the ApveName column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -896,183 +895,360 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVendor requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildVendor filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVendor requireOneByDummy(string $dummy) Return the first ChildVendor filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildVendor[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildVendor objects based on current ModelCriteria
- * @method     ChildVendor[]|ObjectCollection findByApvevendid(string $ApveVendId) Return ChildVendor objects filtered by the ApveVendId column
- * @method     ChildVendor[]|ObjectCollection findByApvename(string $ApveName) Return ChildVendor objects filtered by the ApveName column
- * @method     ChildVendor[]|ObjectCollection findByApveadr1(string $ApveAdr1) Return ChildVendor objects filtered by the ApveAdr1 column
- * @method     ChildVendor[]|ObjectCollection findByApveadr2(string $ApveAdr2) Return ChildVendor objects filtered by the ApveAdr2 column
- * @method     ChildVendor[]|ObjectCollection findByApveadr3(string $ApveAdr3) Return ChildVendor objects filtered by the ApveAdr3 column
- * @method     ChildVendor[]|ObjectCollection findByApvectry(string $ApveCtry) Return ChildVendor objects filtered by the ApveCtry column
- * @method     ChildVendor[]|ObjectCollection findByApvecity(string $ApveCity) Return ChildVendor objects filtered by the ApveCity column
- * @method     ChildVendor[]|ObjectCollection findByApvestat(string $ApveStat) Return ChildVendor objects filtered by the ApveStat column
- * @method     ChildVendor[]|ObjectCollection findByApvezipcode(string $ApveZipCode) Return ChildVendor objects filtered by the ApveZipCode column
- * @method     ChildVendor[]|ObjectCollection findByApvepayname(string $ApvePayName) Return ChildVendor objects filtered by the ApvePayName column
- * @method     ChildVendor[]|ObjectCollection findByApvepayadr1(string $ApvePayAdr1) Return ChildVendor objects filtered by the ApvePayAdr1 column
- * @method     ChildVendor[]|ObjectCollection findByApvepayadr2(string $ApvePayAdr2) Return ChildVendor objects filtered by the ApvePayAdr2 column
- * @method     ChildVendor[]|ObjectCollection findByApvepayadr3(string $ApvePayAdr3) Return ChildVendor objects filtered by the ApvePayAdr3 column
- * @method     ChildVendor[]|ObjectCollection findByApvepayctry(string $ApvePayCtry) Return ChildVendor objects filtered by the ApvePayCtry column
- * @method     ChildVendor[]|ObjectCollection findByApvepaycity(string $ApvePayCity) Return ChildVendor objects filtered by the ApvePayCity column
- * @method     ChildVendor[]|ObjectCollection findByApvepaystat(string $ApvePayStat) Return ChildVendor objects filtered by the ApvePayStat column
- * @method     ChildVendor[]|ObjectCollection findByApvepayzipcode(string $ApvePayZipCode) Return ChildVendor objects filtered by the ApvePayZipCode column
- * @method     ChildVendor[]|ObjectCollection findByApvestatus(string $ApveStatus) Return ChildVendor objects filtered by the ApveStatus column
- * @method     ChildVendor[]|ObjectCollection findByApvetakeexpireddisc(string $ApveTakeExpiredDisc) Return ChildVendor objects filtered by the ApveTakeExpiredDisc column
- * @method     ChildVendor[]|ObjectCollection findByApveprinthts(string $ApvePrintHts) Return ChildVendor objects filtered by the ApvePrintHts column
- * @method     ChildVendor[]|ObjectCollection findByApvefabbin(string $ApveFabBin) Return ChildVendor objects filtered by the ApveFabBin column
- * @method     ChildVendor[]|ObjectCollection findByApvelmprntbulk(string $ApveLmPrntBulk) Return ChildVendor objects filtered by the ApveLmPrntBulk column
- * @method     ChildVendor[]|ObjectCollection findByApveallowdropship(string $ApveAllowDropShip) Return ChildVendor objects filtered by the ApveAllowDropShip column
- * @method     ChildVendor[]|ObjectCollection findByAptbtypecode(string $AptbTypeCode) Return ChildVendor objects filtered by the AptbTypeCode column
- * @method     ChildVendor[]|ObjectCollection findByAptmtermcode(string $AptmTermCode) Return ChildVendor objects filtered by the AptmTermCode column
- * @method     ChildVendor[]|ObjectCollection findByApvesviacode(string $ApveSviaCode) Return ChildVendor objects filtered by the ApveSviaCode column
- * @method     ChildVendor[]|ObjectCollection findByApveoldfob(string $ApveOldFob) Return ChildVendor objects filtered by the ApveOldFob column
- * @method     ChildVendor[]|ObjectCollection findByApveleaddays(int $ApveLeadDays) Return ChildVendor objects filtered by the ApveLeadDays column
- * @method     ChildVendor[]|ObjectCollection findByApveglacct(string $ApveGlAcct) Return ChildVendor objects filtered by the ApveGlAcct column
- * @method     ChildVendor[]|ObjectCollection findByApve1099ssnbr(string $Apve1099SsNbr) Return ChildVendor objects filtered by the Apve1099SsNbr column
- * @method     ChildVendor[]|ObjectCollection findByApveminordrcode(string $ApveMinOrdrCode) Return ChildVendor objects filtered by the ApveMinOrdrCode column
- * @method     ChildVendor[]|ObjectCollection findByApveminordrvalue(int $ApveMinOrdrValue) Return ChildVendor objects filtered by the ApveMinOrdrValue column
- * @method     ChildVendor[]|ObjectCollection findByApvepurmtd(string $ApvePurMtd) Return ChildVendor objects filtered by the ApvePurMtd column
- * @method     ChildVendor[]|ObjectCollection findByApvepomtd(int $ApvePoMtd) Return ChildVendor objects filtered by the ApvePoMtd column
- * @method     ChildVendor[]|ObjectCollection findByApveinvcmtd(string $ApveInvcMtd) Return ChildVendor objects filtered by the ApveInvcMtd column
- * @method     ChildVendor[]|ObjectCollection findByApveicntmtd(int $ApveIcntMtd) Return ChildVendor objects filtered by the ApveIcntMtd column
- * @method     ChildVendor[]|ObjectCollection findByApvedateopen(string $ApveDateOpen) Return ChildVendor objects filtered by the ApveDateOpen column
- * @method     ChildVendor[]|ObjectCollection findByApvelastpurdate(string $ApveLastPurDate) Return ChildVendor objects filtered by the ApveLastPurDate column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo01(string $ApvePur24mo01) Return ChildVendor objects filtered by the ApvePur24mo01 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo01(int $ApvePo24mo01) Return ChildVendor objects filtered by the ApvePo24mo01 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo01(string $ApveInvc24mo01) Return ChildVendor objects filtered by the ApveInvc24mo01 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo01(int $ApveIcnt24mo01) Return ChildVendor objects filtered by the ApveIcnt24mo01 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo02(string $ApvePur24mo02) Return ChildVendor objects filtered by the ApvePur24mo02 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo02(int $ApvePo24mo02) Return ChildVendor objects filtered by the ApvePo24mo02 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo02(string $ApveInvc24mo02) Return ChildVendor objects filtered by the ApveInvc24mo02 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo02(int $ApveIcnt24mo02) Return ChildVendor objects filtered by the ApveIcnt24mo02 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo03(string $ApvePur24mo03) Return ChildVendor objects filtered by the ApvePur24mo03 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo03(int $ApvePo24mo03) Return ChildVendor objects filtered by the ApvePo24mo03 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo03(string $ApveInvc24mo03) Return ChildVendor objects filtered by the ApveInvc24mo03 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo03(int $ApveIcnt24mo03) Return ChildVendor objects filtered by the ApveIcnt24mo03 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo04(string $ApvePur24mo04) Return ChildVendor objects filtered by the ApvePur24mo04 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo04(int $ApvePo24mo04) Return ChildVendor objects filtered by the ApvePo24mo04 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo04(string $ApveInvc24mo04) Return ChildVendor objects filtered by the ApveInvc24mo04 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo04(int $ApveIcnt24mo04) Return ChildVendor objects filtered by the ApveIcnt24mo04 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo05(string $ApvePur24mo05) Return ChildVendor objects filtered by the ApvePur24mo05 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo05(int $ApvePo24mo05) Return ChildVendor objects filtered by the ApvePo24mo05 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo05(string $ApveInvc24mo05) Return ChildVendor objects filtered by the ApveInvc24mo05 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo05(int $ApveIcnt24mo05) Return ChildVendor objects filtered by the ApveIcnt24mo05 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo06(string $ApvePur24mo06) Return ChildVendor objects filtered by the ApvePur24mo06 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo06(int $ApvePo24mo06) Return ChildVendor objects filtered by the ApvePo24mo06 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo06(string $ApveInvc24mo06) Return ChildVendor objects filtered by the ApveInvc24mo06 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo06(int $ApveIcnt24mo06) Return ChildVendor objects filtered by the ApveIcnt24mo06 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo07(string $ApvePur24mo07) Return ChildVendor objects filtered by the ApvePur24mo07 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo07(int $ApvePo24mo07) Return ChildVendor objects filtered by the ApvePo24mo07 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo07(string $ApveInvc24mo07) Return ChildVendor objects filtered by the ApveInvc24mo07 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo07(int $ApveIcnt24mo07) Return ChildVendor objects filtered by the ApveIcnt24mo07 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo08(string $ApvePur24mo08) Return ChildVendor objects filtered by the ApvePur24mo08 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo08(int $ApvePo24mo08) Return ChildVendor objects filtered by the ApvePo24mo08 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo08(string $ApveInvc24mo08) Return ChildVendor objects filtered by the ApveInvc24mo08 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo08(int $ApveIcnt24mo08) Return ChildVendor objects filtered by the ApveIcnt24mo08 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo09(string $ApvePur24mo09) Return ChildVendor objects filtered by the ApvePur24mo09 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo09(int $ApvePo24mo09) Return ChildVendor objects filtered by the ApvePo24mo09 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo09(string $ApveInvc24mo09) Return ChildVendor objects filtered by the ApveInvc24mo09 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo09(int $ApveIcnt24mo09) Return ChildVendor objects filtered by the ApveIcnt24mo09 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo10(string $ApvePur24mo10) Return ChildVendor objects filtered by the ApvePur24mo10 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo10(int $ApvePo24mo10) Return ChildVendor objects filtered by the ApvePo24mo10 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo10(string $ApveInvc24mo10) Return ChildVendor objects filtered by the ApveInvc24mo10 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo10(int $ApveIcnt24mo10) Return ChildVendor objects filtered by the ApveIcnt24mo10 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo11(string $ApvePur24mo11) Return ChildVendor objects filtered by the ApvePur24mo11 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo11(int $ApvePo24mo11) Return ChildVendor objects filtered by the ApvePo24mo11 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo11(string $ApveInvc24mo11) Return ChildVendor objects filtered by the ApveInvc24mo11 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo11(int $ApveIcnt24mo11) Return ChildVendor objects filtered by the ApveIcnt24mo11 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo12(string $ApvePur24mo12) Return ChildVendor objects filtered by the ApvePur24mo12 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo12(int $ApvePo24mo12) Return ChildVendor objects filtered by the ApvePo24mo12 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo12(string $ApveInvc24mo12) Return ChildVendor objects filtered by the ApveInvc24mo12 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo12(int $ApveIcnt24mo12) Return ChildVendor objects filtered by the ApveIcnt24mo12 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo13(string $ApvePur24mo13) Return ChildVendor objects filtered by the ApvePur24mo13 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo13(int $ApvePo24mo13) Return ChildVendor objects filtered by the ApvePo24mo13 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo13(string $ApveInvc24mo13) Return ChildVendor objects filtered by the ApveInvc24mo13 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo13(int $ApveIcnt24mo13) Return ChildVendor objects filtered by the ApveIcnt24mo13 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo14(string $ApvePur24mo14) Return ChildVendor objects filtered by the ApvePur24mo14 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo14(int $ApvePo24mo14) Return ChildVendor objects filtered by the ApvePo24mo14 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo14(string $ApveInvc24mo14) Return ChildVendor objects filtered by the ApveInvc24mo14 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo14(int $ApveIcnt24mo14) Return ChildVendor objects filtered by the ApveIcnt24mo14 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo15(string $ApvePur24mo15) Return ChildVendor objects filtered by the ApvePur24mo15 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo15(int $ApvePo24mo15) Return ChildVendor objects filtered by the ApvePo24mo15 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo15(string $ApveInvc24mo15) Return ChildVendor objects filtered by the ApveInvc24mo15 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo15(int $ApveIcnt24mo15) Return ChildVendor objects filtered by the ApveIcnt24mo15 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo16(string $ApvePur24mo16) Return ChildVendor objects filtered by the ApvePur24mo16 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo16(int $ApvePo24mo16) Return ChildVendor objects filtered by the ApvePo24mo16 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo16(string $ApveInvc24mo16) Return ChildVendor objects filtered by the ApveInvc24mo16 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo16(int $ApveIcnt24mo16) Return ChildVendor objects filtered by the ApveIcnt24mo16 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo17(string $ApvePur24mo17) Return ChildVendor objects filtered by the ApvePur24mo17 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo17(int $ApvePo24mo17) Return ChildVendor objects filtered by the ApvePo24mo17 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo17(string $ApveInvc24mo17) Return ChildVendor objects filtered by the ApveInvc24mo17 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo17(int $ApveIcnt24mo17) Return ChildVendor objects filtered by the ApveIcnt24mo17 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo18(string $ApvePur24mo18) Return ChildVendor objects filtered by the ApvePur24mo18 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo18(int $ApvePo24mo18) Return ChildVendor objects filtered by the ApvePo24mo18 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo18(string $ApveInvc24mo18) Return ChildVendor objects filtered by the ApveInvc24mo18 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo18(int $ApveIcnt24mo18) Return ChildVendor objects filtered by the ApveIcnt24mo18 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo19(string $ApvePur24mo19) Return ChildVendor objects filtered by the ApvePur24mo19 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo19(int $ApvePo24mo19) Return ChildVendor objects filtered by the ApvePo24mo19 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo19(string $ApveInvc24mo19) Return ChildVendor objects filtered by the ApveInvc24mo19 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo19(int $ApveIcnt24mo19) Return ChildVendor objects filtered by the ApveIcnt24mo19 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo20(string $ApvePur24mo20) Return ChildVendor objects filtered by the ApvePur24mo20 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo20(int $ApvePo24mo20) Return ChildVendor objects filtered by the ApvePo24mo20 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo20(string $ApveInvc24mo20) Return ChildVendor objects filtered by the ApveInvc24mo20 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo20(int $ApveIcnt24mo20) Return ChildVendor objects filtered by the ApveIcnt24mo20 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo21(string $ApvePur24mo21) Return ChildVendor objects filtered by the ApvePur24mo21 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo21(int $ApvePo24mo21) Return ChildVendor objects filtered by the ApvePo24mo21 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo21(string $ApveInvc24mo21) Return ChildVendor objects filtered by the ApveInvc24mo21 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo21(int $ApveIcnt24mo21) Return ChildVendor objects filtered by the ApveIcnt24mo21 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo22(string $ApvePur24mo22) Return ChildVendor objects filtered by the ApvePur24mo22 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo22(int $ApvePo24mo22) Return ChildVendor objects filtered by the ApvePo24mo22 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo22(string $ApveInvc24mo22) Return ChildVendor objects filtered by the ApveInvc24mo22 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo22(int $ApveIcnt24mo22) Return ChildVendor objects filtered by the ApveIcnt24mo22 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo23(string $ApvePur24mo23) Return ChildVendor objects filtered by the ApvePur24mo23 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo23(int $ApvePo24mo23) Return ChildVendor objects filtered by the ApvePo24mo23 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo23(string $ApveInvc24mo23) Return ChildVendor objects filtered by the ApveInvc24mo23 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo23(int $ApveIcnt24mo23) Return ChildVendor objects filtered by the ApveIcnt24mo23 column
- * @method     ChildVendor[]|ObjectCollection findByApvepur24mo24(string $ApvePur24mo24) Return ChildVendor objects filtered by the ApvePur24mo24 column
- * @method     ChildVendor[]|ObjectCollection findByApvepo24mo24(int $ApvePo24mo24) Return ChildVendor objects filtered by the ApvePo24mo24 column
- * @method     ChildVendor[]|ObjectCollection findByApveinvc24mo24(string $ApveInvc24mo24) Return ChildVendor objects filtered by the ApveInvc24mo24 column
- * @method     ChildVendor[]|ObjectCollection findByApveicnt24mo24(int $ApveIcnt24mo24) Return ChildVendor objects filtered by the ApveIcnt24mo24 column
- * @method     ChildVendor[]|ObjectCollection findByApvecrncy(string $ApveCrncy) Return ChildVendor objects filtered by the ApveCrncy column
- * @method     ChildVendor[]|ObjectCollection findByApvefrtinamt(string $ApveFrtInAmt) Return ChildVendor objects filtered by the ApveFrtInAmt column
- * @method     ChildVendor[]|ObjectCollection findByApveouracctnbr(string $ApveOurAcctNbr) Return ChildVendor objects filtered by the ApveOurAcctNbr column
- * @method     ChildVendor[]|ObjectCollection findByApvevenddisc(string $ApveVendDisc) Return ChildVendor objects filtered by the ApveVendDisc column
- * @method     ChildVendor[]|ObjectCollection findByApvefob(string $ApveFob) Return ChildVendor objects filtered by the ApveFob column
- * @method     ChildVendor[]|ObjectCollection findByApveroylpct(string $ApveRoylPct) Return ChildVendor objects filtered by the ApveRoylPct column
- * @method     ChildVendor[]|ObjectCollection findByApveprtpoeoru(string $ApvePrtPoEOrU) Return ChildVendor objects filtered by the ApvePrtPoEOrU column
- * @method     ChildVendor[]|ObjectCollection findByApvecomrate(string $ApveComRate) Return ChildVendor objects filtered by the ApveComRate column
- * @method     ChildVendor[]|ObjectCollection findByApveuselandonrcpt(string $ApveUseLandOnRcpt) Return ChildVendor objects filtered by the ApveUseLandOnRcpt column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrwhse1(string $ApveBuyrWhse1) Return ChildVendor objects filtered by the ApveBuyrWhse1 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrcode1(string $ApveBuyrCode1) Return ChildVendor objects filtered by the ApveBuyrCode1 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrwhse2(string $ApveBuyrWhse2) Return ChildVendor objects filtered by the ApveBuyrWhse2 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrcode2(string $ApveBuyrCode2) Return ChildVendor objects filtered by the ApveBuyrCode2 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrwhse3(string $ApveBuyrWhse3) Return ChildVendor objects filtered by the ApveBuyrWhse3 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrcode3(string $ApveBuyrCode3) Return ChildVendor objects filtered by the ApveBuyrCode3 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrwhse4(string $ApveBuyrWhse4) Return ChildVendor objects filtered by the ApveBuyrWhse4 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrcode4(string $ApveBuyrCode4) Return ChildVendor objects filtered by the ApveBuyrCode4 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrwhse5(string $ApveBuyrWhse5) Return ChildVendor objects filtered by the ApveBuyrWhse5 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrcode5(string $ApveBuyrCode5) Return ChildVendor objects filtered by the ApveBuyrCode5 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrwhse6(string $ApveBuyrWhse6) Return ChildVendor objects filtered by the ApveBuyrWhse6 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrcode6(string $ApveBuyrCode6) Return ChildVendor objects filtered by the ApveBuyrCode6 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrwhse7(string $ApveBuyrWhse7) Return ChildVendor objects filtered by the ApveBuyrWhse7 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrcode7(string $ApveBuyrCode7) Return ChildVendor objects filtered by the ApveBuyrCode7 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrwhse8(string $ApveBuyrWhse8) Return ChildVendor objects filtered by the ApveBuyrWhse8 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrcode8(string $ApveBuyrCode8) Return ChildVendor objects filtered by the ApveBuyrCode8 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrwhse9(string $ApveBuyrWhse9) Return ChildVendor objects filtered by the ApveBuyrWhse9 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrcode9(string $ApveBuyrCode9) Return ChildVendor objects filtered by the ApveBuyrCode9 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrwhse10(string $ApveBuyrWhse10) Return ChildVendor objects filtered by the ApveBuyrWhse10 column
- * @method     ChildVendor[]|ObjectCollection findByApvebuyrcode10(string $ApveBuyrCode10) Return ChildVendor objects filtered by the ApveBuyrCode10 column
- * @method     ChildVendor[]|ObjectCollection findByApvelandcost(string $ApveLandCost) Return ChildVendor objects filtered by the ApveLandCost column
- * @method     ChildVendor[]|ObjectCollection findByApvereleasenbr(int $ApveReleaseNbr) Return ChildVendor objects filtered by the ApveReleaseNbr column
- * @method     ChildVendor[]|ObjectCollection findByApvescanstartpos(int $ApveScanStartPos) Return ChildVendor objects filtered by the ApveScanStartPos column
- * @method     ChildVendor[]|ObjectCollection findByApvescanlength(int $ApveScanLength) Return ChildVendor objects filtered by the ApveScanLength column
- * @method     ChildVendor[]|ObjectCollection findByApvePurYtd(string $ApvePurYtd) Return ChildVendor objects filtered by the ApvePurYtd column
- * @method     ChildVendor[]|ObjectCollection findByApvePoYtd(int $ApvePoYtd) Return ChildVendor objects filtered by the ApvePoYtd column
- * @method     ChildVendor[]|ObjectCollection findByApveInvcYtd(string $ApveInvcYtd) Return ChildVendor objects filtered by the ApveInvcYtd column
- * @method     ChildVendor[]|ObjectCollection findByApveIcntYtd(int $ApveIcntYtd) Return ChildVendor objects filtered by the ApveIcntYtd column
- * @method     ChildVendor[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildVendor objects filtered by the DateUpdtd column
- * @method     ChildVendor[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildVendor objects filtered by the TimeUpdtd column
- * @method     ChildVendor[]|ObjectCollection findByDummy(string $dummy) Return ChildVendor objects filtered by the dummy column
- * @method     ChildVendor[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildVendor[]|Collection find(?ConnectionInterface $con = null) Return ChildVendor objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildVendor> find(?ConnectionInterface $con = null) Return ChildVendor objects based on current ModelCriteria
  *
+ * @method     ChildVendor[]|Collection findByApvevendid(string|array<string> $ApveVendId) Return ChildVendor objects filtered by the ApveVendId column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvevendid(string|array<string> $ApveVendId) Return ChildVendor objects filtered by the ApveVendId column
+ * @method     ChildVendor[]|Collection findByApvename(string|array<string> $ApveName) Return ChildVendor objects filtered by the ApveName column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvename(string|array<string> $ApveName) Return ChildVendor objects filtered by the ApveName column
+ * @method     ChildVendor[]|Collection findByApveadr1(string|array<string> $ApveAdr1) Return ChildVendor objects filtered by the ApveAdr1 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveadr1(string|array<string> $ApveAdr1) Return ChildVendor objects filtered by the ApveAdr1 column
+ * @method     ChildVendor[]|Collection findByApveadr2(string|array<string> $ApveAdr2) Return ChildVendor objects filtered by the ApveAdr2 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveadr2(string|array<string> $ApveAdr2) Return ChildVendor objects filtered by the ApveAdr2 column
+ * @method     ChildVendor[]|Collection findByApveadr3(string|array<string> $ApveAdr3) Return ChildVendor objects filtered by the ApveAdr3 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveadr3(string|array<string> $ApveAdr3) Return ChildVendor objects filtered by the ApveAdr3 column
+ * @method     ChildVendor[]|Collection findByApvectry(string|array<string> $ApveCtry) Return ChildVendor objects filtered by the ApveCtry column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvectry(string|array<string> $ApveCtry) Return ChildVendor objects filtered by the ApveCtry column
+ * @method     ChildVendor[]|Collection findByApvecity(string|array<string> $ApveCity) Return ChildVendor objects filtered by the ApveCity column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvecity(string|array<string> $ApveCity) Return ChildVendor objects filtered by the ApveCity column
+ * @method     ChildVendor[]|Collection findByApvestat(string|array<string> $ApveStat) Return ChildVendor objects filtered by the ApveStat column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvestat(string|array<string> $ApveStat) Return ChildVendor objects filtered by the ApveStat column
+ * @method     ChildVendor[]|Collection findByApvezipcode(string|array<string> $ApveZipCode) Return ChildVendor objects filtered by the ApveZipCode column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvezipcode(string|array<string> $ApveZipCode) Return ChildVendor objects filtered by the ApveZipCode column
+ * @method     ChildVendor[]|Collection findByApvepayname(string|array<string> $ApvePayName) Return ChildVendor objects filtered by the ApvePayName column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepayname(string|array<string> $ApvePayName) Return ChildVendor objects filtered by the ApvePayName column
+ * @method     ChildVendor[]|Collection findByApvepayadr1(string|array<string> $ApvePayAdr1) Return ChildVendor objects filtered by the ApvePayAdr1 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepayadr1(string|array<string> $ApvePayAdr1) Return ChildVendor objects filtered by the ApvePayAdr1 column
+ * @method     ChildVendor[]|Collection findByApvepayadr2(string|array<string> $ApvePayAdr2) Return ChildVendor objects filtered by the ApvePayAdr2 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepayadr2(string|array<string> $ApvePayAdr2) Return ChildVendor objects filtered by the ApvePayAdr2 column
+ * @method     ChildVendor[]|Collection findByApvepayadr3(string|array<string> $ApvePayAdr3) Return ChildVendor objects filtered by the ApvePayAdr3 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepayadr3(string|array<string> $ApvePayAdr3) Return ChildVendor objects filtered by the ApvePayAdr3 column
+ * @method     ChildVendor[]|Collection findByApvepayctry(string|array<string> $ApvePayCtry) Return ChildVendor objects filtered by the ApvePayCtry column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepayctry(string|array<string> $ApvePayCtry) Return ChildVendor objects filtered by the ApvePayCtry column
+ * @method     ChildVendor[]|Collection findByApvepaycity(string|array<string> $ApvePayCity) Return ChildVendor objects filtered by the ApvePayCity column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepaycity(string|array<string> $ApvePayCity) Return ChildVendor objects filtered by the ApvePayCity column
+ * @method     ChildVendor[]|Collection findByApvepaystat(string|array<string> $ApvePayStat) Return ChildVendor objects filtered by the ApvePayStat column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepaystat(string|array<string> $ApvePayStat) Return ChildVendor objects filtered by the ApvePayStat column
+ * @method     ChildVendor[]|Collection findByApvepayzipcode(string|array<string> $ApvePayZipCode) Return ChildVendor objects filtered by the ApvePayZipCode column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepayzipcode(string|array<string> $ApvePayZipCode) Return ChildVendor objects filtered by the ApvePayZipCode column
+ * @method     ChildVendor[]|Collection findByApvestatus(string|array<string> $ApveStatus) Return ChildVendor objects filtered by the ApveStatus column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvestatus(string|array<string> $ApveStatus) Return ChildVendor objects filtered by the ApveStatus column
+ * @method     ChildVendor[]|Collection findByApvetakeexpireddisc(string|array<string> $ApveTakeExpiredDisc) Return ChildVendor objects filtered by the ApveTakeExpiredDisc column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvetakeexpireddisc(string|array<string> $ApveTakeExpiredDisc) Return ChildVendor objects filtered by the ApveTakeExpiredDisc column
+ * @method     ChildVendor[]|Collection findByApveprinthts(string|array<string> $ApvePrintHts) Return ChildVendor objects filtered by the ApvePrintHts column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveprinthts(string|array<string> $ApvePrintHts) Return ChildVendor objects filtered by the ApvePrintHts column
+ * @method     ChildVendor[]|Collection findByApvefabbin(string|array<string> $ApveFabBin) Return ChildVendor objects filtered by the ApveFabBin column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvefabbin(string|array<string> $ApveFabBin) Return ChildVendor objects filtered by the ApveFabBin column
+ * @method     ChildVendor[]|Collection findByApvelmprntbulk(string|array<string> $ApveLmPrntBulk) Return ChildVendor objects filtered by the ApveLmPrntBulk column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvelmprntbulk(string|array<string> $ApveLmPrntBulk) Return ChildVendor objects filtered by the ApveLmPrntBulk column
+ * @method     ChildVendor[]|Collection findByApveallowdropship(string|array<string> $ApveAllowDropShip) Return ChildVendor objects filtered by the ApveAllowDropShip column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveallowdropship(string|array<string> $ApveAllowDropShip) Return ChildVendor objects filtered by the ApveAllowDropShip column
+ * @method     ChildVendor[]|Collection findByAptbtypecode(string|array<string> $AptbTypeCode) Return ChildVendor objects filtered by the AptbTypeCode column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByAptbtypecode(string|array<string> $AptbTypeCode) Return ChildVendor objects filtered by the AptbTypeCode column
+ * @method     ChildVendor[]|Collection findByAptmtermcode(string|array<string> $AptmTermCode) Return ChildVendor objects filtered by the AptmTermCode column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByAptmtermcode(string|array<string> $AptmTermCode) Return ChildVendor objects filtered by the AptmTermCode column
+ * @method     ChildVendor[]|Collection findByApvesviacode(string|array<string> $ApveSviaCode) Return ChildVendor objects filtered by the ApveSviaCode column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvesviacode(string|array<string> $ApveSviaCode) Return ChildVendor objects filtered by the ApveSviaCode column
+ * @method     ChildVendor[]|Collection findByApveoldfob(string|array<string> $ApveOldFob) Return ChildVendor objects filtered by the ApveOldFob column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveoldfob(string|array<string> $ApveOldFob) Return ChildVendor objects filtered by the ApveOldFob column
+ * @method     ChildVendor[]|Collection findByApveleaddays(int|array<int> $ApveLeadDays) Return ChildVendor objects filtered by the ApveLeadDays column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveleaddays(int|array<int> $ApveLeadDays) Return ChildVendor objects filtered by the ApveLeadDays column
+ * @method     ChildVendor[]|Collection findByApveglacct(string|array<string> $ApveGlAcct) Return ChildVendor objects filtered by the ApveGlAcct column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveglacct(string|array<string> $ApveGlAcct) Return ChildVendor objects filtered by the ApveGlAcct column
+ * @method     ChildVendor[]|Collection findByApve1099ssnbr(string|array<string> $Apve1099SsNbr) Return ChildVendor objects filtered by the Apve1099SsNbr column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApve1099ssnbr(string|array<string> $Apve1099SsNbr) Return ChildVendor objects filtered by the Apve1099SsNbr column
+ * @method     ChildVendor[]|Collection findByApveminordrcode(string|array<string> $ApveMinOrdrCode) Return ChildVendor objects filtered by the ApveMinOrdrCode column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveminordrcode(string|array<string> $ApveMinOrdrCode) Return ChildVendor objects filtered by the ApveMinOrdrCode column
+ * @method     ChildVendor[]|Collection findByApveminordrvalue(int|array<int> $ApveMinOrdrValue) Return ChildVendor objects filtered by the ApveMinOrdrValue column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveminordrvalue(int|array<int> $ApveMinOrdrValue) Return ChildVendor objects filtered by the ApveMinOrdrValue column
+ * @method     ChildVendor[]|Collection findByApvepurmtd(string|array<string> $ApvePurMtd) Return ChildVendor objects filtered by the ApvePurMtd column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepurmtd(string|array<string> $ApvePurMtd) Return ChildVendor objects filtered by the ApvePurMtd column
+ * @method     ChildVendor[]|Collection findByApvepomtd(int|array<int> $ApvePoMtd) Return ChildVendor objects filtered by the ApvePoMtd column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepomtd(int|array<int> $ApvePoMtd) Return ChildVendor objects filtered by the ApvePoMtd column
+ * @method     ChildVendor[]|Collection findByApveinvcmtd(string|array<string> $ApveInvcMtd) Return ChildVendor objects filtered by the ApveInvcMtd column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvcmtd(string|array<string> $ApveInvcMtd) Return ChildVendor objects filtered by the ApveInvcMtd column
+ * @method     ChildVendor[]|Collection findByApveicntmtd(int|array<int> $ApveIcntMtd) Return ChildVendor objects filtered by the ApveIcntMtd column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicntmtd(int|array<int> $ApveIcntMtd) Return ChildVendor objects filtered by the ApveIcntMtd column
+ * @method     ChildVendor[]|Collection findByApvedateopen(string|array<string> $ApveDateOpen) Return ChildVendor objects filtered by the ApveDateOpen column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvedateopen(string|array<string> $ApveDateOpen) Return ChildVendor objects filtered by the ApveDateOpen column
+ * @method     ChildVendor[]|Collection findByApvelastpurdate(string|array<string> $ApveLastPurDate) Return ChildVendor objects filtered by the ApveLastPurDate column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvelastpurdate(string|array<string> $ApveLastPurDate) Return ChildVendor objects filtered by the ApveLastPurDate column
+ * @method     ChildVendor[]|Collection findByApvepur24mo01(string|array<string> $ApvePur24mo01) Return ChildVendor objects filtered by the ApvePur24mo01 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo01(string|array<string> $ApvePur24mo01) Return ChildVendor objects filtered by the ApvePur24mo01 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo01(int|array<int> $ApvePo24mo01) Return ChildVendor objects filtered by the ApvePo24mo01 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo01(int|array<int> $ApvePo24mo01) Return ChildVendor objects filtered by the ApvePo24mo01 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo01(string|array<string> $ApveInvc24mo01) Return ChildVendor objects filtered by the ApveInvc24mo01 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo01(string|array<string> $ApveInvc24mo01) Return ChildVendor objects filtered by the ApveInvc24mo01 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo01(int|array<int> $ApveIcnt24mo01) Return ChildVendor objects filtered by the ApveIcnt24mo01 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo01(int|array<int> $ApveIcnt24mo01) Return ChildVendor objects filtered by the ApveIcnt24mo01 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo02(string|array<string> $ApvePur24mo02) Return ChildVendor objects filtered by the ApvePur24mo02 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo02(string|array<string> $ApvePur24mo02) Return ChildVendor objects filtered by the ApvePur24mo02 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo02(int|array<int> $ApvePo24mo02) Return ChildVendor objects filtered by the ApvePo24mo02 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo02(int|array<int> $ApvePo24mo02) Return ChildVendor objects filtered by the ApvePo24mo02 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo02(string|array<string> $ApveInvc24mo02) Return ChildVendor objects filtered by the ApveInvc24mo02 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo02(string|array<string> $ApveInvc24mo02) Return ChildVendor objects filtered by the ApveInvc24mo02 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo02(int|array<int> $ApveIcnt24mo02) Return ChildVendor objects filtered by the ApveIcnt24mo02 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo02(int|array<int> $ApveIcnt24mo02) Return ChildVendor objects filtered by the ApveIcnt24mo02 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo03(string|array<string> $ApvePur24mo03) Return ChildVendor objects filtered by the ApvePur24mo03 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo03(string|array<string> $ApvePur24mo03) Return ChildVendor objects filtered by the ApvePur24mo03 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo03(int|array<int> $ApvePo24mo03) Return ChildVendor objects filtered by the ApvePo24mo03 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo03(int|array<int> $ApvePo24mo03) Return ChildVendor objects filtered by the ApvePo24mo03 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo03(string|array<string> $ApveInvc24mo03) Return ChildVendor objects filtered by the ApveInvc24mo03 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo03(string|array<string> $ApveInvc24mo03) Return ChildVendor objects filtered by the ApveInvc24mo03 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo03(int|array<int> $ApveIcnt24mo03) Return ChildVendor objects filtered by the ApveIcnt24mo03 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo03(int|array<int> $ApveIcnt24mo03) Return ChildVendor objects filtered by the ApveIcnt24mo03 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo04(string|array<string> $ApvePur24mo04) Return ChildVendor objects filtered by the ApvePur24mo04 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo04(string|array<string> $ApvePur24mo04) Return ChildVendor objects filtered by the ApvePur24mo04 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo04(int|array<int> $ApvePo24mo04) Return ChildVendor objects filtered by the ApvePo24mo04 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo04(int|array<int> $ApvePo24mo04) Return ChildVendor objects filtered by the ApvePo24mo04 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo04(string|array<string> $ApveInvc24mo04) Return ChildVendor objects filtered by the ApveInvc24mo04 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo04(string|array<string> $ApveInvc24mo04) Return ChildVendor objects filtered by the ApveInvc24mo04 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo04(int|array<int> $ApveIcnt24mo04) Return ChildVendor objects filtered by the ApveIcnt24mo04 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo04(int|array<int> $ApveIcnt24mo04) Return ChildVendor objects filtered by the ApveIcnt24mo04 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo05(string|array<string> $ApvePur24mo05) Return ChildVendor objects filtered by the ApvePur24mo05 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo05(string|array<string> $ApvePur24mo05) Return ChildVendor objects filtered by the ApvePur24mo05 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo05(int|array<int> $ApvePo24mo05) Return ChildVendor objects filtered by the ApvePo24mo05 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo05(int|array<int> $ApvePo24mo05) Return ChildVendor objects filtered by the ApvePo24mo05 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo05(string|array<string> $ApveInvc24mo05) Return ChildVendor objects filtered by the ApveInvc24mo05 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo05(string|array<string> $ApveInvc24mo05) Return ChildVendor objects filtered by the ApveInvc24mo05 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo05(int|array<int> $ApveIcnt24mo05) Return ChildVendor objects filtered by the ApveIcnt24mo05 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo05(int|array<int> $ApveIcnt24mo05) Return ChildVendor objects filtered by the ApveIcnt24mo05 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo06(string|array<string> $ApvePur24mo06) Return ChildVendor objects filtered by the ApvePur24mo06 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo06(string|array<string> $ApvePur24mo06) Return ChildVendor objects filtered by the ApvePur24mo06 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo06(int|array<int> $ApvePo24mo06) Return ChildVendor objects filtered by the ApvePo24mo06 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo06(int|array<int> $ApvePo24mo06) Return ChildVendor objects filtered by the ApvePo24mo06 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo06(string|array<string> $ApveInvc24mo06) Return ChildVendor objects filtered by the ApveInvc24mo06 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo06(string|array<string> $ApveInvc24mo06) Return ChildVendor objects filtered by the ApveInvc24mo06 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo06(int|array<int> $ApveIcnt24mo06) Return ChildVendor objects filtered by the ApveIcnt24mo06 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo06(int|array<int> $ApveIcnt24mo06) Return ChildVendor objects filtered by the ApveIcnt24mo06 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo07(string|array<string> $ApvePur24mo07) Return ChildVendor objects filtered by the ApvePur24mo07 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo07(string|array<string> $ApvePur24mo07) Return ChildVendor objects filtered by the ApvePur24mo07 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo07(int|array<int> $ApvePo24mo07) Return ChildVendor objects filtered by the ApvePo24mo07 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo07(int|array<int> $ApvePo24mo07) Return ChildVendor objects filtered by the ApvePo24mo07 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo07(string|array<string> $ApveInvc24mo07) Return ChildVendor objects filtered by the ApveInvc24mo07 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo07(string|array<string> $ApveInvc24mo07) Return ChildVendor objects filtered by the ApveInvc24mo07 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo07(int|array<int> $ApveIcnt24mo07) Return ChildVendor objects filtered by the ApveIcnt24mo07 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo07(int|array<int> $ApveIcnt24mo07) Return ChildVendor objects filtered by the ApveIcnt24mo07 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo08(string|array<string> $ApvePur24mo08) Return ChildVendor objects filtered by the ApvePur24mo08 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo08(string|array<string> $ApvePur24mo08) Return ChildVendor objects filtered by the ApvePur24mo08 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo08(int|array<int> $ApvePo24mo08) Return ChildVendor objects filtered by the ApvePo24mo08 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo08(int|array<int> $ApvePo24mo08) Return ChildVendor objects filtered by the ApvePo24mo08 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo08(string|array<string> $ApveInvc24mo08) Return ChildVendor objects filtered by the ApveInvc24mo08 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo08(string|array<string> $ApveInvc24mo08) Return ChildVendor objects filtered by the ApveInvc24mo08 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo08(int|array<int> $ApveIcnt24mo08) Return ChildVendor objects filtered by the ApveIcnt24mo08 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo08(int|array<int> $ApveIcnt24mo08) Return ChildVendor objects filtered by the ApveIcnt24mo08 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo09(string|array<string> $ApvePur24mo09) Return ChildVendor objects filtered by the ApvePur24mo09 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo09(string|array<string> $ApvePur24mo09) Return ChildVendor objects filtered by the ApvePur24mo09 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo09(int|array<int> $ApvePo24mo09) Return ChildVendor objects filtered by the ApvePo24mo09 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo09(int|array<int> $ApvePo24mo09) Return ChildVendor objects filtered by the ApvePo24mo09 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo09(string|array<string> $ApveInvc24mo09) Return ChildVendor objects filtered by the ApveInvc24mo09 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo09(string|array<string> $ApveInvc24mo09) Return ChildVendor objects filtered by the ApveInvc24mo09 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo09(int|array<int> $ApveIcnt24mo09) Return ChildVendor objects filtered by the ApveIcnt24mo09 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo09(int|array<int> $ApveIcnt24mo09) Return ChildVendor objects filtered by the ApveIcnt24mo09 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo10(string|array<string> $ApvePur24mo10) Return ChildVendor objects filtered by the ApvePur24mo10 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo10(string|array<string> $ApvePur24mo10) Return ChildVendor objects filtered by the ApvePur24mo10 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo10(int|array<int> $ApvePo24mo10) Return ChildVendor objects filtered by the ApvePo24mo10 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo10(int|array<int> $ApvePo24mo10) Return ChildVendor objects filtered by the ApvePo24mo10 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo10(string|array<string> $ApveInvc24mo10) Return ChildVendor objects filtered by the ApveInvc24mo10 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo10(string|array<string> $ApveInvc24mo10) Return ChildVendor objects filtered by the ApveInvc24mo10 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo10(int|array<int> $ApveIcnt24mo10) Return ChildVendor objects filtered by the ApveIcnt24mo10 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo10(int|array<int> $ApveIcnt24mo10) Return ChildVendor objects filtered by the ApveIcnt24mo10 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo11(string|array<string> $ApvePur24mo11) Return ChildVendor objects filtered by the ApvePur24mo11 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo11(string|array<string> $ApvePur24mo11) Return ChildVendor objects filtered by the ApvePur24mo11 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo11(int|array<int> $ApvePo24mo11) Return ChildVendor objects filtered by the ApvePo24mo11 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo11(int|array<int> $ApvePo24mo11) Return ChildVendor objects filtered by the ApvePo24mo11 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo11(string|array<string> $ApveInvc24mo11) Return ChildVendor objects filtered by the ApveInvc24mo11 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo11(string|array<string> $ApveInvc24mo11) Return ChildVendor objects filtered by the ApveInvc24mo11 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo11(int|array<int> $ApveIcnt24mo11) Return ChildVendor objects filtered by the ApveIcnt24mo11 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo11(int|array<int> $ApveIcnt24mo11) Return ChildVendor objects filtered by the ApveIcnt24mo11 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo12(string|array<string> $ApvePur24mo12) Return ChildVendor objects filtered by the ApvePur24mo12 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo12(string|array<string> $ApvePur24mo12) Return ChildVendor objects filtered by the ApvePur24mo12 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo12(int|array<int> $ApvePo24mo12) Return ChildVendor objects filtered by the ApvePo24mo12 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo12(int|array<int> $ApvePo24mo12) Return ChildVendor objects filtered by the ApvePo24mo12 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo12(string|array<string> $ApveInvc24mo12) Return ChildVendor objects filtered by the ApveInvc24mo12 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo12(string|array<string> $ApveInvc24mo12) Return ChildVendor objects filtered by the ApveInvc24mo12 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo12(int|array<int> $ApveIcnt24mo12) Return ChildVendor objects filtered by the ApveIcnt24mo12 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo12(int|array<int> $ApveIcnt24mo12) Return ChildVendor objects filtered by the ApveIcnt24mo12 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo13(string|array<string> $ApvePur24mo13) Return ChildVendor objects filtered by the ApvePur24mo13 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo13(string|array<string> $ApvePur24mo13) Return ChildVendor objects filtered by the ApvePur24mo13 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo13(int|array<int> $ApvePo24mo13) Return ChildVendor objects filtered by the ApvePo24mo13 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo13(int|array<int> $ApvePo24mo13) Return ChildVendor objects filtered by the ApvePo24mo13 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo13(string|array<string> $ApveInvc24mo13) Return ChildVendor objects filtered by the ApveInvc24mo13 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo13(string|array<string> $ApveInvc24mo13) Return ChildVendor objects filtered by the ApveInvc24mo13 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo13(int|array<int> $ApveIcnt24mo13) Return ChildVendor objects filtered by the ApveIcnt24mo13 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo13(int|array<int> $ApveIcnt24mo13) Return ChildVendor objects filtered by the ApveIcnt24mo13 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo14(string|array<string> $ApvePur24mo14) Return ChildVendor objects filtered by the ApvePur24mo14 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo14(string|array<string> $ApvePur24mo14) Return ChildVendor objects filtered by the ApvePur24mo14 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo14(int|array<int> $ApvePo24mo14) Return ChildVendor objects filtered by the ApvePo24mo14 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo14(int|array<int> $ApvePo24mo14) Return ChildVendor objects filtered by the ApvePo24mo14 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo14(string|array<string> $ApveInvc24mo14) Return ChildVendor objects filtered by the ApveInvc24mo14 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo14(string|array<string> $ApveInvc24mo14) Return ChildVendor objects filtered by the ApveInvc24mo14 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo14(int|array<int> $ApveIcnt24mo14) Return ChildVendor objects filtered by the ApveIcnt24mo14 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo14(int|array<int> $ApveIcnt24mo14) Return ChildVendor objects filtered by the ApveIcnt24mo14 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo15(string|array<string> $ApvePur24mo15) Return ChildVendor objects filtered by the ApvePur24mo15 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo15(string|array<string> $ApvePur24mo15) Return ChildVendor objects filtered by the ApvePur24mo15 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo15(int|array<int> $ApvePo24mo15) Return ChildVendor objects filtered by the ApvePo24mo15 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo15(int|array<int> $ApvePo24mo15) Return ChildVendor objects filtered by the ApvePo24mo15 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo15(string|array<string> $ApveInvc24mo15) Return ChildVendor objects filtered by the ApveInvc24mo15 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo15(string|array<string> $ApveInvc24mo15) Return ChildVendor objects filtered by the ApveInvc24mo15 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo15(int|array<int> $ApveIcnt24mo15) Return ChildVendor objects filtered by the ApveIcnt24mo15 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo15(int|array<int> $ApveIcnt24mo15) Return ChildVendor objects filtered by the ApveIcnt24mo15 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo16(string|array<string> $ApvePur24mo16) Return ChildVendor objects filtered by the ApvePur24mo16 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo16(string|array<string> $ApvePur24mo16) Return ChildVendor objects filtered by the ApvePur24mo16 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo16(int|array<int> $ApvePo24mo16) Return ChildVendor objects filtered by the ApvePo24mo16 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo16(int|array<int> $ApvePo24mo16) Return ChildVendor objects filtered by the ApvePo24mo16 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo16(string|array<string> $ApveInvc24mo16) Return ChildVendor objects filtered by the ApveInvc24mo16 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo16(string|array<string> $ApveInvc24mo16) Return ChildVendor objects filtered by the ApveInvc24mo16 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo16(int|array<int> $ApveIcnt24mo16) Return ChildVendor objects filtered by the ApveIcnt24mo16 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo16(int|array<int> $ApveIcnt24mo16) Return ChildVendor objects filtered by the ApveIcnt24mo16 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo17(string|array<string> $ApvePur24mo17) Return ChildVendor objects filtered by the ApvePur24mo17 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo17(string|array<string> $ApvePur24mo17) Return ChildVendor objects filtered by the ApvePur24mo17 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo17(int|array<int> $ApvePo24mo17) Return ChildVendor objects filtered by the ApvePo24mo17 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo17(int|array<int> $ApvePo24mo17) Return ChildVendor objects filtered by the ApvePo24mo17 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo17(string|array<string> $ApveInvc24mo17) Return ChildVendor objects filtered by the ApveInvc24mo17 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo17(string|array<string> $ApveInvc24mo17) Return ChildVendor objects filtered by the ApveInvc24mo17 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo17(int|array<int> $ApveIcnt24mo17) Return ChildVendor objects filtered by the ApveIcnt24mo17 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo17(int|array<int> $ApveIcnt24mo17) Return ChildVendor objects filtered by the ApveIcnt24mo17 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo18(string|array<string> $ApvePur24mo18) Return ChildVendor objects filtered by the ApvePur24mo18 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo18(string|array<string> $ApvePur24mo18) Return ChildVendor objects filtered by the ApvePur24mo18 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo18(int|array<int> $ApvePo24mo18) Return ChildVendor objects filtered by the ApvePo24mo18 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo18(int|array<int> $ApvePo24mo18) Return ChildVendor objects filtered by the ApvePo24mo18 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo18(string|array<string> $ApveInvc24mo18) Return ChildVendor objects filtered by the ApveInvc24mo18 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo18(string|array<string> $ApveInvc24mo18) Return ChildVendor objects filtered by the ApveInvc24mo18 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo18(int|array<int> $ApveIcnt24mo18) Return ChildVendor objects filtered by the ApveIcnt24mo18 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo18(int|array<int> $ApveIcnt24mo18) Return ChildVendor objects filtered by the ApveIcnt24mo18 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo19(string|array<string> $ApvePur24mo19) Return ChildVendor objects filtered by the ApvePur24mo19 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo19(string|array<string> $ApvePur24mo19) Return ChildVendor objects filtered by the ApvePur24mo19 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo19(int|array<int> $ApvePo24mo19) Return ChildVendor objects filtered by the ApvePo24mo19 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo19(int|array<int> $ApvePo24mo19) Return ChildVendor objects filtered by the ApvePo24mo19 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo19(string|array<string> $ApveInvc24mo19) Return ChildVendor objects filtered by the ApveInvc24mo19 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo19(string|array<string> $ApveInvc24mo19) Return ChildVendor objects filtered by the ApveInvc24mo19 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo19(int|array<int> $ApveIcnt24mo19) Return ChildVendor objects filtered by the ApveIcnt24mo19 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo19(int|array<int> $ApveIcnt24mo19) Return ChildVendor objects filtered by the ApveIcnt24mo19 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo20(string|array<string> $ApvePur24mo20) Return ChildVendor objects filtered by the ApvePur24mo20 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo20(string|array<string> $ApvePur24mo20) Return ChildVendor objects filtered by the ApvePur24mo20 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo20(int|array<int> $ApvePo24mo20) Return ChildVendor objects filtered by the ApvePo24mo20 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo20(int|array<int> $ApvePo24mo20) Return ChildVendor objects filtered by the ApvePo24mo20 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo20(string|array<string> $ApveInvc24mo20) Return ChildVendor objects filtered by the ApveInvc24mo20 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo20(string|array<string> $ApveInvc24mo20) Return ChildVendor objects filtered by the ApveInvc24mo20 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo20(int|array<int> $ApveIcnt24mo20) Return ChildVendor objects filtered by the ApveIcnt24mo20 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo20(int|array<int> $ApveIcnt24mo20) Return ChildVendor objects filtered by the ApveIcnt24mo20 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo21(string|array<string> $ApvePur24mo21) Return ChildVendor objects filtered by the ApvePur24mo21 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo21(string|array<string> $ApvePur24mo21) Return ChildVendor objects filtered by the ApvePur24mo21 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo21(int|array<int> $ApvePo24mo21) Return ChildVendor objects filtered by the ApvePo24mo21 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo21(int|array<int> $ApvePo24mo21) Return ChildVendor objects filtered by the ApvePo24mo21 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo21(string|array<string> $ApveInvc24mo21) Return ChildVendor objects filtered by the ApveInvc24mo21 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo21(string|array<string> $ApveInvc24mo21) Return ChildVendor objects filtered by the ApveInvc24mo21 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo21(int|array<int> $ApveIcnt24mo21) Return ChildVendor objects filtered by the ApveIcnt24mo21 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo21(int|array<int> $ApveIcnt24mo21) Return ChildVendor objects filtered by the ApveIcnt24mo21 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo22(string|array<string> $ApvePur24mo22) Return ChildVendor objects filtered by the ApvePur24mo22 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo22(string|array<string> $ApvePur24mo22) Return ChildVendor objects filtered by the ApvePur24mo22 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo22(int|array<int> $ApvePo24mo22) Return ChildVendor objects filtered by the ApvePo24mo22 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo22(int|array<int> $ApvePo24mo22) Return ChildVendor objects filtered by the ApvePo24mo22 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo22(string|array<string> $ApveInvc24mo22) Return ChildVendor objects filtered by the ApveInvc24mo22 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo22(string|array<string> $ApveInvc24mo22) Return ChildVendor objects filtered by the ApveInvc24mo22 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo22(int|array<int> $ApveIcnt24mo22) Return ChildVendor objects filtered by the ApveIcnt24mo22 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo22(int|array<int> $ApveIcnt24mo22) Return ChildVendor objects filtered by the ApveIcnt24mo22 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo23(string|array<string> $ApvePur24mo23) Return ChildVendor objects filtered by the ApvePur24mo23 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo23(string|array<string> $ApvePur24mo23) Return ChildVendor objects filtered by the ApvePur24mo23 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo23(int|array<int> $ApvePo24mo23) Return ChildVendor objects filtered by the ApvePo24mo23 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo23(int|array<int> $ApvePo24mo23) Return ChildVendor objects filtered by the ApvePo24mo23 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo23(string|array<string> $ApveInvc24mo23) Return ChildVendor objects filtered by the ApveInvc24mo23 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo23(string|array<string> $ApveInvc24mo23) Return ChildVendor objects filtered by the ApveInvc24mo23 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo23(int|array<int> $ApveIcnt24mo23) Return ChildVendor objects filtered by the ApveIcnt24mo23 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo23(int|array<int> $ApveIcnt24mo23) Return ChildVendor objects filtered by the ApveIcnt24mo23 column
+ * @method     ChildVendor[]|Collection findByApvepur24mo24(string|array<string> $ApvePur24mo24) Return ChildVendor objects filtered by the ApvePur24mo24 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepur24mo24(string|array<string> $ApvePur24mo24) Return ChildVendor objects filtered by the ApvePur24mo24 column
+ * @method     ChildVendor[]|Collection findByApvepo24mo24(int|array<int> $ApvePo24mo24) Return ChildVendor objects filtered by the ApvePo24mo24 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvepo24mo24(int|array<int> $ApvePo24mo24) Return ChildVendor objects filtered by the ApvePo24mo24 column
+ * @method     ChildVendor[]|Collection findByApveinvc24mo24(string|array<string> $ApveInvc24mo24) Return ChildVendor objects filtered by the ApveInvc24mo24 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveinvc24mo24(string|array<string> $ApveInvc24mo24) Return ChildVendor objects filtered by the ApveInvc24mo24 column
+ * @method     ChildVendor[]|Collection findByApveicnt24mo24(int|array<int> $ApveIcnt24mo24) Return ChildVendor objects filtered by the ApveIcnt24mo24 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveicnt24mo24(int|array<int> $ApveIcnt24mo24) Return ChildVendor objects filtered by the ApveIcnt24mo24 column
+ * @method     ChildVendor[]|Collection findByApvecrncy(string|array<string> $ApveCrncy) Return ChildVendor objects filtered by the ApveCrncy column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvecrncy(string|array<string> $ApveCrncy) Return ChildVendor objects filtered by the ApveCrncy column
+ * @method     ChildVendor[]|Collection findByApvefrtinamt(string|array<string> $ApveFrtInAmt) Return ChildVendor objects filtered by the ApveFrtInAmt column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvefrtinamt(string|array<string> $ApveFrtInAmt) Return ChildVendor objects filtered by the ApveFrtInAmt column
+ * @method     ChildVendor[]|Collection findByApveouracctnbr(string|array<string> $ApveOurAcctNbr) Return ChildVendor objects filtered by the ApveOurAcctNbr column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveouracctnbr(string|array<string> $ApveOurAcctNbr) Return ChildVendor objects filtered by the ApveOurAcctNbr column
+ * @method     ChildVendor[]|Collection findByApvevenddisc(string|array<string> $ApveVendDisc) Return ChildVendor objects filtered by the ApveVendDisc column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvevenddisc(string|array<string> $ApveVendDisc) Return ChildVendor objects filtered by the ApveVendDisc column
+ * @method     ChildVendor[]|Collection findByApvefob(string|array<string> $ApveFob) Return ChildVendor objects filtered by the ApveFob column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvefob(string|array<string> $ApveFob) Return ChildVendor objects filtered by the ApveFob column
+ * @method     ChildVendor[]|Collection findByApveroylpct(string|array<string> $ApveRoylPct) Return ChildVendor objects filtered by the ApveRoylPct column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveroylpct(string|array<string> $ApveRoylPct) Return ChildVendor objects filtered by the ApveRoylPct column
+ * @method     ChildVendor[]|Collection findByApveprtpoeoru(string|array<string> $ApvePrtPoEOrU) Return ChildVendor objects filtered by the ApvePrtPoEOrU column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveprtpoeoru(string|array<string> $ApvePrtPoEOrU) Return ChildVendor objects filtered by the ApvePrtPoEOrU column
+ * @method     ChildVendor[]|Collection findByApvecomrate(string|array<string> $ApveComRate) Return ChildVendor objects filtered by the ApveComRate column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvecomrate(string|array<string> $ApveComRate) Return ChildVendor objects filtered by the ApveComRate column
+ * @method     ChildVendor[]|Collection findByApveuselandonrcpt(string|array<string> $ApveUseLandOnRcpt) Return ChildVendor objects filtered by the ApveUseLandOnRcpt column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveuselandonrcpt(string|array<string> $ApveUseLandOnRcpt) Return ChildVendor objects filtered by the ApveUseLandOnRcpt column
+ * @method     ChildVendor[]|Collection findByApvebuyrwhse1(string|array<string> $ApveBuyrWhse1) Return ChildVendor objects filtered by the ApveBuyrWhse1 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrwhse1(string|array<string> $ApveBuyrWhse1) Return ChildVendor objects filtered by the ApveBuyrWhse1 column
+ * @method     ChildVendor[]|Collection findByApvebuyrcode1(string|array<string> $ApveBuyrCode1) Return ChildVendor objects filtered by the ApveBuyrCode1 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrcode1(string|array<string> $ApveBuyrCode1) Return ChildVendor objects filtered by the ApveBuyrCode1 column
+ * @method     ChildVendor[]|Collection findByApvebuyrwhse2(string|array<string> $ApveBuyrWhse2) Return ChildVendor objects filtered by the ApveBuyrWhse2 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrwhse2(string|array<string> $ApveBuyrWhse2) Return ChildVendor objects filtered by the ApveBuyrWhse2 column
+ * @method     ChildVendor[]|Collection findByApvebuyrcode2(string|array<string> $ApveBuyrCode2) Return ChildVendor objects filtered by the ApveBuyrCode2 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrcode2(string|array<string> $ApveBuyrCode2) Return ChildVendor objects filtered by the ApveBuyrCode2 column
+ * @method     ChildVendor[]|Collection findByApvebuyrwhse3(string|array<string> $ApveBuyrWhse3) Return ChildVendor objects filtered by the ApveBuyrWhse3 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrwhse3(string|array<string> $ApveBuyrWhse3) Return ChildVendor objects filtered by the ApveBuyrWhse3 column
+ * @method     ChildVendor[]|Collection findByApvebuyrcode3(string|array<string> $ApveBuyrCode3) Return ChildVendor objects filtered by the ApveBuyrCode3 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrcode3(string|array<string> $ApveBuyrCode3) Return ChildVendor objects filtered by the ApveBuyrCode3 column
+ * @method     ChildVendor[]|Collection findByApvebuyrwhse4(string|array<string> $ApveBuyrWhse4) Return ChildVendor objects filtered by the ApveBuyrWhse4 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrwhse4(string|array<string> $ApveBuyrWhse4) Return ChildVendor objects filtered by the ApveBuyrWhse4 column
+ * @method     ChildVendor[]|Collection findByApvebuyrcode4(string|array<string> $ApveBuyrCode4) Return ChildVendor objects filtered by the ApveBuyrCode4 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrcode4(string|array<string> $ApveBuyrCode4) Return ChildVendor objects filtered by the ApveBuyrCode4 column
+ * @method     ChildVendor[]|Collection findByApvebuyrwhse5(string|array<string> $ApveBuyrWhse5) Return ChildVendor objects filtered by the ApveBuyrWhse5 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrwhse5(string|array<string> $ApveBuyrWhse5) Return ChildVendor objects filtered by the ApveBuyrWhse5 column
+ * @method     ChildVendor[]|Collection findByApvebuyrcode5(string|array<string> $ApveBuyrCode5) Return ChildVendor objects filtered by the ApveBuyrCode5 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrcode5(string|array<string> $ApveBuyrCode5) Return ChildVendor objects filtered by the ApveBuyrCode5 column
+ * @method     ChildVendor[]|Collection findByApvebuyrwhse6(string|array<string> $ApveBuyrWhse6) Return ChildVendor objects filtered by the ApveBuyrWhse6 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrwhse6(string|array<string> $ApveBuyrWhse6) Return ChildVendor objects filtered by the ApveBuyrWhse6 column
+ * @method     ChildVendor[]|Collection findByApvebuyrcode6(string|array<string> $ApveBuyrCode6) Return ChildVendor objects filtered by the ApveBuyrCode6 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrcode6(string|array<string> $ApveBuyrCode6) Return ChildVendor objects filtered by the ApveBuyrCode6 column
+ * @method     ChildVendor[]|Collection findByApvebuyrwhse7(string|array<string> $ApveBuyrWhse7) Return ChildVendor objects filtered by the ApveBuyrWhse7 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrwhse7(string|array<string> $ApveBuyrWhse7) Return ChildVendor objects filtered by the ApveBuyrWhse7 column
+ * @method     ChildVendor[]|Collection findByApvebuyrcode7(string|array<string> $ApveBuyrCode7) Return ChildVendor objects filtered by the ApveBuyrCode7 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrcode7(string|array<string> $ApveBuyrCode7) Return ChildVendor objects filtered by the ApveBuyrCode7 column
+ * @method     ChildVendor[]|Collection findByApvebuyrwhse8(string|array<string> $ApveBuyrWhse8) Return ChildVendor objects filtered by the ApveBuyrWhse8 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrwhse8(string|array<string> $ApveBuyrWhse8) Return ChildVendor objects filtered by the ApveBuyrWhse8 column
+ * @method     ChildVendor[]|Collection findByApvebuyrcode8(string|array<string> $ApveBuyrCode8) Return ChildVendor objects filtered by the ApveBuyrCode8 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrcode8(string|array<string> $ApveBuyrCode8) Return ChildVendor objects filtered by the ApveBuyrCode8 column
+ * @method     ChildVendor[]|Collection findByApvebuyrwhse9(string|array<string> $ApveBuyrWhse9) Return ChildVendor objects filtered by the ApveBuyrWhse9 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrwhse9(string|array<string> $ApveBuyrWhse9) Return ChildVendor objects filtered by the ApveBuyrWhse9 column
+ * @method     ChildVendor[]|Collection findByApvebuyrcode9(string|array<string> $ApveBuyrCode9) Return ChildVendor objects filtered by the ApveBuyrCode9 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrcode9(string|array<string> $ApveBuyrCode9) Return ChildVendor objects filtered by the ApveBuyrCode9 column
+ * @method     ChildVendor[]|Collection findByApvebuyrwhse10(string|array<string> $ApveBuyrWhse10) Return ChildVendor objects filtered by the ApveBuyrWhse10 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrwhse10(string|array<string> $ApveBuyrWhse10) Return ChildVendor objects filtered by the ApveBuyrWhse10 column
+ * @method     ChildVendor[]|Collection findByApvebuyrcode10(string|array<string> $ApveBuyrCode10) Return ChildVendor objects filtered by the ApveBuyrCode10 column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvebuyrcode10(string|array<string> $ApveBuyrCode10) Return ChildVendor objects filtered by the ApveBuyrCode10 column
+ * @method     ChildVendor[]|Collection findByApvelandcost(string|array<string> $ApveLandCost) Return ChildVendor objects filtered by the ApveLandCost column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvelandcost(string|array<string> $ApveLandCost) Return ChildVendor objects filtered by the ApveLandCost column
+ * @method     ChildVendor[]|Collection findByApvereleasenbr(int|array<int> $ApveReleaseNbr) Return ChildVendor objects filtered by the ApveReleaseNbr column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvereleasenbr(int|array<int> $ApveReleaseNbr) Return ChildVendor objects filtered by the ApveReleaseNbr column
+ * @method     ChildVendor[]|Collection findByApvescanstartpos(int|array<int> $ApveScanStartPos) Return ChildVendor objects filtered by the ApveScanStartPos column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvescanstartpos(int|array<int> $ApveScanStartPos) Return ChildVendor objects filtered by the ApveScanStartPos column
+ * @method     ChildVendor[]|Collection findByApvescanlength(int|array<int> $ApveScanLength) Return ChildVendor objects filtered by the ApveScanLength column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvescanlength(int|array<int> $ApveScanLength) Return ChildVendor objects filtered by the ApveScanLength column
+ * @method     ChildVendor[]|Collection findByApvePurYtd(string|array<string> $ApvePurYtd) Return ChildVendor objects filtered by the ApvePurYtd column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvePurYtd(string|array<string> $ApvePurYtd) Return ChildVendor objects filtered by the ApvePurYtd column
+ * @method     ChildVendor[]|Collection findByApvePoYtd(int|array<int> $ApvePoYtd) Return ChildVendor objects filtered by the ApvePoYtd column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApvePoYtd(int|array<int> $ApvePoYtd) Return ChildVendor objects filtered by the ApvePoYtd column
+ * @method     ChildVendor[]|Collection findByApveInvcYtd(string|array<string> $ApveInvcYtd) Return ChildVendor objects filtered by the ApveInvcYtd column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveInvcYtd(string|array<string> $ApveInvcYtd) Return ChildVendor objects filtered by the ApveInvcYtd column
+ * @method     ChildVendor[]|Collection findByApveIcntYtd(int|array<int> $ApveIcntYtd) Return ChildVendor objects filtered by the ApveIcntYtd column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByApveIcntYtd(int|array<int> $ApveIcntYtd) Return ChildVendor objects filtered by the ApveIcntYtd column
+ * @method     ChildVendor[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildVendor objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildVendor objects filtered by the DateUpdtd column
+ * @method     ChildVendor[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildVendor objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildVendor objects filtered by the TimeUpdtd column
+ * @method     ChildVendor[]|Collection findByDummy(string|array<string> $dummy) Return ChildVendor objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildVendor> findByDummy(string|array<string> $dummy) Return ChildVendor objects filtered by the dummy column
+ *
+ * @method     ChildVendor[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildVendor> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class VendorQuery extends ModelCriteria
 {
@@ -1081,9 +1257,9 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\VendorQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\Vendor', $modelAlias = null)
     {
@@ -1093,12 +1269,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Returns a new ChildVendorQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildVendorQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildVendorQuery) {
             return $criteria;
@@ -1128,7 +1304,7 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @return ChildVendor|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -1160,8 +1336,8 @@ abstract class VendorQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -1193,8 +1369,8 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildVendor|array|mixed the result, formatted by the current formatter
      */
@@ -1214,12 +1390,12 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -1236,27 +1412,31 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEVENDID, $key, Criteria::EQUAL);
+        $this->addUsingAlias(VendorTableMap::COL_APVEVENDID, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEVENDID, $keys, Criteria::IN);
+        $this->addUsingAlias(VendorTableMap::COL_APVEVENDID, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -1266,14 +1446,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvevendid('fooValue');   // WHERE ApveVendId = 'fooValue'
      * $query->filterByApvevendid('%fooValue%', Criteria::LIKE); // WHERE ApveVendId LIKE '%fooValue%'
+     * $query->filterByApvevendid(['foo', 'bar']); // WHERE ApveVendId IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvevendid The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvevendid The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvevendid($apvevendid = null, $comparison = null)
+    public function filterByApvevendid($apvevendid = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvevendid)) {
@@ -1281,7 +1462,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEVENDID, $apvevendid, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEVENDID, $apvevendid, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1291,14 +1474,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvename('fooValue');   // WHERE ApveName = 'fooValue'
      * $query->filterByApvename('%fooValue%', Criteria::LIKE); // WHERE ApveName LIKE '%fooValue%'
+     * $query->filterByApvename(['foo', 'bar']); // WHERE ApveName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvename The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvename The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvename($apvename = null, $comparison = null)
+    public function filterByApvename($apvename = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvename)) {
@@ -1306,7 +1490,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVENAME, $apvename, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVENAME, $apvename, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1316,14 +1502,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApveadr1('fooValue');   // WHERE ApveAdr1 = 'fooValue'
      * $query->filterByApveadr1('%fooValue%', Criteria::LIKE); // WHERE ApveAdr1 LIKE '%fooValue%'
+     * $query->filterByApveadr1(['foo', 'bar']); // WHERE ApveAdr1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apveadr1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apveadr1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveadr1($apveadr1 = null, $comparison = null)
+    public function filterByApveadr1($apveadr1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apveadr1)) {
@@ -1331,7 +1518,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEADR1, $apveadr1, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEADR1, $apveadr1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1341,14 +1530,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApveadr2('fooValue');   // WHERE ApveAdr2 = 'fooValue'
      * $query->filterByApveadr2('%fooValue%', Criteria::LIKE); // WHERE ApveAdr2 LIKE '%fooValue%'
+     * $query->filterByApveadr2(['foo', 'bar']); // WHERE ApveAdr2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apveadr2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apveadr2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveadr2($apveadr2 = null, $comparison = null)
+    public function filterByApveadr2($apveadr2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apveadr2)) {
@@ -1356,7 +1546,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEADR2, $apveadr2, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEADR2, $apveadr2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1366,14 +1558,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApveadr3('fooValue');   // WHERE ApveAdr3 = 'fooValue'
      * $query->filterByApveadr3('%fooValue%', Criteria::LIKE); // WHERE ApveAdr3 LIKE '%fooValue%'
+     * $query->filterByApveadr3(['foo', 'bar']); // WHERE ApveAdr3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apveadr3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apveadr3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveadr3($apveadr3 = null, $comparison = null)
+    public function filterByApveadr3($apveadr3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apveadr3)) {
@@ -1381,7 +1574,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEADR3, $apveadr3, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEADR3, $apveadr3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1391,14 +1586,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvectry('fooValue');   // WHERE ApveCtry = 'fooValue'
      * $query->filterByApvectry('%fooValue%', Criteria::LIKE); // WHERE ApveCtry LIKE '%fooValue%'
+     * $query->filterByApvectry(['foo', 'bar']); // WHERE ApveCtry IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvectry The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvectry The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvectry($apvectry = null, $comparison = null)
+    public function filterByApvectry($apvectry = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvectry)) {
@@ -1406,7 +1602,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVECTRY, $apvectry, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVECTRY, $apvectry, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1416,14 +1614,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvecity('fooValue');   // WHERE ApveCity = 'fooValue'
      * $query->filterByApvecity('%fooValue%', Criteria::LIKE); // WHERE ApveCity LIKE '%fooValue%'
+     * $query->filterByApvecity(['foo', 'bar']); // WHERE ApveCity IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvecity The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvecity The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvecity($apvecity = null, $comparison = null)
+    public function filterByApvecity($apvecity = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvecity)) {
@@ -1431,7 +1630,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVECITY, $apvecity, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVECITY, $apvecity, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1441,14 +1642,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvestat('fooValue');   // WHERE ApveStat = 'fooValue'
      * $query->filterByApvestat('%fooValue%', Criteria::LIKE); // WHERE ApveStat LIKE '%fooValue%'
+     * $query->filterByApvestat(['foo', 'bar']); // WHERE ApveStat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvestat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvestat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvestat($apvestat = null, $comparison = null)
+    public function filterByApvestat($apvestat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvestat)) {
@@ -1456,7 +1658,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVESTAT, $apvestat, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVESTAT, $apvestat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1466,14 +1670,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvezipcode('fooValue');   // WHERE ApveZipCode = 'fooValue'
      * $query->filterByApvezipcode('%fooValue%', Criteria::LIKE); // WHERE ApveZipCode LIKE '%fooValue%'
+     * $query->filterByApvezipcode(['foo', 'bar']); // WHERE ApveZipCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvezipcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvezipcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvezipcode($apvezipcode = null, $comparison = null)
+    public function filterByApvezipcode($apvezipcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvezipcode)) {
@@ -1481,7 +1686,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEZIPCODE, $apvezipcode, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEZIPCODE, $apvezipcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1491,14 +1698,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvepayname('fooValue');   // WHERE ApvePayName = 'fooValue'
      * $query->filterByApvepayname('%fooValue%', Criteria::LIKE); // WHERE ApvePayName LIKE '%fooValue%'
+     * $query->filterByApvepayname(['foo', 'bar']); // WHERE ApvePayName IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvepayname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvepayname The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepayname($apvepayname = null, $comparison = null)
+    public function filterByApvepayname($apvepayname = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvepayname)) {
@@ -1506,7 +1714,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPAYNAME, $apvepayname, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPAYNAME, $apvepayname, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1516,14 +1726,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvepayadr1('fooValue');   // WHERE ApvePayAdr1 = 'fooValue'
      * $query->filterByApvepayadr1('%fooValue%', Criteria::LIKE); // WHERE ApvePayAdr1 LIKE '%fooValue%'
+     * $query->filterByApvepayadr1(['foo', 'bar']); // WHERE ApvePayAdr1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvepayadr1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvepayadr1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepayadr1($apvepayadr1 = null, $comparison = null)
+    public function filterByApvepayadr1($apvepayadr1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvepayadr1)) {
@@ -1531,7 +1742,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPAYADR1, $apvepayadr1, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPAYADR1, $apvepayadr1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1541,14 +1754,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvepayadr2('fooValue');   // WHERE ApvePayAdr2 = 'fooValue'
      * $query->filterByApvepayadr2('%fooValue%', Criteria::LIKE); // WHERE ApvePayAdr2 LIKE '%fooValue%'
+     * $query->filterByApvepayadr2(['foo', 'bar']); // WHERE ApvePayAdr2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvepayadr2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvepayadr2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepayadr2($apvepayadr2 = null, $comparison = null)
+    public function filterByApvepayadr2($apvepayadr2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvepayadr2)) {
@@ -1556,7 +1770,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPAYADR2, $apvepayadr2, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPAYADR2, $apvepayadr2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1566,14 +1782,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvepayadr3('fooValue');   // WHERE ApvePayAdr3 = 'fooValue'
      * $query->filterByApvepayadr3('%fooValue%', Criteria::LIKE); // WHERE ApvePayAdr3 LIKE '%fooValue%'
+     * $query->filterByApvepayadr3(['foo', 'bar']); // WHERE ApvePayAdr3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvepayadr3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvepayadr3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepayadr3($apvepayadr3 = null, $comparison = null)
+    public function filterByApvepayadr3($apvepayadr3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvepayadr3)) {
@@ -1581,7 +1798,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPAYADR3, $apvepayadr3, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPAYADR3, $apvepayadr3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1591,14 +1810,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvepayctry('fooValue');   // WHERE ApvePayCtry = 'fooValue'
      * $query->filterByApvepayctry('%fooValue%', Criteria::LIKE); // WHERE ApvePayCtry LIKE '%fooValue%'
+     * $query->filterByApvepayctry(['foo', 'bar']); // WHERE ApvePayCtry IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvepayctry The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvepayctry The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepayctry($apvepayctry = null, $comparison = null)
+    public function filterByApvepayctry($apvepayctry = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvepayctry)) {
@@ -1606,7 +1826,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPAYCTRY, $apvepayctry, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPAYCTRY, $apvepayctry, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1616,14 +1838,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvepaycity('fooValue');   // WHERE ApvePayCity = 'fooValue'
      * $query->filterByApvepaycity('%fooValue%', Criteria::LIKE); // WHERE ApvePayCity LIKE '%fooValue%'
+     * $query->filterByApvepaycity(['foo', 'bar']); // WHERE ApvePayCity IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvepaycity The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvepaycity The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepaycity($apvepaycity = null, $comparison = null)
+    public function filterByApvepaycity($apvepaycity = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvepaycity)) {
@@ -1631,7 +1854,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPAYCITY, $apvepaycity, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPAYCITY, $apvepaycity, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1641,14 +1866,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvepaystat('fooValue');   // WHERE ApvePayStat = 'fooValue'
      * $query->filterByApvepaystat('%fooValue%', Criteria::LIKE); // WHERE ApvePayStat LIKE '%fooValue%'
+     * $query->filterByApvepaystat(['foo', 'bar']); // WHERE ApvePayStat IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvepaystat The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvepaystat The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepaystat($apvepaystat = null, $comparison = null)
+    public function filterByApvepaystat($apvepaystat = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvepaystat)) {
@@ -1656,7 +1882,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPAYSTAT, $apvepaystat, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPAYSTAT, $apvepaystat, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1666,14 +1894,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvepayzipcode('fooValue');   // WHERE ApvePayZipCode = 'fooValue'
      * $query->filterByApvepayzipcode('%fooValue%', Criteria::LIKE); // WHERE ApvePayZipCode LIKE '%fooValue%'
+     * $query->filterByApvepayzipcode(['foo', 'bar']); // WHERE ApvePayZipCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvepayzipcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvepayzipcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepayzipcode($apvepayzipcode = null, $comparison = null)
+    public function filterByApvepayzipcode($apvepayzipcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvepayzipcode)) {
@@ -1681,7 +1910,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPAYZIPCODE, $apvepayzipcode, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPAYZIPCODE, $apvepayzipcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1691,14 +1922,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvestatus('fooValue');   // WHERE ApveStatus = 'fooValue'
      * $query->filterByApvestatus('%fooValue%', Criteria::LIKE); // WHERE ApveStatus LIKE '%fooValue%'
+     * $query->filterByApvestatus(['foo', 'bar']); // WHERE ApveStatus IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvestatus The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvestatus The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvestatus($apvestatus = null, $comparison = null)
+    public function filterByApvestatus($apvestatus = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvestatus)) {
@@ -1706,7 +1938,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVESTATUS, $apvestatus, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVESTATUS, $apvestatus, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1716,14 +1950,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvetakeexpireddisc('fooValue');   // WHERE ApveTakeExpiredDisc = 'fooValue'
      * $query->filterByApvetakeexpireddisc('%fooValue%', Criteria::LIKE); // WHERE ApveTakeExpiredDisc LIKE '%fooValue%'
+     * $query->filterByApvetakeexpireddisc(['foo', 'bar']); // WHERE ApveTakeExpiredDisc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvetakeexpireddisc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvetakeexpireddisc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvetakeexpireddisc($apvetakeexpireddisc = null, $comparison = null)
+    public function filterByApvetakeexpireddisc($apvetakeexpireddisc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvetakeexpireddisc)) {
@@ -1731,7 +1966,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVETAKEEXPIREDDISC, $apvetakeexpireddisc, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVETAKEEXPIREDDISC, $apvetakeexpireddisc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1741,14 +1978,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApveprinthts('fooValue');   // WHERE ApvePrintHts = 'fooValue'
      * $query->filterByApveprinthts('%fooValue%', Criteria::LIKE); // WHERE ApvePrintHts LIKE '%fooValue%'
+     * $query->filterByApveprinthts(['foo', 'bar']); // WHERE ApvePrintHts IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apveprinthts The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apveprinthts The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveprinthts($apveprinthts = null, $comparison = null)
+    public function filterByApveprinthts($apveprinthts = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apveprinthts)) {
@@ -1756,7 +1994,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPRINTHTS, $apveprinthts, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPRINTHTS, $apveprinthts, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1766,14 +2006,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvefabbin('fooValue');   // WHERE ApveFabBin = 'fooValue'
      * $query->filterByApvefabbin('%fooValue%', Criteria::LIKE); // WHERE ApveFabBin LIKE '%fooValue%'
+     * $query->filterByApvefabbin(['foo', 'bar']); // WHERE ApveFabBin IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvefabbin The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvefabbin The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvefabbin($apvefabbin = null, $comparison = null)
+    public function filterByApvefabbin($apvefabbin = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvefabbin)) {
@@ -1781,7 +2022,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEFABBIN, $apvefabbin, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEFABBIN, $apvefabbin, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1791,14 +2034,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvelmprntbulk('fooValue');   // WHERE ApveLmPrntBulk = 'fooValue'
      * $query->filterByApvelmprntbulk('%fooValue%', Criteria::LIKE); // WHERE ApveLmPrntBulk LIKE '%fooValue%'
+     * $query->filterByApvelmprntbulk(['foo', 'bar']); // WHERE ApveLmPrntBulk IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvelmprntbulk The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvelmprntbulk The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvelmprntbulk($apvelmprntbulk = null, $comparison = null)
+    public function filterByApvelmprntbulk($apvelmprntbulk = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvelmprntbulk)) {
@@ -1806,7 +2050,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVELMPRNTBULK, $apvelmprntbulk, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVELMPRNTBULK, $apvelmprntbulk, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1816,14 +2062,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApveallowdropship('fooValue');   // WHERE ApveAllowDropShip = 'fooValue'
      * $query->filterByApveallowdropship('%fooValue%', Criteria::LIKE); // WHERE ApveAllowDropShip LIKE '%fooValue%'
+     * $query->filterByApveallowdropship(['foo', 'bar']); // WHERE ApveAllowDropShip IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apveallowdropship The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apveallowdropship The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveallowdropship($apveallowdropship = null, $comparison = null)
+    public function filterByApveallowdropship($apveallowdropship = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apveallowdropship)) {
@@ -1831,7 +2078,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEALLOWDROPSHIP, $apveallowdropship, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEALLOWDROPSHIP, $apveallowdropship, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1841,14 +2090,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByAptbtypecode('fooValue');   // WHERE AptbTypeCode = 'fooValue'
      * $query->filterByAptbtypecode('%fooValue%', Criteria::LIKE); // WHERE AptbTypeCode LIKE '%fooValue%'
+     * $query->filterByAptbtypecode(['foo', 'bar']); // WHERE AptbTypeCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptbtypecode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptbtypecode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptbtypecode($aptbtypecode = null, $comparison = null)
+    public function filterByAptbtypecode($aptbtypecode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptbtypecode)) {
@@ -1856,7 +2106,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APTBTYPECODE, $aptbtypecode, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APTBTYPECODE, $aptbtypecode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1866,14 +2118,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByAptmtermcode('fooValue');   // WHERE AptmTermCode = 'fooValue'
      * $query->filterByAptmtermcode('%fooValue%', Criteria::LIKE); // WHERE AptmTermCode LIKE '%fooValue%'
+     * $query->filterByAptmtermcode(['foo', 'bar']); // WHERE AptmTermCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $aptmtermcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $aptmtermcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByAptmtermcode($aptmtermcode = null, $comparison = null)
+    public function filterByAptmtermcode($aptmtermcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($aptmtermcode)) {
@@ -1881,7 +2134,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APTMTERMCODE, $aptmtermcode, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APTMTERMCODE, $aptmtermcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1891,14 +2146,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvesviacode('fooValue');   // WHERE ApveSviaCode = 'fooValue'
      * $query->filterByApvesviacode('%fooValue%', Criteria::LIKE); // WHERE ApveSviaCode LIKE '%fooValue%'
+     * $query->filterByApvesviacode(['foo', 'bar']); // WHERE ApveSviaCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvesviacode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvesviacode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvesviacode($apvesviacode = null, $comparison = null)
+    public function filterByApvesviacode($apvesviacode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvesviacode)) {
@@ -1906,7 +2162,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVESVIACODE, $apvesviacode, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVESVIACODE, $apvesviacode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1916,14 +2174,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApveoldfob('fooValue');   // WHERE ApveOldFob = 'fooValue'
      * $query->filterByApveoldfob('%fooValue%', Criteria::LIKE); // WHERE ApveOldFob LIKE '%fooValue%'
+     * $query->filterByApveoldfob(['foo', 'bar']); // WHERE ApveOldFob IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apveoldfob The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apveoldfob The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveoldfob($apveoldfob = null, $comparison = null)
+    public function filterByApveoldfob($apveoldfob = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apveoldfob)) {
@@ -1931,7 +2190,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEOLDFOB, $apveoldfob, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEOLDFOB, $apveoldfob, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1944,15 +2205,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveleaddays(array('min' => 12)); // WHERE ApveLeadDays > 12
      * </code>
      *
-     * @param     mixed $apveleaddays The value to use as filter.
+     * @param mixed $apveleaddays The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveleaddays($apveleaddays = null, $comparison = null)
+    public function filterByApveleaddays($apveleaddays = null, ?string $comparison = null)
     {
         if (is_array($apveleaddays)) {
             $useMinMax = false;
@@ -1972,7 +2233,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVELEADDAYS, $apveleaddays, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVELEADDAYS, $apveleaddays, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1982,14 +2245,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApveglacct('fooValue');   // WHERE ApveGlAcct = 'fooValue'
      * $query->filterByApveglacct('%fooValue%', Criteria::LIKE); // WHERE ApveGlAcct LIKE '%fooValue%'
+     * $query->filterByApveglacct(['foo', 'bar']); // WHERE ApveGlAcct IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apveglacct The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apveglacct The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveglacct($apveglacct = null, $comparison = null)
+    public function filterByApveglacct($apveglacct = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apveglacct)) {
@@ -1997,7 +2261,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEGLACCT, $apveglacct, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEGLACCT, $apveglacct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2007,14 +2273,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApve1099ssnbr('fooValue');   // WHERE Apve1099SsNbr = 'fooValue'
      * $query->filterByApve1099ssnbr('%fooValue%', Criteria::LIKE); // WHERE Apve1099SsNbr LIKE '%fooValue%'
+     * $query->filterByApve1099ssnbr(['foo', 'bar']); // WHERE Apve1099SsNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apve1099ssnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apve1099ssnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApve1099ssnbr($apve1099ssnbr = null, $comparison = null)
+    public function filterByApve1099ssnbr($apve1099ssnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apve1099ssnbr)) {
@@ -2022,7 +2289,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVE1099SSNBR, $apve1099ssnbr, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVE1099SSNBR, $apve1099ssnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2032,14 +2301,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApveminordrcode('fooValue');   // WHERE ApveMinOrdrCode = 'fooValue'
      * $query->filterByApveminordrcode('%fooValue%', Criteria::LIKE); // WHERE ApveMinOrdrCode LIKE '%fooValue%'
+     * $query->filterByApveminordrcode(['foo', 'bar']); // WHERE ApveMinOrdrCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apveminordrcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apveminordrcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveminordrcode($apveminordrcode = null, $comparison = null)
+    public function filterByApveminordrcode($apveminordrcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apveminordrcode)) {
@@ -2047,7 +2317,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEMINORDRCODE, $apveminordrcode, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEMINORDRCODE, $apveminordrcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2060,15 +2332,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveminordrvalue(array('min' => 12)); // WHERE ApveMinOrdrValue > 12
      * </code>
      *
-     * @param     mixed $apveminordrvalue The value to use as filter.
+     * @param mixed $apveminordrvalue The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveminordrvalue($apveminordrvalue = null, $comparison = null)
+    public function filterByApveminordrvalue($apveminordrvalue = null, ?string $comparison = null)
     {
         if (is_array($apveminordrvalue)) {
             $useMinMax = false;
@@ -2088,7 +2360,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEMINORDRVALUE, $apveminordrvalue, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEMINORDRVALUE, $apveminordrvalue, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2101,15 +2375,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepurmtd(array('min' => 12)); // WHERE ApvePurMtd > 12
      * </code>
      *
-     * @param     mixed $apvepurmtd The value to use as filter.
+     * @param mixed $apvepurmtd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepurmtd($apvepurmtd = null, $comparison = null)
+    public function filterByApvepurmtd($apvepurmtd = null, ?string $comparison = null)
     {
         if (is_array($apvepurmtd)) {
             $useMinMax = false;
@@ -2129,7 +2403,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPURMTD, $apvepurmtd, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPURMTD, $apvepurmtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2142,15 +2418,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepomtd(array('min' => 12)); // WHERE ApvePoMtd > 12
      * </code>
      *
-     * @param     mixed $apvepomtd The value to use as filter.
+     * @param mixed $apvepomtd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepomtd($apvepomtd = null, $comparison = null)
+    public function filterByApvepomtd($apvepomtd = null, ?string $comparison = null)
     {
         if (is_array($apvepomtd)) {
             $useMinMax = false;
@@ -2170,7 +2446,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPOMTD, $apvepomtd, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPOMTD, $apvepomtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2183,15 +2461,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvcmtd(array('min' => 12)); // WHERE ApveInvcMtd > 12
      * </code>
      *
-     * @param     mixed $apveinvcmtd The value to use as filter.
+     * @param mixed $apveinvcmtd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvcmtd($apveinvcmtd = null, $comparison = null)
+    public function filterByApveinvcmtd($apveinvcmtd = null, ?string $comparison = null)
     {
         if (is_array($apveinvcmtd)) {
             $useMinMax = false;
@@ -2211,7 +2489,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVCMTD, $apveinvcmtd, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVCMTD, $apveinvcmtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2224,15 +2504,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicntmtd(array('min' => 12)); // WHERE ApveIcntMtd > 12
      * </code>
      *
-     * @param     mixed $apveicntmtd The value to use as filter.
+     * @param mixed $apveicntmtd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicntmtd($apveicntmtd = null, $comparison = null)
+    public function filterByApveicntmtd($apveicntmtd = null, ?string $comparison = null)
     {
         if (is_array($apveicntmtd)) {
             $useMinMax = false;
@@ -2252,7 +2532,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNTMTD, $apveicntmtd, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNTMTD, $apveicntmtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2262,14 +2544,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvedateopen('fooValue');   // WHERE ApveDateOpen = 'fooValue'
      * $query->filterByApvedateopen('%fooValue%', Criteria::LIKE); // WHERE ApveDateOpen LIKE '%fooValue%'
+     * $query->filterByApvedateopen(['foo', 'bar']); // WHERE ApveDateOpen IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvedateopen The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvedateopen The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvedateopen($apvedateopen = null, $comparison = null)
+    public function filterByApvedateopen($apvedateopen = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvedateopen)) {
@@ -2277,7 +2560,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEDATEOPEN, $apvedateopen, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEDATEOPEN, $apvedateopen, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2287,14 +2572,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvelastpurdate('fooValue');   // WHERE ApveLastPurDate = 'fooValue'
      * $query->filterByApvelastpurdate('%fooValue%', Criteria::LIKE); // WHERE ApveLastPurDate LIKE '%fooValue%'
+     * $query->filterByApvelastpurdate(['foo', 'bar']); // WHERE ApveLastPurDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvelastpurdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvelastpurdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvelastpurdate($apvelastpurdate = null, $comparison = null)
+    public function filterByApvelastpurdate($apvelastpurdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvelastpurdate)) {
@@ -2302,7 +2588,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVELASTPURDATE, $apvelastpurdate, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVELASTPURDATE, $apvelastpurdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2315,15 +2603,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo01(array('min' => 12)); // WHERE ApvePur24mo01 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo01 The value to use as filter.
+     * @param mixed $apvepur24mo01 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo01($apvepur24mo01 = null, $comparison = null)
+    public function filterByApvepur24mo01($apvepur24mo01 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo01)) {
             $useMinMax = false;
@@ -2343,7 +2631,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO01, $apvepur24mo01, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO01, $apvepur24mo01, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2356,15 +2646,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo01(array('min' => 12)); // WHERE ApvePo24mo01 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo01 The value to use as filter.
+     * @param mixed $apvepo24mo01 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo01($apvepo24mo01 = null, $comparison = null)
+    public function filterByApvepo24mo01($apvepo24mo01 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo01)) {
             $useMinMax = false;
@@ -2384,7 +2674,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO01, $apvepo24mo01, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO01, $apvepo24mo01, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2397,15 +2689,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo01(array('min' => 12)); // WHERE ApveInvc24mo01 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo01 The value to use as filter.
+     * @param mixed $apveinvc24mo01 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo01($apveinvc24mo01 = null, $comparison = null)
+    public function filterByApveinvc24mo01($apveinvc24mo01 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo01)) {
             $useMinMax = false;
@@ -2425,7 +2717,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO01, $apveinvc24mo01, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO01, $apveinvc24mo01, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2438,15 +2732,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo01(array('min' => 12)); // WHERE ApveIcnt24mo01 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo01 The value to use as filter.
+     * @param mixed $apveicnt24mo01 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo01($apveicnt24mo01 = null, $comparison = null)
+    public function filterByApveicnt24mo01($apveicnt24mo01 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo01)) {
             $useMinMax = false;
@@ -2466,7 +2760,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO01, $apveicnt24mo01, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO01, $apveicnt24mo01, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2479,15 +2775,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo02(array('min' => 12)); // WHERE ApvePur24mo02 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo02 The value to use as filter.
+     * @param mixed $apvepur24mo02 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo02($apvepur24mo02 = null, $comparison = null)
+    public function filterByApvepur24mo02($apvepur24mo02 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo02)) {
             $useMinMax = false;
@@ -2507,7 +2803,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO02, $apvepur24mo02, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO02, $apvepur24mo02, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2520,15 +2818,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo02(array('min' => 12)); // WHERE ApvePo24mo02 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo02 The value to use as filter.
+     * @param mixed $apvepo24mo02 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo02($apvepo24mo02 = null, $comparison = null)
+    public function filterByApvepo24mo02($apvepo24mo02 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo02)) {
             $useMinMax = false;
@@ -2548,7 +2846,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO02, $apvepo24mo02, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO02, $apvepo24mo02, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2561,15 +2861,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo02(array('min' => 12)); // WHERE ApveInvc24mo02 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo02 The value to use as filter.
+     * @param mixed $apveinvc24mo02 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo02($apveinvc24mo02 = null, $comparison = null)
+    public function filterByApveinvc24mo02($apveinvc24mo02 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo02)) {
             $useMinMax = false;
@@ -2589,7 +2889,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO02, $apveinvc24mo02, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO02, $apveinvc24mo02, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2602,15 +2904,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo02(array('min' => 12)); // WHERE ApveIcnt24mo02 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo02 The value to use as filter.
+     * @param mixed $apveicnt24mo02 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo02($apveicnt24mo02 = null, $comparison = null)
+    public function filterByApveicnt24mo02($apveicnt24mo02 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo02)) {
             $useMinMax = false;
@@ -2630,7 +2932,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO02, $apveicnt24mo02, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO02, $apveicnt24mo02, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2643,15 +2947,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo03(array('min' => 12)); // WHERE ApvePur24mo03 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo03 The value to use as filter.
+     * @param mixed $apvepur24mo03 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo03($apvepur24mo03 = null, $comparison = null)
+    public function filterByApvepur24mo03($apvepur24mo03 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo03)) {
             $useMinMax = false;
@@ -2671,7 +2975,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO03, $apvepur24mo03, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO03, $apvepur24mo03, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2684,15 +2990,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo03(array('min' => 12)); // WHERE ApvePo24mo03 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo03 The value to use as filter.
+     * @param mixed $apvepo24mo03 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo03($apvepo24mo03 = null, $comparison = null)
+    public function filterByApvepo24mo03($apvepo24mo03 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo03)) {
             $useMinMax = false;
@@ -2712,7 +3018,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO03, $apvepo24mo03, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO03, $apvepo24mo03, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2725,15 +3033,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo03(array('min' => 12)); // WHERE ApveInvc24mo03 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo03 The value to use as filter.
+     * @param mixed $apveinvc24mo03 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo03($apveinvc24mo03 = null, $comparison = null)
+    public function filterByApveinvc24mo03($apveinvc24mo03 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo03)) {
             $useMinMax = false;
@@ -2753,7 +3061,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO03, $apveinvc24mo03, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO03, $apveinvc24mo03, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2766,15 +3076,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo03(array('min' => 12)); // WHERE ApveIcnt24mo03 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo03 The value to use as filter.
+     * @param mixed $apveicnt24mo03 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo03($apveicnt24mo03 = null, $comparison = null)
+    public function filterByApveicnt24mo03($apveicnt24mo03 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo03)) {
             $useMinMax = false;
@@ -2794,7 +3104,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO03, $apveicnt24mo03, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO03, $apveicnt24mo03, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2807,15 +3119,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo04(array('min' => 12)); // WHERE ApvePur24mo04 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo04 The value to use as filter.
+     * @param mixed $apvepur24mo04 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo04($apvepur24mo04 = null, $comparison = null)
+    public function filterByApvepur24mo04($apvepur24mo04 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo04)) {
             $useMinMax = false;
@@ -2835,7 +3147,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO04, $apvepur24mo04, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO04, $apvepur24mo04, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2848,15 +3162,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo04(array('min' => 12)); // WHERE ApvePo24mo04 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo04 The value to use as filter.
+     * @param mixed $apvepo24mo04 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo04($apvepo24mo04 = null, $comparison = null)
+    public function filterByApvepo24mo04($apvepo24mo04 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo04)) {
             $useMinMax = false;
@@ -2876,7 +3190,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO04, $apvepo24mo04, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO04, $apvepo24mo04, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2889,15 +3205,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo04(array('min' => 12)); // WHERE ApveInvc24mo04 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo04 The value to use as filter.
+     * @param mixed $apveinvc24mo04 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo04($apveinvc24mo04 = null, $comparison = null)
+    public function filterByApveinvc24mo04($apveinvc24mo04 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo04)) {
             $useMinMax = false;
@@ -2917,7 +3233,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO04, $apveinvc24mo04, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO04, $apveinvc24mo04, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2930,15 +3248,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo04(array('min' => 12)); // WHERE ApveIcnt24mo04 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo04 The value to use as filter.
+     * @param mixed $apveicnt24mo04 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo04($apveicnt24mo04 = null, $comparison = null)
+    public function filterByApveicnt24mo04($apveicnt24mo04 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo04)) {
             $useMinMax = false;
@@ -2958,7 +3276,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO04, $apveicnt24mo04, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO04, $apveicnt24mo04, $comparison);
+
+        return $this;
     }
 
     /**
@@ -2971,15 +3291,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo05(array('min' => 12)); // WHERE ApvePur24mo05 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo05 The value to use as filter.
+     * @param mixed $apvepur24mo05 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo05($apvepur24mo05 = null, $comparison = null)
+    public function filterByApvepur24mo05($apvepur24mo05 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo05)) {
             $useMinMax = false;
@@ -2999,7 +3319,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO05, $apvepur24mo05, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO05, $apvepur24mo05, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3012,15 +3334,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo05(array('min' => 12)); // WHERE ApvePo24mo05 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo05 The value to use as filter.
+     * @param mixed $apvepo24mo05 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo05($apvepo24mo05 = null, $comparison = null)
+    public function filterByApvepo24mo05($apvepo24mo05 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo05)) {
             $useMinMax = false;
@@ -3040,7 +3362,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO05, $apvepo24mo05, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO05, $apvepo24mo05, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3053,15 +3377,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo05(array('min' => 12)); // WHERE ApveInvc24mo05 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo05 The value to use as filter.
+     * @param mixed $apveinvc24mo05 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo05($apveinvc24mo05 = null, $comparison = null)
+    public function filterByApveinvc24mo05($apveinvc24mo05 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo05)) {
             $useMinMax = false;
@@ -3081,7 +3405,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO05, $apveinvc24mo05, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO05, $apveinvc24mo05, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3094,15 +3420,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo05(array('min' => 12)); // WHERE ApveIcnt24mo05 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo05 The value to use as filter.
+     * @param mixed $apveicnt24mo05 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo05($apveicnt24mo05 = null, $comparison = null)
+    public function filterByApveicnt24mo05($apveicnt24mo05 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo05)) {
             $useMinMax = false;
@@ -3122,7 +3448,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO05, $apveicnt24mo05, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO05, $apveicnt24mo05, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3135,15 +3463,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo06(array('min' => 12)); // WHERE ApvePur24mo06 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo06 The value to use as filter.
+     * @param mixed $apvepur24mo06 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo06($apvepur24mo06 = null, $comparison = null)
+    public function filterByApvepur24mo06($apvepur24mo06 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo06)) {
             $useMinMax = false;
@@ -3163,7 +3491,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO06, $apvepur24mo06, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO06, $apvepur24mo06, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3176,15 +3506,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo06(array('min' => 12)); // WHERE ApvePo24mo06 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo06 The value to use as filter.
+     * @param mixed $apvepo24mo06 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo06($apvepo24mo06 = null, $comparison = null)
+    public function filterByApvepo24mo06($apvepo24mo06 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo06)) {
             $useMinMax = false;
@@ -3204,7 +3534,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO06, $apvepo24mo06, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO06, $apvepo24mo06, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3217,15 +3549,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo06(array('min' => 12)); // WHERE ApveInvc24mo06 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo06 The value to use as filter.
+     * @param mixed $apveinvc24mo06 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo06($apveinvc24mo06 = null, $comparison = null)
+    public function filterByApveinvc24mo06($apveinvc24mo06 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo06)) {
             $useMinMax = false;
@@ -3245,7 +3577,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO06, $apveinvc24mo06, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO06, $apveinvc24mo06, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3258,15 +3592,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo06(array('min' => 12)); // WHERE ApveIcnt24mo06 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo06 The value to use as filter.
+     * @param mixed $apveicnt24mo06 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo06($apveicnt24mo06 = null, $comparison = null)
+    public function filterByApveicnt24mo06($apveicnt24mo06 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo06)) {
             $useMinMax = false;
@@ -3286,7 +3620,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO06, $apveicnt24mo06, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO06, $apveicnt24mo06, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3299,15 +3635,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo07(array('min' => 12)); // WHERE ApvePur24mo07 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo07 The value to use as filter.
+     * @param mixed $apvepur24mo07 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo07($apvepur24mo07 = null, $comparison = null)
+    public function filterByApvepur24mo07($apvepur24mo07 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo07)) {
             $useMinMax = false;
@@ -3327,7 +3663,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO07, $apvepur24mo07, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO07, $apvepur24mo07, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3340,15 +3678,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo07(array('min' => 12)); // WHERE ApvePo24mo07 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo07 The value to use as filter.
+     * @param mixed $apvepo24mo07 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo07($apvepo24mo07 = null, $comparison = null)
+    public function filterByApvepo24mo07($apvepo24mo07 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo07)) {
             $useMinMax = false;
@@ -3368,7 +3706,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO07, $apvepo24mo07, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO07, $apvepo24mo07, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3381,15 +3721,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo07(array('min' => 12)); // WHERE ApveInvc24mo07 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo07 The value to use as filter.
+     * @param mixed $apveinvc24mo07 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo07($apveinvc24mo07 = null, $comparison = null)
+    public function filterByApveinvc24mo07($apveinvc24mo07 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo07)) {
             $useMinMax = false;
@@ -3409,7 +3749,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO07, $apveinvc24mo07, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO07, $apveinvc24mo07, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3422,15 +3764,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo07(array('min' => 12)); // WHERE ApveIcnt24mo07 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo07 The value to use as filter.
+     * @param mixed $apveicnt24mo07 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo07($apveicnt24mo07 = null, $comparison = null)
+    public function filterByApveicnt24mo07($apveicnt24mo07 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo07)) {
             $useMinMax = false;
@@ -3450,7 +3792,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO07, $apveicnt24mo07, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO07, $apveicnt24mo07, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3463,15 +3807,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo08(array('min' => 12)); // WHERE ApvePur24mo08 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo08 The value to use as filter.
+     * @param mixed $apvepur24mo08 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo08($apvepur24mo08 = null, $comparison = null)
+    public function filterByApvepur24mo08($apvepur24mo08 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo08)) {
             $useMinMax = false;
@@ -3491,7 +3835,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO08, $apvepur24mo08, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO08, $apvepur24mo08, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3504,15 +3850,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo08(array('min' => 12)); // WHERE ApvePo24mo08 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo08 The value to use as filter.
+     * @param mixed $apvepo24mo08 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo08($apvepo24mo08 = null, $comparison = null)
+    public function filterByApvepo24mo08($apvepo24mo08 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo08)) {
             $useMinMax = false;
@@ -3532,7 +3878,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO08, $apvepo24mo08, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO08, $apvepo24mo08, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3545,15 +3893,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo08(array('min' => 12)); // WHERE ApveInvc24mo08 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo08 The value to use as filter.
+     * @param mixed $apveinvc24mo08 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo08($apveinvc24mo08 = null, $comparison = null)
+    public function filterByApveinvc24mo08($apveinvc24mo08 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo08)) {
             $useMinMax = false;
@@ -3573,7 +3921,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO08, $apveinvc24mo08, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO08, $apveinvc24mo08, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3586,15 +3936,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo08(array('min' => 12)); // WHERE ApveIcnt24mo08 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo08 The value to use as filter.
+     * @param mixed $apveicnt24mo08 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo08($apveicnt24mo08 = null, $comparison = null)
+    public function filterByApveicnt24mo08($apveicnt24mo08 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo08)) {
             $useMinMax = false;
@@ -3614,7 +3964,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO08, $apveicnt24mo08, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO08, $apveicnt24mo08, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3627,15 +3979,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo09(array('min' => 12)); // WHERE ApvePur24mo09 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo09 The value to use as filter.
+     * @param mixed $apvepur24mo09 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo09($apvepur24mo09 = null, $comparison = null)
+    public function filterByApvepur24mo09($apvepur24mo09 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo09)) {
             $useMinMax = false;
@@ -3655,7 +4007,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO09, $apvepur24mo09, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO09, $apvepur24mo09, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3668,15 +4022,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo09(array('min' => 12)); // WHERE ApvePo24mo09 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo09 The value to use as filter.
+     * @param mixed $apvepo24mo09 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo09($apvepo24mo09 = null, $comparison = null)
+    public function filterByApvepo24mo09($apvepo24mo09 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo09)) {
             $useMinMax = false;
@@ -3696,7 +4050,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO09, $apvepo24mo09, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO09, $apvepo24mo09, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3709,15 +4065,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo09(array('min' => 12)); // WHERE ApveInvc24mo09 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo09 The value to use as filter.
+     * @param mixed $apveinvc24mo09 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo09($apveinvc24mo09 = null, $comparison = null)
+    public function filterByApveinvc24mo09($apveinvc24mo09 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo09)) {
             $useMinMax = false;
@@ -3737,7 +4093,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO09, $apveinvc24mo09, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO09, $apveinvc24mo09, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3750,15 +4108,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo09(array('min' => 12)); // WHERE ApveIcnt24mo09 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo09 The value to use as filter.
+     * @param mixed $apveicnt24mo09 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo09($apveicnt24mo09 = null, $comparison = null)
+    public function filterByApveicnt24mo09($apveicnt24mo09 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo09)) {
             $useMinMax = false;
@@ -3778,7 +4136,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO09, $apveicnt24mo09, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO09, $apveicnt24mo09, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3791,15 +4151,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo10(array('min' => 12)); // WHERE ApvePur24mo10 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo10 The value to use as filter.
+     * @param mixed $apvepur24mo10 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo10($apvepur24mo10 = null, $comparison = null)
+    public function filterByApvepur24mo10($apvepur24mo10 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo10)) {
             $useMinMax = false;
@@ -3819,7 +4179,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO10, $apvepur24mo10, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO10, $apvepur24mo10, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3832,15 +4194,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo10(array('min' => 12)); // WHERE ApvePo24mo10 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo10 The value to use as filter.
+     * @param mixed $apvepo24mo10 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo10($apvepo24mo10 = null, $comparison = null)
+    public function filterByApvepo24mo10($apvepo24mo10 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo10)) {
             $useMinMax = false;
@@ -3860,7 +4222,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO10, $apvepo24mo10, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO10, $apvepo24mo10, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3873,15 +4237,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo10(array('min' => 12)); // WHERE ApveInvc24mo10 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo10 The value to use as filter.
+     * @param mixed $apveinvc24mo10 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo10($apveinvc24mo10 = null, $comparison = null)
+    public function filterByApveinvc24mo10($apveinvc24mo10 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo10)) {
             $useMinMax = false;
@@ -3901,7 +4265,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO10, $apveinvc24mo10, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO10, $apveinvc24mo10, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3914,15 +4280,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo10(array('min' => 12)); // WHERE ApveIcnt24mo10 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo10 The value to use as filter.
+     * @param mixed $apveicnt24mo10 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo10($apveicnt24mo10 = null, $comparison = null)
+    public function filterByApveicnt24mo10($apveicnt24mo10 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo10)) {
             $useMinMax = false;
@@ -3942,7 +4308,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO10, $apveicnt24mo10, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO10, $apveicnt24mo10, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3955,15 +4323,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo11(array('min' => 12)); // WHERE ApvePur24mo11 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo11 The value to use as filter.
+     * @param mixed $apvepur24mo11 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo11($apvepur24mo11 = null, $comparison = null)
+    public function filterByApvepur24mo11($apvepur24mo11 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo11)) {
             $useMinMax = false;
@@ -3983,7 +4351,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO11, $apvepur24mo11, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO11, $apvepur24mo11, $comparison);
+
+        return $this;
     }
 
     /**
@@ -3996,15 +4366,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo11(array('min' => 12)); // WHERE ApvePo24mo11 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo11 The value to use as filter.
+     * @param mixed $apvepo24mo11 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo11($apvepo24mo11 = null, $comparison = null)
+    public function filterByApvepo24mo11($apvepo24mo11 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo11)) {
             $useMinMax = false;
@@ -4024,7 +4394,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO11, $apvepo24mo11, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO11, $apvepo24mo11, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4037,15 +4409,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo11(array('min' => 12)); // WHERE ApveInvc24mo11 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo11 The value to use as filter.
+     * @param mixed $apveinvc24mo11 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo11($apveinvc24mo11 = null, $comparison = null)
+    public function filterByApveinvc24mo11($apveinvc24mo11 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo11)) {
             $useMinMax = false;
@@ -4065,7 +4437,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO11, $apveinvc24mo11, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO11, $apveinvc24mo11, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4078,15 +4452,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo11(array('min' => 12)); // WHERE ApveIcnt24mo11 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo11 The value to use as filter.
+     * @param mixed $apveicnt24mo11 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo11($apveicnt24mo11 = null, $comparison = null)
+    public function filterByApveicnt24mo11($apveicnt24mo11 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo11)) {
             $useMinMax = false;
@@ -4106,7 +4480,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO11, $apveicnt24mo11, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO11, $apveicnt24mo11, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4119,15 +4495,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo12(array('min' => 12)); // WHERE ApvePur24mo12 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo12 The value to use as filter.
+     * @param mixed $apvepur24mo12 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo12($apvepur24mo12 = null, $comparison = null)
+    public function filterByApvepur24mo12($apvepur24mo12 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo12)) {
             $useMinMax = false;
@@ -4147,7 +4523,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO12, $apvepur24mo12, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO12, $apvepur24mo12, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4160,15 +4538,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo12(array('min' => 12)); // WHERE ApvePo24mo12 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo12 The value to use as filter.
+     * @param mixed $apvepo24mo12 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo12($apvepo24mo12 = null, $comparison = null)
+    public function filterByApvepo24mo12($apvepo24mo12 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo12)) {
             $useMinMax = false;
@@ -4188,7 +4566,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO12, $apvepo24mo12, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO12, $apvepo24mo12, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4201,15 +4581,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo12(array('min' => 12)); // WHERE ApveInvc24mo12 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo12 The value to use as filter.
+     * @param mixed $apveinvc24mo12 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo12($apveinvc24mo12 = null, $comparison = null)
+    public function filterByApveinvc24mo12($apveinvc24mo12 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo12)) {
             $useMinMax = false;
@@ -4229,7 +4609,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO12, $apveinvc24mo12, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO12, $apveinvc24mo12, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4242,15 +4624,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo12(array('min' => 12)); // WHERE ApveIcnt24mo12 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo12 The value to use as filter.
+     * @param mixed $apveicnt24mo12 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo12($apveicnt24mo12 = null, $comparison = null)
+    public function filterByApveicnt24mo12($apveicnt24mo12 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo12)) {
             $useMinMax = false;
@@ -4270,7 +4652,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO12, $apveicnt24mo12, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO12, $apveicnt24mo12, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4283,15 +4667,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo13(array('min' => 12)); // WHERE ApvePur24mo13 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo13 The value to use as filter.
+     * @param mixed $apvepur24mo13 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo13($apvepur24mo13 = null, $comparison = null)
+    public function filterByApvepur24mo13($apvepur24mo13 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo13)) {
             $useMinMax = false;
@@ -4311,7 +4695,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO13, $apvepur24mo13, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO13, $apvepur24mo13, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4324,15 +4710,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo13(array('min' => 12)); // WHERE ApvePo24mo13 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo13 The value to use as filter.
+     * @param mixed $apvepo24mo13 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo13($apvepo24mo13 = null, $comparison = null)
+    public function filterByApvepo24mo13($apvepo24mo13 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo13)) {
             $useMinMax = false;
@@ -4352,7 +4738,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO13, $apvepo24mo13, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO13, $apvepo24mo13, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4365,15 +4753,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo13(array('min' => 12)); // WHERE ApveInvc24mo13 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo13 The value to use as filter.
+     * @param mixed $apveinvc24mo13 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo13($apveinvc24mo13 = null, $comparison = null)
+    public function filterByApveinvc24mo13($apveinvc24mo13 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo13)) {
             $useMinMax = false;
@@ -4393,7 +4781,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO13, $apveinvc24mo13, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO13, $apveinvc24mo13, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4406,15 +4796,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo13(array('min' => 12)); // WHERE ApveIcnt24mo13 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo13 The value to use as filter.
+     * @param mixed $apveicnt24mo13 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo13($apveicnt24mo13 = null, $comparison = null)
+    public function filterByApveicnt24mo13($apveicnt24mo13 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo13)) {
             $useMinMax = false;
@@ -4434,7 +4824,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO13, $apveicnt24mo13, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO13, $apveicnt24mo13, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4447,15 +4839,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo14(array('min' => 12)); // WHERE ApvePur24mo14 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo14 The value to use as filter.
+     * @param mixed $apvepur24mo14 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo14($apvepur24mo14 = null, $comparison = null)
+    public function filterByApvepur24mo14($apvepur24mo14 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo14)) {
             $useMinMax = false;
@@ -4475,7 +4867,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO14, $apvepur24mo14, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO14, $apvepur24mo14, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4488,15 +4882,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo14(array('min' => 12)); // WHERE ApvePo24mo14 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo14 The value to use as filter.
+     * @param mixed $apvepo24mo14 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo14($apvepo24mo14 = null, $comparison = null)
+    public function filterByApvepo24mo14($apvepo24mo14 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo14)) {
             $useMinMax = false;
@@ -4516,7 +4910,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO14, $apvepo24mo14, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO14, $apvepo24mo14, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4529,15 +4925,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo14(array('min' => 12)); // WHERE ApveInvc24mo14 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo14 The value to use as filter.
+     * @param mixed $apveinvc24mo14 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo14($apveinvc24mo14 = null, $comparison = null)
+    public function filterByApveinvc24mo14($apveinvc24mo14 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo14)) {
             $useMinMax = false;
@@ -4557,7 +4953,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO14, $apveinvc24mo14, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO14, $apveinvc24mo14, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4570,15 +4968,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo14(array('min' => 12)); // WHERE ApveIcnt24mo14 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo14 The value to use as filter.
+     * @param mixed $apveicnt24mo14 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo14($apveicnt24mo14 = null, $comparison = null)
+    public function filterByApveicnt24mo14($apveicnt24mo14 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo14)) {
             $useMinMax = false;
@@ -4598,7 +4996,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO14, $apveicnt24mo14, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO14, $apveicnt24mo14, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4611,15 +5011,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo15(array('min' => 12)); // WHERE ApvePur24mo15 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo15 The value to use as filter.
+     * @param mixed $apvepur24mo15 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo15($apvepur24mo15 = null, $comparison = null)
+    public function filterByApvepur24mo15($apvepur24mo15 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo15)) {
             $useMinMax = false;
@@ -4639,7 +5039,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO15, $apvepur24mo15, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO15, $apvepur24mo15, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4652,15 +5054,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo15(array('min' => 12)); // WHERE ApvePo24mo15 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo15 The value to use as filter.
+     * @param mixed $apvepo24mo15 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo15($apvepo24mo15 = null, $comparison = null)
+    public function filterByApvepo24mo15($apvepo24mo15 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo15)) {
             $useMinMax = false;
@@ -4680,7 +5082,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO15, $apvepo24mo15, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO15, $apvepo24mo15, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4693,15 +5097,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo15(array('min' => 12)); // WHERE ApveInvc24mo15 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo15 The value to use as filter.
+     * @param mixed $apveinvc24mo15 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo15($apveinvc24mo15 = null, $comparison = null)
+    public function filterByApveinvc24mo15($apveinvc24mo15 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo15)) {
             $useMinMax = false;
@@ -4721,7 +5125,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO15, $apveinvc24mo15, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO15, $apveinvc24mo15, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4734,15 +5140,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo15(array('min' => 12)); // WHERE ApveIcnt24mo15 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo15 The value to use as filter.
+     * @param mixed $apveicnt24mo15 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo15($apveicnt24mo15 = null, $comparison = null)
+    public function filterByApveicnt24mo15($apveicnt24mo15 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo15)) {
             $useMinMax = false;
@@ -4762,7 +5168,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO15, $apveicnt24mo15, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO15, $apveicnt24mo15, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4775,15 +5183,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo16(array('min' => 12)); // WHERE ApvePur24mo16 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo16 The value to use as filter.
+     * @param mixed $apvepur24mo16 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo16($apvepur24mo16 = null, $comparison = null)
+    public function filterByApvepur24mo16($apvepur24mo16 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo16)) {
             $useMinMax = false;
@@ -4803,7 +5211,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO16, $apvepur24mo16, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO16, $apvepur24mo16, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4816,15 +5226,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo16(array('min' => 12)); // WHERE ApvePo24mo16 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo16 The value to use as filter.
+     * @param mixed $apvepo24mo16 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo16($apvepo24mo16 = null, $comparison = null)
+    public function filterByApvepo24mo16($apvepo24mo16 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo16)) {
             $useMinMax = false;
@@ -4844,7 +5254,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO16, $apvepo24mo16, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO16, $apvepo24mo16, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4857,15 +5269,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo16(array('min' => 12)); // WHERE ApveInvc24mo16 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo16 The value to use as filter.
+     * @param mixed $apveinvc24mo16 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo16($apveinvc24mo16 = null, $comparison = null)
+    public function filterByApveinvc24mo16($apveinvc24mo16 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo16)) {
             $useMinMax = false;
@@ -4885,7 +5297,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO16, $apveinvc24mo16, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO16, $apveinvc24mo16, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4898,15 +5312,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo16(array('min' => 12)); // WHERE ApveIcnt24mo16 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo16 The value to use as filter.
+     * @param mixed $apveicnt24mo16 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo16($apveicnt24mo16 = null, $comparison = null)
+    public function filterByApveicnt24mo16($apveicnt24mo16 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo16)) {
             $useMinMax = false;
@@ -4926,7 +5340,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO16, $apveicnt24mo16, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO16, $apveicnt24mo16, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4939,15 +5355,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo17(array('min' => 12)); // WHERE ApvePur24mo17 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo17 The value to use as filter.
+     * @param mixed $apvepur24mo17 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo17($apvepur24mo17 = null, $comparison = null)
+    public function filterByApvepur24mo17($apvepur24mo17 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo17)) {
             $useMinMax = false;
@@ -4967,7 +5383,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO17, $apvepur24mo17, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO17, $apvepur24mo17, $comparison);
+
+        return $this;
     }
 
     /**
@@ -4980,15 +5398,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo17(array('min' => 12)); // WHERE ApvePo24mo17 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo17 The value to use as filter.
+     * @param mixed $apvepo24mo17 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo17($apvepo24mo17 = null, $comparison = null)
+    public function filterByApvepo24mo17($apvepo24mo17 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo17)) {
             $useMinMax = false;
@@ -5008,7 +5426,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO17, $apvepo24mo17, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO17, $apvepo24mo17, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5021,15 +5441,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo17(array('min' => 12)); // WHERE ApveInvc24mo17 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo17 The value to use as filter.
+     * @param mixed $apveinvc24mo17 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo17($apveinvc24mo17 = null, $comparison = null)
+    public function filterByApveinvc24mo17($apveinvc24mo17 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo17)) {
             $useMinMax = false;
@@ -5049,7 +5469,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO17, $apveinvc24mo17, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO17, $apveinvc24mo17, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5062,15 +5484,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo17(array('min' => 12)); // WHERE ApveIcnt24mo17 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo17 The value to use as filter.
+     * @param mixed $apveicnt24mo17 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo17($apveicnt24mo17 = null, $comparison = null)
+    public function filterByApveicnt24mo17($apveicnt24mo17 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo17)) {
             $useMinMax = false;
@@ -5090,7 +5512,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO17, $apveicnt24mo17, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO17, $apveicnt24mo17, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5103,15 +5527,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo18(array('min' => 12)); // WHERE ApvePur24mo18 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo18 The value to use as filter.
+     * @param mixed $apvepur24mo18 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo18($apvepur24mo18 = null, $comparison = null)
+    public function filterByApvepur24mo18($apvepur24mo18 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo18)) {
             $useMinMax = false;
@@ -5131,7 +5555,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO18, $apvepur24mo18, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO18, $apvepur24mo18, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5144,15 +5570,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo18(array('min' => 12)); // WHERE ApvePo24mo18 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo18 The value to use as filter.
+     * @param mixed $apvepo24mo18 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo18($apvepo24mo18 = null, $comparison = null)
+    public function filterByApvepo24mo18($apvepo24mo18 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo18)) {
             $useMinMax = false;
@@ -5172,7 +5598,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO18, $apvepo24mo18, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO18, $apvepo24mo18, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5185,15 +5613,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo18(array('min' => 12)); // WHERE ApveInvc24mo18 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo18 The value to use as filter.
+     * @param mixed $apveinvc24mo18 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo18($apveinvc24mo18 = null, $comparison = null)
+    public function filterByApveinvc24mo18($apveinvc24mo18 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo18)) {
             $useMinMax = false;
@@ -5213,7 +5641,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO18, $apveinvc24mo18, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO18, $apveinvc24mo18, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5226,15 +5656,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo18(array('min' => 12)); // WHERE ApveIcnt24mo18 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo18 The value to use as filter.
+     * @param mixed $apveicnt24mo18 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo18($apveicnt24mo18 = null, $comparison = null)
+    public function filterByApveicnt24mo18($apveicnt24mo18 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo18)) {
             $useMinMax = false;
@@ -5254,7 +5684,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO18, $apveicnt24mo18, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO18, $apveicnt24mo18, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5267,15 +5699,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo19(array('min' => 12)); // WHERE ApvePur24mo19 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo19 The value to use as filter.
+     * @param mixed $apvepur24mo19 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo19($apvepur24mo19 = null, $comparison = null)
+    public function filterByApvepur24mo19($apvepur24mo19 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo19)) {
             $useMinMax = false;
@@ -5295,7 +5727,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO19, $apvepur24mo19, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO19, $apvepur24mo19, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5308,15 +5742,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo19(array('min' => 12)); // WHERE ApvePo24mo19 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo19 The value to use as filter.
+     * @param mixed $apvepo24mo19 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo19($apvepo24mo19 = null, $comparison = null)
+    public function filterByApvepo24mo19($apvepo24mo19 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo19)) {
             $useMinMax = false;
@@ -5336,7 +5770,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO19, $apvepo24mo19, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO19, $apvepo24mo19, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5349,15 +5785,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo19(array('min' => 12)); // WHERE ApveInvc24mo19 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo19 The value to use as filter.
+     * @param mixed $apveinvc24mo19 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo19($apveinvc24mo19 = null, $comparison = null)
+    public function filterByApveinvc24mo19($apveinvc24mo19 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo19)) {
             $useMinMax = false;
@@ -5377,7 +5813,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO19, $apveinvc24mo19, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO19, $apveinvc24mo19, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5390,15 +5828,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo19(array('min' => 12)); // WHERE ApveIcnt24mo19 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo19 The value to use as filter.
+     * @param mixed $apveicnt24mo19 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo19($apveicnt24mo19 = null, $comparison = null)
+    public function filterByApveicnt24mo19($apveicnt24mo19 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo19)) {
             $useMinMax = false;
@@ -5418,7 +5856,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO19, $apveicnt24mo19, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO19, $apveicnt24mo19, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5431,15 +5871,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo20(array('min' => 12)); // WHERE ApvePur24mo20 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo20 The value to use as filter.
+     * @param mixed $apvepur24mo20 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo20($apvepur24mo20 = null, $comparison = null)
+    public function filterByApvepur24mo20($apvepur24mo20 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo20)) {
             $useMinMax = false;
@@ -5459,7 +5899,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO20, $apvepur24mo20, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO20, $apvepur24mo20, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5472,15 +5914,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo20(array('min' => 12)); // WHERE ApvePo24mo20 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo20 The value to use as filter.
+     * @param mixed $apvepo24mo20 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo20($apvepo24mo20 = null, $comparison = null)
+    public function filterByApvepo24mo20($apvepo24mo20 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo20)) {
             $useMinMax = false;
@@ -5500,7 +5942,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO20, $apvepo24mo20, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO20, $apvepo24mo20, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5513,15 +5957,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo20(array('min' => 12)); // WHERE ApveInvc24mo20 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo20 The value to use as filter.
+     * @param mixed $apveinvc24mo20 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo20($apveinvc24mo20 = null, $comparison = null)
+    public function filterByApveinvc24mo20($apveinvc24mo20 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo20)) {
             $useMinMax = false;
@@ -5541,7 +5985,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO20, $apveinvc24mo20, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO20, $apveinvc24mo20, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5554,15 +6000,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo20(array('min' => 12)); // WHERE ApveIcnt24mo20 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo20 The value to use as filter.
+     * @param mixed $apveicnt24mo20 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo20($apveicnt24mo20 = null, $comparison = null)
+    public function filterByApveicnt24mo20($apveicnt24mo20 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo20)) {
             $useMinMax = false;
@@ -5582,7 +6028,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO20, $apveicnt24mo20, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO20, $apveicnt24mo20, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5595,15 +6043,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo21(array('min' => 12)); // WHERE ApvePur24mo21 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo21 The value to use as filter.
+     * @param mixed $apvepur24mo21 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo21($apvepur24mo21 = null, $comparison = null)
+    public function filterByApvepur24mo21($apvepur24mo21 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo21)) {
             $useMinMax = false;
@@ -5623,7 +6071,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO21, $apvepur24mo21, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO21, $apvepur24mo21, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5636,15 +6086,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo21(array('min' => 12)); // WHERE ApvePo24mo21 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo21 The value to use as filter.
+     * @param mixed $apvepo24mo21 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo21($apvepo24mo21 = null, $comparison = null)
+    public function filterByApvepo24mo21($apvepo24mo21 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo21)) {
             $useMinMax = false;
@@ -5664,7 +6114,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO21, $apvepo24mo21, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO21, $apvepo24mo21, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5677,15 +6129,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo21(array('min' => 12)); // WHERE ApveInvc24mo21 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo21 The value to use as filter.
+     * @param mixed $apveinvc24mo21 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo21($apveinvc24mo21 = null, $comparison = null)
+    public function filterByApveinvc24mo21($apveinvc24mo21 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo21)) {
             $useMinMax = false;
@@ -5705,7 +6157,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO21, $apveinvc24mo21, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO21, $apveinvc24mo21, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5718,15 +6172,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo21(array('min' => 12)); // WHERE ApveIcnt24mo21 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo21 The value to use as filter.
+     * @param mixed $apveicnt24mo21 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo21($apveicnt24mo21 = null, $comparison = null)
+    public function filterByApveicnt24mo21($apveicnt24mo21 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo21)) {
             $useMinMax = false;
@@ -5746,7 +6200,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO21, $apveicnt24mo21, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO21, $apveicnt24mo21, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5759,15 +6215,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo22(array('min' => 12)); // WHERE ApvePur24mo22 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo22 The value to use as filter.
+     * @param mixed $apvepur24mo22 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo22($apvepur24mo22 = null, $comparison = null)
+    public function filterByApvepur24mo22($apvepur24mo22 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo22)) {
             $useMinMax = false;
@@ -5787,7 +6243,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO22, $apvepur24mo22, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO22, $apvepur24mo22, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5800,15 +6258,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo22(array('min' => 12)); // WHERE ApvePo24mo22 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo22 The value to use as filter.
+     * @param mixed $apvepo24mo22 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo22($apvepo24mo22 = null, $comparison = null)
+    public function filterByApvepo24mo22($apvepo24mo22 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo22)) {
             $useMinMax = false;
@@ -5828,7 +6286,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO22, $apvepo24mo22, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO22, $apvepo24mo22, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5841,15 +6301,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo22(array('min' => 12)); // WHERE ApveInvc24mo22 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo22 The value to use as filter.
+     * @param mixed $apveinvc24mo22 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo22($apveinvc24mo22 = null, $comparison = null)
+    public function filterByApveinvc24mo22($apveinvc24mo22 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo22)) {
             $useMinMax = false;
@@ -5869,7 +6329,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO22, $apveinvc24mo22, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO22, $apveinvc24mo22, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5882,15 +6344,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo22(array('min' => 12)); // WHERE ApveIcnt24mo22 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo22 The value to use as filter.
+     * @param mixed $apveicnt24mo22 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo22($apveicnt24mo22 = null, $comparison = null)
+    public function filterByApveicnt24mo22($apveicnt24mo22 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo22)) {
             $useMinMax = false;
@@ -5910,7 +6372,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO22, $apveicnt24mo22, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO22, $apveicnt24mo22, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5923,15 +6387,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo23(array('min' => 12)); // WHERE ApvePur24mo23 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo23 The value to use as filter.
+     * @param mixed $apvepur24mo23 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo23($apvepur24mo23 = null, $comparison = null)
+    public function filterByApvepur24mo23($apvepur24mo23 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo23)) {
             $useMinMax = false;
@@ -5951,7 +6415,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO23, $apvepur24mo23, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO23, $apvepur24mo23, $comparison);
+
+        return $this;
     }
 
     /**
@@ -5964,15 +6430,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo23(array('min' => 12)); // WHERE ApvePo24mo23 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo23 The value to use as filter.
+     * @param mixed $apvepo24mo23 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo23($apvepo24mo23 = null, $comparison = null)
+    public function filterByApvepo24mo23($apvepo24mo23 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo23)) {
             $useMinMax = false;
@@ -5992,7 +6458,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO23, $apvepo24mo23, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO23, $apvepo24mo23, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6005,15 +6473,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo23(array('min' => 12)); // WHERE ApveInvc24mo23 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo23 The value to use as filter.
+     * @param mixed $apveinvc24mo23 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo23($apveinvc24mo23 = null, $comparison = null)
+    public function filterByApveinvc24mo23($apveinvc24mo23 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo23)) {
             $useMinMax = false;
@@ -6033,7 +6501,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO23, $apveinvc24mo23, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO23, $apveinvc24mo23, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6046,15 +6516,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo23(array('min' => 12)); // WHERE ApveIcnt24mo23 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo23 The value to use as filter.
+     * @param mixed $apveicnt24mo23 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo23($apveicnt24mo23 = null, $comparison = null)
+    public function filterByApveicnt24mo23($apveicnt24mo23 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo23)) {
             $useMinMax = false;
@@ -6074,7 +6544,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO23, $apveicnt24mo23, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO23, $apveicnt24mo23, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6087,15 +6559,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepur24mo24(array('min' => 12)); // WHERE ApvePur24mo24 > 12
      * </code>
      *
-     * @param     mixed $apvepur24mo24 The value to use as filter.
+     * @param mixed $apvepur24mo24 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepur24mo24($apvepur24mo24 = null, $comparison = null)
+    public function filterByApvepur24mo24($apvepur24mo24 = null, ?string $comparison = null)
     {
         if (is_array($apvepur24mo24)) {
             $useMinMax = false;
@@ -6115,7 +6587,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO24, $apvepur24mo24, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPUR24MO24, $apvepur24mo24, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6128,15 +6602,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvepo24mo24(array('min' => 12)); // WHERE ApvePo24mo24 > 12
      * </code>
      *
-     * @param     mixed $apvepo24mo24 The value to use as filter.
+     * @param mixed $apvepo24mo24 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvepo24mo24($apvepo24mo24 = null, $comparison = null)
+    public function filterByApvepo24mo24($apvepo24mo24 = null, ?string $comparison = null)
     {
         if (is_array($apvepo24mo24)) {
             $useMinMax = false;
@@ -6156,7 +6630,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO24, $apvepo24mo24, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPO24MO24, $apvepo24mo24, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6169,15 +6645,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveinvc24mo24(array('min' => 12)); // WHERE ApveInvc24mo24 > 12
      * </code>
      *
-     * @param     mixed $apveinvc24mo24 The value to use as filter.
+     * @param mixed $apveinvc24mo24 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveinvc24mo24($apveinvc24mo24 = null, $comparison = null)
+    public function filterByApveinvc24mo24($apveinvc24mo24 = null, ?string $comparison = null)
     {
         if (is_array($apveinvc24mo24)) {
             $useMinMax = false;
@@ -6197,7 +6673,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO24, $apveinvc24mo24, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVC24MO24, $apveinvc24mo24, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6210,15 +6688,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveicnt24mo24(array('min' => 12)); // WHERE ApveIcnt24mo24 > 12
      * </code>
      *
-     * @param     mixed $apveicnt24mo24 The value to use as filter.
+     * @param mixed $apveicnt24mo24 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveicnt24mo24($apveicnt24mo24 = null, $comparison = null)
+    public function filterByApveicnt24mo24($apveicnt24mo24 = null, ?string $comparison = null)
     {
         if (is_array($apveicnt24mo24)) {
             $useMinMax = false;
@@ -6238,7 +6716,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO24, $apveicnt24mo24, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNT24MO24, $apveicnt24mo24, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6248,14 +6728,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvecrncy('fooValue');   // WHERE ApveCrncy = 'fooValue'
      * $query->filterByApvecrncy('%fooValue%', Criteria::LIKE); // WHERE ApveCrncy LIKE '%fooValue%'
+     * $query->filterByApvecrncy(['foo', 'bar']); // WHERE ApveCrncy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvecrncy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvecrncy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvecrncy($apvecrncy = null, $comparison = null)
+    public function filterByApvecrncy($apvecrncy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvecrncy)) {
@@ -6263,7 +6744,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVECRNCY, $apvecrncy, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVECRNCY, $apvecrncy, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6276,15 +6759,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvefrtinamt(array('min' => 12)); // WHERE ApveFrtInAmt > 12
      * </code>
      *
-     * @param     mixed $apvefrtinamt The value to use as filter.
+     * @param mixed $apvefrtinamt The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvefrtinamt($apvefrtinamt = null, $comparison = null)
+    public function filterByApvefrtinamt($apvefrtinamt = null, ?string $comparison = null)
     {
         if (is_array($apvefrtinamt)) {
             $useMinMax = false;
@@ -6304,7 +6787,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEFRTINAMT, $apvefrtinamt, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEFRTINAMT, $apvefrtinamt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6314,14 +6799,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApveouracctnbr('fooValue');   // WHERE ApveOurAcctNbr = 'fooValue'
      * $query->filterByApveouracctnbr('%fooValue%', Criteria::LIKE); // WHERE ApveOurAcctNbr LIKE '%fooValue%'
+     * $query->filterByApveouracctnbr(['foo', 'bar']); // WHERE ApveOurAcctNbr IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apveouracctnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apveouracctnbr The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveouracctnbr($apveouracctnbr = null, $comparison = null)
+    public function filterByApveouracctnbr($apveouracctnbr = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apveouracctnbr)) {
@@ -6329,7 +6815,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEOURACCTNBR, $apveouracctnbr, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEOURACCTNBR, $apveouracctnbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6342,15 +6830,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvevenddisc(array('min' => 12)); // WHERE ApveVendDisc > 12
      * </code>
      *
-     * @param     mixed $apvevenddisc The value to use as filter.
+     * @param mixed $apvevenddisc The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvevenddisc($apvevenddisc = null, $comparison = null)
+    public function filterByApvevenddisc($apvevenddisc = null, ?string $comparison = null)
     {
         if (is_array($apvevenddisc)) {
             $useMinMax = false;
@@ -6370,7 +6858,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEVENDDISC, $apvevenddisc, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEVENDDISC, $apvevenddisc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6380,14 +6870,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvefob('fooValue');   // WHERE ApveFob = 'fooValue'
      * $query->filterByApvefob('%fooValue%', Criteria::LIKE); // WHERE ApveFob LIKE '%fooValue%'
+     * $query->filterByApvefob(['foo', 'bar']); // WHERE ApveFob IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvefob The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvefob The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvefob($apvefob = null, $comparison = null)
+    public function filterByApvefob($apvefob = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvefob)) {
@@ -6395,7 +6886,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEFOB, $apvefob, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEFOB, $apvefob, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6408,15 +6901,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveroylpct(array('min' => 12)); // WHERE ApveRoylPct > 12
      * </code>
      *
-     * @param     mixed $apveroylpct The value to use as filter.
+     * @param mixed $apveroylpct The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveroylpct($apveroylpct = null, $comparison = null)
+    public function filterByApveroylpct($apveroylpct = null, ?string $comparison = null)
     {
         if (is_array($apveroylpct)) {
             $useMinMax = false;
@@ -6436,7 +6929,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEROYLPCT, $apveroylpct, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEROYLPCT, $apveroylpct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6446,14 +6941,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApveprtpoeoru('fooValue');   // WHERE ApvePrtPoEOrU = 'fooValue'
      * $query->filterByApveprtpoeoru('%fooValue%', Criteria::LIKE); // WHERE ApvePrtPoEOrU LIKE '%fooValue%'
+     * $query->filterByApveprtpoeoru(['foo', 'bar']); // WHERE ApvePrtPoEOrU IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apveprtpoeoru The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apveprtpoeoru The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveprtpoeoru($apveprtpoeoru = null, $comparison = null)
+    public function filterByApveprtpoeoru($apveprtpoeoru = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apveprtpoeoru)) {
@@ -6461,7 +6957,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPRTPOEORU, $apveprtpoeoru, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPRTPOEORU, $apveprtpoeoru, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6474,15 +6972,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvecomrate(array('min' => 12)); // WHERE ApveComRate > 12
      * </code>
      *
-     * @param     mixed $apvecomrate The value to use as filter.
+     * @param mixed $apvecomrate The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvecomrate($apvecomrate = null, $comparison = null)
+    public function filterByApvecomrate($apvecomrate = null, ?string $comparison = null)
     {
         if (is_array($apvecomrate)) {
             $useMinMax = false;
@@ -6502,7 +7000,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVECOMRATE, $apvecomrate, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVECOMRATE, $apvecomrate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6512,14 +7012,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApveuselandonrcpt('fooValue');   // WHERE ApveUseLandOnRcpt = 'fooValue'
      * $query->filterByApveuselandonrcpt('%fooValue%', Criteria::LIKE); // WHERE ApveUseLandOnRcpt LIKE '%fooValue%'
+     * $query->filterByApveuselandonrcpt(['foo', 'bar']); // WHERE ApveUseLandOnRcpt IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apveuselandonrcpt The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apveuselandonrcpt The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveuselandonrcpt($apveuselandonrcpt = null, $comparison = null)
+    public function filterByApveuselandonrcpt($apveuselandonrcpt = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apveuselandonrcpt)) {
@@ -6527,7 +7028,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEUSELANDONRCPT, $apveuselandonrcpt, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEUSELANDONRCPT, $apveuselandonrcpt, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6537,14 +7040,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrwhse1('fooValue');   // WHERE ApveBuyrWhse1 = 'fooValue'
      * $query->filterByApvebuyrwhse1('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrWhse1 LIKE '%fooValue%'
+     * $query->filterByApvebuyrwhse1(['foo', 'bar']); // WHERE ApveBuyrWhse1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrwhse1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrwhse1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrwhse1($apvebuyrwhse1 = null, $comparison = null)
+    public function filterByApvebuyrwhse1($apvebuyrwhse1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrwhse1)) {
@@ -6552,7 +7056,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE1, $apvebuyrwhse1, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE1, $apvebuyrwhse1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6562,14 +7068,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrcode1('fooValue');   // WHERE ApveBuyrCode1 = 'fooValue'
      * $query->filterByApvebuyrcode1('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrCode1 LIKE '%fooValue%'
+     * $query->filterByApvebuyrcode1(['foo', 'bar']); // WHERE ApveBuyrCode1 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrcode1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrcode1 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrcode1($apvebuyrcode1 = null, $comparison = null)
+    public function filterByApvebuyrcode1($apvebuyrcode1 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrcode1)) {
@@ -6577,7 +7084,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE1, $apvebuyrcode1, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE1, $apvebuyrcode1, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6587,14 +7096,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrwhse2('fooValue');   // WHERE ApveBuyrWhse2 = 'fooValue'
      * $query->filterByApvebuyrwhse2('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrWhse2 LIKE '%fooValue%'
+     * $query->filterByApvebuyrwhse2(['foo', 'bar']); // WHERE ApveBuyrWhse2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrwhse2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrwhse2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrwhse2($apvebuyrwhse2 = null, $comparison = null)
+    public function filterByApvebuyrwhse2($apvebuyrwhse2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrwhse2)) {
@@ -6602,7 +7112,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE2, $apvebuyrwhse2, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE2, $apvebuyrwhse2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6612,14 +7124,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrcode2('fooValue');   // WHERE ApveBuyrCode2 = 'fooValue'
      * $query->filterByApvebuyrcode2('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrCode2 LIKE '%fooValue%'
+     * $query->filterByApvebuyrcode2(['foo', 'bar']); // WHERE ApveBuyrCode2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrcode2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrcode2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrcode2($apvebuyrcode2 = null, $comparison = null)
+    public function filterByApvebuyrcode2($apvebuyrcode2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrcode2)) {
@@ -6627,7 +7140,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE2, $apvebuyrcode2, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE2, $apvebuyrcode2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6637,14 +7152,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrwhse3('fooValue');   // WHERE ApveBuyrWhse3 = 'fooValue'
      * $query->filterByApvebuyrwhse3('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrWhse3 LIKE '%fooValue%'
+     * $query->filterByApvebuyrwhse3(['foo', 'bar']); // WHERE ApveBuyrWhse3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrwhse3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrwhse3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrwhse3($apvebuyrwhse3 = null, $comparison = null)
+    public function filterByApvebuyrwhse3($apvebuyrwhse3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrwhse3)) {
@@ -6652,7 +7168,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE3, $apvebuyrwhse3, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE3, $apvebuyrwhse3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6662,14 +7180,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrcode3('fooValue');   // WHERE ApveBuyrCode3 = 'fooValue'
      * $query->filterByApvebuyrcode3('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrCode3 LIKE '%fooValue%'
+     * $query->filterByApvebuyrcode3(['foo', 'bar']); // WHERE ApveBuyrCode3 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrcode3 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrcode3 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrcode3($apvebuyrcode3 = null, $comparison = null)
+    public function filterByApvebuyrcode3($apvebuyrcode3 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrcode3)) {
@@ -6677,7 +7196,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE3, $apvebuyrcode3, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE3, $apvebuyrcode3, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6687,14 +7208,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrwhse4('fooValue');   // WHERE ApveBuyrWhse4 = 'fooValue'
      * $query->filterByApvebuyrwhse4('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrWhse4 LIKE '%fooValue%'
+     * $query->filterByApvebuyrwhse4(['foo', 'bar']); // WHERE ApveBuyrWhse4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrwhse4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrwhse4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrwhse4($apvebuyrwhse4 = null, $comparison = null)
+    public function filterByApvebuyrwhse4($apvebuyrwhse4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrwhse4)) {
@@ -6702,7 +7224,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE4, $apvebuyrwhse4, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE4, $apvebuyrwhse4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6712,14 +7236,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrcode4('fooValue');   // WHERE ApveBuyrCode4 = 'fooValue'
      * $query->filterByApvebuyrcode4('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrCode4 LIKE '%fooValue%'
+     * $query->filterByApvebuyrcode4(['foo', 'bar']); // WHERE ApveBuyrCode4 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrcode4 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrcode4 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrcode4($apvebuyrcode4 = null, $comparison = null)
+    public function filterByApvebuyrcode4($apvebuyrcode4 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrcode4)) {
@@ -6727,7 +7252,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE4, $apvebuyrcode4, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE4, $apvebuyrcode4, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6737,14 +7264,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrwhse5('fooValue');   // WHERE ApveBuyrWhse5 = 'fooValue'
      * $query->filterByApvebuyrwhse5('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrWhse5 LIKE '%fooValue%'
+     * $query->filterByApvebuyrwhse5(['foo', 'bar']); // WHERE ApveBuyrWhse5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrwhse5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrwhse5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrwhse5($apvebuyrwhse5 = null, $comparison = null)
+    public function filterByApvebuyrwhse5($apvebuyrwhse5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrwhse5)) {
@@ -6752,7 +7280,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE5, $apvebuyrwhse5, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE5, $apvebuyrwhse5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6762,14 +7292,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrcode5('fooValue');   // WHERE ApveBuyrCode5 = 'fooValue'
      * $query->filterByApvebuyrcode5('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrCode5 LIKE '%fooValue%'
+     * $query->filterByApvebuyrcode5(['foo', 'bar']); // WHERE ApveBuyrCode5 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrcode5 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrcode5 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrcode5($apvebuyrcode5 = null, $comparison = null)
+    public function filterByApvebuyrcode5($apvebuyrcode5 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrcode5)) {
@@ -6777,7 +7308,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE5, $apvebuyrcode5, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE5, $apvebuyrcode5, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6787,14 +7320,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrwhse6('fooValue');   // WHERE ApveBuyrWhse6 = 'fooValue'
      * $query->filterByApvebuyrwhse6('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrWhse6 LIKE '%fooValue%'
+     * $query->filterByApvebuyrwhse6(['foo', 'bar']); // WHERE ApveBuyrWhse6 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrwhse6 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrwhse6 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrwhse6($apvebuyrwhse6 = null, $comparison = null)
+    public function filterByApvebuyrwhse6($apvebuyrwhse6 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrwhse6)) {
@@ -6802,7 +7336,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE6, $apvebuyrwhse6, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE6, $apvebuyrwhse6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6812,14 +7348,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrcode6('fooValue');   // WHERE ApveBuyrCode6 = 'fooValue'
      * $query->filterByApvebuyrcode6('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrCode6 LIKE '%fooValue%'
+     * $query->filterByApvebuyrcode6(['foo', 'bar']); // WHERE ApveBuyrCode6 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrcode6 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrcode6 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrcode6($apvebuyrcode6 = null, $comparison = null)
+    public function filterByApvebuyrcode6($apvebuyrcode6 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrcode6)) {
@@ -6827,7 +7364,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE6, $apvebuyrcode6, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE6, $apvebuyrcode6, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6837,14 +7376,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrwhse7('fooValue');   // WHERE ApveBuyrWhse7 = 'fooValue'
      * $query->filterByApvebuyrwhse7('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrWhse7 LIKE '%fooValue%'
+     * $query->filterByApvebuyrwhse7(['foo', 'bar']); // WHERE ApveBuyrWhse7 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrwhse7 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrwhse7 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrwhse7($apvebuyrwhse7 = null, $comparison = null)
+    public function filterByApvebuyrwhse7($apvebuyrwhse7 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrwhse7)) {
@@ -6852,7 +7392,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE7, $apvebuyrwhse7, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE7, $apvebuyrwhse7, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6862,14 +7404,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrcode7('fooValue');   // WHERE ApveBuyrCode7 = 'fooValue'
      * $query->filterByApvebuyrcode7('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrCode7 LIKE '%fooValue%'
+     * $query->filterByApvebuyrcode7(['foo', 'bar']); // WHERE ApveBuyrCode7 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrcode7 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrcode7 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrcode7($apvebuyrcode7 = null, $comparison = null)
+    public function filterByApvebuyrcode7($apvebuyrcode7 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrcode7)) {
@@ -6877,7 +7420,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE7, $apvebuyrcode7, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE7, $apvebuyrcode7, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6887,14 +7432,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrwhse8('fooValue');   // WHERE ApveBuyrWhse8 = 'fooValue'
      * $query->filterByApvebuyrwhse8('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrWhse8 LIKE '%fooValue%'
+     * $query->filterByApvebuyrwhse8(['foo', 'bar']); // WHERE ApveBuyrWhse8 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrwhse8 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrwhse8 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrwhse8($apvebuyrwhse8 = null, $comparison = null)
+    public function filterByApvebuyrwhse8($apvebuyrwhse8 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrwhse8)) {
@@ -6902,7 +7448,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE8, $apvebuyrwhse8, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE8, $apvebuyrwhse8, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6912,14 +7460,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrcode8('fooValue');   // WHERE ApveBuyrCode8 = 'fooValue'
      * $query->filterByApvebuyrcode8('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrCode8 LIKE '%fooValue%'
+     * $query->filterByApvebuyrcode8(['foo', 'bar']); // WHERE ApveBuyrCode8 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrcode8 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrcode8 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrcode8($apvebuyrcode8 = null, $comparison = null)
+    public function filterByApvebuyrcode8($apvebuyrcode8 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrcode8)) {
@@ -6927,7 +7476,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE8, $apvebuyrcode8, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE8, $apvebuyrcode8, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6937,14 +7488,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrwhse9('fooValue');   // WHERE ApveBuyrWhse9 = 'fooValue'
      * $query->filterByApvebuyrwhse9('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrWhse9 LIKE '%fooValue%'
+     * $query->filterByApvebuyrwhse9(['foo', 'bar']); // WHERE ApveBuyrWhse9 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrwhse9 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrwhse9 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrwhse9($apvebuyrwhse9 = null, $comparison = null)
+    public function filterByApvebuyrwhse9($apvebuyrwhse9 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrwhse9)) {
@@ -6952,7 +7504,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE9, $apvebuyrwhse9, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE9, $apvebuyrwhse9, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6962,14 +7516,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrcode9('fooValue');   // WHERE ApveBuyrCode9 = 'fooValue'
      * $query->filterByApvebuyrcode9('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrCode9 LIKE '%fooValue%'
+     * $query->filterByApvebuyrcode9(['foo', 'bar']); // WHERE ApveBuyrCode9 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrcode9 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrcode9 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrcode9($apvebuyrcode9 = null, $comparison = null)
+    public function filterByApvebuyrcode9($apvebuyrcode9 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrcode9)) {
@@ -6977,7 +7532,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE9, $apvebuyrcode9, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE9, $apvebuyrcode9, $comparison);
+
+        return $this;
     }
 
     /**
@@ -6987,14 +7544,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrwhse10('fooValue');   // WHERE ApveBuyrWhse10 = 'fooValue'
      * $query->filterByApvebuyrwhse10('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrWhse10 LIKE '%fooValue%'
+     * $query->filterByApvebuyrwhse10(['foo', 'bar']); // WHERE ApveBuyrWhse10 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrwhse10 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrwhse10 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrwhse10($apvebuyrwhse10 = null, $comparison = null)
+    public function filterByApvebuyrwhse10($apvebuyrwhse10 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrwhse10)) {
@@ -7002,7 +7560,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE10, $apvebuyrwhse10, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRWHSE10, $apvebuyrwhse10, $comparison);
+
+        return $this;
     }
 
     /**
@@ -7012,14 +7572,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByApvebuyrcode10('fooValue');   // WHERE ApveBuyrCode10 = 'fooValue'
      * $query->filterByApvebuyrcode10('%fooValue%', Criteria::LIKE); // WHERE ApveBuyrCode10 LIKE '%fooValue%'
+     * $query->filterByApvebuyrcode10(['foo', 'bar']); // WHERE ApveBuyrCode10 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $apvebuyrcode10 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $apvebuyrcode10 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvebuyrcode10($apvebuyrcode10 = null, $comparison = null)
+    public function filterByApvebuyrcode10($apvebuyrcode10 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($apvebuyrcode10)) {
@@ -7027,7 +7588,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE10, $apvebuyrcode10, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE10, $apvebuyrcode10, $comparison);
+
+        return $this;
     }
 
     /**
@@ -7040,15 +7603,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvelandcost(array('min' => 12)); // WHERE ApveLandCost > 12
      * </code>
      *
-     * @param     mixed $apvelandcost The value to use as filter.
+     * @param mixed $apvelandcost The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvelandcost($apvelandcost = null, $comparison = null)
+    public function filterByApvelandcost($apvelandcost = null, ?string $comparison = null)
     {
         if (is_array($apvelandcost)) {
             $useMinMax = false;
@@ -7068,7 +7631,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVELANDCOST, $apvelandcost, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVELANDCOST, $apvelandcost, $comparison);
+
+        return $this;
     }
 
     /**
@@ -7081,15 +7646,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvereleasenbr(array('min' => 12)); // WHERE ApveReleaseNbr > 12
      * </code>
      *
-     * @param     mixed $apvereleasenbr The value to use as filter.
+     * @param mixed $apvereleasenbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvereleasenbr($apvereleasenbr = null, $comparison = null)
+    public function filterByApvereleasenbr($apvereleasenbr = null, ?string $comparison = null)
     {
         if (is_array($apvereleasenbr)) {
             $useMinMax = false;
@@ -7109,7 +7674,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVERELEASENBR, $apvereleasenbr, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVERELEASENBR, $apvereleasenbr, $comparison);
+
+        return $this;
     }
 
     /**
@@ -7122,15 +7689,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvescanstartpos(array('min' => 12)); // WHERE ApveScanStartPos > 12
      * </code>
      *
-     * @param     mixed $apvescanstartpos The value to use as filter.
+     * @param mixed $apvescanstartpos The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvescanstartpos($apvescanstartpos = null, $comparison = null)
+    public function filterByApvescanstartpos($apvescanstartpos = null, ?string $comparison = null)
     {
         if (is_array($apvescanstartpos)) {
             $useMinMax = false;
@@ -7150,7 +7717,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVESCANSTARTPOS, $apvescanstartpos, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVESCANSTARTPOS, $apvescanstartpos, $comparison);
+
+        return $this;
     }
 
     /**
@@ -7163,15 +7732,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvescanlength(array('min' => 12)); // WHERE ApveScanLength > 12
      * </code>
      *
-     * @param     mixed $apvescanlength The value to use as filter.
+     * @param mixed $apvescanlength The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvescanlength($apvescanlength = null, $comparison = null)
+    public function filterByApvescanlength($apvescanlength = null, ?string $comparison = null)
     {
         if (is_array($apvescanlength)) {
             $useMinMax = false;
@@ -7191,7 +7760,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVESCANLENGTH, $apvescanlength, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVESCANLENGTH, $apvescanlength, $comparison);
+
+        return $this;
     }
 
     /**
@@ -7204,15 +7775,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvePurYtd(array('min' => 12)); // WHERE ApvePurYtd > 12
      * </code>
      *
-     * @param     mixed $apvePurYtd The value to use as filter.
+     * @param mixed $apvePurYtd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvePurYtd($apvePurYtd = null, $comparison = null)
+    public function filterByApvePurYtd($apvePurYtd = null, ?string $comparison = null)
     {
         if (is_array($apvePurYtd)) {
             $useMinMax = false;
@@ -7232,7 +7803,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPURYTD, $apvePurYtd, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPURYTD, $apvePurYtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -7245,15 +7818,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApvePoYtd(array('min' => 12)); // WHERE ApvePoYtd > 12
      * </code>
      *
-     * @param     mixed $apvePoYtd The value to use as filter.
+     * @param mixed $apvePoYtd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApvePoYtd($apvePoYtd = null, $comparison = null)
+    public function filterByApvePoYtd($apvePoYtd = null, ?string $comparison = null)
     {
         if (is_array($apvePoYtd)) {
             $useMinMax = false;
@@ -7273,7 +7846,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEPOYTD, $apvePoYtd, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEPOYTD, $apvePoYtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -7286,15 +7861,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveInvcYtd(array('min' => 12)); // WHERE ApveInvcYtd > 12
      * </code>
      *
-     * @param     mixed $apveInvcYtd The value to use as filter.
+     * @param mixed $apveInvcYtd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveInvcYtd($apveInvcYtd = null, $comparison = null)
+    public function filterByApveInvcYtd($apveInvcYtd = null, ?string $comparison = null)
     {
         if (is_array($apveInvcYtd)) {
             $useMinMax = false;
@@ -7314,7 +7889,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEINVCYTD, $apveInvcYtd, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEINVCYTD, $apveInvcYtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -7327,15 +7904,15 @@ abstract class VendorQuery extends ModelCriteria
      * $query->filterByApveIcntYtd(array('min' => 12)); // WHERE ApveIcntYtd > 12
      * </code>
      *
-     * @param     mixed $apveIcntYtd The value to use as filter.
+     * @param mixed $apveIcntYtd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApveIcntYtd($apveIcntYtd = null, $comparison = null)
+    public function filterByApveIcntYtd($apveIcntYtd = null, ?string $comparison = null)
     {
         if (is_array($apveIcntYtd)) {
             $useMinMax = false;
@@ -7355,7 +7932,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_APVEICNTYTD, $apveIcntYtd, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_APVEICNTYTD, $apveIcntYtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -7365,14 +7944,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -7380,7 +7960,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -7390,14 +7972,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -7405,7 +7988,9 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -7415,14 +8000,15 @@ abstract class VendorQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -7430,20 +8016,22 @@ abstract class VendorQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(VendorTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Filter the query by a related \ApTypeCode object
      *
      * @param \ApTypeCode|ObjectCollection $apTypeCode The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApTypeCode($apTypeCode, $comparison = null)
+    public function filterByApTypeCode($apTypeCode, ?string $comparison = null)
     {
         if ($apTypeCode instanceof \ApTypeCode) {
             return $this
@@ -7453,8 +8041,10 @@ abstract class VendorQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(VendorTableMap::COL_APTBTYPECODE, $apTypeCode->toKeyValue('PrimaryKey', 'Aptbtypecode'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByApTypeCode() only accepts arguments of type \ApTypeCode or Collection');
         }
@@ -7463,12 +8053,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ApTypeCode relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinApTypeCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinApTypeCode(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ApTypeCode');
@@ -7497,9 +8087,9 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ApTypeCodeQuery A secondary query class using the current class as primary query
      */
@@ -7511,16 +8101,112 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the ApTypeCode relation ApTypeCode object
+     *
+     * @param callable(\ApTypeCodeQuery):\ApTypeCodeQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withApTypeCodeQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useApTypeCodeQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ApTypeCode table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ApTypeCodeQuery The inner query object of the EXISTS statement
+     */
+    public function useApTypeCodeExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ApTypeCodeQuery */
+        $q = $this->useExistsQuery('ApTypeCode', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApTypeCode table for a NOT EXISTS query.
+     *
+     * @see useApTypeCodeExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ApTypeCodeQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useApTypeCodeNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ApTypeCodeQuery */
+        $q = $this->useExistsQuery('ApTypeCode', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApTypeCode table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ApTypeCodeQuery The inner query object of the IN statement
+     */
+    public function useInApTypeCodeQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ApTypeCodeQuery */
+        $q = $this->useInQuery('ApTypeCode', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApTypeCode table for a NOT IN query.
+     *
+     * @see useApTypeCodeInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ApTypeCodeQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInApTypeCodeQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ApTypeCodeQuery */
+        $q = $this->useInQuery('ApTypeCode', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ApTermsCode object
      *
      * @param \ApTermsCode|ObjectCollection $apTermsCode The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApTermsCode($apTermsCode, $comparison = null)
+    public function filterByApTermsCode($apTermsCode, ?string $comparison = null)
     {
         if ($apTermsCode instanceof \ApTermsCode) {
             return $this
@@ -7530,8 +8216,10 @@ abstract class VendorQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(VendorTableMap::COL_APTMTERMCODE, $apTermsCode->toKeyValue('PrimaryKey', 'Aptmtermcode'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByApTermsCode() only accepts arguments of type \ApTermsCode or Collection');
         }
@@ -7540,12 +8228,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ApTermsCode relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinApTermsCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinApTermsCode(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ApTermsCode');
@@ -7574,9 +8262,9 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ApTermsCodeQuery A secondary query class using the current class as primary query
      */
@@ -7588,16 +8276,112 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the ApTermsCode relation ApTermsCode object
+     *
+     * @param callable(\ApTermsCodeQuery):\ApTermsCodeQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withApTermsCodeQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useApTermsCodeQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ApTermsCode table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ApTermsCodeQuery The inner query object of the EXISTS statement
+     */
+    public function useApTermsCodeExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ApTermsCodeQuery */
+        $q = $this->useExistsQuery('ApTermsCode', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApTermsCode table for a NOT EXISTS query.
+     *
+     * @see useApTermsCodeExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ApTermsCodeQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useApTermsCodeNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ApTermsCodeQuery */
+        $q = $this->useExistsQuery('ApTermsCode', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApTermsCode table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ApTermsCodeQuery The inner query object of the IN statement
+     */
+    public function useInApTermsCodeQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ApTermsCodeQuery */
+        $q = $this->useInQuery('ApTermsCode', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApTermsCode table for a NOT IN query.
+     *
+     * @see useApTermsCodeInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ApTermsCodeQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInApTermsCodeQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ApTermsCodeQuery */
+        $q = $this->useInQuery('ApTermsCode', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \Shipvia object
      *
      * @param \Shipvia|ObjectCollection $shipvia The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByShipvia($shipvia, $comparison = null)
+    public function filterByShipvia($shipvia, ?string $comparison = null)
     {
         if ($shipvia instanceof \Shipvia) {
             return $this
@@ -7607,8 +8391,10 @@ abstract class VendorQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(VendorTableMap::COL_APVESVIACODE, $shipvia->toKeyValue('PrimaryKey', 'Artbshipvia'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByShipvia() only accepts arguments of type \Shipvia or Collection');
         }
@@ -7617,12 +8403,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the Shipvia relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinShipvia($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinShipvia(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Shipvia');
@@ -7651,9 +8437,9 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ShipviaQuery A secondary query class using the current class as primary query
      */
@@ -7665,16 +8451,112 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the Shipvia relation Shipvia object
+     *
+     * @param callable(\ShipviaQuery):\ShipviaQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withShipviaQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useShipviaQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to Shipvia table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ShipviaQuery The inner query object of the EXISTS statement
+     */
+    public function useShipviaExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ShipviaQuery */
+        $q = $this->useExistsQuery('Shipvia', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Shipvia table for a NOT EXISTS query.
+     *
+     * @see useShipviaExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ShipviaQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useShipviaNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ShipviaQuery */
+        $q = $this->useExistsQuery('Shipvia', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to Shipvia table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ShipviaQuery The inner query object of the IN statement
+     */
+    public function useInShipviaQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ShipviaQuery */
+        $q = $this->useInQuery('Shipvia', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to Shipvia table for a NOT IN query.
+     *
+     * @see useShipviaInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ShipviaQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInShipviaQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ShipviaQuery */
+        $q = $this->useInQuery('Shipvia', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ApBuyer object
      *
      * @param \ApBuyer|ObjectCollection $apBuyer The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApBuyer($apBuyer, $comparison = null)
+    public function filterByApBuyer($apBuyer, ?string $comparison = null)
     {
         if ($apBuyer instanceof \ApBuyer) {
             return $this
@@ -7684,8 +8566,10 @@ abstract class VendorQuery extends ModelCriteria
                 $comparison = Criteria::IN;
             }
 
-            return $this
+            $this
                 ->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE1, $apBuyer->toKeyValue('PrimaryKey', 'Aptbbuyrcode'), $comparison);
+
+            return $this;
         } else {
             throw new PropelException('filterByApBuyer() only accepts arguments of type \ApBuyer or Collection');
         }
@@ -7694,12 +8578,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ApBuyer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinApBuyer($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinApBuyer(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ApBuyer');
@@ -7728,9 +8612,9 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ApBuyerQuery A secondary query class using the current class as primary query
      */
@@ -7742,23 +8626,123 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the ApBuyer relation ApBuyer object
+     *
+     * @param callable(\ApBuyerQuery):\ApBuyerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withApBuyerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useApBuyerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ApBuyer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ApBuyerQuery The inner query object of the EXISTS statement
+     */
+    public function useApBuyerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ApBuyerQuery */
+        $q = $this->useExistsQuery('ApBuyer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApBuyer table for a NOT EXISTS query.
+     *
+     * @see useApBuyerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ApBuyerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useApBuyerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ApBuyerQuery */
+        $q = $this->useExistsQuery('ApBuyer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApBuyer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ApBuyerQuery The inner query object of the IN statement
+     */
+    public function useInApBuyerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ApBuyerQuery */
+        $q = $this->useInQuery('ApBuyer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApBuyer table for a NOT IN query.
+     *
+     * @see useApBuyerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ApBuyerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInApBuyerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ApBuyerQuery */
+        $q = $this->useInQuery('ApBuyer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ApContact object
      *
      * @param \ApContact|ObjectCollection $apContact the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApContact($apContact, $comparison = null)
+    public function filterByApContact($apContact, ?string $comparison = null)
     {
         if ($apContact instanceof \ApContact) {
-            return $this
+            $this
                 ->addUsingAlias(VendorTableMap::COL_APVEVENDID, $apContact->getApvevendid(), $comparison);
+
+            return $this;
         } elseif ($apContact instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useApContactQuery()
                 ->filterByPrimaryKeys($apContact->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByApContact() only accepts arguments of type \ApContact or Collection');
         }
@@ -7767,12 +8751,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ApContact relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinApContact($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinApContact(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ApContact');
@@ -7801,9 +8785,9 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ApContactQuery A secondary query class using the current class as primary query
      */
@@ -7815,23 +8799,123 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the ApContact relation ApContact object
+     *
+     * @param callable(\ApContactQuery):\ApContactQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withApContactQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useApContactQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ApContact table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ApContactQuery The inner query object of the EXISTS statement
+     */
+    public function useApContactExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ApContactQuery */
+        $q = $this->useExistsQuery('ApContact', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApContact table for a NOT EXISTS query.
+     *
+     * @see useApContactExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ApContactQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useApContactNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ApContactQuery */
+        $q = $this->useExistsQuery('ApContact', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApContact table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ApContactQuery The inner query object of the IN statement
+     */
+    public function useInApContactQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ApContactQuery */
+        $q = $this->useInQuery('ApContact', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApContact table for a NOT IN query.
+     *
+     * @see useApContactInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ApContactQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInApContactQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ApContactQuery */
+        $q = $this->useInQuery('ApContact', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ApInvoiceDetail object
      *
      * @param \ApInvoiceDetail|ObjectCollection $apInvoiceDetail the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApInvoiceDetail($apInvoiceDetail, $comparison = null)
+    public function filterByApInvoiceDetail($apInvoiceDetail, ?string $comparison = null)
     {
         if ($apInvoiceDetail instanceof \ApInvoiceDetail) {
-            return $this
+            $this
                 ->addUsingAlias(VendorTableMap::COL_APVEVENDID, $apInvoiceDetail->getApvevendid(), $comparison);
+
+            return $this;
         } elseif ($apInvoiceDetail instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useApInvoiceDetailQuery()
                 ->filterByPrimaryKeys($apInvoiceDetail->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByApInvoiceDetail() only accepts arguments of type \ApInvoiceDetail or Collection');
         }
@@ -7840,12 +8924,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ApInvoiceDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinApInvoiceDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinApInvoiceDetail(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ApInvoiceDetail');
@@ -7874,9 +8958,9 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ApInvoiceDetailQuery A secondary query class using the current class as primary query
      */
@@ -7888,23 +8972,123 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the ApInvoiceDetail relation ApInvoiceDetail object
+     *
+     * @param callable(\ApInvoiceDetailQuery):\ApInvoiceDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withApInvoiceDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useApInvoiceDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ApInvoiceDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ApInvoiceDetailQuery The inner query object of the EXISTS statement
+     */
+    public function useApInvoiceDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ApInvoiceDetailQuery */
+        $q = $this->useExistsQuery('ApInvoiceDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApInvoiceDetail table for a NOT EXISTS query.
+     *
+     * @see useApInvoiceDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ApInvoiceDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useApInvoiceDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ApInvoiceDetailQuery */
+        $q = $this->useExistsQuery('ApInvoiceDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApInvoiceDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ApInvoiceDetailQuery The inner query object of the IN statement
+     */
+    public function useInApInvoiceDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ApInvoiceDetailQuery */
+        $q = $this->useInQuery('ApInvoiceDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApInvoiceDetail table for a NOT IN query.
+     *
+     * @see useApInvoiceDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ApInvoiceDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInApInvoiceDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ApInvoiceDetailQuery */
+        $q = $this->useInQuery('ApInvoiceDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ApInvoice object
      *
      * @param \ApInvoice|ObjectCollection $apInvoice the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByApInvoice($apInvoice, $comparison = null)
+    public function filterByApInvoice($apInvoice, ?string $comparison = null)
     {
         if ($apInvoice instanceof \ApInvoice) {
-            return $this
+            $this
                 ->addUsingAlias(VendorTableMap::COL_APVEVENDID, $apInvoice->getApvevendid(), $comparison);
+
+            return $this;
         } elseif ($apInvoice instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useApInvoiceQuery()
                 ->filterByPrimaryKeys($apInvoice->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByApInvoice() only accepts arguments of type \ApInvoice or Collection');
         }
@@ -7913,12 +9097,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ApInvoice relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinApInvoice($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinApInvoice(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ApInvoice');
@@ -7947,9 +9131,9 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ApInvoiceQuery A secondary query class using the current class as primary query
      */
@@ -7961,23 +9145,123 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the ApInvoice relation ApInvoice object
+     *
+     * @param callable(\ApInvoiceQuery):\ApInvoiceQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withApInvoiceQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useApInvoiceQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ApInvoice table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ApInvoiceQuery The inner query object of the EXISTS statement
+     */
+    public function useApInvoiceExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ApInvoiceQuery */
+        $q = $this->useExistsQuery('ApInvoice', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApInvoice table for a NOT EXISTS query.
+     *
+     * @see useApInvoiceExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ApInvoiceQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useApInvoiceNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ApInvoiceQuery */
+        $q = $this->useExistsQuery('ApInvoice', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApInvoice table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ApInvoiceQuery The inner query object of the IN statement
+     */
+    public function useInApInvoiceQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ApInvoiceQuery */
+        $q = $this->useInQuery('ApInvoice', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ApInvoice table for a NOT IN query.
+     *
+     * @see useApInvoiceInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ApInvoiceQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInApInvoiceQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ApInvoiceQuery */
+        $q = $this->useInQuery('ApInvoice', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \VendorShipfrom object
      *
      * @param \VendorShipfrom|ObjectCollection $vendorShipfrom the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByVendorShipfrom($vendorShipfrom, $comparison = null)
+    public function filterByVendorShipfrom($vendorShipfrom, ?string $comparison = null)
     {
         if ($vendorShipfrom instanceof \VendorShipfrom) {
-            return $this
+            $this
                 ->addUsingAlias(VendorTableMap::COL_APVEVENDID, $vendorShipfrom->getApvevendid(), $comparison);
+
+            return $this;
         } elseif ($vendorShipfrom instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useVendorShipfromQuery()
                 ->filterByPrimaryKeys($vendorShipfrom->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByVendorShipfrom() only accepts arguments of type \VendorShipfrom or Collection');
         }
@@ -7986,12 +9270,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the VendorShipfrom relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinVendorShipfrom($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinVendorShipfrom(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('VendorShipfrom');
@@ -8020,9 +9304,9 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \VendorShipfromQuery A secondary query class using the current class as primary query
      */
@@ -8034,23 +9318,123 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the VendorShipfrom relation VendorShipfrom object
+     *
+     * @param callable(\VendorShipfromQuery):\VendorShipfromQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withVendorShipfromQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useVendorShipfromQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to VendorShipfrom table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \VendorShipfromQuery The inner query object of the EXISTS statement
+     */
+    public function useVendorShipfromExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \VendorShipfromQuery */
+        $q = $this->useExistsQuery('VendorShipfrom', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to VendorShipfrom table for a NOT EXISTS query.
+     *
+     * @see useVendorShipfromExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \VendorShipfromQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useVendorShipfromNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \VendorShipfromQuery */
+        $q = $this->useExistsQuery('VendorShipfrom', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to VendorShipfrom table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \VendorShipfromQuery The inner query object of the IN statement
+     */
+    public function useInVendorShipfromQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \VendorShipfromQuery */
+        $q = $this->useInQuery('VendorShipfrom', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to VendorShipfrom table for a NOT IN query.
+     *
+     * @see useVendorShipfromInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \VendorShipfromQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInVendorShipfromQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \VendorShipfromQuery */
+        $q = $this->useInQuery('VendorShipfrom', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvNonstockItem object
      *
      * @param \InvNonstockItem|ObjectCollection $invNonstockItem the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvNonstockItem($invNonstockItem, $comparison = null)
+    public function filterByInvNonstockItem($invNonstockItem, ?string $comparison = null)
     {
         if ($invNonstockItem instanceof \InvNonstockItem) {
-            return $this
+            $this
                 ->addUsingAlias(VendorTableMap::COL_APVEVENDID, $invNonstockItem->getNsitmnfrid(), $comparison);
+
+            return $this;
         } elseif ($invNonstockItem instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvNonstockItemQuery()
                 ->filterByPrimaryKeys($invNonstockItem->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvNonstockItem() only accepts arguments of type \InvNonstockItem or Collection');
         }
@@ -8059,12 +9443,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvNonstockItem relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvNonstockItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvNonstockItem(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvNonstockItem');
@@ -8093,9 +9477,9 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvNonstockItemQuery A secondary query class using the current class as primary query
      */
@@ -8107,23 +9491,123 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvNonstockItem relation InvNonstockItem object
+     *
+     * @param callable(\InvNonstockItemQuery):\InvNonstockItemQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvNonstockItemQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvNonstockItemQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvNonstockItem table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvNonstockItemQuery The inner query object of the EXISTS statement
+     */
+    public function useInvNonstockItemExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvNonstockItemQuery */
+        $q = $this->useExistsQuery('InvNonstockItem', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvNonstockItem table for a NOT EXISTS query.
+     *
+     * @see useInvNonstockItemExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvNonstockItemQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvNonstockItemNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvNonstockItemQuery */
+        $q = $this->useExistsQuery('InvNonstockItem', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvNonstockItem table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvNonstockItemQuery The inner query object of the IN statement
+     */
+    public function useInInvNonstockItemQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvNonstockItemQuery */
+        $q = $this->useInQuery('InvNonstockItem', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvNonstockItem table for a NOT IN query.
+     *
+     * @see useInvNonstockItemInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvNonstockItemQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvNonstockItemQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvNonstockItemQuery */
+        $q = $this->useInQuery('InvNonstockItem', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \InvTransferOrder object
      *
      * @param \InvTransferOrder|ObjectCollection $invTransferOrder the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByInvTransferOrder($invTransferOrder, $comparison = null)
+    public function filterByInvTransferOrder($invTransferOrder, ?string $comparison = null)
     {
         if ($invTransferOrder instanceof \InvTransferOrder) {
-            return $this
+            $this
                 ->addUsingAlias(VendorTableMap::COL_APVEVENDID, $invTransferOrder->getApvevendid(), $comparison);
+
+            return $this;
         } elseif ($invTransferOrder instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useInvTransferOrderQuery()
                 ->filterByPrimaryKeys($invTransferOrder->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByInvTransferOrder() only accepts arguments of type \InvTransferOrder or Collection');
         }
@@ -8132,12 +9616,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the InvTransferOrder relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinInvTransferOrder($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvTransferOrder(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvTransferOrder');
@@ -8166,9 +9650,9 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \InvTransferOrderQuery A secondary query class using the current class as primary query
      */
@@ -8180,23 +9664,123 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the InvTransferOrder relation InvTransferOrder object
+     *
+     * @param callable(\InvTransferOrderQuery):\InvTransferOrderQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withInvTransferOrderQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useInvTransferOrderQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to InvTransferOrder table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \InvTransferOrderQuery The inner query object of the EXISTS statement
+     */
+    public function useInvTransferOrderExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useExistsQuery('InvTransferOrder', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferOrder table for a NOT EXISTS query.
+     *
+     * @see useInvTransferOrderExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferOrderQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useInvTransferOrderNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useExistsQuery('InvTransferOrder', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferOrder table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \InvTransferOrderQuery The inner query object of the IN statement
+     */
+    public function useInInvTransferOrderQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useInQuery('InvTransferOrder', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to InvTransferOrder table for a NOT IN query.
+     *
+     * @see useInvTransferOrderInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \InvTransferOrderQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInInvTransferOrderQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \InvTransferOrderQuery */
+        $q = $this->useInQuery('InvTransferOrder', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemXrefKey object
      *
      * @param \ItemXrefKey|ObjectCollection $itemXrefKey the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemXrefKey($itemXrefKey, $comparison = null)
+    public function filterByItemXrefKey($itemXrefKey, ?string $comparison = null)
     {
         if ($itemXrefKey instanceof \ItemXrefKey) {
-            return $this
+            $this
                 ->addUsingAlias(VendorTableMap::COL_APVEVENDID, $itemXrefKey->getRkeycvid(), $comparison);
+
+            return $this;
         } elseif ($itemXrefKey instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemXrefKeyQuery()
                 ->filterByPrimaryKeys($itemXrefKey->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemXrefKey() only accepts arguments of type \ItemXrefKey or Collection');
         }
@@ -8205,12 +9789,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemXrefKey relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemXrefKey($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemXrefKey(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemXrefKey');
@@ -8239,9 +9823,9 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemXrefKeyQuery A secondary query class using the current class as primary query
      */
@@ -8253,23 +9837,123 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemXrefKey relation ItemXrefKey object
+     *
+     * @param callable(\ItemXrefKeyQuery):\ItemXrefKeyQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemXrefKeyQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemXrefKeyQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemXrefKey table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemXrefKeyQuery The inner query object of the EXISTS statement
+     */
+    public function useItemXrefKeyExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemXrefKeyQuery */
+        $q = $this->useExistsQuery('ItemXrefKey', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefKey table for a NOT EXISTS query.
+     *
+     * @see useItemXrefKeyExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefKeyQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemXrefKeyNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefKeyQuery */
+        $q = $this->useExistsQuery('ItemXrefKey', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefKey table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemXrefKeyQuery The inner query object of the IN statement
+     */
+    public function useInItemXrefKeyQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemXrefKeyQuery */
+        $q = $this->useInQuery('ItemXrefKey', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefKey table for a NOT IN query.
+     *
+     * @see useItemXrefKeyInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefKeyQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemXrefKeyQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefKeyQuery */
+        $q = $this->useInQuery('ItemXrefKey', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemXrefManufacturer object
      *
      * @param \ItemXrefManufacturer|ObjectCollection $itemXrefManufacturer the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemXrefManufacturer($itemXrefManufacturer, $comparison = null)
+    public function filterByItemXrefManufacturer($itemXrefManufacturer, ?string $comparison = null)
     {
         if ($itemXrefManufacturer instanceof \ItemXrefManufacturer) {
-            return $this
+            $this
                 ->addUsingAlias(VendorTableMap::COL_APVEVENDID, $itemXrefManufacturer->getApvevendid(), $comparison);
+
+            return $this;
         } elseif ($itemXrefManufacturer instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemXrefManufacturerQuery()
                 ->filterByPrimaryKeys($itemXrefManufacturer->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemXrefManufacturer() only accepts arguments of type \ItemXrefManufacturer or Collection');
         }
@@ -8278,12 +9962,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemXrefManufacturer relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemXrefManufacturer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemXrefManufacturer(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemXrefManufacturer');
@@ -8312,9 +9996,9 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemXrefManufacturerQuery A secondary query class using the current class as primary query
      */
@@ -8326,23 +10010,123 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemXrefManufacturer relation ItemXrefManufacturer object
+     *
+     * @param callable(\ItemXrefManufacturerQuery):\ItemXrefManufacturerQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemXrefManufacturerQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemXrefManufacturerQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemXrefManufacturer table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemXrefManufacturerQuery The inner query object of the EXISTS statement
+     */
+    public function useItemXrefManufacturerExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemXrefManufacturerQuery */
+        $q = $this->useExistsQuery('ItemXrefManufacturer', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefManufacturer table for a NOT EXISTS query.
+     *
+     * @see useItemXrefManufacturerExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefManufacturerQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemXrefManufacturerNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefManufacturerQuery */
+        $q = $this->useExistsQuery('ItemXrefManufacturer', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefManufacturer table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemXrefManufacturerQuery The inner query object of the IN statement
+     */
+    public function useInItemXrefManufacturerQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemXrefManufacturerQuery */
+        $q = $this->useInQuery('ItemXrefManufacturer', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefManufacturer table for a NOT IN query.
+     *
+     * @see useItemXrefManufacturerInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefManufacturerQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemXrefManufacturerQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefManufacturerQuery */
+        $q = $this->useInQuery('ItemXrefManufacturer', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemXrefVendorNoteDetail object
      *
      * @param \ItemXrefVendorNoteDetail|ObjectCollection $itemXrefVendorNoteDetail the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemXrefVendorNoteDetail($itemXrefVendorNoteDetail, $comparison = null)
+    public function filterByItemXrefVendorNoteDetail($itemXrefVendorNoteDetail, ?string $comparison = null)
     {
         if ($itemXrefVendorNoteDetail instanceof \ItemXrefVendorNoteDetail) {
-            return $this
+            $this
                 ->addUsingAlias(VendorTableMap::COL_APVEVENDID, $itemXrefVendorNoteDetail->getApvevendid(), $comparison);
+
+            return $this;
         } elseif ($itemXrefVendorNoteDetail instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemXrefVendorNoteDetailQuery()
                 ->filterByPrimaryKeys($itemXrefVendorNoteDetail->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemXrefVendorNoteDetail() only accepts arguments of type \ItemXrefVendorNoteDetail or Collection');
         }
@@ -8351,12 +10135,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemXrefVendorNoteDetail relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemXrefVendorNoteDetail($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinItemXrefVendorNoteDetail(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemXrefVendorNoteDetail');
@@ -8385,9 +10169,9 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemXrefVendorNoteDetailQuery A secondary query class using the current class as primary query
      */
@@ -8399,23 +10183,123 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemXrefVendorNoteDetail relation ItemXrefVendorNoteDetail object
+     *
+     * @param callable(\ItemXrefVendorNoteDetailQuery):\ItemXrefVendorNoteDetailQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemXrefVendorNoteDetailQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useItemXrefVendorNoteDetailQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendorNoteDetail table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemXrefVendorNoteDetailQuery The inner query object of the EXISTS statement
+     */
+    public function useItemXrefVendorNoteDetailExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemXrefVendorNoteDetailQuery */
+        $q = $this->useExistsQuery('ItemXrefVendorNoteDetail', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendorNoteDetail table for a NOT EXISTS query.
+     *
+     * @see useItemXrefVendorNoteDetailExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefVendorNoteDetailQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemXrefVendorNoteDetailNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefVendorNoteDetailQuery */
+        $q = $this->useExistsQuery('ItemXrefVendorNoteDetail', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendorNoteDetail table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemXrefVendorNoteDetailQuery The inner query object of the IN statement
+     */
+    public function useInItemXrefVendorNoteDetailQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemXrefVendorNoteDetailQuery */
+        $q = $this->useInQuery('ItemXrefVendorNoteDetail', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendorNoteDetail table for a NOT IN query.
+     *
+     * @see useItemXrefVendorNoteDetailInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefVendorNoteDetailQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemXrefVendorNoteDetailQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefVendorNoteDetailQuery */
+        $q = $this->useInQuery('ItemXrefVendorNoteDetail', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemXrefVendorNoteInternal object
      *
      * @param \ItemXrefVendorNoteInternal|ObjectCollection $itemXrefVendorNoteInternal the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemXrefVendorNoteInternal($itemXrefVendorNoteInternal, $comparison = null)
+    public function filterByItemXrefVendorNoteInternal($itemXrefVendorNoteInternal, ?string $comparison = null)
     {
         if ($itemXrefVendorNoteInternal instanceof \ItemXrefVendorNoteInternal) {
-            return $this
+            $this
                 ->addUsingAlias(VendorTableMap::COL_APVEVENDID, $itemXrefVendorNoteInternal->getApvevendid(), $comparison);
+
+            return $this;
         } elseif ($itemXrefVendorNoteInternal instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemXrefVendorNoteInternalQuery()
                 ->filterByPrimaryKeys($itemXrefVendorNoteInternal->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemXrefVendorNoteInternal() only accepts arguments of type \ItemXrefVendorNoteInternal or Collection');
         }
@@ -8424,12 +10308,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemXrefVendorNoteInternal relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemXrefVendorNoteInternal($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinItemXrefVendorNoteInternal(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemXrefVendorNoteInternal');
@@ -8458,9 +10342,9 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemXrefVendorNoteInternalQuery A secondary query class using the current class as primary query
      */
@@ -8472,23 +10356,123 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemXrefVendorNoteInternal relation ItemXrefVendorNoteInternal object
+     *
+     * @param callable(\ItemXrefVendorNoteInternalQuery):\ItemXrefVendorNoteInternalQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemXrefVendorNoteInternalQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->useItemXrefVendorNoteInternalQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendorNoteInternal table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemXrefVendorNoteInternalQuery The inner query object of the EXISTS statement
+     */
+    public function useItemXrefVendorNoteInternalExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemXrefVendorNoteInternalQuery */
+        $q = $this->useExistsQuery('ItemXrefVendorNoteInternal', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendorNoteInternal table for a NOT EXISTS query.
+     *
+     * @see useItemXrefVendorNoteInternalExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefVendorNoteInternalQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemXrefVendorNoteInternalNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefVendorNoteInternalQuery */
+        $q = $this->useExistsQuery('ItemXrefVendorNoteInternal', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendorNoteInternal table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemXrefVendorNoteInternalQuery The inner query object of the IN statement
+     */
+    public function useInItemXrefVendorNoteInternalQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemXrefVendorNoteInternalQuery */
+        $q = $this->useInQuery('ItemXrefVendorNoteInternal', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendorNoteInternal table for a NOT IN query.
+     *
+     * @see useItemXrefVendorNoteInternalInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefVendorNoteInternalQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemXrefVendorNoteInternalQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefVendorNoteInternalQuery */
+        $q = $this->useInQuery('ItemXrefVendorNoteInternal', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \PurchaseOrder object
      *
      * @param \PurchaseOrder|ObjectCollection $purchaseOrder the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByPurchaseOrder($purchaseOrder, $comparison = null)
+    public function filterByPurchaseOrder($purchaseOrder, ?string $comparison = null)
     {
         if ($purchaseOrder instanceof \PurchaseOrder) {
-            return $this
+            $this
                 ->addUsingAlias(VendorTableMap::COL_APVEVENDID, $purchaseOrder->getApvevendid(), $comparison);
+
+            return $this;
         } elseif ($purchaseOrder instanceof ObjectCollection) {
-            return $this
+            $this
                 ->usePurchaseOrderQuery()
                 ->filterByPrimaryKeys($purchaseOrder->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByPurchaseOrder() only accepts arguments of type \PurchaseOrder or Collection');
         }
@@ -8497,12 +10481,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the PurchaseOrder relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinPurchaseOrder($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinPurchaseOrder(?string $relationAlias = null, ?string $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('PurchaseOrder');
@@ -8531,9 +10515,9 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \PurchaseOrderQuery A secondary query class using the current class as primary query
      */
@@ -8545,23 +10529,123 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the PurchaseOrder relation PurchaseOrder object
+     *
+     * @param callable(\PurchaseOrderQuery):\PurchaseOrderQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withPurchaseOrderQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::LEFT_JOIN
+    ) {
+        $relatedQuery = $this->usePurchaseOrderQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to PurchaseOrder table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \PurchaseOrderQuery The inner query object of the EXISTS statement
+     */
+    public function usePurchaseOrderExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \PurchaseOrderQuery */
+        $q = $this->useExistsQuery('PurchaseOrder', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrder table for a NOT EXISTS query.
+     *
+     * @see usePurchaseOrderExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderQuery The inner query object of the NOT EXISTS statement
+     */
+    public function usePurchaseOrderNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderQuery */
+        $q = $this->useExistsQuery('PurchaseOrder', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrder table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \PurchaseOrderQuery The inner query object of the IN statement
+     */
+    public function useInPurchaseOrderQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \PurchaseOrderQuery */
+        $q = $this->useInQuery('PurchaseOrder', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to PurchaseOrder table for a NOT IN query.
+     *
+     * @see usePurchaseOrderInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \PurchaseOrderQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInPurchaseOrderQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \PurchaseOrderQuery */
+        $q = $this->useInQuery('PurchaseOrder', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Filter the query by a related \ItemXrefVendor object
      *
      * @param \ItemXrefVendor|ObjectCollection $itemXrefVendor the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByItemXrefVendor($itemXrefVendor, $comparison = null)
+    public function filterByItemXrefVendor($itemXrefVendor, ?string $comparison = null)
     {
         if ($itemXrefVendor instanceof \ItemXrefVendor) {
-            return $this
+            $this
                 ->addUsingAlias(VendorTableMap::COL_APVEVENDID, $itemXrefVendor->getApvevendid(), $comparison);
+
+            return $this;
         } elseif ($itemXrefVendor instanceof ObjectCollection) {
-            return $this
+            $this
                 ->useItemXrefVendorQuery()
                 ->filterByPrimaryKeys($itemXrefVendor->getPrimaryKeys())
                 ->endUse();
+
+            return $this;
         } else {
             throw new PropelException('filterByItemXrefVendor() only accepts arguments of type \ItemXrefVendor or Collection');
         }
@@ -8570,12 +10654,12 @@ abstract class VendorQuery extends ModelCriteria
     /**
      * Adds a JOIN clause to the query using the ItemXrefVendor relation
      *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string|null $relationAlias Optional alias for the relation
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function joinItemXrefVendor($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemXrefVendor(?string $relationAlias = null, ?string $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemXrefVendor');
@@ -8604,9 +10688,9 @@ abstract class VendorQuery extends ModelCriteria
      *
      * @see useQuery()
      *
-     * @param     string $relationAlias optional alias for the relation,
+     * @param string $relationAlias optional alias for the relation,
      *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     * @param string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return \ItemXrefVendorQuery A secondary query class using the current class as primary query
      */
@@ -8618,11 +10702,107 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Use the ItemXrefVendor relation ItemXrefVendor object
+     *
+     * @param callable(\ItemXrefVendorQuery):\ItemXrefVendorQuery $callable A function working on the related query
+     *
+     * @param string|null $relationAlias optional alias for the relation
+     *
+     * @param string|null $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this
+     */
+    public function withItemXrefVendorQuery(
+        callable $callable,
+        string $relationAlias = null,
+        ?string $joinType = Criteria::INNER_JOIN
+    ) {
+        $relatedQuery = $this->useItemXrefVendorQuery(
+            $relationAlias,
+            $joinType
+        );
+        $callable($relatedQuery);
+        $relatedQuery->endUse();
+
+        return $this;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendor table for an EXISTS query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     * @param string $typeOfExists Either ExistsQueryCriterion::TYPE_EXISTS or ExistsQueryCriterion::TYPE_NOT_EXISTS
+     *
+     * @return \ItemXrefVendorQuery The inner query object of the EXISTS statement
+     */
+    public function useItemXrefVendorExistsQuery($modelAlias = null, $queryClass = null, $typeOfExists = 'EXISTS')
+    {
+        /** @var $q \ItemXrefVendorQuery */
+        $q = $this->useExistsQuery('ItemXrefVendor', $modelAlias, $queryClass, $typeOfExists);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendor table for a NOT EXISTS query.
+     *
+     * @see useItemXrefVendorExistsQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the exists query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefVendorQuery The inner query object of the NOT EXISTS statement
+     */
+    public function useItemXrefVendorNotExistsQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefVendorQuery */
+        $q = $this->useExistsQuery('ItemXrefVendor', $modelAlias, $queryClass, 'NOT EXISTS');
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendor table for an IN query.
+     *
+     * @see \Propel\Runtime\ActiveQuery\ModelCriteria::useInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the IN query, like ExtendedBookQuery::class
+     * @param string $typeOfIn Criteria::IN or Criteria::NOT_IN
+     *
+     * @return \ItemXrefVendorQuery The inner query object of the IN statement
+     */
+    public function useInItemXrefVendorQuery($modelAlias = null, $queryClass = null, $typeOfIn = 'IN')
+    {
+        /** @var $q \ItemXrefVendorQuery */
+        $q = $this->useInQuery('ItemXrefVendor', $modelAlias, $queryClass, $typeOfIn);
+        return $q;
+    }
+
+    /**
+     * Use the relation to ItemXrefVendor table for a NOT IN query.
+     *
+     * @see useItemXrefVendorInQuery()
+     *
+     * @param string|null $modelAlias sets an alias for the nested query
+     * @param string|null $queryClass Allows to use a custom query class for the NOT IN query, like ExtendedBookQuery::class
+     *
+     * @return \ItemXrefVendorQuery The inner query object of the NOT IN statement
+     */
+    public function useNotInItemXrefVendorQuery($modelAlias = null, $queryClass = null)
+    {
+        /** @var $q \ItemXrefVendorQuery */
+        $q = $this->useInQuery('ItemXrefVendor', $modelAlias, $queryClass, 'NOT IN');
+        return $q;
+    }
+
+    /**
      * Exclude object from result
      *
-     * @param   ChildVendor $vendor Object to remove from the list of results
+     * @param ChildVendor $vendor Object to remove from the list of results
      *
-     * @return $this|ChildVendorQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($vendor = null)
     {
@@ -8639,7 +10819,7 @@ abstract class VendorQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(VendorTableMap::DATABASE_NAME);
@@ -8664,12 +10844,12 @@ abstract class VendorQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(VendorTableMap::DATABASE_NAME);
@@ -8694,4 +10874,4 @@ abstract class VendorQuery extends ModelCriteria
         });
     }
 
-} // VendorQuery
+}

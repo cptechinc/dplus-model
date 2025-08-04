@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class PurchaseOrderDetailReceiptTableMap extends TableMap
 {
@@ -34,169 +33,321 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.PurchaseOrderDetailReceiptTableMap';
+    public const CLASS_NAME = '.Map.PurchaseOrderDetailReceiptTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'po_receipt_det';
+    public const TABLE_NAME = 'po_receipt_det';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'PurchaseOrderDetailReceipt';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\PurchaseOrderDetailReceipt';
+    public const OM_CLASS = '\\PurchaseOrderDetailReceipt';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'PurchaseOrderDetailReceipt';
+    public const CLASS_DEFAULT = 'PurchaseOrderDetailReceipt';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 17;
+    public const NUM_COLUMNS = 17;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 17;
+    public const NUM_HYDRATE_COLUMNS = 17;
 
     /**
      * the column name for the PohdNbr field
      */
-    const COL_POHDNBR = 'po_receipt_det.PohdNbr';
+    public const COL_POHDNBR = 'po_receipt_det.PohdNbr';
 
     /**
      * the column name for the PodtLine field
      */
-    const COL_PODTLINE = 'po_receipt_det.PodtLine';
+    public const COL_PODTLINE = 'po_receipt_det.PodtLine';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'po_receipt_det.InitItemNbr';
+    public const COL_INITITEMNBR = 'po_receipt_det.InitItemNbr';
 
     /**
      * the column name for the PordSeq field
      */
-    const COL_PORDSEQ = 'po_receipt_det.PordSeq';
+    public const COL_PORDSEQ = 'po_receipt_det.PordSeq';
 
     /**
      * the column name for the PordRef field
      */
-    const COL_PORDREF = 'po_receipt_det.PordRef';
+    public const COL_PORDREF = 'po_receipt_det.PordRef';
 
     /**
      * the column name for the PordTranDate field
      */
-    const COL_PORDTRANDATE = 'po_receipt_det.PordTranDate';
+    public const COL_PORDTRANDATE = 'po_receipt_det.PordTranDate';
 
     /**
      * the column name for the PordGlPd field
      */
-    const COL_PORDGLPD = 'po_receipt_det.PordGlPd';
+    public const COL_PORDGLPD = 'po_receipt_det.PordGlPd';
 
     /**
      * the column name for the PordQtyRec field
      */
-    const COL_PORDQTYREC = 'po_receipt_det.PordQtyRec';
+    public const COL_PORDQTYREC = 'po_receipt_det.PordQtyRec';
 
     /**
      * the column name for the PordCostTot field
      */
-    const COL_PORDCOSTTOT = 'po_receipt_det.PordCostTot';
+    public const COL_PORDCOSTTOT = 'po_receipt_det.PordCostTot';
 
     /**
      * the column name for the PordLandUnitCost field
      */
-    const COL_PORDLANDUNITCOST = 'po_receipt_det.PordLandUnitCost';
+    public const COL_PORDLANDUNITCOST = 'po_receipt_det.PordLandUnitCost';
 
     /**
      * the column name for the PordTariffCost field
      */
-    const COL_PORDTARIFFCOST = 'po_receipt_det.PordTariffCost';
+    public const COL_PORDTARIFFCOST = 'po_receipt_det.PordTariffCost';
 
     /**
      * the column name for the PordMpfUnitCost field
      */
-    const COL_PORDMPFUNITCOST = 'po_receipt_det.PordMpfUnitCost';
+    public const COL_PORDMPFUNITCOST = 'po_receipt_det.PordMpfUnitCost';
 
     /**
      * the column name for the PordHmfUnitCost field
      */
-    const COL_PORDHMFUNITCOST = 'po_receipt_det.PordHmfUnitCost';
+    public const COL_PORDHMFUNITCOST = 'po_receipt_det.PordHmfUnitCost';
 
     /**
      * the column name for the PordDsetUnitCost field
      */
-    const COL_PORDDSETUNITCOST = 'po_receipt_det.PordDsetUnitCost';
+    public const COL_PORDDSETUNITCOST = 'po_receipt_det.PordDsetUnitCost';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'po_receipt_det.DateUpdtd';
+    public const COL_DATEUPDTD = 'po_receipt_det.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'po_receipt_det.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'po_receipt_det.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'po_receipt_det.dummy';
+    public const COL_DUMMY = 'po_receipt_det.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Pohdnbr', 'Podtline', 'Inititemnbr', 'Pordseq', 'Pordref', 'Pordtrandate', 'Pordglpd', 'Pordqtyrec', 'Pordcosttot', 'Pordlandunitcost', 'Pordtariffcost', 'Pordmpfunitcost', 'Pordhmfunitcost', 'Porddsetunitcost', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('pohdnbr', 'podtline', 'inititemnbr', 'pordseq', 'pordref', 'pordtrandate', 'pordglpd', 'pordqtyrec', 'pordcosttot', 'pordlandunitcost', 'pordtariffcost', 'pordmpfunitcost', 'pordhmfunitcost', 'porddsetunitcost', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(PurchaseOrderDetailReceiptTableMap::COL_POHDNBR, PurchaseOrderDetailReceiptTableMap::COL_PODTLINE, PurchaseOrderDetailReceiptTableMap::COL_INITITEMNBR, PurchaseOrderDetailReceiptTableMap::COL_PORDSEQ, PurchaseOrderDetailReceiptTableMap::COL_PORDREF, PurchaseOrderDetailReceiptTableMap::COL_PORDTRANDATE, PurchaseOrderDetailReceiptTableMap::COL_PORDGLPD, PurchaseOrderDetailReceiptTableMap::COL_PORDQTYREC, PurchaseOrderDetailReceiptTableMap::COL_PORDCOSTTOT, PurchaseOrderDetailReceiptTableMap::COL_PORDLANDUNITCOST, PurchaseOrderDetailReceiptTableMap::COL_PORDTARIFFCOST, PurchaseOrderDetailReceiptTableMap::COL_PORDMPFUNITCOST, PurchaseOrderDetailReceiptTableMap::COL_PORDHMFUNITCOST, PurchaseOrderDetailReceiptTableMap::COL_PORDDSETUNITCOST, PurchaseOrderDetailReceiptTableMap::COL_DATEUPDTD, PurchaseOrderDetailReceiptTableMap::COL_TIMEUPDTD, PurchaseOrderDetailReceiptTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('PohdNbr', 'PodtLine', 'InitItemNbr', 'PordSeq', 'PordRef', 'PordTranDate', 'PordGlPd', 'PordQtyRec', 'PordCostTot', 'PordLandUnitCost', 'PordTariffCost', 'PordMpfUnitCost', 'PordHmfUnitCost', 'PordDsetUnitCost', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Pohdnbr', 'Podtline', 'Inititemnbr', 'Pordseq', 'Pordref', 'Pordtrandate', 'Pordglpd', 'Pordqtyrec', 'Pordcosttot', 'Pordlandunitcost', 'Pordtariffcost', 'Pordmpfunitcost', 'Pordhmfunitcost', 'Porddsetunitcost', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['pohdnbr', 'podtline', 'inititemnbr', 'pordseq', 'pordref', 'pordtrandate', 'pordglpd', 'pordqtyrec', 'pordcosttot', 'pordlandunitcost', 'pordtariffcost', 'pordmpfunitcost', 'pordhmfunitcost', 'porddsetunitcost', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [PurchaseOrderDetailReceiptTableMap::COL_POHDNBR, PurchaseOrderDetailReceiptTableMap::COL_PODTLINE, PurchaseOrderDetailReceiptTableMap::COL_INITITEMNBR, PurchaseOrderDetailReceiptTableMap::COL_PORDSEQ, PurchaseOrderDetailReceiptTableMap::COL_PORDREF, PurchaseOrderDetailReceiptTableMap::COL_PORDTRANDATE, PurchaseOrderDetailReceiptTableMap::COL_PORDGLPD, PurchaseOrderDetailReceiptTableMap::COL_PORDQTYREC, PurchaseOrderDetailReceiptTableMap::COL_PORDCOSTTOT, PurchaseOrderDetailReceiptTableMap::COL_PORDLANDUNITCOST, PurchaseOrderDetailReceiptTableMap::COL_PORDTARIFFCOST, PurchaseOrderDetailReceiptTableMap::COL_PORDMPFUNITCOST, PurchaseOrderDetailReceiptTableMap::COL_PORDHMFUNITCOST, PurchaseOrderDetailReceiptTableMap::COL_PORDDSETUNITCOST, PurchaseOrderDetailReceiptTableMap::COL_DATEUPDTD, PurchaseOrderDetailReceiptTableMap::COL_TIMEUPDTD, PurchaseOrderDetailReceiptTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['PohdNbr', 'PodtLine', 'InitItemNbr', 'PordSeq', 'PordRef', 'PordTranDate', 'PordGlPd', 'PordQtyRec', 'PordCostTot', 'PordLandUnitCost', 'PordTariffCost', 'PordMpfUnitCost', 'PordHmfUnitCost', 'PordDsetUnitCost', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Pohdnbr' => 0, 'Podtline' => 1, 'Inititemnbr' => 2, 'Pordseq' => 3, 'Pordref' => 4, 'Pordtrandate' => 5, 'Pordglpd' => 6, 'Pordqtyrec' => 7, 'Pordcosttot' => 8, 'Pordlandunitcost' => 9, 'Pordtariffcost' => 10, 'Pordmpfunitcost' => 11, 'Pordhmfunitcost' => 12, 'Porddsetunitcost' => 13, 'Dateupdtd' => 14, 'Timeupdtd' => 15, 'Dummy' => 16, ),
-        self::TYPE_CAMELNAME     => array('pohdnbr' => 0, 'podtline' => 1, 'inititemnbr' => 2, 'pordseq' => 3, 'pordref' => 4, 'pordtrandate' => 5, 'pordglpd' => 6, 'pordqtyrec' => 7, 'pordcosttot' => 8, 'pordlandunitcost' => 9, 'pordtariffcost' => 10, 'pordmpfunitcost' => 11, 'pordhmfunitcost' => 12, 'porddsetunitcost' => 13, 'dateupdtd' => 14, 'timeupdtd' => 15, 'dummy' => 16, ),
-        self::TYPE_COLNAME       => array(PurchaseOrderDetailReceiptTableMap::COL_POHDNBR => 0, PurchaseOrderDetailReceiptTableMap::COL_PODTLINE => 1, PurchaseOrderDetailReceiptTableMap::COL_INITITEMNBR => 2, PurchaseOrderDetailReceiptTableMap::COL_PORDSEQ => 3, PurchaseOrderDetailReceiptTableMap::COL_PORDREF => 4, PurchaseOrderDetailReceiptTableMap::COL_PORDTRANDATE => 5, PurchaseOrderDetailReceiptTableMap::COL_PORDGLPD => 6, PurchaseOrderDetailReceiptTableMap::COL_PORDQTYREC => 7, PurchaseOrderDetailReceiptTableMap::COL_PORDCOSTTOT => 8, PurchaseOrderDetailReceiptTableMap::COL_PORDLANDUNITCOST => 9, PurchaseOrderDetailReceiptTableMap::COL_PORDTARIFFCOST => 10, PurchaseOrderDetailReceiptTableMap::COL_PORDMPFUNITCOST => 11, PurchaseOrderDetailReceiptTableMap::COL_PORDHMFUNITCOST => 12, PurchaseOrderDetailReceiptTableMap::COL_PORDDSETUNITCOST => 13, PurchaseOrderDetailReceiptTableMap::COL_DATEUPDTD => 14, PurchaseOrderDetailReceiptTableMap::COL_TIMEUPDTD => 15, PurchaseOrderDetailReceiptTableMap::COL_DUMMY => 16, ),
-        self::TYPE_FIELDNAME     => array('PohdNbr' => 0, 'PodtLine' => 1, 'InitItemNbr' => 2, 'PordSeq' => 3, 'PordRef' => 4, 'PordTranDate' => 5, 'PordGlPd' => 6, 'PordQtyRec' => 7, 'PordCostTot' => 8, 'PordLandUnitCost' => 9, 'PordTariffCost' => 10, 'PordMpfUnitCost' => 11, 'PordHmfUnitCost' => 12, 'PordDsetUnitCost' => 13, 'DateUpdtd' => 14, 'TimeUpdtd' => 15, 'dummy' => 16, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Pohdnbr' => 0, 'Podtline' => 1, 'Inititemnbr' => 2, 'Pordseq' => 3, 'Pordref' => 4, 'Pordtrandate' => 5, 'Pordglpd' => 6, 'Pordqtyrec' => 7, 'Pordcosttot' => 8, 'Pordlandunitcost' => 9, 'Pordtariffcost' => 10, 'Pordmpfunitcost' => 11, 'Pordhmfunitcost' => 12, 'Porddsetunitcost' => 13, 'Dateupdtd' => 14, 'Timeupdtd' => 15, 'Dummy' => 16, ],
+        self::TYPE_CAMELNAME     => ['pohdnbr' => 0, 'podtline' => 1, 'inititemnbr' => 2, 'pordseq' => 3, 'pordref' => 4, 'pordtrandate' => 5, 'pordglpd' => 6, 'pordqtyrec' => 7, 'pordcosttot' => 8, 'pordlandunitcost' => 9, 'pordtariffcost' => 10, 'pordmpfunitcost' => 11, 'pordhmfunitcost' => 12, 'porddsetunitcost' => 13, 'dateupdtd' => 14, 'timeupdtd' => 15, 'dummy' => 16, ],
+        self::TYPE_COLNAME       => [PurchaseOrderDetailReceiptTableMap::COL_POHDNBR => 0, PurchaseOrderDetailReceiptTableMap::COL_PODTLINE => 1, PurchaseOrderDetailReceiptTableMap::COL_INITITEMNBR => 2, PurchaseOrderDetailReceiptTableMap::COL_PORDSEQ => 3, PurchaseOrderDetailReceiptTableMap::COL_PORDREF => 4, PurchaseOrderDetailReceiptTableMap::COL_PORDTRANDATE => 5, PurchaseOrderDetailReceiptTableMap::COL_PORDGLPD => 6, PurchaseOrderDetailReceiptTableMap::COL_PORDQTYREC => 7, PurchaseOrderDetailReceiptTableMap::COL_PORDCOSTTOT => 8, PurchaseOrderDetailReceiptTableMap::COL_PORDLANDUNITCOST => 9, PurchaseOrderDetailReceiptTableMap::COL_PORDTARIFFCOST => 10, PurchaseOrderDetailReceiptTableMap::COL_PORDMPFUNITCOST => 11, PurchaseOrderDetailReceiptTableMap::COL_PORDHMFUNITCOST => 12, PurchaseOrderDetailReceiptTableMap::COL_PORDDSETUNITCOST => 13, PurchaseOrderDetailReceiptTableMap::COL_DATEUPDTD => 14, PurchaseOrderDetailReceiptTableMap::COL_TIMEUPDTD => 15, PurchaseOrderDetailReceiptTableMap::COL_DUMMY => 16, ],
+        self::TYPE_FIELDNAME     => ['PohdNbr' => 0, 'PodtLine' => 1, 'InitItemNbr' => 2, 'PordSeq' => 3, 'PordRef' => 4, 'PordTranDate' => 5, 'PordGlPd' => 6, 'PordQtyRec' => 7, 'PordCostTot' => 8, 'PordLandUnitCost' => 9, 'PordTariffCost' => 10, 'PordMpfUnitCost' => 11, 'PordHmfUnitCost' => 12, 'PordDsetUnitCost' => 13, 'DateUpdtd' => 14, 'TimeUpdtd' => 15, 'dummy' => 16, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Pohdnbr' => 'POHDNBR',
+        'PurchaseOrderDetailReceipt.Pohdnbr' => 'POHDNBR',
+        'pohdnbr' => 'POHDNBR',
+        'purchaseOrderDetailReceipt.pohdnbr' => 'POHDNBR',
+        'PurchaseOrderDetailReceiptTableMap::COL_POHDNBR' => 'POHDNBR',
+        'COL_POHDNBR' => 'POHDNBR',
+        'PohdNbr' => 'POHDNBR',
+        'po_receipt_det.PohdNbr' => 'POHDNBR',
+        'Podtline' => 'PODTLINE',
+        'PurchaseOrderDetailReceipt.Podtline' => 'PODTLINE',
+        'podtline' => 'PODTLINE',
+        'purchaseOrderDetailReceipt.podtline' => 'PODTLINE',
+        'PurchaseOrderDetailReceiptTableMap::COL_PODTLINE' => 'PODTLINE',
+        'COL_PODTLINE' => 'PODTLINE',
+        'PodtLine' => 'PODTLINE',
+        'po_receipt_det.PodtLine' => 'PODTLINE',
+        'Inititemnbr' => 'INITITEMNBR',
+        'PurchaseOrderDetailReceipt.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'purchaseOrderDetailReceipt.inititemnbr' => 'INITITEMNBR',
+        'PurchaseOrderDetailReceiptTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'po_receipt_det.InitItemNbr' => 'INITITEMNBR',
+        'Pordseq' => 'PORDSEQ',
+        'PurchaseOrderDetailReceipt.Pordseq' => 'PORDSEQ',
+        'pordseq' => 'PORDSEQ',
+        'purchaseOrderDetailReceipt.pordseq' => 'PORDSEQ',
+        'PurchaseOrderDetailReceiptTableMap::COL_PORDSEQ' => 'PORDSEQ',
+        'COL_PORDSEQ' => 'PORDSEQ',
+        'PordSeq' => 'PORDSEQ',
+        'po_receipt_det.PordSeq' => 'PORDSEQ',
+        'Pordref' => 'PORDREF',
+        'PurchaseOrderDetailReceipt.Pordref' => 'PORDREF',
+        'pordref' => 'PORDREF',
+        'purchaseOrderDetailReceipt.pordref' => 'PORDREF',
+        'PurchaseOrderDetailReceiptTableMap::COL_PORDREF' => 'PORDREF',
+        'COL_PORDREF' => 'PORDREF',
+        'PordRef' => 'PORDREF',
+        'po_receipt_det.PordRef' => 'PORDREF',
+        'Pordtrandate' => 'PORDTRANDATE',
+        'PurchaseOrderDetailReceipt.Pordtrandate' => 'PORDTRANDATE',
+        'pordtrandate' => 'PORDTRANDATE',
+        'purchaseOrderDetailReceipt.pordtrandate' => 'PORDTRANDATE',
+        'PurchaseOrderDetailReceiptTableMap::COL_PORDTRANDATE' => 'PORDTRANDATE',
+        'COL_PORDTRANDATE' => 'PORDTRANDATE',
+        'PordTranDate' => 'PORDTRANDATE',
+        'po_receipt_det.PordTranDate' => 'PORDTRANDATE',
+        'Pordglpd' => 'PORDGLPD',
+        'PurchaseOrderDetailReceipt.Pordglpd' => 'PORDGLPD',
+        'pordglpd' => 'PORDGLPD',
+        'purchaseOrderDetailReceipt.pordglpd' => 'PORDGLPD',
+        'PurchaseOrderDetailReceiptTableMap::COL_PORDGLPD' => 'PORDGLPD',
+        'COL_PORDGLPD' => 'PORDGLPD',
+        'PordGlPd' => 'PORDGLPD',
+        'po_receipt_det.PordGlPd' => 'PORDGLPD',
+        'Pordqtyrec' => 'PORDQTYREC',
+        'PurchaseOrderDetailReceipt.Pordqtyrec' => 'PORDQTYREC',
+        'pordqtyrec' => 'PORDQTYREC',
+        'purchaseOrderDetailReceipt.pordqtyrec' => 'PORDQTYREC',
+        'PurchaseOrderDetailReceiptTableMap::COL_PORDQTYREC' => 'PORDQTYREC',
+        'COL_PORDQTYREC' => 'PORDQTYREC',
+        'PordQtyRec' => 'PORDQTYREC',
+        'po_receipt_det.PordQtyRec' => 'PORDQTYREC',
+        'Pordcosttot' => 'PORDCOSTTOT',
+        'PurchaseOrderDetailReceipt.Pordcosttot' => 'PORDCOSTTOT',
+        'pordcosttot' => 'PORDCOSTTOT',
+        'purchaseOrderDetailReceipt.pordcosttot' => 'PORDCOSTTOT',
+        'PurchaseOrderDetailReceiptTableMap::COL_PORDCOSTTOT' => 'PORDCOSTTOT',
+        'COL_PORDCOSTTOT' => 'PORDCOSTTOT',
+        'PordCostTot' => 'PORDCOSTTOT',
+        'po_receipt_det.PordCostTot' => 'PORDCOSTTOT',
+        'Pordlandunitcost' => 'PORDLANDUNITCOST',
+        'PurchaseOrderDetailReceipt.Pordlandunitcost' => 'PORDLANDUNITCOST',
+        'pordlandunitcost' => 'PORDLANDUNITCOST',
+        'purchaseOrderDetailReceipt.pordlandunitcost' => 'PORDLANDUNITCOST',
+        'PurchaseOrderDetailReceiptTableMap::COL_PORDLANDUNITCOST' => 'PORDLANDUNITCOST',
+        'COL_PORDLANDUNITCOST' => 'PORDLANDUNITCOST',
+        'PordLandUnitCost' => 'PORDLANDUNITCOST',
+        'po_receipt_det.PordLandUnitCost' => 'PORDLANDUNITCOST',
+        'Pordtariffcost' => 'PORDTARIFFCOST',
+        'PurchaseOrderDetailReceipt.Pordtariffcost' => 'PORDTARIFFCOST',
+        'pordtariffcost' => 'PORDTARIFFCOST',
+        'purchaseOrderDetailReceipt.pordtariffcost' => 'PORDTARIFFCOST',
+        'PurchaseOrderDetailReceiptTableMap::COL_PORDTARIFFCOST' => 'PORDTARIFFCOST',
+        'COL_PORDTARIFFCOST' => 'PORDTARIFFCOST',
+        'PordTariffCost' => 'PORDTARIFFCOST',
+        'po_receipt_det.PordTariffCost' => 'PORDTARIFFCOST',
+        'Pordmpfunitcost' => 'PORDMPFUNITCOST',
+        'PurchaseOrderDetailReceipt.Pordmpfunitcost' => 'PORDMPFUNITCOST',
+        'pordmpfunitcost' => 'PORDMPFUNITCOST',
+        'purchaseOrderDetailReceipt.pordmpfunitcost' => 'PORDMPFUNITCOST',
+        'PurchaseOrderDetailReceiptTableMap::COL_PORDMPFUNITCOST' => 'PORDMPFUNITCOST',
+        'COL_PORDMPFUNITCOST' => 'PORDMPFUNITCOST',
+        'PordMpfUnitCost' => 'PORDMPFUNITCOST',
+        'po_receipt_det.PordMpfUnitCost' => 'PORDMPFUNITCOST',
+        'Pordhmfunitcost' => 'PORDHMFUNITCOST',
+        'PurchaseOrderDetailReceipt.Pordhmfunitcost' => 'PORDHMFUNITCOST',
+        'pordhmfunitcost' => 'PORDHMFUNITCOST',
+        'purchaseOrderDetailReceipt.pordhmfunitcost' => 'PORDHMFUNITCOST',
+        'PurchaseOrderDetailReceiptTableMap::COL_PORDHMFUNITCOST' => 'PORDHMFUNITCOST',
+        'COL_PORDHMFUNITCOST' => 'PORDHMFUNITCOST',
+        'PordHmfUnitCost' => 'PORDHMFUNITCOST',
+        'po_receipt_det.PordHmfUnitCost' => 'PORDHMFUNITCOST',
+        'Porddsetunitcost' => 'PORDDSETUNITCOST',
+        'PurchaseOrderDetailReceipt.Porddsetunitcost' => 'PORDDSETUNITCOST',
+        'porddsetunitcost' => 'PORDDSETUNITCOST',
+        'purchaseOrderDetailReceipt.porddsetunitcost' => 'PORDDSETUNITCOST',
+        'PurchaseOrderDetailReceiptTableMap::COL_PORDDSETUNITCOST' => 'PORDDSETUNITCOST',
+        'COL_PORDDSETUNITCOST' => 'PORDDSETUNITCOST',
+        'PordDsetUnitCost' => 'PORDDSETUNITCOST',
+        'po_receipt_det.PordDsetUnitCost' => 'PORDDSETUNITCOST',
+        'Dateupdtd' => 'DATEUPDTD',
+        'PurchaseOrderDetailReceipt.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'purchaseOrderDetailReceipt.dateupdtd' => 'DATEUPDTD',
+        'PurchaseOrderDetailReceiptTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'po_receipt_det.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'PurchaseOrderDetailReceipt.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'purchaseOrderDetailReceipt.timeupdtd' => 'TIMEUPDTD',
+        'PurchaseOrderDetailReceiptTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'po_receipt_det.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'PurchaseOrderDetailReceipt.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'purchaseOrderDetailReceipt.dummy' => 'DUMMY',
+        'PurchaseOrderDetailReceiptTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'po_receipt_det.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('po_receipt_det');
@@ -214,22 +365,24 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
         $this->addColumn('PordRef', 'Pordref', 'VARCHAR', true, 15, '');
         $this->addColumn('PordTranDate', 'Pordtrandate', 'CHAR', true, 8, '');
         $this->addColumn('PordGlPd', 'Pordglpd', 'INTEGER', true, 2, 0);
-        $this->addColumn('PordQtyRec', 'Pordqtyrec', 'DECIMAL', true, 20, 0);
-        $this->addColumn('PordCostTot', 'Pordcosttot', 'DECIMAL', true, 20, 0);
-        $this->addColumn('PordLandUnitCost', 'Pordlandunitcost', 'DECIMAL', true, 20, 0);
-        $this->addColumn('PordTariffCost', 'Pordtariffcost', 'DECIMAL', true, 20, 0);
-        $this->addColumn('PordMpfUnitCost', 'Pordmpfunitcost', 'DECIMAL', true, 20, 0);
-        $this->addColumn('PordHmfUnitCost', 'Pordhmfunitcost', 'DECIMAL', true, 20, 0);
-        $this->addColumn('PordDsetUnitCost', 'Porddsetunitcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('PordQtyRec', 'Pordqtyrec', 'DECIMAL', true, 20, 0.0000000);
+        $this->addColumn('PordCostTot', 'Pordcosttot', 'DECIMAL', true, 20, 0.0000000);
+        $this->addColumn('PordLandUnitCost', 'Pordlandunitcost', 'DECIMAL', true, 20, 0.0000000);
+        $this->addColumn('PordTariffCost', 'Pordtariffcost', 'DECIMAL', true, 20, 0.0000000);
+        $this->addColumn('PordMpfUnitCost', 'Pordmpfunitcost', 'DECIMAL', true, 20, 0.00000);
+        $this->addColumn('PordHmfUnitCost', 'Pordhmfunitcost', 'DECIMAL', true, 20, 0.00000);
+        $this->addColumn('PordDsetUnitCost', 'Porddsetunitcost', 'DECIMAL', true, 20, 0.00000);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -257,7 +410,7 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -268,9 +421,11 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \PurchaseOrderDetailReceipt $obj A \PurchaseOrderDetailReceipt object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(PurchaseOrderDetailReceipt $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -289,8 +444,10 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \PurchaseOrderDetailReceipt object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \PurchaseOrderDetailReceipt) {
@@ -318,14 +475,14 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Podtline', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Pordseq', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -340,14 +497,14 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -383,10 +540,10 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? PurchaseOrderDetailReceiptTableMap::CLASS_DEFAULT : PurchaseOrderDetailReceiptTableMap::OM_CLASS;
     }
@@ -394,17 +551,17 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (PurchaseOrderDetailReceipt object, last column rank)
+     * @return array (PurchaseOrderDetailReceipt object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = PurchaseOrderDetailReceiptTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = PurchaseOrderDetailReceiptTableMap::getInstanceFromPool($key))) {
@@ -420,7 +577,7 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
             PurchaseOrderDetailReceiptTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -428,13 +585,13 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -464,12 +621,13 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_POHDNBR);
@@ -511,40 +669,82 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_POHDNBR);
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_PODTLINE);
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_PORDSEQ);
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_PORDREF);
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_PORDTRANDATE);
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_PORDGLPD);
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_PORDQTYREC);
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_PORDCOSTTOT);
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_PORDLANDUNITCOST);
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_PORDTARIFFCOST);
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_PORDMPFUNITCOST);
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_PORDHMFUNITCOST);
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_PORDDSETUNITCOST);
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(PurchaseOrderDetailReceiptTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.PohdNbr');
+            $criteria->removeSelectColumn($alias . '.PodtLine');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.PordSeq');
+            $criteria->removeSelectColumn($alias . '.PordRef');
+            $criteria->removeSelectColumn($alias . '.PordTranDate');
+            $criteria->removeSelectColumn($alias . '.PordGlPd');
+            $criteria->removeSelectColumn($alias . '.PordQtyRec');
+            $criteria->removeSelectColumn($alias . '.PordCostTot');
+            $criteria->removeSelectColumn($alias . '.PordLandUnitCost');
+            $criteria->removeSelectColumn($alias . '.PordTariffCost');
+            $criteria->removeSelectColumn($alias . '.PordMpfUnitCost');
+            $criteria->removeSelectColumn($alias . '.PordHmfUnitCost');
+            $criteria->removeSelectColumn($alias . '.PordDsetUnitCost');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(PurchaseOrderDetailReceiptTableMap::DATABASE_NAME)->getTable(PurchaseOrderDetailReceiptTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(PurchaseOrderDetailReceiptTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(PurchaseOrderDetailReceiptTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new PurchaseOrderDetailReceiptTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a PurchaseOrderDetailReceipt or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or PurchaseOrderDetailReceipt object or primary key or array of primary keys
+     * @param mixed $values Criteria or PurchaseOrderDetailReceipt object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderDetailReceiptTableMap::DATABASE_NAME);
@@ -562,7 +762,7 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(PurchaseOrderDetailReceiptTableMap::COL_POHDNBR, $value[0]);
@@ -592,7 +792,7 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return PurchaseOrderDetailReceiptQuery::create()->doDeleteAll($con);
     }
@@ -600,13 +800,13 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a PurchaseOrderDetailReceipt or Criteria object.
      *
-     * @param mixed               $criteria Criteria or PurchaseOrderDetailReceipt object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or PurchaseOrderDetailReceipt object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderDetailReceiptTableMap::DATABASE_NAME);
@@ -629,7 +829,4 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
         });
     }
 
-} // PurchaseOrderDetailReceiptTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-PurchaseOrderDetailReceiptTableMap::buildTableMap();
+}

@@ -10,14 +10,12 @@ use Map\ConfigKtTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'kt_config' table.
- *
- *
+ * Base class that represents a query for the `kt_config` table.
  *
  * @method     ChildConfigKtQuery orderByKttbconfkey($order = Criteria::ASC) Order by the KttbConfKey column
  * @method     ChildConfigKtQuery orderByKttbconfeditso($order = Criteria::ASC) Order by the KttbConfEditSo column
@@ -49,22 +47,22 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigKtQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildConfigKtQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildConfigKt findOne(ConnectionInterface $con = null) Return the first ChildConfigKt matching the query
- * @method     ChildConfigKt findOneOrCreate(ConnectionInterface $con = null) Return the first ChildConfigKt matching the query, or a new ChildConfigKt object populated from the query conditions when no match is found
+ * @method     ChildConfigKt|null findOne(?ConnectionInterface $con = null) Return the first ChildConfigKt matching the query
+ * @method     ChildConfigKt findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildConfigKt matching the query, or a new ChildConfigKt object populated from the query conditions when no match is found
  *
- * @method     ChildConfigKt findOneByKttbconfkey(int $KttbConfKey) Return the first ChildConfigKt filtered by the KttbConfKey column
- * @method     ChildConfigKt findOneByKttbconfeditso(string $KttbConfEditSo) Return the first ChildConfigKt filtered by the KttbConfEditSo column
- * @method     ChildConfigKt findOneByKttbconfvalu(string $KttbConfValu) Return the first ChildConfigKt filtered by the KttbConfValu column
- * @method     ChildConfigKt findOneByKttbconfentrydecpos(int $KttbConfEntryDecPos) Return the first ChildConfigKt filtered by the KttbConfEntryDecPos column
- * @method     ChildConfigKt findOneByKttbconfallowkitinkit(string $KttbConfAllowKitInKit) Return the first ChildConfigKt filtered by the KttbConfAllowKitInKit column
- * @method     ChildConfigKt findOneByKttbconfbackordrkitcomp(string $KttbConfBackordrKitComp) Return the first ChildConfigKt filtered by the KttbConfBackordrKitComp column
- * @method     ChildConfigKt findOneByKttbconffreeortag(string $KttbConfFreeOrTag) Return the first ChildConfigKt filtered by the KttbConfFreeOrTag column
- * @method     ChildConfigKt findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigKt filtered by the DateUpdtd column
- * @method     ChildConfigKt findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigKt filtered by the TimeUpdtd column
- * @method     ChildConfigKt findOneByDummy(string $dummy) Return the first ChildConfigKt filtered by the dummy column *
-
- * @method     ChildConfigKt requirePk($key, ConnectionInterface $con = null) Return the ChildConfigKt by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigKt requireOne(ConnectionInterface $con = null) Return the first ChildConfigKt matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigKt|null findOneByKttbconfkey(int $KttbConfKey) Return the first ChildConfigKt filtered by the KttbConfKey column
+ * @method     ChildConfigKt|null findOneByKttbconfeditso(string $KttbConfEditSo) Return the first ChildConfigKt filtered by the KttbConfEditSo column
+ * @method     ChildConfigKt|null findOneByKttbconfvalu(string $KttbConfValu) Return the first ChildConfigKt filtered by the KttbConfValu column
+ * @method     ChildConfigKt|null findOneByKttbconfentrydecpos(int $KttbConfEntryDecPos) Return the first ChildConfigKt filtered by the KttbConfEntryDecPos column
+ * @method     ChildConfigKt|null findOneByKttbconfallowkitinkit(string $KttbConfAllowKitInKit) Return the first ChildConfigKt filtered by the KttbConfAllowKitInKit column
+ * @method     ChildConfigKt|null findOneByKttbconfbackordrkitcomp(string $KttbConfBackordrKitComp) Return the first ChildConfigKt filtered by the KttbConfBackordrKitComp column
+ * @method     ChildConfigKt|null findOneByKttbconffreeortag(string $KttbConfFreeOrTag) Return the first ChildConfigKt filtered by the KttbConfFreeOrTag column
+ * @method     ChildConfigKt|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigKt filtered by the DateUpdtd column
+ * @method     ChildConfigKt|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigKt filtered by the TimeUpdtd column
+ * @method     ChildConfigKt|null findOneByDummy(string $dummy) Return the first ChildConfigKt filtered by the dummy column
+ *
+ * @method     ChildConfigKt requirePk($key, ?ConnectionInterface $con = null) Return the ChildConfigKt by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigKt requireOne(?ConnectionInterface $con = null) Return the first ChildConfigKt matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildConfigKt requireOneByKttbconfkey(int $KttbConfKey) Return the first ChildConfigKt filtered by the KttbConfKey column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigKt requireOneByKttbconfeditso(string $KttbConfEditSo) Return the first ChildConfigKt filtered by the KttbConfEditSo column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -77,19 +75,32 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigKt requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigKt filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigKt requireOneByDummy(string $dummy) Return the first ChildConfigKt filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildConfigKt[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildConfigKt objects based on current ModelCriteria
- * @method     ChildConfigKt[]|ObjectCollection findByKttbconfkey(int $KttbConfKey) Return ChildConfigKt objects filtered by the KttbConfKey column
- * @method     ChildConfigKt[]|ObjectCollection findByKttbconfeditso(string $KttbConfEditSo) Return ChildConfigKt objects filtered by the KttbConfEditSo column
- * @method     ChildConfigKt[]|ObjectCollection findByKttbconfvalu(string $KttbConfValu) Return ChildConfigKt objects filtered by the KttbConfValu column
- * @method     ChildConfigKt[]|ObjectCollection findByKttbconfentrydecpos(int $KttbConfEntryDecPos) Return ChildConfigKt objects filtered by the KttbConfEntryDecPos column
- * @method     ChildConfigKt[]|ObjectCollection findByKttbconfallowkitinkit(string $KttbConfAllowKitInKit) Return ChildConfigKt objects filtered by the KttbConfAllowKitInKit column
- * @method     ChildConfigKt[]|ObjectCollection findByKttbconfbackordrkitcomp(string $KttbConfBackordrKitComp) Return ChildConfigKt objects filtered by the KttbConfBackordrKitComp column
- * @method     ChildConfigKt[]|ObjectCollection findByKttbconffreeortag(string $KttbConfFreeOrTag) Return ChildConfigKt objects filtered by the KttbConfFreeOrTag column
- * @method     ChildConfigKt[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildConfigKt objects filtered by the DateUpdtd column
- * @method     ChildConfigKt[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildConfigKt objects filtered by the TimeUpdtd column
- * @method     ChildConfigKt[]|ObjectCollection findByDummy(string $dummy) Return ChildConfigKt objects filtered by the dummy column
- * @method     ChildConfigKt[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildConfigKt[]|Collection find(?ConnectionInterface $con = null) Return ChildConfigKt objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildConfigKt> find(?ConnectionInterface $con = null) Return ChildConfigKt objects based on current ModelCriteria
  *
+ * @method     ChildConfigKt[]|Collection findByKttbconfkey(int|array<int> $KttbConfKey) Return ChildConfigKt objects filtered by the KttbConfKey column
+ * @psalm-method Collection&\Traversable<ChildConfigKt> findByKttbconfkey(int|array<int> $KttbConfKey) Return ChildConfigKt objects filtered by the KttbConfKey column
+ * @method     ChildConfigKt[]|Collection findByKttbconfeditso(string|array<string> $KttbConfEditSo) Return ChildConfigKt objects filtered by the KttbConfEditSo column
+ * @psalm-method Collection&\Traversable<ChildConfigKt> findByKttbconfeditso(string|array<string> $KttbConfEditSo) Return ChildConfigKt objects filtered by the KttbConfEditSo column
+ * @method     ChildConfigKt[]|Collection findByKttbconfvalu(string|array<string> $KttbConfValu) Return ChildConfigKt objects filtered by the KttbConfValu column
+ * @psalm-method Collection&\Traversable<ChildConfigKt> findByKttbconfvalu(string|array<string> $KttbConfValu) Return ChildConfigKt objects filtered by the KttbConfValu column
+ * @method     ChildConfigKt[]|Collection findByKttbconfentrydecpos(int|array<int> $KttbConfEntryDecPos) Return ChildConfigKt objects filtered by the KttbConfEntryDecPos column
+ * @psalm-method Collection&\Traversable<ChildConfigKt> findByKttbconfentrydecpos(int|array<int> $KttbConfEntryDecPos) Return ChildConfigKt objects filtered by the KttbConfEntryDecPos column
+ * @method     ChildConfigKt[]|Collection findByKttbconfallowkitinkit(string|array<string> $KttbConfAllowKitInKit) Return ChildConfigKt objects filtered by the KttbConfAllowKitInKit column
+ * @psalm-method Collection&\Traversable<ChildConfigKt> findByKttbconfallowkitinkit(string|array<string> $KttbConfAllowKitInKit) Return ChildConfigKt objects filtered by the KttbConfAllowKitInKit column
+ * @method     ChildConfigKt[]|Collection findByKttbconfbackordrkitcomp(string|array<string> $KttbConfBackordrKitComp) Return ChildConfigKt objects filtered by the KttbConfBackordrKitComp column
+ * @psalm-method Collection&\Traversable<ChildConfigKt> findByKttbconfbackordrkitcomp(string|array<string> $KttbConfBackordrKitComp) Return ChildConfigKt objects filtered by the KttbConfBackordrKitComp column
+ * @method     ChildConfigKt[]|Collection findByKttbconffreeortag(string|array<string> $KttbConfFreeOrTag) Return ChildConfigKt objects filtered by the KttbConfFreeOrTag column
+ * @psalm-method Collection&\Traversable<ChildConfigKt> findByKttbconffreeortag(string|array<string> $KttbConfFreeOrTag) Return ChildConfigKt objects filtered by the KttbConfFreeOrTag column
+ * @method     ChildConfigKt[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigKt objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigKt> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigKt objects filtered by the DateUpdtd column
+ * @method     ChildConfigKt[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigKt objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigKt> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigKt objects filtered by the TimeUpdtd column
+ * @method     ChildConfigKt[]|Collection findByDummy(string|array<string> $dummy) Return ChildConfigKt objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildConfigKt> findByDummy(string|array<string> $dummy) Return ChildConfigKt objects filtered by the dummy column
+ *
+ * @method     ChildConfigKt[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildConfigKt> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ConfigKtQuery extends ModelCriteria
 {
@@ -98,9 +109,9 @@ abstract class ConfigKtQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ConfigKtQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ConfigKt', $modelAlias = null)
     {
@@ -110,12 +121,12 @@ abstract class ConfigKtQuery extends ModelCriteria
     /**
      * Returns a new ChildConfigKtQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildConfigKtQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildConfigKtQuery) {
             return $criteria;
@@ -145,7 +156,7 @@ abstract class ConfigKtQuery extends ModelCriteria
      *
      * @return ChildConfigKt|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -177,8 +188,8 @@ abstract class ConfigKtQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -210,8 +221,8 @@ abstract class ConfigKtQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildConfigKt|array|mixed the result, formatted by the current formatter
      */
@@ -231,12 +242,12 @@ abstract class ConfigKtQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -253,27 +264,31 @@ abstract class ConfigKtQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildConfigKtQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFKEY, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFKEY, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildConfigKtQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFKEY, $keys, Criteria::IN);
+        $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFKEY, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -286,15 +301,15 @@ abstract class ConfigKtQuery extends ModelCriteria
      * $query->filterByKttbconfkey(array('min' => 12)); // WHERE KttbConfKey > 12
      * </code>
      *
-     * @param     mixed $kttbconfkey The value to use as filter.
+     * @param mixed $kttbconfkey The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigKtQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByKttbconfkey($kttbconfkey = null, $comparison = null)
+    public function filterByKttbconfkey($kttbconfkey = null, ?string $comparison = null)
     {
         if (is_array($kttbconfkey)) {
             $useMinMax = false;
@@ -314,7 +329,9 @@ abstract class ConfigKtQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFKEY, $kttbconfkey, $comparison);
+        $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFKEY, $kttbconfkey, $comparison);
+
+        return $this;
     }
 
     /**
@@ -324,14 +341,15 @@ abstract class ConfigKtQuery extends ModelCriteria
      * <code>
      * $query->filterByKttbconfeditso('fooValue');   // WHERE KttbConfEditSo = 'fooValue'
      * $query->filterByKttbconfeditso('%fooValue%', Criteria::LIKE); // WHERE KttbConfEditSo LIKE '%fooValue%'
+     * $query->filterByKttbconfeditso(['foo', 'bar']); // WHERE KttbConfEditSo IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $kttbconfeditso The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $kttbconfeditso The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigKtQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByKttbconfeditso($kttbconfeditso = null, $comparison = null)
+    public function filterByKttbconfeditso($kttbconfeditso = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($kttbconfeditso)) {
@@ -339,7 +357,9 @@ abstract class ConfigKtQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFEDITSO, $kttbconfeditso, $comparison);
+        $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFEDITSO, $kttbconfeditso, $comparison);
+
+        return $this;
     }
 
     /**
@@ -349,14 +369,15 @@ abstract class ConfigKtQuery extends ModelCriteria
      * <code>
      * $query->filterByKttbconfvalu('fooValue');   // WHERE KttbConfValu = 'fooValue'
      * $query->filterByKttbconfvalu('%fooValue%', Criteria::LIKE); // WHERE KttbConfValu LIKE '%fooValue%'
+     * $query->filterByKttbconfvalu(['foo', 'bar']); // WHERE KttbConfValu IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $kttbconfvalu The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $kttbconfvalu The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigKtQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByKttbconfvalu($kttbconfvalu = null, $comparison = null)
+    public function filterByKttbconfvalu($kttbconfvalu = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($kttbconfvalu)) {
@@ -364,7 +385,9 @@ abstract class ConfigKtQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFVALU, $kttbconfvalu, $comparison);
+        $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFVALU, $kttbconfvalu, $comparison);
+
+        return $this;
     }
 
     /**
@@ -377,15 +400,15 @@ abstract class ConfigKtQuery extends ModelCriteria
      * $query->filterByKttbconfentrydecpos(array('min' => 12)); // WHERE KttbConfEntryDecPos > 12
      * </code>
      *
-     * @param     mixed $kttbconfentrydecpos The value to use as filter.
+     * @param mixed $kttbconfentrydecpos The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigKtQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByKttbconfentrydecpos($kttbconfentrydecpos = null, $comparison = null)
+    public function filterByKttbconfentrydecpos($kttbconfentrydecpos = null, ?string $comparison = null)
     {
         if (is_array($kttbconfentrydecpos)) {
             $useMinMax = false;
@@ -405,7 +428,9 @@ abstract class ConfigKtQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFENTRYDECPOS, $kttbconfentrydecpos, $comparison);
+        $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFENTRYDECPOS, $kttbconfentrydecpos, $comparison);
+
+        return $this;
     }
 
     /**
@@ -415,14 +440,15 @@ abstract class ConfigKtQuery extends ModelCriteria
      * <code>
      * $query->filterByKttbconfallowkitinkit('fooValue');   // WHERE KttbConfAllowKitInKit = 'fooValue'
      * $query->filterByKttbconfallowkitinkit('%fooValue%', Criteria::LIKE); // WHERE KttbConfAllowKitInKit LIKE '%fooValue%'
+     * $query->filterByKttbconfallowkitinkit(['foo', 'bar']); // WHERE KttbConfAllowKitInKit IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $kttbconfallowkitinkit The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $kttbconfallowkitinkit The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigKtQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByKttbconfallowkitinkit($kttbconfallowkitinkit = null, $comparison = null)
+    public function filterByKttbconfallowkitinkit($kttbconfallowkitinkit = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($kttbconfallowkitinkit)) {
@@ -430,7 +456,9 @@ abstract class ConfigKtQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFALLOWKITINKIT, $kttbconfallowkitinkit, $comparison);
+        $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFALLOWKITINKIT, $kttbconfallowkitinkit, $comparison);
+
+        return $this;
     }
 
     /**
@@ -440,14 +468,15 @@ abstract class ConfigKtQuery extends ModelCriteria
      * <code>
      * $query->filterByKttbconfbackordrkitcomp('fooValue');   // WHERE KttbConfBackordrKitComp = 'fooValue'
      * $query->filterByKttbconfbackordrkitcomp('%fooValue%', Criteria::LIKE); // WHERE KttbConfBackordrKitComp LIKE '%fooValue%'
+     * $query->filterByKttbconfbackordrkitcomp(['foo', 'bar']); // WHERE KttbConfBackordrKitComp IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $kttbconfbackordrkitcomp The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $kttbconfbackordrkitcomp The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigKtQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByKttbconfbackordrkitcomp($kttbconfbackordrkitcomp = null, $comparison = null)
+    public function filterByKttbconfbackordrkitcomp($kttbconfbackordrkitcomp = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($kttbconfbackordrkitcomp)) {
@@ -455,7 +484,9 @@ abstract class ConfigKtQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFBACKORDRKITCOMP, $kttbconfbackordrkitcomp, $comparison);
+        $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFBACKORDRKITCOMP, $kttbconfbackordrkitcomp, $comparison);
+
+        return $this;
     }
 
     /**
@@ -465,14 +496,15 @@ abstract class ConfigKtQuery extends ModelCriteria
      * <code>
      * $query->filterByKttbconffreeortag('fooValue');   // WHERE KttbConfFreeOrTag = 'fooValue'
      * $query->filterByKttbconffreeortag('%fooValue%', Criteria::LIKE); // WHERE KttbConfFreeOrTag LIKE '%fooValue%'
+     * $query->filterByKttbconffreeortag(['foo', 'bar']); // WHERE KttbConfFreeOrTag IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $kttbconffreeortag The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $kttbconffreeortag The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigKtQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByKttbconffreeortag($kttbconffreeortag = null, $comparison = null)
+    public function filterByKttbconffreeortag($kttbconffreeortag = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($kttbconffreeortag)) {
@@ -480,7 +512,9 @@ abstract class ConfigKtQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFFREEORTAG, $kttbconffreeortag, $comparison);
+        $this->addUsingAlias(ConfigKtTableMap::COL_KTTBCONFFREEORTAG, $kttbconffreeortag, $comparison);
+
+        return $this;
     }
 
     /**
@@ -490,14 +524,15 @@ abstract class ConfigKtQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigKtQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -505,7 +540,9 @@ abstract class ConfigKtQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigKtTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ConfigKtTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -515,14 +552,15 @@ abstract class ConfigKtQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigKtQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -530,7 +568,9 @@ abstract class ConfigKtQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigKtTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ConfigKtTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -540,14 +580,15 @@ abstract class ConfigKtQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigKtQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -555,15 +596,17 @@ abstract class ConfigKtQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigKtTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ConfigKtTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildConfigKt $configKt Object to remove from the list of results
+     * @param ChildConfigKt $configKt Object to remove from the list of results
      *
-     * @return $this|ChildConfigKtQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($configKt = null)
     {
@@ -580,7 +623,7 @@ abstract class ConfigKtQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigKtTableMap::DATABASE_NAME);
@@ -605,12 +648,12 @@ abstract class ConfigKtQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigKtTableMap::DATABASE_NAME);
@@ -635,4 +678,4 @@ abstract class ConfigKtQuery extends ModelCriteria
         });
     }
 
-} // ConfigKtQuery
+}

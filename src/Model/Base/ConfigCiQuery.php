@@ -10,14 +10,12 @@ use Map\ConfigCiTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ci_config' table.
- *
- *
+ * Base class that represents a query for the `ci_config` table.
  *
  * @method     ChildConfigCiQuery orderByCitbconfkey($order = Criteria::ASC) Order by the CitbConfKey column
  * @method     ChildConfigCiQuery orderByCitbconfytdstrtmo($order = Criteria::ASC) Order by the CitbConfYtdStrtMo column
@@ -61,28 +59,28 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigCiQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildConfigCiQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildConfigCi findOne(ConnectionInterface $con = null) Return the first ChildConfigCi matching the query
- * @method     ChildConfigCi findOneOrCreate(ConnectionInterface $con = null) Return the first ChildConfigCi matching the query, or a new ChildConfigCi object populated from the query conditions when no match is found
+ * @method     ChildConfigCi|null findOne(?ConnectionInterface $con = null) Return the first ChildConfigCi matching the query
+ * @method     ChildConfigCi findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildConfigCi matching the query, or a new ChildConfigCi object populated from the query conditions when no match is found
  *
- * @method     ChildConfigCi findOneByCitbconfkey(int $CitbConfKey) Return the first ChildConfigCi filtered by the CitbConfKey column
- * @method     ChildConfigCi findOneByCitbconfytdstrtmo(int $CitbConfYtdStrtMo) Return the first ChildConfigCi filtered by the CitbConfYtdStrtMo column
- * @method     ChildConfigCi findOneByCitbconfpaysort(string $CitbConfPaySort) Return the first ChildConfigCi filtered by the CitbConfPaySort column
- * @method     ChildConfigCi findOneByCitbconfshistby(string $CitbConfShistBy) Return the first ChildConfigCi filtered by the CitbConfShistBy column
- * @method     ChildConfigCi findOneByCitbconfshistdate(string $CitbConfShistDate) Return the first ChildConfigCi filtered by the CitbConfShistDate column
- * @method     ChildConfigCi findOneByCitbconfshistdays(int $CitbConfShistDays) Return the first ChildConfigCi filtered by the CitbConfShistDays column
- * @method     ChildConfigCi findOneByCitbconfshowzerohist(string $CitbConfShowZeroHist) Return the first ChildConfigCi filtered by the CitbConfShowZeroHist column
- * @method     ChildConfigCi findOneByCitbconfshistnotes(string $CitbConfShistNotes) Return the first ChildConfigCi filtered by the CitbConfShistNotes column
- * @method     ChildConfigCi findOneByCitbconfordernotes(string $CitbConfOrderNotes) Return the first ChildConfigCi filtered by the CitbConfOrderNotes column
- * @method     ChildConfigCi findOneByCitbconfquotenotes(string $CitbConfQuoteNotes) Return the first ChildConfigCi filtered by the CitbConfQuoteNotes column
- * @method     ChildConfigCi findOneByCitbconfconsolget(string $CitbConfConsolGet) Return the first ChildConfigCi filtered by the CitbConfConsolGet column
- * @method     ChildConfigCi findOneByCitbconfssndays(int $CitbConfSsnDays) Return the first ChildConfigCi filtered by the CitbConfSsnDays column
- * @method     ChildConfigCi findOneBycitbconfshowinactive(string $CitbConfShowInactive) Return the first ChildConfigCi filtered by the CitbConfShowInactive column
- * @method     ChildConfigCi findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigCi filtered by the DateUpdtd column
- * @method     ChildConfigCi findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigCi filtered by the TimeUpdtd column
- * @method     ChildConfigCi findOneByDummy(string $dummy) Return the first ChildConfigCi filtered by the dummy column *
-
- * @method     ChildConfigCi requirePk($key, ConnectionInterface $con = null) Return the ChildConfigCi by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildConfigCi requireOne(ConnectionInterface $con = null) Return the first ChildConfigCi matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigCi|null findOneByCitbconfkey(int $CitbConfKey) Return the first ChildConfigCi filtered by the CitbConfKey column
+ * @method     ChildConfigCi|null findOneByCitbconfytdstrtmo(int $CitbConfYtdStrtMo) Return the first ChildConfigCi filtered by the CitbConfYtdStrtMo column
+ * @method     ChildConfigCi|null findOneByCitbconfpaysort(string $CitbConfPaySort) Return the first ChildConfigCi filtered by the CitbConfPaySort column
+ * @method     ChildConfigCi|null findOneByCitbconfshistby(string $CitbConfShistBy) Return the first ChildConfigCi filtered by the CitbConfShistBy column
+ * @method     ChildConfigCi|null findOneByCitbconfshistdate(string $CitbConfShistDate) Return the first ChildConfigCi filtered by the CitbConfShistDate column
+ * @method     ChildConfigCi|null findOneByCitbconfshistdays(int $CitbConfShistDays) Return the first ChildConfigCi filtered by the CitbConfShistDays column
+ * @method     ChildConfigCi|null findOneByCitbconfshowzerohist(string $CitbConfShowZeroHist) Return the first ChildConfigCi filtered by the CitbConfShowZeroHist column
+ * @method     ChildConfigCi|null findOneByCitbconfshistnotes(string $CitbConfShistNotes) Return the first ChildConfigCi filtered by the CitbConfShistNotes column
+ * @method     ChildConfigCi|null findOneByCitbconfordernotes(string $CitbConfOrderNotes) Return the first ChildConfigCi filtered by the CitbConfOrderNotes column
+ * @method     ChildConfigCi|null findOneByCitbconfquotenotes(string $CitbConfQuoteNotes) Return the first ChildConfigCi filtered by the CitbConfQuoteNotes column
+ * @method     ChildConfigCi|null findOneByCitbconfconsolget(string $CitbConfConsolGet) Return the first ChildConfigCi filtered by the CitbConfConsolGet column
+ * @method     ChildConfigCi|null findOneByCitbconfssndays(int $CitbConfSsnDays) Return the first ChildConfigCi filtered by the CitbConfSsnDays column
+ * @method     ChildConfigCi|null findOneBycitbconfshowinactive(string $CitbConfShowInactive) Return the first ChildConfigCi filtered by the CitbConfShowInactive column
+ * @method     ChildConfigCi|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigCi filtered by the DateUpdtd column
+ * @method     ChildConfigCi|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigCi filtered by the TimeUpdtd column
+ * @method     ChildConfigCi|null findOneByDummy(string $dummy) Return the first ChildConfigCi filtered by the dummy column
+ *
+ * @method     ChildConfigCi requirePk($key, ?ConnectionInterface $con = null) Return the ChildConfigCi by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigCi requireOne(?ConnectionInterface $con = null) Return the first ChildConfigCi matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildConfigCi requireOneByCitbconfkey(int $CitbConfKey) Return the first ChildConfigCi filtered by the CitbConfKey column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigCi requireOneByCitbconfytdstrtmo(int $CitbConfYtdStrtMo) Return the first ChildConfigCi filtered by the CitbConfYtdStrtMo column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -101,25 +99,44 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigCi requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigCi filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigCi requireOneByDummy(string $dummy) Return the first ChildConfigCi filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildConfigCi[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildConfigCi objects based on current ModelCriteria
- * @method     ChildConfigCi[]|ObjectCollection findByCitbconfkey(int $CitbConfKey) Return ChildConfigCi objects filtered by the CitbConfKey column
- * @method     ChildConfigCi[]|ObjectCollection findByCitbconfytdstrtmo(int $CitbConfYtdStrtMo) Return ChildConfigCi objects filtered by the CitbConfYtdStrtMo column
- * @method     ChildConfigCi[]|ObjectCollection findByCitbconfpaysort(string $CitbConfPaySort) Return ChildConfigCi objects filtered by the CitbConfPaySort column
- * @method     ChildConfigCi[]|ObjectCollection findByCitbconfshistby(string $CitbConfShistBy) Return ChildConfigCi objects filtered by the CitbConfShistBy column
- * @method     ChildConfigCi[]|ObjectCollection findByCitbconfshistdate(string $CitbConfShistDate) Return ChildConfigCi objects filtered by the CitbConfShistDate column
- * @method     ChildConfigCi[]|ObjectCollection findByCitbconfshistdays(int $CitbConfShistDays) Return ChildConfigCi objects filtered by the CitbConfShistDays column
- * @method     ChildConfigCi[]|ObjectCollection findByCitbconfshowzerohist(string $CitbConfShowZeroHist) Return ChildConfigCi objects filtered by the CitbConfShowZeroHist column
- * @method     ChildConfigCi[]|ObjectCollection findByCitbconfshistnotes(string $CitbConfShistNotes) Return ChildConfigCi objects filtered by the CitbConfShistNotes column
- * @method     ChildConfigCi[]|ObjectCollection findByCitbconfordernotes(string $CitbConfOrderNotes) Return ChildConfigCi objects filtered by the CitbConfOrderNotes column
- * @method     ChildConfigCi[]|ObjectCollection findByCitbconfquotenotes(string $CitbConfQuoteNotes) Return ChildConfigCi objects filtered by the CitbConfQuoteNotes column
- * @method     ChildConfigCi[]|ObjectCollection findByCitbconfconsolget(string $CitbConfConsolGet) Return ChildConfigCi objects filtered by the CitbConfConsolGet column
- * @method     ChildConfigCi[]|ObjectCollection findByCitbconfssndays(int $CitbConfSsnDays) Return ChildConfigCi objects filtered by the CitbConfSsnDays column
- * @method     ChildConfigCi[]|ObjectCollection findBycitbconfshowinactive(string $CitbConfShowInactive) Return ChildConfigCi objects filtered by the CitbConfShowInactive column
- * @method     ChildConfigCi[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildConfigCi objects filtered by the DateUpdtd column
- * @method     ChildConfigCi[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildConfigCi objects filtered by the TimeUpdtd column
- * @method     ChildConfigCi[]|ObjectCollection findByDummy(string $dummy) Return ChildConfigCi objects filtered by the dummy column
- * @method     ChildConfigCi[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildConfigCi[]|Collection find(?ConnectionInterface $con = null) Return ChildConfigCi objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildConfigCi> find(?ConnectionInterface $con = null) Return ChildConfigCi objects based on current ModelCriteria
  *
+ * @method     ChildConfigCi[]|Collection findByCitbconfkey(int|array<int> $CitbConfKey) Return ChildConfigCi objects filtered by the CitbConfKey column
+ * @psalm-method Collection&\Traversable<ChildConfigCi> findByCitbconfkey(int|array<int> $CitbConfKey) Return ChildConfigCi objects filtered by the CitbConfKey column
+ * @method     ChildConfigCi[]|Collection findByCitbconfytdstrtmo(int|array<int> $CitbConfYtdStrtMo) Return ChildConfigCi objects filtered by the CitbConfYtdStrtMo column
+ * @psalm-method Collection&\Traversable<ChildConfigCi> findByCitbconfytdstrtmo(int|array<int> $CitbConfYtdStrtMo) Return ChildConfigCi objects filtered by the CitbConfYtdStrtMo column
+ * @method     ChildConfigCi[]|Collection findByCitbconfpaysort(string|array<string> $CitbConfPaySort) Return ChildConfigCi objects filtered by the CitbConfPaySort column
+ * @psalm-method Collection&\Traversable<ChildConfigCi> findByCitbconfpaysort(string|array<string> $CitbConfPaySort) Return ChildConfigCi objects filtered by the CitbConfPaySort column
+ * @method     ChildConfigCi[]|Collection findByCitbconfshistby(string|array<string> $CitbConfShistBy) Return ChildConfigCi objects filtered by the CitbConfShistBy column
+ * @psalm-method Collection&\Traversable<ChildConfigCi> findByCitbconfshistby(string|array<string> $CitbConfShistBy) Return ChildConfigCi objects filtered by the CitbConfShistBy column
+ * @method     ChildConfigCi[]|Collection findByCitbconfshistdate(string|array<string> $CitbConfShistDate) Return ChildConfigCi objects filtered by the CitbConfShistDate column
+ * @psalm-method Collection&\Traversable<ChildConfigCi> findByCitbconfshistdate(string|array<string> $CitbConfShistDate) Return ChildConfigCi objects filtered by the CitbConfShistDate column
+ * @method     ChildConfigCi[]|Collection findByCitbconfshistdays(int|array<int> $CitbConfShistDays) Return ChildConfigCi objects filtered by the CitbConfShistDays column
+ * @psalm-method Collection&\Traversable<ChildConfigCi> findByCitbconfshistdays(int|array<int> $CitbConfShistDays) Return ChildConfigCi objects filtered by the CitbConfShistDays column
+ * @method     ChildConfigCi[]|Collection findByCitbconfshowzerohist(string|array<string> $CitbConfShowZeroHist) Return ChildConfigCi objects filtered by the CitbConfShowZeroHist column
+ * @psalm-method Collection&\Traversable<ChildConfigCi> findByCitbconfshowzerohist(string|array<string> $CitbConfShowZeroHist) Return ChildConfigCi objects filtered by the CitbConfShowZeroHist column
+ * @method     ChildConfigCi[]|Collection findByCitbconfshistnotes(string|array<string> $CitbConfShistNotes) Return ChildConfigCi objects filtered by the CitbConfShistNotes column
+ * @psalm-method Collection&\Traversable<ChildConfigCi> findByCitbconfshistnotes(string|array<string> $CitbConfShistNotes) Return ChildConfigCi objects filtered by the CitbConfShistNotes column
+ * @method     ChildConfigCi[]|Collection findByCitbconfordernotes(string|array<string> $CitbConfOrderNotes) Return ChildConfigCi objects filtered by the CitbConfOrderNotes column
+ * @psalm-method Collection&\Traversable<ChildConfigCi> findByCitbconfordernotes(string|array<string> $CitbConfOrderNotes) Return ChildConfigCi objects filtered by the CitbConfOrderNotes column
+ * @method     ChildConfigCi[]|Collection findByCitbconfquotenotes(string|array<string> $CitbConfQuoteNotes) Return ChildConfigCi objects filtered by the CitbConfQuoteNotes column
+ * @psalm-method Collection&\Traversable<ChildConfigCi> findByCitbconfquotenotes(string|array<string> $CitbConfQuoteNotes) Return ChildConfigCi objects filtered by the CitbConfQuoteNotes column
+ * @method     ChildConfigCi[]|Collection findByCitbconfconsolget(string|array<string> $CitbConfConsolGet) Return ChildConfigCi objects filtered by the CitbConfConsolGet column
+ * @psalm-method Collection&\Traversable<ChildConfigCi> findByCitbconfconsolget(string|array<string> $CitbConfConsolGet) Return ChildConfigCi objects filtered by the CitbConfConsolGet column
+ * @method     ChildConfigCi[]|Collection findByCitbconfssndays(int|array<int> $CitbConfSsnDays) Return ChildConfigCi objects filtered by the CitbConfSsnDays column
+ * @psalm-method Collection&\Traversable<ChildConfigCi> findByCitbconfssndays(int|array<int> $CitbConfSsnDays) Return ChildConfigCi objects filtered by the CitbConfSsnDays column
+ * @method     ChildConfigCi[]|Collection findBycitbconfshowinactive(string|array<string> $CitbConfShowInactive) Return ChildConfigCi objects filtered by the CitbConfShowInactive column
+ * @psalm-method Collection&\Traversable<ChildConfigCi> findBycitbconfshowinactive(string|array<string> $CitbConfShowInactive) Return ChildConfigCi objects filtered by the CitbConfShowInactive column
+ * @method     ChildConfigCi[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigCi objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigCi> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildConfigCi objects filtered by the DateUpdtd column
+ * @method     ChildConfigCi[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigCi objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildConfigCi> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildConfigCi objects filtered by the TimeUpdtd column
+ * @method     ChildConfigCi[]|Collection findByDummy(string|array<string> $dummy) Return ChildConfigCi objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildConfigCi> findByDummy(string|array<string> $dummy) Return ChildConfigCi objects filtered by the dummy column
+ *
+ * @method     ChildConfigCi[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildConfigCi> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ConfigCiQuery extends ModelCriteria
 {
@@ -128,9 +145,9 @@ abstract class ConfigCiQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ConfigCiQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ConfigCi', $modelAlias = null)
     {
@@ -140,12 +157,12 @@ abstract class ConfigCiQuery extends ModelCriteria
     /**
      * Returns a new ChildConfigCiQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildConfigCiQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildConfigCiQuery) {
             return $criteria;
@@ -175,7 +192,7 @@ abstract class ConfigCiQuery extends ModelCriteria
      *
      * @return ChildConfigCi|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -207,8 +224,8 @@ abstract class ConfigCiQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -240,8 +257,8 @@ abstract class ConfigCiQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildConfigCi|array|mixed the result, formatted by the current formatter
      */
@@ -261,12 +278,12 @@ abstract class ConfigCiQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -283,27 +300,31 @@ abstract class ConfigCiQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFKEY, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFKEY, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFKEY, $keys, Criteria::IN);
+        $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFKEY, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -316,15 +337,15 @@ abstract class ConfigCiQuery extends ModelCriteria
      * $query->filterByCitbconfkey(array('min' => 12)); // WHERE CitbConfKey > 12
      * </code>
      *
-     * @param     mixed $citbconfkey The value to use as filter.
+     * @param mixed $citbconfkey The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitbconfkey($citbconfkey = null, $comparison = null)
+    public function filterByCitbconfkey($citbconfkey = null, ?string $comparison = null)
     {
         if (is_array($citbconfkey)) {
             $useMinMax = false;
@@ -344,7 +365,9 @@ abstract class ConfigCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFKEY, $citbconfkey, $comparison);
+        $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFKEY, $citbconfkey, $comparison);
+
+        return $this;
     }
 
     /**
@@ -357,15 +380,15 @@ abstract class ConfigCiQuery extends ModelCriteria
      * $query->filterByCitbconfytdstrtmo(array('min' => 12)); // WHERE CitbConfYtdStrtMo > 12
      * </code>
      *
-     * @param     mixed $citbconfytdstrtmo The value to use as filter.
+     * @param mixed $citbconfytdstrtmo The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitbconfytdstrtmo($citbconfytdstrtmo = null, $comparison = null)
+    public function filterByCitbconfytdstrtmo($citbconfytdstrtmo = null, ?string $comparison = null)
     {
         if (is_array($citbconfytdstrtmo)) {
             $useMinMax = false;
@@ -385,7 +408,9 @@ abstract class ConfigCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFYTDSTRTMO, $citbconfytdstrtmo, $comparison);
+        $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFYTDSTRTMO, $citbconfytdstrtmo, $comparison);
+
+        return $this;
     }
 
     /**
@@ -395,14 +420,15 @@ abstract class ConfigCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitbconfpaysort('fooValue');   // WHERE CitbConfPaySort = 'fooValue'
      * $query->filterByCitbconfpaysort('%fooValue%', Criteria::LIKE); // WHERE CitbConfPaySort LIKE '%fooValue%'
+     * $query->filterByCitbconfpaysort(['foo', 'bar']); // WHERE CitbConfPaySort IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citbconfpaysort The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citbconfpaysort The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitbconfpaysort($citbconfpaysort = null, $comparison = null)
+    public function filterByCitbconfpaysort($citbconfpaysort = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citbconfpaysort)) {
@@ -410,7 +436,9 @@ abstract class ConfigCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFPAYSORT, $citbconfpaysort, $comparison);
+        $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFPAYSORT, $citbconfpaysort, $comparison);
+
+        return $this;
     }
 
     /**
@@ -420,14 +448,15 @@ abstract class ConfigCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitbconfshistby('fooValue');   // WHERE CitbConfShistBy = 'fooValue'
      * $query->filterByCitbconfshistby('%fooValue%', Criteria::LIKE); // WHERE CitbConfShistBy LIKE '%fooValue%'
+     * $query->filterByCitbconfshistby(['foo', 'bar']); // WHERE CitbConfShistBy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citbconfshistby The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citbconfshistby The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitbconfshistby($citbconfshistby = null, $comparison = null)
+    public function filterByCitbconfshistby($citbconfshistby = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citbconfshistby)) {
@@ -435,7 +464,9 @@ abstract class ConfigCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHISTBY, $citbconfshistby, $comparison);
+        $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHISTBY, $citbconfshistby, $comparison);
+
+        return $this;
     }
 
     /**
@@ -445,14 +476,15 @@ abstract class ConfigCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitbconfshistdate('fooValue');   // WHERE CitbConfShistDate = 'fooValue'
      * $query->filterByCitbconfshistdate('%fooValue%', Criteria::LIKE); // WHERE CitbConfShistDate LIKE '%fooValue%'
+     * $query->filterByCitbconfshistdate(['foo', 'bar']); // WHERE CitbConfShistDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citbconfshistdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citbconfshistdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitbconfshistdate($citbconfshistdate = null, $comparison = null)
+    public function filterByCitbconfshistdate($citbconfshistdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citbconfshistdate)) {
@@ -460,7 +492,9 @@ abstract class ConfigCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHISTDATE, $citbconfshistdate, $comparison);
+        $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHISTDATE, $citbconfshistdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -473,15 +507,15 @@ abstract class ConfigCiQuery extends ModelCriteria
      * $query->filterByCitbconfshistdays(array('min' => 12)); // WHERE CitbConfShistDays > 12
      * </code>
      *
-     * @param     mixed $citbconfshistdays The value to use as filter.
+     * @param mixed $citbconfshistdays The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitbconfshistdays($citbconfshistdays = null, $comparison = null)
+    public function filterByCitbconfshistdays($citbconfshistdays = null, ?string $comparison = null)
     {
         if (is_array($citbconfshistdays)) {
             $useMinMax = false;
@@ -501,7 +535,9 @@ abstract class ConfigCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHISTDAYS, $citbconfshistdays, $comparison);
+        $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHISTDAYS, $citbconfshistdays, $comparison);
+
+        return $this;
     }
 
     /**
@@ -511,14 +547,15 @@ abstract class ConfigCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitbconfshowzerohist('fooValue');   // WHERE CitbConfShowZeroHist = 'fooValue'
      * $query->filterByCitbconfshowzerohist('%fooValue%', Criteria::LIKE); // WHERE CitbConfShowZeroHist LIKE '%fooValue%'
+     * $query->filterByCitbconfshowzerohist(['foo', 'bar']); // WHERE CitbConfShowZeroHist IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citbconfshowzerohist The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citbconfshowzerohist The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitbconfshowzerohist($citbconfshowzerohist = null, $comparison = null)
+    public function filterByCitbconfshowzerohist($citbconfshowzerohist = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citbconfshowzerohist)) {
@@ -526,7 +563,9 @@ abstract class ConfigCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHOWZEROHIST, $citbconfshowzerohist, $comparison);
+        $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHOWZEROHIST, $citbconfshowzerohist, $comparison);
+
+        return $this;
     }
 
     /**
@@ -536,14 +575,15 @@ abstract class ConfigCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitbconfshistnotes('fooValue');   // WHERE CitbConfShistNotes = 'fooValue'
      * $query->filterByCitbconfshistnotes('%fooValue%', Criteria::LIKE); // WHERE CitbConfShistNotes LIKE '%fooValue%'
+     * $query->filterByCitbconfshistnotes(['foo', 'bar']); // WHERE CitbConfShistNotes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citbconfshistnotes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citbconfshistnotes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitbconfshistnotes($citbconfshistnotes = null, $comparison = null)
+    public function filterByCitbconfshistnotes($citbconfshistnotes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citbconfshistnotes)) {
@@ -551,7 +591,9 @@ abstract class ConfigCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHISTNOTES, $citbconfshistnotes, $comparison);
+        $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHISTNOTES, $citbconfshistnotes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -561,14 +603,15 @@ abstract class ConfigCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitbconfordernotes('fooValue');   // WHERE CitbConfOrderNotes = 'fooValue'
      * $query->filterByCitbconfordernotes('%fooValue%', Criteria::LIKE); // WHERE CitbConfOrderNotes LIKE '%fooValue%'
+     * $query->filterByCitbconfordernotes(['foo', 'bar']); // WHERE CitbConfOrderNotes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citbconfordernotes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citbconfordernotes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitbconfordernotes($citbconfordernotes = null, $comparison = null)
+    public function filterByCitbconfordernotes($citbconfordernotes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citbconfordernotes)) {
@@ -576,7 +619,9 @@ abstract class ConfigCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFORDERNOTES, $citbconfordernotes, $comparison);
+        $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFORDERNOTES, $citbconfordernotes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -586,14 +631,15 @@ abstract class ConfigCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitbconfquotenotes('fooValue');   // WHERE CitbConfQuoteNotes = 'fooValue'
      * $query->filterByCitbconfquotenotes('%fooValue%', Criteria::LIKE); // WHERE CitbConfQuoteNotes LIKE '%fooValue%'
+     * $query->filterByCitbconfquotenotes(['foo', 'bar']); // WHERE CitbConfQuoteNotes IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citbconfquotenotes The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citbconfquotenotes The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitbconfquotenotes($citbconfquotenotes = null, $comparison = null)
+    public function filterByCitbconfquotenotes($citbconfquotenotes = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citbconfquotenotes)) {
@@ -601,7 +647,9 @@ abstract class ConfigCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFQUOTENOTES, $citbconfquotenotes, $comparison);
+        $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFQUOTENOTES, $citbconfquotenotes, $comparison);
+
+        return $this;
     }
 
     /**
@@ -611,14 +659,15 @@ abstract class ConfigCiQuery extends ModelCriteria
      * <code>
      * $query->filterByCitbconfconsolget('fooValue');   // WHERE CitbConfConsolGet = 'fooValue'
      * $query->filterByCitbconfconsolget('%fooValue%', Criteria::LIKE); // WHERE CitbConfConsolGet LIKE '%fooValue%'
+     * $query->filterByCitbconfconsolget(['foo', 'bar']); // WHERE CitbConfConsolGet IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citbconfconsolget The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citbconfconsolget The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitbconfconsolget($citbconfconsolget = null, $comparison = null)
+    public function filterByCitbconfconsolget($citbconfconsolget = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citbconfconsolget)) {
@@ -626,7 +675,9 @@ abstract class ConfigCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFCONSOLGET, $citbconfconsolget, $comparison);
+        $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFCONSOLGET, $citbconfconsolget, $comparison);
+
+        return $this;
     }
 
     /**
@@ -639,15 +690,15 @@ abstract class ConfigCiQuery extends ModelCriteria
      * $query->filterByCitbconfssndays(array('min' => 12)); // WHERE CitbConfSsnDays > 12
      * </code>
      *
-     * @param     mixed $citbconfssndays The value to use as filter.
+     * @param mixed $citbconfssndays The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByCitbconfssndays($citbconfssndays = null, $comparison = null)
+    public function filterByCitbconfssndays($citbconfssndays = null, ?string $comparison = null)
     {
         if (is_array($citbconfssndays)) {
             $useMinMax = false;
@@ -667,7 +718,9 @@ abstract class ConfigCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSSNDAYS, $citbconfssndays, $comparison);
+        $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSSNDAYS, $citbconfssndays, $comparison);
+
+        return $this;
     }
 
     /**
@@ -677,14 +730,15 @@ abstract class ConfigCiQuery extends ModelCriteria
      * <code>
      * $query->filterBycitbconfshowinactive('fooValue');   // WHERE CitbConfShowInactive = 'fooValue'
      * $query->filterBycitbconfshowinactive('%fooValue%', Criteria::LIKE); // WHERE CitbConfShowInactive LIKE '%fooValue%'
+     * $query->filterBycitbconfshowinactive(['foo', 'bar']); // WHERE CitbConfShowInactive IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $citbconfshowinactive The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $citbconfshowinactive The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterBycitbconfshowinactive($citbconfshowinactive = null, $comparison = null)
+    public function filterBycitbconfshowinactive($citbconfshowinactive = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($citbconfshowinactive)) {
@@ -692,7 +746,9 @@ abstract class ConfigCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHOWINACTIVE, $citbconfshowinactive, $comparison);
+        $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHOWINACTIVE, $citbconfshowinactive, $comparison);
+
+        return $this;
     }
 
     /**
@@ -702,14 +758,15 @@ abstract class ConfigCiQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -717,7 +774,9 @@ abstract class ConfigCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ConfigCiTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -727,14 +786,15 @@ abstract class ConfigCiQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -742,7 +802,9 @@ abstract class ConfigCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ConfigCiTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -752,14 +814,15 @@ abstract class ConfigCiQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -767,15 +830,17 @@ abstract class ConfigCiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ConfigCiTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ConfigCiTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildConfigCi $configCi Object to remove from the list of results
+     * @param ChildConfigCi $configCi Object to remove from the list of results
      *
-     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($configCi = null)
     {
@@ -792,7 +857,7 @@ abstract class ConfigCiQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigCiTableMap::DATABASE_NAME);
@@ -817,12 +882,12 @@ abstract class ConfigCiQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ConfigCiTableMap::DATABASE_NAME);
@@ -847,4 +912,4 @@ abstract class ConfigCiQuery extends ModelCriteria
         });
     }
 
-} // ConfigCiQuery
+}

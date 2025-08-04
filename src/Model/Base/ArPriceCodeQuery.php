@@ -10,14 +10,12 @@ use Map\ArPriceCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ar_cust_price' table.
- *
- *
+ * Base class that represents a query for the `ar_cust_price` table.
  *
  * @method     ChildArPriceCodeQuery orderByArtbpriccode($order = Criteria::ASC) Order by the ArtbPricCode column
  * @method     ChildArPriceCodeQuery orderByArtbpricdesc($order = Criteria::ASC) Order by the ArtbPricDesc column
@@ -43,19 +41,19 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArPriceCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildArPriceCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildArPriceCode findOne(ConnectionInterface $con = null) Return the first ChildArPriceCode matching the query
- * @method     ChildArPriceCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildArPriceCode matching the query, or a new ChildArPriceCode object populated from the query conditions when no match is found
+ * @method     ChildArPriceCode|null findOne(?ConnectionInterface $con = null) Return the first ChildArPriceCode matching the query
+ * @method     ChildArPriceCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildArPriceCode matching the query, or a new ChildArPriceCode object populated from the query conditions when no match is found
  *
- * @method     ChildArPriceCode findOneByArtbpriccode(string $ArtbPricCode) Return the first ChildArPriceCode filtered by the ArtbPricCode column
- * @method     ChildArPriceCode findOneByArtbpricdesc(string $ArtbPricDesc) Return the first ChildArPriceCode filtered by the ArtbPricDesc column
- * @method     ChildArPriceCode findOneByArtbpricusesurchg(string $ArtbPricUseSurchg) Return the first ChildArPriceCode filtered by the ArtbPricUseSurchg column
- * @method     ChildArPriceCode findOneByArtbpricsurchgpct(string $ArtbPricSurchgPct) Return the first ChildArPriceCode filtered by the ArtbPricSurchgPct column
- * @method     ChildArPriceCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildArPriceCode filtered by the DateUpdtd column
- * @method     ChildArPriceCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArPriceCode filtered by the TimeUpdtd column
- * @method     ChildArPriceCode findOneByDummy(string $dummy) Return the first ChildArPriceCode filtered by the dummy column *
-
- * @method     ChildArPriceCode requirePk($key, ConnectionInterface $con = null) Return the ChildArPriceCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildArPriceCode requireOne(ConnectionInterface $con = null) Return the first ChildArPriceCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArPriceCode|null findOneByArtbpriccode(string $ArtbPricCode) Return the first ChildArPriceCode filtered by the ArtbPricCode column
+ * @method     ChildArPriceCode|null findOneByArtbpricdesc(string $ArtbPricDesc) Return the first ChildArPriceCode filtered by the ArtbPricDesc column
+ * @method     ChildArPriceCode|null findOneByArtbpricusesurchg(string $ArtbPricUseSurchg) Return the first ChildArPriceCode filtered by the ArtbPricUseSurchg column
+ * @method     ChildArPriceCode|null findOneByArtbpricsurchgpct(string $ArtbPricSurchgPct) Return the first ChildArPriceCode filtered by the ArtbPricSurchgPct column
+ * @method     ChildArPriceCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildArPriceCode filtered by the DateUpdtd column
+ * @method     ChildArPriceCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArPriceCode filtered by the TimeUpdtd column
+ * @method     ChildArPriceCode|null findOneByDummy(string $dummy) Return the first ChildArPriceCode filtered by the dummy column
+ *
+ * @method     ChildArPriceCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildArPriceCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArPriceCode requireOne(?ConnectionInterface $con = null) Return the first ChildArPriceCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildArPriceCode requireOneByArtbpriccode(string $ArtbPricCode) Return the first ChildArPriceCode filtered by the ArtbPricCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArPriceCode requireOneByArtbpricdesc(string $ArtbPricDesc) Return the first ChildArPriceCode filtered by the ArtbPricDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -65,16 +63,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArPriceCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArPriceCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArPriceCode requireOneByDummy(string $dummy) Return the first ChildArPriceCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildArPriceCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArPriceCode objects based on current ModelCriteria
- * @method     ChildArPriceCode[]|ObjectCollection findByArtbpriccode(string $ArtbPricCode) Return ChildArPriceCode objects filtered by the ArtbPricCode column
- * @method     ChildArPriceCode[]|ObjectCollection findByArtbpricdesc(string $ArtbPricDesc) Return ChildArPriceCode objects filtered by the ArtbPricDesc column
- * @method     ChildArPriceCode[]|ObjectCollection findByArtbpricusesurchg(string $ArtbPricUseSurchg) Return ChildArPriceCode objects filtered by the ArtbPricUseSurchg column
- * @method     ChildArPriceCode[]|ObjectCollection findByArtbpricsurchgpct(string $ArtbPricSurchgPct) Return ChildArPriceCode objects filtered by the ArtbPricSurchgPct column
- * @method     ChildArPriceCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArPriceCode objects filtered by the DateUpdtd column
- * @method     ChildArPriceCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArPriceCode objects filtered by the TimeUpdtd column
- * @method     ChildArPriceCode[]|ObjectCollection findByDummy(string $dummy) Return ChildArPriceCode objects filtered by the dummy column
- * @method     ChildArPriceCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildArPriceCode[]|Collection find(?ConnectionInterface $con = null) Return ChildArPriceCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildArPriceCode> find(?ConnectionInterface $con = null) Return ChildArPriceCode objects based on current ModelCriteria
  *
+ * @method     ChildArPriceCode[]|Collection findByArtbpriccode(string|array<string> $ArtbPricCode) Return ChildArPriceCode objects filtered by the ArtbPricCode column
+ * @psalm-method Collection&\Traversable<ChildArPriceCode> findByArtbpriccode(string|array<string> $ArtbPricCode) Return ChildArPriceCode objects filtered by the ArtbPricCode column
+ * @method     ChildArPriceCode[]|Collection findByArtbpricdesc(string|array<string> $ArtbPricDesc) Return ChildArPriceCode objects filtered by the ArtbPricDesc column
+ * @psalm-method Collection&\Traversable<ChildArPriceCode> findByArtbpricdesc(string|array<string> $ArtbPricDesc) Return ChildArPriceCode objects filtered by the ArtbPricDesc column
+ * @method     ChildArPriceCode[]|Collection findByArtbpricusesurchg(string|array<string> $ArtbPricUseSurchg) Return ChildArPriceCode objects filtered by the ArtbPricUseSurchg column
+ * @psalm-method Collection&\Traversable<ChildArPriceCode> findByArtbpricusesurchg(string|array<string> $ArtbPricUseSurchg) Return ChildArPriceCode objects filtered by the ArtbPricUseSurchg column
+ * @method     ChildArPriceCode[]|Collection findByArtbpricsurchgpct(string|array<string> $ArtbPricSurchgPct) Return ChildArPriceCode objects filtered by the ArtbPricSurchgPct column
+ * @psalm-method Collection&\Traversable<ChildArPriceCode> findByArtbpricsurchgpct(string|array<string> $ArtbPricSurchgPct) Return ChildArPriceCode objects filtered by the ArtbPricSurchgPct column
+ * @method     ChildArPriceCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArPriceCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArPriceCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArPriceCode objects filtered by the DateUpdtd column
+ * @method     ChildArPriceCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArPriceCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArPriceCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArPriceCode objects filtered by the TimeUpdtd column
+ * @method     ChildArPriceCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildArPriceCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildArPriceCode> findByDummy(string|array<string> $dummy) Return ChildArPriceCode objects filtered by the dummy column
+ *
+ * @method     ChildArPriceCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildArPriceCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ArPriceCodeQuery extends ModelCriteria
 {
@@ -83,9 +91,9 @@ abstract class ArPriceCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ArPriceCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ArPriceCode', $modelAlias = null)
     {
@@ -95,12 +103,12 @@ abstract class ArPriceCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildArPriceCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildArPriceCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildArPriceCodeQuery) {
             return $criteria;
@@ -130,7 +138,7 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      *
      * @return ChildArPriceCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -162,8 +170,8 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -195,8 +203,8 @@ abstract class ArPriceCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildArPriceCode|array|mixed the result, formatted by the current formatter
      */
@@ -216,12 +224,12 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -238,27 +246,31 @@ abstract class ArPriceCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildArPriceCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildArPriceCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -268,14 +280,15 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbpriccode('fooValue');   // WHERE ArtbPricCode = 'fooValue'
      * $query->filterByArtbpriccode('%fooValue%', Criteria::LIKE); // WHERE ArtbPricCode LIKE '%fooValue%'
+     * $query->filterByArtbpriccode(['foo', 'bar']); // WHERE ArtbPricCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbpriccode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbpriccode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPriceCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbpriccode($artbpriccode = null, $comparison = null)
+    public function filterByArtbpriccode($artbpriccode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbpriccode)) {
@@ -283,7 +296,9 @@ abstract class ArPriceCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICCODE, $artbpriccode, $comparison);
+        $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICCODE, $artbpriccode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -293,14 +308,15 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbpricdesc('fooValue');   // WHERE ArtbPricDesc = 'fooValue'
      * $query->filterByArtbpricdesc('%fooValue%', Criteria::LIKE); // WHERE ArtbPricDesc LIKE '%fooValue%'
+     * $query->filterByArtbpricdesc(['foo', 'bar']); // WHERE ArtbPricDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbpricdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbpricdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPriceCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbpricdesc($artbpricdesc = null, $comparison = null)
+    public function filterByArtbpricdesc($artbpricdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbpricdesc)) {
@@ -308,7 +324,9 @@ abstract class ArPriceCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICDESC, $artbpricdesc, $comparison);
+        $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICDESC, $artbpricdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -318,14 +336,15 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbpricusesurchg('fooValue');   // WHERE ArtbPricUseSurchg = 'fooValue'
      * $query->filterByArtbpricusesurchg('%fooValue%', Criteria::LIKE); // WHERE ArtbPricUseSurchg LIKE '%fooValue%'
+     * $query->filterByArtbpricusesurchg(['foo', 'bar']); // WHERE ArtbPricUseSurchg IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbpricusesurchg The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbpricusesurchg The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPriceCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbpricusesurchg($artbpricusesurchg = null, $comparison = null)
+    public function filterByArtbpricusesurchg($artbpricusesurchg = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbpricusesurchg)) {
@@ -333,7 +352,9 @@ abstract class ArPriceCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICUSESURCHG, $artbpricusesurchg, $comparison);
+        $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICUSESURCHG, $artbpricusesurchg, $comparison);
+
+        return $this;
     }
 
     /**
@@ -346,15 +367,15 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      * $query->filterByArtbpricsurchgpct(array('min' => 12)); // WHERE ArtbPricSurchgPct > 12
      * </code>
      *
-     * @param     mixed $artbpricsurchgpct The value to use as filter.
+     * @param mixed $artbpricsurchgpct The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPriceCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbpricsurchgpct($artbpricsurchgpct = null, $comparison = null)
+    public function filterByArtbpricsurchgpct($artbpricsurchgpct = null, ?string $comparison = null)
     {
         if (is_array($artbpricsurchgpct)) {
             $useMinMax = false;
@@ -374,7 +395,9 @@ abstract class ArPriceCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICSURCHGPCT, $artbpricsurchgpct, $comparison);
+        $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICSURCHGPCT, $artbpricsurchgpct, $comparison);
+
+        return $this;
     }
 
     /**
@@ -384,14 +407,15 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPriceCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -399,7 +423,9 @@ abstract class ArPriceCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPriceCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ArPriceCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -409,14 +435,15 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPriceCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -424,7 +451,9 @@ abstract class ArPriceCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPriceCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ArPriceCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -434,14 +463,15 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArPriceCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -449,20 +479,22 @@ abstract class ArPriceCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArPriceCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ArPriceCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildArPriceCode $customerPriceCode Object to remove from the list of results
+     * @param ChildArPriceCode $arPriceCode Object to remove from the list of results
      *
-     * @return $this|ChildArPriceCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function prune($customerPriceCode = null)
+    public function prune($arPriceCode = null)
     {
-        if ($customerPriceCode) {
-            $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICCODE, $customerPriceCode->getArtbpriccode(), Criteria::NOT_EQUAL);
+        if ($arPriceCode) {
+            $this->addUsingAlias(ArPriceCodeTableMap::COL_ARTBPRICCODE, $arPriceCode->getArtbpriccode(), Criteria::NOT_EQUAL);
         }
 
         return $this;
@@ -474,7 +506,7 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArPriceCodeTableMap::DATABASE_NAME);
@@ -499,12 +531,12 @@ abstract class ArPriceCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArPriceCodeTableMap::DATABASE_NAME);
@@ -529,4 +561,4 @@ abstract class ArPriceCodeQuery extends ModelCriteria
         });
     }
 
-} // ArPriceCodeQuery
+}

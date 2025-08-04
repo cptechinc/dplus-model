@@ -38,19 +38,21 @@ abstract class VendorShipfrom implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\VendorShipfromTableMap';
+    public const TABLE_MAP = '\\Map\\VendorShipfromTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -59,14 +61,14 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the apvevendid field.
@@ -87,490 +89,490 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * The value for the apfmname field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmname;
 
     /**
      * The value for the apfmadr1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmadr1;
 
     /**
      * The value for the apfmadr2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmadr2;
 
     /**
      * The value for the apfmadr3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmadr3;
 
     /**
      * The value for the apfmctry field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmctry;
 
     /**
      * The value for the apfmcity field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmcity;
 
     /**
      * The value for the apfmstat field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmstat;
 
     /**
      * The value for the apfmzipcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmzipcode;
 
     /**
      * The value for the apfmcont1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmcont1;
 
     /**
      * The value for the apfmcont2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmcont2;
 
     /**
      * The value for the artbsviacode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artbsviacode;
 
     /**
      * The value for the apfmglacct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmglacct;
 
     /**
      * The value for the apfmpurmtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpurmtd;
 
     /**
      * The value for the apfmpomtd field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpomtd;
 
     /**
      * The value for the apfmdateopen field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmdateopen;
 
     /**
      * The value for the apfmlastpurdate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmlastpurdate;
 
     /**
      * The value for the apfmpur24mo01 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo01;
 
     /**
      * The value for the apfmpo24mo01 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo01;
 
     /**
      * The value for the apfmpur24mo02 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo02;
 
     /**
      * The value for the apfmpo24mo02 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo02;
 
     /**
      * The value for the apfmpur24mo03 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo03;
 
     /**
      * The value for the apfmpo24mo03 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo03;
 
     /**
      * The value for the apfmpur24mo04 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo04;
 
     /**
      * The value for the apfmpo24mo04 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo04;
 
     /**
      * The value for the apfmpur24mo05 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo05;
 
     /**
      * The value for the apfmpo24mo05 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo05;
 
     /**
      * The value for the apfmpur24mo06 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo06;
 
     /**
      * The value for the apfmpo24mo06 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo06;
 
     /**
      * The value for the apfmpur24mo07 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo07;
 
     /**
      * The value for the apfmpo24mo07 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo07;
 
     /**
      * The value for the apfmpur24mo08 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo08;
 
     /**
      * The value for the apfmpo24mo08 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo08;
 
     /**
      * The value for the apfmpur24mo09 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo09;
 
     /**
      * The value for the apfmpo24mo09 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo09;
 
     /**
      * The value for the apfmpur24mo10 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo10;
 
     /**
      * The value for the apfmpo24mo10 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo10;
 
     /**
      * The value for the apfmpur24mo11 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo11;
 
     /**
      * The value for the apfmpo24mo11 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo11;
 
     /**
      * The value for the apfmpur24mo12 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo12;
 
     /**
      * The value for the apfmpo24mo12 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo12;
 
     /**
      * The value for the apfmpur24mo13 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo13;
 
     /**
      * The value for the apfmpo24mo13 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo13;
 
     /**
      * The value for the apfmpur24mo14 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo14;
 
     /**
      * The value for the apfmpo24mo14 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo14;
 
     /**
      * The value for the apfmpur24mo15 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo15;
 
     /**
      * The value for the apfmpo24mo15 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo15;
 
     /**
      * The value for the apfmpur24mo16 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo16;
 
     /**
      * The value for the apfmpo24mo16 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo16;
 
     /**
      * The value for the apfmpur24mo17 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo17;
 
     /**
      * The value for the apfmpo24mo17 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo17;
 
     /**
      * The value for the apfmpur24mo18 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo18;
 
     /**
      * The value for the apfmpo24mo18 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo18;
 
     /**
      * The value for the apfmpur24mo19 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo19;
 
     /**
      * The value for the apfmpo24mo19 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo19;
 
     /**
      * The value for the apfmpur24mo20 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo20;
 
     /**
      * The value for the apfmpo24mo20 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo20;
 
     /**
      * The value for the apfmpur24mo21 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo21;
 
     /**
      * The value for the apfmpo24mo21 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo21;
 
     /**
      * The value for the apfmpur24mo22 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo22;
 
     /**
      * The value for the apfmpo24mo22 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo22;
 
     /**
      * The value for the apfmpur24mo23 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo23;
 
     /**
      * The value for the apfmpo24mo23 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo23;
 
     /**
      * The value for the apfmpur24mo24 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpur24mo24;
 
     /**
      * The value for the apfmpo24mo24 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpo24mo24;
 
     /**
      * The value for the apfmouracctnbr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmouracctnbr;
 
     /**
      * The value for the apfmpurytd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $apfmpurytd;
 
     /**
      * The value for the apfmpoytd field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $apfmpoytd;
 
     /**
      * The value for the dateupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dateupdtd;
 
     /**
      * The value for the timeupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $timeupdtd;
 
     /**
      * The value for the dummy field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
@@ -586,6 +588,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
 
     /**
      * @var        ObjectCollection|ChildPurchaseOrder[] Collection to store aggregation of ChildPurchaseOrder objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrder> Collection to store aggregation of ChildPurchaseOrder objects.
      */
     protected $collPurchaseOrders;
     protected $collPurchaseOrdersPartial;
@@ -594,13 +597,14 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildPurchaseOrder[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildPurchaseOrder>
      */
     protected $purchaseOrdersScheduledForDeletion = null;
 
@@ -610,7 +614,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->apvevendid = '';
         $this->apfmshipid = '';
@@ -628,9 +632,9 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -638,10 +642,10 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -650,7 +654,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -660,9 +664,9 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -671,45 +675,43 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -718,10 +720,10 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>VendorShipfrom</code>, delegates to
      * <code>equals(VendorShipfrom)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -743,7 +745,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -751,10 +753,10 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -762,15 +764,15 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -779,12 +781,12 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|VendorShipfrom The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -794,13 +796,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -811,24 +813,27 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -866,7 +871,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmname] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmname()
     {
@@ -876,7 +881,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmadr1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmadr1()
     {
@@ -886,7 +891,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmadr2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmadr2()
     {
@@ -896,7 +901,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmadr3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmadr3()
     {
@@ -906,7 +911,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmctry] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmctry()
     {
@@ -916,7 +921,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmcity] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmcity()
     {
@@ -926,7 +931,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmstat] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmstat()
     {
@@ -936,7 +941,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmzipcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmzipcode()
     {
@@ -946,7 +951,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmcont1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmcont1()
     {
@@ -956,7 +961,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmcont2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmcont2()
     {
@@ -966,7 +971,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [artbsviacode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtbsviacode()
     {
@@ -976,7 +981,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmglacct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmglacct()
     {
@@ -986,7 +991,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpurmtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpurmtd()
     {
@@ -996,7 +1001,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpomtd] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpomtd()
     {
@@ -1006,7 +1011,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmdateopen] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmdateopen()
     {
@@ -1016,7 +1021,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmlastpurdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmlastpurdate()
     {
@@ -1026,7 +1031,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo01] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo01()
     {
@@ -1036,7 +1041,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo01] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo01()
     {
@@ -1046,7 +1051,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo02] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo02()
     {
@@ -1056,7 +1061,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo02] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo02()
     {
@@ -1066,7 +1071,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo03] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo03()
     {
@@ -1076,7 +1081,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo03] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo03()
     {
@@ -1086,7 +1091,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo04] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo04()
     {
@@ -1096,7 +1101,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo04] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo04()
     {
@@ -1106,7 +1111,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo05] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo05()
     {
@@ -1116,7 +1121,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo05] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo05()
     {
@@ -1126,7 +1131,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo06] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo06()
     {
@@ -1136,7 +1141,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo06] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo06()
     {
@@ -1146,7 +1151,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo07] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo07()
     {
@@ -1156,7 +1161,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo07] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo07()
     {
@@ -1166,7 +1171,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo08] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo08()
     {
@@ -1176,7 +1181,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo08] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo08()
     {
@@ -1186,7 +1191,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo09] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo09()
     {
@@ -1196,7 +1201,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo09] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo09()
     {
@@ -1206,7 +1211,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo10] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo10()
     {
@@ -1216,7 +1221,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo10] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo10()
     {
@@ -1226,7 +1231,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo11] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo11()
     {
@@ -1236,7 +1241,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo11] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo11()
     {
@@ -1246,7 +1251,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo12] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo12()
     {
@@ -1256,7 +1261,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo12] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo12()
     {
@@ -1266,7 +1271,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo13] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo13()
     {
@@ -1276,7 +1281,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo13] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo13()
     {
@@ -1286,7 +1291,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo14] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo14()
     {
@@ -1296,7 +1301,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo14] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo14()
     {
@@ -1306,7 +1311,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo15] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo15()
     {
@@ -1316,7 +1321,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo15] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo15()
     {
@@ -1326,7 +1331,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo16] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo16()
     {
@@ -1336,7 +1341,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo16] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo16()
     {
@@ -1346,7 +1351,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo17] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo17()
     {
@@ -1356,7 +1361,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo17] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo17()
     {
@@ -1366,7 +1371,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo18] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo18()
     {
@@ -1376,7 +1381,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo18] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo18()
     {
@@ -1386,7 +1391,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo19] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo19()
     {
@@ -1396,7 +1401,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo19] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo19()
     {
@@ -1406,7 +1411,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo20] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo20()
     {
@@ -1416,7 +1421,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo20] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo20()
     {
@@ -1426,7 +1431,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo21] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo21()
     {
@@ -1436,7 +1441,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo21] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo21()
     {
@@ -1446,7 +1451,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo22] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo22()
     {
@@ -1456,7 +1461,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo22] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo22()
     {
@@ -1466,7 +1471,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo23] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo23()
     {
@@ -1476,7 +1481,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo23] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo23()
     {
@@ -1486,7 +1491,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpur24mo24] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmpur24mo24()
     {
@@ -1496,7 +1501,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpo24mo24] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmpo24mo24()
     {
@@ -1506,7 +1511,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmouracctnbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmouracctnbr()
     {
@@ -1516,7 +1521,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpurytd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getApfmPurYtd()
     {
@@ -1526,7 +1531,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [apfmpoytd] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getApfmPoYtd()
     {
@@ -1536,7 +1541,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [dateupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDateupdtd()
     {
@@ -1546,7 +1551,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [timeupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTimeupdtd()
     {
@@ -1556,7 +1561,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -1566,8 +1571,8 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Set the value of [apvevendid] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApvevendid($v)
     {
@@ -1585,13 +1590,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvevendid()
+    }
 
     /**
      * Set the value of [apfmshipid] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmshipid($v)
     {
@@ -1605,13 +1610,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmshipid()
+    }
 
     /**
      * Set the value of [apfmname] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmname($v)
     {
@@ -1625,13 +1630,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmname()
+    }
 
     /**
      * Set the value of [apfmadr1] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmadr1($v)
     {
@@ -1645,13 +1650,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmadr1()
+    }
 
     /**
      * Set the value of [apfmadr2] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmadr2($v)
     {
@@ -1665,13 +1670,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmadr2()
+    }
 
     /**
      * Set the value of [apfmadr3] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmadr3($v)
     {
@@ -1685,13 +1690,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmadr3()
+    }
 
     /**
      * Set the value of [apfmctry] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmctry($v)
     {
@@ -1705,13 +1710,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmctry()
+    }
 
     /**
      * Set the value of [apfmcity] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmcity($v)
     {
@@ -1725,13 +1730,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmcity()
+    }
 
     /**
      * Set the value of [apfmstat] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmstat($v)
     {
@@ -1745,13 +1750,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmstat()
+    }
 
     /**
      * Set the value of [apfmzipcode] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmzipcode($v)
     {
@@ -1765,13 +1770,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmzipcode()
+    }
 
     /**
      * Set the value of [apfmcont1] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmcont1($v)
     {
@@ -1785,13 +1790,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmcont1()
+    }
 
     /**
      * Set the value of [apfmcont2] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmcont2($v)
     {
@@ -1805,13 +1810,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmcont2()
+    }
 
     /**
      * Set the value of [artbsviacode] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbsviacode($v)
     {
@@ -1829,13 +1834,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbsviacode()
+    }
 
     /**
      * Set the value of [apfmglacct] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmglacct($v)
     {
@@ -1849,13 +1854,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmglacct()
+    }
 
     /**
      * Set the value of [apfmpurmtd] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpurmtd($v)
     {
@@ -1869,13 +1874,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpurmtd()
+    }
 
     /**
      * Set the value of [apfmpomtd] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpomtd($v)
     {
@@ -1889,13 +1894,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpomtd()
+    }
 
     /**
      * Set the value of [apfmdateopen] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmdateopen($v)
     {
@@ -1909,13 +1914,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmdateopen()
+    }
 
     /**
      * Set the value of [apfmlastpurdate] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmlastpurdate($v)
     {
@@ -1929,13 +1934,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmlastpurdate()
+    }
 
     /**
      * Set the value of [apfmpur24mo01] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo01($v)
     {
@@ -1949,13 +1954,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo01()
+    }
 
     /**
      * Set the value of [apfmpo24mo01] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo01($v)
     {
@@ -1969,13 +1974,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo01()
+    }
 
     /**
      * Set the value of [apfmpur24mo02] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo02($v)
     {
@@ -1989,13 +1994,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo02()
+    }
 
     /**
      * Set the value of [apfmpo24mo02] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo02($v)
     {
@@ -2009,13 +2014,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo02()
+    }
 
     /**
      * Set the value of [apfmpur24mo03] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo03($v)
     {
@@ -2029,13 +2034,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo03()
+    }
 
     /**
      * Set the value of [apfmpo24mo03] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo03($v)
     {
@@ -2049,13 +2054,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo03()
+    }
 
     /**
      * Set the value of [apfmpur24mo04] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo04($v)
     {
@@ -2069,13 +2074,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo04()
+    }
 
     /**
      * Set the value of [apfmpo24mo04] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo04($v)
     {
@@ -2089,13 +2094,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo04()
+    }
 
     /**
      * Set the value of [apfmpur24mo05] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo05($v)
     {
@@ -2109,13 +2114,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo05()
+    }
 
     /**
      * Set the value of [apfmpo24mo05] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo05($v)
     {
@@ -2129,13 +2134,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo05()
+    }
 
     /**
      * Set the value of [apfmpur24mo06] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo06($v)
     {
@@ -2149,13 +2154,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo06()
+    }
 
     /**
      * Set the value of [apfmpo24mo06] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo06($v)
     {
@@ -2169,13 +2174,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo06()
+    }
 
     /**
      * Set the value of [apfmpur24mo07] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo07($v)
     {
@@ -2189,13 +2194,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo07()
+    }
 
     /**
      * Set the value of [apfmpo24mo07] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo07($v)
     {
@@ -2209,13 +2214,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo07()
+    }
 
     /**
      * Set the value of [apfmpur24mo08] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo08($v)
     {
@@ -2229,13 +2234,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo08()
+    }
 
     /**
      * Set the value of [apfmpo24mo08] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo08($v)
     {
@@ -2249,13 +2254,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo08()
+    }
 
     /**
      * Set the value of [apfmpur24mo09] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo09($v)
     {
@@ -2269,13 +2274,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo09()
+    }
 
     /**
      * Set the value of [apfmpo24mo09] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo09($v)
     {
@@ -2289,13 +2294,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo09()
+    }
 
     /**
      * Set the value of [apfmpur24mo10] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo10($v)
     {
@@ -2309,13 +2314,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo10()
+    }
 
     /**
      * Set the value of [apfmpo24mo10] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo10($v)
     {
@@ -2329,13 +2334,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo10()
+    }
 
     /**
      * Set the value of [apfmpur24mo11] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo11($v)
     {
@@ -2349,13 +2354,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo11()
+    }
 
     /**
      * Set the value of [apfmpo24mo11] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo11($v)
     {
@@ -2369,13 +2374,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo11()
+    }
 
     /**
      * Set the value of [apfmpur24mo12] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo12($v)
     {
@@ -2389,13 +2394,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo12()
+    }
 
     /**
      * Set the value of [apfmpo24mo12] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo12($v)
     {
@@ -2409,13 +2414,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo12()
+    }
 
     /**
      * Set the value of [apfmpur24mo13] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo13($v)
     {
@@ -2429,13 +2434,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo13()
+    }
 
     /**
      * Set the value of [apfmpo24mo13] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo13($v)
     {
@@ -2449,13 +2454,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo13()
+    }
 
     /**
      * Set the value of [apfmpur24mo14] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo14($v)
     {
@@ -2469,13 +2474,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo14()
+    }
 
     /**
      * Set the value of [apfmpo24mo14] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo14($v)
     {
@@ -2489,13 +2494,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo14()
+    }
 
     /**
      * Set the value of [apfmpur24mo15] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo15($v)
     {
@@ -2509,13 +2514,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo15()
+    }
 
     /**
      * Set the value of [apfmpo24mo15] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo15($v)
     {
@@ -2529,13 +2534,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo15()
+    }
 
     /**
      * Set the value of [apfmpur24mo16] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo16($v)
     {
@@ -2549,13 +2554,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo16()
+    }
 
     /**
      * Set the value of [apfmpo24mo16] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo16($v)
     {
@@ -2569,13 +2574,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo16()
+    }
 
     /**
      * Set the value of [apfmpur24mo17] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo17($v)
     {
@@ -2589,13 +2594,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo17()
+    }
 
     /**
      * Set the value of [apfmpo24mo17] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo17($v)
     {
@@ -2609,13 +2614,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo17()
+    }
 
     /**
      * Set the value of [apfmpur24mo18] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo18($v)
     {
@@ -2629,13 +2634,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo18()
+    }
 
     /**
      * Set the value of [apfmpo24mo18] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo18($v)
     {
@@ -2649,13 +2654,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo18()
+    }
 
     /**
      * Set the value of [apfmpur24mo19] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo19($v)
     {
@@ -2669,13 +2674,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo19()
+    }
 
     /**
      * Set the value of [apfmpo24mo19] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo19($v)
     {
@@ -2689,13 +2694,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo19()
+    }
 
     /**
      * Set the value of [apfmpur24mo20] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo20($v)
     {
@@ -2709,13 +2714,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo20()
+    }
 
     /**
      * Set the value of [apfmpo24mo20] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo20($v)
     {
@@ -2729,13 +2734,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo20()
+    }
 
     /**
      * Set the value of [apfmpur24mo21] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo21($v)
     {
@@ -2749,13 +2754,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo21()
+    }
 
     /**
      * Set the value of [apfmpo24mo21] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo21($v)
     {
@@ -2769,13 +2774,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo21()
+    }
 
     /**
      * Set the value of [apfmpur24mo22] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo22($v)
     {
@@ -2789,13 +2794,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo22()
+    }
 
     /**
      * Set the value of [apfmpo24mo22] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo22($v)
     {
@@ -2809,13 +2814,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo22()
+    }
 
     /**
      * Set the value of [apfmpur24mo23] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo23($v)
     {
@@ -2829,13 +2834,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo23()
+    }
 
     /**
      * Set the value of [apfmpo24mo23] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo23($v)
     {
@@ -2849,13 +2854,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo23()
+    }
 
     /**
      * Set the value of [apfmpur24mo24] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpur24mo24($v)
     {
@@ -2869,13 +2874,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpur24mo24()
+    }
 
     /**
      * Set the value of [apfmpo24mo24] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmpo24mo24($v)
     {
@@ -2889,13 +2894,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmpo24mo24()
+    }
 
     /**
      * Set the value of [apfmouracctnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmouracctnbr($v)
     {
@@ -2909,13 +2914,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmouracctnbr()
+    }
 
     /**
      * Set the value of [apfmpurytd] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmPurYtd($v)
     {
@@ -2929,13 +2934,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmPurYtd()
+    }
 
     /**
      * Set the value of [apfmpoytd] column.
      *
-     * @param int $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setApfmPoYtd($v)
     {
@@ -2949,13 +2954,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApfmPoYtd()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -2969,13 +2974,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -2989,13 +2994,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -3009,7 +3014,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -3017,9 +3022,9 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->apvevendid !== '') {
                 return false;
@@ -3031,7 +3036,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -3041,17 +3046,17 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -3270,8 +3275,8 @@ abstract class VendorShipfrom implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : VendorShipfromTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -3296,9 +3301,10 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
         if ($this->aVendor !== null && $this->apvevendid !== $this->aVendor->getApvevendid()) {
             $this->aVendor = null;
@@ -3306,19 +3312,19 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         if ($this->aShipvia !== null && $this->artbsviacode !== $this->aShipvia->getArtbshipvia()) {
             $this->aShipvia = null;
         }
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -3355,13 +3361,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see VendorShipfrom::setDeleted()
      * @see VendorShipfrom::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -3391,12 +3397,12 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -3441,12 +3447,12 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -3505,19 +3511,19 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -3751,219 +3757,291 @@ abstract class VendorShipfrom implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'ApveVendId':
                         $stmt->bindValue($identifier, $this->apvevendid, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmShipId':
                         $stmt->bindValue($identifier, $this->apfmshipid, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmName':
                         $stmt->bindValue($identifier, $this->apfmname, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmAdr1':
                         $stmt->bindValue($identifier, $this->apfmadr1, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmAdr2':
                         $stmt->bindValue($identifier, $this->apfmadr2, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmAdr3':
                         $stmt->bindValue($identifier, $this->apfmadr3, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmCtry':
                         $stmt->bindValue($identifier, $this->apfmctry, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmCity':
                         $stmt->bindValue($identifier, $this->apfmcity, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmStat':
                         $stmt->bindValue($identifier, $this->apfmstat, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmZipCode':
                         $stmt->bindValue($identifier, $this->apfmzipcode, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmCont1':
                         $stmt->bindValue($identifier, $this->apfmcont1, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmCont2':
                         $stmt->bindValue($identifier, $this->apfmcont2, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbSviaCode':
                         $stmt->bindValue($identifier, $this->artbsviacode, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmGlAcct':
                         $stmt->bindValue($identifier, $this->apfmglacct, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPurMtd':
                         $stmt->bindValue($identifier, $this->apfmpurmtd, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPoMtd':
                         $stmt->bindValue($identifier, $this->apfmpomtd, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmDateOpen':
                         $stmt->bindValue($identifier, $this->apfmdateopen, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmLastPurDate':
                         $stmt->bindValue($identifier, $this->apfmlastpurdate, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPur24mo01':
                         $stmt->bindValue($identifier, $this->apfmpur24mo01, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo01':
                         $stmt->bindValue($identifier, $this->apfmpo24mo01, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo02':
                         $stmt->bindValue($identifier, $this->apfmpur24mo02, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo02':
                         $stmt->bindValue($identifier, $this->apfmpo24mo02, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo03':
                         $stmt->bindValue($identifier, $this->apfmpur24mo03, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo03':
                         $stmt->bindValue($identifier, $this->apfmpo24mo03, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo04':
                         $stmt->bindValue($identifier, $this->apfmpur24mo04, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo04':
                         $stmt->bindValue($identifier, $this->apfmpo24mo04, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo05':
                         $stmt->bindValue($identifier, $this->apfmpur24mo05, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo05':
                         $stmt->bindValue($identifier, $this->apfmpo24mo05, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo06':
                         $stmt->bindValue($identifier, $this->apfmpur24mo06, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo06':
                         $stmt->bindValue($identifier, $this->apfmpo24mo06, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo07':
                         $stmt->bindValue($identifier, $this->apfmpur24mo07, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo07':
                         $stmt->bindValue($identifier, $this->apfmpo24mo07, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo08':
                         $stmt->bindValue($identifier, $this->apfmpur24mo08, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo08':
                         $stmt->bindValue($identifier, $this->apfmpo24mo08, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo09':
                         $stmt->bindValue($identifier, $this->apfmpur24mo09, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo09':
                         $stmt->bindValue($identifier, $this->apfmpo24mo09, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo10':
                         $stmt->bindValue($identifier, $this->apfmpur24mo10, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo10':
                         $stmt->bindValue($identifier, $this->apfmpo24mo10, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo11':
                         $stmt->bindValue($identifier, $this->apfmpur24mo11, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo11':
                         $stmt->bindValue($identifier, $this->apfmpo24mo11, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo12':
                         $stmt->bindValue($identifier, $this->apfmpur24mo12, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo12':
                         $stmt->bindValue($identifier, $this->apfmpo24mo12, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo13':
                         $stmt->bindValue($identifier, $this->apfmpur24mo13, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo13':
                         $stmt->bindValue($identifier, $this->apfmpo24mo13, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo14':
                         $stmt->bindValue($identifier, $this->apfmpur24mo14, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo14':
                         $stmt->bindValue($identifier, $this->apfmpo24mo14, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo15':
                         $stmt->bindValue($identifier, $this->apfmpur24mo15, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo15':
                         $stmt->bindValue($identifier, $this->apfmpo24mo15, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo16':
                         $stmt->bindValue($identifier, $this->apfmpur24mo16, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo16':
                         $stmt->bindValue($identifier, $this->apfmpo24mo16, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo17':
                         $stmt->bindValue($identifier, $this->apfmpur24mo17, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo17':
                         $stmt->bindValue($identifier, $this->apfmpo24mo17, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo18':
                         $stmt->bindValue($identifier, $this->apfmpur24mo18, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo18':
                         $stmt->bindValue($identifier, $this->apfmpo24mo18, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo19':
                         $stmt->bindValue($identifier, $this->apfmpur24mo19, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo19':
                         $stmt->bindValue($identifier, $this->apfmpo24mo19, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo20':
                         $stmt->bindValue($identifier, $this->apfmpur24mo20, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo20':
                         $stmt->bindValue($identifier, $this->apfmpo24mo20, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo21':
                         $stmt->bindValue($identifier, $this->apfmpur24mo21, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo21':
                         $stmt->bindValue($identifier, $this->apfmpo24mo21, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo22':
                         $stmt->bindValue($identifier, $this->apfmpur24mo22, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo22':
                         $stmt->bindValue($identifier, $this->apfmpo24mo22, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo23':
                         $stmt->bindValue($identifier, $this->apfmpur24mo23, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo23':
                         $stmt->bindValue($identifier, $this->apfmpo24mo23, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmPur24mo24':
                         $stmt->bindValue($identifier, $this->apfmpur24mo24, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPo24mo24':
                         $stmt->bindValue($identifier, $this->apfmpo24mo24, PDO::PARAM_INT);
+
                         break;
                     case 'ApfmOurAcctNbr':
                         $stmt->bindValue($identifier, $this->apfmouracctnbr, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPurYtd':
                         $stmt->bindValue($identifier, $this->apfmpurytd, PDO::PARAM_STR);
+
                         break;
                     case 'ApfmPoYtd':
                         $stmt->bindValue($identifier, $this->apfmpoytd, PDO::PARAM_INT);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -3979,12 +4057,12 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -3995,14 +4073,14 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = VendorShipfromTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -4014,231 +4092,230 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getApvevendid();
-                break;
+
             case 1:
                 return $this->getApfmshipid();
-                break;
+
             case 2:
                 return $this->getApfmname();
-                break;
+
             case 3:
                 return $this->getApfmadr1();
-                break;
+
             case 4:
                 return $this->getApfmadr2();
-                break;
+
             case 5:
                 return $this->getApfmadr3();
-                break;
+
             case 6:
                 return $this->getApfmctry();
-                break;
+
             case 7:
                 return $this->getApfmcity();
-                break;
+
             case 8:
                 return $this->getApfmstat();
-                break;
+
             case 9:
                 return $this->getApfmzipcode();
-                break;
+
             case 10:
                 return $this->getApfmcont1();
-                break;
+
             case 11:
                 return $this->getApfmcont2();
-                break;
+
             case 12:
                 return $this->getArtbsviacode();
-                break;
+
             case 13:
                 return $this->getApfmglacct();
-                break;
+
             case 14:
                 return $this->getApfmpurmtd();
-                break;
+
             case 15:
                 return $this->getApfmpomtd();
-                break;
+
             case 16:
                 return $this->getApfmdateopen();
-                break;
+
             case 17:
                 return $this->getApfmlastpurdate();
-                break;
+
             case 18:
                 return $this->getApfmpur24mo01();
-                break;
+
             case 19:
                 return $this->getApfmpo24mo01();
-                break;
+
             case 20:
                 return $this->getApfmpur24mo02();
-                break;
+
             case 21:
                 return $this->getApfmpo24mo02();
-                break;
+
             case 22:
                 return $this->getApfmpur24mo03();
-                break;
+
             case 23:
                 return $this->getApfmpo24mo03();
-                break;
+
             case 24:
                 return $this->getApfmpur24mo04();
-                break;
+
             case 25:
                 return $this->getApfmpo24mo04();
-                break;
+
             case 26:
                 return $this->getApfmpur24mo05();
-                break;
+
             case 27:
                 return $this->getApfmpo24mo05();
-                break;
+
             case 28:
                 return $this->getApfmpur24mo06();
-                break;
+
             case 29:
                 return $this->getApfmpo24mo06();
-                break;
+
             case 30:
                 return $this->getApfmpur24mo07();
-                break;
+
             case 31:
                 return $this->getApfmpo24mo07();
-                break;
+
             case 32:
                 return $this->getApfmpur24mo08();
-                break;
+
             case 33:
                 return $this->getApfmpo24mo08();
-                break;
+
             case 34:
                 return $this->getApfmpur24mo09();
-                break;
+
             case 35:
                 return $this->getApfmpo24mo09();
-                break;
+
             case 36:
                 return $this->getApfmpur24mo10();
-                break;
+
             case 37:
                 return $this->getApfmpo24mo10();
-                break;
+
             case 38:
                 return $this->getApfmpur24mo11();
-                break;
+
             case 39:
                 return $this->getApfmpo24mo11();
-                break;
+
             case 40:
                 return $this->getApfmpur24mo12();
-                break;
+
             case 41:
                 return $this->getApfmpo24mo12();
-                break;
+
             case 42:
                 return $this->getApfmpur24mo13();
-                break;
+
             case 43:
                 return $this->getApfmpo24mo13();
-                break;
+
             case 44:
                 return $this->getApfmpur24mo14();
-                break;
+
             case 45:
                 return $this->getApfmpo24mo14();
-                break;
+
             case 46:
                 return $this->getApfmpur24mo15();
-                break;
+
             case 47:
                 return $this->getApfmpo24mo15();
-                break;
+
             case 48:
                 return $this->getApfmpur24mo16();
-                break;
+
             case 49:
                 return $this->getApfmpo24mo16();
-                break;
+
             case 50:
                 return $this->getApfmpur24mo17();
-                break;
+
             case 51:
                 return $this->getApfmpo24mo17();
-                break;
+
             case 52:
                 return $this->getApfmpur24mo18();
-                break;
+
             case 53:
                 return $this->getApfmpo24mo18();
-                break;
+
             case 54:
                 return $this->getApfmpur24mo19();
-                break;
+
             case 55:
                 return $this->getApfmpo24mo19();
-                break;
+
             case 56:
                 return $this->getApfmpur24mo20();
-                break;
+
             case 57:
                 return $this->getApfmpo24mo20();
-                break;
+
             case 58:
                 return $this->getApfmpur24mo21();
-                break;
+
             case 59:
                 return $this->getApfmpo24mo21();
-                break;
+
             case 60:
                 return $this->getApfmpur24mo22();
-                break;
+
             case 61:
                 return $this->getApfmpo24mo22();
-                break;
+
             case 62:
                 return $this->getApfmpur24mo23();
-                break;
+
             case 63:
                 return $this->getApfmpo24mo23();
-                break;
+
             case 64:
                 return $this->getApfmpur24mo24();
-                break;
+
             case 65:
                 return $this->getApfmpo24mo24();
-                break;
+
             case 66:
                 return $this->getApfmouracctnbr();
-                break;
+
             case 67:
                 return $this->getApfmPurYtd();
-                break;
+
             case 68:
                 return $this->getApfmPoYtd();
-                break;
+
             case 69:
                 return $this->getDateupdtd();
-                break;
+
             case 70:
                 return $this->getTimeupdtd();
-                break;
+
             case 71:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -4248,24 +4325,23 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
-     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = [], bool $includeForeignObjects = false): array
     {
-
         if (isset($alreadyDumpedObjects['VendorShipfrom'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['VendorShipfrom'][$this->hashCode()] = true;
         $keys = VendorShipfromTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getApvevendid(),
             $keys[1] => $this->getApfmshipid(),
             $keys[2] => $this->getApfmname(),
@@ -4338,7 +4414,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
             $keys[69] => $this->getDateupdtd(),
             $keys[70] => $this->getTimeupdtd(),
             $keys[71] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -4398,30 +4474,32 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\VendorShipfrom
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = VendorShipfromTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\VendorShipfrom
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -4658,11 +4736,11 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = VendorShipfromTableMap::getFieldNames($keyType);
 
@@ -4882,6 +4960,8 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         if (array_key_exists($keys[71], $arr)) {
             $this->setDummy($arr[$keys[71]]);
         }
+
+        return $this;
     }
 
      /**
@@ -4901,9 +4981,9 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\VendorShipfrom The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -4917,9 +4997,9 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(VendorShipfromTableMap::DATABASE_NAME);
 
@@ -5147,13 +5227,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildVendorShipfromQuery::create();
         $criteria->add(VendorShipfromTableMap::COL_APVEVENDID, $this->apvevendid);
@@ -5166,7 +5246,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -5199,7 +5279,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      */
     public function getPrimaryKey()
     {
-        $pks = array();
+        $pks = [];
         $pks[0] = $this->getApvevendid();
         $pks[1] = $this->getApfmshipid();
 
@@ -5209,10 +5289,10 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Set the [composite] primary key.
      *
-     * @param      array $keys The elements of the composite key (order must match the order in XML file).
+     * @param array $keys The elements of the composite key (order must match the order in XML file).
      * @return void
      */
-    public function setPrimaryKey($keys)
+    public function setPrimaryKey(array $keys): void
     {
         $this->setApvevendid($keys[0]);
         $this->setApfmshipid($keys[1]);
@@ -5220,9 +5300,10 @@ abstract class VendorShipfrom implements ActiveRecordInterface
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return (null === $this->getApvevendid()) && (null === $this->getApfmshipid());
     }
@@ -5233,12 +5314,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \VendorShipfrom (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \VendorShipfrom (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setApvevendid($this->getApvevendid());
         $copyObj->setApfmshipid($this->getApfmshipid());
@@ -5339,11 +5421,11 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \VendorShipfrom Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -5356,9 +5438,9 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildVendor object.
      *
-     * @param  ChildVendor $v
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildVendor $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setVendor(ChildVendor $v = null)
     {
@@ -5384,11 +5466,11 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the associated ChildVendor object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
+     * @param ConnectionInterface $con Optional Connection object.
      * @return ChildVendor The associated ChildVendor object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVendor(ConnectionInterface $con = null)
+    public function getVendor(?ConnectionInterface $con = null)
     {
         if ($this->aVendor === null && (($this->apvevendid !== "" && $this->apvevendid !== null))) {
             $this->aVendor = ChildVendorQuery::create()->findPk($this->apvevendid, $con);
@@ -5407,9 +5489,9 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildShipvia object.
      *
-     * @param  ChildShipvia $v
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildShipvia|null $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setShipvia(ChildShipvia $v = null)
     {
@@ -5435,11 +5517,11 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Get the associated ChildShipvia object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildShipvia The associated ChildShipvia object.
-     * @throws PropelException
+     * @param ConnectionInterface $con Optional Connection object.
+     * @return ChildShipvia|null The associated ChildShipvia object.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getShipvia(ConnectionInterface $con = null)
+    public function getShipvia(?ConnectionInterface $con = null)
     {
         if ($this->aShipvia === null && (($this->artbsviacode !== "" && $this->artbsviacode !== null))) {
             $this->aShipvia = ChildShipviaQuery::create()->findPk($this->artbsviacode, $con);
@@ -5461,12 +5543,12 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * Avoids crafting an 'init[$relationName]s' method name
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
-     * @param      string $relationName The name of the relation to initialize
+     * @param string $relationName The name of the relation to initialize
      * @return void
      */
-    public function initRelation($relationName)
+    public function initRelation($relationName): void
     {
-        if ('PurchaseOrder' == $relationName) {
+        if ('PurchaseOrder' === $relationName) {
             $this->initPurchaseOrders();
             return;
         }
@@ -5478,18 +5560,22 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addPurchaseOrders()
+     * @return $this
+     * @see addPurchaseOrders()
      */
     public function clearPurchaseOrders()
     {
         $this->collPurchaseOrders = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collPurchaseOrders collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialPurchaseOrders($v = true)
+    public function resetPartialPurchaseOrders($v = true): void
     {
         $this->collPurchaseOrdersPartial = $v;
     }
@@ -5501,12 +5587,12 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initPurchaseOrders($overrideExisting = true)
+    public function initPurchaseOrders(bool $overrideExisting = true): void
     {
         if (null !== $this->collPurchaseOrders && !$overrideExisting) {
             return;
@@ -5527,18 +5613,28 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * If this ChildVendorShipfrom is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildPurchaseOrder[] List of ChildPurchaseOrder objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrder> List of ChildPurchaseOrder objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getPurchaseOrders(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getPurchaseOrders(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collPurchaseOrdersPartial && !$this->isNew();
-        if (null === $this->collPurchaseOrders || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collPurchaseOrders) {
+        if (null === $this->collPurchaseOrders || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initPurchaseOrders();
+                if (null === $this->collPurchaseOrders) {
+                    $this->initPurchaseOrders();
+                } else {
+                    $collectionClassName = PurchaseOrderTableMap::getTableMap()->getCollectionClassName();
+
+                    $collPurchaseOrders = new $collectionClassName;
+                    $collPurchaseOrders->setModel('\PurchaseOrder');
+
+                    return $collPurchaseOrders;
+                }
             } else {
                 $collPurchaseOrders = ChildPurchaseOrderQuery::create(null, $criteria)
                     ->filterByVendorShipfrom($this)
@@ -5582,11 +5678,11 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $purchaseOrders A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildVendorShipfrom The current object (for fluent API support)
+     * @param Collection $purchaseOrders A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setPurchaseOrders(Collection $purchaseOrders, ConnectionInterface $con = null)
+    public function setPurchaseOrders(Collection $purchaseOrders, ?ConnectionInterface $con = null)
     {
         /** @var ChildPurchaseOrder[] $purchaseOrdersToDelete */
         $purchaseOrdersToDelete = $this->getPurchaseOrders(new Criteria(), $con)->diff($purchaseOrders);
@@ -5612,13 +5708,13 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * Returns the number of related PurchaseOrder objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related PurchaseOrder objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related PurchaseOrder objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countPurchaseOrders(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countPurchaseOrders(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collPurchaseOrdersPartial && !$this->isNew();
         if (null === $this->collPurchaseOrders || null !== $criteria || $partial) {
@@ -5647,8 +5743,8 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * Method called to associate a ChildPurchaseOrder object to this object
      * through the ChildPurchaseOrder foreign key attribute.
      *
-     * @param  ChildPurchaseOrder $l ChildPurchaseOrder
-     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @param ChildPurchaseOrder $l ChildPurchaseOrder
+     * @return $this The current object (for fluent API support)
      */
     public function addPurchaseOrder(ChildPurchaseOrder $l)
     {
@@ -5671,15 +5767,15 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     /**
      * @param ChildPurchaseOrder $purchaseOrder The ChildPurchaseOrder object to add.
      */
-    protected function doAddPurchaseOrder(ChildPurchaseOrder $purchaseOrder)
+    protected function doAddPurchaseOrder(ChildPurchaseOrder $purchaseOrder): void
     {
         $this->collPurchaseOrders[]= $purchaseOrder;
         $purchaseOrder->setVendorShipfrom($this);
     }
 
     /**
-     * @param  ChildPurchaseOrder $purchaseOrder The ChildPurchaseOrder object to remove.
-     * @return $this|ChildVendorShipfrom The current object (for fluent API support)
+     * @param ChildPurchaseOrder $purchaseOrder The ChildPurchaseOrder object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removePurchaseOrder(ChildPurchaseOrder $purchaseOrder)
     {
@@ -5709,15 +5805,42 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in VendorShipfrom.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildPurchaseOrder[] List of ChildPurchaseOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrder}> List of ChildPurchaseOrder objects
      */
-    public function getPurchaseOrdersJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getPurchaseOrdersJoinVendor(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildPurchaseOrderQuery::create(null, $criteria);
         $query->joinWith('Vendor', $joinBehavior);
+
+        return $this->getPurchaseOrders($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this VendorShipfrom is new, it will return
+     * an empty collection; or if this VendorShipfrom has previously
+     * been saved, it will retrieve related PurchaseOrders from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in VendorShipfrom.
+     *
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildPurchaseOrder[] List of ChildPurchaseOrder objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildPurchaseOrder}> List of ChildPurchaseOrder objects
+     */
+    public function getPurchaseOrdersJoinShipvia(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildPurchaseOrderQuery::create(null, $criteria);
+        $query->joinWith('Shipvia', $joinBehavior);
 
         return $this->getPurchaseOrders($query, $con);
     }
@@ -5726,6 +5849,8 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -5813,6 +5938,8 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -5821,9 +5948,10 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
             if ($this->collPurchaseOrders) {
@@ -5836,6 +5964,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         $this->collPurchaseOrders = null;
         $this->aVendor = null;
         $this->aShipvia = null;
+        return $this;
     }
 
     /**
@@ -5850,99 +5979,79 @@ abstract class VendorShipfrom implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -5952,7 +6061,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -5972,15 +6081,18 @@ abstract class VendorShipfrom implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

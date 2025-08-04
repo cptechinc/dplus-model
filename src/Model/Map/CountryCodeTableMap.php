@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class CountryCodeTableMap extends TableMap
 {
@@ -34,134 +33,230 @@ class CountryCodeTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CountryCodeTableMap';
+    public const CLASS_NAME = '.Map.CountryCodeTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'country_codes';
+    public const TABLE_NAME = 'country_codes';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'CountryCode';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\CountryCode';
+    public const OM_CLASS = '\\CountryCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'CountryCode';
+    public const CLASS_DEFAULT = 'CountryCode';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 10;
+    public const NUM_COLUMNS = 10;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 10;
+    public const NUM_HYDRATE_COLUMNS = 10;
 
     /**
      * the column name for the CtryIsoAlpha3 field
      */
-    const COL_CTRYISOALPHA3 = 'country_codes.CtryIsoAlpha3';
+    public const COL_CTRYISOALPHA3 = 'country_codes.CtryIsoAlpha3';
 
     /**
      * the column name for the CtryDesc field
      */
-    const COL_CTRYDESC = 'country_codes.CtryDesc';
+    public const COL_CTRYDESC = 'country_codes.CtryDesc';
 
     /**
      * the column name for the CtryIsoAlpha2 field
      */
-    const COL_CTRYISOALPHA2 = 'country_codes.CtryIsoAlpha2';
+    public const COL_CTRYISOALPHA2 = 'country_codes.CtryIsoAlpha2';
 
     /**
      * the column name for the CtryIsoNumeric field
      */
-    const COL_CTRYISONUMERIC = 'country_codes.CtryIsoNumeric';
+    public const COL_CTRYISONUMERIC = 'country_codes.CtryIsoNumeric';
 
     /**
      * the column name for the CtryCustomCode field
      */
-    const COL_CTRYCUSTOMCODE = 'country_codes.CtryCustomCode';
+    public const COL_CTRYCUSTOMCODE = 'country_codes.CtryCustomCode';
 
     /**
      * the column name for the CtryExchRate field
      */
-    const COL_CTRYEXCHRATE = 'country_codes.CtryExchRate';
+    public const COL_CTRYEXCHRATE = 'country_codes.CtryExchRate';
 
     /**
      * the column name for the CtryDate field
      */
-    const COL_CTRYDATE = 'country_codes.CtryDate';
+    public const COL_CTRYDATE = 'country_codes.CtryDate';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'country_codes.DateUpdtd';
+    public const COL_DATEUPDTD = 'country_codes.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'country_codes.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'country_codes.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'country_codes.dummy';
+    public const COL_DUMMY = 'country_codes.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Ctryisoalpha3', 'Ctrydesc', 'Ctryisoalpha2', 'Ctryisonumeric', 'Ctrycustomcode', 'Ctryexchrate', 'Ctrydate', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('ctryisoalpha3', 'ctrydesc', 'ctryisoalpha2', 'ctryisonumeric', 'ctrycustomcode', 'ctryexchrate', 'ctrydate', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(CountryCodeTableMap::COL_CTRYISOALPHA3, CountryCodeTableMap::COL_CTRYDESC, CountryCodeTableMap::COL_CTRYISOALPHA2, CountryCodeTableMap::COL_CTRYISONUMERIC, CountryCodeTableMap::COL_CTRYCUSTOMCODE, CountryCodeTableMap::COL_CTRYEXCHRATE, CountryCodeTableMap::COL_CTRYDATE, CountryCodeTableMap::COL_DATEUPDTD, CountryCodeTableMap::COL_TIMEUPDTD, CountryCodeTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('CtryIsoAlpha3', 'CtryDesc', 'CtryIsoAlpha2', 'CtryIsoNumeric', 'CtryCustomCode', 'CtryExchRate', 'CtryDate', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Ctryisoalpha3', 'Ctrydesc', 'Ctryisoalpha2', 'Ctryisonumeric', 'Ctrycustomcode', 'Ctryexchrate', 'Ctrydate', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['ctryisoalpha3', 'ctrydesc', 'ctryisoalpha2', 'ctryisonumeric', 'ctrycustomcode', 'ctryexchrate', 'ctrydate', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [CountryCodeTableMap::COL_CTRYISOALPHA3, CountryCodeTableMap::COL_CTRYDESC, CountryCodeTableMap::COL_CTRYISOALPHA2, CountryCodeTableMap::COL_CTRYISONUMERIC, CountryCodeTableMap::COL_CTRYCUSTOMCODE, CountryCodeTableMap::COL_CTRYEXCHRATE, CountryCodeTableMap::COL_CTRYDATE, CountryCodeTableMap::COL_DATEUPDTD, CountryCodeTableMap::COL_TIMEUPDTD, CountryCodeTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['CtryIsoAlpha3', 'CtryDesc', 'CtryIsoAlpha2', 'CtryIsoNumeric', 'CtryCustomCode', 'CtryExchRate', 'CtryDate', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Ctryisoalpha3' => 0, 'Ctrydesc' => 1, 'Ctryisoalpha2' => 2, 'Ctryisonumeric' => 3, 'Ctrycustomcode' => 4, 'Ctryexchrate' => 5, 'Ctrydate' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ),
-        self::TYPE_CAMELNAME     => array('ctryisoalpha3' => 0, 'ctrydesc' => 1, 'ctryisoalpha2' => 2, 'ctryisonumeric' => 3, 'ctrycustomcode' => 4, 'ctryexchrate' => 5, 'ctrydate' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ),
-        self::TYPE_COLNAME       => array(CountryCodeTableMap::COL_CTRYISOALPHA3 => 0, CountryCodeTableMap::COL_CTRYDESC => 1, CountryCodeTableMap::COL_CTRYISOALPHA2 => 2, CountryCodeTableMap::COL_CTRYISONUMERIC => 3, CountryCodeTableMap::COL_CTRYCUSTOMCODE => 4, CountryCodeTableMap::COL_CTRYEXCHRATE => 5, CountryCodeTableMap::COL_CTRYDATE => 6, CountryCodeTableMap::COL_DATEUPDTD => 7, CountryCodeTableMap::COL_TIMEUPDTD => 8, CountryCodeTableMap::COL_DUMMY => 9, ),
-        self::TYPE_FIELDNAME     => array('CtryIsoAlpha3' => 0, 'CtryDesc' => 1, 'CtryIsoAlpha2' => 2, 'CtryIsoNumeric' => 3, 'CtryCustomCode' => 4, 'CtryExchRate' => 5, 'CtryDate' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Ctryisoalpha3' => 0, 'Ctrydesc' => 1, 'Ctryisoalpha2' => 2, 'Ctryisonumeric' => 3, 'Ctrycustomcode' => 4, 'Ctryexchrate' => 5, 'Ctrydate' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ],
+        self::TYPE_CAMELNAME     => ['ctryisoalpha3' => 0, 'ctrydesc' => 1, 'ctryisoalpha2' => 2, 'ctryisonumeric' => 3, 'ctrycustomcode' => 4, 'ctryexchrate' => 5, 'ctrydate' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ],
+        self::TYPE_COLNAME       => [CountryCodeTableMap::COL_CTRYISOALPHA3 => 0, CountryCodeTableMap::COL_CTRYDESC => 1, CountryCodeTableMap::COL_CTRYISOALPHA2 => 2, CountryCodeTableMap::COL_CTRYISONUMERIC => 3, CountryCodeTableMap::COL_CTRYCUSTOMCODE => 4, CountryCodeTableMap::COL_CTRYEXCHRATE => 5, CountryCodeTableMap::COL_CTRYDATE => 6, CountryCodeTableMap::COL_DATEUPDTD => 7, CountryCodeTableMap::COL_TIMEUPDTD => 8, CountryCodeTableMap::COL_DUMMY => 9, ],
+        self::TYPE_FIELDNAME     => ['CtryIsoAlpha3' => 0, 'CtryDesc' => 1, 'CtryIsoAlpha2' => 2, 'CtryIsoNumeric' => 3, 'CtryCustomCode' => 4, 'CtryExchRate' => 5, 'CtryDate' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Ctryisoalpha3' => 'CTRYISOALPHA3',
+        'CountryCode.Ctryisoalpha3' => 'CTRYISOALPHA3',
+        'ctryisoalpha3' => 'CTRYISOALPHA3',
+        'countryCode.ctryisoalpha3' => 'CTRYISOALPHA3',
+        'CountryCodeTableMap::COL_CTRYISOALPHA3' => 'CTRYISOALPHA3',
+        'COL_CTRYISOALPHA3' => 'CTRYISOALPHA3',
+        'CtryIsoAlpha3' => 'CTRYISOALPHA3',
+        'country_codes.CtryIsoAlpha3' => 'CTRYISOALPHA3',
+        'Ctrydesc' => 'CTRYDESC',
+        'CountryCode.Ctrydesc' => 'CTRYDESC',
+        'ctrydesc' => 'CTRYDESC',
+        'countryCode.ctrydesc' => 'CTRYDESC',
+        'CountryCodeTableMap::COL_CTRYDESC' => 'CTRYDESC',
+        'COL_CTRYDESC' => 'CTRYDESC',
+        'CtryDesc' => 'CTRYDESC',
+        'country_codes.CtryDesc' => 'CTRYDESC',
+        'Ctryisoalpha2' => 'CTRYISOALPHA2',
+        'CountryCode.Ctryisoalpha2' => 'CTRYISOALPHA2',
+        'ctryisoalpha2' => 'CTRYISOALPHA2',
+        'countryCode.ctryisoalpha2' => 'CTRYISOALPHA2',
+        'CountryCodeTableMap::COL_CTRYISOALPHA2' => 'CTRYISOALPHA2',
+        'COL_CTRYISOALPHA2' => 'CTRYISOALPHA2',
+        'CtryIsoAlpha2' => 'CTRYISOALPHA2',
+        'country_codes.CtryIsoAlpha2' => 'CTRYISOALPHA2',
+        'Ctryisonumeric' => 'CTRYISONUMERIC',
+        'CountryCode.Ctryisonumeric' => 'CTRYISONUMERIC',
+        'ctryisonumeric' => 'CTRYISONUMERIC',
+        'countryCode.ctryisonumeric' => 'CTRYISONUMERIC',
+        'CountryCodeTableMap::COL_CTRYISONUMERIC' => 'CTRYISONUMERIC',
+        'COL_CTRYISONUMERIC' => 'CTRYISONUMERIC',
+        'CtryIsoNumeric' => 'CTRYISONUMERIC',
+        'country_codes.CtryIsoNumeric' => 'CTRYISONUMERIC',
+        'Ctrycustomcode' => 'CTRYCUSTOMCODE',
+        'CountryCode.Ctrycustomcode' => 'CTRYCUSTOMCODE',
+        'ctrycustomcode' => 'CTRYCUSTOMCODE',
+        'countryCode.ctrycustomcode' => 'CTRYCUSTOMCODE',
+        'CountryCodeTableMap::COL_CTRYCUSTOMCODE' => 'CTRYCUSTOMCODE',
+        'COL_CTRYCUSTOMCODE' => 'CTRYCUSTOMCODE',
+        'CtryCustomCode' => 'CTRYCUSTOMCODE',
+        'country_codes.CtryCustomCode' => 'CTRYCUSTOMCODE',
+        'Ctryexchrate' => 'CTRYEXCHRATE',
+        'CountryCode.Ctryexchrate' => 'CTRYEXCHRATE',
+        'ctryexchrate' => 'CTRYEXCHRATE',
+        'countryCode.ctryexchrate' => 'CTRYEXCHRATE',
+        'CountryCodeTableMap::COL_CTRYEXCHRATE' => 'CTRYEXCHRATE',
+        'COL_CTRYEXCHRATE' => 'CTRYEXCHRATE',
+        'CtryExchRate' => 'CTRYEXCHRATE',
+        'country_codes.CtryExchRate' => 'CTRYEXCHRATE',
+        'Ctrydate' => 'CTRYDATE',
+        'CountryCode.Ctrydate' => 'CTRYDATE',
+        'ctrydate' => 'CTRYDATE',
+        'countryCode.ctrydate' => 'CTRYDATE',
+        'CountryCodeTableMap::COL_CTRYDATE' => 'CTRYDATE',
+        'COL_CTRYDATE' => 'CTRYDATE',
+        'CtryDate' => 'CTRYDATE',
+        'country_codes.CtryDate' => 'CTRYDATE',
+        'Dateupdtd' => 'DATEUPDTD',
+        'CountryCode.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'countryCode.dateupdtd' => 'DATEUPDTD',
+        'CountryCodeTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'country_codes.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'CountryCode.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'countryCode.timeupdtd' => 'TIMEUPDTD',
+        'CountryCodeTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'country_codes.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'CountryCode.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'countryCode.dummy' => 'DUMMY',
+        'CountryCodeTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'country_codes.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('country_codes');
@@ -181,14 +276,16 @@ class CountryCodeTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -196,14 +293,14 @@ class CountryCodeTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Ctryisoalpha3', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -218,14 +315,14 @@ class CountryCodeTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
             $indexType == TableMap::TYPE_NUM
@@ -242,10 +339,10 @@ class CountryCodeTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? CountryCodeTableMap::CLASS_DEFAULT : CountryCodeTableMap::OM_CLASS;
     }
@@ -253,17 +350,17 @@ class CountryCodeTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (CountryCode object, last column rank)
+     * @return array (CountryCode object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = CountryCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = CountryCodeTableMap::getInstanceFromPool($key))) {
@@ -279,7 +376,7 @@ class CountryCodeTableMap extends TableMap
             CountryCodeTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -287,13 +384,13 @@ class CountryCodeTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -323,12 +420,13 @@ class CountryCodeTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(CountryCodeTableMap::COL_CTRYISOALPHA3);
@@ -356,40 +454,68 @@ class CountryCodeTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(CountryCodeTableMap::COL_CTRYISOALPHA3);
+            $criteria->removeSelectColumn(CountryCodeTableMap::COL_CTRYDESC);
+            $criteria->removeSelectColumn(CountryCodeTableMap::COL_CTRYISOALPHA2);
+            $criteria->removeSelectColumn(CountryCodeTableMap::COL_CTRYISONUMERIC);
+            $criteria->removeSelectColumn(CountryCodeTableMap::COL_CTRYCUSTOMCODE);
+            $criteria->removeSelectColumn(CountryCodeTableMap::COL_CTRYEXCHRATE);
+            $criteria->removeSelectColumn(CountryCodeTableMap::COL_CTRYDATE);
+            $criteria->removeSelectColumn(CountryCodeTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(CountryCodeTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(CountryCodeTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.CtryIsoAlpha3');
+            $criteria->removeSelectColumn($alias . '.CtryDesc');
+            $criteria->removeSelectColumn($alias . '.CtryIsoAlpha2');
+            $criteria->removeSelectColumn($alias . '.CtryIsoNumeric');
+            $criteria->removeSelectColumn($alias . '.CtryCustomCode');
+            $criteria->removeSelectColumn($alias . '.CtryExchRate');
+            $criteria->removeSelectColumn($alias . '.CtryDate');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(CountryCodeTableMap::DATABASE_NAME)->getTable(CountryCodeTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CountryCodeTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CountryCodeTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CountryCodeTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a CountryCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or CountryCode object or primary key or array of primary keys
+     * @param mixed $values Criteria or CountryCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CountryCodeTableMap::DATABASE_NAME);
@@ -425,7 +551,7 @@ class CountryCodeTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return CountryCodeQuery::create()->doDeleteAll($con);
     }
@@ -433,13 +559,13 @@ class CountryCodeTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a CountryCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or CountryCode object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or CountryCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(CountryCodeTableMap::DATABASE_NAME);
@@ -462,7 +588,4 @@ class CountryCodeTableMap extends TableMap
         });
     }
 
-} // CountryCodeTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-CountryCodeTableMap::buildTableMap();
+}

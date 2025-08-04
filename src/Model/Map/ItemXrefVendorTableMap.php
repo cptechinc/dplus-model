@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ItemXrefVendorTableMap extends TableMap
 {
@@ -34,269 +33,581 @@ class ItemXrefVendorTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ItemXrefVendorTableMap';
+    public const CLASS_NAME = '.Map.ItemXrefVendorTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'vend_item_xref';
+    public const TABLE_NAME = 'vend_item_xref';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ItemXrefVendor';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ItemXrefVendor';
+    public const OM_CLASS = '\\ItemXrefVendor';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ItemXrefVendor';
+    public const CLASS_DEFAULT = 'ItemXrefVendor';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 37;
+    public const NUM_COLUMNS = 37;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 37;
+    public const NUM_HYDRATE_COLUMNS = 37;
 
     /**
      * the column name for the ApveVendId field
      */
-    const COL_APVEVENDID = 'vend_item_xref.ApveVendId';
+    public const COL_APVEVENDID = 'vend_item_xref.ApveVendId';
 
     /**
      * the column name for the VexrVendItemNbr field
      */
-    const COL_VEXRVENDITEMNBR = 'vend_item_xref.VexrVendItemNbr';
+    public const COL_VEXRVENDITEMNBR = 'vend_item_xref.VexrVendItemNbr';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'vend_item_xref.InitItemNbr';
+    public const COL_INITITEMNBR = 'vend_item_xref.InitItemNbr';
 
     /**
      * the column name for the VexrPoOrderCode field
      */
-    const COL_VEXRPOORDERCODE = 'vend_item_xref.VexrPoOrderCode';
+    public const COL_VEXRPOORDERCODE = 'vend_item_xref.VexrPoOrderCode';
 
     /**
      * the column name for the VexrOption1 field
      */
-    const COL_VEXROPTION1 = 'vend_item_xref.VexrOption1';
+    public const COL_VEXROPTION1 = 'vend_item_xref.VexrOption1';
 
     /**
      * the column name for the IntbUomPur field
      */
-    const COL_INTBUOMPUR = 'vend_item_xref.IntbUomPur';
+    public const COL_INTBUOMPUR = 'vend_item_xref.IntbUomPur';
 
     /**
      * the column name for the VexrCaseQty field
      */
-    const COL_VEXRCASEQTY = 'vend_item_xref.VexrCaseQty';
+    public const COL_VEXRCASEQTY = 'vend_item_xref.VexrCaseQty';
 
     /**
      * the column name for the VexrPrtKitDet field
      */
-    const COL_VEXRPRTKITDET = 'vend_item_xref.VexrPrtKitDet';
+    public const COL_VEXRPRTKITDET = 'vend_item_xref.VexrPrtKitDet';
 
     /**
      * the column name for the VexrListPrice field
      */
-    const COL_VEXRLISTPRICE = 'vend_item_xref.VexrListPrice';
+    public const COL_VEXRLISTPRICE = 'vend_item_xref.VexrListPrice';
 
     /**
      * the column name for the VexrUnitCost field
      */
-    const COL_VEXRUNITCOST = 'vend_item_xref.VexrUnitCost';
+    public const COL_VEXRUNITCOST = 'vend_item_xref.VexrUnitCost';
 
     /**
      * the column name for the VexrForeignCost field
      */
-    const COL_VEXRFOREIGNCOST = 'vend_item_xref.VexrForeignCost';
+    public const COL_VEXRFOREIGNCOST = 'vend_item_xref.VexrForeignCost';
 
     /**
      * the column name for the VexrCostLastDate field
      */
-    const COL_VEXRCOSTLASTDATE = 'vend_item_xref.VexrCostLastDate';
+    public const COL_VEXRCOSTLASTDATE = 'vend_item_xref.VexrCostLastDate';
 
     /**
      * the column name for the VexrUnitUnit1 field
      */
-    const COL_VEXRUNITUNIT1 = 'vend_item_xref.VexrUnitUnit1';
+    public const COL_VEXRUNITUNIT1 = 'vend_item_xref.VexrUnitUnit1';
 
     /**
      * the column name for the VexrUnitCost1 field
      */
-    const COL_VEXRUNITCOST1 = 'vend_item_xref.VexrUnitCost1';
+    public const COL_VEXRUNITCOST1 = 'vend_item_xref.VexrUnitCost1';
 
     /**
      * the column name for the VexrUnitUnit2 field
      */
-    const COL_VEXRUNITUNIT2 = 'vend_item_xref.VexrUnitUnit2';
+    public const COL_VEXRUNITUNIT2 = 'vend_item_xref.VexrUnitUnit2';
 
     /**
      * the column name for the VexrUnitCost2 field
      */
-    const COL_VEXRUNITCOST2 = 'vend_item_xref.VexrUnitCost2';
+    public const COL_VEXRUNITCOST2 = 'vend_item_xref.VexrUnitCost2';
 
     /**
      * the column name for the VexrUnitUnit3 field
      */
-    const COL_VEXRUNITUNIT3 = 'vend_item_xref.VexrUnitUnit3';
+    public const COL_VEXRUNITUNIT3 = 'vend_item_xref.VexrUnitUnit3';
 
     /**
      * the column name for the VexrUnitCost3 field
      */
-    const COL_VEXRUNITCOST3 = 'vend_item_xref.VexrUnitCost3';
+    public const COL_VEXRUNITCOST3 = 'vend_item_xref.VexrUnitCost3';
 
     /**
      * the column name for the VexrUnitUnit4 field
      */
-    const COL_VEXRUNITUNIT4 = 'vend_item_xref.VexrUnitUnit4';
+    public const COL_VEXRUNITUNIT4 = 'vend_item_xref.VexrUnitUnit4';
 
     /**
      * the column name for the VexrUnitCost4 field
      */
-    const COL_VEXRUNITCOST4 = 'vend_item_xref.VexrUnitCost4';
+    public const COL_VEXRUNITCOST4 = 'vend_item_xref.VexrUnitCost4';
 
     /**
      * the column name for the VexrUnitUnit5 field
      */
-    const COL_VEXRUNITUNIT5 = 'vend_item_xref.VexrUnitUnit5';
+    public const COL_VEXRUNITUNIT5 = 'vend_item_xref.VexrUnitUnit5';
 
     /**
      * the column name for the VexrUnitCost5 field
      */
-    const COL_VEXRUNITCOST5 = 'vend_item_xref.VexrUnitCost5';
+    public const COL_VEXRUNITCOST5 = 'vend_item_xref.VexrUnitCost5';
 
     /**
      * the column name for the VexrUnitUnit6 field
      */
-    const COL_VEXRUNITUNIT6 = 'vend_item_xref.VexrUnitUnit6';
+    public const COL_VEXRUNITUNIT6 = 'vend_item_xref.VexrUnitUnit6';
 
     /**
      * the column name for the VexrUnitCost6 field
      */
-    const COL_VEXRUNITCOST6 = 'vend_item_xref.VexrUnitCost6';
+    public const COL_VEXRUNITCOST6 = 'vend_item_xref.VexrUnitCost6';
 
     /**
      * the column name for the VexrUnitUnit7 field
      */
-    const COL_VEXRUNITUNIT7 = 'vend_item_xref.VexrUnitUnit7';
+    public const COL_VEXRUNITUNIT7 = 'vend_item_xref.VexrUnitUnit7';
 
     /**
      * the column name for the VexrUnitCost7 field
      */
-    const COL_VEXRUNITCOST7 = 'vend_item_xref.VexrUnitCost7';
+    public const COL_VEXRUNITCOST7 = 'vend_item_xref.VexrUnitCost7';
 
     /**
      * the column name for the VexrUnitUnit8 field
      */
-    const COL_VEXRUNITUNIT8 = 'vend_item_xref.VexrUnitUnit8';
+    public const COL_VEXRUNITUNIT8 = 'vend_item_xref.VexrUnitUnit8';
 
     /**
      * the column name for the VexrUnitCost8 field
      */
-    const COL_VEXRUNITCOST8 = 'vend_item_xref.VexrUnitCost8';
+    public const COL_VEXRUNITCOST8 = 'vend_item_xref.VexrUnitCost8';
 
     /**
      * the column name for the VexrUnitUnit9 field
      */
-    const COL_VEXRUNITUNIT9 = 'vend_item_xref.VexrUnitUnit9';
+    public const COL_VEXRUNITUNIT9 = 'vend_item_xref.VexrUnitUnit9';
 
     /**
      * the column name for the VexrUnitCost9 field
      */
-    const COL_VEXRUNITCOST9 = 'vend_item_xref.VexrUnitCost9';
+    public const COL_VEXRUNITCOST9 = 'vend_item_xref.VexrUnitCost9';
 
     /**
      * the column name for the VexrUnitUnit10 field
      */
-    const COL_VEXRUNITUNIT10 = 'vend_item_xref.VexrUnitUnit10';
+    public const COL_VEXRUNITUNIT10 = 'vend_item_xref.VexrUnitUnit10';
 
     /**
      * the column name for the VexrUnitCost10 field
      */
-    const COL_VEXRUNITCOST10 = 'vend_item_xref.VexrUnitCost10';
+    public const COL_VEXRUNITCOST10 = 'vend_item_xref.VexrUnitCost10';
 
     /**
      * the column name for the VexrAprvCode field
      */
-    const COL_VEXRAPRVCODE = 'vend_item_xref.VexrAprvCode';
+    public const COL_VEXRAPRVCODE = 'vend_item_xref.VexrAprvCode';
 
     /**
      * the column name for the VexrMinBuyQty field
      */
-    const COL_VEXRMINBUYQTY = 'vend_item_xref.VexrMinBuyQty';
+    public const COL_VEXRMINBUYQTY = 'vend_item_xref.VexrMinBuyQty';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'vend_item_xref.DateUpdtd';
+    public const COL_DATEUPDTD = 'vend_item_xref.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'vend_item_xref.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'vend_item_xref.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'vend_item_xref.dummy';
+    public const COL_DUMMY = 'vend_item_xref.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Apvevendid', 'Vexrvenditemnbr', 'Inititemnbr', 'Vexrpoordercode', 'Vexroption1', 'Intbuompur', 'Vexrcaseqty', 'Vexrprtkitdet', 'Vexrlistprice', 'Vexrunitcost', 'Vexrforeigncost', 'Vexrcostlastdate', 'Vexrunitunit1', 'Vexrunitcost1', 'Vexrunitunit2', 'Vexrunitcost2', 'Vexrunitunit3', 'Vexrunitcost3', 'Vexrunitunit4', 'Vexrunitcost4', 'Vexrunitunit5', 'Vexrunitcost5', 'Vexrunitunit6', 'Vexrunitcost6', 'Vexrunitunit7', 'Vexrunitcost7', 'Vexrunitunit8', 'Vexrunitcost8', 'Vexrunitunit9', 'Vexrunitcost9', 'Vexrunitunit10', 'Vexrunitcost10', 'Vexraprvcode', 'Vexrminbuyqty', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('apvevendid', 'vexrvenditemnbr', 'inititemnbr', 'vexrpoordercode', 'vexroption1', 'intbuompur', 'vexrcaseqty', 'vexrprtkitdet', 'vexrlistprice', 'vexrunitcost', 'vexrforeigncost', 'vexrcostlastdate', 'vexrunitunit1', 'vexrunitcost1', 'vexrunitunit2', 'vexrunitcost2', 'vexrunitunit3', 'vexrunitcost3', 'vexrunitunit4', 'vexrunitcost4', 'vexrunitunit5', 'vexrunitcost5', 'vexrunitunit6', 'vexrunitcost6', 'vexrunitunit7', 'vexrunitcost7', 'vexrunitunit8', 'vexrunitcost8', 'vexrunitunit9', 'vexrunitcost9', 'vexrunitunit10', 'vexrunitcost10', 'vexraprvcode', 'vexrminbuyqty', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemXrefVendorTableMap::COL_APVEVENDID, ItemXrefVendorTableMap::COL_VEXRVENDITEMNBR, ItemXrefVendorTableMap::COL_INITITEMNBR, ItemXrefVendorTableMap::COL_VEXRPOORDERCODE, ItemXrefVendorTableMap::COL_VEXROPTION1, ItemXrefVendorTableMap::COL_INTBUOMPUR, ItemXrefVendorTableMap::COL_VEXRCASEQTY, ItemXrefVendorTableMap::COL_VEXRPRTKITDET, ItemXrefVendorTableMap::COL_VEXRLISTPRICE, ItemXrefVendorTableMap::COL_VEXRUNITCOST, ItemXrefVendorTableMap::COL_VEXRFOREIGNCOST, ItemXrefVendorTableMap::COL_VEXRCOSTLASTDATE, ItemXrefVendorTableMap::COL_VEXRUNITUNIT1, ItemXrefVendorTableMap::COL_VEXRUNITCOST1, ItemXrefVendorTableMap::COL_VEXRUNITUNIT2, ItemXrefVendorTableMap::COL_VEXRUNITCOST2, ItemXrefVendorTableMap::COL_VEXRUNITUNIT3, ItemXrefVendorTableMap::COL_VEXRUNITCOST3, ItemXrefVendorTableMap::COL_VEXRUNITUNIT4, ItemXrefVendorTableMap::COL_VEXRUNITCOST4, ItemXrefVendorTableMap::COL_VEXRUNITUNIT5, ItemXrefVendorTableMap::COL_VEXRUNITCOST5, ItemXrefVendorTableMap::COL_VEXRUNITUNIT6, ItemXrefVendorTableMap::COL_VEXRUNITCOST6, ItemXrefVendorTableMap::COL_VEXRUNITUNIT7, ItemXrefVendorTableMap::COL_VEXRUNITCOST7, ItemXrefVendorTableMap::COL_VEXRUNITUNIT8, ItemXrefVendorTableMap::COL_VEXRUNITCOST8, ItemXrefVendorTableMap::COL_VEXRUNITUNIT9, ItemXrefVendorTableMap::COL_VEXRUNITCOST9, ItemXrefVendorTableMap::COL_VEXRUNITUNIT10, ItemXrefVendorTableMap::COL_VEXRUNITCOST10, ItemXrefVendorTableMap::COL_VEXRAPRVCODE, ItemXrefVendorTableMap::COL_VEXRMINBUYQTY, ItemXrefVendorTableMap::COL_DATEUPDTD, ItemXrefVendorTableMap::COL_TIMEUPDTD, ItemXrefVendorTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ApveVendId', 'VexrVendItemNbr', 'InitItemNbr', 'VexrPoOrderCode', 'VexrOption1', 'IntbUomPur', 'VexrCaseQty', 'VexrPrtKitDet', 'VexrListPrice', 'VexrUnitCost', 'VexrForeignCost', 'VexrCostLastDate', 'VexrUnitUnit1', 'VexrUnitCost1', 'VexrUnitUnit2', 'VexrUnitCost2', 'VexrUnitUnit3', 'VexrUnitCost3', 'VexrUnitUnit4', 'VexrUnitCost4', 'VexrUnitUnit5', 'VexrUnitCost5', 'VexrUnitUnit6', 'VexrUnitCost6', 'VexrUnitUnit7', 'VexrUnitCost7', 'VexrUnitUnit8', 'VexrUnitCost8', 'VexrUnitUnit9', 'VexrUnitCost9', 'VexrUnitUnit10', 'VexrUnitCost10', 'VexrAprvCode', 'VexrMinBuyQty', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Apvevendid', 'Vexrvenditemnbr', 'Inititemnbr', 'Vexrpoordercode', 'Vexroption1', 'Intbuompur', 'Vexrcaseqty', 'Vexrprtkitdet', 'Vexrlistprice', 'Vexrunitcost', 'Vexrforeigncost', 'Vexrcostlastdate', 'Vexrunitunit1', 'Vexrunitcost1', 'Vexrunitunit2', 'Vexrunitcost2', 'Vexrunitunit3', 'Vexrunitcost3', 'Vexrunitunit4', 'Vexrunitcost4', 'Vexrunitunit5', 'Vexrunitcost5', 'Vexrunitunit6', 'Vexrunitcost6', 'Vexrunitunit7', 'Vexrunitcost7', 'Vexrunitunit8', 'Vexrunitcost8', 'Vexrunitunit9', 'Vexrunitcost9', 'Vexrunitunit10', 'Vexrunitcost10', 'Vexraprvcode', 'Vexrminbuyqty', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['apvevendid', 'vexrvenditemnbr', 'inititemnbr', 'vexrpoordercode', 'vexroption1', 'intbuompur', 'vexrcaseqty', 'vexrprtkitdet', 'vexrlistprice', 'vexrunitcost', 'vexrforeigncost', 'vexrcostlastdate', 'vexrunitunit1', 'vexrunitcost1', 'vexrunitunit2', 'vexrunitcost2', 'vexrunitunit3', 'vexrunitcost3', 'vexrunitunit4', 'vexrunitcost4', 'vexrunitunit5', 'vexrunitcost5', 'vexrunitunit6', 'vexrunitcost6', 'vexrunitunit7', 'vexrunitcost7', 'vexrunitunit8', 'vexrunitcost8', 'vexrunitunit9', 'vexrunitcost9', 'vexrunitunit10', 'vexrunitcost10', 'vexraprvcode', 'vexrminbuyqty', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ItemXrefVendorTableMap::COL_APVEVENDID, ItemXrefVendorTableMap::COL_VEXRVENDITEMNBR, ItemXrefVendorTableMap::COL_INITITEMNBR, ItemXrefVendorTableMap::COL_VEXRPOORDERCODE, ItemXrefVendorTableMap::COL_VEXROPTION1, ItemXrefVendorTableMap::COL_INTBUOMPUR, ItemXrefVendorTableMap::COL_VEXRCASEQTY, ItemXrefVendorTableMap::COL_VEXRPRTKITDET, ItemXrefVendorTableMap::COL_VEXRLISTPRICE, ItemXrefVendorTableMap::COL_VEXRUNITCOST, ItemXrefVendorTableMap::COL_VEXRFOREIGNCOST, ItemXrefVendorTableMap::COL_VEXRCOSTLASTDATE, ItemXrefVendorTableMap::COL_VEXRUNITUNIT1, ItemXrefVendorTableMap::COL_VEXRUNITCOST1, ItemXrefVendorTableMap::COL_VEXRUNITUNIT2, ItemXrefVendorTableMap::COL_VEXRUNITCOST2, ItemXrefVendorTableMap::COL_VEXRUNITUNIT3, ItemXrefVendorTableMap::COL_VEXRUNITCOST3, ItemXrefVendorTableMap::COL_VEXRUNITUNIT4, ItemXrefVendorTableMap::COL_VEXRUNITCOST4, ItemXrefVendorTableMap::COL_VEXRUNITUNIT5, ItemXrefVendorTableMap::COL_VEXRUNITCOST5, ItemXrefVendorTableMap::COL_VEXRUNITUNIT6, ItemXrefVendorTableMap::COL_VEXRUNITCOST6, ItemXrefVendorTableMap::COL_VEXRUNITUNIT7, ItemXrefVendorTableMap::COL_VEXRUNITCOST7, ItemXrefVendorTableMap::COL_VEXRUNITUNIT8, ItemXrefVendorTableMap::COL_VEXRUNITCOST8, ItemXrefVendorTableMap::COL_VEXRUNITUNIT9, ItemXrefVendorTableMap::COL_VEXRUNITCOST9, ItemXrefVendorTableMap::COL_VEXRUNITUNIT10, ItemXrefVendorTableMap::COL_VEXRUNITCOST10, ItemXrefVendorTableMap::COL_VEXRAPRVCODE, ItemXrefVendorTableMap::COL_VEXRMINBUYQTY, ItemXrefVendorTableMap::COL_DATEUPDTD, ItemXrefVendorTableMap::COL_TIMEUPDTD, ItemXrefVendorTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['ApveVendId', 'VexrVendItemNbr', 'InitItemNbr', 'VexrPoOrderCode', 'VexrOption1', 'IntbUomPur', 'VexrCaseQty', 'VexrPrtKitDet', 'VexrListPrice', 'VexrUnitCost', 'VexrForeignCost', 'VexrCostLastDate', 'VexrUnitUnit1', 'VexrUnitCost1', 'VexrUnitUnit2', 'VexrUnitCost2', 'VexrUnitUnit3', 'VexrUnitCost3', 'VexrUnitUnit4', 'VexrUnitCost4', 'VexrUnitUnit5', 'VexrUnitCost5', 'VexrUnitUnit6', 'VexrUnitCost6', 'VexrUnitUnit7', 'VexrUnitCost7', 'VexrUnitUnit8', 'VexrUnitCost8', 'VexrUnitUnit9', 'VexrUnitCost9', 'VexrUnitUnit10', 'VexrUnitCost10', 'VexrAprvCode', 'VexrMinBuyQty', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Apvevendid' => 0, 'Vexrvenditemnbr' => 1, 'Inititemnbr' => 2, 'Vexrpoordercode' => 3, 'Vexroption1' => 4, 'Intbuompur' => 5, 'Vexrcaseqty' => 6, 'Vexrprtkitdet' => 7, 'Vexrlistprice' => 8, 'Vexrunitcost' => 9, 'Vexrforeigncost' => 10, 'Vexrcostlastdate' => 11, 'Vexrunitunit1' => 12, 'Vexrunitcost1' => 13, 'Vexrunitunit2' => 14, 'Vexrunitcost2' => 15, 'Vexrunitunit3' => 16, 'Vexrunitcost3' => 17, 'Vexrunitunit4' => 18, 'Vexrunitcost4' => 19, 'Vexrunitunit5' => 20, 'Vexrunitcost5' => 21, 'Vexrunitunit6' => 22, 'Vexrunitcost6' => 23, 'Vexrunitunit7' => 24, 'Vexrunitcost7' => 25, 'Vexrunitunit8' => 26, 'Vexrunitcost8' => 27, 'Vexrunitunit9' => 28, 'Vexrunitcost9' => 29, 'Vexrunitunit10' => 30, 'Vexrunitcost10' => 31, 'Vexraprvcode' => 32, 'Vexrminbuyqty' => 33, 'Dateupdtd' => 34, 'Timeupdtd' => 35, 'Dummy' => 36, ),
-        self::TYPE_CAMELNAME     => array('apvevendid' => 0, 'vexrvenditemnbr' => 1, 'inititemnbr' => 2, 'vexrpoordercode' => 3, 'vexroption1' => 4, 'intbuompur' => 5, 'vexrcaseqty' => 6, 'vexrprtkitdet' => 7, 'vexrlistprice' => 8, 'vexrunitcost' => 9, 'vexrforeigncost' => 10, 'vexrcostlastdate' => 11, 'vexrunitunit1' => 12, 'vexrunitcost1' => 13, 'vexrunitunit2' => 14, 'vexrunitcost2' => 15, 'vexrunitunit3' => 16, 'vexrunitcost3' => 17, 'vexrunitunit4' => 18, 'vexrunitcost4' => 19, 'vexrunitunit5' => 20, 'vexrunitcost5' => 21, 'vexrunitunit6' => 22, 'vexrunitcost6' => 23, 'vexrunitunit7' => 24, 'vexrunitcost7' => 25, 'vexrunitunit8' => 26, 'vexrunitcost8' => 27, 'vexrunitunit9' => 28, 'vexrunitcost9' => 29, 'vexrunitunit10' => 30, 'vexrunitcost10' => 31, 'vexraprvcode' => 32, 'vexrminbuyqty' => 33, 'dateupdtd' => 34, 'timeupdtd' => 35, 'dummy' => 36, ),
-        self::TYPE_COLNAME       => array(ItemXrefVendorTableMap::COL_APVEVENDID => 0, ItemXrefVendorTableMap::COL_VEXRVENDITEMNBR => 1, ItemXrefVendorTableMap::COL_INITITEMNBR => 2, ItemXrefVendorTableMap::COL_VEXRPOORDERCODE => 3, ItemXrefVendorTableMap::COL_VEXROPTION1 => 4, ItemXrefVendorTableMap::COL_INTBUOMPUR => 5, ItemXrefVendorTableMap::COL_VEXRCASEQTY => 6, ItemXrefVendorTableMap::COL_VEXRPRTKITDET => 7, ItemXrefVendorTableMap::COL_VEXRLISTPRICE => 8, ItemXrefVendorTableMap::COL_VEXRUNITCOST => 9, ItemXrefVendorTableMap::COL_VEXRFOREIGNCOST => 10, ItemXrefVendorTableMap::COL_VEXRCOSTLASTDATE => 11, ItemXrefVendorTableMap::COL_VEXRUNITUNIT1 => 12, ItemXrefVendorTableMap::COL_VEXRUNITCOST1 => 13, ItemXrefVendorTableMap::COL_VEXRUNITUNIT2 => 14, ItemXrefVendorTableMap::COL_VEXRUNITCOST2 => 15, ItemXrefVendorTableMap::COL_VEXRUNITUNIT3 => 16, ItemXrefVendorTableMap::COL_VEXRUNITCOST3 => 17, ItemXrefVendorTableMap::COL_VEXRUNITUNIT4 => 18, ItemXrefVendorTableMap::COL_VEXRUNITCOST4 => 19, ItemXrefVendorTableMap::COL_VEXRUNITUNIT5 => 20, ItemXrefVendorTableMap::COL_VEXRUNITCOST5 => 21, ItemXrefVendorTableMap::COL_VEXRUNITUNIT6 => 22, ItemXrefVendorTableMap::COL_VEXRUNITCOST6 => 23, ItemXrefVendorTableMap::COL_VEXRUNITUNIT7 => 24, ItemXrefVendorTableMap::COL_VEXRUNITCOST7 => 25, ItemXrefVendorTableMap::COL_VEXRUNITUNIT8 => 26, ItemXrefVendorTableMap::COL_VEXRUNITCOST8 => 27, ItemXrefVendorTableMap::COL_VEXRUNITUNIT9 => 28, ItemXrefVendorTableMap::COL_VEXRUNITCOST9 => 29, ItemXrefVendorTableMap::COL_VEXRUNITUNIT10 => 30, ItemXrefVendorTableMap::COL_VEXRUNITCOST10 => 31, ItemXrefVendorTableMap::COL_VEXRAPRVCODE => 32, ItemXrefVendorTableMap::COL_VEXRMINBUYQTY => 33, ItemXrefVendorTableMap::COL_DATEUPDTD => 34, ItemXrefVendorTableMap::COL_TIMEUPDTD => 35, ItemXrefVendorTableMap::COL_DUMMY => 36, ),
-        self::TYPE_FIELDNAME     => array('ApveVendId' => 0, 'VexrVendItemNbr' => 1, 'InitItemNbr' => 2, 'VexrPoOrderCode' => 3, 'VexrOption1' => 4, 'IntbUomPur' => 5, 'VexrCaseQty' => 6, 'VexrPrtKitDet' => 7, 'VexrListPrice' => 8, 'VexrUnitCost' => 9, 'VexrForeignCost' => 10, 'VexrCostLastDate' => 11, 'VexrUnitUnit1' => 12, 'VexrUnitCost1' => 13, 'VexrUnitUnit2' => 14, 'VexrUnitCost2' => 15, 'VexrUnitUnit3' => 16, 'VexrUnitCost3' => 17, 'VexrUnitUnit4' => 18, 'VexrUnitCost4' => 19, 'VexrUnitUnit5' => 20, 'VexrUnitCost5' => 21, 'VexrUnitUnit6' => 22, 'VexrUnitCost6' => 23, 'VexrUnitUnit7' => 24, 'VexrUnitCost7' => 25, 'VexrUnitUnit8' => 26, 'VexrUnitCost8' => 27, 'VexrUnitUnit9' => 28, 'VexrUnitCost9' => 29, 'VexrUnitUnit10' => 30, 'VexrUnitCost10' => 31, 'VexrAprvCode' => 32, 'VexrMinBuyQty' => 33, 'DateUpdtd' => 34, 'TimeUpdtd' => 35, 'dummy' => 36, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Apvevendid' => 0, 'Vexrvenditemnbr' => 1, 'Inititemnbr' => 2, 'Vexrpoordercode' => 3, 'Vexroption1' => 4, 'Intbuompur' => 5, 'Vexrcaseqty' => 6, 'Vexrprtkitdet' => 7, 'Vexrlistprice' => 8, 'Vexrunitcost' => 9, 'Vexrforeigncost' => 10, 'Vexrcostlastdate' => 11, 'Vexrunitunit1' => 12, 'Vexrunitcost1' => 13, 'Vexrunitunit2' => 14, 'Vexrunitcost2' => 15, 'Vexrunitunit3' => 16, 'Vexrunitcost3' => 17, 'Vexrunitunit4' => 18, 'Vexrunitcost4' => 19, 'Vexrunitunit5' => 20, 'Vexrunitcost5' => 21, 'Vexrunitunit6' => 22, 'Vexrunitcost6' => 23, 'Vexrunitunit7' => 24, 'Vexrunitcost7' => 25, 'Vexrunitunit8' => 26, 'Vexrunitcost8' => 27, 'Vexrunitunit9' => 28, 'Vexrunitcost9' => 29, 'Vexrunitunit10' => 30, 'Vexrunitcost10' => 31, 'Vexraprvcode' => 32, 'Vexrminbuyqty' => 33, 'Dateupdtd' => 34, 'Timeupdtd' => 35, 'Dummy' => 36, ],
+        self::TYPE_CAMELNAME     => ['apvevendid' => 0, 'vexrvenditemnbr' => 1, 'inititemnbr' => 2, 'vexrpoordercode' => 3, 'vexroption1' => 4, 'intbuompur' => 5, 'vexrcaseqty' => 6, 'vexrprtkitdet' => 7, 'vexrlistprice' => 8, 'vexrunitcost' => 9, 'vexrforeigncost' => 10, 'vexrcostlastdate' => 11, 'vexrunitunit1' => 12, 'vexrunitcost1' => 13, 'vexrunitunit2' => 14, 'vexrunitcost2' => 15, 'vexrunitunit3' => 16, 'vexrunitcost3' => 17, 'vexrunitunit4' => 18, 'vexrunitcost4' => 19, 'vexrunitunit5' => 20, 'vexrunitcost5' => 21, 'vexrunitunit6' => 22, 'vexrunitcost6' => 23, 'vexrunitunit7' => 24, 'vexrunitcost7' => 25, 'vexrunitunit8' => 26, 'vexrunitcost8' => 27, 'vexrunitunit9' => 28, 'vexrunitcost9' => 29, 'vexrunitunit10' => 30, 'vexrunitcost10' => 31, 'vexraprvcode' => 32, 'vexrminbuyqty' => 33, 'dateupdtd' => 34, 'timeupdtd' => 35, 'dummy' => 36, ],
+        self::TYPE_COLNAME       => [ItemXrefVendorTableMap::COL_APVEVENDID => 0, ItemXrefVendorTableMap::COL_VEXRVENDITEMNBR => 1, ItemXrefVendorTableMap::COL_INITITEMNBR => 2, ItemXrefVendorTableMap::COL_VEXRPOORDERCODE => 3, ItemXrefVendorTableMap::COL_VEXROPTION1 => 4, ItemXrefVendorTableMap::COL_INTBUOMPUR => 5, ItemXrefVendorTableMap::COL_VEXRCASEQTY => 6, ItemXrefVendorTableMap::COL_VEXRPRTKITDET => 7, ItemXrefVendorTableMap::COL_VEXRLISTPRICE => 8, ItemXrefVendorTableMap::COL_VEXRUNITCOST => 9, ItemXrefVendorTableMap::COL_VEXRFOREIGNCOST => 10, ItemXrefVendorTableMap::COL_VEXRCOSTLASTDATE => 11, ItemXrefVendorTableMap::COL_VEXRUNITUNIT1 => 12, ItemXrefVendorTableMap::COL_VEXRUNITCOST1 => 13, ItemXrefVendorTableMap::COL_VEXRUNITUNIT2 => 14, ItemXrefVendorTableMap::COL_VEXRUNITCOST2 => 15, ItemXrefVendorTableMap::COL_VEXRUNITUNIT3 => 16, ItemXrefVendorTableMap::COL_VEXRUNITCOST3 => 17, ItemXrefVendorTableMap::COL_VEXRUNITUNIT4 => 18, ItemXrefVendorTableMap::COL_VEXRUNITCOST4 => 19, ItemXrefVendorTableMap::COL_VEXRUNITUNIT5 => 20, ItemXrefVendorTableMap::COL_VEXRUNITCOST5 => 21, ItemXrefVendorTableMap::COL_VEXRUNITUNIT6 => 22, ItemXrefVendorTableMap::COL_VEXRUNITCOST6 => 23, ItemXrefVendorTableMap::COL_VEXRUNITUNIT7 => 24, ItemXrefVendorTableMap::COL_VEXRUNITCOST7 => 25, ItemXrefVendorTableMap::COL_VEXRUNITUNIT8 => 26, ItemXrefVendorTableMap::COL_VEXRUNITCOST8 => 27, ItemXrefVendorTableMap::COL_VEXRUNITUNIT9 => 28, ItemXrefVendorTableMap::COL_VEXRUNITCOST9 => 29, ItemXrefVendorTableMap::COL_VEXRUNITUNIT10 => 30, ItemXrefVendorTableMap::COL_VEXRUNITCOST10 => 31, ItemXrefVendorTableMap::COL_VEXRAPRVCODE => 32, ItemXrefVendorTableMap::COL_VEXRMINBUYQTY => 33, ItemXrefVendorTableMap::COL_DATEUPDTD => 34, ItemXrefVendorTableMap::COL_TIMEUPDTD => 35, ItemXrefVendorTableMap::COL_DUMMY => 36, ],
+        self::TYPE_FIELDNAME     => ['ApveVendId' => 0, 'VexrVendItemNbr' => 1, 'InitItemNbr' => 2, 'VexrPoOrderCode' => 3, 'VexrOption1' => 4, 'IntbUomPur' => 5, 'VexrCaseQty' => 6, 'VexrPrtKitDet' => 7, 'VexrListPrice' => 8, 'VexrUnitCost' => 9, 'VexrForeignCost' => 10, 'VexrCostLastDate' => 11, 'VexrUnitUnit1' => 12, 'VexrUnitCost1' => 13, 'VexrUnitUnit2' => 14, 'VexrUnitCost2' => 15, 'VexrUnitUnit3' => 16, 'VexrUnitCost3' => 17, 'VexrUnitUnit4' => 18, 'VexrUnitCost4' => 19, 'VexrUnitUnit5' => 20, 'VexrUnitCost5' => 21, 'VexrUnitUnit6' => 22, 'VexrUnitCost6' => 23, 'VexrUnitUnit7' => 24, 'VexrUnitCost7' => 25, 'VexrUnitUnit8' => 26, 'VexrUnitCost8' => 27, 'VexrUnitUnit9' => 28, 'VexrUnitCost9' => 29, 'VexrUnitUnit10' => 30, 'VexrUnitCost10' => 31, 'VexrAprvCode' => 32, 'VexrMinBuyQty' => 33, 'DateUpdtd' => 34, 'TimeUpdtd' => 35, 'dummy' => 36, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Apvevendid' => 'APVEVENDID',
+        'ItemXrefVendor.Apvevendid' => 'APVEVENDID',
+        'apvevendid' => 'APVEVENDID',
+        'itemXrefVendor.apvevendid' => 'APVEVENDID',
+        'ItemXrefVendorTableMap::COL_APVEVENDID' => 'APVEVENDID',
+        'COL_APVEVENDID' => 'APVEVENDID',
+        'ApveVendId' => 'APVEVENDID',
+        'vend_item_xref.ApveVendId' => 'APVEVENDID',
+        'Vexrvenditemnbr' => 'VEXRVENDITEMNBR',
+        'ItemXrefVendor.Vexrvenditemnbr' => 'VEXRVENDITEMNBR',
+        'vexrvenditemnbr' => 'VEXRVENDITEMNBR',
+        'itemXrefVendor.vexrvenditemnbr' => 'VEXRVENDITEMNBR',
+        'ItemXrefVendorTableMap::COL_VEXRVENDITEMNBR' => 'VEXRVENDITEMNBR',
+        'COL_VEXRVENDITEMNBR' => 'VEXRVENDITEMNBR',
+        'VexrVendItemNbr' => 'VEXRVENDITEMNBR',
+        'vend_item_xref.VexrVendItemNbr' => 'VEXRVENDITEMNBR',
+        'Inititemnbr' => 'INITITEMNBR',
+        'ItemXrefVendor.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'itemXrefVendor.inititemnbr' => 'INITITEMNBR',
+        'ItemXrefVendorTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'vend_item_xref.InitItemNbr' => 'INITITEMNBR',
+        'Vexrpoordercode' => 'VEXRPOORDERCODE',
+        'ItemXrefVendor.Vexrpoordercode' => 'VEXRPOORDERCODE',
+        'vexrpoordercode' => 'VEXRPOORDERCODE',
+        'itemXrefVendor.vexrpoordercode' => 'VEXRPOORDERCODE',
+        'ItemXrefVendorTableMap::COL_VEXRPOORDERCODE' => 'VEXRPOORDERCODE',
+        'COL_VEXRPOORDERCODE' => 'VEXRPOORDERCODE',
+        'VexrPoOrderCode' => 'VEXRPOORDERCODE',
+        'vend_item_xref.VexrPoOrderCode' => 'VEXRPOORDERCODE',
+        'Vexroption1' => 'VEXROPTION1',
+        'ItemXrefVendor.Vexroption1' => 'VEXROPTION1',
+        'vexroption1' => 'VEXROPTION1',
+        'itemXrefVendor.vexroption1' => 'VEXROPTION1',
+        'ItemXrefVendorTableMap::COL_VEXROPTION1' => 'VEXROPTION1',
+        'COL_VEXROPTION1' => 'VEXROPTION1',
+        'VexrOption1' => 'VEXROPTION1',
+        'vend_item_xref.VexrOption1' => 'VEXROPTION1',
+        'Intbuompur' => 'INTBUOMPUR',
+        'ItemXrefVendor.Intbuompur' => 'INTBUOMPUR',
+        'intbuompur' => 'INTBUOMPUR',
+        'itemXrefVendor.intbuompur' => 'INTBUOMPUR',
+        'ItemXrefVendorTableMap::COL_INTBUOMPUR' => 'INTBUOMPUR',
+        'COL_INTBUOMPUR' => 'INTBUOMPUR',
+        'IntbUomPur' => 'INTBUOMPUR',
+        'vend_item_xref.IntbUomPur' => 'INTBUOMPUR',
+        'Vexrcaseqty' => 'VEXRCASEQTY',
+        'ItemXrefVendor.Vexrcaseqty' => 'VEXRCASEQTY',
+        'vexrcaseqty' => 'VEXRCASEQTY',
+        'itemXrefVendor.vexrcaseqty' => 'VEXRCASEQTY',
+        'ItemXrefVendorTableMap::COL_VEXRCASEQTY' => 'VEXRCASEQTY',
+        'COL_VEXRCASEQTY' => 'VEXRCASEQTY',
+        'VexrCaseQty' => 'VEXRCASEQTY',
+        'vend_item_xref.VexrCaseQty' => 'VEXRCASEQTY',
+        'Vexrprtkitdet' => 'VEXRPRTKITDET',
+        'ItemXrefVendor.Vexrprtkitdet' => 'VEXRPRTKITDET',
+        'vexrprtkitdet' => 'VEXRPRTKITDET',
+        'itemXrefVendor.vexrprtkitdet' => 'VEXRPRTKITDET',
+        'ItemXrefVendorTableMap::COL_VEXRPRTKITDET' => 'VEXRPRTKITDET',
+        'COL_VEXRPRTKITDET' => 'VEXRPRTKITDET',
+        'VexrPrtKitDet' => 'VEXRPRTKITDET',
+        'vend_item_xref.VexrPrtKitDet' => 'VEXRPRTKITDET',
+        'Vexrlistprice' => 'VEXRLISTPRICE',
+        'ItemXrefVendor.Vexrlistprice' => 'VEXRLISTPRICE',
+        'vexrlistprice' => 'VEXRLISTPRICE',
+        'itemXrefVendor.vexrlistprice' => 'VEXRLISTPRICE',
+        'ItemXrefVendorTableMap::COL_VEXRLISTPRICE' => 'VEXRLISTPRICE',
+        'COL_VEXRLISTPRICE' => 'VEXRLISTPRICE',
+        'VexrListPrice' => 'VEXRLISTPRICE',
+        'vend_item_xref.VexrListPrice' => 'VEXRLISTPRICE',
+        'Vexrunitcost' => 'VEXRUNITCOST',
+        'ItemXrefVendor.Vexrunitcost' => 'VEXRUNITCOST',
+        'vexrunitcost' => 'VEXRUNITCOST',
+        'itemXrefVendor.vexrunitcost' => 'VEXRUNITCOST',
+        'ItemXrefVendorTableMap::COL_VEXRUNITCOST' => 'VEXRUNITCOST',
+        'COL_VEXRUNITCOST' => 'VEXRUNITCOST',
+        'VexrUnitCost' => 'VEXRUNITCOST',
+        'vend_item_xref.VexrUnitCost' => 'VEXRUNITCOST',
+        'Vexrforeigncost' => 'VEXRFOREIGNCOST',
+        'ItemXrefVendor.Vexrforeigncost' => 'VEXRFOREIGNCOST',
+        'vexrforeigncost' => 'VEXRFOREIGNCOST',
+        'itemXrefVendor.vexrforeigncost' => 'VEXRFOREIGNCOST',
+        'ItemXrefVendorTableMap::COL_VEXRFOREIGNCOST' => 'VEXRFOREIGNCOST',
+        'COL_VEXRFOREIGNCOST' => 'VEXRFOREIGNCOST',
+        'VexrForeignCost' => 'VEXRFOREIGNCOST',
+        'vend_item_xref.VexrForeignCost' => 'VEXRFOREIGNCOST',
+        'Vexrcostlastdate' => 'VEXRCOSTLASTDATE',
+        'ItemXrefVendor.Vexrcostlastdate' => 'VEXRCOSTLASTDATE',
+        'vexrcostlastdate' => 'VEXRCOSTLASTDATE',
+        'itemXrefVendor.vexrcostlastdate' => 'VEXRCOSTLASTDATE',
+        'ItemXrefVendorTableMap::COL_VEXRCOSTLASTDATE' => 'VEXRCOSTLASTDATE',
+        'COL_VEXRCOSTLASTDATE' => 'VEXRCOSTLASTDATE',
+        'VexrCostLastDate' => 'VEXRCOSTLASTDATE',
+        'vend_item_xref.VexrCostLastDate' => 'VEXRCOSTLASTDATE',
+        'Vexrunitunit1' => 'VEXRUNITUNIT1',
+        'ItemXrefVendor.Vexrunitunit1' => 'VEXRUNITUNIT1',
+        'vexrunitunit1' => 'VEXRUNITUNIT1',
+        'itemXrefVendor.vexrunitunit1' => 'VEXRUNITUNIT1',
+        'ItemXrefVendorTableMap::COL_VEXRUNITUNIT1' => 'VEXRUNITUNIT1',
+        'COL_VEXRUNITUNIT1' => 'VEXRUNITUNIT1',
+        'VexrUnitUnit1' => 'VEXRUNITUNIT1',
+        'vend_item_xref.VexrUnitUnit1' => 'VEXRUNITUNIT1',
+        'Vexrunitcost1' => 'VEXRUNITCOST1',
+        'ItemXrefVendor.Vexrunitcost1' => 'VEXRUNITCOST1',
+        'vexrunitcost1' => 'VEXRUNITCOST1',
+        'itemXrefVendor.vexrunitcost1' => 'VEXRUNITCOST1',
+        'ItemXrefVendorTableMap::COL_VEXRUNITCOST1' => 'VEXRUNITCOST1',
+        'COL_VEXRUNITCOST1' => 'VEXRUNITCOST1',
+        'VexrUnitCost1' => 'VEXRUNITCOST1',
+        'vend_item_xref.VexrUnitCost1' => 'VEXRUNITCOST1',
+        'Vexrunitunit2' => 'VEXRUNITUNIT2',
+        'ItemXrefVendor.Vexrunitunit2' => 'VEXRUNITUNIT2',
+        'vexrunitunit2' => 'VEXRUNITUNIT2',
+        'itemXrefVendor.vexrunitunit2' => 'VEXRUNITUNIT2',
+        'ItemXrefVendorTableMap::COL_VEXRUNITUNIT2' => 'VEXRUNITUNIT2',
+        'COL_VEXRUNITUNIT2' => 'VEXRUNITUNIT2',
+        'VexrUnitUnit2' => 'VEXRUNITUNIT2',
+        'vend_item_xref.VexrUnitUnit2' => 'VEXRUNITUNIT2',
+        'Vexrunitcost2' => 'VEXRUNITCOST2',
+        'ItemXrefVendor.Vexrunitcost2' => 'VEXRUNITCOST2',
+        'vexrunitcost2' => 'VEXRUNITCOST2',
+        'itemXrefVendor.vexrunitcost2' => 'VEXRUNITCOST2',
+        'ItemXrefVendorTableMap::COL_VEXRUNITCOST2' => 'VEXRUNITCOST2',
+        'COL_VEXRUNITCOST2' => 'VEXRUNITCOST2',
+        'VexrUnitCost2' => 'VEXRUNITCOST2',
+        'vend_item_xref.VexrUnitCost2' => 'VEXRUNITCOST2',
+        'Vexrunitunit3' => 'VEXRUNITUNIT3',
+        'ItemXrefVendor.Vexrunitunit3' => 'VEXRUNITUNIT3',
+        'vexrunitunit3' => 'VEXRUNITUNIT3',
+        'itemXrefVendor.vexrunitunit3' => 'VEXRUNITUNIT3',
+        'ItemXrefVendorTableMap::COL_VEXRUNITUNIT3' => 'VEXRUNITUNIT3',
+        'COL_VEXRUNITUNIT3' => 'VEXRUNITUNIT3',
+        'VexrUnitUnit3' => 'VEXRUNITUNIT3',
+        'vend_item_xref.VexrUnitUnit3' => 'VEXRUNITUNIT3',
+        'Vexrunitcost3' => 'VEXRUNITCOST3',
+        'ItemXrefVendor.Vexrunitcost3' => 'VEXRUNITCOST3',
+        'vexrunitcost3' => 'VEXRUNITCOST3',
+        'itemXrefVendor.vexrunitcost3' => 'VEXRUNITCOST3',
+        'ItemXrefVendorTableMap::COL_VEXRUNITCOST3' => 'VEXRUNITCOST3',
+        'COL_VEXRUNITCOST3' => 'VEXRUNITCOST3',
+        'VexrUnitCost3' => 'VEXRUNITCOST3',
+        'vend_item_xref.VexrUnitCost3' => 'VEXRUNITCOST3',
+        'Vexrunitunit4' => 'VEXRUNITUNIT4',
+        'ItemXrefVendor.Vexrunitunit4' => 'VEXRUNITUNIT4',
+        'vexrunitunit4' => 'VEXRUNITUNIT4',
+        'itemXrefVendor.vexrunitunit4' => 'VEXRUNITUNIT4',
+        'ItemXrefVendorTableMap::COL_VEXRUNITUNIT4' => 'VEXRUNITUNIT4',
+        'COL_VEXRUNITUNIT4' => 'VEXRUNITUNIT4',
+        'VexrUnitUnit4' => 'VEXRUNITUNIT4',
+        'vend_item_xref.VexrUnitUnit4' => 'VEXRUNITUNIT4',
+        'Vexrunitcost4' => 'VEXRUNITCOST4',
+        'ItemXrefVendor.Vexrunitcost4' => 'VEXRUNITCOST4',
+        'vexrunitcost4' => 'VEXRUNITCOST4',
+        'itemXrefVendor.vexrunitcost4' => 'VEXRUNITCOST4',
+        'ItemXrefVendorTableMap::COL_VEXRUNITCOST4' => 'VEXRUNITCOST4',
+        'COL_VEXRUNITCOST4' => 'VEXRUNITCOST4',
+        'VexrUnitCost4' => 'VEXRUNITCOST4',
+        'vend_item_xref.VexrUnitCost4' => 'VEXRUNITCOST4',
+        'Vexrunitunit5' => 'VEXRUNITUNIT5',
+        'ItemXrefVendor.Vexrunitunit5' => 'VEXRUNITUNIT5',
+        'vexrunitunit5' => 'VEXRUNITUNIT5',
+        'itemXrefVendor.vexrunitunit5' => 'VEXRUNITUNIT5',
+        'ItemXrefVendorTableMap::COL_VEXRUNITUNIT5' => 'VEXRUNITUNIT5',
+        'COL_VEXRUNITUNIT5' => 'VEXRUNITUNIT5',
+        'VexrUnitUnit5' => 'VEXRUNITUNIT5',
+        'vend_item_xref.VexrUnitUnit5' => 'VEXRUNITUNIT5',
+        'Vexrunitcost5' => 'VEXRUNITCOST5',
+        'ItemXrefVendor.Vexrunitcost5' => 'VEXRUNITCOST5',
+        'vexrunitcost5' => 'VEXRUNITCOST5',
+        'itemXrefVendor.vexrunitcost5' => 'VEXRUNITCOST5',
+        'ItemXrefVendorTableMap::COL_VEXRUNITCOST5' => 'VEXRUNITCOST5',
+        'COL_VEXRUNITCOST5' => 'VEXRUNITCOST5',
+        'VexrUnitCost5' => 'VEXRUNITCOST5',
+        'vend_item_xref.VexrUnitCost5' => 'VEXRUNITCOST5',
+        'Vexrunitunit6' => 'VEXRUNITUNIT6',
+        'ItemXrefVendor.Vexrunitunit6' => 'VEXRUNITUNIT6',
+        'vexrunitunit6' => 'VEXRUNITUNIT6',
+        'itemXrefVendor.vexrunitunit6' => 'VEXRUNITUNIT6',
+        'ItemXrefVendorTableMap::COL_VEXRUNITUNIT6' => 'VEXRUNITUNIT6',
+        'COL_VEXRUNITUNIT6' => 'VEXRUNITUNIT6',
+        'VexrUnitUnit6' => 'VEXRUNITUNIT6',
+        'vend_item_xref.VexrUnitUnit6' => 'VEXRUNITUNIT6',
+        'Vexrunitcost6' => 'VEXRUNITCOST6',
+        'ItemXrefVendor.Vexrunitcost6' => 'VEXRUNITCOST6',
+        'vexrunitcost6' => 'VEXRUNITCOST6',
+        'itemXrefVendor.vexrunitcost6' => 'VEXRUNITCOST6',
+        'ItemXrefVendorTableMap::COL_VEXRUNITCOST6' => 'VEXRUNITCOST6',
+        'COL_VEXRUNITCOST6' => 'VEXRUNITCOST6',
+        'VexrUnitCost6' => 'VEXRUNITCOST6',
+        'vend_item_xref.VexrUnitCost6' => 'VEXRUNITCOST6',
+        'Vexrunitunit7' => 'VEXRUNITUNIT7',
+        'ItemXrefVendor.Vexrunitunit7' => 'VEXRUNITUNIT7',
+        'vexrunitunit7' => 'VEXRUNITUNIT7',
+        'itemXrefVendor.vexrunitunit7' => 'VEXRUNITUNIT7',
+        'ItemXrefVendorTableMap::COL_VEXRUNITUNIT7' => 'VEXRUNITUNIT7',
+        'COL_VEXRUNITUNIT7' => 'VEXRUNITUNIT7',
+        'VexrUnitUnit7' => 'VEXRUNITUNIT7',
+        'vend_item_xref.VexrUnitUnit7' => 'VEXRUNITUNIT7',
+        'Vexrunitcost7' => 'VEXRUNITCOST7',
+        'ItemXrefVendor.Vexrunitcost7' => 'VEXRUNITCOST7',
+        'vexrunitcost7' => 'VEXRUNITCOST7',
+        'itemXrefVendor.vexrunitcost7' => 'VEXRUNITCOST7',
+        'ItemXrefVendorTableMap::COL_VEXRUNITCOST7' => 'VEXRUNITCOST7',
+        'COL_VEXRUNITCOST7' => 'VEXRUNITCOST7',
+        'VexrUnitCost7' => 'VEXRUNITCOST7',
+        'vend_item_xref.VexrUnitCost7' => 'VEXRUNITCOST7',
+        'Vexrunitunit8' => 'VEXRUNITUNIT8',
+        'ItemXrefVendor.Vexrunitunit8' => 'VEXRUNITUNIT8',
+        'vexrunitunit8' => 'VEXRUNITUNIT8',
+        'itemXrefVendor.vexrunitunit8' => 'VEXRUNITUNIT8',
+        'ItemXrefVendorTableMap::COL_VEXRUNITUNIT8' => 'VEXRUNITUNIT8',
+        'COL_VEXRUNITUNIT8' => 'VEXRUNITUNIT8',
+        'VexrUnitUnit8' => 'VEXRUNITUNIT8',
+        'vend_item_xref.VexrUnitUnit8' => 'VEXRUNITUNIT8',
+        'Vexrunitcost8' => 'VEXRUNITCOST8',
+        'ItemXrefVendor.Vexrunitcost8' => 'VEXRUNITCOST8',
+        'vexrunitcost8' => 'VEXRUNITCOST8',
+        'itemXrefVendor.vexrunitcost8' => 'VEXRUNITCOST8',
+        'ItemXrefVendorTableMap::COL_VEXRUNITCOST8' => 'VEXRUNITCOST8',
+        'COL_VEXRUNITCOST8' => 'VEXRUNITCOST8',
+        'VexrUnitCost8' => 'VEXRUNITCOST8',
+        'vend_item_xref.VexrUnitCost8' => 'VEXRUNITCOST8',
+        'Vexrunitunit9' => 'VEXRUNITUNIT9',
+        'ItemXrefVendor.Vexrunitunit9' => 'VEXRUNITUNIT9',
+        'vexrunitunit9' => 'VEXRUNITUNIT9',
+        'itemXrefVendor.vexrunitunit9' => 'VEXRUNITUNIT9',
+        'ItemXrefVendorTableMap::COL_VEXRUNITUNIT9' => 'VEXRUNITUNIT9',
+        'COL_VEXRUNITUNIT9' => 'VEXRUNITUNIT9',
+        'VexrUnitUnit9' => 'VEXRUNITUNIT9',
+        'vend_item_xref.VexrUnitUnit9' => 'VEXRUNITUNIT9',
+        'Vexrunitcost9' => 'VEXRUNITCOST9',
+        'ItemXrefVendor.Vexrunitcost9' => 'VEXRUNITCOST9',
+        'vexrunitcost9' => 'VEXRUNITCOST9',
+        'itemXrefVendor.vexrunitcost9' => 'VEXRUNITCOST9',
+        'ItemXrefVendorTableMap::COL_VEXRUNITCOST9' => 'VEXRUNITCOST9',
+        'COL_VEXRUNITCOST9' => 'VEXRUNITCOST9',
+        'VexrUnitCost9' => 'VEXRUNITCOST9',
+        'vend_item_xref.VexrUnitCost9' => 'VEXRUNITCOST9',
+        'Vexrunitunit10' => 'VEXRUNITUNIT10',
+        'ItemXrefVendor.Vexrunitunit10' => 'VEXRUNITUNIT10',
+        'vexrunitunit10' => 'VEXRUNITUNIT10',
+        'itemXrefVendor.vexrunitunit10' => 'VEXRUNITUNIT10',
+        'ItemXrefVendorTableMap::COL_VEXRUNITUNIT10' => 'VEXRUNITUNIT10',
+        'COL_VEXRUNITUNIT10' => 'VEXRUNITUNIT10',
+        'VexrUnitUnit10' => 'VEXRUNITUNIT10',
+        'vend_item_xref.VexrUnitUnit10' => 'VEXRUNITUNIT10',
+        'Vexrunitcost10' => 'VEXRUNITCOST10',
+        'ItemXrefVendor.Vexrunitcost10' => 'VEXRUNITCOST10',
+        'vexrunitcost10' => 'VEXRUNITCOST10',
+        'itemXrefVendor.vexrunitcost10' => 'VEXRUNITCOST10',
+        'ItemXrefVendorTableMap::COL_VEXRUNITCOST10' => 'VEXRUNITCOST10',
+        'COL_VEXRUNITCOST10' => 'VEXRUNITCOST10',
+        'VexrUnitCost10' => 'VEXRUNITCOST10',
+        'vend_item_xref.VexrUnitCost10' => 'VEXRUNITCOST10',
+        'Vexraprvcode' => 'VEXRAPRVCODE',
+        'ItemXrefVendor.Vexraprvcode' => 'VEXRAPRVCODE',
+        'vexraprvcode' => 'VEXRAPRVCODE',
+        'itemXrefVendor.vexraprvcode' => 'VEXRAPRVCODE',
+        'ItemXrefVendorTableMap::COL_VEXRAPRVCODE' => 'VEXRAPRVCODE',
+        'COL_VEXRAPRVCODE' => 'VEXRAPRVCODE',
+        'VexrAprvCode' => 'VEXRAPRVCODE',
+        'vend_item_xref.VexrAprvCode' => 'VEXRAPRVCODE',
+        'Vexrminbuyqty' => 'VEXRMINBUYQTY',
+        'ItemXrefVendor.Vexrminbuyqty' => 'VEXRMINBUYQTY',
+        'vexrminbuyqty' => 'VEXRMINBUYQTY',
+        'itemXrefVendor.vexrminbuyqty' => 'VEXRMINBUYQTY',
+        'ItemXrefVendorTableMap::COL_VEXRMINBUYQTY' => 'VEXRMINBUYQTY',
+        'COL_VEXRMINBUYQTY' => 'VEXRMINBUYQTY',
+        'VexrMinBuyQty' => 'VEXRMINBUYQTY',
+        'vend_item_xref.VexrMinBuyQty' => 'VEXRMINBUYQTY',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ItemXrefVendor.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'itemXrefVendor.dateupdtd' => 'DATEUPDTD',
+        'ItemXrefVendorTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'vend_item_xref.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ItemXrefVendor.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'itemXrefVendor.timeupdtd' => 'TIMEUPDTD',
+        'ItemXrefVendorTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'vend_item_xref.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ItemXrefVendor.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'itemXrefVendor.dummy' => 'DUMMY',
+        'ItemXrefVendorTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'vend_item_xref.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('vend_item_xref');
@@ -312,43 +623,45 @@ class ItemXrefVendorTableMap extends TableMap
         $this->addColumn('VexrPoOrderCode', 'Vexrpoordercode', 'CHAR', true, null, '');
         $this->addColumn('VexrOption1', 'Vexroption1', 'VARCHAR', true, 8, '');
         $this->addForeignKey('IntbUomPur', 'Intbuompur', 'VARCHAR', 'inv_uom_pur', 'IntbUomPur', true, 4, '');
-        $this->addColumn('VexrCaseQty', 'Vexrcaseqty', 'DECIMAL', true, 20, 1);
+        $this->addColumn('VexrCaseQty', 'Vexrcaseqty', 'DECIMAL', true, 20, 1.00);
         $this->addColumn('VexrPrtKitDet', 'Vexrprtkitdet', 'CHAR', true, null, 'N');
-        $this->addColumn('VexrListPrice', 'Vexrlistprice', 'DECIMAL', true, 20, 0);
-        $this->addColumn('VexrUnitCost', 'Vexrunitcost', 'DECIMAL', true, 20, 0);
-        $this->addColumn('VexrForeignCost', 'Vexrforeigncost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('VexrListPrice', 'Vexrlistprice', 'DECIMAL', true, 20, 0.0000000);
+        $this->addColumn('VexrUnitCost', 'Vexrunitcost', 'DECIMAL', true, 20, 0.0000000);
+        $this->addColumn('VexrForeignCost', 'Vexrforeigncost', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('VexrCostLastDate', 'Vexrcostlastdate', 'CHAR', true, 8, '');
         $this->addColumn('VexrUnitUnit1', 'Vexrunitunit1', 'INTEGER', true, 9, 0);
-        $this->addColumn('VexrUnitCost1', 'Vexrunitcost1', 'DECIMAL', true, 20, 0);
+        $this->addColumn('VexrUnitCost1', 'Vexrunitcost1', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('VexrUnitUnit2', 'Vexrunitunit2', 'INTEGER', true, 9, 0);
-        $this->addColumn('VexrUnitCost2', 'Vexrunitcost2', 'DECIMAL', true, 20, 0);
+        $this->addColumn('VexrUnitCost2', 'Vexrunitcost2', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('VexrUnitUnit3', 'Vexrunitunit3', 'INTEGER', true, 9, 0);
-        $this->addColumn('VexrUnitCost3', 'Vexrunitcost3', 'DECIMAL', true, 20, 0);
+        $this->addColumn('VexrUnitCost3', 'Vexrunitcost3', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('VexrUnitUnit4', 'Vexrunitunit4', 'INTEGER', true, 9, 0);
-        $this->addColumn('VexrUnitCost4', 'Vexrunitcost4', 'DECIMAL', true, 20, 0);
+        $this->addColumn('VexrUnitCost4', 'Vexrunitcost4', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('VexrUnitUnit5', 'Vexrunitunit5', 'INTEGER', true, 9, 0);
-        $this->addColumn('VexrUnitCost5', 'Vexrunitcost5', 'DECIMAL', true, 20, 0);
+        $this->addColumn('VexrUnitCost5', 'Vexrunitcost5', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('VexrUnitUnit6', 'Vexrunitunit6', 'INTEGER', true, 9, 0);
-        $this->addColumn('VexrUnitCost6', 'Vexrunitcost6', 'DECIMAL', true, 20, 0);
+        $this->addColumn('VexrUnitCost6', 'Vexrunitcost6', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('VexrUnitUnit7', 'Vexrunitunit7', 'INTEGER', true, 9, 0);
-        $this->addColumn('VexrUnitCost7', 'Vexrunitcost7', 'DECIMAL', true, 20, 0);
+        $this->addColumn('VexrUnitCost7', 'Vexrunitcost7', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('VexrUnitUnit8', 'Vexrunitunit8', 'INTEGER', true, 9, 0);
-        $this->addColumn('VexrUnitCost8', 'Vexrunitcost8', 'DECIMAL', true, 20, 0);
+        $this->addColumn('VexrUnitCost8', 'Vexrunitcost8', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('VexrUnitUnit9', 'Vexrunitunit9', 'INTEGER', true, 9, 0);
-        $this->addColumn('VexrUnitCost9', 'Vexrunitcost9', 'DECIMAL', true, 20, 0);
+        $this->addColumn('VexrUnitCost9', 'Vexrunitcost9', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('VexrUnitUnit10', 'Vexrunitunit10', 'INTEGER', true, 9, 0);
-        $this->addColumn('VexrUnitCost10', 'Vexrunitcost10', 'DECIMAL', true, 20, 0);
+        $this->addColumn('VexrUnitCost10', 'Vexrunitcost10', 'DECIMAL', true, 20, 0.0000000);
         $this->addColumn('VexrAprvCode', 'Vexraprvcode', 'CHAR', true, null, 'A');
         $this->addColumn('VexrMinBuyQty', 'Vexrminbuyqty', 'INTEGER', true, 8, 0);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('Vendor', '\\Vendor', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -371,7 +684,7 @@ class ItemXrefVendorTableMap extends TableMap
     1 => ':IntbUomPur',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -382,9 +695,11 @@ class ItemXrefVendorTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \ItemXrefVendor $obj A \ItemXrefVendor object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(ItemXrefVendor $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -403,8 +718,10 @@ class ItemXrefVendorTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \ItemXrefVendor object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \ItemXrefVendor) {
@@ -432,14 +749,14 @@ class ItemXrefVendorTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Vexrvenditemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -454,14 +771,14 @@ class ItemXrefVendorTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -492,10 +809,10 @@ class ItemXrefVendorTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ItemXrefVendorTableMap::CLASS_DEFAULT : ItemXrefVendorTableMap::OM_CLASS;
     }
@@ -503,17 +820,17 @@ class ItemXrefVendorTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ItemXrefVendor object, last column rank)
+     * @return array (ItemXrefVendor object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ItemXrefVendorTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ItemXrefVendorTableMap::getInstanceFromPool($key))) {
@@ -529,7 +846,7 @@ class ItemXrefVendorTableMap extends TableMap
             ItemXrefVendorTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -537,13 +854,13 @@ class ItemXrefVendorTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -573,12 +890,13 @@ class ItemXrefVendorTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ItemXrefVendorTableMap::COL_APVEVENDID);
@@ -660,40 +978,122 @@ class ItemXrefVendorTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_APVEVENDID);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRVENDITEMNBR);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRPOORDERCODE);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXROPTION1);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_INTBUOMPUR);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRCASEQTY);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRPRTKITDET);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRLISTPRICE);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITCOST);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRFOREIGNCOST);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRCOSTLASTDATE);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITUNIT1);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITCOST1);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITUNIT2);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITCOST2);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITUNIT3);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITCOST3);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITUNIT4);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITCOST4);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITUNIT5);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITCOST5);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITUNIT6);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITCOST6);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITUNIT7);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITCOST7);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITUNIT8);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITCOST8);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITUNIT9);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITCOST9);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITUNIT10);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRUNITCOST10);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRAPRVCODE);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_VEXRMINBUYQTY);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ItemXrefVendorTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.ApveVendId');
+            $criteria->removeSelectColumn($alias . '.VexrVendItemNbr');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.VexrPoOrderCode');
+            $criteria->removeSelectColumn($alias . '.VexrOption1');
+            $criteria->removeSelectColumn($alias . '.IntbUomPur');
+            $criteria->removeSelectColumn($alias . '.VexrCaseQty');
+            $criteria->removeSelectColumn($alias . '.VexrPrtKitDet');
+            $criteria->removeSelectColumn($alias . '.VexrListPrice');
+            $criteria->removeSelectColumn($alias . '.VexrUnitCost');
+            $criteria->removeSelectColumn($alias . '.VexrForeignCost');
+            $criteria->removeSelectColumn($alias . '.VexrCostLastDate');
+            $criteria->removeSelectColumn($alias . '.VexrUnitUnit1');
+            $criteria->removeSelectColumn($alias . '.VexrUnitCost1');
+            $criteria->removeSelectColumn($alias . '.VexrUnitUnit2');
+            $criteria->removeSelectColumn($alias . '.VexrUnitCost2');
+            $criteria->removeSelectColumn($alias . '.VexrUnitUnit3');
+            $criteria->removeSelectColumn($alias . '.VexrUnitCost3');
+            $criteria->removeSelectColumn($alias . '.VexrUnitUnit4');
+            $criteria->removeSelectColumn($alias . '.VexrUnitCost4');
+            $criteria->removeSelectColumn($alias . '.VexrUnitUnit5');
+            $criteria->removeSelectColumn($alias . '.VexrUnitCost5');
+            $criteria->removeSelectColumn($alias . '.VexrUnitUnit6');
+            $criteria->removeSelectColumn($alias . '.VexrUnitCost6');
+            $criteria->removeSelectColumn($alias . '.VexrUnitUnit7');
+            $criteria->removeSelectColumn($alias . '.VexrUnitCost7');
+            $criteria->removeSelectColumn($alias . '.VexrUnitUnit8');
+            $criteria->removeSelectColumn($alias . '.VexrUnitCost8');
+            $criteria->removeSelectColumn($alias . '.VexrUnitUnit9');
+            $criteria->removeSelectColumn($alias . '.VexrUnitCost9');
+            $criteria->removeSelectColumn($alias . '.VexrUnitUnit10');
+            $criteria->removeSelectColumn($alias . '.VexrUnitCost10');
+            $criteria->removeSelectColumn($alias . '.VexrAprvCode');
+            $criteria->removeSelectColumn($alias . '.VexrMinBuyQty');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ItemXrefVendorTableMap::DATABASE_NAME)->getTable(ItemXrefVendorTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ItemXrefVendorTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ItemXrefVendorTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ItemXrefVendorTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ItemXrefVendor or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ItemXrefVendor object or primary key or array of primary keys
+     * @param mixed $values Criteria or ItemXrefVendor object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefVendorTableMap::DATABASE_NAME);
@@ -711,7 +1111,7 @@ class ItemXrefVendorTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(ItemXrefVendorTableMap::COL_APVEVENDID, $value[0]);
@@ -740,7 +1140,7 @@ class ItemXrefVendorTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ItemXrefVendorQuery::create()->doDeleteAll($con);
     }
@@ -748,13 +1148,13 @@ class ItemXrefVendorTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ItemXrefVendor or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ItemXrefVendor object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ItemXrefVendor object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefVendorTableMap::DATABASE_NAME);
@@ -777,7 +1177,4 @@ class ItemXrefVendorTableMap extends TableMap
         });
     }
 
-} // ItemXrefVendorTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ItemXrefVendorTableMap::buildTableMap();
+}

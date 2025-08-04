@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class PhoneBookTableMap extends TableMap
 {
@@ -34,199 +33,399 @@ class PhoneBookTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.PhoneBookTableMap';
+    public const CLASS_NAME = '.Map.PhoneBookTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'phoneadr';
+    public const TABLE_NAME = 'phoneadr';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'PhoneBook';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\PhoneBook';
+    public const OM_CLASS = '\\PhoneBook';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'PhoneBook';
+    public const CLASS_DEFAULT = 'PhoneBook';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 23;
+    public const NUM_COLUMNS = 23;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 23;
+    public const NUM_HYDRATE_COLUMNS = 23;
 
     /**
      * the column name for the PhadType field
      */
-    const COL_PHADTYPE = 'phoneadr.PhadType';
+    public const COL_PHADTYPE = 'phoneadr.PhadType';
 
     /**
      * the column name for the PhadId field
      */
-    const COL_PHADID = 'phoneadr.PhadId';
+    public const COL_PHADID = 'phoneadr.PhadId';
 
     /**
      * the column name for the PhadSubId field
      */
-    const COL_PHADSUBID = 'phoneadr.PhadSubId';
+    public const COL_PHADSUBID = 'phoneadr.PhadSubId';
 
     /**
      * the column name for the PhadSubIdSeq field
      */
-    const COL_PHADSUBIDSEQ = 'phoneadr.PhadSubIdSeq';
+    public const COL_PHADSUBIDSEQ = 'phoneadr.PhadSubIdSeq';
 
     /**
      * the column name for the PhadCont field
      */
-    const COL_PHADCONT = 'phoneadr.PhadCont';
+    public const COL_PHADCONT = 'phoneadr.PhadCont';
 
     /**
      * the column name for the PhadIntl field
      */
-    const COL_PHADINTL = 'phoneadr.PhadIntl';
+    public const COL_PHADINTL = 'phoneadr.PhadIntl';
 
     /**
      * the column name for the PhadTeleNbr field
      */
-    const COL_PHADTELENBR = 'phoneadr.PhadTeleNbr';
+    public const COL_PHADTELENBR = 'phoneadr.PhadTeleNbr';
 
     /**
      * the column name for the PhadTeleExt field
      */
-    const COL_PHADTELEEXT = 'phoneadr.PhadTeleExt';
+    public const COL_PHADTELEEXT = 'phoneadr.PhadTeleExt';
 
     /**
      * the column name for the PhadIntlNbr field
      */
-    const COL_PHADINTLNBR = 'phoneadr.PhadIntlNbr';
+    public const COL_PHADINTLNBR = 'phoneadr.PhadIntlNbr';
 
     /**
      * the column name for the PhadIntlExt field
      */
-    const COL_PHADINTLEXT = 'phoneadr.PhadIntlExt';
+    public const COL_PHADINTLEXT = 'phoneadr.PhadIntlExt';
 
     /**
      * the column name for the PhadFaxNbr field
      */
-    const COL_PHADFAXNBR = 'phoneadr.PhadFaxNbr';
+    public const COL_PHADFAXNBR = 'phoneadr.PhadFaxNbr';
 
     /**
      * the column name for the PhadIfaxNbr field
      */
-    const COL_PHADIFAXNBR = 'phoneadr.PhadIfaxNbr';
+    public const COL_PHADIFAXNBR = 'phoneadr.PhadIfaxNbr';
 
     /**
      * the column name for the PhadCellNbr field
      */
-    const COL_PHADCELLNBR = 'phoneadr.PhadCellNbr';
+    public const COL_PHADCELLNBR = 'phoneadr.PhadCellNbr';
 
     /**
      * the column name for the PhadIcellNbr field
      */
-    const COL_PHADICELLNBR = 'phoneadr.PhadIcellNbr';
+    public const COL_PHADICELLNBR = 'phoneadr.PhadIcellNbr';
 
     /**
      * the column name for the PhadHomeNbr field
      */
-    const COL_PHADHOMENBR = 'phoneadr.PhadHomeNbr';
+    public const COL_PHADHOMENBR = 'phoneadr.PhadHomeNbr';
 
     /**
      * the column name for the PhadIhomeNbr field
      */
-    const COL_PHADIHOMENBR = 'phoneadr.PhadIhomeNbr';
+    public const COL_PHADIHOMENBR = 'phoneadr.PhadIhomeNbr';
 
     /**
      * the column name for the PhadWebAddr field
      */
-    const COL_PHADWEBADDR = 'phoneadr.PhadWebAddr';
+    public const COL_PHADWEBADDR = 'phoneadr.PhadWebAddr';
 
     /**
      * the column name for the PhadEmailAddr field
      */
-    const COL_PHADEMAILADDR = 'phoneadr.PhadEmailAddr';
+    public const COL_PHADEMAILADDR = 'phoneadr.PhadEmailAddr';
 
     /**
      * the column name for the PhadName field
      */
-    const COL_PHADNAME = 'phoneadr.PhadName';
+    public const COL_PHADNAME = 'phoneadr.PhadName';
 
     /**
      * the column name for the PhadContName field
      */
-    const COL_PHADCONTNAME = 'phoneadr.PhadContName';
+    public const COL_PHADCONTNAME = 'phoneadr.PhadContName';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'phoneadr.DateUpdtd';
+    public const COL_DATEUPDTD = 'phoneadr.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'phoneadr.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'phoneadr.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'phoneadr.dummy';
+    public const COL_DUMMY = 'phoneadr.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Phadtype', 'Phadid', 'Phadsubid', 'Phadsubidseq', 'Phadcont', 'Phadintl', 'Phadtelenbr', 'Phadteleext', 'Phadintlnbr', 'Phadintlext', 'Phadfaxnbr', 'Phadifaxnbr', 'Phadcellnbr', 'Phadicellnbr', 'Phadhomenbr', 'Phadihomenbr', 'Phadwebaddr', 'Phademailaddr', 'Phadname', 'Phadcontname', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('phadtype', 'phadid', 'phadsubid', 'phadsubidseq', 'phadcont', 'phadintl', 'phadtelenbr', 'phadteleext', 'phadintlnbr', 'phadintlext', 'phadfaxnbr', 'phadifaxnbr', 'phadcellnbr', 'phadicellnbr', 'phadhomenbr', 'phadihomenbr', 'phadwebaddr', 'phademailaddr', 'phadname', 'phadcontname', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(PhoneBookTableMap::COL_PHADTYPE, PhoneBookTableMap::COL_PHADID, PhoneBookTableMap::COL_PHADSUBID, PhoneBookTableMap::COL_PHADSUBIDSEQ, PhoneBookTableMap::COL_PHADCONT, PhoneBookTableMap::COL_PHADINTL, PhoneBookTableMap::COL_PHADTELENBR, PhoneBookTableMap::COL_PHADTELEEXT, PhoneBookTableMap::COL_PHADINTLNBR, PhoneBookTableMap::COL_PHADINTLEXT, PhoneBookTableMap::COL_PHADFAXNBR, PhoneBookTableMap::COL_PHADIFAXNBR, PhoneBookTableMap::COL_PHADCELLNBR, PhoneBookTableMap::COL_PHADICELLNBR, PhoneBookTableMap::COL_PHADHOMENBR, PhoneBookTableMap::COL_PHADIHOMENBR, PhoneBookTableMap::COL_PHADWEBADDR, PhoneBookTableMap::COL_PHADEMAILADDR, PhoneBookTableMap::COL_PHADNAME, PhoneBookTableMap::COL_PHADCONTNAME, PhoneBookTableMap::COL_DATEUPDTD, PhoneBookTableMap::COL_TIMEUPDTD, PhoneBookTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('PhadType', 'PhadId', 'PhadSubId', 'PhadSubIdSeq', 'PhadCont', 'PhadIntl', 'PhadTeleNbr', 'PhadTeleExt', 'PhadIntlNbr', 'PhadIntlExt', 'PhadFaxNbr', 'PhadIfaxNbr', 'PhadCellNbr', 'PhadIcellNbr', 'PhadHomeNbr', 'PhadIhomeNbr', 'PhadWebAddr', 'PhadEmailAddr', 'PhadName', 'PhadContName', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Phadtype', 'Phadid', 'Phadsubid', 'Phadsubidseq', 'Phadcont', 'Phadintl', 'Phadtelenbr', 'Phadteleext', 'Phadintlnbr', 'Phadintlext', 'Phadfaxnbr', 'Phadifaxnbr', 'Phadcellnbr', 'Phadicellnbr', 'Phadhomenbr', 'Phadihomenbr', 'Phadwebaddr', 'Phademailaddr', 'Phadname', 'Phadcontname', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['phadtype', 'phadid', 'phadsubid', 'phadsubidseq', 'phadcont', 'phadintl', 'phadtelenbr', 'phadteleext', 'phadintlnbr', 'phadintlext', 'phadfaxnbr', 'phadifaxnbr', 'phadcellnbr', 'phadicellnbr', 'phadhomenbr', 'phadihomenbr', 'phadwebaddr', 'phademailaddr', 'phadname', 'phadcontname', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [PhoneBookTableMap::COL_PHADTYPE, PhoneBookTableMap::COL_PHADID, PhoneBookTableMap::COL_PHADSUBID, PhoneBookTableMap::COL_PHADSUBIDSEQ, PhoneBookTableMap::COL_PHADCONT, PhoneBookTableMap::COL_PHADINTL, PhoneBookTableMap::COL_PHADTELENBR, PhoneBookTableMap::COL_PHADTELEEXT, PhoneBookTableMap::COL_PHADINTLNBR, PhoneBookTableMap::COL_PHADINTLEXT, PhoneBookTableMap::COL_PHADFAXNBR, PhoneBookTableMap::COL_PHADIFAXNBR, PhoneBookTableMap::COL_PHADCELLNBR, PhoneBookTableMap::COL_PHADICELLNBR, PhoneBookTableMap::COL_PHADHOMENBR, PhoneBookTableMap::COL_PHADIHOMENBR, PhoneBookTableMap::COL_PHADWEBADDR, PhoneBookTableMap::COL_PHADEMAILADDR, PhoneBookTableMap::COL_PHADNAME, PhoneBookTableMap::COL_PHADCONTNAME, PhoneBookTableMap::COL_DATEUPDTD, PhoneBookTableMap::COL_TIMEUPDTD, PhoneBookTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['PhadType', 'PhadId', 'PhadSubId', 'PhadSubIdSeq', 'PhadCont', 'PhadIntl', 'PhadTeleNbr', 'PhadTeleExt', 'PhadIntlNbr', 'PhadIntlExt', 'PhadFaxNbr', 'PhadIfaxNbr', 'PhadCellNbr', 'PhadIcellNbr', 'PhadHomeNbr', 'PhadIhomeNbr', 'PhadWebAddr', 'PhadEmailAddr', 'PhadName', 'PhadContName', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Phadtype' => 0, 'Phadid' => 1, 'Phadsubid' => 2, 'Phadsubidseq' => 3, 'Phadcont' => 4, 'Phadintl' => 5, 'Phadtelenbr' => 6, 'Phadteleext' => 7, 'Phadintlnbr' => 8, 'Phadintlext' => 9, 'Phadfaxnbr' => 10, 'Phadifaxnbr' => 11, 'Phadcellnbr' => 12, 'Phadicellnbr' => 13, 'Phadhomenbr' => 14, 'Phadihomenbr' => 15, 'Phadwebaddr' => 16, 'Phademailaddr' => 17, 'Phadname' => 18, 'Phadcontname' => 19, 'Dateupdtd' => 20, 'Timeupdtd' => 21, 'Dummy' => 22, ),
-        self::TYPE_CAMELNAME     => array('phadtype' => 0, 'phadid' => 1, 'phadsubid' => 2, 'phadsubidseq' => 3, 'phadcont' => 4, 'phadintl' => 5, 'phadtelenbr' => 6, 'phadteleext' => 7, 'phadintlnbr' => 8, 'phadintlext' => 9, 'phadfaxnbr' => 10, 'phadifaxnbr' => 11, 'phadcellnbr' => 12, 'phadicellnbr' => 13, 'phadhomenbr' => 14, 'phadihomenbr' => 15, 'phadwebaddr' => 16, 'phademailaddr' => 17, 'phadname' => 18, 'phadcontname' => 19, 'dateupdtd' => 20, 'timeupdtd' => 21, 'dummy' => 22, ),
-        self::TYPE_COLNAME       => array(PhoneBookTableMap::COL_PHADTYPE => 0, PhoneBookTableMap::COL_PHADID => 1, PhoneBookTableMap::COL_PHADSUBID => 2, PhoneBookTableMap::COL_PHADSUBIDSEQ => 3, PhoneBookTableMap::COL_PHADCONT => 4, PhoneBookTableMap::COL_PHADINTL => 5, PhoneBookTableMap::COL_PHADTELENBR => 6, PhoneBookTableMap::COL_PHADTELEEXT => 7, PhoneBookTableMap::COL_PHADINTLNBR => 8, PhoneBookTableMap::COL_PHADINTLEXT => 9, PhoneBookTableMap::COL_PHADFAXNBR => 10, PhoneBookTableMap::COL_PHADIFAXNBR => 11, PhoneBookTableMap::COL_PHADCELLNBR => 12, PhoneBookTableMap::COL_PHADICELLNBR => 13, PhoneBookTableMap::COL_PHADHOMENBR => 14, PhoneBookTableMap::COL_PHADIHOMENBR => 15, PhoneBookTableMap::COL_PHADWEBADDR => 16, PhoneBookTableMap::COL_PHADEMAILADDR => 17, PhoneBookTableMap::COL_PHADNAME => 18, PhoneBookTableMap::COL_PHADCONTNAME => 19, PhoneBookTableMap::COL_DATEUPDTD => 20, PhoneBookTableMap::COL_TIMEUPDTD => 21, PhoneBookTableMap::COL_DUMMY => 22, ),
-        self::TYPE_FIELDNAME     => array('PhadType' => 0, 'PhadId' => 1, 'PhadSubId' => 2, 'PhadSubIdSeq' => 3, 'PhadCont' => 4, 'PhadIntl' => 5, 'PhadTeleNbr' => 6, 'PhadTeleExt' => 7, 'PhadIntlNbr' => 8, 'PhadIntlExt' => 9, 'PhadFaxNbr' => 10, 'PhadIfaxNbr' => 11, 'PhadCellNbr' => 12, 'PhadIcellNbr' => 13, 'PhadHomeNbr' => 14, 'PhadIhomeNbr' => 15, 'PhadWebAddr' => 16, 'PhadEmailAddr' => 17, 'PhadName' => 18, 'PhadContName' => 19, 'DateUpdtd' => 20, 'TimeUpdtd' => 21, 'dummy' => 22, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Phadtype' => 0, 'Phadid' => 1, 'Phadsubid' => 2, 'Phadsubidseq' => 3, 'Phadcont' => 4, 'Phadintl' => 5, 'Phadtelenbr' => 6, 'Phadteleext' => 7, 'Phadintlnbr' => 8, 'Phadintlext' => 9, 'Phadfaxnbr' => 10, 'Phadifaxnbr' => 11, 'Phadcellnbr' => 12, 'Phadicellnbr' => 13, 'Phadhomenbr' => 14, 'Phadihomenbr' => 15, 'Phadwebaddr' => 16, 'Phademailaddr' => 17, 'Phadname' => 18, 'Phadcontname' => 19, 'Dateupdtd' => 20, 'Timeupdtd' => 21, 'Dummy' => 22, ],
+        self::TYPE_CAMELNAME     => ['phadtype' => 0, 'phadid' => 1, 'phadsubid' => 2, 'phadsubidseq' => 3, 'phadcont' => 4, 'phadintl' => 5, 'phadtelenbr' => 6, 'phadteleext' => 7, 'phadintlnbr' => 8, 'phadintlext' => 9, 'phadfaxnbr' => 10, 'phadifaxnbr' => 11, 'phadcellnbr' => 12, 'phadicellnbr' => 13, 'phadhomenbr' => 14, 'phadihomenbr' => 15, 'phadwebaddr' => 16, 'phademailaddr' => 17, 'phadname' => 18, 'phadcontname' => 19, 'dateupdtd' => 20, 'timeupdtd' => 21, 'dummy' => 22, ],
+        self::TYPE_COLNAME       => [PhoneBookTableMap::COL_PHADTYPE => 0, PhoneBookTableMap::COL_PHADID => 1, PhoneBookTableMap::COL_PHADSUBID => 2, PhoneBookTableMap::COL_PHADSUBIDSEQ => 3, PhoneBookTableMap::COL_PHADCONT => 4, PhoneBookTableMap::COL_PHADINTL => 5, PhoneBookTableMap::COL_PHADTELENBR => 6, PhoneBookTableMap::COL_PHADTELEEXT => 7, PhoneBookTableMap::COL_PHADINTLNBR => 8, PhoneBookTableMap::COL_PHADINTLEXT => 9, PhoneBookTableMap::COL_PHADFAXNBR => 10, PhoneBookTableMap::COL_PHADIFAXNBR => 11, PhoneBookTableMap::COL_PHADCELLNBR => 12, PhoneBookTableMap::COL_PHADICELLNBR => 13, PhoneBookTableMap::COL_PHADHOMENBR => 14, PhoneBookTableMap::COL_PHADIHOMENBR => 15, PhoneBookTableMap::COL_PHADWEBADDR => 16, PhoneBookTableMap::COL_PHADEMAILADDR => 17, PhoneBookTableMap::COL_PHADNAME => 18, PhoneBookTableMap::COL_PHADCONTNAME => 19, PhoneBookTableMap::COL_DATEUPDTD => 20, PhoneBookTableMap::COL_TIMEUPDTD => 21, PhoneBookTableMap::COL_DUMMY => 22, ],
+        self::TYPE_FIELDNAME     => ['PhadType' => 0, 'PhadId' => 1, 'PhadSubId' => 2, 'PhadSubIdSeq' => 3, 'PhadCont' => 4, 'PhadIntl' => 5, 'PhadTeleNbr' => 6, 'PhadTeleExt' => 7, 'PhadIntlNbr' => 8, 'PhadIntlExt' => 9, 'PhadFaxNbr' => 10, 'PhadIfaxNbr' => 11, 'PhadCellNbr' => 12, 'PhadIcellNbr' => 13, 'PhadHomeNbr' => 14, 'PhadIhomeNbr' => 15, 'PhadWebAddr' => 16, 'PhadEmailAddr' => 17, 'PhadName' => 18, 'PhadContName' => 19, 'DateUpdtd' => 20, 'TimeUpdtd' => 21, 'dummy' => 22, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Phadtype' => 'PHADTYPE',
+        'PhoneBook.Phadtype' => 'PHADTYPE',
+        'phadtype' => 'PHADTYPE',
+        'phoneBook.phadtype' => 'PHADTYPE',
+        'PhoneBookTableMap::COL_PHADTYPE' => 'PHADTYPE',
+        'COL_PHADTYPE' => 'PHADTYPE',
+        'PhadType' => 'PHADTYPE',
+        'phoneadr.PhadType' => 'PHADTYPE',
+        'Phadid' => 'PHADID',
+        'PhoneBook.Phadid' => 'PHADID',
+        'phadid' => 'PHADID',
+        'phoneBook.phadid' => 'PHADID',
+        'PhoneBookTableMap::COL_PHADID' => 'PHADID',
+        'COL_PHADID' => 'PHADID',
+        'PhadId' => 'PHADID',
+        'phoneadr.PhadId' => 'PHADID',
+        'Phadsubid' => 'PHADSUBID',
+        'PhoneBook.Phadsubid' => 'PHADSUBID',
+        'phadsubid' => 'PHADSUBID',
+        'phoneBook.phadsubid' => 'PHADSUBID',
+        'PhoneBookTableMap::COL_PHADSUBID' => 'PHADSUBID',
+        'COL_PHADSUBID' => 'PHADSUBID',
+        'PhadSubId' => 'PHADSUBID',
+        'phoneadr.PhadSubId' => 'PHADSUBID',
+        'Phadsubidseq' => 'PHADSUBIDSEQ',
+        'PhoneBook.Phadsubidseq' => 'PHADSUBIDSEQ',
+        'phadsubidseq' => 'PHADSUBIDSEQ',
+        'phoneBook.phadsubidseq' => 'PHADSUBIDSEQ',
+        'PhoneBookTableMap::COL_PHADSUBIDSEQ' => 'PHADSUBIDSEQ',
+        'COL_PHADSUBIDSEQ' => 'PHADSUBIDSEQ',
+        'PhadSubIdSeq' => 'PHADSUBIDSEQ',
+        'phoneadr.PhadSubIdSeq' => 'PHADSUBIDSEQ',
+        'Phadcont' => 'PHADCONT',
+        'PhoneBook.Phadcont' => 'PHADCONT',
+        'phadcont' => 'PHADCONT',
+        'phoneBook.phadcont' => 'PHADCONT',
+        'PhoneBookTableMap::COL_PHADCONT' => 'PHADCONT',
+        'COL_PHADCONT' => 'PHADCONT',
+        'PhadCont' => 'PHADCONT',
+        'phoneadr.PhadCont' => 'PHADCONT',
+        'Phadintl' => 'PHADINTL',
+        'PhoneBook.Phadintl' => 'PHADINTL',
+        'phadintl' => 'PHADINTL',
+        'phoneBook.phadintl' => 'PHADINTL',
+        'PhoneBookTableMap::COL_PHADINTL' => 'PHADINTL',
+        'COL_PHADINTL' => 'PHADINTL',
+        'PhadIntl' => 'PHADINTL',
+        'phoneadr.PhadIntl' => 'PHADINTL',
+        'Phadtelenbr' => 'PHADTELENBR',
+        'PhoneBook.Phadtelenbr' => 'PHADTELENBR',
+        'phadtelenbr' => 'PHADTELENBR',
+        'phoneBook.phadtelenbr' => 'PHADTELENBR',
+        'PhoneBookTableMap::COL_PHADTELENBR' => 'PHADTELENBR',
+        'COL_PHADTELENBR' => 'PHADTELENBR',
+        'PhadTeleNbr' => 'PHADTELENBR',
+        'phoneadr.PhadTeleNbr' => 'PHADTELENBR',
+        'Phadteleext' => 'PHADTELEEXT',
+        'PhoneBook.Phadteleext' => 'PHADTELEEXT',
+        'phadteleext' => 'PHADTELEEXT',
+        'phoneBook.phadteleext' => 'PHADTELEEXT',
+        'PhoneBookTableMap::COL_PHADTELEEXT' => 'PHADTELEEXT',
+        'COL_PHADTELEEXT' => 'PHADTELEEXT',
+        'PhadTeleExt' => 'PHADTELEEXT',
+        'phoneadr.PhadTeleExt' => 'PHADTELEEXT',
+        'Phadintlnbr' => 'PHADINTLNBR',
+        'PhoneBook.Phadintlnbr' => 'PHADINTLNBR',
+        'phadintlnbr' => 'PHADINTLNBR',
+        'phoneBook.phadintlnbr' => 'PHADINTLNBR',
+        'PhoneBookTableMap::COL_PHADINTLNBR' => 'PHADINTLNBR',
+        'COL_PHADINTLNBR' => 'PHADINTLNBR',
+        'PhadIntlNbr' => 'PHADINTLNBR',
+        'phoneadr.PhadIntlNbr' => 'PHADINTLNBR',
+        'Phadintlext' => 'PHADINTLEXT',
+        'PhoneBook.Phadintlext' => 'PHADINTLEXT',
+        'phadintlext' => 'PHADINTLEXT',
+        'phoneBook.phadintlext' => 'PHADINTLEXT',
+        'PhoneBookTableMap::COL_PHADINTLEXT' => 'PHADINTLEXT',
+        'COL_PHADINTLEXT' => 'PHADINTLEXT',
+        'PhadIntlExt' => 'PHADINTLEXT',
+        'phoneadr.PhadIntlExt' => 'PHADINTLEXT',
+        'Phadfaxnbr' => 'PHADFAXNBR',
+        'PhoneBook.Phadfaxnbr' => 'PHADFAXNBR',
+        'phadfaxnbr' => 'PHADFAXNBR',
+        'phoneBook.phadfaxnbr' => 'PHADFAXNBR',
+        'PhoneBookTableMap::COL_PHADFAXNBR' => 'PHADFAXNBR',
+        'COL_PHADFAXNBR' => 'PHADFAXNBR',
+        'PhadFaxNbr' => 'PHADFAXNBR',
+        'phoneadr.PhadFaxNbr' => 'PHADFAXNBR',
+        'Phadifaxnbr' => 'PHADIFAXNBR',
+        'PhoneBook.Phadifaxnbr' => 'PHADIFAXNBR',
+        'phadifaxnbr' => 'PHADIFAXNBR',
+        'phoneBook.phadifaxnbr' => 'PHADIFAXNBR',
+        'PhoneBookTableMap::COL_PHADIFAXNBR' => 'PHADIFAXNBR',
+        'COL_PHADIFAXNBR' => 'PHADIFAXNBR',
+        'PhadIfaxNbr' => 'PHADIFAXNBR',
+        'phoneadr.PhadIfaxNbr' => 'PHADIFAXNBR',
+        'Phadcellnbr' => 'PHADCELLNBR',
+        'PhoneBook.Phadcellnbr' => 'PHADCELLNBR',
+        'phadcellnbr' => 'PHADCELLNBR',
+        'phoneBook.phadcellnbr' => 'PHADCELLNBR',
+        'PhoneBookTableMap::COL_PHADCELLNBR' => 'PHADCELLNBR',
+        'COL_PHADCELLNBR' => 'PHADCELLNBR',
+        'PhadCellNbr' => 'PHADCELLNBR',
+        'phoneadr.PhadCellNbr' => 'PHADCELLNBR',
+        'Phadicellnbr' => 'PHADICELLNBR',
+        'PhoneBook.Phadicellnbr' => 'PHADICELLNBR',
+        'phadicellnbr' => 'PHADICELLNBR',
+        'phoneBook.phadicellnbr' => 'PHADICELLNBR',
+        'PhoneBookTableMap::COL_PHADICELLNBR' => 'PHADICELLNBR',
+        'COL_PHADICELLNBR' => 'PHADICELLNBR',
+        'PhadIcellNbr' => 'PHADICELLNBR',
+        'phoneadr.PhadIcellNbr' => 'PHADICELLNBR',
+        'Phadhomenbr' => 'PHADHOMENBR',
+        'PhoneBook.Phadhomenbr' => 'PHADHOMENBR',
+        'phadhomenbr' => 'PHADHOMENBR',
+        'phoneBook.phadhomenbr' => 'PHADHOMENBR',
+        'PhoneBookTableMap::COL_PHADHOMENBR' => 'PHADHOMENBR',
+        'COL_PHADHOMENBR' => 'PHADHOMENBR',
+        'PhadHomeNbr' => 'PHADHOMENBR',
+        'phoneadr.PhadHomeNbr' => 'PHADHOMENBR',
+        'Phadihomenbr' => 'PHADIHOMENBR',
+        'PhoneBook.Phadihomenbr' => 'PHADIHOMENBR',
+        'phadihomenbr' => 'PHADIHOMENBR',
+        'phoneBook.phadihomenbr' => 'PHADIHOMENBR',
+        'PhoneBookTableMap::COL_PHADIHOMENBR' => 'PHADIHOMENBR',
+        'COL_PHADIHOMENBR' => 'PHADIHOMENBR',
+        'PhadIhomeNbr' => 'PHADIHOMENBR',
+        'phoneadr.PhadIhomeNbr' => 'PHADIHOMENBR',
+        'Phadwebaddr' => 'PHADWEBADDR',
+        'PhoneBook.Phadwebaddr' => 'PHADWEBADDR',
+        'phadwebaddr' => 'PHADWEBADDR',
+        'phoneBook.phadwebaddr' => 'PHADWEBADDR',
+        'PhoneBookTableMap::COL_PHADWEBADDR' => 'PHADWEBADDR',
+        'COL_PHADWEBADDR' => 'PHADWEBADDR',
+        'PhadWebAddr' => 'PHADWEBADDR',
+        'phoneadr.PhadWebAddr' => 'PHADWEBADDR',
+        'Phademailaddr' => 'PHADEMAILADDR',
+        'PhoneBook.Phademailaddr' => 'PHADEMAILADDR',
+        'phademailaddr' => 'PHADEMAILADDR',
+        'phoneBook.phademailaddr' => 'PHADEMAILADDR',
+        'PhoneBookTableMap::COL_PHADEMAILADDR' => 'PHADEMAILADDR',
+        'COL_PHADEMAILADDR' => 'PHADEMAILADDR',
+        'PhadEmailAddr' => 'PHADEMAILADDR',
+        'phoneadr.PhadEmailAddr' => 'PHADEMAILADDR',
+        'Phadname' => 'PHADNAME',
+        'PhoneBook.Phadname' => 'PHADNAME',
+        'phadname' => 'PHADNAME',
+        'phoneBook.phadname' => 'PHADNAME',
+        'PhoneBookTableMap::COL_PHADNAME' => 'PHADNAME',
+        'COL_PHADNAME' => 'PHADNAME',
+        'PhadName' => 'PHADNAME',
+        'phoneadr.PhadName' => 'PHADNAME',
+        'Phadcontname' => 'PHADCONTNAME',
+        'PhoneBook.Phadcontname' => 'PHADCONTNAME',
+        'phadcontname' => 'PHADCONTNAME',
+        'phoneBook.phadcontname' => 'PHADCONTNAME',
+        'PhoneBookTableMap::COL_PHADCONTNAME' => 'PHADCONTNAME',
+        'COL_PHADCONTNAME' => 'PHADCONTNAME',
+        'PhadContName' => 'PHADCONTNAME',
+        'phoneadr.PhadContName' => 'PHADCONTNAME',
+        'Dateupdtd' => 'DATEUPDTD',
+        'PhoneBook.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'phoneBook.dateupdtd' => 'DATEUPDTD',
+        'PhoneBookTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'phoneadr.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'PhoneBook.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'phoneBook.timeupdtd' => 'TIMEUPDTD',
+        'PhoneBookTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'phoneadr.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'PhoneBook.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'phoneBook.dummy' => 'DUMMY',
+        'PhoneBookTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'phoneadr.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('phoneadr');
@@ -259,14 +458,16 @@ class PhoneBookTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -277,9 +478,11 @@ class PhoneBookTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \PhoneBook $obj A \PhoneBook object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(PhoneBook $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -298,8 +501,10 @@ class PhoneBookTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \PhoneBook object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \PhoneBook) {
@@ -327,14 +532,14 @@ class PhoneBookTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Phadtype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Phadid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Phadsubid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Phadsubidseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Phadcont', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -349,14 +554,14 @@ class PhoneBookTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -397,10 +602,10 @@ class PhoneBookTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? PhoneBookTableMap::CLASS_DEFAULT : PhoneBookTableMap::OM_CLASS;
     }
@@ -408,17 +613,17 @@ class PhoneBookTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (PhoneBook object, last column rank)
+     * @return array (PhoneBook object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = PhoneBookTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = PhoneBookTableMap::getInstanceFromPool($key))) {
@@ -434,7 +639,7 @@ class PhoneBookTableMap extends TableMap
             PhoneBookTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -442,13 +647,13 @@ class PhoneBookTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -478,12 +683,13 @@ class PhoneBookTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(PhoneBookTableMap::COL_PHADTYPE);
@@ -537,40 +743,94 @@ class PhoneBookTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADTYPE);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADID);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADSUBID);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADSUBIDSEQ);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADCONT);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADINTL);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADTELENBR);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADTELEEXT);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADINTLNBR);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADINTLEXT);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADFAXNBR);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADIFAXNBR);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADCELLNBR);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADICELLNBR);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADHOMENBR);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADIHOMENBR);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADWEBADDR);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADEMAILADDR);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADNAME);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_PHADCONTNAME);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(PhoneBookTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.PhadType');
+            $criteria->removeSelectColumn($alias . '.PhadId');
+            $criteria->removeSelectColumn($alias . '.PhadSubId');
+            $criteria->removeSelectColumn($alias . '.PhadSubIdSeq');
+            $criteria->removeSelectColumn($alias . '.PhadCont');
+            $criteria->removeSelectColumn($alias . '.PhadIntl');
+            $criteria->removeSelectColumn($alias . '.PhadTeleNbr');
+            $criteria->removeSelectColumn($alias . '.PhadTeleExt');
+            $criteria->removeSelectColumn($alias . '.PhadIntlNbr');
+            $criteria->removeSelectColumn($alias . '.PhadIntlExt');
+            $criteria->removeSelectColumn($alias . '.PhadFaxNbr');
+            $criteria->removeSelectColumn($alias . '.PhadIfaxNbr');
+            $criteria->removeSelectColumn($alias . '.PhadCellNbr');
+            $criteria->removeSelectColumn($alias . '.PhadIcellNbr');
+            $criteria->removeSelectColumn($alias . '.PhadHomeNbr');
+            $criteria->removeSelectColumn($alias . '.PhadIhomeNbr');
+            $criteria->removeSelectColumn($alias . '.PhadWebAddr');
+            $criteria->removeSelectColumn($alias . '.PhadEmailAddr');
+            $criteria->removeSelectColumn($alias . '.PhadName');
+            $criteria->removeSelectColumn($alias . '.PhadContName');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(PhoneBookTableMap::DATABASE_NAME)->getTable(PhoneBookTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(PhoneBookTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(PhoneBookTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new PhoneBookTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a PhoneBook or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or PhoneBook object or primary key or array of primary keys
+     * @param mixed $values Criteria or PhoneBook object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PhoneBookTableMap::DATABASE_NAME);
@@ -588,7 +848,7 @@ class PhoneBookTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(PhoneBookTableMap::COL_PHADTYPE, $value[0]);
@@ -619,7 +879,7 @@ class PhoneBookTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return PhoneBookQuery::create()->doDeleteAll($con);
     }
@@ -627,13 +887,13 @@ class PhoneBookTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a PhoneBook or Criteria object.
      *
-     * @param mixed               $criteria Criteria or PhoneBook object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or PhoneBook object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(PhoneBookTableMap::DATABASE_NAME);
@@ -656,7 +916,4 @@ class PhoneBookTableMap extends TableMap
         });
     }
 
-} // PhoneBookTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-PhoneBookTableMap::buildTableMap();
+}

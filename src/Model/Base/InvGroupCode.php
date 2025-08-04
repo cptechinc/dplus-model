@@ -34,19 +34,21 @@ abstract class InvGroupCode implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\InvGroupCodeTableMap';
+    public const TABLE_MAP = '\\Map\\InvGroupCodeTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -55,14 +57,14 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the intbgrup field.
@@ -74,194 +76,195 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * The value for the intbgrupdesc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupdesc;
 
     /**
      * The value for the intbgrupsaleacct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupsaleacct;
 
     /**
      * The value for the intbgrupivtyacct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupivtyacct;
 
     /**
      * The value for the intbgrupcogsacct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupcogsacct;
 
     /**
      * The value for the intbgrupcredacct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupcredacct;
 
     /**
      * The value for the intbgrupwebgrup field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupwebgrup;
 
     /**
      * The value for the intbgrupdropacct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupdropacct;
 
     /**
      * The value for the intbgrupsaleprog field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupsaleprog;
 
     /**
      * The value for the intbgrupcostpct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupcostpct;
 
     /**
      * The value for the intbgrupcoop field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupcoop;
 
     /**
      * The value for the intbgrupusesurchg field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupusesurchg;
 
     /**
      * The value for the intbgrupsurchgdollorpct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupsurchgdollorpct;
 
     /**
      * The value for the intbgrupsurchgdollamt field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupsurchgdollamt;
 
     /**
      * The value for the intbgrupsurchgpct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupsurchgpct;
 
     /**
      * The value for the intbgrupfrtgrup field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupfrtgrup;
 
     /**
      * The value for the intbgrupprodline field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupprodline;
 
     /**
      * The value for the intbgruplmecommdesc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgruplmecommdesc;
 
     /**
      * The value for the intbgruplmmaxqtylrg field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $intbgruplmmaxqtylrg;
 
     /**
      * The value for the intbgruplmmaxqtymed field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $intbgruplmmaxqtymed;
 
     /**
      * The value for the intbgruplmmaxqtysml field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $intbgruplmmaxqtysml;
 
     /**
      * The value for the intbgrupacdisc1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupacdisc1;
 
     /**
      * The value for the intbgrupacdisc2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupacdisc2;
 
     /**
      * The value for the intbgrupacdisc3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupacdisc3;
 
     /**
      * The value for the intbgrupacdisc4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbgrupacdisc4;
 
     /**
      * The value for the dateupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dateupdtd;
 
     /**
      * The value for the timeupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $timeupdtd;
 
     /**
      * The value for the dummy field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
     /**
      * @var        ObjectCollection|ChildItemMasterItem[] Collection to store aggregation of ChildItemMasterItem objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemMasterItem> Collection to store aggregation of ChildItemMasterItem objects.
      */
     protected $collItemMasterItems;
     protected $collItemMasterItemsPartial;
@@ -270,13 +273,14 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildItemMasterItem[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildItemMasterItem>
      */
     protected $itemMasterItemsScheduledForDeletion = null;
 
@@ -290,9 +294,9 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -300,10 +304,10 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -312,7 +316,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -322,9 +326,9 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -333,45 +337,43 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -380,10 +382,10 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>InvGroupCode</code>, delegates to
      * <code>equals(InvGroupCode)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -405,7 +407,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -413,10 +415,10 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -424,15 +426,15 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -441,12 +443,12 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|InvGroupCode The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -456,13 +458,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -473,24 +475,27 @@ abstract class InvGroupCode implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -518,7 +523,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupdesc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupdesc()
     {
@@ -528,7 +533,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupsaleacct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupsaleacct()
     {
@@ -538,7 +543,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupivtyacct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupivtyacct()
     {
@@ -548,7 +553,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupcogsacct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupcogsacct()
     {
@@ -558,7 +563,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupcredacct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupcredacct()
     {
@@ -568,7 +573,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupwebgrup] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupwebgrup()
     {
@@ -578,7 +583,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupdropacct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupdropacct()
     {
@@ -588,7 +593,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupsaleprog] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupsaleprog()
     {
@@ -598,7 +603,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupcostpct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupcostpct()
     {
@@ -608,7 +613,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupcoop] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupcoop()
     {
@@ -618,7 +623,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupusesurchg] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupusesurchg()
     {
@@ -628,7 +633,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupsurchgdollorpct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupsurchgdollorpct()
     {
@@ -638,7 +643,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupsurchgdollamt] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupsurchgdollamt()
     {
@@ -648,7 +653,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupsurchgpct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupsurchgpct()
     {
@@ -658,7 +663,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupfrtgrup] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupfrtgrup()
     {
@@ -668,7 +673,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupprodline] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupprodline()
     {
@@ -678,7 +683,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgruplmecommdesc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgruplmecommdesc()
     {
@@ -688,7 +693,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgruplmmaxqtylrg] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getIntbgruplmmaxqtylrg()
     {
@@ -698,7 +703,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgruplmmaxqtymed] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getIntbgruplmmaxqtymed()
     {
@@ -708,7 +713,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgruplmmaxqtysml] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getIntbgruplmmaxqtysml()
     {
@@ -718,7 +723,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupacdisc1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupacdisc1()
     {
@@ -728,7 +733,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupacdisc2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupacdisc2()
     {
@@ -738,7 +743,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupacdisc3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupacdisc3()
     {
@@ -748,7 +753,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [intbgrupacdisc4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbgrupacdisc4()
     {
@@ -758,7 +763,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [dateupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDateupdtd()
     {
@@ -768,7 +773,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [timeupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTimeupdtd()
     {
@@ -778,7 +783,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -788,8 +793,8 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Set the value of [intbgrup] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrup($v)
     {
@@ -803,13 +808,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrup()
+    }
 
     /**
      * Set the value of [intbgrupdesc] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupdesc($v)
     {
@@ -823,13 +828,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupdesc()
+    }
 
     /**
      * Set the value of [intbgrupsaleacct] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupsaleacct($v)
     {
@@ -843,13 +848,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupsaleacct()
+    }
 
     /**
      * Set the value of [intbgrupivtyacct] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupivtyacct($v)
     {
@@ -863,13 +868,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupivtyacct()
+    }
 
     /**
      * Set the value of [intbgrupcogsacct] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupcogsacct($v)
     {
@@ -883,13 +888,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupcogsacct()
+    }
 
     /**
      * Set the value of [intbgrupcredacct] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupcredacct($v)
     {
@@ -903,13 +908,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupcredacct()
+    }
 
     /**
      * Set the value of [intbgrupwebgrup] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupwebgrup($v)
     {
@@ -923,13 +928,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupwebgrup()
+    }
 
     /**
      * Set the value of [intbgrupdropacct] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupdropacct($v)
     {
@@ -943,13 +948,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupdropacct()
+    }
 
     /**
      * Set the value of [intbgrupsaleprog] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupsaleprog($v)
     {
@@ -963,13 +968,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupsaleprog()
+    }
 
     /**
      * Set the value of [intbgrupcostpct] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupcostpct($v)
     {
@@ -983,13 +988,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupcostpct()
+    }
 
     /**
      * Set the value of [intbgrupcoop] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupcoop($v)
     {
@@ -1003,13 +1008,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupcoop()
+    }
 
     /**
      * Set the value of [intbgrupusesurchg] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupusesurchg($v)
     {
@@ -1023,13 +1028,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupusesurchg()
+    }
 
     /**
      * Set the value of [intbgrupsurchgdollorpct] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupsurchgdollorpct($v)
     {
@@ -1043,13 +1048,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupsurchgdollorpct()
+    }
 
     /**
      * Set the value of [intbgrupsurchgdollamt] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupsurchgdollamt($v)
     {
@@ -1063,13 +1068,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupsurchgdollamt()
+    }
 
     /**
      * Set the value of [intbgrupsurchgpct] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupsurchgpct($v)
     {
@@ -1083,13 +1088,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupsurchgpct()
+    }
 
     /**
      * Set the value of [intbgrupfrtgrup] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupfrtgrup($v)
     {
@@ -1103,13 +1108,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupfrtgrup()
+    }
 
     /**
      * Set the value of [intbgrupprodline] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupprodline($v)
     {
@@ -1123,13 +1128,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupprodline()
+    }
 
     /**
      * Set the value of [intbgruplmecommdesc] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgruplmecommdesc($v)
     {
@@ -1143,13 +1148,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgruplmecommdesc()
+    }
 
     /**
      * Set the value of [intbgruplmmaxqtylrg] column.
      *
-     * @param int $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgruplmmaxqtylrg($v)
     {
@@ -1163,13 +1168,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgruplmmaxqtylrg()
+    }
 
     /**
      * Set the value of [intbgruplmmaxqtymed] column.
      *
-     * @param int $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgruplmmaxqtymed($v)
     {
@@ -1183,13 +1188,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgruplmmaxqtymed()
+    }
 
     /**
      * Set the value of [intbgruplmmaxqtysml] column.
      *
-     * @param int $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgruplmmaxqtysml($v)
     {
@@ -1203,13 +1208,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgruplmmaxqtysml()
+    }
 
     /**
      * Set the value of [intbgrupacdisc1] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupacdisc1($v)
     {
@@ -1223,13 +1228,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupacdisc1()
+    }
 
     /**
      * Set the value of [intbgrupacdisc2] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupacdisc2($v)
     {
@@ -1243,13 +1248,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupacdisc2()
+    }
 
     /**
      * Set the value of [intbgrupacdisc3] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupacdisc3($v)
     {
@@ -1263,13 +1268,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupacdisc3()
+    }
 
     /**
      * Set the value of [intbgrupacdisc4] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbgrupacdisc4($v)
     {
@@ -1283,13 +1288,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbgrupacdisc4()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -1303,13 +1308,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -1323,13 +1328,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -1343,7 +1348,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -1351,13 +1356,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -1367,17 +1372,17 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -1464,8 +1469,8 @@ abstract class InvGroupCode implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : InvGroupCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -1490,23 +1495,24 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -1541,13 +1547,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see InvGroupCode::setDeleted()
      * @see InvGroupCode::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -1577,12 +1583,12 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -1627,12 +1633,12 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -1672,19 +1678,19 @@ abstract class InvGroupCode implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -1786,87 +1792,115 @@ abstract class InvGroupCode implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'IntbGrup':
                         $stmt->bindValue($identifier, $this->intbgrup, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupDesc':
                         $stmt->bindValue($identifier, $this->intbgrupdesc, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupSaleAcct':
                         $stmt->bindValue($identifier, $this->intbgrupsaleacct, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupIvtyAcct':
                         $stmt->bindValue($identifier, $this->intbgrupivtyacct, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupCogsAcct':
                         $stmt->bindValue($identifier, $this->intbgrupcogsacct, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupCredAcct':
                         $stmt->bindValue($identifier, $this->intbgrupcredacct, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupWebGrup':
                         $stmt->bindValue($identifier, $this->intbgrupwebgrup, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupDropAcct':
                         $stmt->bindValue($identifier, $this->intbgrupdropacct, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupSaleProg':
                         $stmt->bindValue($identifier, $this->intbgrupsaleprog, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupCostPct':
                         $stmt->bindValue($identifier, $this->intbgrupcostpct, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupCoop':
                         $stmt->bindValue($identifier, $this->intbgrupcoop, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupUseSurchg':
                         $stmt->bindValue($identifier, $this->intbgrupusesurchg, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupSurchgDollOrPct':
                         $stmt->bindValue($identifier, $this->intbgrupsurchgdollorpct, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupSurchgDollAmt':
                         $stmt->bindValue($identifier, $this->intbgrupsurchgdollamt, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupSurchgPct':
                         $stmt->bindValue($identifier, $this->intbgrupsurchgpct, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupFrtGrup':
                         $stmt->bindValue($identifier, $this->intbgrupfrtgrup, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupProdLine':
                         $stmt->bindValue($identifier, $this->intbgrupprodline, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupLmEcommDesc':
                         $stmt->bindValue($identifier, $this->intbgruplmecommdesc, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupLmMaxQtyLrg':
                         $stmt->bindValue($identifier, $this->intbgruplmmaxqtylrg, PDO::PARAM_INT);
+
                         break;
                     case 'IntbGrupLmMaxQtyMed':
                         $stmt->bindValue($identifier, $this->intbgruplmmaxqtymed, PDO::PARAM_INT);
+
                         break;
                     case 'IntbGrupLmMaxQtySml':
                         $stmt->bindValue($identifier, $this->intbgruplmmaxqtysml, PDO::PARAM_INT);
+
                         break;
                     case 'IntbGrupAcDisc1':
                         $stmt->bindValue($identifier, $this->intbgrupacdisc1, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupAcDisc2':
                         $stmt->bindValue($identifier, $this->intbgrupacdisc2, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupAcDisc3':
                         $stmt->bindValue($identifier, $this->intbgrupacdisc3, PDO::PARAM_STR);
+
                         break;
                     case 'IntbGrupAcDisc4':
                         $stmt->bindValue($identifier, $this->intbgrupacdisc4, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -1882,12 +1916,12 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -1898,14 +1932,14 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = InvGroupCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -1917,99 +1951,98 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getIntbgrup();
-                break;
+
             case 1:
                 return $this->getIntbgrupdesc();
-                break;
+
             case 2:
                 return $this->getIntbgrupsaleacct();
-                break;
+
             case 3:
                 return $this->getIntbgrupivtyacct();
-                break;
+
             case 4:
                 return $this->getIntbgrupcogsacct();
-                break;
+
             case 5:
                 return $this->getIntbgrupcredacct();
-                break;
+
             case 6:
                 return $this->getIntbgrupwebgrup();
-                break;
+
             case 7:
                 return $this->getIntbgrupdropacct();
-                break;
+
             case 8:
                 return $this->getIntbgrupsaleprog();
-                break;
+
             case 9:
                 return $this->getIntbgrupcostpct();
-                break;
+
             case 10:
                 return $this->getIntbgrupcoop();
-                break;
+
             case 11:
                 return $this->getIntbgrupusesurchg();
-                break;
+
             case 12:
                 return $this->getIntbgrupsurchgdollorpct();
-                break;
+
             case 13:
                 return $this->getIntbgrupsurchgdollamt();
-                break;
+
             case 14:
                 return $this->getIntbgrupsurchgpct();
-                break;
+
             case 15:
                 return $this->getIntbgrupfrtgrup();
-                break;
+
             case 16:
                 return $this->getIntbgrupprodline();
-                break;
+
             case 17:
                 return $this->getIntbgruplmecommdesc();
-                break;
+
             case 18:
                 return $this->getIntbgruplmmaxqtylrg();
-                break;
+
             case 19:
                 return $this->getIntbgruplmmaxqtymed();
-                break;
+
             case 20:
                 return $this->getIntbgruplmmaxqtysml();
-                break;
+
             case 21:
                 return $this->getIntbgrupacdisc1();
-                break;
+
             case 22:
                 return $this->getIntbgrupacdisc2();
-                break;
+
             case 23:
                 return $this->getIntbgrupacdisc3();
-                break;
+
             case 24:
                 return $this->getIntbgrupacdisc4();
-                break;
+
             case 25:
                 return $this->getDateupdtd();
-                break;
+
             case 26:
                 return $this->getTimeupdtd();
-                break;
+
             case 27:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -2019,24 +2052,23 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
-     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = [], bool $includeForeignObjects = false): array
     {
-
         if (isset($alreadyDumpedObjects['InvGroupCode'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['InvGroupCode'][$this->hashCode()] = true;
         $keys = InvGroupCodeTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getIntbgrup(),
             $keys[1] => $this->getIntbgrupdesc(),
             $keys[2] => $this->getIntbgrupsaleacct(),
@@ -2065,7 +2097,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
             $keys[25] => $this->getDateupdtd(),
             $keys[26] => $this->getTimeupdtd(),
             $keys[27] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -2095,30 +2127,32 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\InvGroupCode
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = InvGroupCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\InvGroupCode
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -2223,11 +2257,11 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = InvGroupCodeTableMap::getFieldNames($keyType);
 
@@ -2315,6 +2349,8 @@ abstract class InvGroupCode implements ActiveRecordInterface
         if (array_key_exists($keys[27], $arr)) {
             $this->setDummy($arr[$keys[27]]);
         }
+
+        return $this;
     }
 
      /**
@@ -2334,9 +2370,9 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\InvGroupCode The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -2350,9 +2386,9 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(InvGroupCodeTableMap::DATABASE_NAME);
 
@@ -2448,13 +2484,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildInvGroupCodeQuery::create();
         $criteria->add(InvGroupCodeTableMap::COL_INTBGRUP, $this->intbgrup);
@@ -2466,7 +2502,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -2496,19 +2532,20 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (intbgrup column).
      *
-     * @param       string $key Primary key.
+     * @param string|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?string $key = null): void
     {
         $this->setIntbgrup($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getIntbgrup();
     }
@@ -2519,12 +2556,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \InvGroupCode (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \InvGroupCode (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setIntbgrup($this->getIntbgrup());
         $copyObj->setIntbgrupdesc($this->getIntbgrupdesc());
@@ -2581,11 +2619,11 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \InvGroupCode Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -2601,12 +2639,12 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * Avoids crafting an 'init[$relationName]s' method name
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
-     * @param      string $relationName The name of the relation to initialize
+     * @param string $relationName The name of the relation to initialize
      * @return void
      */
-    public function initRelation($relationName)
+    public function initRelation($relationName): void
     {
-        if ('ItemMasterItem' == $relationName) {
+        if ('ItemMasterItem' === $relationName) {
             $this->initItemMasterItems();
             return;
         }
@@ -2618,18 +2656,22 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addItemMasterItems()
+     * @return $this
+     * @see addItemMasterItems()
      */
     public function clearItemMasterItems()
     {
         $this->collItemMasterItems = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collItemMasterItems collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialItemMasterItems($v = true)
+    public function resetPartialItemMasterItems($v = true): void
     {
         $this->collItemMasterItemsPartial = $v;
     }
@@ -2641,12 +2683,12 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initItemMasterItems($overrideExisting = true)
+    public function initItemMasterItems(bool $overrideExisting = true): void
     {
         if (null !== $this->collItemMasterItems && !$overrideExisting) {
             return;
@@ -2667,18 +2709,28 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * If this ChildInvGroupCode is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemMasterItem> List of ChildItemMasterItem objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getItemMasterItems(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getItemMasterItems(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collItemMasterItemsPartial && !$this->isNew();
-        if (null === $this->collItemMasterItems || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemMasterItems) {
+        if (null === $this->collItemMasterItems || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initItemMasterItems();
+                if (null === $this->collItemMasterItems) {
+                    $this->initItemMasterItems();
+                } else {
+                    $collectionClassName = ItemMasterItemTableMap::getTableMap()->getCollectionClassName();
+
+                    $collItemMasterItems = new $collectionClassName;
+                    $collItemMasterItems->setModel('\ItemMasterItem');
+
+                    return $collItemMasterItems;
+                }
             } else {
                 $collItemMasterItems = ChildItemMasterItemQuery::create(null, $criteria)
                     ->filterByInvGroupCode($this)
@@ -2722,11 +2774,11 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemMasterItems A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildInvGroupCode The current object (for fluent API support)
+     * @param Collection $itemMasterItems A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setItemMasterItems(Collection $itemMasterItems, ConnectionInterface $con = null)
+    public function setItemMasterItems(Collection $itemMasterItems, ?ConnectionInterface $con = null)
     {
         /** @var ChildItemMasterItem[] $itemMasterItemsToDelete */
         $itemMasterItemsToDelete = $this->getItemMasterItems(new Criteria(), $con)->diff($itemMasterItems);
@@ -2752,13 +2804,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * Returns the number of related ItemMasterItem objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ItemMasterItem objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related ItemMasterItem objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countItemMasterItems(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countItemMasterItems(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collItemMasterItemsPartial && !$this->isNew();
         if (null === $this->collItemMasterItems || null !== $criteria || $partial) {
@@ -2787,8 +2839,8 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * Method called to associate a ChildItemMasterItem object to this object
      * through the ChildItemMasterItem foreign key attribute.
      *
-     * @param  ChildItemMasterItem $l ChildItemMasterItem
-     * @return $this|\InvGroupCode The current object (for fluent API support)
+     * @param ChildItemMasterItem $l ChildItemMasterItem
+     * @return $this The current object (for fluent API support)
      */
     public function addItemMasterItem(ChildItemMasterItem $l)
     {
@@ -2811,15 +2863,15 @@ abstract class InvGroupCode implements ActiveRecordInterface
     /**
      * @param ChildItemMasterItem $itemMasterItem The ChildItemMasterItem object to add.
      */
-    protected function doAddItemMasterItem(ChildItemMasterItem $itemMasterItem)
+    protected function doAddItemMasterItem(ChildItemMasterItem $itemMasterItem): void
     {
         $this->collItemMasterItems[]= $itemMasterItem;
         $itemMasterItem->setInvGroupCode($this);
     }
 
     /**
-     * @param  ChildItemMasterItem $itemMasterItem The ChildItemMasterItem object to remove.
-     * @return $this|ChildInvGroupCode The current object (for fluent API support)
+     * @param ChildItemMasterItem $itemMasterItem The ChildItemMasterItem object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeItemMasterItem(ChildItemMasterItem $itemMasterItem)
     {
@@ -2849,12 +2901,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in InvGroupCode.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemMasterItem}> List of ChildItemMasterItem objects
      */
-    public function getItemMasterItemsJoinUnitofMeasureSale(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemMasterItemsJoinUnitofMeasureSale(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemMasterItemQuery::create(null, $criteria);
         $query->joinWith('UnitofMeasureSale', $joinBehavior);
@@ -2874,12 +2927,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in InvGroupCode.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemMasterItem}> List of ChildItemMasterItem objects
      */
-    public function getItemMasterItemsJoinUnitofMeasurePurchase(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemMasterItemsJoinUnitofMeasurePurchase(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemMasterItemQuery::create(null, $criteria);
         $query->joinWith('UnitofMeasurePurchase', $joinBehavior);
@@ -2899,12 +2953,13 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in InvGroupCode.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemMasterItem}> List of ChildItemMasterItem objects
      */
-    public function getItemMasterItemsJoinInvPriceCode(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemMasterItemsJoinInvPriceCode(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemMasterItemQuery::create(null, $criteria);
         $query->joinWith('InvPriceCode', $joinBehavior);
@@ -2924,15 +2979,42 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in InvGroupCode.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemMasterItem}> List of ChildItemMasterItem objects
      */
-    public function getItemMasterItemsJoinInvCommissionCode(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemMasterItemsJoinInvCommissionCode(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemMasterItemQuery::create(null, $criteria);
         $query->joinWith('InvCommissionCode', $joinBehavior);
+
+        return $this->getItemMasterItems($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvGroupCode is new, it will return
+     * an empty collection; or if this InvGroupCode has previously
+     * been saved, it will retrieve related ItemMasterItems from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvGroupCode.
+     *
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildItemMasterItem}> List of ChildItemMasterItem objects
+     */
+    public function getItemMasterItemsJoinItemPricing(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemMasterItemQuery::create(null, $criteria);
+        $query->joinWith('ItemPricing', $joinBehavior);
 
         return $this->getItemMasterItems($query, $con);
     }
@@ -2941,6 +3023,8 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -2977,6 +3061,8 @@ abstract class InvGroupCode implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -2985,9 +3071,10 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
             if ($this->collItemMasterItems) {
@@ -2998,6 +3085,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
         } // if ($deep)
 
         $this->collItemMasterItems = null;
+        return $this;
     }
 
     /**
@@ -3012,99 +3100,79 @@ abstract class InvGroupCode implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -3114,7 +3182,7 @@ abstract class InvGroupCode implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -3134,15 +3202,18 @@ abstract class InvGroupCode implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

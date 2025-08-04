@@ -34,19 +34,21 @@ abstract class ApTermsCode implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\ApTermsCodeTableMap';
+    public const TABLE_MAP = '\\Map\\ApTermsCodeTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -55,14 +57,14 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the aptmtermcode field.
@@ -75,579 +77,580 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * The value for the aptmtermdesc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmtermdesc;
 
     /**
      * The value for the aptmmethod field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmmethod;
 
     /**
      * The value for the aptmexpiredate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmexpiredate;
 
     /**
      * The value for the aptmsplit1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmsplit1;
 
     /**
      * The value for the aptmorderpct1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmorderpct1;
 
     /**
      * The value for the aptmdiscpct1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdiscpct1;
 
     /**
      * The value for the aptmdiscdays1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmdiscdays1;
 
     /**
      * The value for the aptmdiscday1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdiscday1;
 
     /**
      * The value for the aptmdiscdate1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdiscdate1;
 
     /**
      * The value for the aptmduedays1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmduedays1;
 
     /**
      * The value for the aptmdueday1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdueday1;
 
     /**
      * The value for the aptmplusmonths1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmplusmonths1;
 
     /**
      * The value for the aptmduedate1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmduedate1;
 
     /**
      * The value for the aptmplusyear1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmplusyear1;
 
     /**
      * The value for the aptmsplit2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmsplit2;
 
     /**
      * The value for the aptmorderpct2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmorderpct2;
 
     /**
      * The value for the aptmdiscpct2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdiscpct2;
 
     /**
      * The value for the aptmdiscdays2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmdiscdays2;
 
     /**
      * The value for the aptmdiscday2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdiscday2;
 
     /**
      * The value for the aptmdiscdate2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdiscdate2;
 
     /**
      * The value for the aptmduedays2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmduedays2;
 
     /**
      * The value for the aptmdueday2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdueday2;
 
     /**
      * The value for the aptmplusmonths2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmplusmonths2;
 
     /**
      * The value for the aptmduedate2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmduedate2;
 
     /**
      * The value for the aptmplusyear2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmplusyear2;
 
     /**
      * The value for the aptmsplit3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmsplit3;
 
     /**
      * The value for the aptmorderpct3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmorderpct3;
 
     /**
      * The value for the aptmdiscpct3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdiscpct3;
 
     /**
      * The value for the aptmdiscdays3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmdiscdays3;
 
     /**
      * The value for the aptmdiscday3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdiscday3;
 
     /**
      * The value for the aptmdiscdate3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdiscdate3;
 
     /**
      * The value for the aptmduedays3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmduedays3;
 
     /**
      * The value for the aptmdueday3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdueday3;
 
     /**
      * The value for the aptmplusmonths3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmplusmonths3;
 
     /**
      * The value for the aptmduedate3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmduedate3;
 
     /**
      * The value for the aptmplusyear3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmplusyear3;
 
     /**
      * The value for the aptmsplit4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmsplit4;
 
     /**
      * The value for the aptmorderpct4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmorderpct4;
 
     /**
      * The value for the aptmdiscpct4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdiscpct4;
 
     /**
      * The value for the aptmdiscdays4 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmdiscdays4;
 
     /**
      * The value for the aptmdiscday4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdiscday4;
 
     /**
      * The value for the aptmdiscdate4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdiscdate4;
 
     /**
      * The value for the aptmduedays4 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmduedays4;
 
     /**
      * The value for the aptmdueday4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdueday4;
 
     /**
      * The value for the aptmplusmonths4 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmplusmonths4;
 
     /**
      * The value for the aptmduedate4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmduedate4;
 
     /**
      * The value for the aptmplusyear4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmplusyear4;
 
     /**
      * The value for the aptmsplit5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmsplit5;
 
     /**
      * The value for the aptmorderpct5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmorderpct5;
 
     /**
      * The value for the aptmdiscpct5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdiscpct5;
 
     /**
      * The value for the aptmdiscdays5 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmdiscdays5;
 
     /**
      * The value for the aptmdiscday5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdiscday5;
 
     /**
      * The value for the aptmdiscdate5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdiscdate5;
 
     /**
      * The value for the aptmduedays5 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmduedays5;
 
     /**
      * The value for the aptmdueday5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmdueday5;
 
     /**
      * The value for the aptmplusmonths5 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmplusmonths5;
 
     /**
      * The value for the aptmduedate5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmduedate5;
 
     /**
      * The value for the aptmplusyear5 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmplusyear5;
 
     /**
      * The value for the aptmdayfrom1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmdayfrom1;
 
     /**
      * The value for the aptmdaythru1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmdaythru1;
 
     /**
      * The value for the aptmeomdiscpct1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmeomdiscpct1;
 
     /**
      * The value for the aptmeomdiscday1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmeomdiscday1;
 
     /**
      * The value for the aptmeomdiscmonths1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmeomdiscmonths1;
 
     /**
      * The value for the aptmeomdueday1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmeomdueday1;
 
     /**
      * The value for the aptmeomplusmonths1 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmeomplusmonths1;
 
     /**
      * The value for the aptmdayfrom2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmdayfrom2;
 
     /**
      * The value for the aptmdaythru2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmdaythru2;
 
     /**
      * The value for the aptmeomdiscpct2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmeomdiscpct2;
 
     /**
      * The value for the aptmeomdiscday2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmeomdiscday2;
 
     /**
      * The value for the aptmeomdiscmonths2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmeomdiscmonths2;
 
     /**
      * The value for the aptmeomdueday2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmeomdueday2;
 
     /**
      * The value for the aptmeomplusmonths2 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmeomplusmonths2;
 
     /**
      * The value for the aptmdayfrom3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmdayfrom3;
 
     /**
      * The value for the aptmdaythru3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmdaythru3;
 
     /**
      * The value for the aptmeomdiscpct3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $aptmeomdiscpct3;
 
     /**
      * The value for the aptmeomdiscday3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmeomdiscday3;
 
     /**
      * The value for the aptmeomdiscmonths3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmeomdiscmonths3;
 
     /**
      * The value for the aptmeomdueday3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmeomdueday3;
 
     /**
      * The value for the aptmeomplusmonths3 field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $aptmeomplusmonths3;
 
     /**
      * The value for the dateupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dateupdtd;
 
     /**
      * The value for the timeupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $timeupdtd;
 
     /**
      * The value for the dummy field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
     /**
      * @var        ObjectCollection|ChildVendor[] Collection to store aggregation of ChildVendor objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildVendor> Collection to store aggregation of ChildVendor objects.
      */
     protected $collVendors;
     protected $collVendorsPartial;
@@ -656,13 +659,14 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildVendor[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildVendor>
      */
     protected $vendorsScheduledForDeletion = null;
 
@@ -672,7 +676,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->aptmtermcode = '';
     }
@@ -689,9 +693,9 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -699,10 +703,10 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -711,7 +715,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -721,9 +725,9 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -732,45 +736,43 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -779,10 +781,10 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>ApTermsCode</code>, delegates to
      * <code>equals(ApTermsCode)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -804,7 +806,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -812,10 +814,10 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -823,15 +825,15 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -840,12 +842,12 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|ApTermsCode The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -855,13 +857,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -872,24 +874,27 @@ abstract class ApTermsCode implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -917,7 +922,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmtermdesc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmtermdesc()
     {
@@ -927,7 +932,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmmethod] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmmethod()
     {
@@ -937,7 +942,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmexpiredate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmexpiredate()
     {
@@ -947,7 +952,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmsplit1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmsplit1()
     {
@@ -957,7 +962,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmorderpct1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmorderpct1()
     {
@@ -967,7 +972,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscpct1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdiscpct1()
     {
@@ -977,7 +982,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscdays1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmdiscdays1()
     {
@@ -987,7 +992,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscday1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdiscday1()
     {
@@ -997,7 +1002,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscdate1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdiscdate1()
     {
@@ -1007,7 +1012,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmduedays1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmduedays1()
     {
@@ -1017,7 +1022,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdueday1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdueday1()
     {
@@ -1027,7 +1032,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmplusmonths1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmplusmonths1()
     {
@@ -1037,7 +1042,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmduedate1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmduedate1()
     {
@@ -1047,7 +1052,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmplusyear1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmplusyear1()
     {
@@ -1057,7 +1062,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmsplit2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmsplit2()
     {
@@ -1067,7 +1072,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmorderpct2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmorderpct2()
     {
@@ -1077,7 +1082,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscpct2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdiscpct2()
     {
@@ -1087,7 +1092,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscdays2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmdiscdays2()
     {
@@ -1097,7 +1102,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscday2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdiscday2()
     {
@@ -1107,7 +1112,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscdate2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdiscdate2()
     {
@@ -1117,7 +1122,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmduedays2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmduedays2()
     {
@@ -1127,7 +1132,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdueday2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdueday2()
     {
@@ -1137,7 +1142,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmplusmonths2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmplusmonths2()
     {
@@ -1147,7 +1152,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmduedate2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmduedate2()
     {
@@ -1157,7 +1162,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmplusyear2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmplusyear2()
     {
@@ -1167,7 +1172,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmsplit3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmsplit3()
     {
@@ -1177,7 +1182,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmorderpct3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmorderpct3()
     {
@@ -1187,7 +1192,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscpct3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdiscpct3()
     {
@@ -1197,7 +1202,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscdays3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmdiscdays3()
     {
@@ -1207,7 +1212,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscday3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdiscday3()
     {
@@ -1217,7 +1222,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscdate3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdiscdate3()
     {
@@ -1227,7 +1232,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmduedays3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmduedays3()
     {
@@ -1237,7 +1242,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdueday3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdueday3()
     {
@@ -1247,7 +1252,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmplusmonths3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmplusmonths3()
     {
@@ -1257,7 +1262,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmduedate3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmduedate3()
     {
@@ -1267,7 +1272,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmplusyear3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmplusyear3()
     {
@@ -1277,7 +1282,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmsplit4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmsplit4()
     {
@@ -1287,7 +1292,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmorderpct4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmorderpct4()
     {
@@ -1297,7 +1302,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscpct4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdiscpct4()
     {
@@ -1307,7 +1312,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscdays4] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmdiscdays4()
     {
@@ -1317,7 +1322,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscday4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdiscday4()
     {
@@ -1327,7 +1332,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscdate4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdiscdate4()
     {
@@ -1337,7 +1342,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmduedays4] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmduedays4()
     {
@@ -1347,7 +1352,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdueday4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdueday4()
     {
@@ -1357,7 +1362,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmplusmonths4] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmplusmonths4()
     {
@@ -1367,7 +1372,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmduedate4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmduedate4()
     {
@@ -1377,7 +1382,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmplusyear4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmplusyear4()
     {
@@ -1387,7 +1392,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmsplit5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmsplit5()
     {
@@ -1397,7 +1402,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmorderpct5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmorderpct5()
     {
@@ -1407,7 +1412,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscpct5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdiscpct5()
     {
@@ -1417,7 +1422,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscdays5] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmdiscdays5()
     {
@@ -1427,7 +1432,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscday5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdiscday5()
     {
@@ -1437,7 +1442,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdiscdate5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdiscdate5()
     {
@@ -1447,7 +1452,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmduedays5] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmduedays5()
     {
@@ -1457,7 +1462,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdueday5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmdueday5()
     {
@@ -1467,7 +1472,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmplusmonths5] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmplusmonths5()
     {
@@ -1477,7 +1482,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmduedate5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmduedate5()
     {
@@ -1487,7 +1492,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmplusyear5] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmplusyear5()
     {
@@ -1497,7 +1502,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdayfrom1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmdayfrom1()
     {
@@ -1507,7 +1512,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdaythru1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmdaythru1()
     {
@@ -1517,7 +1522,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmeomdiscpct1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmeomdiscpct1()
     {
@@ -1527,7 +1532,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmeomdiscday1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmeomdiscday1()
     {
@@ -1537,7 +1542,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmeomdiscmonths1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmeomdiscmonths1()
     {
@@ -1547,7 +1552,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmeomdueday1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmeomdueday1()
     {
@@ -1557,7 +1562,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmeomplusmonths1] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmeomplusmonths1()
     {
@@ -1567,7 +1572,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdayfrom2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmdayfrom2()
     {
@@ -1577,7 +1582,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdaythru2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmdaythru2()
     {
@@ -1587,7 +1592,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmeomdiscpct2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmeomdiscpct2()
     {
@@ -1597,7 +1602,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmeomdiscday2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmeomdiscday2()
     {
@@ -1607,7 +1612,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmeomdiscmonths2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmeomdiscmonths2()
     {
@@ -1617,7 +1622,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmeomdueday2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmeomdueday2()
     {
@@ -1627,7 +1632,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmeomplusmonths2] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmeomplusmonths2()
     {
@@ -1637,7 +1642,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdayfrom3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmdayfrom3()
     {
@@ -1647,7 +1652,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmdaythru3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmdaythru3()
     {
@@ -1657,7 +1662,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmeomdiscpct3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getAptmeomdiscpct3()
     {
@@ -1667,7 +1672,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmeomdiscday3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmeomdiscday3()
     {
@@ -1677,7 +1682,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmeomdiscmonths3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmeomdiscmonths3()
     {
@@ -1687,7 +1692,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmeomdueday3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmeomdueday3()
     {
@@ -1697,7 +1702,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [aptmeomplusmonths3] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getAptmeomplusmonths3()
     {
@@ -1707,7 +1712,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [dateupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDateupdtd()
     {
@@ -1717,7 +1722,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [timeupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTimeupdtd()
     {
@@ -1727,7 +1732,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -1737,8 +1742,8 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Set the value of [aptmtermcode] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmtermcode($v)
     {
@@ -1752,13 +1757,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmtermcode()
+    }
 
     /**
      * Set the value of [aptmtermdesc] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmtermdesc($v)
     {
@@ -1772,13 +1777,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmtermdesc()
+    }
 
     /**
      * Set the value of [aptmmethod] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmmethod($v)
     {
@@ -1792,13 +1797,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmmethod()
+    }
 
     /**
      * Set the value of [aptmexpiredate] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmexpiredate($v)
     {
@@ -1812,13 +1817,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmexpiredate()
+    }
 
     /**
      * Set the value of [aptmsplit1] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmsplit1($v)
     {
@@ -1832,13 +1837,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmsplit1()
+    }
 
     /**
      * Set the value of [aptmorderpct1] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmorderpct1($v)
     {
@@ -1852,13 +1857,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmorderpct1()
+    }
 
     /**
      * Set the value of [aptmdiscpct1] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscpct1($v)
     {
@@ -1872,13 +1877,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscpct1()
+    }
 
     /**
      * Set the value of [aptmdiscdays1] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscdays1($v)
     {
@@ -1892,13 +1897,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscdays1()
+    }
 
     /**
      * Set the value of [aptmdiscday1] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscday1($v)
     {
@@ -1912,13 +1917,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscday1()
+    }
 
     /**
      * Set the value of [aptmdiscdate1] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscdate1($v)
     {
@@ -1932,13 +1937,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscdate1()
+    }
 
     /**
      * Set the value of [aptmduedays1] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmduedays1($v)
     {
@@ -1952,13 +1957,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmduedays1()
+    }
 
     /**
      * Set the value of [aptmdueday1] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdueday1($v)
     {
@@ -1972,13 +1977,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdueday1()
+    }
 
     /**
      * Set the value of [aptmplusmonths1] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmplusmonths1($v)
     {
@@ -1992,13 +1997,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmplusmonths1()
+    }
 
     /**
      * Set the value of [aptmduedate1] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmduedate1($v)
     {
@@ -2012,13 +2017,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmduedate1()
+    }
 
     /**
      * Set the value of [aptmplusyear1] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmplusyear1($v)
     {
@@ -2032,13 +2037,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmplusyear1()
+    }
 
     /**
      * Set the value of [aptmsplit2] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmsplit2($v)
     {
@@ -2052,13 +2057,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmsplit2()
+    }
 
     /**
      * Set the value of [aptmorderpct2] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmorderpct2($v)
     {
@@ -2072,13 +2077,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmorderpct2()
+    }
 
     /**
      * Set the value of [aptmdiscpct2] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscpct2($v)
     {
@@ -2092,13 +2097,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscpct2()
+    }
 
     /**
      * Set the value of [aptmdiscdays2] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscdays2($v)
     {
@@ -2112,13 +2117,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscdays2()
+    }
 
     /**
      * Set the value of [aptmdiscday2] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscday2($v)
     {
@@ -2132,13 +2137,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscday2()
+    }
 
     /**
      * Set the value of [aptmdiscdate2] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscdate2($v)
     {
@@ -2152,13 +2157,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscdate2()
+    }
 
     /**
      * Set the value of [aptmduedays2] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmduedays2($v)
     {
@@ -2172,13 +2177,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmduedays2()
+    }
 
     /**
      * Set the value of [aptmdueday2] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdueday2($v)
     {
@@ -2192,13 +2197,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdueday2()
+    }
 
     /**
      * Set the value of [aptmplusmonths2] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmplusmonths2($v)
     {
@@ -2212,13 +2217,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmplusmonths2()
+    }
 
     /**
      * Set the value of [aptmduedate2] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmduedate2($v)
     {
@@ -2232,13 +2237,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmduedate2()
+    }
 
     /**
      * Set the value of [aptmplusyear2] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmplusyear2($v)
     {
@@ -2252,13 +2257,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmplusyear2()
+    }
 
     /**
      * Set the value of [aptmsplit3] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmsplit3($v)
     {
@@ -2272,13 +2277,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmsplit3()
+    }
 
     /**
      * Set the value of [aptmorderpct3] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmorderpct3($v)
     {
@@ -2292,13 +2297,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmorderpct3()
+    }
 
     /**
      * Set the value of [aptmdiscpct3] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscpct3($v)
     {
@@ -2312,13 +2317,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscpct3()
+    }
 
     /**
      * Set the value of [aptmdiscdays3] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscdays3($v)
     {
@@ -2332,13 +2337,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscdays3()
+    }
 
     /**
      * Set the value of [aptmdiscday3] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscday3($v)
     {
@@ -2352,13 +2357,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscday3()
+    }
 
     /**
      * Set the value of [aptmdiscdate3] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscdate3($v)
     {
@@ -2372,13 +2377,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscdate3()
+    }
 
     /**
      * Set the value of [aptmduedays3] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmduedays3($v)
     {
@@ -2392,13 +2397,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmduedays3()
+    }
 
     /**
      * Set the value of [aptmdueday3] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdueday3($v)
     {
@@ -2412,13 +2417,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdueday3()
+    }
 
     /**
      * Set the value of [aptmplusmonths3] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmplusmonths3($v)
     {
@@ -2432,13 +2437,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmplusmonths3()
+    }
 
     /**
      * Set the value of [aptmduedate3] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmduedate3($v)
     {
@@ -2452,13 +2457,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmduedate3()
+    }
 
     /**
      * Set the value of [aptmplusyear3] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmplusyear3($v)
     {
@@ -2472,13 +2477,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmplusyear3()
+    }
 
     /**
      * Set the value of [aptmsplit4] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmsplit4($v)
     {
@@ -2492,13 +2497,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmsplit4()
+    }
 
     /**
      * Set the value of [aptmorderpct4] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmorderpct4($v)
     {
@@ -2512,13 +2517,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmorderpct4()
+    }
 
     /**
      * Set the value of [aptmdiscpct4] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscpct4($v)
     {
@@ -2532,13 +2537,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscpct4()
+    }
 
     /**
      * Set the value of [aptmdiscdays4] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscdays4($v)
     {
@@ -2552,13 +2557,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscdays4()
+    }
 
     /**
      * Set the value of [aptmdiscday4] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscday4($v)
     {
@@ -2572,13 +2577,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscday4()
+    }
 
     /**
      * Set the value of [aptmdiscdate4] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscdate4($v)
     {
@@ -2592,13 +2597,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscdate4()
+    }
 
     /**
      * Set the value of [aptmduedays4] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmduedays4($v)
     {
@@ -2612,13 +2617,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmduedays4()
+    }
 
     /**
      * Set the value of [aptmdueday4] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdueday4($v)
     {
@@ -2632,13 +2637,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdueday4()
+    }
 
     /**
      * Set the value of [aptmplusmonths4] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmplusmonths4($v)
     {
@@ -2652,13 +2657,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmplusmonths4()
+    }
 
     /**
      * Set the value of [aptmduedate4] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmduedate4($v)
     {
@@ -2672,13 +2677,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmduedate4()
+    }
 
     /**
      * Set the value of [aptmplusyear4] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmplusyear4($v)
     {
@@ -2692,13 +2697,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmplusyear4()
+    }
 
     /**
      * Set the value of [aptmsplit5] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmsplit5($v)
     {
@@ -2712,13 +2717,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmsplit5()
+    }
 
     /**
      * Set the value of [aptmorderpct5] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmorderpct5($v)
     {
@@ -2732,13 +2737,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmorderpct5()
+    }
 
     /**
      * Set the value of [aptmdiscpct5] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscpct5($v)
     {
@@ -2752,13 +2757,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscpct5()
+    }
 
     /**
      * Set the value of [aptmdiscdays5] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscdays5($v)
     {
@@ -2772,13 +2777,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscdays5()
+    }
 
     /**
      * Set the value of [aptmdiscday5] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscday5($v)
     {
@@ -2792,13 +2797,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscday5()
+    }
 
     /**
      * Set the value of [aptmdiscdate5] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdiscdate5($v)
     {
@@ -2812,13 +2817,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdiscdate5()
+    }
 
     /**
      * Set the value of [aptmduedays5] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmduedays5($v)
     {
@@ -2832,13 +2837,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmduedays5()
+    }
 
     /**
      * Set the value of [aptmdueday5] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdueday5($v)
     {
@@ -2852,13 +2857,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdueday5()
+    }
 
     /**
      * Set the value of [aptmplusmonths5] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmplusmonths5($v)
     {
@@ -2872,13 +2877,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmplusmonths5()
+    }
 
     /**
      * Set the value of [aptmduedate5] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmduedate5($v)
     {
@@ -2892,13 +2897,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmduedate5()
+    }
 
     /**
      * Set the value of [aptmplusyear5] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmplusyear5($v)
     {
@@ -2912,13 +2917,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmplusyear5()
+    }
 
     /**
      * Set the value of [aptmdayfrom1] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdayfrom1($v)
     {
@@ -2932,13 +2937,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdayfrom1()
+    }
 
     /**
      * Set the value of [aptmdaythru1] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdaythru1($v)
     {
@@ -2952,13 +2957,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdaythru1()
+    }
 
     /**
      * Set the value of [aptmeomdiscpct1] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmeomdiscpct1($v)
     {
@@ -2972,13 +2977,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmeomdiscpct1()
+    }
 
     /**
      * Set the value of [aptmeomdiscday1] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmeomdiscday1($v)
     {
@@ -2992,13 +2997,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmeomdiscday1()
+    }
 
     /**
      * Set the value of [aptmeomdiscmonths1] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmeomdiscmonths1($v)
     {
@@ -3012,13 +3017,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmeomdiscmonths1()
+    }
 
     /**
      * Set the value of [aptmeomdueday1] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmeomdueday1($v)
     {
@@ -3032,13 +3037,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmeomdueday1()
+    }
 
     /**
      * Set the value of [aptmeomplusmonths1] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmeomplusmonths1($v)
     {
@@ -3052,13 +3057,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmeomplusmonths1()
+    }
 
     /**
      * Set the value of [aptmdayfrom2] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdayfrom2($v)
     {
@@ -3072,13 +3077,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdayfrom2()
+    }
 
     /**
      * Set the value of [aptmdaythru2] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdaythru2($v)
     {
@@ -3092,13 +3097,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdaythru2()
+    }
 
     /**
      * Set the value of [aptmeomdiscpct2] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmeomdiscpct2($v)
     {
@@ -3112,13 +3117,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmeomdiscpct2()
+    }
 
     /**
      * Set the value of [aptmeomdiscday2] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmeomdiscday2($v)
     {
@@ -3132,13 +3137,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmeomdiscday2()
+    }
 
     /**
      * Set the value of [aptmeomdiscmonths2] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmeomdiscmonths2($v)
     {
@@ -3152,13 +3157,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmeomdiscmonths2()
+    }
 
     /**
      * Set the value of [aptmeomdueday2] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmeomdueday2($v)
     {
@@ -3172,13 +3177,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmeomdueday2()
+    }
 
     /**
      * Set the value of [aptmeomplusmonths2] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmeomplusmonths2($v)
     {
@@ -3192,13 +3197,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmeomplusmonths2()
+    }
 
     /**
      * Set the value of [aptmdayfrom3] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdayfrom3($v)
     {
@@ -3212,13 +3217,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdayfrom3()
+    }
 
     /**
      * Set the value of [aptmdaythru3] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmdaythru3($v)
     {
@@ -3232,13 +3237,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmdaythru3()
+    }
 
     /**
      * Set the value of [aptmeomdiscpct3] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmeomdiscpct3($v)
     {
@@ -3252,13 +3257,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmeomdiscpct3()
+    }
 
     /**
      * Set the value of [aptmeomdiscday3] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmeomdiscday3($v)
     {
@@ -3272,13 +3277,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmeomdiscday3()
+    }
 
     /**
      * Set the value of [aptmeomdiscmonths3] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmeomdiscmonths3($v)
     {
@@ -3292,13 +3297,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmeomdiscmonths3()
+    }
 
     /**
      * Set the value of [aptmeomdueday3] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmeomdueday3($v)
     {
@@ -3312,13 +3317,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmeomdueday3()
+    }
 
     /**
      * Set the value of [aptmeomplusmonths3] column.
      *
-     * @param int $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setAptmeomplusmonths3($v)
     {
@@ -3332,13 +3337,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setAptmeomplusmonths3()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -3352,13 +3357,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -3372,13 +3377,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -3392,7 +3397,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -3400,9 +3405,9 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->aptmtermcode !== '') {
                 return false;
@@ -3410,7 +3415,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -3420,17 +3425,17 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -3682,8 +3687,8 @@ abstract class ApTermsCode implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : ApTermsCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -3708,23 +3713,24 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -3759,13 +3765,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see ApTermsCode::setDeleted()
      * @see ApTermsCode::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -3795,12 +3801,12 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -3845,12 +3851,12 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -3890,19 +3896,19 @@ abstract class ApTermsCode implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -4169,252 +4175,335 @@ abstract class ApTermsCode implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'AptmTermCode':
                         $stmt->bindValue($identifier, $this->aptmtermcode, PDO::PARAM_STR);
+
                         break;
                     case 'AptmTermDesc':
                         $stmt->bindValue($identifier, $this->aptmtermdesc, PDO::PARAM_STR);
+
                         break;
                     case 'AptmMethod':
                         $stmt->bindValue($identifier, $this->aptmmethod, PDO::PARAM_STR);
+
                         break;
                     case 'AptmExpireDate':
                         $stmt->bindValue($identifier, $this->aptmexpiredate, PDO::PARAM_STR);
+
                         break;
                     case 'AptmSplit1':
                         $stmt->bindValue($identifier, $this->aptmsplit1, PDO::PARAM_STR);
+
                         break;
                     case 'AptmOrderPct1':
                         $stmt->bindValue($identifier, $this->aptmorderpct1, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDiscPct1':
                         $stmt->bindValue($identifier, $this->aptmdiscpct1, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDiscDays1':
                         $stmt->bindValue($identifier, $this->aptmdiscdays1, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDiscDay1':
                         $stmt->bindValue($identifier, $this->aptmdiscday1, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDiscDate1':
                         $stmt->bindValue($identifier, $this->aptmdiscdate1, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDueDays1':
                         $stmt->bindValue($identifier, $this->aptmduedays1, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDueDay1':
                         $stmt->bindValue($identifier, $this->aptmdueday1, PDO::PARAM_STR);
+
                         break;
                     case 'AptmPlusMonths1':
                         $stmt->bindValue($identifier, $this->aptmplusmonths1, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDueDate1':
                         $stmt->bindValue($identifier, $this->aptmduedate1, PDO::PARAM_STR);
+
                         break;
                     case 'AptmPlusYear1':
                         $stmt->bindValue($identifier, $this->aptmplusyear1, PDO::PARAM_STR);
+
                         break;
                     case 'AptmSplit2':
                         $stmt->bindValue($identifier, $this->aptmsplit2, PDO::PARAM_STR);
+
                         break;
                     case 'AptmOrderPct2':
                         $stmt->bindValue($identifier, $this->aptmorderpct2, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDiscPct2':
                         $stmt->bindValue($identifier, $this->aptmdiscpct2, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDiscDays2':
                         $stmt->bindValue($identifier, $this->aptmdiscdays2, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDiscDay2':
                         $stmt->bindValue($identifier, $this->aptmdiscday2, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDiscDate2':
                         $stmt->bindValue($identifier, $this->aptmdiscdate2, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDueDays2':
                         $stmt->bindValue($identifier, $this->aptmduedays2, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDueDay2':
                         $stmt->bindValue($identifier, $this->aptmdueday2, PDO::PARAM_STR);
+
                         break;
                     case 'AptmPlusMonths2':
                         $stmt->bindValue($identifier, $this->aptmplusmonths2, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDueDate2':
                         $stmt->bindValue($identifier, $this->aptmduedate2, PDO::PARAM_STR);
+
                         break;
                     case 'AptmPlusYear2':
                         $stmt->bindValue($identifier, $this->aptmplusyear2, PDO::PARAM_STR);
+
                         break;
                     case 'AptmSplit3':
                         $stmt->bindValue($identifier, $this->aptmsplit3, PDO::PARAM_STR);
+
                         break;
                     case 'AptmOrderPct3':
                         $stmt->bindValue($identifier, $this->aptmorderpct3, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDiscPct3':
                         $stmt->bindValue($identifier, $this->aptmdiscpct3, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDiscDays3':
                         $stmt->bindValue($identifier, $this->aptmdiscdays3, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDiscDay3':
                         $stmt->bindValue($identifier, $this->aptmdiscday3, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDiscDate3':
                         $stmt->bindValue($identifier, $this->aptmdiscdate3, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDueDays3':
                         $stmt->bindValue($identifier, $this->aptmduedays3, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDueDay3':
                         $stmt->bindValue($identifier, $this->aptmdueday3, PDO::PARAM_STR);
+
                         break;
                     case 'AptmPlusMonths3':
                         $stmt->bindValue($identifier, $this->aptmplusmonths3, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDueDate3':
                         $stmt->bindValue($identifier, $this->aptmduedate3, PDO::PARAM_STR);
+
                         break;
                     case 'AptmPlusYear3':
                         $stmt->bindValue($identifier, $this->aptmplusyear3, PDO::PARAM_STR);
+
                         break;
                     case 'AptmSplit4':
                         $stmt->bindValue($identifier, $this->aptmsplit4, PDO::PARAM_STR);
+
                         break;
                     case 'AptmOrderPct4':
                         $stmt->bindValue($identifier, $this->aptmorderpct4, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDiscPct4':
                         $stmt->bindValue($identifier, $this->aptmdiscpct4, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDiscDays4':
                         $stmt->bindValue($identifier, $this->aptmdiscdays4, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDiscDay4':
                         $stmt->bindValue($identifier, $this->aptmdiscday4, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDiscDate4':
                         $stmt->bindValue($identifier, $this->aptmdiscdate4, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDueDays4':
                         $stmt->bindValue($identifier, $this->aptmduedays4, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDueDay4':
                         $stmt->bindValue($identifier, $this->aptmdueday4, PDO::PARAM_STR);
+
                         break;
                     case 'AptmPlusMonths4':
                         $stmt->bindValue($identifier, $this->aptmplusmonths4, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDueDate4':
                         $stmt->bindValue($identifier, $this->aptmduedate4, PDO::PARAM_STR);
+
                         break;
                     case 'AptmPlusYear4':
                         $stmt->bindValue($identifier, $this->aptmplusyear4, PDO::PARAM_STR);
+
                         break;
                     case 'AptmSplit5':
                         $stmt->bindValue($identifier, $this->aptmsplit5, PDO::PARAM_STR);
+
                         break;
                     case 'AptmOrderPct5':
                         $stmt->bindValue($identifier, $this->aptmorderpct5, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDiscPct5':
                         $stmt->bindValue($identifier, $this->aptmdiscpct5, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDiscDays5':
                         $stmt->bindValue($identifier, $this->aptmdiscdays5, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDiscDay5':
                         $stmt->bindValue($identifier, $this->aptmdiscday5, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDiscDate5':
                         $stmt->bindValue($identifier, $this->aptmdiscdate5, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDueDays5':
                         $stmt->bindValue($identifier, $this->aptmduedays5, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDueDay5':
                         $stmt->bindValue($identifier, $this->aptmdueday5, PDO::PARAM_STR);
+
                         break;
                     case 'AptmPlusMonths5':
                         $stmt->bindValue($identifier, $this->aptmplusmonths5, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDueDate5':
                         $stmt->bindValue($identifier, $this->aptmduedate5, PDO::PARAM_STR);
+
                         break;
                     case 'AptmPlusYear5':
                         $stmt->bindValue($identifier, $this->aptmplusyear5, PDO::PARAM_STR);
+
                         break;
                     case 'AptmDayFrom1':
                         $stmt->bindValue($identifier, $this->aptmdayfrom1, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDayThru1':
                         $stmt->bindValue($identifier, $this->aptmdaythru1, PDO::PARAM_INT);
+
                         break;
                     case 'AptmEomDiscPct1':
                         $stmt->bindValue($identifier, $this->aptmeomdiscpct1, PDO::PARAM_STR);
+
                         break;
                     case 'AptmEomDiscDay1':
                         $stmt->bindValue($identifier, $this->aptmeomdiscday1, PDO::PARAM_INT);
+
                         break;
                     case 'AptmEomDiscMonths1':
                         $stmt->bindValue($identifier, $this->aptmeomdiscmonths1, PDO::PARAM_INT);
+
                         break;
                     case 'AptmEomDueDay1':
                         $stmt->bindValue($identifier, $this->aptmeomdueday1, PDO::PARAM_INT);
+
                         break;
                     case 'AptmEomPlusMonths1':
                         $stmt->bindValue($identifier, $this->aptmeomplusmonths1, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDayFrom2':
                         $stmt->bindValue($identifier, $this->aptmdayfrom2, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDayThru2':
                         $stmt->bindValue($identifier, $this->aptmdaythru2, PDO::PARAM_INT);
+
                         break;
                     case 'AptmEomDiscPct2':
                         $stmt->bindValue($identifier, $this->aptmeomdiscpct2, PDO::PARAM_STR);
+
                         break;
                     case 'AptmEomDiscDay2':
                         $stmt->bindValue($identifier, $this->aptmeomdiscday2, PDO::PARAM_INT);
+
                         break;
                     case 'AptmEomDiscMonths2':
                         $stmt->bindValue($identifier, $this->aptmeomdiscmonths2, PDO::PARAM_INT);
+
                         break;
                     case 'AptmEomDueDay2':
                         $stmt->bindValue($identifier, $this->aptmeomdueday2, PDO::PARAM_INT);
+
                         break;
                     case 'AptmEomPlusMonths2':
                         $stmt->bindValue($identifier, $this->aptmeomplusmonths2, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDayFrom3':
                         $stmt->bindValue($identifier, $this->aptmdayfrom3, PDO::PARAM_INT);
+
                         break;
                     case 'AptmDayThru3':
                         $stmt->bindValue($identifier, $this->aptmdaythru3, PDO::PARAM_INT);
+
                         break;
                     case 'AptmEomDiscPct3':
                         $stmt->bindValue($identifier, $this->aptmeomdiscpct3, PDO::PARAM_STR);
+
                         break;
                     case 'AptmEomDiscDay3':
                         $stmt->bindValue($identifier, $this->aptmeomdiscday3, PDO::PARAM_INT);
+
                         break;
                     case 'AptmEomDiscMonths3':
                         $stmt->bindValue($identifier, $this->aptmeomdiscmonths3, PDO::PARAM_INT);
+
                         break;
                     case 'AptmEomDueDay3':
                         $stmt->bindValue($identifier, $this->aptmeomdueday3, PDO::PARAM_INT);
+
                         break;
                     case 'AptmEomPlusMonths3':
                         $stmt->bindValue($identifier, $this->aptmeomplusmonths3, PDO::PARAM_INT);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -4430,12 +4519,12 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -4446,14 +4535,14 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ApTermsCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -4465,264 +4554,263 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getAptmtermcode();
-                break;
+
             case 1:
                 return $this->getAptmtermdesc();
-                break;
+
             case 2:
                 return $this->getAptmmethod();
-                break;
+
             case 3:
                 return $this->getAptmexpiredate();
-                break;
+
             case 4:
                 return $this->getAptmsplit1();
-                break;
+
             case 5:
                 return $this->getAptmorderpct1();
-                break;
+
             case 6:
                 return $this->getAptmdiscpct1();
-                break;
+
             case 7:
                 return $this->getAptmdiscdays1();
-                break;
+
             case 8:
                 return $this->getAptmdiscday1();
-                break;
+
             case 9:
                 return $this->getAptmdiscdate1();
-                break;
+
             case 10:
                 return $this->getAptmduedays1();
-                break;
+
             case 11:
                 return $this->getAptmdueday1();
-                break;
+
             case 12:
                 return $this->getAptmplusmonths1();
-                break;
+
             case 13:
                 return $this->getAptmduedate1();
-                break;
+
             case 14:
                 return $this->getAptmplusyear1();
-                break;
+
             case 15:
                 return $this->getAptmsplit2();
-                break;
+
             case 16:
                 return $this->getAptmorderpct2();
-                break;
+
             case 17:
                 return $this->getAptmdiscpct2();
-                break;
+
             case 18:
                 return $this->getAptmdiscdays2();
-                break;
+
             case 19:
                 return $this->getAptmdiscday2();
-                break;
+
             case 20:
                 return $this->getAptmdiscdate2();
-                break;
+
             case 21:
                 return $this->getAptmduedays2();
-                break;
+
             case 22:
                 return $this->getAptmdueday2();
-                break;
+
             case 23:
                 return $this->getAptmplusmonths2();
-                break;
+
             case 24:
                 return $this->getAptmduedate2();
-                break;
+
             case 25:
                 return $this->getAptmplusyear2();
-                break;
+
             case 26:
                 return $this->getAptmsplit3();
-                break;
+
             case 27:
                 return $this->getAptmorderpct3();
-                break;
+
             case 28:
                 return $this->getAptmdiscpct3();
-                break;
+
             case 29:
                 return $this->getAptmdiscdays3();
-                break;
+
             case 30:
                 return $this->getAptmdiscday3();
-                break;
+
             case 31:
                 return $this->getAptmdiscdate3();
-                break;
+
             case 32:
                 return $this->getAptmduedays3();
-                break;
+
             case 33:
                 return $this->getAptmdueday3();
-                break;
+
             case 34:
                 return $this->getAptmplusmonths3();
-                break;
+
             case 35:
                 return $this->getAptmduedate3();
-                break;
+
             case 36:
                 return $this->getAptmplusyear3();
-                break;
+
             case 37:
                 return $this->getAptmsplit4();
-                break;
+
             case 38:
                 return $this->getAptmorderpct4();
-                break;
+
             case 39:
                 return $this->getAptmdiscpct4();
-                break;
+
             case 40:
                 return $this->getAptmdiscdays4();
-                break;
+
             case 41:
                 return $this->getAptmdiscday4();
-                break;
+
             case 42:
                 return $this->getAptmdiscdate4();
-                break;
+
             case 43:
                 return $this->getAptmduedays4();
-                break;
+
             case 44:
                 return $this->getAptmdueday4();
-                break;
+
             case 45:
                 return $this->getAptmplusmonths4();
-                break;
+
             case 46:
                 return $this->getAptmduedate4();
-                break;
+
             case 47:
                 return $this->getAptmplusyear4();
-                break;
+
             case 48:
                 return $this->getAptmsplit5();
-                break;
+
             case 49:
                 return $this->getAptmorderpct5();
-                break;
+
             case 50:
                 return $this->getAptmdiscpct5();
-                break;
+
             case 51:
                 return $this->getAptmdiscdays5();
-                break;
+
             case 52:
                 return $this->getAptmdiscday5();
-                break;
+
             case 53:
                 return $this->getAptmdiscdate5();
-                break;
+
             case 54:
                 return $this->getAptmduedays5();
-                break;
+
             case 55:
                 return $this->getAptmdueday5();
-                break;
+
             case 56:
                 return $this->getAptmplusmonths5();
-                break;
+
             case 57:
                 return $this->getAptmduedate5();
-                break;
+
             case 58:
                 return $this->getAptmplusyear5();
-                break;
+
             case 59:
                 return $this->getAptmdayfrom1();
-                break;
+
             case 60:
                 return $this->getAptmdaythru1();
-                break;
+
             case 61:
                 return $this->getAptmeomdiscpct1();
-                break;
+
             case 62:
                 return $this->getAptmeomdiscday1();
-                break;
+
             case 63:
                 return $this->getAptmeomdiscmonths1();
-                break;
+
             case 64:
                 return $this->getAptmeomdueday1();
-                break;
+
             case 65:
                 return $this->getAptmeomplusmonths1();
-                break;
+
             case 66:
                 return $this->getAptmdayfrom2();
-                break;
+
             case 67:
                 return $this->getAptmdaythru2();
-                break;
+
             case 68:
                 return $this->getAptmeomdiscpct2();
-                break;
+
             case 69:
                 return $this->getAptmeomdiscday2();
-                break;
+
             case 70:
                 return $this->getAptmeomdiscmonths2();
-                break;
+
             case 71:
                 return $this->getAptmeomdueday2();
-                break;
+
             case 72:
                 return $this->getAptmeomplusmonths2();
-                break;
+
             case 73:
                 return $this->getAptmdayfrom3();
-                break;
+
             case 74:
                 return $this->getAptmdaythru3();
-                break;
+
             case 75:
                 return $this->getAptmeomdiscpct3();
-                break;
+
             case 76:
                 return $this->getAptmeomdiscday3();
-                break;
+
             case 77:
                 return $this->getAptmeomdiscmonths3();
-                break;
+
             case 78:
                 return $this->getAptmeomdueday3();
-                break;
+
             case 79:
                 return $this->getAptmeomplusmonths3();
-                break;
+
             case 80:
                 return $this->getDateupdtd();
-                break;
+
             case 81:
                 return $this->getTimeupdtd();
-                break;
+
             case 82:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -4732,24 +4820,23 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
-     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = [], bool $includeForeignObjects = false): array
     {
-
         if (isset($alreadyDumpedObjects['ApTermsCode'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['ApTermsCode'][$this->hashCode()] = true;
         $keys = ApTermsCodeTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getAptmtermcode(),
             $keys[1] => $this->getAptmtermdesc(),
             $keys[2] => $this->getAptmmethod(),
@@ -4833,7 +4920,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
             $keys[80] => $this->getDateupdtd(),
             $keys[81] => $this->getTimeupdtd(),
             $keys[82] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -4863,30 +4950,32 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\ApTermsCode
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = ApTermsCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\ApTermsCode
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -5156,11 +5245,11 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = ApTermsCodeTableMap::getFieldNames($keyType);
 
@@ -5413,6 +5502,8 @@ abstract class ApTermsCode implements ActiveRecordInterface
         if (array_key_exists($keys[82], $arr)) {
             $this->setDummy($arr[$keys[82]]);
         }
+
+        return $this;
     }
 
      /**
@@ -5432,9 +5523,9 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\ApTermsCode The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -5448,9 +5539,9 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(ApTermsCodeTableMap::DATABASE_NAME);
 
@@ -5711,13 +5802,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildApTermsCodeQuery::create();
         $criteria->add(ApTermsCodeTableMap::COL_APTMTERMCODE, $this->aptmtermcode);
@@ -5729,7 +5820,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -5759,19 +5850,20 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (aptmtermcode column).
      *
-     * @param       string $key Primary key.
+     * @param string|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?string $key = null): void
     {
         $this->setAptmtermcode($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getAptmtermcode();
     }
@@ -5782,12 +5874,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \ApTermsCode (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \ApTermsCode (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setAptmtermcode($this->getAptmtermcode());
         $copyObj->setAptmtermdesc($this->getAptmtermdesc());
@@ -5899,11 +5992,11 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \ApTermsCode Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -5919,12 +6012,12 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * Avoids crafting an 'init[$relationName]s' method name
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
-     * @param      string $relationName The name of the relation to initialize
+     * @param string $relationName The name of the relation to initialize
      * @return void
      */
-    public function initRelation($relationName)
+    public function initRelation($relationName): void
     {
-        if ('Vendor' == $relationName) {
+        if ('Vendor' === $relationName) {
             $this->initVendors();
             return;
         }
@@ -5936,18 +6029,22 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addVendors()
+     * @return $this
+     * @see addVendors()
      */
     public function clearVendors()
     {
         $this->collVendors = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collVendors collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialVendors($v = true)
+    public function resetPartialVendors($v = true): void
     {
         $this->collVendorsPartial = $v;
     }
@@ -5959,12 +6056,12 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initVendors($overrideExisting = true)
+    public function initVendors(bool $overrideExisting = true): void
     {
         if (null !== $this->collVendors && !$overrideExisting) {
             return;
@@ -5985,18 +6082,28 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * If this ChildApTermsCode is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildVendor[] List of ChildVendor objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildVendor> List of ChildVendor objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVendors(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getVendors(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collVendorsPartial && !$this->isNew();
-        if (null === $this->collVendors || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collVendors) {
+        if (null === $this->collVendors || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initVendors();
+                if (null === $this->collVendors) {
+                    $this->initVendors();
+                } else {
+                    $collectionClassName = VendorTableMap::getTableMap()->getCollectionClassName();
+
+                    $collVendors = new $collectionClassName;
+                    $collVendors->setModel('\Vendor');
+
+                    return $collVendors;
+                }
             } else {
                 $collVendors = ChildVendorQuery::create(null, $criteria)
                     ->filterByApTermsCode($this)
@@ -6040,11 +6147,11 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $vendors A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildApTermsCode The current object (for fluent API support)
+     * @param Collection $vendors A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setVendors(Collection $vendors, ConnectionInterface $con = null)
+    public function setVendors(Collection $vendors, ?ConnectionInterface $con = null)
     {
         /** @var ChildVendor[] $vendorsToDelete */
         $vendorsToDelete = $this->getVendors(new Criteria(), $con)->diff($vendors);
@@ -6070,13 +6177,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * Returns the number of related Vendor objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related Vendor objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related Vendor objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countVendors(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countVendors(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collVendorsPartial && !$this->isNew();
         if (null === $this->collVendors || null !== $criteria || $partial) {
@@ -6105,8 +6212,8 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * Method called to associate a ChildVendor object to this object
      * through the ChildVendor foreign key attribute.
      *
-     * @param  ChildVendor $l ChildVendor
-     * @return $this|\ApTermsCode The current object (for fluent API support)
+     * @param ChildVendor $l ChildVendor
+     * @return $this The current object (for fluent API support)
      */
     public function addVendor(ChildVendor $l)
     {
@@ -6129,15 +6236,15 @@ abstract class ApTermsCode implements ActiveRecordInterface
     /**
      * @param ChildVendor $vendor The ChildVendor object to add.
      */
-    protected function doAddVendor(ChildVendor $vendor)
+    protected function doAddVendor(ChildVendor $vendor): void
     {
         $this->collVendors[]= $vendor;
         $vendor->setApTermsCode($this);
     }
 
     /**
-     * @param  ChildVendor $vendor The ChildVendor object to remove.
-     * @return $this|ChildApTermsCode The current object (for fluent API support)
+     * @param ChildVendor $vendor The ChildVendor object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeVendor(ChildVendor $vendor)
     {
@@ -6167,12 +6274,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ApTermsCode.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildVendor[] List of ChildVendor objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildVendor}> List of ChildVendor objects
      */
-    public function getVendorsJoinApTypeCode(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getVendorsJoinApTypeCode(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildVendorQuery::create(null, $criteria);
         $query->joinWith('ApTypeCode', $joinBehavior);
@@ -6192,12 +6300,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ApTermsCode.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildVendor[] List of ChildVendor objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildVendor}> List of ChildVendor objects
      */
-    public function getVendorsJoinShipvia(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getVendorsJoinShipvia(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildVendorQuery::create(null, $criteria);
         $query->joinWith('Shipvia', $joinBehavior);
@@ -6217,12 +6326,13 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in ApTermsCode.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildVendor[] List of ChildVendor objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildVendor}> List of ChildVendor objects
      */
-    public function getVendorsJoinApBuyer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getVendorsJoinApBuyer(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildVendorQuery::create(null, $criteria);
         $query->joinWith('ApBuyer', $joinBehavior);
@@ -6234,6 +6344,8 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -6326,6 +6438,8 @@ abstract class ApTermsCode implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -6334,9 +6448,10 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
             if ($this->collVendors) {
@@ -6347,6 +6462,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
         } // if ($deep)
 
         $this->collVendors = null;
+        return $this;
     }
 
     /**
@@ -6361,99 +6477,79 @@ abstract class ApTermsCode implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -6463,7 +6559,7 @@ abstract class ApTermsCode implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -6483,15 +6579,18 @@ abstract class ApTermsCode implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

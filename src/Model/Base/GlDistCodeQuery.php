@@ -10,14 +10,12 @@ use Map\GlDistCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'gl_dist_code' table.
- *
- *
+ * Base class that represents a query for the `gl_dist_code` table.
  *
  * @method     ChildGlDistCodeQuery orderByGltbdistcode($order = Criteria::ASC) Order by the GltbDistCode column
  * @method     ChildGlDistCodeQuery orderByGltbdistdesc($order = Criteria::ASC) Order by the GltbDistDesc column
@@ -87,41 +85,41 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildGlDistCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildGlDistCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildGlDistCode findOne(ConnectionInterface $con = null) Return the first ChildGlDistCode matching the query
- * @method     ChildGlDistCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildGlDistCode matching the query, or a new ChildGlDistCode object populated from the query conditions when no match is found
+ * @method     ChildGlDistCode|null findOne(?ConnectionInterface $con = null) Return the first ChildGlDistCode matching the query
+ * @method     ChildGlDistCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildGlDistCode matching the query, or a new ChildGlDistCode object populated from the query conditions when no match is found
  *
- * @method     ChildGlDistCode findOneByGltbdistcode(string $GltbDistCode) Return the first ChildGlDistCode filtered by the GltbDistCode column
- * @method     ChildGlDistCode findOneByGltbdistdesc(string $GltbDistDesc) Return the first ChildGlDistCode filtered by the GltbDistDesc column
- * @method     ChildGlDistCode findOneByGltbdistacctnbr01(string $GltbDistAcctNbr01) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr01 column
- * @method     ChildGlDistCode findOneByGltbdistacctpct01(string $GltbDistAcctPct01) Return the first ChildGlDistCode filtered by the GltbDistAcctPct01 column
- * @method     ChildGlDistCode findOneByGltbdistacctnbr02(string $GltbDistAcctNbr02) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr02 column
- * @method     ChildGlDistCode findOneByGltbdistacctpct02(string $GltbDistAcctPct02) Return the first ChildGlDistCode filtered by the GltbDistAcctPct02 column
- * @method     ChildGlDistCode findOneByGltbdistacctnbr03(string $GltbDistAcctNbr03) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr03 column
- * @method     ChildGlDistCode findOneByGltbdistacctpct03(string $GltbDistAcctPct03) Return the first ChildGlDistCode filtered by the GltbDistAcctPct03 column
- * @method     ChildGlDistCode findOneByGltbdistacctnbr04(string $GltbDistAcctNbr04) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr04 column
- * @method     ChildGlDistCode findOneByGltbdistacctpct04(string $GltbDistAcctPct04) Return the first ChildGlDistCode filtered by the GltbDistAcctPct04 column
- * @method     ChildGlDistCode findOneByGltbdistacctnbr05(string $GltbDistAcctNbr05) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr05 column
- * @method     ChildGlDistCode findOneByGltbdistacctpct05(string $GltbDistAcctPct05) Return the first ChildGlDistCode filtered by the GltbDistAcctPct05 column
- * @method     ChildGlDistCode findOneByGltbdistacctnbr06(string $GltbDistAcctNbr06) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr06 column
- * @method     ChildGlDistCode findOneByGltbdistacctpct06(string $GltbDistAcctPct06) Return the first ChildGlDistCode filtered by the GltbDistAcctPct06 column
- * @method     ChildGlDistCode findOneByGltbdistacctnbr07(string $GltbDistAcctNbr07) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr07 column
- * @method     ChildGlDistCode findOneByGltbdistacctpct07(string $GltbDistAcctPct07) Return the first ChildGlDistCode filtered by the GltbDistAcctPct07 column
- * @method     ChildGlDistCode findOneByGltbdistacctnbr08(string $GltbDistAcctNbr08) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr08 column
- * @method     ChildGlDistCode findOneByGltbdistacctpct08(string $GltbDistAcctPct08) Return the first ChildGlDistCode filtered by the GltbDistAcctPct08 column
- * @method     ChildGlDistCode findOneByGltbdistacctnbr09(string $GltbDistAcctNbr09) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr09 column
- * @method     ChildGlDistCode findOneByGltbdistacctpct09(string $GltbDistAcctPct09) Return the first ChildGlDistCode filtered by the GltbDistAcctPct09 column
- * @method     ChildGlDistCode findOneByGltbdistacctnbr10(string $GltbDistAcctNbr10) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr10 column
- * @method     ChildGlDistCode findOneByGltbdistacctpct10(string $GltbDistAcctPct10) Return the first ChildGlDistCode filtered by the GltbDistAcctPct10 column
- * @method     ChildGlDistCode findOneByGltbdistacctnbr11(string $GltbDistAcctNbr11) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr11 column
- * @method     ChildGlDistCode findOneByGltbdistacctpct11(string $GltbDistAcctPct11) Return the first ChildGlDistCode filtered by the GltbDistAcctPct11 column
- * @method     ChildGlDistCode findOneByGltbdistacctnbr12(string $GltbDistAcctNbr12) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr12 column
- * @method     ChildGlDistCode findOneByGltbdistacctpct12(string $GltbDistAcctPct12) Return the first ChildGlDistCode filtered by the GltbDistAcctPct12 column
- * @method     ChildGlDistCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildGlDistCode filtered by the DateUpdtd column
- * @method     ChildGlDistCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildGlDistCode filtered by the TimeUpdtd column
- * @method     ChildGlDistCode findOneByDummy(string $dummy) Return the first ChildGlDistCode filtered by the dummy column *
-
- * @method     ChildGlDistCode requirePk($key, ConnectionInterface $con = null) Return the ChildGlDistCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildGlDistCode requireOne(ConnectionInterface $con = null) Return the first ChildGlDistCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildGlDistCode|null findOneByGltbdistcode(string $GltbDistCode) Return the first ChildGlDistCode filtered by the GltbDistCode column
+ * @method     ChildGlDistCode|null findOneByGltbdistdesc(string $GltbDistDesc) Return the first ChildGlDistCode filtered by the GltbDistDesc column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctnbr01(string $GltbDistAcctNbr01) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr01 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctpct01(string $GltbDistAcctPct01) Return the first ChildGlDistCode filtered by the GltbDistAcctPct01 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctnbr02(string $GltbDistAcctNbr02) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr02 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctpct02(string $GltbDistAcctPct02) Return the first ChildGlDistCode filtered by the GltbDistAcctPct02 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctnbr03(string $GltbDistAcctNbr03) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr03 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctpct03(string $GltbDistAcctPct03) Return the first ChildGlDistCode filtered by the GltbDistAcctPct03 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctnbr04(string $GltbDistAcctNbr04) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr04 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctpct04(string $GltbDistAcctPct04) Return the first ChildGlDistCode filtered by the GltbDistAcctPct04 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctnbr05(string $GltbDistAcctNbr05) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr05 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctpct05(string $GltbDistAcctPct05) Return the first ChildGlDistCode filtered by the GltbDistAcctPct05 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctnbr06(string $GltbDistAcctNbr06) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr06 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctpct06(string $GltbDistAcctPct06) Return the first ChildGlDistCode filtered by the GltbDistAcctPct06 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctnbr07(string $GltbDistAcctNbr07) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr07 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctpct07(string $GltbDistAcctPct07) Return the first ChildGlDistCode filtered by the GltbDistAcctPct07 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctnbr08(string $GltbDistAcctNbr08) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr08 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctpct08(string $GltbDistAcctPct08) Return the first ChildGlDistCode filtered by the GltbDistAcctPct08 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctnbr09(string $GltbDistAcctNbr09) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr09 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctpct09(string $GltbDistAcctPct09) Return the first ChildGlDistCode filtered by the GltbDistAcctPct09 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctnbr10(string $GltbDistAcctNbr10) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr10 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctpct10(string $GltbDistAcctPct10) Return the first ChildGlDistCode filtered by the GltbDistAcctPct10 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctnbr11(string $GltbDistAcctNbr11) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr11 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctpct11(string $GltbDistAcctPct11) Return the first ChildGlDistCode filtered by the GltbDistAcctPct11 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctnbr12(string $GltbDistAcctNbr12) Return the first ChildGlDistCode filtered by the GltbDistAcctNbr12 column
+ * @method     ChildGlDistCode|null findOneByGltbdistacctpct12(string $GltbDistAcctPct12) Return the first ChildGlDistCode filtered by the GltbDistAcctPct12 column
+ * @method     ChildGlDistCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildGlDistCode filtered by the DateUpdtd column
+ * @method     ChildGlDistCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildGlDistCode filtered by the TimeUpdtd column
+ * @method     ChildGlDistCode|null findOneByDummy(string $dummy) Return the first ChildGlDistCode filtered by the dummy column
+ *
+ * @method     ChildGlDistCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildGlDistCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildGlDistCode requireOne(?ConnectionInterface $con = null) Return the first ChildGlDistCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildGlDistCode requireOneByGltbdistcode(string $GltbDistCode) Return the first ChildGlDistCode filtered by the GltbDistCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildGlDistCode requireOneByGltbdistdesc(string $GltbDistDesc) Return the first ChildGlDistCode filtered by the GltbDistDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -153,38 +151,70 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildGlDistCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildGlDistCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildGlDistCode requireOneByDummy(string $dummy) Return the first ChildGlDistCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildGlDistCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildGlDistCode objects based on current ModelCriteria
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistcode(string $GltbDistCode) Return ChildGlDistCode objects filtered by the GltbDistCode column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistdesc(string $GltbDistDesc) Return ChildGlDistCode objects filtered by the GltbDistDesc column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctnbr01(string $GltbDistAcctNbr01) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr01 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctpct01(string $GltbDistAcctPct01) Return ChildGlDistCode objects filtered by the GltbDistAcctPct01 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctnbr02(string $GltbDistAcctNbr02) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr02 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctpct02(string $GltbDistAcctPct02) Return ChildGlDistCode objects filtered by the GltbDistAcctPct02 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctnbr03(string $GltbDistAcctNbr03) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr03 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctpct03(string $GltbDistAcctPct03) Return ChildGlDistCode objects filtered by the GltbDistAcctPct03 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctnbr04(string $GltbDistAcctNbr04) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr04 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctpct04(string $GltbDistAcctPct04) Return ChildGlDistCode objects filtered by the GltbDistAcctPct04 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctnbr05(string $GltbDistAcctNbr05) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr05 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctpct05(string $GltbDistAcctPct05) Return ChildGlDistCode objects filtered by the GltbDistAcctPct05 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctnbr06(string $GltbDistAcctNbr06) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr06 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctpct06(string $GltbDistAcctPct06) Return ChildGlDistCode objects filtered by the GltbDistAcctPct06 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctnbr07(string $GltbDistAcctNbr07) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr07 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctpct07(string $GltbDistAcctPct07) Return ChildGlDistCode objects filtered by the GltbDistAcctPct07 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctnbr08(string $GltbDistAcctNbr08) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr08 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctpct08(string $GltbDistAcctPct08) Return ChildGlDistCode objects filtered by the GltbDistAcctPct08 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctnbr09(string $GltbDistAcctNbr09) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr09 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctpct09(string $GltbDistAcctPct09) Return ChildGlDistCode objects filtered by the GltbDistAcctPct09 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctnbr10(string $GltbDistAcctNbr10) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr10 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctpct10(string $GltbDistAcctPct10) Return ChildGlDistCode objects filtered by the GltbDistAcctPct10 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctnbr11(string $GltbDistAcctNbr11) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr11 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctpct11(string $GltbDistAcctPct11) Return ChildGlDistCode objects filtered by the GltbDistAcctPct11 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctnbr12(string $GltbDistAcctNbr12) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr12 column
- * @method     ChildGlDistCode[]|ObjectCollection findByGltbdistacctpct12(string $GltbDistAcctPct12) Return ChildGlDistCode objects filtered by the GltbDistAcctPct12 column
- * @method     ChildGlDistCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildGlDistCode objects filtered by the DateUpdtd column
- * @method     ChildGlDistCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildGlDistCode objects filtered by the TimeUpdtd column
- * @method     ChildGlDistCode[]|ObjectCollection findByDummy(string $dummy) Return ChildGlDistCode objects filtered by the dummy column
- * @method     ChildGlDistCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildGlDistCode[]|Collection find(?ConnectionInterface $con = null) Return ChildGlDistCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> find(?ConnectionInterface $con = null) Return ChildGlDistCode objects based on current ModelCriteria
  *
+ * @method     ChildGlDistCode[]|Collection findByGltbdistcode(string|array<string> $GltbDistCode) Return ChildGlDistCode objects filtered by the GltbDistCode column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistcode(string|array<string> $GltbDistCode) Return ChildGlDistCode objects filtered by the GltbDistCode column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistdesc(string|array<string> $GltbDistDesc) Return ChildGlDistCode objects filtered by the GltbDistDesc column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistdesc(string|array<string> $GltbDistDesc) Return ChildGlDistCode objects filtered by the GltbDistDesc column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctnbr01(string|array<string> $GltbDistAcctNbr01) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr01 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctnbr01(string|array<string> $GltbDistAcctNbr01) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr01 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctpct01(string|array<string> $GltbDistAcctPct01) Return ChildGlDistCode objects filtered by the GltbDistAcctPct01 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctpct01(string|array<string> $GltbDistAcctPct01) Return ChildGlDistCode objects filtered by the GltbDistAcctPct01 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctnbr02(string|array<string> $GltbDistAcctNbr02) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr02 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctnbr02(string|array<string> $GltbDistAcctNbr02) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr02 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctpct02(string|array<string> $GltbDistAcctPct02) Return ChildGlDistCode objects filtered by the GltbDistAcctPct02 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctpct02(string|array<string> $GltbDistAcctPct02) Return ChildGlDistCode objects filtered by the GltbDistAcctPct02 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctnbr03(string|array<string> $GltbDistAcctNbr03) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr03 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctnbr03(string|array<string> $GltbDistAcctNbr03) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr03 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctpct03(string|array<string> $GltbDistAcctPct03) Return ChildGlDistCode objects filtered by the GltbDistAcctPct03 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctpct03(string|array<string> $GltbDistAcctPct03) Return ChildGlDistCode objects filtered by the GltbDistAcctPct03 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctnbr04(string|array<string> $GltbDistAcctNbr04) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr04 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctnbr04(string|array<string> $GltbDistAcctNbr04) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr04 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctpct04(string|array<string> $GltbDistAcctPct04) Return ChildGlDistCode objects filtered by the GltbDistAcctPct04 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctpct04(string|array<string> $GltbDistAcctPct04) Return ChildGlDistCode objects filtered by the GltbDistAcctPct04 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctnbr05(string|array<string> $GltbDistAcctNbr05) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr05 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctnbr05(string|array<string> $GltbDistAcctNbr05) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr05 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctpct05(string|array<string> $GltbDistAcctPct05) Return ChildGlDistCode objects filtered by the GltbDistAcctPct05 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctpct05(string|array<string> $GltbDistAcctPct05) Return ChildGlDistCode objects filtered by the GltbDistAcctPct05 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctnbr06(string|array<string> $GltbDistAcctNbr06) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr06 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctnbr06(string|array<string> $GltbDistAcctNbr06) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr06 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctpct06(string|array<string> $GltbDistAcctPct06) Return ChildGlDistCode objects filtered by the GltbDistAcctPct06 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctpct06(string|array<string> $GltbDistAcctPct06) Return ChildGlDistCode objects filtered by the GltbDistAcctPct06 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctnbr07(string|array<string> $GltbDistAcctNbr07) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr07 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctnbr07(string|array<string> $GltbDistAcctNbr07) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr07 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctpct07(string|array<string> $GltbDistAcctPct07) Return ChildGlDistCode objects filtered by the GltbDistAcctPct07 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctpct07(string|array<string> $GltbDistAcctPct07) Return ChildGlDistCode objects filtered by the GltbDistAcctPct07 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctnbr08(string|array<string> $GltbDistAcctNbr08) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr08 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctnbr08(string|array<string> $GltbDistAcctNbr08) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr08 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctpct08(string|array<string> $GltbDistAcctPct08) Return ChildGlDistCode objects filtered by the GltbDistAcctPct08 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctpct08(string|array<string> $GltbDistAcctPct08) Return ChildGlDistCode objects filtered by the GltbDistAcctPct08 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctnbr09(string|array<string> $GltbDistAcctNbr09) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr09 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctnbr09(string|array<string> $GltbDistAcctNbr09) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr09 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctpct09(string|array<string> $GltbDistAcctPct09) Return ChildGlDistCode objects filtered by the GltbDistAcctPct09 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctpct09(string|array<string> $GltbDistAcctPct09) Return ChildGlDistCode objects filtered by the GltbDistAcctPct09 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctnbr10(string|array<string> $GltbDistAcctNbr10) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr10 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctnbr10(string|array<string> $GltbDistAcctNbr10) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr10 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctpct10(string|array<string> $GltbDistAcctPct10) Return ChildGlDistCode objects filtered by the GltbDistAcctPct10 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctpct10(string|array<string> $GltbDistAcctPct10) Return ChildGlDistCode objects filtered by the GltbDistAcctPct10 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctnbr11(string|array<string> $GltbDistAcctNbr11) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr11 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctnbr11(string|array<string> $GltbDistAcctNbr11) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr11 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctpct11(string|array<string> $GltbDistAcctPct11) Return ChildGlDistCode objects filtered by the GltbDistAcctPct11 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctpct11(string|array<string> $GltbDistAcctPct11) Return ChildGlDistCode objects filtered by the GltbDistAcctPct11 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctnbr12(string|array<string> $GltbDistAcctNbr12) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr12 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctnbr12(string|array<string> $GltbDistAcctNbr12) Return ChildGlDistCode objects filtered by the GltbDistAcctNbr12 column
+ * @method     ChildGlDistCode[]|Collection findByGltbdistacctpct12(string|array<string> $GltbDistAcctPct12) Return ChildGlDistCode objects filtered by the GltbDistAcctPct12 column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByGltbdistacctpct12(string|array<string> $GltbDistAcctPct12) Return ChildGlDistCode objects filtered by the GltbDistAcctPct12 column
+ * @method     ChildGlDistCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildGlDistCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildGlDistCode objects filtered by the DateUpdtd column
+ * @method     ChildGlDistCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildGlDistCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildGlDistCode objects filtered by the TimeUpdtd column
+ * @method     ChildGlDistCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildGlDistCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildGlDistCode> findByDummy(string|array<string> $dummy) Return ChildGlDistCode objects filtered by the dummy column
+ *
+ * @method     ChildGlDistCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildGlDistCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class GlDistCodeQuery extends ModelCriteria
 {
@@ -193,9 +223,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\GlDistCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\GlDistCode', $modelAlias = null)
     {
@@ -205,12 +235,12 @@ abstract class GlDistCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildGlDistCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildGlDistCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildGlDistCodeQuery) {
             return $criteria;
@@ -240,7 +270,7 @@ abstract class GlDistCodeQuery extends ModelCriteria
      *
      * @return ChildGlDistCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -272,8 +302,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -305,8 +335,8 @@ abstract class GlDistCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildGlDistCode|array|mixed the result, formatted by the current formatter
      */
@@ -326,12 +356,12 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -348,27 +378,31 @@ abstract class GlDistCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -378,14 +412,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbdistcode('fooValue');   // WHERE GltbDistCode = 'fooValue'
      * $query->filterByGltbdistcode('%fooValue%', Criteria::LIKE); // WHERE GltbDistCode LIKE '%fooValue%'
+     * $query->filterByGltbdistcode(['foo', 'bar']); // WHERE GltbDistCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbdistcode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbdistcode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistcode($gltbdistcode = null, $comparison = null)
+    public function filterByGltbdistcode($gltbdistcode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbdistcode)) {
@@ -393,7 +428,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTCODE, $gltbdistcode, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTCODE, $gltbdistcode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -403,14 +440,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbdistdesc('fooValue');   // WHERE GltbDistDesc = 'fooValue'
      * $query->filterByGltbdistdesc('%fooValue%', Criteria::LIKE); // WHERE GltbDistDesc LIKE '%fooValue%'
+     * $query->filterByGltbdistdesc(['foo', 'bar']); // WHERE GltbDistDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbdistdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbdistdesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistdesc($gltbdistdesc = null, $comparison = null)
+    public function filterByGltbdistdesc($gltbdistdesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbdistdesc)) {
@@ -418,7 +456,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTDESC, $gltbdistdesc, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTDESC, $gltbdistdesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -428,14 +468,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbdistacctnbr01('fooValue');   // WHERE GltbDistAcctNbr01 = 'fooValue'
      * $query->filterByGltbdistacctnbr01('%fooValue%', Criteria::LIKE); // WHERE GltbDistAcctNbr01 LIKE '%fooValue%'
+     * $query->filterByGltbdistacctnbr01(['foo', 'bar']); // WHERE GltbDistAcctNbr01 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbdistacctnbr01 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbdistacctnbr01 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctnbr01($gltbdistacctnbr01 = null, $comparison = null)
+    public function filterByGltbdistacctnbr01($gltbdistacctnbr01 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbdistacctnbr01)) {
@@ -443,7 +484,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR01, $gltbdistacctnbr01, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR01, $gltbdistacctnbr01, $comparison);
+
+        return $this;
     }
 
     /**
@@ -456,15 +499,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * $query->filterByGltbdistacctpct01(array('min' => 12)); // WHERE GltbDistAcctPct01 > 12
      * </code>
      *
-     * @param     mixed $gltbdistacctpct01 The value to use as filter.
+     * @param mixed $gltbdistacctpct01 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctpct01($gltbdistacctpct01 = null, $comparison = null)
+    public function filterByGltbdistacctpct01($gltbdistacctpct01 = null, ?string $comparison = null)
     {
         if (is_array($gltbdistacctpct01)) {
             $useMinMax = false;
@@ -484,7 +527,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT01, $gltbdistacctpct01, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT01, $gltbdistacctpct01, $comparison);
+
+        return $this;
     }
 
     /**
@@ -494,14 +539,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbdistacctnbr02('fooValue');   // WHERE GltbDistAcctNbr02 = 'fooValue'
      * $query->filterByGltbdistacctnbr02('%fooValue%', Criteria::LIKE); // WHERE GltbDistAcctNbr02 LIKE '%fooValue%'
+     * $query->filterByGltbdistacctnbr02(['foo', 'bar']); // WHERE GltbDistAcctNbr02 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbdistacctnbr02 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbdistacctnbr02 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctnbr02($gltbdistacctnbr02 = null, $comparison = null)
+    public function filterByGltbdistacctnbr02($gltbdistacctnbr02 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbdistacctnbr02)) {
@@ -509,7 +555,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR02, $gltbdistacctnbr02, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR02, $gltbdistacctnbr02, $comparison);
+
+        return $this;
     }
 
     /**
@@ -522,15 +570,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * $query->filterByGltbdistacctpct02(array('min' => 12)); // WHERE GltbDistAcctPct02 > 12
      * </code>
      *
-     * @param     mixed $gltbdistacctpct02 The value to use as filter.
+     * @param mixed $gltbdistacctpct02 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctpct02($gltbdistacctpct02 = null, $comparison = null)
+    public function filterByGltbdistacctpct02($gltbdistacctpct02 = null, ?string $comparison = null)
     {
         if (is_array($gltbdistacctpct02)) {
             $useMinMax = false;
@@ -550,7 +598,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT02, $gltbdistacctpct02, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT02, $gltbdistacctpct02, $comparison);
+
+        return $this;
     }
 
     /**
@@ -560,14 +610,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbdistacctnbr03('fooValue');   // WHERE GltbDistAcctNbr03 = 'fooValue'
      * $query->filterByGltbdistacctnbr03('%fooValue%', Criteria::LIKE); // WHERE GltbDistAcctNbr03 LIKE '%fooValue%'
+     * $query->filterByGltbdistacctnbr03(['foo', 'bar']); // WHERE GltbDistAcctNbr03 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbdistacctnbr03 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbdistacctnbr03 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctnbr03($gltbdistacctnbr03 = null, $comparison = null)
+    public function filterByGltbdistacctnbr03($gltbdistacctnbr03 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbdistacctnbr03)) {
@@ -575,7 +626,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR03, $gltbdistacctnbr03, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR03, $gltbdistacctnbr03, $comparison);
+
+        return $this;
     }
 
     /**
@@ -588,15 +641,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * $query->filterByGltbdistacctpct03(array('min' => 12)); // WHERE GltbDistAcctPct03 > 12
      * </code>
      *
-     * @param     mixed $gltbdistacctpct03 The value to use as filter.
+     * @param mixed $gltbdistacctpct03 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctpct03($gltbdistacctpct03 = null, $comparison = null)
+    public function filterByGltbdistacctpct03($gltbdistacctpct03 = null, ?string $comparison = null)
     {
         if (is_array($gltbdistacctpct03)) {
             $useMinMax = false;
@@ -616,7 +669,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT03, $gltbdistacctpct03, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT03, $gltbdistacctpct03, $comparison);
+
+        return $this;
     }
 
     /**
@@ -626,14 +681,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbdistacctnbr04('fooValue');   // WHERE GltbDistAcctNbr04 = 'fooValue'
      * $query->filterByGltbdistacctnbr04('%fooValue%', Criteria::LIKE); // WHERE GltbDistAcctNbr04 LIKE '%fooValue%'
+     * $query->filterByGltbdistacctnbr04(['foo', 'bar']); // WHERE GltbDistAcctNbr04 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbdistacctnbr04 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbdistacctnbr04 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctnbr04($gltbdistacctnbr04 = null, $comparison = null)
+    public function filterByGltbdistacctnbr04($gltbdistacctnbr04 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbdistacctnbr04)) {
@@ -641,7 +697,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR04, $gltbdistacctnbr04, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR04, $gltbdistacctnbr04, $comparison);
+
+        return $this;
     }
 
     /**
@@ -654,15 +712,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * $query->filterByGltbdistacctpct04(array('min' => 12)); // WHERE GltbDistAcctPct04 > 12
      * </code>
      *
-     * @param     mixed $gltbdistacctpct04 The value to use as filter.
+     * @param mixed $gltbdistacctpct04 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctpct04($gltbdistacctpct04 = null, $comparison = null)
+    public function filterByGltbdistacctpct04($gltbdistacctpct04 = null, ?string $comparison = null)
     {
         if (is_array($gltbdistacctpct04)) {
             $useMinMax = false;
@@ -682,7 +740,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT04, $gltbdistacctpct04, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT04, $gltbdistacctpct04, $comparison);
+
+        return $this;
     }
 
     /**
@@ -692,14 +752,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbdistacctnbr05('fooValue');   // WHERE GltbDistAcctNbr05 = 'fooValue'
      * $query->filterByGltbdistacctnbr05('%fooValue%', Criteria::LIKE); // WHERE GltbDistAcctNbr05 LIKE '%fooValue%'
+     * $query->filterByGltbdistacctnbr05(['foo', 'bar']); // WHERE GltbDistAcctNbr05 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbdistacctnbr05 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbdistacctnbr05 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctnbr05($gltbdistacctnbr05 = null, $comparison = null)
+    public function filterByGltbdistacctnbr05($gltbdistacctnbr05 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbdistacctnbr05)) {
@@ -707,7 +768,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR05, $gltbdistacctnbr05, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR05, $gltbdistacctnbr05, $comparison);
+
+        return $this;
     }
 
     /**
@@ -720,15 +783,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * $query->filterByGltbdistacctpct05(array('min' => 12)); // WHERE GltbDistAcctPct05 > 12
      * </code>
      *
-     * @param     mixed $gltbdistacctpct05 The value to use as filter.
+     * @param mixed $gltbdistacctpct05 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctpct05($gltbdistacctpct05 = null, $comparison = null)
+    public function filterByGltbdistacctpct05($gltbdistacctpct05 = null, ?string $comparison = null)
     {
         if (is_array($gltbdistacctpct05)) {
             $useMinMax = false;
@@ -748,7 +811,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT05, $gltbdistacctpct05, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT05, $gltbdistacctpct05, $comparison);
+
+        return $this;
     }
 
     /**
@@ -758,14 +823,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbdistacctnbr06('fooValue');   // WHERE GltbDistAcctNbr06 = 'fooValue'
      * $query->filterByGltbdistacctnbr06('%fooValue%', Criteria::LIKE); // WHERE GltbDistAcctNbr06 LIKE '%fooValue%'
+     * $query->filterByGltbdistacctnbr06(['foo', 'bar']); // WHERE GltbDistAcctNbr06 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbdistacctnbr06 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbdistacctnbr06 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctnbr06($gltbdistacctnbr06 = null, $comparison = null)
+    public function filterByGltbdistacctnbr06($gltbdistacctnbr06 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbdistacctnbr06)) {
@@ -773,7 +839,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR06, $gltbdistacctnbr06, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR06, $gltbdistacctnbr06, $comparison);
+
+        return $this;
     }
 
     /**
@@ -786,15 +854,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * $query->filterByGltbdistacctpct06(array('min' => 12)); // WHERE GltbDistAcctPct06 > 12
      * </code>
      *
-     * @param     mixed $gltbdistacctpct06 The value to use as filter.
+     * @param mixed $gltbdistacctpct06 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctpct06($gltbdistacctpct06 = null, $comparison = null)
+    public function filterByGltbdistacctpct06($gltbdistacctpct06 = null, ?string $comparison = null)
     {
         if (is_array($gltbdistacctpct06)) {
             $useMinMax = false;
@@ -814,7 +882,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT06, $gltbdistacctpct06, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT06, $gltbdistacctpct06, $comparison);
+
+        return $this;
     }
 
     /**
@@ -824,14 +894,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbdistacctnbr07('fooValue');   // WHERE GltbDistAcctNbr07 = 'fooValue'
      * $query->filterByGltbdistacctnbr07('%fooValue%', Criteria::LIKE); // WHERE GltbDistAcctNbr07 LIKE '%fooValue%'
+     * $query->filterByGltbdistacctnbr07(['foo', 'bar']); // WHERE GltbDistAcctNbr07 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbdistacctnbr07 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbdistacctnbr07 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctnbr07($gltbdistacctnbr07 = null, $comparison = null)
+    public function filterByGltbdistacctnbr07($gltbdistacctnbr07 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbdistacctnbr07)) {
@@ -839,7 +910,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR07, $gltbdistacctnbr07, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR07, $gltbdistacctnbr07, $comparison);
+
+        return $this;
     }
 
     /**
@@ -852,15 +925,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * $query->filterByGltbdistacctpct07(array('min' => 12)); // WHERE GltbDistAcctPct07 > 12
      * </code>
      *
-     * @param     mixed $gltbdistacctpct07 The value to use as filter.
+     * @param mixed $gltbdistacctpct07 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctpct07($gltbdistacctpct07 = null, $comparison = null)
+    public function filterByGltbdistacctpct07($gltbdistacctpct07 = null, ?string $comparison = null)
     {
         if (is_array($gltbdistacctpct07)) {
             $useMinMax = false;
@@ -880,7 +953,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT07, $gltbdistacctpct07, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT07, $gltbdistacctpct07, $comparison);
+
+        return $this;
     }
 
     /**
@@ -890,14 +965,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbdistacctnbr08('fooValue');   // WHERE GltbDistAcctNbr08 = 'fooValue'
      * $query->filterByGltbdistacctnbr08('%fooValue%', Criteria::LIKE); // WHERE GltbDistAcctNbr08 LIKE '%fooValue%'
+     * $query->filterByGltbdistacctnbr08(['foo', 'bar']); // WHERE GltbDistAcctNbr08 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbdistacctnbr08 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbdistacctnbr08 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctnbr08($gltbdistacctnbr08 = null, $comparison = null)
+    public function filterByGltbdistacctnbr08($gltbdistacctnbr08 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbdistacctnbr08)) {
@@ -905,7 +981,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR08, $gltbdistacctnbr08, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR08, $gltbdistacctnbr08, $comparison);
+
+        return $this;
     }
 
     /**
@@ -918,15 +996,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * $query->filterByGltbdistacctpct08(array('min' => 12)); // WHERE GltbDistAcctPct08 > 12
      * </code>
      *
-     * @param     mixed $gltbdistacctpct08 The value to use as filter.
+     * @param mixed $gltbdistacctpct08 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctpct08($gltbdistacctpct08 = null, $comparison = null)
+    public function filterByGltbdistacctpct08($gltbdistacctpct08 = null, ?string $comparison = null)
     {
         if (is_array($gltbdistacctpct08)) {
             $useMinMax = false;
@@ -946,7 +1024,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT08, $gltbdistacctpct08, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT08, $gltbdistacctpct08, $comparison);
+
+        return $this;
     }
 
     /**
@@ -956,14 +1036,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbdistacctnbr09('fooValue');   // WHERE GltbDistAcctNbr09 = 'fooValue'
      * $query->filterByGltbdistacctnbr09('%fooValue%', Criteria::LIKE); // WHERE GltbDistAcctNbr09 LIKE '%fooValue%'
+     * $query->filterByGltbdistacctnbr09(['foo', 'bar']); // WHERE GltbDistAcctNbr09 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbdistacctnbr09 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbdistacctnbr09 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctnbr09($gltbdistacctnbr09 = null, $comparison = null)
+    public function filterByGltbdistacctnbr09($gltbdistacctnbr09 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbdistacctnbr09)) {
@@ -971,7 +1052,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR09, $gltbdistacctnbr09, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR09, $gltbdistacctnbr09, $comparison);
+
+        return $this;
     }
 
     /**
@@ -984,15 +1067,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * $query->filterByGltbdistacctpct09(array('min' => 12)); // WHERE GltbDistAcctPct09 > 12
      * </code>
      *
-     * @param     mixed $gltbdistacctpct09 The value to use as filter.
+     * @param mixed $gltbdistacctpct09 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctpct09($gltbdistacctpct09 = null, $comparison = null)
+    public function filterByGltbdistacctpct09($gltbdistacctpct09 = null, ?string $comparison = null)
     {
         if (is_array($gltbdistacctpct09)) {
             $useMinMax = false;
@@ -1012,7 +1095,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT09, $gltbdistacctpct09, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT09, $gltbdistacctpct09, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1022,14 +1107,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbdistacctnbr10('fooValue');   // WHERE GltbDistAcctNbr10 = 'fooValue'
      * $query->filterByGltbdistacctnbr10('%fooValue%', Criteria::LIKE); // WHERE GltbDistAcctNbr10 LIKE '%fooValue%'
+     * $query->filterByGltbdistacctnbr10(['foo', 'bar']); // WHERE GltbDistAcctNbr10 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbdistacctnbr10 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbdistacctnbr10 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctnbr10($gltbdistacctnbr10 = null, $comparison = null)
+    public function filterByGltbdistacctnbr10($gltbdistacctnbr10 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbdistacctnbr10)) {
@@ -1037,7 +1123,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR10, $gltbdistacctnbr10, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR10, $gltbdistacctnbr10, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1050,15 +1138,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * $query->filterByGltbdistacctpct10(array('min' => 12)); // WHERE GltbDistAcctPct10 > 12
      * </code>
      *
-     * @param     mixed $gltbdistacctpct10 The value to use as filter.
+     * @param mixed $gltbdistacctpct10 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctpct10($gltbdistacctpct10 = null, $comparison = null)
+    public function filterByGltbdistacctpct10($gltbdistacctpct10 = null, ?string $comparison = null)
     {
         if (is_array($gltbdistacctpct10)) {
             $useMinMax = false;
@@ -1078,7 +1166,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT10, $gltbdistacctpct10, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT10, $gltbdistacctpct10, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1088,14 +1178,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbdistacctnbr11('fooValue');   // WHERE GltbDistAcctNbr11 = 'fooValue'
      * $query->filterByGltbdistacctnbr11('%fooValue%', Criteria::LIKE); // WHERE GltbDistAcctNbr11 LIKE '%fooValue%'
+     * $query->filterByGltbdistacctnbr11(['foo', 'bar']); // WHERE GltbDistAcctNbr11 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbdistacctnbr11 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbdistacctnbr11 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctnbr11($gltbdistacctnbr11 = null, $comparison = null)
+    public function filterByGltbdistacctnbr11($gltbdistacctnbr11 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbdistacctnbr11)) {
@@ -1103,7 +1194,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR11, $gltbdistacctnbr11, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR11, $gltbdistacctnbr11, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1116,15 +1209,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * $query->filterByGltbdistacctpct11(array('min' => 12)); // WHERE GltbDistAcctPct11 > 12
      * </code>
      *
-     * @param     mixed $gltbdistacctpct11 The value to use as filter.
+     * @param mixed $gltbdistacctpct11 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctpct11($gltbdistacctpct11 = null, $comparison = null)
+    public function filterByGltbdistacctpct11($gltbdistacctpct11 = null, ?string $comparison = null)
     {
         if (is_array($gltbdistacctpct11)) {
             $useMinMax = false;
@@ -1144,7 +1237,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT11, $gltbdistacctpct11, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT11, $gltbdistacctpct11, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1154,14 +1249,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByGltbdistacctnbr12('fooValue');   // WHERE GltbDistAcctNbr12 = 'fooValue'
      * $query->filterByGltbdistacctnbr12('%fooValue%', Criteria::LIKE); // WHERE GltbDistAcctNbr12 LIKE '%fooValue%'
+     * $query->filterByGltbdistacctnbr12(['foo', 'bar']); // WHERE GltbDistAcctNbr12 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $gltbdistacctnbr12 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $gltbdistacctnbr12 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctnbr12($gltbdistacctnbr12 = null, $comparison = null)
+    public function filterByGltbdistacctnbr12($gltbdistacctnbr12 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($gltbdistacctnbr12)) {
@@ -1169,7 +1265,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR12, $gltbdistacctnbr12, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTNBR12, $gltbdistacctnbr12, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1182,15 +1280,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * $query->filterByGltbdistacctpct12(array('min' => 12)); // WHERE GltbDistAcctPct12 > 12
      * </code>
      *
-     * @param     mixed $gltbdistacctpct12 The value to use as filter.
+     * @param mixed $gltbdistacctpct12 The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByGltbdistacctpct12($gltbdistacctpct12 = null, $comparison = null)
+    public function filterByGltbdistacctpct12($gltbdistacctpct12 = null, ?string $comparison = null)
     {
         if (is_array($gltbdistacctpct12)) {
             $useMinMax = false;
@@ -1210,7 +1308,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT12, $gltbdistacctpct12, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_GLTBDISTACCTPCT12, $gltbdistacctpct12, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1220,14 +1320,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1235,7 +1336,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1245,14 +1348,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1260,7 +1364,9 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1270,14 +1376,15 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1285,15 +1392,17 @@ abstract class GlDistCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(GlDistCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(GlDistCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildGlDistCode $glDistCode Object to remove from the list of results
+     * @param ChildGlDistCode $glDistCode Object to remove from the list of results
      *
-     * @return $this|ChildGlDistCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($glDistCode = null)
     {
@@ -1310,7 +1419,7 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(GlDistCodeTableMap::DATABASE_NAME);
@@ -1335,12 +1444,12 @@ abstract class GlDistCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(GlDistCodeTableMap::DATABASE_NAME);
@@ -1365,4 +1474,4 @@ abstract class GlDistCodeQuery extends ModelCriteria
         });
     }
 
-} // GlDistCodeQuery
+}

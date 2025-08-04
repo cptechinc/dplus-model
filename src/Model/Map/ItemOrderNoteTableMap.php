@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ItemOrderNoteTableMap extends TableMap
 {
@@ -34,174 +33,334 @@ class ItemOrderNoteTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ItemOrderNoteTableMap';
+    public const CLASS_NAME = '.Map.ItemOrderNoteTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'notes_item_order';
+    public const TABLE_NAME = 'notes_item_order';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ItemOrderNote';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ItemOrderNote';
+    public const OM_CLASS = '\\ItemOrderNote';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ItemOrderNote';
+    public const CLASS_DEFAULT = 'ItemOrderNote';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 18;
+    public const NUM_COLUMNS = 18;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 18;
+    public const NUM_HYDRATE_COLUMNS = 18;
 
     /**
      * the column name for the QnType field
      */
-    const COL_QNTYPE = 'notes_item_order.QnType';
+    public const COL_QNTYPE = 'notes_item_order.QnType';
 
     /**
      * the column name for the QnTypeDesc field
      */
-    const COL_QNTYPEDESC = 'notes_item_order.QnTypeDesc';
+    public const COL_QNTYPEDESC = 'notes_item_order.QnTypeDesc';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'notes_item_order.InitItemNbr';
+    public const COL_INITITEMNBR = 'notes_item_order.InitItemNbr';
 
     /**
      * the column name for the QnOrdrPickTicket field
      */
-    const COL_QNORDRPICKTICKET = 'notes_item_order.QnOrdrPickTicket';
+    public const COL_QNORDRPICKTICKET = 'notes_item_order.QnOrdrPickTicket';
 
     /**
      * the column name for the QnOrdrPackTicket field
      */
-    const COL_QNORDRPACKTICKET = 'notes_item_order.QnOrdrPackTicket';
+    public const COL_QNORDRPACKTICKET = 'notes_item_order.QnOrdrPackTicket';
 
     /**
      * the column name for the QnOrdrInvoice field
      */
-    const COL_QNORDRINVOICE = 'notes_item_order.QnOrdrInvoice';
+    public const COL_QNORDRINVOICE = 'notes_item_order.QnOrdrInvoice';
 
     /**
      * the column name for the QnOrdrAcknow field
      */
-    const COL_QNORDRACKNOW = 'notes_item_order.QnOrdrAcknow';
+    public const COL_QNORDRACKNOW = 'notes_item_order.QnOrdrAcknow';
 
     /**
      * the column name for the QnOrdrQuote field
      */
-    const COL_QNORDRQUOTE = 'notes_item_order.QnOrdrQuote';
+    public const COL_QNORDRQUOTE = 'notes_item_order.QnOrdrQuote';
 
     /**
      * the column name for the QnOrdrPurchOrdr field
      */
-    const COL_QNORDRPURCHORDR = 'notes_item_order.QnOrdrPurchOrdr';
+    public const COL_QNORDRPURCHORDR = 'notes_item_order.QnOrdrPurchOrdr';
 
     /**
      * the column name for the QnOrdrTransfer field
      */
-    const COL_QNORDRTRANSFER = 'notes_item_order.QnOrdrTransfer';
+    public const COL_QNORDRTRANSFER = 'notes_item_order.QnOrdrTransfer';
 
     /**
      * the column name for the QnOrdrFabPo field
      */
-    const COL_QNORDRFABPO = 'notes_item_order.QnOrdrFabPo';
+    public const COL_QNORDRFABPO = 'notes_item_order.QnOrdrFabPo';
 
     /**
      * the column name for the QnSeq field
      */
-    const COL_QNSEQ = 'notes_item_order.QnSeq';
+    public const COL_QNSEQ = 'notes_item_order.QnSeq';
 
     /**
      * the column name for the QnNote field
      */
-    const COL_QNNOTE = 'notes_item_order.QnNote';
+    public const COL_QNNOTE = 'notes_item_order.QnNote';
 
     /**
      * the column name for the QnKey2 field
      */
-    const COL_QNKEY2 = 'notes_item_order.QnKey2';
+    public const COL_QNKEY2 = 'notes_item_order.QnKey2';
 
     /**
      * the column name for the QnForm field
      */
-    const COL_QNFORM = 'notes_item_order.QnForm';
+    public const COL_QNFORM = 'notes_item_order.QnForm';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'notes_item_order.DateUpdtd';
+    public const COL_DATEUPDTD = 'notes_item_order.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'notes_item_order.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'notes_item_order.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'notes_item_order.dummy';
+    public const COL_DUMMY = 'notes_item_order.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Qntype', 'Qntypedesc', 'Inititemnbr', 'Qnordrpickticket', 'Qnordrpackticket', 'Qnordrinvoice', 'Qnordracknow', 'Qnordrquote', 'Qnordrpurchordr', 'Qnordrtransfer', 'Qnordrfabpo', 'Qnseq', 'Qnnote', 'Qnkey2', 'Qnform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('qntype', 'qntypedesc', 'inititemnbr', 'qnordrpickticket', 'qnordrpackticket', 'qnordrinvoice', 'qnordracknow', 'qnordrquote', 'qnordrpurchordr', 'qnordrtransfer', 'qnordrfabpo', 'qnseq', 'qnnote', 'qnkey2', 'qnform', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemOrderNoteTableMap::COL_QNTYPE, ItemOrderNoteTableMap::COL_QNTYPEDESC, ItemOrderNoteTableMap::COL_INITITEMNBR, ItemOrderNoteTableMap::COL_QNORDRPICKTICKET, ItemOrderNoteTableMap::COL_QNORDRPACKTICKET, ItemOrderNoteTableMap::COL_QNORDRINVOICE, ItemOrderNoteTableMap::COL_QNORDRACKNOW, ItemOrderNoteTableMap::COL_QNORDRQUOTE, ItemOrderNoteTableMap::COL_QNORDRPURCHORDR, ItemOrderNoteTableMap::COL_QNORDRTRANSFER, ItemOrderNoteTableMap::COL_QNORDRFABPO, ItemOrderNoteTableMap::COL_QNSEQ, ItemOrderNoteTableMap::COL_QNNOTE, ItemOrderNoteTableMap::COL_QNKEY2, ItemOrderNoteTableMap::COL_QNFORM, ItemOrderNoteTableMap::COL_DATEUPDTD, ItemOrderNoteTableMap::COL_TIMEUPDTD, ItemOrderNoteTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('QnType', 'QnTypeDesc', 'InitItemNbr', 'QnOrdrPickTicket', 'QnOrdrPackTicket', 'QnOrdrInvoice', 'QnOrdrAcknow', 'QnOrdrQuote', 'QnOrdrPurchOrdr', 'QnOrdrTransfer', 'QnOrdrFabPo', 'QnSeq', 'QnNote', 'QnKey2', 'QnForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Qntype', 'Qntypedesc', 'Inititemnbr', 'Qnordrpickticket', 'Qnordrpackticket', 'Qnordrinvoice', 'Qnordracknow', 'Qnordrquote', 'Qnordrpurchordr', 'Qnordrtransfer', 'Qnordrfabpo', 'Qnseq', 'Qnnote', 'Qnkey2', 'Qnform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['qntype', 'qntypedesc', 'inititemnbr', 'qnordrpickticket', 'qnordrpackticket', 'qnordrinvoice', 'qnordracknow', 'qnordrquote', 'qnordrpurchordr', 'qnordrtransfer', 'qnordrfabpo', 'qnseq', 'qnnote', 'qnkey2', 'qnform', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ItemOrderNoteTableMap::COL_QNTYPE, ItemOrderNoteTableMap::COL_QNTYPEDESC, ItemOrderNoteTableMap::COL_INITITEMNBR, ItemOrderNoteTableMap::COL_QNORDRPICKTICKET, ItemOrderNoteTableMap::COL_QNORDRPACKTICKET, ItemOrderNoteTableMap::COL_QNORDRINVOICE, ItemOrderNoteTableMap::COL_QNORDRACKNOW, ItemOrderNoteTableMap::COL_QNORDRQUOTE, ItemOrderNoteTableMap::COL_QNORDRPURCHORDR, ItemOrderNoteTableMap::COL_QNORDRTRANSFER, ItemOrderNoteTableMap::COL_QNORDRFABPO, ItemOrderNoteTableMap::COL_QNSEQ, ItemOrderNoteTableMap::COL_QNNOTE, ItemOrderNoteTableMap::COL_QNKEY2, ItemOrderNoteTableMap::COL_QNFORM, ItemOrderNoteTableMap::COL_DATEUPDTD, ItemOrderNoteTableMap::COL_TIMEUPDTD, ItemOrderNoteTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['QnType', 'QnTypeDesc', 'InitItemNbr', 'QnOrdrPickTicket', 'QnOrdrPackTicket', 'QnOrdrInvoice', 'QnOrdrAcknow', 'QnOrdrQuote', 'QnOrdrPurchOrdr', 'QnOrdrTransfer', 'QnOrdrFabPo', 'QnSeq', 'QnNote', 'QnKey2', 'QnForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Qntype' => 0, 'Qntypedesc' => 1, 'Inititemnbr' => 2, 'Qnordrpickticket' => 3, 'Qnordrpackticket' => 4, 'Qnordrinvoice' => 5, 'Qnordracknow' => 6, 'Qnordrquote' => 7, 'Qnordrpurchordr' => 8, 'Qnordrtransfer' => 9, 'Qnordrfabpo' => 10, 'Qnseq' => 11, 'Qnnote' => 12, 'Qnkey2' => 13, 'Qnform' => 14, 'Dateupdtd' => 15, 'Timeupdtd' => 16, 'Dummy' => 17, ),
-        self::TYPE_CAMELNAME     => array('qntype' => 0, 'qntypedesc' => 1, 'inititemnbr' => 2, 'qnordrpickticket' => 3, 'qnordrpackticket' => 4, 'qnordrinvoice' => 5, 'qnordracknow' => 6, 'qnordrquote' => 7, 'qnordrpurchordr' => 8, 'qnordrtransfer' => 9, 'qnordrfabpo' => 10, 'qnseq' => 11, 'qnnote' => 12, 'qnkey2' => 13, 'qnform' => 14, 'dateupdtd' => 15, 'timeupdtd' => 16, 'dummy' => 17, ),
-        self::TYPE_COLNAME       => array(ItemOrderNoteTableMap::COL_QNTYPE => 0, ItemOrderNoteTableMap::COL_QNTYPEDESC => 1, ItemOrderNoteTableMap::COL_INITITEMNBR => 2, ItemOrderNoteTableMap::COL_QNORDRPICKTICKET => 3, ItemOrderNoteTableMap::COL_QNORDRPACKTICKET => 4, ItemOrderNoteTableMap::COL_QNORDRINVOICE => 5, ItemOrderNoteTableMap::COL_QNORDRACKNOW => 6, ItemOrderNoteTableMap::COL_QNORDRQUOTE => 7, ItemOrderNoteTableMap::COL_QNORDRPURCHORDR => 8, ItemOrderNoteTableMap::COL_QNORDRTRANSFER => 9, ItemOrderNoteTableMap::COL_QNORDRFABPO => 10, ItemOrderNoteTableMap::COL_QNSEQ => 11, ItemOrderNoteTableMap::COL_QNNOTE => 12, ItemOrderNoteTableMap::COL_QNKEY2 => 13, ItemOrderNoteTableMap::COL_QNFORM => 14, ItemOrderNoteTableMap::COL_DATEUPDTD => 15, ItemOrderNoteTableMap::COL_TIMEUPDTD => 16, ItemOrderNoteTableMap::COL_DUMMY => 17, ),
-        self::TYPE_FIELDNAME     => array('QnType' => 0, 'QnTypeDesc' => 1, 'InitItemNbr' => 2, 'QnOrdrPickTicket' => 3, 'QnOrdrPackTicket' => 4, 'QnOrdrInvoice' => 5, 'QnOrdrAcknow' => 6, 'QnOrdrQuote' => 7, 'QnOrdrPurchOrdr' => 8, 'QnOrdrTransfer' => 9, 'QnOrdrFabPo' => 10, 'QnSeq' => 11, 'QnNote' => 12, 'QnKey2' => 13, 'QnForm' => 14, 'DateUpdtd' => 15, 'TimeUpdtd' => 16, 'dummy' => 17, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Qntype' => 0, 'Qntypedesc' => 1, 'Inititemnbr' => 2, 'Qnordrpickticket' => 3, 'Qnordrpackticket' => 4, 'Qnordrinvoice' => 5, 'Qnordracknow' => 6, 'Qnordrquote' => 7, 'Qnordrpurchordr' => 8, 'Qnordrtransfer' => 9, 'Qnordrfabpo' => 10, 'Qnseq' => 11, 'Qnnote' => 12, 'Qnkey2' => 13, 'Qnform' => 14, 'Dateupdtd' => 15, 'Timeupdtd' => 16, 'Dummy' => 17, ],
+        self::TYPE_CAMELNAME     => ['qntype' => 0, 'qntypedesc' => 1, 'inititemnbr' => 2, 'qnordrpickticket' => 3, 'qnordrpackticket' => 4, 'qnordrinvoice' => 5, 'qnordracknow' => 6, 'qnordrquote' => 7, 'qnordrpurchordr' => 8, 'qnordrtransfer' => 9, 'qnordrfabpo' => 10, 'qnseq' => 11, 'qnnote' => 12, 'qnkey2' => 13, 'qnform' => 14, 'dateupdtd' => 15, 'timeupdtd' => 16, 'dummy' => 17, ],
+        self::TYPE_COLNAME       => [ItemOrderNoteTableMap::COL_QNTYPE => 0, ItemOrderNoteTableMap::COL_QNTYPEDESC => 1, ItemOrderNoteTableMap::COL_INITITEMNBR => 2, ItemOrderNoteTableMap::COL_QNORDRPICKTICKET => 3, ItemOrderNoteTableMap::COL_QNORDRPACKTICKET => 4, ItemOrderNoteTableMap::COL_QNORDRINVOICE => 5, ItemOrderNoteTableMap::COL_QNORDRACKNOW => 6, ItemOrderNoteTableMap::COL_QNORDRQUOTE => 7, ItemOrderNoteTableMap::COL_QNORDRPURCHORDR => 8, ItemOrderNoteTableMap::COL_QNORDRTRANSFER => 9, ItemOrderNoteTableMap::COL_QNORDRFABPO => 10, ItemOrderNoteTableMap::COL_QNSEQ => 11, ItemOrderNoteTableMap::COL_QNNOTE => 12, ItemOrderNoteTableMap::COL_QNKEY2 => 13, ItemOrderNoteTableMap::COL_QNFORM => 14, ItemOrderNoteTableMap::COL_DATEUPDTD => 15, ItemOrderNoteTableMap::COL_TIMEUPDTD => 16, ItemOrderNoteTableMap::COL_DUMMY => 17, ],
+        self::TYPE_FIELDNAME     => ['QnType' => 0, 'QnTypeDesc' => 1, 'InitItemNbr' => 2, 'QnOrdrPickTicket' => 3, 'QnOrdrPackTicket' => 4, 'QnOrdrInvoice' => 5, 'QnOrdrAcknow' => 6, 'QnOrdrQuote' => 7, 'QnOrdrPurchOrdr' => 8, 'QnOrdrTransfer' => 9, 'QnOrdrFabPo' => 10, 'QnSeq' => 11, 'QnNote' => 12, 'QnKey2' => 13, 'QnForm' => 14, 'DateUpdtd' => 15, 'TimeUpdtd' => 16, 'dummy' => 17, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Qntype' => 'QNTYPE',
+        'ItemOrderNote.Qntype' => 'QNTYPE',
+        'qntype' => 'QNTYPE',
+        'itemOrderNote.qntype' => 'QNTYPE',
+        'ItemOrderNoteTableMap::COL_QNTYPE' => 'QNTYPE',
+        'COL_QNTYPE' => 'QNTYPE',
+        'QnType' => 'QNTYPE',
+        'notes_item_order.QnType' => 'QNTYPE',
+        'Qntypedesc' => 'QNTYPEDESC',
+        'ItemOrderNote.Qntypedesc' => 'QNTYPEDESC',
+        'qntypedesc' => 'QNTYPEDESC',
+        'itemOrderNote.qntypedesc' => 'QNTYPEDESC',
+        'ItemOrderNoteTableMap::COL_QNTYPEDESC' => 'QNTYPEDESC',
+        'COL_QNTYPEDESC' => 'QNTYPEDESC',
+        'QnTypeDesc' => 'QNTYPEDESC',
+        'notes_item_order.QnTypeDesc' => 'QNTYPEDESC',
+        'Inititemnbr' => 'INITITEMNBR',
+        'ItemOrderNote.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'itemOrderNote.inititemnbr' => 'INITITEMNBR',
+        'ItemOrderNoteTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'notes_item_order.InitItemNbr' => 'INITITEMNBR',
+        'Qnordrpickticket' => 'QNORDRPICKTICKET',
+        'ItemOrderNote.Qnordrpickticket' => 'QNORDRPICKTICKET',
+        'qnordrpickticket' => 'QNORDRPICKTICKET',
+        'itemOrderNote.qnordrpickticket' => 'QNORDRPICKTICKET',
+        'ItemOrderNoteTableMap::COL_QNORDRPICKTICKET' => 'QNORDRPICKTICKET',
+        'COL_QNORDRPICKTICKET' => 'QNORDRPICKTICKET',
+        'QnOrdrPickTicket' => 'QNORDRPICKTICKET',
+        'notes_item_order.QnOrdrPickTicket' => 'QNORDRPICKTICKET',
+        'Qnordrpackticket' => 'QNORDRPACKTICKET',
+        'ItemOrderNote.Qnordrpackticket' => 'QNORDRPACKTICKET',
+        'qnordrpackticket' => 'QNORDRPACKTICKET',
+        'itemOrderNote.qnordrpackticket' => 'QNORDRPACKTICKET',
+        'ItemOrderNoteTableMap::COL_QNORDRPACKTICKET' => 'QNORDRPACKTICKET',
+        'COL_QNORDRPACKTICKET' => 'QNORDRPACKTICKET',
+        'QnOrdrPackTicket' => 'QNORDRPACKTICKET',
+        'notes_item_order.QnOrdrPackTicket' => 'QNORDRPACKTICKET',
+        'Qnordrinvoice' => 'QNORDRINVOICE',
+        'ItemOrderNote.Qnordrinvoice' => 'QNORDRINVOICE',
+        'qnordrinvoice' => 'QNORDRINVOICE',
+        'itemOrderNote.qnordrinvoice' => 'QNORDRINVOICE',
+        'ItemOrderNoteTableMap::COL_QNORDRINVOICE' => 'QNORDRINVOICE',
+        'COL_QNORDRINVOICE' => 'QNORDRINVOICE',
+        'QnOrdrInvoice' => 'QNORDRINVOICE',
+        'notes_item_order.QnOrdrInvoice' => 'QNORDRINVOICE',
+        'Qnordracknow' => 'QNORDRACKNOW',
+        'ItemOrderNote.Qnordracknow' => 'QNORDRACKNOW',
+        'qnordracknow' => 'QNORDRACKNOW',
+        'itemOrderNote.qnordracknow' => 'QNORDRACKNOW',
+        'ItemOrderNoteTableMap::COL_QNORDRACKNOW' => 'QNORDRACKNOW',
+        'COL_QNORDRACKNOW' => 'QNORDRACKNOW',
+        'QnOrdrAcknow' => 'QNORDRACKNOW',
+        'notes_item_order.QnOrdrAcknow' => 'QNORDRACKNOW',
+        'Qnordrquote' => 'QNORDRQUOTE',
+        'ItemOrderNote.Qnordrquote' => 'QNORDRQUOTE',
+        'qnordrquote' => 'QNORDRQUOTE',
+        'itemOrderNote.qnordrquote' => 'QNORDRQUOTE',
+        'ItemOrderNoteTableMap::COL_QNORDRQUOTE' => 'QNORDRQUOTE',
+        'COL_QNORDRQUOTE' => 'QNORDRQUOTE',
+        'QnOrdrQuote' => 'QNORDRQUOTE',
+        'notes_item_order.QnOrdrQuote' => 'QNORDRQUOTE',
+        'Qnordrpurchordr' => 'QNORDRPURCHORDR',
+        'ItemOrderNote.Qnordrpurchordr' => 'QNORDRPURCHORDR',
+        'qnordrpurchordr' => 'QNORDRPURCHORDR',
+        'itemOrderNote.qnordrpurchordr' => 'QNORDRPURCHORDR',
+        'ItemOrderNoteTableMap::COL_QNORDRPURCHORDR' => 'QNORDRPURCHORDR',
+        'COL_QNORDRPURCHORDR' => 'QNORDRPURCHORDR',
+        'QnOrdrPurchOrdr' => 'QNORDRPURCHORDR',
+        'notes_item_order.QnOrdrPurchOrdr' => 'QNORDRPURCHORDR',
+        'Qnordrtransfer' => 'QNORDRTRANSFER',
+        'ItemOrderNote.Qnordrtransfer' => 'QNORDRTRANSFER',
+        'qnordrtransfer' => 'QNORDRTRANSFER',
+        'itemOrderNote.qnordrtransfer' => 'QNORDRTRANSFER',
+        'ItemOrderNoteTableMap::COL_QNORDRTRANSFER' => 'QNORDRTRANSFER',
+        'COL_QNORDRTRANSFER' => 'QNORDRTRANSFER',
+        'QnOrdrTransfer' => 'QNORDRTRANSFER',
+        'notes_item_order.QnOrdrTransfer' => 'QNORDRTRANSFER',
+        'Qnordrfabpo' => 'QNORDRFABPO',
+        'ItemOrderNote.Qnordrfabpo' => 'QNORDRFABPO',
+        'qnordrfabpo' => 'QNORDRFABPO',
+        'itemOrderNote.qnordrfabpo' => 'QNORDRFABPO',
+        'ItemOrderNoteTableMap::COL_QNORDRFABPO' => 'QNORDRFABPO',
+        'COL_QNORDRFABPO' => 'QNORDRFABPO',
+        'QnOrdrFabPo' => 'QNORDRFABPO',
+        'notes_item_order.QnOrdrFabPo' => 'QNORDRFABPO',
+        'Qnseq' => 'QNSEQ',
+        'ItemOrderNote.Qnseq' => 'QNSEQ',
+        'qnseq' => 'QNSEQ',
+        'itemOrderNote.qnseq' => 'QNSEQ',
+        'ItemOrderNoteTableMap::COL_QNSEQ' => 'QNSEQ',
+        'COL_QNSEQ' => 'QNSEQ',
+        'QnSeq' => 'QNSEQ',
+        'notes_item_order.QnSeq' => 'QNSEQ',
+        'Qnnote' => 'QNNOTE',
+        'ItemOrderNote.Qnnote' => 'QNNOTE',
+        'qnnote' => 'QNNOTE',
+        'itemOrderNote.qnnote' => 'QNNOTE',
+        'ItemOrderNoteTableMap::COL_QNNOTE' => 'QNNOTE',
+        'COL_QNNOTE' => 'QNNOTE',
+        'QnNote' => 'QNNOTE',
+        'notes_item_order.QnNote' => 'QNNOTE',
+        'Qnkey2' => 'QNKEY2',
+        'ItemOrderNote.Qnkey2' => 'QNKEY2',
+        'qnkey2' => 'QNKEY2',
+        'itemOrderNote.qnkey2' => 'QNKEY2',
+        'ItemOrderNoteTableMap::COL_QNKEY2' => 'QNKEY2',
+        'COL_QNKEY2' => 'QNKEY2',
+        'QnKey2' => 'QNKEY2',
+        'notes_item_order.QnKey2' => 'QNKEY2',
+        'Qnform' => 'QNFORM',
+        'ItemOrderNote.Qnform' => 'QNFORM',
+        'qnform' => 'QNFORM',
+        'itemOrderNote.qnform' => 'QNFORM',
+        'ItemOrderNoteTableMap::COL_QNFORM' => 'QNFORM',
+        'COL_QNFORM' => 'QNFORM',
+        'QnForm' => 'QNFORM',
+        'notes_item_order.QnForm' => 'QNFORM',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ItemOrderNote.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'itemOrderNote.dateupdtd' => 'DATEUPDTD',
+        'ItemOrderNoteTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'notes_item_order.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ItemOrderNote.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'itemOrderNote.timeupdtd' => 'TIMEUPDTD',
+        'ItemOrderNoteTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'notes_item_order.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ItemOrderNote.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'itemOrderNote.dummy' => 'DUMMY',
+        'ItemOrderNoteTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'notes_item_order.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('notes_item_order');
@@ -229,14 +388,16 @@ class ItemOrderNoteTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -247,9 +408,11 @@ class ItemOrderNoteTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \ItemOrderNote $obj A \ItemOrderNote object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(ItemOrderNote $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -268,8 +431,10 @@ class ItemOrderNoteTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \ItemOrderNote object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \ItemOrderNote) {
@@ -297,14 +462,14 @@ class ItemOrderNoteTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 14 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -319,14 +484,14 @@ class ItemOrderNoteTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -362,10 +527,10 @@ class ItemOrderNoteTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ItemOrderNoteTableMap::CLASS_DEFAULT : ItemOrderNoteTableMap::OM_CLASS;
     }
@@ -373,17 +538,17 @@ class ItemOrderNoteTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ItemOrderNote object, last column rank)
+     * @return array (ItemOrderNote object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ItemOrderNoteTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ItemOrderNoteTableMap::getInstanceFromPool($key))) {
@@ -399,7 +564,7 @@ class ItemOrderNoteTableMap extends TableMap
             ItemOrderNoteTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -407,13 +572,13 @@ class ItemOrderNoteTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -443,12 +608,13 @@ class ItemOrderNoteTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ItemOrderNoteTableMap::COL_QNTYPE);
@@ -492,40 +658,84 @@ class ItemOrderNoteTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_QNTYPE);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_QNTYPEDESC);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_QNORDRPICKTICKET);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_QNORDRPACKTICKET);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_QNORDRINVOICE);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_QNORDRACKNOW);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_QNORDRQUOTE);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_QNORDRPURCHORDR);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_QNORDRTRANSFER);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_QNORDRFABPO);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_QNSEQ);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_QNNOTE);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_QNKEY2);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_QNFORM);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ItemOrderNoteTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.QnType');
+            $criteria->removeSelectColumn($alias . '.QnTypeDesc');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.QnOrdrPickTicket');
+            $criteria->removeSelectColumn($alias . '.QnOrdrPackTicket');
+            $criteria->removeSelectColumn($alias . '.QnOrdrInvoice');
+            $criteria->removeSelectColumn($alias . '.QnOrdrAcknow');
+            $criteria->removeSelectColumn($alias . '.QnOrdrQuote');
+            $criteria->removeSelectColumn($alias . '.QnOrdrPurchOrdr');
+            $criteria->removeSelectColumn($alias . '.QnOrdrTransfer');
+            $criteria->removeSelectColumn($alias . '.QnOrdrFabPo');
+            $criteria->removeSelectColumn($alias . '.QnSeq');
+            $criteria->removeSelectColumn($alias . '.QnNote');
+            $criteria->removeSelectColumn($alias . '.QnKey2');
+            $criteria->removeSelectColumn($alias . '.QnForm');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ItemOrderNoteTableMap::DATABASE_NAME)->getTable(ItemOrderNoteTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ItemOrderNoteTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ItemOrderNoteTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ItemOrderNoteTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ItemOrderNote or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ItemOrderNote object or primary key or array of primary keys
+     * @param mixed $values Criteria or ItemOrderNote object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemOrderNoteTableMap::DATABASE_NAME);
@@ -543,7 +753,7 @@ class ItemOrderNoteTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(ItemOrderNoteTableMap::COL_QNTYPE, $value[0]);
@@ -573,7 +783,7 @@ class ItemOrderNoteTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ItemOrderNoteQuery::create()->doDeleteAll($con);
     }
@@ -581,13 +791,13 @@ class ItemOrderNoteTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ItemOrderNote or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ItemOrderNote object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ItemOrderNote object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemOrderNoteTableMap::DATABASE_NAME);
@@ -610,7 +820,4 @@ class ItemOrderNoteTableMap extends TableMap
         });
     }
 
-} // ItemOrderNoteTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ItemOrderNoteTableMap::buildTableMap();
+}

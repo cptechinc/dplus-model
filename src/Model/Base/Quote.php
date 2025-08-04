@@ -34,19 +34,21 @@ abstract class Quote implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\QuoteTableMap';
+    public const TABLE_MAP = '\\Map\\QuoteTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -55,14 +57,14 @@ abstract class Quote implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the qthdid field.
@@ -75,474 +77,475 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * The value for the qthdstat field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdstat;
 
     /**
      * The value for the arcucustid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arcucustid;
 
     /**
      * The value for the qthdbtname field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdbtname;
 
     /**
      * The value for the qthdbtadr1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdbtadr1;
 
     /**
      * The value for the qthdbtadr2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdbtadr2;
 
     /**
      * The value for the qthdbtadr3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdbtadr3;
 
     /**
      * The value for the qthdbtctry field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdbtctry;
 
     /**
      * The value for the qthdbtcity field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdbtcity;
 
     /**
      * The value for the qthdbtstat field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdbtstat;
 
     /**
      * The value for the qthdbtzipcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdbtzipcode;
 
     /**
      * The value for the arstshipid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arstshipid;
 
     /**
      * The value for the qthdstname field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdstname;
 
     /**
      * The value for the qthdstadr1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdstadr1;
 
     /**
      * The value for the qthdstadr2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdstadr2;
 
     /**
      * The value for the qthdstadr3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdstadr3;
 
     /**
      * The value for the qthdstctry field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdstctry;
 
     /**
      * The value for the qthdstcity field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdstcity;
 
     /**
      * The value for the qthdststat field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdststat;
 
     /**
      * The value for the qthdstzipcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdstzipcode;
 
     /**
      * The value for the qthdcont field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdcont;
 
     /**
      * The value for the qthdteleintl field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdteleintl;
 
     /**
      * The value for the qthdtelenbr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdtelenbr;
 
     /**
      * The value for the qthdteleext field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdteleext;
 
     /**
      * The value for the qthdfaxintl field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdfaxintl;
 
     /**
      * The value for the qthdfaxnbr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdfaxnbr;
 
     /**
      * The value for the qthdquotdate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdquotdate;
 
     /**
      * The value for the qthdrevdate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdrevdate;
 
     /**
      * The value for the qthdexpdate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdexpdate;
 
     /**
      * The value for the artbpriccode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artbpriccode;
 
     /**
      * The value for the artbctaxcode field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artbctaxcode;
 
     /**
      * The value for the artmtermcd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artmtermcd;
 
     /**
      * The value for the artbshipvia field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $artbshipvia;
 
     /**
      * The value for the arspsaleper1 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspsaleper1;
 
     /**
      * The value for the qthdsp1pct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdsp1pct;
 
     /**
      * The value for the arspsaleper2 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspsaleper2;
 
     /**
      * The value for the qthdsp2pct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdsp2pct;
 
     /**
      * The value for the arspsaleper3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $arspsaleper3;
 
     /**
      * The value for the qthdsp3pct field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdsp3pct;
 
     /**
      * The value for the qthdexchctry field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdexchctry;
 
     /**
      * The value for the qthdexchrate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdexchrate;
 
     /**
      * The value for the qthdtaxsub field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdtaxsub;
 
     /**
      * The value for the qthdnontaxsub field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdnontaxsub;
 
     /**
      * The value for the qthdtaxtot field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdtaxtot;
 
     /**
      * The value for the qthdfrttot field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdfrttot;
 
     /**
      * The value for the qthdmisctot field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdmisctot;
 
     /**
      * The value for the qthdordrtot field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdordrtot;
 
     /**
      * The value for the qthdcosttot field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdcosttot;
 
     /**
      * The value for the qthdwghttot field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdwghttot;
 
     /**
      * The value for the qthdoldsysqtnbr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdoldsysqtnbr;
 
     /**
      * The value for the qthdfob field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdfob;
 
     /**
      * The value for the qthddeliverydesc field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthddeliverydesc;
 
     /**
      * The value for the qthdordercnt field.
      *
-     * @var        int
+     * @var        int|null
      */
     protected $qthdordercnt;
 
     /**
      * The value for the qthdlastorder field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdlastorder;
 
     /**
      * The value for the intbwhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbwhse;
 
     /**
      * The value for the qthdcustpo field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdcustpo;
 
     /**
      * The value for the qthdemailaddr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdemailaddr;
 
     /**
      * The value for the qthdenteredby field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdenteredby;
 
     /**
      * The value for the qthdentereddate field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdentereddate;
 
     /**
      * The value for the qthdenteredtime field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdenteredtime;
 
     /**
      * The value for the qthdprintformat field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdprintformat;
 
     /**
      * The value for the qthdprojectid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdprojectid;
 
     /**
      * The value for the qthdrevtime field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdrevtime;
 
     /**
      * The value for the qthdref field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdref;
 
     /**
      * The value for the qthdcareof field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $qthdcareof;
 
     /**
      * The value for the dateupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dateupdtd;
 
     /**
      * The value for the timeupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $timeupdtd;
 
     /**
      * The value for the dummy field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
     /**
      * @var        ObjectCollection|ChildQuoteDetail[] Collection to store aggregation of ChildQuoteDetail objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildQuoteDetail> Collection to store aggregation of ChildQuoteDetail objects.
      */
     protected $collQuoteDetails;
     protected $collQuoteDetailsPartial;
@@ -551,13 +554,14 @@ abstract class Quote implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildQuoteDetail[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildQuoteDetail>
      */
     protected $quoteDetailsScheduledForDeletion = null;
 
@@ -567,7 +571,7 @@ abstract class Quote implements ActiveRecordInterface
      * equivalent initialization method).
      * @see __construct()
      */
-    public function applyDefaultValues()
+    public function applyDefaultValues(): void
     {
         $this->qthdid = '';
     }
@@ -584,9 +588,9 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -594,10 +598,10 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -606,7 +610,7 @@ abstract class Quote implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -616,9 +620,9 @@ abstract class Quote implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -627,45 +631,43 @@ abstract class Quote implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -674,10 +676,10 @@ abstract class Quote implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>Quote</code>, delegates to
      * <code>equals(Quote)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -699,7 +701,7 @@ abstract class Quote implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -707,10 +709,10 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -718,15 +720,15 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -735,12 +737,12 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|Quote The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -750,13 +752,13 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -767,24 +769,27 @@ abstract class Quote implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -812,7 +817,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdstat] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdstat()
     {
@@ -822,7 +827,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [arcucustid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArcucustid()
     {
@@ -832,7 +837,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdbtname] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdbtname()
     {
@@ -842,7 +847,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdbtadr1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdbtadr1()
     {
@@ -852,7 +857,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdbtadr2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdbtadr2()
     {
@@ -862,7 +867,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdbtadr3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdbtadr3()
     {
@@ -872,7 +877,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdbtctry] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdbtctry()
     {
@@ -882,7 +887,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdbtcity] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdbtcity()
     {
@@ -892,7 +897,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdbtstat] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdbtstat()
     {
@@ -902,7 +907,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdbtzipcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdbtzipcode()
     {
@@ -912,7 +917,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [arstshipid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArstshipid()
     {
@@ -922,7 +927,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdstname] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdstname()
     {
@@ -932,7 +937,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdstadr1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdstadr1()
     {
@@ -942,7 +947,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdstadr2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdstadr2()
     {
@@ -952,7 +957,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdstadr3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdstadr3()
     {
@@ -962,7 +967,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdstctry] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdstctry()
     {
@@ -972,7 +977,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdstcity] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdstcity()
     {
@@ -982,7 +987,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdststat] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdststat()
     {
@@ -992,7 +997,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdstzipcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdstzipcode()
     {
@@ -1002,7 +1007,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdcont] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdcont()
     {
@@ -1012,7 +1017,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdteleintl] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdteleintl()
     {
@@ -1022,7 +1027,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdtelenbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdtelenbr()
     {
@@ -1032,7 +1037,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdteleext] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdteleext()
     {
@@ -1042,7 +1047,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdfaxintl] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdfaxintl()
     {
@@ -1052,7 +1057,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdfaxnbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdfaxnbr()
     {
@@ -1062,7 +1067,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdquotdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdquotdate()
     {
@@ -1072,7 +1077,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdrevdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdrevdate()
     {
@@ -1082,7 +1087,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdexpdate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdexpdate()
     {
@@ -1092,7 +1097,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [artbpriccode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtbpriccode()
     {
@@ -1102,7 +1107,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [artbctaxcode] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtbctaxcode()
     {
@@ -1112,7 +1117,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [artmtermcd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtmtermcd()
     {
@@ -1122,7 +1127,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [artbshipvia] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArtbshipvia()
     {
@@ -1132,7 +1137,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [arspsaleper1] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspsaleper1()
     {
@@ -1142,7 +1147,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdsp1pct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdsp1pct()
     {
@@ -1152,7 +1157,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [arspsaleper2] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspsaleper2()
     {
@@ -1162,7 +1167,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdsp2pct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdsp2pct()
     {
@@ -1172,7 +1177,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [arspsaleper3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getArspsaleper3()
     {
@@ -1182,7 +1187,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdsp3pct] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdsp3pct()
     {
@@ -1192,7 +1197,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdexchctry] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdexchctry()
     {
@@ -1202,7 +1207,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdexchrate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdexchrate()
     {
@@ -1212,7 +1217,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdtaxsub] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdtaxsub()
     {
@@ -1222,7 +1227,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdnontaxsub] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdnontaxsub()
     {
@@ -1232,7 +1237,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdtaxtot] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdtaxtot()
     {
@@ -1242,7 +1247,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdfrttot] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdfrttot()
     {
@@ -1252,7 +1257,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdmisctot] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdmisctot()
     {
@@ -1262,7 +1267,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdordrtot] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdordrtot()
     {
@@ -1272,7 +1277,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdcosttot] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdcosttot()
     {
@@ -1282,7 +1287,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdwghttot] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdwghttot()
     {
@@ -1292,7 +1297,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdoldsysqtnbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdoldsysqtnbr()
     {
@@ -1302,7 +1307,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdfob] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdfob()
     {
@@ -1312,7 +1317,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthddeliverydesc] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthddeliverydesc()
     {
@@ -1322,7 +1327,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdordercnt] column value.
      *
-     * @return int
+     * @return int|null
      */
     public function getQthdordercnt()
     {
@@ -1332,7 +1337,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdlastorder] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdlastorder()
     {
@@ -1342,7 +1347,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [intbwhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbwhse()
     {
@@ -1352,7 +1357,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdcustpo] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdcustpo()
     {
@@ -1362,7 +1367,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdemailaddr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdemailaddr()
     {
@@ -1372,7 +1377,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdenteredby] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdenteredby()
     {
@@ -1382,7 +1387,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdentereddate] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdentereddate()
     {
@@ -1392,7 +1397,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdenteredtime] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdenteredtime()
     {
@@ -1402,7 +1407,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdprintformat] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdprintformat()
     {
@@ -1412,7 +1417,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdprojectid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdprojectid()
     {
@@ -1422,7 +1427,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdrevtime] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdrevtime()
     {
@@ -1432,7 +1437,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdref] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdref()
     {
@@ -1442,7 +1447,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [qthdcareof] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getQthdcareof()
     {
@@ -1452,7 +1457,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [dateupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDateupdtd()
     {
@@ -1462,7 +1467,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [timeupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTimeupdtd()
     {
@@ -1472,7 +1477,7 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -1482,8 +1487,8 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Set the value of [qthdid] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdid($v)
     {
@@ -1497,13 +1502,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdid()
+    }
 
     /**
      * Set the value of [qthdstat] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdstat($v)
     {
@@ -1517,13 +1522,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdstat()
+    }
 
     /**
      * Set the value of [arcucustid] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArcucustid($v)
     {
@@ -1537,13 +1542,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArcucustid()
+    }
 
     /**
      * Set the value of [qthdbtname] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdbtname($v)
     {
@@ -1557,13 +1562,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdbtname()
+    }
 
     /**
      * Set the value of [qthdbtadr1] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdbtadr1($v)
     {
@@ -1577,13 +1582,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdbtadr1()
+    }
 
     /**
      * Set the value of [qthdbtadr2] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdbtadr2($v)
     {
@@ -1597,13 +1602,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdbtadr2()
+    }
 
     /**
      * Set the value of [qthdbtadr3] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdbtadr3($v)
     {
@@ -1617,13 +1622,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdbtadr3()
+    }
 
     /**
      * Set the value of [qthdbtctry] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdbtctry($v)
     {
@@ -1637,13 +1642,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdbtctry()
+    }
 
     /**
      * Set the value of [qthdbtcity] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdbtcity($v)
     {
@@ -1657,13 +1662,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdbtcity()
+    }
 
     /**
      * Set the value of [qthdbtstat] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdbtstat($v)
     {
@@ -1677,13 +1682,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdbtstat()
+    }
 
     /**
      * Set the value of [qthdbtzipcode] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdbtzipcode($v)
     {
@@ -1697,13 +1702,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdbtzipcode()
+    }
 
     /**
      * Set the value of [arstshipid] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArstshipid($v)
     {
@@ -1717,13 +1722,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstshipid()
+    }
 
     /**
      * Set the value of [qthdstname] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdstname($v)
     {
@@ -1737,13 +1742,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdstname()
+    }
 
     /**
      * Set the value of [qthdstadr1] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdstadr1($v)
     {
@@ -1757,13 +1762,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdstadr1()
+    }
 
     /**
      * Set the value of [qthdstadr2] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdstadr2($v)
     {
@@ -1777,13 +1782,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdstadr2()
+    }
 
     /**
      * Set the value of [qthdstadr3] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdstadr3($v)
     {
@@ -1797,13 +1802,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdstadr3()
+    }
 
     /**
      * Set the value of [qthdstctry] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdstctry($v)
     {
@@ -1817,13 +1822,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdstctry()
+    }
 
     /**
      * Set the value of [qthdstcity] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdstcity($v)
     {
@@ -1837,13 +1842,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdstcity()
+    }
 
     /**
      * Set the value of [qthdststat] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdststat($v)
     {
@@ -1857,13 +1862,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdststat()
+    }
 
     /**
      * Set the value of [qthdstzipcode] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdstzipcode($v)
     {
@@ -1877,13 +1882,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdstzipcode()
+    }
 
     /**
      * Set the value of [qthdcont] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdcont($v)
     {
@@ -1897,13 +1902,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdcont()
+    }
 
     /**
      * Set the value of [qthdteleintl] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdteleintl($v)
     {
@@ -1917,13 +1922,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdteleintl()
+    }
 
     /**
      * Set the value of [qthdtelenbr] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdtelenbr($v)
     {
@@ -1937,13 +1942,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdtelenbr()
+    }
 
     /**
      * Set the value of [qthdteleext] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdteleext($v)
     {
@@ -1957,13 +1962,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdteleext()
+    }
 
     /**
      * Set the value of [qthdfaxintl] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdfaxintl($v)
     {
@@ -1977,13 +1982,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdfaxintl()
+    }
 
     /**
      * Set the value of [qthdfaxnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdfaxnbr($v)
     {
@@ -1997,13 +2002,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdfaxnbr()
+    }
 
     /**
      * Set the value of [qthdquotdate] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdquotdate($v)
     {
@@ -2017,13 +2022,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdquotdate()
+    }
 
     /**
      * Set the value of [qthdrevdate] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdrevdate($v)
     {
@@ -2037,13 +2042,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdrevdate()
+    }
 
     /**
      * Set the value of [qthdexpdate] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdexpdate($v)
     {
@@ -2057,13 +2062,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdexpdate()
+    }
 
     /**
      * Set the value of [artbpriccode] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbpriccode($v)
     {
@@ -2077,13 +2082,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbpriccode()
+    }
 
     /**
      * Set the value of [artbctaxcode] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbctaxcode($v)
     {
@@ -2097,13 +2102,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbctaxcode()
+    }
 
     /**
      * Set the value of [artmtermcd] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtmtermcd($v)
     {
@@ -2117,13 +2122,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtmtermcd()
+    }
 
     /**
      * Set the value of [artbshipvia] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArtbshipvia($v)
     {
@@ -2137,13 +2142,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArtbshipvia()
+    }
 
     /**
      * Set the value of [arspsaleper1] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspsaleper1($v)
     {
@@ -2157,13 +2162,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspsaleper1()
+    }
 
     /**
      * Set the value of [qthdsp1pct] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdsp1pct($v)
     {
@@ -2177,13 +2182,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdsp1pct()
+    }
 
     /**
      * Set the value of [arspsaleper2] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspsaleper2($v)
     {
@@ -2197,13 +2202,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspsaleper2()
+    }
 
     /**
      * Set the value of [qthdsp2pct] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdsp2pct($v)
     {
@@ -2217,13 +2222,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdsp2pct()
+    }
 
     /**
      * Set the value of [arspsaleper3] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setArspsaleper3($v)
     {
@@ -2237,13 +2242,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArspsaleper3()
+    }
 
     /**
      * Set the value of [qthdsp3pct] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdsp3pct($v)
     {
@@ -2257,13 +2262,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdsp3pct()
+    }
 
     /**
      * Set the value of [qthdexchctry] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdexchctry($v)
     {
@@ -2277,13 +2282,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdexchctry()
+    }
 
     /**
      * Set the value of [qthdexchrate] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdexchrate($v)
     {
@@ -2297,13 +2302,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdexchrate()
+    }
 
     /**
      * Set the value of [qthdtaxsub] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdtaxsub($v)
     {
@@ -2317,13 +2322,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdtaxsub()
+    }
 
     /**
      * Set the value of [qthdnontaxsub] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdnontaxsub($v)
     {
@@ -2337,13 +2342,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdnontaxsub()
+    }
 
     /**
      * Set the value of [qthdtaxtot] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdtaxtot($v)
     {
@@ -2357,13 +2362,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdtaxtot()
+    }
 
     /**
      * Set the value of [qthdfrttot] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdfrttot($v)
     {
@@ -2377,13 +2382,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdfrttot()
+    }
 
     /**
      * Set the value of [qthdmisctot] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdmisctot($v)
     {
@@ -2397,13 +2402,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdmisctot()
+    }
 
     /**
      * Set the value of [qthdordrtot] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdordrtot($v)
     {
@@ -2417,13 +2422,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdordrtot()
+    }
 
     /**
      * Set the value of [qthdcosttot] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdcosttot($v)
     {
@@ -2437,13 +2442,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdcosttot()
+    }
 
     /**
      * Set the value of [qthdwghttot] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdwghttot($v)
     {
@@ -2457,13 +2462,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdwghttot()
+    }
 
     /**
      * Set the value of [qthdoldsysqtnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdoldsysqtnbr($v)
     {
@@ -2477,13 +2482,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdoldsysqtnbr()
+    }
 
     /**
      * Set the value of [qthdfob] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdfob($v)
     {
@@ -2497,13 +2502,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdfob()
+    }
 
     /**
      * Set the value of [qthddeliverydesc] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthddeliverydesc($v)
     {
@@ -2517,13 +2522,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthddeliverydesc()
+    }
 
     /**
      * Set the value of [qthdordercnt] column.
      *
-     * @param int $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param int|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdordercnt($v)
     {
@@ -2537,13 +2542,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdordercnt()
+    }
 
     /**
      * Set the value of [qthdlastorder] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdlastorder($v)
     {
@@ -2557,13 +2562,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdlastorder()
+    }
 
     /**
      * Set the value of [intbwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhse($v)
     {
@@ -2577,13 +2582,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhse()
+    }
 
     /**
      * Set the value of [qthdcustpo] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdcustpo($v)
     {
@@ -2597,13 +2602,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdcustpo()
+    }
 
     /**
      * Set the value of [qthdemailaddr] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdemailaddr($v)
     {
@@ -2617,13 +2622,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdemailaddr()
+    }
 
     /**
      * Set the value of [qthdenteredby] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdenteredby($v)
     {
@@ -2637,13 +2642,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdenteredby()
+    }
 
     /**
      * Set the value of [qthdentereddate] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdentereddate($v)
     {
@@ -2657,13 +2662,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdentereddate()
+    }
 
     /**
      * Set the value of [qthdenteredtime] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdenteredtime($v)
     {
@@ -2677,13 +2682,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdenteredtime()
+    }
 
     /**
      * Set the value of [qthdprintformat] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdprintformat($v)
     {
@@ -2697,13 +2702,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdprintformat()
+    }
 
     /**
      * Set the value of [qthdprojectid] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdprojectid($v)
     {
@@ -2717,13 +2722,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdprojectid()
+    }
 
     /**
      * Set the value of [qthdrevtime] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdrevtime($v)
     {
@@ -2737,13 +2742,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdrevtime()
+    }
 
     /**
      * Set the value of [qthdref] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdref($v)
     {
@@ -2757,13 +2762,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdref()
+    }
 
     /**
      * Set the value of [qthdcareof] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setQthdcareof($v)
     {
@@ -2777,13 +2782,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setQthdcareof()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -2797,13 +2802,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -2817,13 +2822,13 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -2837,7 +2842,7 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -2845,9 +2850,9 @@ abstract class Quote implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
             if ($this->qthdid !== '') {
                 return false;
@@ -2855,7 +2860,7 @@ abstract class Quote implements ActiveRecordInterface
 
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -2865,17 +2870,17 @@ abstract class Quote implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -3082,8 +3087,8 @@ abstract class Quote implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : QuoteTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -3108,23 +3113,24 @@ abstract class Quote implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -3159,13 +3165,13 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see Quote::setDeleted()
      * @see Quote::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -3195,12 +3201,12 @@ abstract class Quote implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -3245,12 +3251,12 @@ abstract class Quote implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -3289,19 +3295,19 @@ abstract class Quote implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -3523,207 +3529,275 @@ abstract class Quote implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'QthdId':
                         $stmt->bindValue($identifier, $this->qthdid, PDO::PARAM_STR);
+
                         break;
                     case 'QthdStat':
                         $stmt->bindValue($identifier, $this->qthdstat, PDO::PARAM_STR);
+
                         break;
                     case 'ArcuCustId':
                         $stmt->bindValue($identifier, $this->arcucustid, PDO::PARAM_STR);
+
                         break;
                     case 'QthdBtName':
                         $stmt->bindValue($identifier, $this->qthdbtname, PDO::PARAM_STR);
+
                         break;
                     case 'QthdBtAdr1':
                         $stmt->bindValue($identifier, $this->qthdbtadr1, PDO::PARAM_STR);
+
                         break;
                     case 'QthdBtAdr2':
                         $stmt->bindValue($identifier, $this->qthdbtadr2, PDO::PARAM_STR);
+
                         break;
                     case 'QthdBtAdr3':
                         $stmt->bindValue($identifier, $this->qthdbtadr3, PDO::PARAM_STR);
+
                         break;
                     case 'QthdBtCtry':
                         $stmt->bindValue($identifier, $this->qthdbtctry, PDO::PARAM_STR);
+
                         break;
                     case 'QthdBtCity':
                         $stmt->bindValue($identifier, $this->qthdbtcity, PDO::PARAM_STR);
+
                         break;
                     case 'QthdBtStat':
                         $stmt->bindValue($identifier, $this->qthdbtstat, PDO::PARAM_STR);
+
                         break;
                     case 'QthdBtZipCode':
                         $stmt->bindValue($identifier, $this->qthdbtzipcode, PDO::PARAM_STR);
+
                         break;
                     case 'ArstShipId':
                         $stmt->bindValue($identifier, $this->arstshipid, PDO::PARAM_STR);
+
                         break;
                     case 'QthdStName':
                         $stmt->bindValue($identifier, $this->qthdstname, PDO::PARAM_STR);
+
                         break;
                     case 'QthdStAdr1':
                         $stmt->bindValue($identifier, $this->qthdstadr1, PDO::PARAM_STR);
+
                         break;
                     case 'QthdStAdr2':
                         $stmt->bindValue($identifier, $this->qthdstadr2, PDO::PARAM_STR);
+
                         break;
                     case 'QthdStAdr3':
                         $stmt->bindValue($identifier, $this->qthdstadr3, PDO::PARAM_STR);
+
                         break;
                     case 'QthdStCtry':
                         $stmt->bindValue($identifier, $this->qthdstctry, PDO::PARAM_STR);
+
                         break;
                     case 'QthdStCity':
                         $stmt->bindValue($identifier, $this->qthdstcity, PDO::PARAM_STR);
+
                         break;
                     case 'QthdStStat':
                         $stmt->bindValue($identifier, $this->qthdststat, PDO::PARAM_STR);
+
                         break;
                     case 'QthdStZipCode':
                         $stmt->bindValue($identifier, $this->qthdstzipcode, PDO::PARAM_STR);
+
                         break;
                     case 'QthdCont':
                         $stmt->bindValue($identifier, $this->qthdcont, PDO::PARAM_STR);
+
                         break;
                     case 'QthdTeleIntl':
                         $stmt->bindValue($identifier, $this->qthdteleintl, PDO::PARAM_STR);
+
                         break;
                     case 'QthdTeleNbr':
                         $stmt->bindValue($identifier, $this->qthdtelenbr, PDO::PARAM_STR);
+
                         break;
                     case 'QthdTeleExt':
                         $stmt->bindValue($identifier, $this->qthdteleext, PDO::PARAM_STR);
+
                         break;
                     case 'QthdFaxIntl':
                         $stmt->bindValue($identifier, $this->qthdfaxintl, PDO::PARAM_STR);
+
                         break;
                     case 'QthdFaxNbr':
                         $stmt->bindValue($identifier, $this->qthdfaxnbr, PDO::PARAM_STR);
+
                         break;
                     case 'QthdQuotDate':
                         $stmt->bindValue($identifier, $this->qthdquotdate, PDO::PARAM_STR);
+
                         break;
                     case 'QthdRevDate':
                         $stmt->bindValue($identifier, $this->qthdrevdate, PDO::PARAM_STR);
+
                         break;
                     case 'QthdExpDate':
                         $stmt->bindValue($identifier, $this->qthdexpdate, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbPricCode':
                         $stmt->bindValue($identifier, $this->artbpriccode, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbCtaxCode':
                         $stmt->bindValue($identifier, $this->artbctaxcode, PDO::PARAM_STR);
+
                         break;
                     case 'ArtmTermCd':
                         $stmt->bindValue($identifier, $this->artmtermcd, PDO::PARAM_STR);
+
                         break;
                     case 'ArtbShipVia':
                         $stmt->bindValue($identifier, $this->artbshipvia, PDO::PARAM_STR);
+
                         break;
                     case 'ArspSalePer1':
                         $stmt->bindValue($identifier, $this->arspsaleper1, PDO::PARAM_STR);
+
                         break;
                     case 'QthdSp1Pct':
                         $stmt->bindValue($identifier, $this->qthdsp1pct, PDO::PARAM_STR);
+
                         break;
                     case 'ArspSalePer2':
                         $stmt->bindValue($identifier, $this->arspsaleper2, PDO::PARAM_STR);
+
                         break;
                     case 'QthdSp2Pct':
                         $stmt->bindValue($identifier, $this->qthdsp2pct, PDO::PARAM_STR);
+
                         break;
                     case 'ArspSalePer3':
                         $stmt->bindValue($identifier, $this->arspsaleper3, PDO::PARAM_STR);
+
                         break;
                     case 'QthdSp3Pct':
                         $stmt->bindValue($identifier, $this->qthdsp3pct, PDO::PARAM_STR);
+
                         break;
                     case 'QthdExchCtry':
                         $stmt->bindValue($identifier, $this->qthdexchctry, PDO::PARAM_STR);
+
                         break;
                     case 'QthdExchRate':
                         $stmt->bindValue($identifier, $this->qthdexchrate, PDO::PARAM_STR);
+
                         break;
                     case 'QthdTaxSub':
                         $stmt->bindValue($identifier, $this->qthdtaxsub, PDO::PARAM_STR);
+
                         break;
                     case 'QthdNonTaxSub':
                         $stmt->bindValue($identifier, $this->qthdnontaxsub, PDO::PARAM_STR);
+
                         break;
                     case 'QthdTaxTot':
                         $stmt->bindValue($identifier, $this->qthdtaxtot, PDO::PARAM_STR);
+
                         break;
                     case 'QthdFrtTot':
                         $stmt->bindValue($identifier, $this->qthdfrttot, PDO::PARAM_STR);
+
                         break;
                     case 'QthdMiscTot':
                         $stmt->bindValue($identifier, $this->qthdmisctot, PDO::PARAM_STR);
+
                         break;
                     case 'QthdOrdrTot':
                         $stmt->bindValue($identifier, $this->qthdordrtot, PDO::PARAM_STR);
+
                         break;
                     case 'QthdCostTot':
                         $stmt->bindValue($identifier, $this->qthdcosttot, PDO::PARAM_STR);
+
                         break;
                     case 'QthdWghtTot':
                         $stmt->bindValue($identifier, $this->qthdwghttot, PDO::PARAM_STR);
+
                         break;
                     case 'QthdOldSysQtNbr':
                         $stmt->bindValue($identifier, $this->qthdoldsysqtnbr, PDO::PARAM_STR);
+
                         break;
                     case 'QthdFob':
                         $stmt->bindValue($identifier, $this->qthdfob, PDO::PARAM_STR);
+
                         break;
                     case 'QthdDeliveryDesc':
                         $stmt->bindValue($identifier, $this->qthddeliverydesc, PDO::PARAM_STR);
+
                         break;
                     case 'QthdOrderCnt':
                         $stmt->bindValue($identifier, $this->qthdordercnt, PDO::PARAM_INT);
+
                         break;
                     case 'QthdLastOrder':
                         $stmt->bindValue($identifier, $this->qthdlastorder, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhse':
                         $stmt->bindValue($identifier, $this->intbwhse, PDO::PARAM_STR);
+
                         break;
                     case 'QthdCustPo':
                         $stmt->bindValue($identifier, $this->qthdcustpo, PDO::PARAM_STR);
+
                         break;
                     case 'QthdEmailAddr':
                         $stmt->bindValue($identifier, $this->qthdemailaddr, PDO::PARAM_STR);
+
                         break;
                     case 'QthdEnteredBy':
                         $stmt->bindValue($identifier, $this->qthdenteredby, PDO::PARAM_STR);
+
                         break;
                     case 'QthdEnteredDate':
                         $stmt->bindValue($identifier, $this->qthdentereddate, PDO::PARAM_STR);
+
                         break;
                     case 'QthdEnteredTime':
                         $stmt->bindValue($identifier, $this->qthdenteredtime, PDO::PARAM_STR);
+
                         break;
                     case 'QthdPrintFormat':
                         $stmt->bindValue($identifier, $this->qthdprintformat, PDO::PARAM_STR);
+
                         break;
                     case 'QthdProjectId':
                         $stmt->bindValue($identifier, $this->qthdprojectid, PDO::PARAM_STR);
+
                         break;
                     case 'QthdRevTime':
                         $stmt->bindValue($identifier, $this->qthdrevtime, PDO::PARAM_STR);
+
                         break;
                     case 'QthdRef':
                         $stmt->bindValue($identifier, $this->qthdref, PDO::PARAM_STR);
+
                         break;
                     case 'QthdCareOf':
                         $stmt->bindValue($identifier, $this->qthdcareof, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -3739,12 +3813,12 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -3755,14 +3829,14 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = QuoteTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -3774,219 +3848,218 @@ abstract class Quote implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getQthdid();
-                break;
+
             case 1:
                 return $this->getQthdstat();
-                break;
+
             case 2:
                 return $this->getArcucustid();
-                break;
+
             case 3:
                 return $this->getQthdbtname();
-                break;
+
             case 4:
                 return $this->getQthdbtadr1();
-                break;
+
             case 5:
                 return $this->getQthdbtadr2();
-                break;
+
             case 6:
                 return $this->getQthdbtadr3();
-                break;
+
             case 7:
                 return $this->getQthdbtctry();
-                break;
+
             case 8:
                 return $this->getQthdbtcity();
-                break;
+
             case 9:
                 return $this->getQthdbtstat();
-                break;
+
             case 10:
                 return $this->getQthdbtzipcode();
-                break;
+
             case 11:
                 return $this->getArstshipid();
-                break;
+
             case 12:
                 return $this->getQthdstname();
-                break;
+
             case 13:
                 return $this->getQthdstadr1();
-                break;
+
             case 14:
                 return $this->getQthdstadr2();
-                break;
+
             case 15:
                 return $this->getQthdstadr3();
-                break;
+
             case 16:
                 return $this->getQthdstctry();
-                break;
+
             case 17:
                 return $this->getQthdstcity();
-                break;
+
             case 18:
                 return $this->getQthdststat();
-                break;
+
             case 19:
                 return $this->getQthdstzipcode();
-                break;
+
             case 20:
                 return $this->getQthdcont();
-                break;
+
             case 21:
                 return $this->getQthdteleintl();
-                break;
+
             case 22:
                 return $this->getQthdtelenbr();
-                break;
+
             case 23:
                 return $this->getQthdteleext();
-                break;
+
             case 24:
                 return $this->getQthdfaxintl();
-                break;
+
             case 25:
                 return $this->getQthdfaxnbr();
-                break;
+
             case 26:
                 return $this->getQthdquotdate();
-                break;
+
             case 27:
                 return $this->getQthdrevdate();
-                break;
+
             case 28:
                 return $this->getQthdexpdate();
-                break;
+
             case 29:
                 return $this->getArtbpriccode();
-                break;
+
             case 30:
                 return $this->getArtbctaxcode();
-                break;
+
             case 31:
                 return $this->getArtmtermcd();
-                break;
+
             case 32:
                 return $this->getArtbshipvia();
-                break;
+
             case 33:
                 return $this->getArspsaleper1();
-                break;
+
             case 34:
                 return $this->getQthdsp1pct();
-                break;
+
             case 35:
                 return $this->getArspsaleper2();
-                break;
+
             case 36:
                 return $this->getQthdsp2pct();
-                break;
+
             case 37:
                 return $this->getArspsaleper3();
-                break;
+
             case 38:
                 return $this->getQthdsp3pct();
-                break;
+
             case 39:
                 return $this->getQthdexchctry();
-                break;
+
             case 40:
                 return $this->getQthdexchrate();
-                break;
+
             case 41:
                 return $this->getQthdtaxsub();
-                break;
+
             case 42:
                 return $this->getQthdnontaxsub();
-                break;
+
             case 43:
                 return $this->getQthdtaxtot();
-                break;
+
             case 44:
                 return $this->getQthdfrttot();
-                break;
+
             case 45:
                 return $this->getQthdmisctot();
-                break;
+
             case 46:
                 return $this->getQthdordrtot();
-                break;
+
             case 47:
                 return $this->getQthdcosttot();
-                break;
+
             case 48:
                 return $this->getQthdwghttot();
-                break;
+
             case 49:
                 return $this->getQthdoldsysqtnbr();
-                break;
+
             case 50:
                 return $this->getQthdfob();
-                break;
+
             case 51:
                 return $this->getQthddeliverydesc();
-                break;
+
             case 52:
                 return $this->getQthdordercnt();
-                break;
+
             case 53:
                 return $this->getQthdlastorder();
-                break;
+
             case 54:
                 return $this->getIntbwhse();
-                break;
+
             case 55:
                 return $this->getQthdcustpo();
-                break;
+
             case 56:
                 return $this->getQthdemailaddr();
-                break;
+
             case 57:
                 return $this->getQthdenteredby();
-                break;
+
             case 58:
                 return $this->getQthdentereddate();
-                break;
+
             case 59:
                 return $this->getQthdenteredtime();
-                break;
+
             case 60:
                 return $this->getQthdprintformat();
-                break;
+
             case 61:
                 return $this->getQthdprojectid();
-                break;
+
             case 62:
                 return $this->getQthdrevtime();
-                break;
+
             case 63:
                 return $this->getQthdref();
-                break;
+
             case 64:
                 return $this->getQthdcareof();
-                break;
+
             case 65:
                 return $this->getDateupdtd();
-                break;
+
             case 66:
                 return $this->getTimeupdtd();
-                break;
+
             case 67:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -3996,24 +4069,23 @@ abstract class Quote implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
-     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = [], bool $includeForeignObjects = false): array
     {
-
         if (isset($alreadyDumpedObjects['Quote'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['Quote'][$this->hashCode()] = true;
         $keys = QuoteTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getQthdid(),
             $keys[1] => $this->getQthdstat(),
             $keys[2] => $this->getArcucustid(),
@@ -4082,7 +4154,7 @@ abstract class Quote implements ActiveRecordInterface
             $keys[65] => $this->getDateupdtd(),
             $keys[66] => $this->getTimeupdtd(),
             $keys[67] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -4112,30 +4184,32 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\Quote
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = QuoteTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\Quote
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -4360,11 +4434,11 @@ abstract class Quote implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = QuoteTableMap::getFieldNames($keyType);
 
@@ -4572,6 +4646,8 @@ abstract class Quote implements ActiveRecordInterface
         if (array_key_exists($keys[67], $arr)) {
             $this->setDummy($arr[$keys[67]]);
         }
+
+        return $this;
     }
 
      /**
@@ -4591,9 +4667,9 @@ abstract class Quote implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\Quote The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -4607,9 +4683,9 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(QuoteTableMap::DATABASE_NAME);
 
@@ -4825,13 +4901,13 @@ abstract class Quote implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildQuoteQuery::create();
         $criteria->add(QuoteTableMap::COL_QTHDID, $this->qthdid);
@@ -4843,7 +4919,7 @@ abstract class Quote implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -4873,19 +4949,20 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (qthdid column).
      *
-     * @param       string $key Primary key.
+     * @param string|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?string $key = null): void
     {
         $this->setQthdid($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getQthdid();
     }
@@ -4896,12 +4973,13 @@ abstract class Quote implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \Quote (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \Quote (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setQthdid($this->getQthdid());
         $copyObj->setQthdstat($this->getQthdstat());
@@ -4998,11 +5076,11 @@ abstract class Quote implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \Quote Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -5018,12 +5096,12 @@ abstract class Quote implements ActiveRecordInterface
      * Avoids crafting an 'init[$relationName]s' method name
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
-     * @param      string $relationName The name of the relation to initialize
+     * @param string $relationName The name of the relation to initialize
      * @return void
      */
-    public function initRelation($relationName)
+    public function initRelation($relationName): void
     {
-        if ('QuoteDetail' == $relationName) {
+        if ('QuoteDetail' === $relationName) {
             $this->initQuoteDetails();
             return;
         }
@@ -5035,18 +5113,22 @@ abstract class Quote implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addQuoteDetails()
+     * @return $this
+     * @see addQuoteDetails()
      */
     public function clearQuoteDetails()
     {
         $this->collQuoteDetails = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collQuoteDetails collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialQuoteDetails($v = true)
+    public function resetPartialQuoteDetails($v = true): void
     {
         $this->collQuoteDetailsPartial = $v;
     }
@@ -5058,12 +5140,12 @@ abstract class Quote implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initQuoteDetails($overrideExisting = true)
+    public function initQuoteDetails(bool $overrideExisting = true): void
     {
         if (null !== $this->collQuoteDetails && !$overrideExisting) {
             return;
@@ -5084,18 +5166,28 @@ abstract class Quote implements ActiveRecordInterface
      * If this ChildQuote is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildQuoteDetail[] List of ChildQuoteDetail objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildQuoteDetail> List of ChildQuoteDetail objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getQuoteDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getQuoteDetails(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collQuoteDetailsPartial && !$this->isNew();
-        if (null === $this->collQuoteDetails || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collQuoteDetails) {
+        if (null === $this->collQuoteDetails || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initQuoteDetails();
+                if (null === $this->collQuoteDetails) {
+                    $this->initQuoteDetails();
+                } else {
+                    $collectionClassName = QuoteDetailTableMap::getTableMap()->getCollectionClassName();
+
+                    $collQuoteDetails = new $collectionClassName;
+                    $collQuoteDetails->setModel('\QuoteDetail');
+
+                    return $collQuoteDetails;
+                }
             } else {
                 $collQuoteDetails = ChildQuoteDetailQuery::create(null, $criteria)
                     ->filterByQuote($this)
@@ -5139,11 +5231,11 @@ abstract class Quote implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $quoteDetails A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildQuote The current object (for fluent API support)
+     * @param Collection $quoteDetails A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setQuoteDetails(Collection $quoteDetails, ConnectionInterface $con = null)
+    public function setQuoteDetails(Collection $quoteDetails, ?ConnectionInterface $con = null)
     {
         /** @var ChildQuoteDetail[] $quoteDetailsToDelete */
         $quoteDetailsToDelete = $this->getQuoteDetails(new Criteria(), $con)->diff($quoteDetails);
@@ -5172,13 +5264,13 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * Returns the number of related QuoteDetail objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related QuoteDetail objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related QuoteDetail objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countQuoteDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countQuoteDetails(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collQuoteDetailsPartial && !$this->isNew();
         if (null === $this->collQuoteDetails || null !== $criteria || $partial) {
@@ -5207,8 +5299,8 @@ abstract class Quote implements ActiveRecordInterface
      * Method called to associate a ChildQuoteDetail object to this object
      * through the ChildQuoteDetail foreign key attribute.
      *
-     * @param  ChildQuoteDetail $l ChildQuoteDetail
-     * @return $this|\Quote The current object (for fluent API support)
+     * @param ChildQuoteDetail $l ChildQuoteDetail
+     * @return $this The current object (for fluent API support)
      */
     public function addQuoteDetail(ChildQuoteDetail $l)
     {
@@ -5231,15 +5323,15 @@ abstract class Quote implements ActiveRecordInterface
     /**
      * @param ChildQuoteDetail $quoteDetail The ChildQuoteDetail object to add.
      */
-    protected function doAddQuoteDetail(ChildQuoteDetail $quoteDetail)
+    protected function doAddQuoteDetail(ChildQuoteDetail $quoteDetail): void
     {
         $this->collQuoteDetails[]= $quoteDetail;
         $quoteDetail->setQuote($this);
     }
 
     /**
-     * @param  ChildQuoteDetail $quoteDetail The ChildQuoteDetail object to remove.
-     * @return $this|ChildQuote The current object (for fluent API support)
+     * @param ChildQuoteDetail $quoteDetail The ChildQuoteDetail object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeQuoteDetail(ChildQuoteDetail $quoteDetail)
     {
@@ -5261,6 +5353,8 @@ abstract class Quote implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -5338,6 +5432,8 @@ abstract class Quote implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -5346,9 +5442,10 @@ abstract class Quote implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
             if ($this->collQuoteDetails) {
@@ -5359,6 +5456,7 @@ abstract class Quote implements ActiveRecordInterface
         } // if ($deep)
 
         $this->collQuoteDetails = null;
+        return $this;
     }
 
     /**
@@ -5373,99 +5471,79 @@ abstract class Quote implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // return parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // return parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // return parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // return parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -5475,7 +5553,7 @@ abstract class Quote implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -5495,15 +5573,18 @@ abstract class Quote implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

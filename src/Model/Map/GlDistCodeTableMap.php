@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class GlDistCodeTableMap extends TableMap
 {
@@ -34,229 +33,477 @@ class GlDistCodeTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.GlDistCodeTableMap';
+    public const CLASS_NAME = '.Map.GlDistCodeTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'gl_dist_code';
+    public const TABLE_NAME = 'gl_dist_code';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'GlDistCode';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\GlDistCode';
+    public const OM_CLASS = '\\GlDistCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'GlDistCode';
+    public const CLASS_DEFAULT = 'GlDistCode';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 29;
+    public const NUM_COLUMNS = 29;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 29;
+    public const NUM_HYDRATE_COLUMNS = 29;
 
     /**
      * the column name for the GltbDistCode field
      */
-    const COL_GLTBDISTCODE = 'gl_dist_code.GltbDistCode';
+    public const COL_GLTBDISTCODE = 'gl_dist_code.GltbDistCode';
 
     /**
      * the column name for the GltbDistDesc field
      */
-    const COL_GLTBDISTDESC = 'gl_dist_code.GltbDistDesc';
+    public const COL_GLTBDISTDESC = 'gl_dist_code.GltbDistDesc';
 
     /**
      * the column name for the GltbDistAcctNbr01 field
      */
-    const COL_GLTBDISTACCTNBR01 = 'gl_dist_code.GltbDistAcctNbr01';
+    public const COL_GLTBDISTACCTNBR01 = 'gl_dist_code.GltbDistAcctNbr01';
 
     /**
      * the column name for the GltbDistAcctPct01 field
      */
-    const COL_GLTBDISTACCTPCT01 = 'gl_dist_code.GltbDistAcctPct01';
+    public const COL_GLTBDISTACCTPCT01 = 'gl_dist_code.GltbDistAcctPct01';
 
     /**
      * the column name for the GltbDistAcctNbr02 field
      */
-    const COL_GLTBDISTACCTNBR02 = 'gl_dist_code.GltbDistAcctNbr02';
+    public const COL_GLTBDISTACCTNBR02 = 'gl_dist_code.GltbDistAcctNbr02';
 
     /**
      * the column name for the GltbDistAcctPct02 field
      */
-    const COL_GLTBDISTACCTPCT02 = 'gl_dist_code.GltbDistAcctPct02';
+    public const COL_GLTBDISTACCTPCT02 = 'gl_dist_code.GltbDistAcctPct02';
 
     /**
      * the column name for the GltbDistAcctNbr03 field
      */
-    const COL_GLTBDISTACCTNBR03 = 'gl_dist_code.GltbDistAcctNbr03';
+    public const COL_GLTBDISTACCTNBR03 = 'gl_dist_code.GltbDistAcctNbr03';
 
     /**
      * the column name for the GltbDistAcctPct03 field
      */
-    const COL_GLTBDISTACCTPCT03 = 'gl_dist_code.GltbDistAcctPct03';
+    public const COL_GLTBDISTACCTPCT03 = 'gl_dist_code.GltbDistAcctPct03';
 
     /**
      * the column name for the GltbDistAcctNbr04 field
      */
-    const COL_GLTBDISTACCTNBR04 = 'gl_dist_code.GltbDistAcctNbr04';
+    public const COL_GLTBDISTACCTNBR04 = 'gl_dist_code.GltbDistAcctNbr04';
 
     /**
      * the column name for the GltbDistAcctPct04 field
      */
-    const COL_GLTBDISTACCTPCT04 = 'gl_dist_code.GltbDistAcctPct04';
+    public const COL_GLTBDISTACCTPCT04 = 'gl_dist_code.GltbDistAcctPct04';
 
     /**
      * the column name for the GltbDistAcctNbr05 field
      */
-    const COL_GLTBDISTACCTNBR05 = 'gl_dist_code.GltbDistAcctNbr05';
+    public const COL_GLTBDISTACCTNBR05 = 'gl_dist_code.GltbDistAcctNbr05';
 
     /**
      * the column name for the GltbDistAcctPct05 field
      */
-    const COL_GLTBDISTACCTPCT05 = 'gl_dist_code.GltbDistAcctPct05';
+    public const COL_GLTBDISTACCTPCT05 = 'gl_dist_code.GltbDistAcctPct05';
 
     /**
      * the column name for the GltbDistAcctNbr06 field
      */
-    const COL_GLTBDISTACCTNBR06 = 'gl_dist_code.GltbDistAcctNbr06';
+    public const COL_GLTBDISTACCTNBR06 = 'gl_dist_code.GltbDistAcctNbr06';
 
     /**
      * the column name for the GltbDistAcctPct06 field
      */
-    const COL_GLTBDISTACCTPCT06 = 'gl_dist_code.GltbDistAcctPct06';
+    public const COL_GLTBDISTACCTPCT06 = 'gl_dist_code.GltbDistAcctPct06';
 
     /**
      * the column name for the GltbDistAcctNbr07 field
      */
-    const COL_GLTBDISTACCTNBR07 = 'gl_dist_code.GltbDistAcctNbr07';
+    public const COL_GLTBDISTACCTNBR07 = 'gl_dist_code.GltbDistAcctNbr07';
 
     /**
      * the column name for the GltbDistAcctPct07 field
      */
-    const COL_GLTBDISTACCTPCT07 = 'gl_dist_code.GltbDistAcctPct07';
+    public const COL_GLTBDISTACCTPCT07 = 'gl_dist_code.GltbDistAcctPct07';
 
     /**
      * the column name for the GltbDistAcctNbr08 field
      */
-    const COL_GLTBDISTACCTNBR08 = 'gl_dist_code.GltbDistAcctNbr08';
+    public const COL_GLTBDISTACCTNBR08 = 'gl_dist_code.GltbDistAcctNbr08';
 
     /**
      * the column name for the GltbDistAcctPct08 field
      */
-    const COL_GLTBDISTACCTPCT08 = 'gl_dist_code.GltbDistAcctPct08';
+    public const COL_GLTBDISTACCTPCT08 = 'gl_dist_code.GltbDistAcctPct08';
 
     /**
      * the column name for the GltbDistAcctNbr09 field
      */
-    const COL_GLTBDISTACCTNBR09 = 'gl_dist_code.GltbDistAcctNbr09';
+    public const COL_GLTBDISTACCTNBR09 = 'gl_dist_code.GltbDistAcctNbr09';
 
     /**
      * the column name for the GltbDistAcctPct09 field
      */
-    const COL_GLTBDISTACCTPCT09 = 'gl_dist_code.GltbDistAcctPct09';
+    public const COL_GLTBDISTACCTPCT09 = 'gl_dist_code.GltbDistAcctPct09';
 
     /**
      * the column name for the GltbDistAcctNbr10 field
      */
-    const COL_GLTBDISTACCTNBR10 = 'gl_dist_code.GltbDistAcctNbr10';
+    public const COL_GLTBDISTACCTNBR10 = 'gl_dist_code.GltbDistAcctNbr10';
 
     /**
      * the column name for the GltbDistAcctPct10 field
      */
-    const COL_GLTBDISTACCTPCT10 = 'gl_dist_code.GltbDistAcctPct10';
+    public const COL_GLTBDISTACCTPCT10 = 'gl_dist_code.GltbDistAcctPct10';
 
     /**
      * the column name for the GltbDistAcctNbr11 field
      */
-    const COL_GLTBDISTACCTNBR11 = 'gl_dist_code.GltbDistAcctNbr11';
+    public const COL_GLTBDISTACCTNBR11 = 'gl_dist_code.GltbDistAcctNbr11';
 
     /**
      * the column name for the GltbDistAcctPct11 field
      */
-    const COL_GLTBDISTACCTPCT11 = 'gl_dist_code.GltbDistAcctPct11';
+    public const COL_GLTBDISTACCTPCT11 = 'gl_dist_code.GltbDistAcctPct11';
 
     /**
      * the column name for the GltbDistAcctNbr12 field
      */
-    const COL_GLTBDISTACCTNBR12 = 'gl_dist_code.GltbDistAcctNbr12';
+    public const COL_GLTBDISTACCTNBR12 = 'gl_dist_code.GltbDistAcctNbr12';
 
     /**
      * the column name for the GltbDistAcctPct12 field
      */
-    const COL_GLTBDISTACCTPCT12 = 'gl_dist_code.GltbDistAcctPct12';
+    public const COL_GLTBDISTACCTPCT12 = 'gl_dist_code.GltbDistAcctPct12';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'gl_dist_code.DateUpdtd';
+    public const COL_DATEUPDTD = 'gl_dist_code.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'gl_dist_code.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'gl_dist_code.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'gl_dist_code.dummy';
+    public const COL_DUMMY = 'gl_dist_code.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Gltbdistcode', 'Gltbdistdesc', 'Gltbdistacctnbr01', 'Gltbdistacctpct01', 'Gltbdistacctnbr02', 'Gltbdistacctpct02', 'Gltbdistacctnbr03', 'Gltbdistacctpct03', 'Gltbdistacctnbr04', 'Gltbdistacctpct04', 'Gltbdistacctnbr05', 'Gltbdistacctpct05', 'Gltbdistacctnbr06', 'Gltbdistacctpct06', 'Gltbdistacctnbr07', 'Gltbdistacctpct07', 'Gltbdistacctnbr08', 'Gltbdistacctpct08', 'Gltbdistacctnbr09', 'Gltbdistacctpct09', 'Gltbdistacctnbr10', 'Gltbdistacctpct10', 'Gltbdistacctnbr11', 'Gltbdistacctpct11', 'Gltbdistacctnbr12', 'Gltbdistacctpct12', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('gltbdistcode', 'gltbdistdesc', 'gltbdistacctnbr01', 'gltbdistacctpct01', 'gltbdistacctnbr02', 'gltbdistacctpct02', 'gltbdistacctnbr03', 'gltbdistacctpct03', 'gltbdistacctnbr04', 'gltbdistacctpct04', 'gltbdistacctnbr05', 'gltbdistacctpct05', 'gltbdistacctnbr06', 'gltbdistacctpct06', 'gltbdistacctnbr07', 'gltbdistacctpct07', 'gltbdistacctnbr08', 'gltbdistacctpct08', 'gltbdistacctnbr09', 'gltbdistacctpct09', 'gltbdistacctnbr10', 'gltbdistacctpct10', 'gltbdistacctnbr11', 'gltbdistacctpct11', 'gltbdistacctnbr12', 'gltbdistacctpct12', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(GlDistCodeTableMap::COL_GLTBDISTCODE, GlDistCodeTableMap::COL_GLTBDISTDESC, GlDistCodeTableMap::COL_GLTBDISTACCTNBR01, GlDistCodeTableMap::COL_GLTBDISTACCTPCT01, GlDistCodeTableMap::COL_GLTBDISTACCTNBR02, GlDistCodeTableMap::COL_GLTBDISTACCTPCT02, GlDistCodeTableMap::COL_GLTBDISTACCTNBR03, GlDistCodeTableMap::COL_GLTBDISTACCTPCT03, GlDistCodeTableMap::COL_GLTBDISTACCTNBR04, GlDistCodeTableMap::COL_GLTBDISTACCTPCT04, GlDistCodeTableMap::COL_GLTBDISTACCTNBR05, GlDistCodeTableMap::COL_GLTBDISTACCTPCT05, GlDistCodeTableMap::COL_GLTBDISTACCTNBR06, GlDistCodeTableMap::COL_GLTBDISTACCTPCT06, GlDistCodeTableMap::COL_GLTBDISTACCTNBR07, GlDistCodeTableMap::COL_GLTBDISTACCTPCT07, GlDistCodeTableMap::COL_GLTBDISTACCTNBR08, GlDistCodeTableMap::COL_GLTBDISTACCTPCT08, GlDistCodeTableMap::COL_GLTBDISTACCTNBR09, GlDistCodeTableMap::COL_GLTBDISTACCTPCT09, GlDistCodeTableMap::COL_GLTBDISTACCTNBR10, GlDistCodeTableMap::COL_GLTBDISTACCTPCT10, GlDistCodeTableMap::COL_GLTBDISTACCTNBR11, GlDistCodeTableMap::COL_GLTBDISTACCTPCT11, GlDistCodeTableMap::COL_GLTBDISTACCTNBR12, GlDistCodeTableMap::COL_GLTBDISTACCTPCT12, GlDistCodeTableMap::COL_DATEUPDTD, GlDistCodeTableMap::COL_TIMEUPDTD, GlDistCodeTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('GltbDistCode', 'GltbDistDesc', 'GltbDistAcctNbr01', 'GltbDistAcctPct01', 'GltbDistAcctNbr02', 'GltbDistAcctPct02', 'GltbDistAcctNbr03', 'GltbDistAcctPct03', 'GltbDistAcctNbr04', 'GltbDistAcctPct04', 'GltbDistAcctNbr05', 'GltbDistAcctPct05', 'GltbDistAcctNbr06', 'GltbDistAcctPct06', 'GltbDistAcctNbr07', 'GltbDistAcctPct07', 'GltbDistAcctNbr08', 'GltbDistAcctPct08', 'GltbDistAcctNbr09', 'GltbDistAcctPct09', 'GltbDistAcctNbr10', 'GltbDistAcctPct10', 'GltbDistAcctNbr11', 'GltbDistAcctPct11', 'GltbDistAcctNbr12', 'GltbDistAcctPct12', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Gltbdistcode', 'Gltbdistdesc', 'Gltbdistacctnbr01', 'Gltbdistacctpct01', 'Gltbdistacctnbr02', 'Gltbdistacctpct02', 'Gltbdistacctnbr03', 'Gltbdistacctpct03', 'Gltbdistacctnbr04', 'Gltbdistacctpct04', 'Gltbdistacctnbr05', 'Gltbdistacctpct05', 'Gltbdistacctnbr06', 'Gltbdistacctpct06', 'Gltbdistacctnbr07', 'Gltbdistacctpct07', 'Gltbdistacctnbr08', 'Gltbdistacctpct08', 'Gltbdistacctnbr09', 'Gltbdistacctpct09', 'Gltbdistacctnbr10', 'Gltbdistacctpct10', 'Gltbdistacctnbr11', 'Gltbdistacctpct11', 'Gltbdistacctnbr12', 'Gltbdistacctpct12', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['gltbdistcode', 'gltbdistdesc', 'gltbdistacctnbr01', 'gltbdistacctpct01', 'gltbdistacctnbr02', 'gltbdistacctpct02', 'gltbdistacctnbr03', 'gltbdistacctpct03', 'gltbdistacctnbr04', 'gltbdistacctpct04', 'gltbdistacctnbr05', 'gltbdistacctpct05', 'gltbdistacctnbr06', 'gltbdistacctpct06', 'gltbdistacctnbr07', 'gltbdistacctpct07', 'gltbdistacctnbr08', 'gltbdistacctpct08', 'gltbdistacctnbr09', 'gltbdistacctpct09', 'gltbdistacctnbr10', 'gltbdistacctpct10', 'gltbdistacctnbr11', 'gltbdistacctpct11', 'gltbdistacctnbr12', 'gltbdistacctpct12', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [GlDistCodeTableMap::COL_GLTBDISTCODE, GlDistCodeTableMap::COL_GLTBDISTDESC, GlDistCodeTableMap::COL_GLTBDISTACCTNBR01, GlDistCodeTableMap::COL_GLTBDISTACCTPCT01, GlDistCodeTableMap::COL_GLTBDISTACCTNBR02, GlDistCodeTableMap::COL_GLTBDISTACCTPCT02, GlDistCodeTableMap::COL_GLTBDISTACCTNBR03, GlDistCodeTableMap::COL_GLTBDISTACCTPCT03, GlDistCodeTableMap::COL_GLTBDISTACCTNBR04, GlDistCodeTableMap::COL_GLTBDISTACCTPCT04, GlDistCodeTableMap::COL_GLTBDISTACCTNBR05, GlDistCodeTableMap::COL_GLTBDISTACCTPCT05, GlDistCodeTableMap::COL_GLTBDISTACCTNBR06, GlDistCodeTableMap::COL_GLTBDISTACCTPCT06, GlDistCodeTableMap::COL_GLTBDISTACCTNBR07, GlDistCodeTableMap::COL_GLTBDISTACCTPCT07, GlDistCodeTableMap::COL_GLTBDISTACCTNBR08, GlDistCodeTableMap::COL_GLTBDISTACCTPCT08, GlDistCodeTableMap::COL_GLTBDISTACCTNBR09, GlDistCodeTableMap::COL_GLTBDISTACCTPCT09, GlDistCodeTableMap::COL_GLTBDISTACCTNBR10, GlDistCodeTableMap::COL_GLTBDISTACCTPCT10, GlDistCodeTableMap::COL_GLTBDISTACCTNBR11, GlDistCodeTableMap::COL_GLTBDISTACCTPCT11, GlDistCodeTableMap::COL_GLTBDISTACCTNBR12, GlDistCodeTableMap::COL_GLTBDISTACCTPCT12, GlDistCodeTableMap::COL_DATEUPDTD, GlDistCodeTableMap::COL_TIMEUPDTD, GlDistCodeTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['GltbDistCode', 'GltbDistDesc', 'GltbDistAcctNbr01', 'GltbDistAcctPct01', 'GltbDistAcctNbr02', 'GltbDistAcctPct02', 'GltbDistAcctNbr03', 'GltbDistAcctPct03', 'GltbDistAcctNbr04', 'GltbDistAcctPct04', 'GltbDistAcctNbr05', 'GltbDistAcctPct05', 'GltbDistAcctNbr06', 'GltbDistAcctPct06', 'GltbDistAcctNbr07', 'GltbDistAcctPct07', 'GltbDistAcctNbr08', 'GltbDistAcctPct08', 'GltbDistAcctNbr09', 'GltbDistAcctPct09', 'GltbDistAcctNbr10', 'GltbDistAcctPct10', 'GltbDistAcctNbr11', 'GltbDistAcctPct11', 'GltbDistAcctNbr12', 'GltbDistAcctPct12', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Gltbdistcode' => 0, 'Gltbdistdesc' => 1, 'Gltbdistacctnbr01' => 2, 'Gltbdistacctpct01' => 3, 'Gltbdistacctnbr02' => 4, 'Gltbdistacctpct02' => 5, 'Gltbdistacctnbr03' => 6, 'Gltbdistacctpct03' => 7, 'Gltbdistacctnbr04' => 8, 'Gltbdistacctpct04' => 9, 'Gltbdistacctnbr05' => 10, 'Gltbdistacctpct05' => 11, 'Gltbdistacctnbr06' => 12, 'Gltbdistacctpct06' => 13, 'Gltbdistacctnbr07' => 14, 'Gltbdistacctpct07' => 15, 'Gltbdistacctnbr08' => 16, 'Gltbdistacctpct08' => 17, 'Gltbdistacctnbr09' => 18, 'Gltbdistacctpct09' => 19, 'Gltbdistacctnbr10' => 20, 'Gltbdistacctpct10' => 21, 'Gltbdistacctnbr11' => 22, 'Gltbdistacctpct11' => 23, 'Gltbdistacctnbr12' => 24, 'Gltbdistacctpct12' => 25, 'Dateupdtd' => 26, 'Timeupdtd' => 27, 'Dummy' => 28, ),
-        self::TYPE_CAMELNAME     => array('gltbdistcode' => 0, 'gltbdistdesc' => 1, 'gltbdistacctnbr01' => 2, 'gltbdistacctpct01' => 3, 'gltbdistacctnbr02' => 4, 'gltbdistacctpct02' => 5, 'gltbdistacctnbr03' => 6, 'gltbdistacctpct03' => 7, 'gltbdistacctnbr04' => 8, 'gltbdistacctpct04' => 9, 'gltbdistacctnbr05' => 10, 'gltbdistacctpct05' => 11, 'gltbdistacctnbr06' => 12, 'gltbdistacctpct06' => 13, 'gltbdistacctnbr07' => 14, 'gltbdistacctpct07' => 15, 'gltbdistacctnbr08' => 16, 'gltbdistacctpct08' => 17, 'gltbdistacctnbr09' => 18, 'gltbdistacctpct09' => 19, 'gltbdistacctnbr10' => 20, 'gltbdistacctpct10' => 21, 'gltbdistacctnbr11' => 22, 'gltbdistacctpct11' => 23, 'gltbdistacctnbr12' => 24, 'gltbdistacctpct12' => 25, 'dateupdtd' => 26, 'timeupdtd' => 27, 'dummy' => 28, ),
-        self::TYPE_COLNAME       => array(GlDistCodeTableMap::COL_GLTBDISTCODE => 0, GlDistCodeTableMap::COL_GLTBDISTDESC => 1, GlDistCodeTableMap::COL_GLTBDISTACCTNBR01 => 2, GlDistCodeTableMap::COL_GLTBDISTACCTPCT01 => 3, GlDistCodeTableMap::COL_GLTBDISTACCTNBR02 => 4, GlDistCodeTableMap::COL_GLTBDISTACCTPCT02 => 5, GlDistCodeTableMap::COL_GLTBDISTACCTNBR03 => 6, GlDistCodeTableMap::COL_GLTBDISTACCTPCT03 => 7, GlDistCodeTableMap::COL_GLTBDISTACCTNBR04 => 8, GlDistCodeTableMap::COL_GLTBDISTACCTPCT04 => 9, GlDistCodeTableMap::COL_GLTBDISTACCTNBR05 => 10, GlDistCodeTableMap::COL_GLTBDISTACCTPCT05 => 11, GlDistCodeTableMap::COL_GLTBDISTACCTNBR06 => 12, GlDistCodeTableMap::COL_GLTBDISTACCTPCT06 => 13, GlDistCodeTableMap::COL_GLTBDISTACCTNBR07 => 14, GlDistCodeTableMap::COL_GLTBDISTACCTPCT07 => 15, GlDistCodeTableMap::COL_GLTBDISTACCTNBR08 => 16, GlDistCodeTableMap::COL_GLTBDISTACCTPCT08 => 17, GlDistCodeTableMap::COL_GLTBDISTACCTNBR09 => 18, GlDistCodeTableMap::COL_GLTBDISTACCTPCT09 => 19, GlDistCodeTableMap::COL_GLTBDISTACCTNBR10 => 20, GlDistCodeTableMap::COL_GLTBDISTACCTPCT10 => 21, GlDistCodeTableMap::COL_GLTBDISTACCTNBR11 => 22, GlDistCodeTableMap::COL_GLTBDISTACCTPCT11 => 23, GlDistCodeTableMap::COL_GLTBDISTACCTNBR12 => 24, GlDistCodeTableMap::COL_GLTBDISTACCTPCT12 => 25, GlDistCodeTableMap::COL_DATEUPDTD => 26, GlDistCodeTableMap::COL_TIMEUPDTD => 27, GlDistCodeTableMap::COL_DUMMY => 28, ),
-        self::TYPE_FIELDNAME     => array('GltbDistCode' => 0, 'GltbDistDesc' => 1, 'GltbDistAcctNbr01' => 2, 'GltbDistAcctPct01' => 3, 'GltbDistAcctNbr02' => 4, 'GltbDistAcctPct02' => 5, 'GltbDistAcctNbr03' => 6, 'GltbDistAcctPct03' => 7, 'GltbDistAcctNbr04' => 8, 'GltbDistAcctPct04' => 9, 'GltbDistAcctNbr05' => 10, 'GltbDistAcctPct05' => 11, 'GltbDistAcctNbr06' => 12, 'GltbDistAcctPct06' => 13, 'GltbDistAcctNbr07' => 14, 'GltbDistAcctPct07' => 15, 'GltbDistAcctNbr08' => 16, 'GltbDistAcctPct08' => 17, 'GltbDistAcctNbr09' => 18, 'GltbDistAcctPct09' => 19, 'GltbDistAcctNbr10' => 20, 'GltbDistAcctPct10' => 21, 'GltbDistAcctNbr11' => 22, 'GltbDistAcctPct11' => 23, 'GltbDistAcctNbr12' => 24, 'GltbDistAcctPct12' => 25, 'DateUpdtd' => 26, 'TimeUpdtd' => 27, 'dummy' => 28, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Gltbdistcode' => 0, 'Gltbdistdesc' => 1, 'Gltbdistacctnbr01' => 2, 'Gltbdistacctpct01' => 3, 'Gltbdistacctnbr02' => 4, 'Gltbdistacctpct02' => 5, 'Gltbdistacctnbr03' => 6, 'Gltbdistacctpct03' => 7, 'Gltbdistacctnbr04' => 8, 'Gltbdistacctpct04' => 9, 'Gltbdistacctnbr05' => 10, 'Gltbdistacctpct05' => 11, 'Gltbdistacctnbr06' => 12, 'Gltbdistacctpct06' => 13, 'Gltbdistacctnbr07' => 14, 'Gltbdistacctpct07' => 15, 'Gltbdistacctnbr08' => 16, 'Gltbdistacctpct08' => 17, 'Gltbdistacctnbr09' => 18, 'Gltbdistacctpct09' => 19, 'Gltbdistacctnbr10' => 20, 'Gltbdistacctpct10' => 21, 'Gltbdistacctnbr11' => 22, 'Gltbdistacctpct11' => 23, 'Gltbdistacctnbr12' => 24, 'Gltbdistacctpct12' => 25, 'Dateupdtd' => 26, 'Timeupdtd' => 27, 'Dummy' => 28, ],
+        self::TYPE_CAMELNAME     => ['gltbdistcode' => 0, 'gltbdistdesc' => 1, 'gltbdistacctnbr01' => 2, 'gltbdistacctpct01' => 3, 'gltbdistacctnbr02' => 4, 'gltbdistacctpct02' => 5, 'gltbdistacctnbr03' => 6, 'gltbdistacctpct03' => 7, 'gltbdistacctnbr04' => 8, 'gltbdistacctpct04' => 9, 'gltbdistacctnbr05' => 10, 'gltbdistacctpct05' => 11, 'gltbdistacctnbr06' => 12, 'gltbdistacctpct06' => 13, 'gltbdistacctnbr07' => 14, 'gltbdistacctpct07' => 15, 'gltbdistacctnbr08' => 16, 'gltbdistacctpct08' => 17, 'gltbdistacctnbr09' => 18, 'gltbdistacctpct09' => 19, 'gltbdistacctnbr10' => 20, 'gltbdistacctpct10' => 21, 'gltbdistacctnbr11' => 22, 'gltbdistacctpct11' => 23, 'gltbdistacctnbr12' => 24, 'gltbdistacctpct12' => 25, 'dateupdtd' => 26, 'timeupdtd' => 27, 'dummy' => 28, ],
+        self::TYPE_COLNAME       => [GlDistCodeTableMap::COL_GLTBDISTCODE => 0, GlDistCodeTableMap::COL_GLTBDISTDESC => 1, GlDistCodeTableMap::COL_GLTBDISTACCTNBR01 => 2, GlDistCodeTableMap::COL_GLTBDISTACCTPCT01 => 3, GlDistCodeTableMap::COL_GLTBDISTACCTNBR02 => 4, GlDistCodeTableMap::COL_GLTBDISTACCTPCT02 => 5, GlDistCodeTableMap::COL_GLTBDISTACCTNBR03 => 6, GlDistCodeTableMap::COL_GLTBDISTACCTPCT03 => 7, GlDistCodeTableMap::COL_GLTBDISTACCTNBR04 => 8, GlDistCodeTableMap::COL_GLTBDISTACCTPCT04 => 9, GlDistCodeTableMap::COL_GLTBDISTACCTNBR05 => 10, GlDistCodeTableMap::COL_GLTBDISTACCTPCT05 => 11, GlDistCodeTableMap::COL_GLTBDISTACCTNBR06 => 12, GlDistCodeTableMap::COL_GLTBDISTACCTPCT06 => 13, GlDistCodeTableMap::COL_GLTBDISTACCTNBR07 => 14, GlDistCodeTableMap::COL_GLTBDISTACCTPCT07 => 15, GlDistCodeTableMap::COL_GLTBDISTACCTNBR08 => 16, GlDistCodeTableMap::COL_GLTBDISTACCTPCT08 => 17, GlDistCodeTableMap::COL_GLTBDISTACCTNBR09 => 18, GlDistCodeTableMap::COL_GLTBDISTACCTPCT09 => 19, GlDistCodeTableMap::COL_GLTBDISTACCTNBR10 => 20, GlDistCodeTableMap::COL_GLTBDISTACCTPCT10 => 21, GlDistCodeTableMap::COL_GLTBDISTACCTNBR11 => 22, GlDistCodeTableMap::COL_GLTBDISTACCTPCT11 => 23, GlDistCodeTableMap::COL_GLTBDISTACCTNBR12 => 24, GlDistCodeTableMap::COL_GLTBDISTACCTPCT12 => 25, GlDistCodeTableMap::COL_DATEUPDTD => 26, GlDistCodeTableMap::COL_TIMEUPDTD => 27, GlDistCodeTableMap::COL_DUMMY => 28, ],
+        self::TYPE_FIELDNAME     => ['GltbDistCode' => 0, 'GltbDistDesc' => 1, 'GltbDistAcctNbr01' => 2, 'GltbDistAcctPct01' => 3, 'GltbDistAcctNbr02' => 4, 'GltbDistAcctPct02' => 5, 'GltbDistAcctNbr03' => 6, 'GltbDistAcctPct03' => 7, 'GltbDistAcctNbr04' => 8, 'GltbDistAcctPct04' => 9, 'GltbDistAcctNbr05' => 10, 'GltbDistAcctPct05' => 11, 'GltbDistAcctNbr06' => 12, 'GltbDistAcctPct06' => 13, 'GltbDistAcctNbr07' => 14, 'GltbDistAcctPct07' => 15, 'GltbDistAcctNbr08' => 16, 'GltbDistAcctPct08' => 17, 'GltbDistAcctNbr09' => 18, 'GltbDistAcctPct09' => 19, 'GltbDistAcctNbr10' => 20, 'GltbDistAcctPct10' => 21, 'GltbDistAcctNbr11' => 22, 'GltbDistAcctPct11' => 23, 'GltbDistAcctNbr12' => 24, 'GltbDistAcctPct12' => 25, 'DateUpdtd' => 26, 'TimeUpdtd' => 27, 'dummy' => 28, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Gltbdistcode' => 'GLTBDISTCODE',
+        'GlDistCode.Gltbdistcode' => 'GLTBDISTCODE',
+        'gltbdistcode' => 'GLTBDISTCODE',
+        'glDistCode.gltbdistcode' => 'GLTBDISTCODE',
+        'GlDistCodeTableMap::COL_GLTBDISTCODE' => 'GLTBDISTCODE',
+        'COL_GLTBDISTCODE' => 'GLTBDISTCODE',
+        'GltbDistCode' => 'GLTBDISTCODE',
+        'gl_dist_code.GltbDistCode' => 'GLTBDISTCODE',
+        'Gltbdistdesc' => 'GLTBDISTDESC',
+        'GlDistCode.Gltbdistdesc' => 'GLTBDISTDESC',
+        'gltbdistdesc' => 'GLTBDISTDESC',
+        'glDistCode.gltbdistdesc' => 'GLTBDISTDESC',
+        'GlDistCodeTableMap::COL_GLTBDISTDESC' => 'GLTBDISTDESC',
+        'COL_GLTBDISTDESC' => 'GLTBDISTDESC',
+        'GltbDistDesc' => 'GLTBDISTDESC',
+        'gl_dist_code.GltbDistDesc' => 'GLTBDISTDESC',
+        'Gltbdistacctnbr01' => 'GLTBDISTACCTNBR01',
+        'GlDistCode.Gltbdistacctnbr01' => 'GLTBDISTACCTNBR01',
+        'gltbdistacctnbr01' => 'GLTBDISTACCTNBR01',
+        'glDistCode.gltbdistacctnbr01' => 'GLTBDISTACCTNBR01',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTNBR01' => 'GLTBDISTACCTNBR01',
+        'COL_GLTBDISTACCTNBR01' => 'GLTBDISTACCTNBR01',
+        'GltbDistAcctNbr01' => 'GLTBDISTACCTNBR01',
+        'gl_dist_code.GltbDistAcctNbr01' => 'GLTBDISTACCTNBR01',
+        'Gltbdistacctpct01' => 'GLTBDISTACCTPCT01',
+        'GlDistCode.Gltbdistacctpct01' => 'GLTBDISTACCTPCT01',
+        'gltbdistacctpct01' => 'GLTBDISTACCTPCT01',
+        'glDistCode.gltbdistacctpct01' => 'GLTBDISTACCTPCT01',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTPCT01' => 'GLTBDISTACCTPCT01',
+        'COL_GLTBDISTACCTPCT01' => 'GLTBDISTACCTPCT01',
+        'GltbDistAcctPct01' => 'GLTBDISTACCTPCT01',
+        'gl_dist_code.GltbDistAcctPct01' => 'GLTBDISTACCTPCT01',
+        'Gltbdistacctnbr02' => 'GLTBDISTACCTNBR02',
+        'GlDistCode.Gltbdistacctnbr02' => 'GLTBDISTACCTNBR02',
+        'gltbdistacctnbr02' => 'GLTBDISTACCTNBR02',
+        'glDistCode.gltbdistacctnbr02' => 'GLTBDISTACCTNBR02',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTNBR02' => 'GLTBDISTACCTNBR02',
+        'COL_GLTBDISTACCTNBR02' => 'GLTBDISTACCTNBR02',
+        'GltbDistAcctNbr02' => 'GLTBDISTACCTNBR02',
+        'gl_dist_code.GltbDistAcctNbr02' => 'GLTBDISTACCTNBR02',
+        'Gltbdistacctpct02' => 'GLTBDISTACCTPCT02',
+        'GlDistCode.Gltbdistacctpct02' => 'GLTBDISTACCTPCT02',
+        'gltbdistacctpct02' => 'GLTBDISTACCTPCT02',
+        'glDistCode.gltbdistacctpct02' => 'GLTBDISTACCTPCT02',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTPCT02' => 'GLTBDISTACCTPCT02',
+        'COL_GLTBDISTACCTPCT02' => 'GLTBDISTACCTPCT02',
+        'GltbDistAcctPct02' => 'GLTBDISTACCTPCT02',
+        'gl_dist_code.GltbDistAcctPct02' => 'GLTBDISTACCTPCT02',
+        'Gltbdistacctnbr03' => 'GLTBDISTACCTNBR03',
+        'GlDistCode.Gltbdistacctnbr03' => 'GLTBDISTACCTNBR03',
+        'gltbdistacctnbr03' => 'GLTBDISTACCTNBR03',
+        'glDistCode.gltbdistacctnbr03' => 'GLTBDISTACCTNBR03',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTNBR03' => 'GLTBDISTACCTNBR03',
+        'COL_GLTBDISTACCTNBR03' => 'GLTBDISTACCTNBR03',
+        'GltbDistAcctNbr03' => 'GLTBDISTACCTNBR03',
+        'gl_dist_code.GltbDistAcctNbr03' => 'GLTBDISTACCTNBR03',
+        'Gltbdistacctpct03' => 'GLTBDISTACCTPCT03',
+        'GlDistCode.Gltbdistacctpct03' => 'GLTBDISTACCTPCT03',
+        'gltbdistacctpct03' => 'GLTBDISTACCTPCT03',
+        'glDistCode.gltbdistacctpct03' => 'GLTBDISTACCTPCT03',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTPCT03' => 'GLTBDISTACCTPCT03',
+        'COL_GLTBDISTACCTPCT03' => 'GLTBDISTACCTPCT03',
+        'GltbDistAcctPct03' => 'GLTBDISTACCTPCT03',
+        'gl_dist_code.GltbDistAcctPct03' => 'GLTBDISTACCTPCT03',
+        'Gltbdistacctnbr04' => 'GLTBDISTACCTNBR04',
+        'GlDistCode.Gltbdistacctnbr04' => 'GLTBDISTACCTNBR04',
+        'gltbdistacctnbr04' => 'GLTBDISTACCTNBR04',
+        'glDistCode.gltbdistacctnbr04' => 'GLTBDISTACCTNBR04',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTNBR04' => 'GLTBDISTACCTNBR04',
+        'COL_GLTBDISTACCTNBR04' => 'GLTBDISTACCTNBR04',
+        'GltbDistAcctNbr04' => 'GLTBDISTACCTNBR04',
+        'gl_dist_code.GltbDistAcctNbr04' => 'GLTBDISTACCTNBR04',
+        'Gltbdistacctpct04' => 'GLTBDISTACCTPCT04',
+        'GlDistCode.Gltbdistacctpct04' => 'GLTBDISTACCTPCT04',
+        'gltbdistacctpct04' => 'GLTBDISTACCTPCT04',
+        'glDistCode.gltbdistacctpct04' => 'GLTBDISTACCTPCT04',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTPCT04' => 'GLTBDISTACCTPCT04',
+        'COL_GLTBDISTACCTPCT04' => 'GLTBDISTACCTPCT04',
+        'GltbDistAcctPct04' => 'GLTBDISTACCTPCT04',
+        'gl_dist_code.GltbDistAcctPct04' => 'GLTBDISTACCTPCT04',
+        'Gltbdistacctnbr05' => 'GLTBDISTACCTNBR05',
+        'GlDistCode.Gltbdistacctnbr05' => 'GLTBDISTACCTNBR05',
+        'gltbdistacctnbr05' => 'GLTBDISTACCTNBR05',
+        'glDistCode.gltbdistacctnbr05' => 'GLTBDISTACCTNBR05',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTNBR05' => 'GLTBDISTACCTNBR05',
+        'COL_GLTBDISTACCTNBR05' => 'GLTBDISTACCTNBR05',
+        'GltbDistAcctNbr05' => 'GLTBDISTACCTNBR05',
+        'gl_dist_code.GltbDistAcctNbr05' => 'GLTBDISTACCTNBR05',
+        'Gltbdistacctpct05' => 'GLTBDISTACCTPCT05',
+        'GlDistCode.Gltbdistacctpct05' => 'GLTBDISTACCTPCT05',
+        'gltbdistacctpct05' => 'GLTBDISTACCTPCT05',
+        'glDistCode.gltbdistacctpct05' => 'GLTBDISTACCTPCT05',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTPCT05' => 'GLTBDISTACCTPCT05',
+        'COL_GLTBDISTACCTPCT05' => 'GLTBDISTACCTPCT05',
+        'GltbDistAcctPct05' => 'GLTBDISTACCTPCT05',
+        'gl_dist_code.GltbDistAcctPct05' => 'GLTBDISTACCTPCT05',
+        'Gltbdistacctnbr06' => 'GLTBDISTACCTNBR06',
+        'GlDistCode.Gltbdistacctnbr06' => 'GLTBDISTACCTNBR06',
+        'gltbdistacctnbr06' => 'GLTBDISTACCTNBR06',
+        'glDistCode.gltbdistacctnbr06' => 'GLTBDISTACCTNBR06',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTNBR06' => 'GLTBDISTACCTNBR06',
+        'COL_GLTBDISTACCTNBR06' => 'GLTBDISTACCTNBR06',
+        'GltbDistAcctNbr06' => 'GLTBDISTACCTNBR06',
+        'gl_dist_code.GltbDistAcctNbr06' => 'GLTBDISTACCTNBR06',
+        'Gltbdistacctpct06' => 'GLTBDISTACCTPCT06',
+        'GlDistCode.Gltbdistacctpct06' => 'GLTBDISTACCTPCT06',
+        'gltbdistacctpct06' => 'GLTBDISTACCTPCT06',
+        'glDistCode.gltbdistacctpct06' => 'GLTBDISTACCTPCT06',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTPCT06' => 'GLTBDISTACCTPCT06',
+        'COL_GLTBDISTACCTPCT06' => 'GLTBDISTACCTPCT06',
+        'GltbDistAcctPct06' => 'GLTBDISTACCTPCT06',
+        'gl_dist_code.GltbDistAcctPct06' => 'GLTBDISTACCTPCT06',
+        'Gltbdistacctnbr07' => 'GLTBDISTACCTNBR07',
+        'GlDistCode.Gltbdistacctnbr07' => 'GLTBDISTACCTNBR07',
+        'gltbdistacctnbr07' => 'GLTBDISTACCTNBR07',
+        'glDistCode.gltbdistacctnbr07' => 'GLTBDISTACCTNBR07',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTNBR07' => 'GLTBDISTACCTNBR07',
+        'COL_GLTBDISTACCTNBR07' => 'GLTBDISTACCTNBR07',
+        'GltbDistAcctNbr07' => 'GLTBDISTACCTNBR07',
+        'gl_dist_code.GltbDistAcctNbr07' => 'GLTBDISTACCTNBR07',
+        'Gltbdistacctpct07' => 'GLTBDISTACCTPCT07',
+        'GlDistCode.Gltbdistacctpct07' => 'GLTBDISTACCTPCT07',
+        'gltbdistacctpct07' => 'GLTBDISTACCTPCT07',
+        'glDistCode.gltbdistacctpct07' => 'GLTBDISTACCTPCT07',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTPCT07' => 'GLTBDISTACCTPCT07',
+        'COL_GLTBDISTACCTPCT07' => 'GLTBDISTACCTPCT07',
+        'GltbDistAcctPct07' => 'GLTBDISTACCTPCT07',
+        'gl_dist_code.GltbDistAcctPct07' => 'GLTBDISTACCTPCT07',
+        'Gltbdistacctnbr08' => 'GLTBDISTACCTNBR08',
+        'GlDistCode.Gltbdistacctnbr08' => 'GLTBDISTACCTNBR08',
+        'gltbdistacctnbr08' => 'GLTBDISTACCTNBR08',
+        'glDistCode.gltbdistacctnbr08' => 'GLTBDISTACCTNBR08',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTNBR08' => 'GLTBDISTACCTNBR08',
+        'COL_GLTBDISTACCTNBR08' => 'GLTBDISTACCTNBR08',
+        'GltbDistAcctNbr08' => 'GLTBDISTACCTNBR08',
+        'gl_dist_code.GltbDistAcctNbr08' => 'GLTBDISTACCTNBR08',
+        'Gltbdistacctpct08' => 'GLTBDISTACCTPCT08',
+        'GlDistCode.Gltbdistacctpct08' => 'GLTBDISTACCTPCT08',
+        'gltbdistacctpct08' => 'GLTBDISTACCTPCT08',
+        'glDistCode.gltbdistacctpct08' => 'GLTBDISTACCTPCT08',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTPCT08' => 'GLTBDISTACCTPCT08',
+        'COL_GLTBDISTACCTPCT08' => 'GLTBDISTACCTPCT08',
+        'GltbDistAcctPct08' => 'GLTBDISTACCTPCT08',
+        'gl_dist_code.GltbDistAcctPct08' => 'GLTBDISTACCTPCT08',
+        'Gltbdistacctnbr09' => 'GLTBDISTACCTNBR09',
+        'GlDistCode.Gltbdistacctnbr09' => 'GLTBDISTACCTNBR09',
+        'gltbdistacctnbr09' => 'GLTBDISTACCTNBR09',
+        'glDistCode.gltbdistacctnbr09' => 'GLTBDISTACCTNBR09',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTNBR09' => 'GLTBDISTACCTNBR09',
+        'COL_GLTBDISTACCTNBR09' => 'GLTBDISTACCTNBR09',
+        'GltbDistAcctNbr09' => 'GLTBDISTACCTNBR09',
+        'gl_dist_code.GltbDistAcctNbr09' => 'GLTBDISTACCTNBR09',
+        'Gltbdistacctpct09' => 'GLTBDISTACCTPCT09',
+        'GlDistCode.Gltbdistacctpct09' => 'GLTBDISTACCTPCT09',
+        'gltbdistacctpct09' => 'GLTBDISTACCTPCT09',
+        'glDistCode.gltbdistacctpct09' => 'GLTBDISTACCTPCT09',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTPCT09' => 'GLTBDISTACCTPCT09',
+        'COL_GLTBDISTACCTPCT09' => 'GLTBDISTACCTPCT09',
+        'GltbDistAcctPct09' => 'GLTBDISTACCTPCT09',
+        'gl_dist_code.GltbDistAcctPct09' => 'GLTBDISTACCTPCT09',
+        'Gltbdistacctnbr10' => 'GLTBDISTACCTNBR10',
+        'GlDistCode.Gltbdistacctnbr10' => 'GLTBDISTACCTNBR10',
+        'gltbdistacctnbr10' => 'GLTBDISTACCTNBR10',
+        'glDistCode.gltbdistacctnbr10' => 'GLTBDISTACCTNBR10',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTNBR10' => 'GLTBDISTACCTNBR10',
+        'COL_GLTBDISTACCTNBR10' => 'GLTBDISTACCTNBR10',
+        'GltbDistAcctNbr10' => 'GLTBDISTACCTNBR10',
+        'gl_dist_code.GltbDistAcctNbr10' => 'GLTBDISTACCTNBR10',
+        'Gltbdistacctpct10' => 'GLTBDISTACCTPCT10',
+        'GlDistCode.Gltbdistacctpct10' => 'GLTBDISTACCTPCT10',
+        'gltbdistacctpct10' => 'GLTBDISTACCTPCT10',
+        'glDistCode.gltbdistacctpct10' => 'GLTBDISTACCTPCT10',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTPCT10' => 'GLTBDISTACCTPCT10',
+        'COL_GLTBDISTACCTPCT10' => 'GLTBDISTACCTPCT10',
+        'GltbDistAcctPct10' => 'GLTBDISTACCTPCT10',
+        'gl_dist_code.GltbDistAcctPct10' => 'GLTBDISTACCTPCT10',
+        'Gltbdistacctnbr11' => 'GLTBDISTACCTNBR11',
+        'GlDistCode.Gltbdistacctnbr11' => 'GLTBDISTACCTNBR11',
+        'gltbdistacctnbr11' => 'GLTBDISTACCTNBR11',
+        'glDistCode.gltbdistacctnbr11' => 'GLTBDISTACCTNBR11',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTNBR11' => 'GLTBDISTACCTNBR11',
+        'COL_GLTBDISTACCTNBR11' => 'GLTBDISTACCTNBR11',
+        'GltbDistAcctNbr11' => 'GLTBDISTACCTNBR11',
+        'gl_dist_code.GltbDistAcctNbr11' => 'GLTBDISTACCTNBR11',
+        'Gltbdistacctpct11' => 'GLTBDISTACCTPCT11',
+        'GlDistCode.Gltbdistacctpct11' => 'GLTBDISTACCTPCT11',
+        'gltbdistacctpct11' => 'GLTBDISTACCTPCT11',
+        'glDistCode.gltbdistacctpct11' => 'GLTBDISTACCTPCT11',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTPCT11' => 'GLTBDISTACCTPCT11',
+        'COL_GLTBDISTACCTPCT11' => 'GLTBDISTACCTPCT11',
+        'GltbDistAcctPct11' => 'GLTBDISTACCTPCT11',
+        'gl_dist_code.GltbDistAcctPct11' => 'GLTBDISTACCTPCT11',
+        'Gltbdistacctnbr12' => 'GLTBDISTACCTNBR12',
+        'GlDistCode.Gltbdistacctnbr12' => 'GLTBDISTACCTNBR12',
+        'gltbdistacctnbr12' => 'GLTBDISTACCTNBR12',
+        'glDistCode.gltbdistacctnbr12' => 'GLTBDISTACCTNBR12',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTNBR12' => 'GLTBDISTACCTNBR12',
+        'COL_GLTBDISTACCTNBR12' => 'GLTBDISTACCTNBR12',
+        'GltbDistAcctNbr12' => 'GLTBDISTACCTNBR12',
+        'gl_dist_code.GltbDistAcctNbr12' => 'GLTBDISTACCTNBR12',
+        'Gltbdistacctpct12' => 'GLTBDISTACCTPCT12',
+        'GlDistCode.Gltbdistacctpct12' => 'GLTBDISTACCTPCT12',
+        'gltbdistacctpct12' => 'GLTBDISTACCTPCT12',
+        'glDistCode.gltbdistacctpct12' => 'GLTBDISTACCTPCT12',
+        'GlDistCodeTableMap::COL_GLTBDISTACCTPCT12' => 'GLTBDISTACCTPCT12',
+        'COL_GLTBDISTACCTPCT12' => 'GLTBDISTACCTPCT12',
+        'GltbDistAcctPct12' => 'GLTBDISTACCTPCT12',
+        'gl_dist_code.GltbDistAcctPct12' => 'GLTBDISTACCTPCT12',
+        'Dateupdtd' => 'DATEUPDTD',
+        'GlDistCode.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'glDistCode.dateupdtd' => 'DATEUPDTD',
+        'GlDistCodeTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'gl_dist_code.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'GlDistCode.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'glDistCode.timeupdtd' => 'TIMEUPDTD',
+        'GlDistCodeTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'gl_dist_code.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'GlDistCode.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'glDistCode.dummy' => 'DUMMY',
+        'GlDistCodeTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'gl_dist_code.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('gl_dist_code');
@@ -295,14 +542,16 @@ class GlDistCodeTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
-    } // buildRelations()
+    }
 
     /**
      * Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.
@@ -310,14 +559,14 @@ class GlDistCodeTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Gltbdistcode', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -332,14 +581,14 @@ class GlDistCodeTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
         return (string) $row[
             $indexType == TableMap::TYPE_NUM
@@ -356,10 +605,10 @@ class GlDistCodeTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? GlDistCodeTableMap::CLASS_DEFAULT : GlDistCodeTableMap::OM_CLASS;
     }
@@ -367,17 +616,17 @@ class GlDistCodeTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (GlDistCode object, last column rank)
+     * @return array (GlDistCode object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = GlDistCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = GlDistCodeTableMap::getInstanceFromPool($key))) {
@@ -393,7 +642,7 @@ class GlDistCodeTableMap extends TableMap
             GlDistCodeTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -401,13 +650,13 @@ class GlDistCodeTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -437,12 +686,13 @@ class GlDistCodeTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(GlDistCodeTableMap::COL_GLTBDISTCODE);
@@ -508,40 +758,106 @@ class GlDistCodeTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTCODE);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTDESC);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTNBR01);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTPCT01);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTNBR02);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTPCT02);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTNBR03);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTPCT03);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTNBR04);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTPCT04);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTNBR05);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTPCT05);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTNBR06);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTPCT06);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTNBR07);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTPCT07);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTNBR08);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTPCT08);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTNBR09);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTPCT09);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTNBR10);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTPCT10);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTNBR11);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTPCT11);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTNBR12);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_GLTBDISTACCTPCT12);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(GlDistCodeTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.GltbDistCode');
+            $criteria->removeSelectColumn($alias . '.GltbDistDesc');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctNbr01');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctPct01');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctNbr02');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctPct02');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctNbr03');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctPct03');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctNbr04');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctPct04');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctNbr05');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctPct05');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctNbr06');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctPct06');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctNbr07');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctPct07');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctNbr08');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctPct08');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctNbr09');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctPct09');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctNbr10');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctPct10');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctNbr11');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctPct11');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctNbr12');
+            $criteria->removeSelectColumn($alias . '.GltbDistAcctPct12');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(GlDistCodeTableMap::DATABASE_NAME)->getTable(GlDistCodeTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(GlDistCodeTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(GlDistCodeTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new GlDistCodeTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a GlDistCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or GlDistCode object or primary key or array of primary keys
+     * @param mixed $values Criteria or GlDistCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(GlDistCodeTableMap::DATABASE_NAME);
@@ -577,7 +893,7 @@ class GlDistCodeTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return GlDistCodeQuery::create()->doDeleteAll($con);
     }
@@ -585,13 +901,13 @@ class GlDistCodeTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a GlDistCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or GlDistCode object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or GlDistCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(GlDistCodeTableMap::DATABASE_NAME);
@@ -614,7 +930,4 @@ class GlDistCodeTableMap extends TableMap
         });
     }
 
-} // GlDistCodeTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-GlDistCodeTableMap::buildTableMap();
+}

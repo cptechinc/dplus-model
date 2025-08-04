@@ -10,14 +10,12 @@ use Map\ArRouteCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ar_cust_rout' table.
- *
- *
+ * Base class that represents a query for the `ar_cust_rout` table.
  *
  * @method     ChildArRouteCodeQuery orderByArtbroute($order = Criteria::ASC) Order by the ArtbRoute column
  * @method     ChildArRouteCodeQuery orderByArtbroutedesc($order = Criteria::ASC) Order by the ArtbRouteDesc column
@@ -39,17 +37,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArRouteCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildArRouteCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildArRouteCode findOne(ConnectionInterface $con = null) Return the first ChildArRouteCode matching the query
- * @method     ChildArRouteCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildArRouteCode matching the query, or a new ChildArRouteCode object populated from the query conditions when no match is found
+ * @method     ChildArRouteCode|null findOne(?ConnectionInterface $con = null) Return the first ChildArRouteCode matching the query
+ * @method     ChildArRouteCode findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildArRouteCode matching the query, or a new ChildArRouteCode object populated from the query conditions when no match is found
  *
- * @method     ChildArRouteCode findOneByArtbroute(string $ArtbRoute) Return the first ChildArRouteCode filtered by the ArtbRoute column
- * @method     ChildArRouteCode findOneByArtbroutedesc(string $ArtbRouteDesc) Return the first ChildArRouteCode filtered by the ArtbRouteDesc column
- * @method     ChildArRouteCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildArRouteCode filtered by the DateUpdtd column
- * @method     ChildArRouteCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArRouteCode filtered by the TimeUpdtd column
- * @method     ChildArRouteCode findOneByDummy(string $dummy) Return the first ChildArRouteCode filtered by the dummy column *
-
- * @method     ChildArRouteCode requirePk($key, ConnectionInterface $con = null) Return the ChildArRouteCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildArRouteCode requireOne(ConnectionInterface $con = null) Return the first ChildArRouteCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArRouteCode|null findOneByArtbroute(string $ArtbRoute) Return the first ChildArRouteCode filtered by the ArtbRoute column
+ * @method     ChildArRouteCode|null findOneByArtbroutedesc(string $ArtbRouteDesc) Return the first ChildArRouteCode filtered by the ArtbRouteDesc column
+ * @method     ChildArRouteCode|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildArRouteCode filtered by the DateUpdtd column
+ * @method     ChildArRouteCode|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArRouteCode filtered by the TimeUpdtd column
+ * @method     ChildArRouteCode|null findOneByDummy(string $dummy) Return the first ChildArRouteCode filtered by the dummy column
+ *
+ * @method     ChildArRouteCode requirePk($key, ?ConnectionInterface $con = null) Return the ChildArRouteCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArRouteCode requireOne(?ConnectionInterface $con = null) Return the first ChildArRouteCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildArRouteCode requireOneByArtbroute(string $ArtbRoute) Return the first ChildArRouteCode filtered by the ArtbRoute column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArRouteCode requireOneByArtbroutedesc(string $ArtbRouteDesc) Return the first ChildArRouteCode filtered by the ArtbRouteDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -57,14 +55,22 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArRouteCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArRouteCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArRouteCode requireOneByDummy(string $dummy) Return the first ChildArRouteCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildArRouteCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArRouteCode objects based on current ModelCriteria
- * @method     ChildArRouteCode[]|ObjectCollection findByArtbroute(string $ArtbRoute) Return ChildArRouteCode objects filtered by the ArtbRoute column
- * @method     ChildArRouteCode[]|ObjectCollection findByArtbroutedesc(string $ArtbRouteDesc) Return ChildArRouteCode objects filtered by the ArtbRouteDesc column
- * @method     ChildArRouteCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArRouteCode objects filtered by the DateUpdtd column
- * @method     ChildArRouteCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArRouteCode objects filtered by the TimeUpdtd column
- * @method     ChildArRouteCode[]|ObjectCollection findByDummy(string $dummy) Return ChildArRouteCode objects filtered by the dummy column
- * @method     ChildArRouteCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildArRouteCode[]|Collection find(?ConnectionInterface $con = null) Return ChildArRouteCode objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildArRouteCode> find(?ConnectionInterface $con = null) Return ChildArRouteCode objects based on current ModelCriteria
  *
+ * @method     ChildArRouteCode[]|Collection findByArtbroute(string|array<string> $ArtbRoute) Return ChildArRouteCode objects filtered by the ArtbRoute column
+ * @psalm-method Collection&\Traversable<ChildArRouteCode> findByArtbroute(string|array<string> $ArtbRoute) Return ChildArRouteCode objects filtered by the ArtbRoute column
+ * @method     ChildArRouteCode[]|Collection findByArtbroutedesc(string|array<string> $ArtbRouteDesc) Return ChildArRouteCode objects filtered by the ArtbRouteDesc column
+ * @psalm-method Collection&\Traversable<ChildArRouteCode> findByArtbroutedesc(string|array<string> $ArtbRouteDesc) Return ChildArRouteCode objects filtered by the ArtbRouteDesc column
+ * @method     ChildArRouteCode[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArRouteCode objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArRouteCode> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildArRouteCode objects filtered by the DateUpdtd column
+ * @method     ChildArRouteCode[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArRouteCode objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildArRouteCode> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildArRouteCode objects filtered by the TimeUpdtd column
+ * @method     ChildArRouteCode[]|Collection findByDummy(string|array<string> $dummy) Return ChildArRouteCode objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildArRouteCode> findByDummy(string|array<string> $dummy) Return ChildArRouteCode objects filtered by the dummy column
+ *
+ * @method     ChildArRouteCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildArRouteCode> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class ArRouteCodeQuery extends ModelCriteria
 {
@@ -73,9 +79,9 @@ abstract class ArRouteCodeQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\ArRouteCodeQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\ArRouteCode', $modelAlias = null)
     {
@@ -85,12 +91,12 @@ abstract class ArRouteCodeQuery extends ModelCriteria
     /**
      * Returns a new ChildArRouteCodeQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildArRouteCodeQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildArRouteCodeQuery) {
             return $criteria;
@@ -120,7 +126,7 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      *
      * @return ChildArRouteCode|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -152,8 +158,8 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -185,8 +191,8 @@ abstract class ArRouteCodeQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildArRouteCode|array|mixed the result, formatted by the current formatter
      */
@@ -206,12 +212,12 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -228,27 +234,31 @@ abstract class ArRouteCodeQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildArRouteCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ArRouteCodeTableMap::COL_ARTBROUTE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(ArRouteCodeTableMap::COL_ARTBROUTE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildArRouteCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ArRouteCodeTableMap::COL_ARTBROUTE, $keys, Criteria::IN);
+        $this->addUsingAlias(ArRouteCodeTableMap::COL_ARTBROUTE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -258,14 +268,15 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbroute('fooValue');   // WHERE ArtbRoute = 'fooValue'
      * $query->filterByArtbroute('%fooValue%', Criteria::LIKE); // WHERE ArtbRoute LIKE '%fooValue%'
+     * $query->filterByArtbroute(['foo', 'bar']); // WHERE ArtbRoute IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbroute The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbroute The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArRouteCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbroute($artbroute = null, $comparison = null)
+    public function filterByArtbroute($artbroute = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbroute)) {
@@ -273,7 +284,9 @@ abstract class ArRouteCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArRouteCodeTableMap::COL_ARTBROUTE, $artbroute, $comparison);
+        $this->addUsingAlias(ArRouteCodeTableMap::COL_ARTBROUTE, $artbroute, $comparison);
+
+        return $this;
     }
 
     /**
@@ -283,14 +296,15 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByArtbroutedesc('fooValue');   // WHERE ArtbRouteDesc = 'fooValue'
      * $query->filterByArtbroutedesc('%fooValue%', Criteria::LIKE); // WHERE ArtbRouteDesc LIKE '%fooValue%'
+     * $query->filterByArtbroutedesc(['foo', 'bar']); // WHERE ArtbRouteDesc IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $artbroutedesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $artbroutedesc The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArRouteCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByArtbroutedesc($artbroutedesc = null, $comparison = null)
+    public function filterByArtbroutedesc($artbroutedesc = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($artbroutedesc)) {
@@ -298,7 +312,9 @@ abstract class ArRouteCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArRouteCodeTableMap::COL_ARTBROUTEDESC, $artbroutedesc, $comparison);
+        $this->addUsingAlias(ArRouteCodeTableMap::COL_ARTBROUTEDESC, $artbroutedesc, $comparison);
+
+        return $this;
     }
 
     /**
@@ -308,14 +324,15 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArRouteCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -323,7 +340,9 @@ abstract class ArRouteCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArRouteCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(ArRouteCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -333,14 +352,15 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArRouteCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -348,7 +368,9 @@ abstract class ArRouteCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArRouteCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(ArRouteCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -358,14 +380,15 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArRouteCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -373,20 +396,22 @@ abstract class ArRouteCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArRouteCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(ArRouteCodeTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildArRouteCode $customerRouteCode Object to remove from the list of results
+     * @param ChildArRouteCode $arRouteCode Object to remove from the list of results
      *
-     * @return $this|ChildArRouteCodeQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function prune($customerRouteCode = null)
+    public function prune($arRouteCode = null)
     {
-        if ($customerRouteCode) {
-            $this->addUsingAlias(ArRouteCodeTableMap::COL_ARTBROUTE, $customerRouteCode->getArtbroute(), Criteria::NOT_EQUAL);
+        if ($arRouteCode) {
+            $this->addUsingAlias(ArRouteCodeTableMap::COL_ARTBROUTE, $arRouteCode->getArtbroute(), Criteria::NOT_EQUAL);
         }
 
         return $this;
@@ -398,7 +423,7 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArRouteCodeTableMap::DATABASE_NAME);
@@ -423,12 +448,12 @@ abstract class ArRouteCodeQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ArRouteCodeTableMap::DATABASE_NAME);
@@ -453,4 +478,4 @@ abstract class ArRouteCodeQuery extends ModelCriteria
         });
     }
 
-} // ArRouteCodeQuery
+}

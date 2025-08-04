@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ItemXrefCustomerTableMap extends TableMap
 {
@@ -34,199 +33,399 @@ class ItemXrefCustomerTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ItemXrefCustomerTableMap';
+    public const CLASS_NAME = '.Map.ItemXrefCustomerTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'cust_item_xref';
+    public const TABLE_NAME = 'cust_item_xref';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ItemXrefCustomer';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ItemXrefCustomer';
+    public const OM_CLASS = '\\ItemXrefCustomer';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ItemXrefCustomer';
+    public const CLASS_DEFAULT = 'ItemXrefCustomer';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 23;
+    public const NUM_COLUMNS = 23;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 23;
+    public const NUM_HYDRATE_COLUMNS = 23;
 
     /**
      * the column name for the ArcuCustId field
      */
-    const COL_ARCUCUSTID = 'cust_item_xref.ArcuCustId';
+    public const COL_ARCUCUSTID = 'cust_item_xref.ArcuCustId';
 
     /**
      * the column name for the OexrCustItemNbr field
      */
-    const COL_OEXRCUSTITEMNBR = 'cust_item_xref.OexrCustItemNbr';
+    public const COL_OEXRCUSTITEMNBR = 'cust_item_xref.OexrCustItemNbr';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'cust_item_xref.InitItemNbr';
+    public const COL_INITITEMNBR = 'cust_item_xref.InitItemNbr';
 
     /**
      * the column name for the OexrRetPrice field
      */
-    const COL_OEXRRETPRICE = 'cust_item_xref.OexrRetPrice';
+    public const COL_OEXRRETPRICE = 'cust_item_xref.OexrRetPrice';
 
     /**
      * the column name for the OexrCustPrice field
      */
-    const COL_OEXRCUSTPRICE = 'cust_item_xref.OexrCustPrice';
+    public const COL_OEXRCUSTPRICE = 'cust_item_xref.OexrCustPrice';
 
     /**
      * the column name for the OexrQtyPerCase field
      */
-    const COL_OEXRQTYPERCASE = 'cust_item_xref.OexrQtyPerCase';
+    public const COL_OEXRQTYPERCASE = 'cust_item_xref.OexrQtyPerCase';
 
     /**
      * the column name for the OexrInnerPackQty field
      */
-    const COL_OEXRINNERPACKQTY = 'cust_item_xref.OexrInnerPackQty';
+    public const COL_OEXRINNERPACKQTY = 'cust_item_xref.OexrInnerPackQty';
 
     /**
      * the column name for the OexrOuterPackQty field
      */
-    const COL_OEXROUTERPACKQTY = 'cust_item_xref.OexrOuterPackQty';
+    public const COL_OEXROUTERPACKQTY = 'cust_item_xref.OexrOuterPackQty';
 
     /**
      * the column name for the OexrRounding field
      */
-    const COL_OEXRROUNDING = 'cust_item_xref.OexrRounding';
+    public const COL_OEXRROUNDING = 'cust_item_xref.OexrRounding';
 
     /**
      * the column name for the OexrShipTareQty field
      */
-    const COL_OEXRSHIPTAREQTY = 'cust_item_xref.OexrShipTareQty';
+    public const COL_OEXRSHIPTAREQTY = 'cust_item_xref.OexrShipTareQty';
 
     /**
      * the column name for the OexrCustItemDesc field
      */
-    const COL_OEXRCUSTITEMDESC = 'cust_item_xref.OexrCustItemDesc';
+    public const COL_OEXRCUSTITEMDESC = 'cust_item_xref.OexrCustItemDesc';
 
     /**
      * the column name for the OexrConvert field
      */
-    const COL_OEXRCONVERT = 'cust_item_xref.OexrConvert';
+    public const COL_OEXRCONVERT = 'cust_item_xref.OexrConvert';
 
     /**
      * the column name for the OexrCustItemDesc2 field
      */
-    const COL_OEXRCUSTITEMDESC2 = 'cust_item_xref.OexrCustItemDesc2';
+    public const COL_OEXRCUSTITEMDESC2 = 'cust_item_xref.OexrCustItemDesc2';
 
     /**
      * the column name for the OexrRevision field
      */
-    const COL_OEXRREVISION = 'cust_item_xref.OexrRevision';
+    public const COL_OEXRREVISION = 'cust_item_xref.OexrRevision';
 
     /**
      * the column name for the OexrPurchQty field
      */
-    const COL_OEXRPURCHQTY = 'cust_item_xref.OexrPurchQty';
+    public const COL_OEXRPURCHQTY = 'cust_item_xref.OexrPurchQty';
 
     /**
      * the column name for the OexrCustPricUom field
      */
-    const COL_OEXRCUSTPRICUOM = 'cust_item_xref.OexrCustPricUom';
+    public const COL_OEXRCUSTPRICUOM = 'cust_item_xref.OexrCustPricUom';
 
     /**
      * the column name for the OexrLabel1PrtFmt field
      */
-    const COL_OEXRLABEL1PRTFMT = 'cust_item_xref.OexrLabel1PrtFmt';
+    public const COL_OEXRLABEL1PRTFMT = 'cust_item_xref.OexrLabel1PrtFmt';
 
     /**
      * the column name for the OexrLabel2PrtFmt field
      */
-    const COL_OEXRLABEL2PRTFMT = 'cust_item_xref.OexrLabel2PrtFmt';
+    public const COL_OEXRLABEL2PRTFMT = 'cust_item_xref.OexrLabel2PrtFmt';
 
     /**
      * the column name for the OexrWght field
      */
-    const COL_OEXRWGHT = 'cust_item_xref.OexrWght';
+    public const COL_OEXRWGHT = 'cust_item_xref.OexrWght';
 
     /**
      * the column name for the OexrCustUom field
      */
-    const COL_OEXRCUSTUOM = 'cust_item_xref.OexrCustUom';
+    public const COL_OEXRCUSTUOM = 'cust_item_xref.OexrCustUom';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'cust_item_xref.DateUpdtd';
+    public const COL_DATEUPDTD = 'cust_item_xref.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'cust_item_xref.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'cust_item_xref.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'cust_item_xref.dummy';
+    public const COL_DUMMY = 'cust_item_xref.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Arcucustid', 'Oexrcustitemnbr', 'Inititemnbr', 'Oexrretprice', 'Oexrcustprice', 'Oexrqtypercase', 'Oexrinnerpackqty', 'Oexrouterpackqty', 'Oexrrounding', 'Oexrshiptareqty', 'Oexrcustitemdesc', 'Oexrconvert', 'Oexrcustitemdesc2', 'Oexrrevision', 'Oexrpurchqty', 'Oexrcustpricuom', 'Oexrlabel1prtfmt', 'Oexrlabel2prtfmt', 'Oexrwght', 'Oexrcustuom', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('arcucustid', 'oexrcustitemnbr', 'inititemnbr', 'oexrretprice', 'oexrcustprice', 'oexrqtypercase', 'oexrinnerpackqty', 'oexrouterpackqty', 'oexrrounding', 'oexrshiptareqty', 'oexrcustitemdesc', 'oexrconvert', 'oexrcustitemdesc2', 'oexrrevision', 'oexrpurchqty', 'oexrcustpricuom', 'oexrlabel1prtfmt', 'oexrlabel2prtfmt', 'oexrwght', 'oexrcustuom', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemXrefCustomerTableMap::COL_ARCUCUSTID, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMNBR, ItemXrefCustomerTableMap::COL_INITITEMNBR, ItemXrefCustomerTableMap::COL_OEXRRETPRICE, ItemXrefCustomerTableMap::COL_OEXRCUSTPRICE, ItemXrefCustomerTableMap::COL_OEXRQTYPERCASE, ItemXrefCustomerTableMap::COL_OEXRINNERPACKQTY, ItemXrefCustomerTableMap::COL_OEXROUTERPACKQTY, ItemXrefCustomerTableMap::COL_OEXRROUNDING, ItemXrefCustomerTableMap::COL_OEXRSHIPTAREQTY, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC, ItemXrefCustomerTableMap::COL_OEXRCONVERT, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC2, ItemXrefCustomerTableMap::COL_OEXRREVISION, ItemXrefCustomerTableMap::COL_OEXRPURCHQTY, ItemXrefCustomerTableMap::COL_OEXRCUSTPRICUOM, ItemXrefCustomerTableMap::COL_OEXRLABEL1PRTFMT, ItemXrefCustomerTableMap::COL_OEXRLABEL2PRTFMT, ItemXrefCustomerTableMap::COL_OEXRWGHT, ItemXrefCustomerTableMap::COL_OEXRCUSTUOM, ItemXrefCustomerTableMap::COL_DATEUPDTD, ItemXrefCustomerTableMap::COL_TIMEUPDTD, ItemXrefCustomerTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ArcuCustId', 'OexrCustItemNbr', 'InitItemNbr', 'OexrRetPrice', 'OexrCustPrice', 'OexrQtyPerCase', 'OexrInnerPackQty', 'OexrOuterPackQty', 'OexrRounding', 'OexrShipTareQty', 'OexrCustItemDesc', 'OexrConvert', 'OexrCustItemDesc2', 'OexrRevision', 'OexrPurchQty', 'OexrCustPricUom', 'OexrLabel1PrtFmt', 'OexrLabel2PrtFmt', 'OexrWght', 'OexrCustUom', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Arcucustid', 'Oexrcustitemnbr', 'Inititemnbr', 'Oexrretprice', 'Oexrcustprice', 'Oexrqtypercase', 'Oexrinnerpackqty', 'Oexrouterpackqty', 'Oexrrounding', 'Oexrshiptareqty', 'Oexrcustitemdesc', 'Oexrconvert', 'Oexrcustitemdesc2', 'Oexrrevision', 'Oexrpurchqty', 'Oexrcustpricuom', 'Oexrlabel1prtfmt', 'Oexrlabel2prtfmt', 'Oexrwght', 'Oexrcustuom', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['arcucustid', 'oexrcustitemnbr', 'inititemnbr', 'oexrretprice', 'oexrcustprice', 'oexrqtypercase', 'oexrinnerpackqty', 'oexrouterpackqty', 'oexrrounding', 'oexrshiptareqty', 'oexrcustitemdesc', 'oexrconvert', 'oexrcustitemdesc2', 'oexrrevision', 'oexrpurchqty', 'oexrcustpricuom', 'oexrlabel1prtfmt', 'oexrlabel2prtfmt', 'oexrwght', 'oexrcustuom', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ItemXrefCustomerTableMap::COL_ARCUCUSTID, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMNBR, ItemXrefCustomerTableMap::COL_INITITEMNBR, ItemXrefCustomerTableMap::COL_OEXRRETPRICE, ItemXrefCustomerTableMap::COL_OEXRCUSTPRICE, ItemXrefCustomerTableMap::COL_OEXRQTYPERCASE, ItemXrefCustomerTableMap::COL_OEXRINNERPACKQTY, ItemXrefCustomerTableMap::COL_OEXROUTERPACKQTY, ItemXrefCustomerTableMap::COL_OEXRROUNDING, ItemXrefCustomerTableMap::COL_OEXRSHIPTAREQTY, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC, ItemXrefCustomerTableMap::COL_OEXRCONVERT, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC2, ItemXrefCustomerTableMap::COL_OEXRREVISION, ItemXrefCustomerTableMap::COL_OEXRPURCHQTY, ItemXrefCustomerTableMap::COL_OEXRCUSTPRICUOM, ItemXrefCustomerTableMap::COL_OEXRLABEL1PRTFMT, ItemXrefCustomerTableMap::COL_OEXRLABEL2PRTFMT, ItemXrefCustomerTableMap::COL_OEXRWGHT, ItemXrefCustomerTableMap::COL_OEXRCUSTUOM, ItemXrefCustomerTableMap::COL_DATEUPDTD, ItemXrefCustomerTableMap::COL_TIMEUPDTD, ItemXrefCustomerTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['ArcuCustId', 'OexrCustItemNbr', 'InitItemNbr', 'OexrRetPrice', 'OexrCustPrice', 'OexrQtyPerCase', 'OexrInnerPackQty', 'OexrOuterPackQty', 'OexrRounding', 'OexrShipTareQty', 'OexrCustItemDesc', 'OexrConvert', 'OexrCustItemDesc2', 'OexrRevision', 'OexrPurchQty', 'OexrCustPricUom', 'OexrLabel1PrtFmt', 'OexrLabel2PrtFmt', 'OexrWght', 'OexrCustUom', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Arcucustid' => 0, 'Oexrcustitemnbr' => 1, 'Inititemnbr' => 2, 'Oexrretprice' => 3, 'Oexrcustprice' => 4, 'Oexrqtypercase' => 5, 'Oexrinnerpackqty' => 6, 'Oexrouterpackqty' => 7, 'Oexrrounding' => 8, 'Oexrshiptareqty' => 9, 'Oexrcustitemdesc' => 10, 'Oexrconvert' => 11, 'Oexrcustitemdesc2' => 12, 'Oexrrevision' => 13, 'Oexrpurchqty' => 14, 'Oexrcustpricuom' => 15, 'Oexrlabel1prtfmt' => 16, 'Oexrlabel2prtfmt' => 17, 'Oexrwght' => 18, 'Oexrcustuom' => 19, 'Dateupdtd' => 20, 'Timeupdtd' => 21, 'Dummy' => 22, ),
-        self::TYPE_CAMELNAME     => array('arcucustid' => 0, 'oexrcustitemnbr' => 1, 'inititemnbr' => 2, 'oexrretprice' => 3, 'oexrcustprice' => 4, 'oexrqtypercase' => 5, 'oexrinnerpackqty' => 6, 'oexrouterpackqty' => 7, 'oexrrounding' => 8, 'oexrshiptareqty' => 9, 'oexrcustitemdesc' => 10, 'oexrconvert' => 11, 'oexrcustitemdesc2' => 12, 'oexrrevision' => 13, 'oexrpurchqty' => 14, 'oexrcustpricuom' => 15, 'oexrlabel1prtfmt' => 16, 'oexrlabel2prtfmt' => 17, 'oexrwght' => 18, 'oexrcustuom' => 19, 'dateupdtd' => 20, 'timeupdtd' => 21, 'dummy' => 22, ),
-        self::TYPE_COLNAME       => array(ItemXrefCustomerTableMap::COL_ARCUCUSTID => 0, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMNBR => 1, ItemXrefCustomerTableMap::COL_INITITEMNBR => 2, ItemXrefCustomerTableMap::COL_OEXRRETPRICE => 3, ItemXrefCustomerTableMap::COL_OEXRCUSTPRICE => 4, ItemXrefCustomerTableMap::COL_OEXRQTYPERCASE => 5, ItemXrefCustomerTableMap::COL_OEXRINNERPACKQTY => 6, ItemXrefCustomerTableMap::COL_OEXROUTERPACKQTY => 7, ItemXrefCustomerTableMap::COL_OEXRROUNDING => 8, ItemXrefCustomerTableMap::COL_OEXRSHIPTAREQTY => 9, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC => 10, ItemXrefCustomerTableMap::COL_OEXRCONVERT => 11, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC2 => 12, ItemXrefCustomerTableMap::COL_OEXRREVISION => 13, ItemXrefCustomerTableMap::COL_OEXRPURCHQTY => 14, ItemXrefCustomerTableMap::COL_OEXRCUSTPRICUOM => 15, ItemXrefCustomerTableMap::COL_OEXRLABEL1PRTFMT => 16, ItemXrefCustomerTableMap::COL_OEXRLABEL2PRTFMT => 17, ItemXrefCustomerTableMap::COL_OEXRWGHT => 18, ItemXrefCustomerTableMap::COL_OEXRCUSTUOM => 19, ItemXrefCustomerTableMap::COL_DATEUPDTD => 20, ItemXrefCustomerTableMap::COL_TIMEUPDTD => 21, ItemXrefCustomerTableMap::COL_DUMMY => 22, ),
-        self::TYPE_FIELDNAME     => array('ArcuCustId' => 0, 'OexrCustItemNbr' => 1, 'InitItemNbr' => 2, 'OexrRetPrice' => 3, 'OexrCustPrice' => 4, 'OexrQtyPerCase' => 5, 'OexrInnerPackQty' => 6, 'OexrOuterPackQty' => 7, 'OexrRounding' => 8, 'OexrShipTareQty' => 9, 'OexrCustItemDesc' => 10, 'OexrConvert' => 11, 'OexrCustItemDesc2' => 12, 'OexrRevision' => 13, 'OexrPurchQty' => 14, 'OexrCustPricUom' => 15, 'OexrLabel1PrtFmt' => 16, 'OexrLabel2PrtFmt' => 17, 'OexrWght' => 18, 'OexrCustUom' => 19, 'DateUpdtd' => 20, 'TimeUpdtd' => 21, 'dummy' => 22, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Arcucustid' => 0, 'Oexrcustitemnbr' => 1, 'Inititemnbr' => 2, 'Oexrretprice' => 3, 'Oexrcustprice' => 4, 'Oexrqtypercase' => 5, 'Oexrinnerpackqty' => 6, 'Oexrouterpackqty' => 7, 'Oexrrounding' => 8, 'Oexrshiptareqty' => 9, 'Oexrcustitemdesc' => 10, 'Oexrconvert' => 11, 'Oexrcustitemdesc2' => 12, 'Oexrrevision' => 13, 'Oexrpurchqty' => 14, 'Oexrcustpricuom' => 15, 'Oexrlabel1prtfmt' => 16, 'Oexrlabel2prtfmt' => 17, 'Oexrwght' => 18, 'Oexrcustuom' => 19, 'Dateupdtd' => 20, 'Timeupdtd' => 21, 'Dummy' => 22, ],
+        self::TYPE_CAMELNAME     => ['arcucustid' => 0, 'oexrcustitemnbr' => 1, 'inititemnbr' => 2, 'oexrretprice' => 3, 'oexrcustprice' => 4, 'oexrqtypercase' => 5, 'oexrinnerpackqty' => 6, 'oexrouterpackqty' => 7, 'oexrrounding' => 8, 'oexrshiptareqty' => 9, 'oexrcustitemdesc' => 10, 'oexrconvert' => 11, 'oexrcustitemdesc2' => 12, 'oexrrevision' => 13, 'oexrpurchqty' => 14, 'oexrcustpricuom' => 15, 'oexrlabel1prtfmt' => 16, 'oexrlabel2prtfmt' => 17, 'oexrwght' => 18, 'oexrcustuom' => 19, 'dateupdtd' => 20, 'timeupdtd' => 21, 'dummy' => 22, ],
+        self::TYPE_COLNAME       => [ItemXrefCustomerTableMap::COL_ARCUCUSTID => 0, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMNBR => 1, ItemXrefCustomerTableMap::COL_INITITEMNBR => 2, ItemXrefCustomerTableMap::COL_OEXRRETPRICE => 3, ItemXrefCustomerTableMap::COL_OEXRCUSTPRICE => 4, ItemXrefCustomerTableMap::COL_OEXRQTYPERCASE => 5, ItemXrefCustomerTableMap::COL_OEXRINNERPACKQTY => 6, ItemXrefCustomerTableMap::COL_OEXROUTERPACKQTY => 7, ItemXrefCustomerTableMap::COL_OEXRROUNDING => 8, ItemXrefCustomerTableMap::COL_OEXRSHIPTAREQTY => 9, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC => 10, ItemXrefCustomerTableMap::COL_OEXRCONVERT => 11, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC2 => 12, ItemXrefCustomerTableMap::COL_OEXRREVISION => 13, ItemXrefCustomerTableMap::COL_OEXRPURCHQTY => 14, ItemXrefCustomerTableMap::COL_OEXRCUSTPRICUOM => 15, ItemXrefCustomerTableMap::COL_OEXRLABEL1PRTFMT => 16, ItemXrefCustomerTableMap::COL_OEXRLABEL2PRTFMT => 17, ItemXrefCustomerTableMap::COL_OEXRWGHT => 18, ItemXrefCustomerTableMap::COL_OEXRCUSTUOM => 19, ItemXrefCustomerTableMap::COL_DATEUPDTD => 20, ItemXrefCustomerTableMap::COL_TIMEUPDTD => 21, ItemXrefCustomerTableMap::COL_DUMMY => 22, ],
+        self::TYPE_FIELDNAME     => ['ArcuCustId' => 0, 'OexrCustItemNbr' => 1, 'InitItemNbr' => 2, 'OexrRetPrice' => 3, 'OexrCustPrice' => 4, 'OexrQtyPerCase' => 5, 'OexrInnerPackQty' => 6, 'OexrOuterPackQty' => 7, 'OexrRounding' => 8, 'OexrShipTareQty' => 9, 'OexrCustItemDesc' => 10, 'OexrConvert' => 11, 'OexrCustItemDesc2' => 12, 'OexrRevision' => 13, 'OexrPurchQty' => 14, 'OexrCustPricUom' => 15, 'OexrLabel1PrtFmt' => 16, 'OexrLabel2PrtFmt' => 17, 'OexrWght' => 18, 'OexrCustUom' => 19, 'DateUpdtd' => 20, 'TimeUpdtd' => 21, 'dummy' => 22, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Arcucustid' => 'ARCUCUSTID',
+        'ItemXrefCustomer.Arcucustid' => 'ARCUCUSTID',
+        'arcucustid' => 'ARCUCUSTID',
+        'itemXrefCustomer.arcucustid' => 'ARCUCUSTID',
+        'ItemXrefCustomerTableMap::COL_ARCUCUSTID' => 'ARCUCUSTID',
+        'COL_ARCUCUSTID' => 'ARCUCUSTID',
+        'ArcuCustId' => 'ARCUCUSTID',
+        'cust_item_xref.ArcuCustId' => 'ARCUCUSTID',
+        'Oexrcustitemnbr' => 'OEXRCUSTITEMNBR',
+        'ItemXrefCustomer.Oexrcustitemnbr' => 'OEXRCUSTITEMNBR',
+        'oexrcustitemnbr' => 'OEXRCUSTITEMNBR',
+        'itemXrefCustomer.oexrcustitemnbr' => 'OEXRCUSTITEMNBR',
+        'ItemXrefCustomerTableMap::COL_OEXRCUSTITEMNBR' => 'OEXRCUSTITEMNBR',
+        'COL_OEXRCUSTITEMNBR' => 'OEXRCUSTITEMNBR',
+        'OexrCustItemNbr' => 'OEXRCUSTITEMNBR',
+        'cust_item_xref.OexrCustItemNbr' => 'OEXRCUSTITEMNBR',
+        'Inititemnbr' => 'INITITEMNBR',
+        'ItemXrefCustomer.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'itemXrefCustomer.inititemnbr' => 'INITITEMNBR',
+        'ItemXrefCustomerTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'cust_item_xref.InitItemNbr' => 'INITITEMNBR',
+        'Oexrretprice' => 'OEXRRETPRICE',
+        'ItemXrefCustomer.Oexrretprice' => 'OEXRRETPRICE',
+        'oexrretprice' => 'OEXRRETPRICE',
+        'itemXrefCustomer.oexrretprice' => 'OEXRRETPRICE',
+        'ItemXrefCustomerTableMap::COL_OEXRRETPRICE' => 'OEXRRETPRICE',
+        'COL_OEXRRETPRICE' => 'OEXRRETPRICE',
+        'OexrRetPrice' => 'OEXRRETPRICE',
+        'cust_item_xref.OexrRetPrice' => 'OEXRRETPRICE',
+        'Oexrcustprice' => 'OEXRCUSTPRICE',
+        'ItemXrefCustomer.Oexrcustprice' => 'OEXRCUSTPRICE',
+        'oexrcustprice' => 'OEXRCUSTPRICE',
+        'itemXrefCustomer.oexrcustprice' => 'OEXRCUSTPRICE',
+        'ItemXrefCustomerTableMap::COL_OEXRCUSTPRICE' => 'OEXRCUSTPRICE',
+        'COL_OEXRCUSTPRICE' => 'OEXRCUSTPRICE',
+        'OexrCustPrice' => 'OEXRCUSTPRICE',
+        'cust_item_xref.OexrCustPrice' => 'OEXRCUSTPRICE',
+        'Oexrqtypercase' => 'OEXRQTYPERCASE',
+        'ItemXrefCustomer.Oexrqtypercase' => 'OEXRQTYPERCASE',
+        'oexrqtypercase' => 'OEXRQTYPERCASE',
+        'itemXrefCustomer.oexrqtypercase' => 'OEXRQTYPERCASE',
+        'ItemXrefCustomerTableMap::COL_OEXRQTYPERCASE' => 'OEXRQTYPERCASE',
+        'COL_OEXRQTYPERCASE' => 'OEXRQTYPERCASE',
+        'OexrQtyPerCase' => 'OEXRQTYPERCASE',
+        'cust_item_xref.OexrQtyPerCase' => 'OEXRQTYPERCASE',
+        'Oexrinnerpackqty' => 'OEXRINNERPACKQTY',
+        'ItemXrefCustomer.Oexrinnerpackqty' => 'OEXRINNERPACKQTY',
+        'oexrinnerpackqty' => 'OEXRINNERPACKQTY',
+        'itemXrefCustomer.oexrinnerpackqty' => 'OEXRINNERPACKQTY',
+        'ItemXrefCustomerTableMap::COL_OEXRINNERPACKQTY' => 'OEXRINNERPACKQTY',
+        'COL_OEXRINNERPACKQTY' => 'OEXRINNERPACKQTY',
+        'OexrInnerPackQty' => 'OEXRINNERPACKQTY',
+        'cust_item_xref.OexrInnerPackQty' => 'OEXRINNERPACKQTY',
+        'Oexrouterpackqty' => 'OEXROUTERPACKQTY',
+        'ItemXrefCustomer.Oexrouterpackqty' => 'OEXROUTERPACKQTY',
+        'oexrouterpackqty' => 'OEXROUTERPACKQTY',
+        'itemXrefCustomer.oexrouterpackqty' => 'OEXROUTERPACKQTY',
+        'ItemXrefCustomerTableMap::COL_OEXROUTERPACKQTY' => 'OEXROUTERPACKQTY',
+        'COL_OEXROUTERPACKQTY' => 'OEXROUTERPACKQTY',
+        'OexrOuterPackQty' => 'OEXROUTERPACKQTY',
+        'cust_item_xref.OexrOuterPackQty' => 'OEXROUTERPACKQTY',
+        'Oexrrounding' => 'OEXRROUNDING',
+        'ItemXrefCustomer.Oexrrounding' => 'OEXRROUNDING',
+        'oexrrounding' => 'OEXRROUNDING',
+        'itemXrefCustomer.oexrrounding' => 'OEXRROUNDING',
+        'ItemXrefCustomerTableMap::COL_OEXRROUNDING' => 'OEXRROUNDING',
+        'COL_OEXRROUNDING' => 'OEXRROUNDING',
+        'OexrRounding' => 'OEXRROUNDING',
+        'cust_item_xref.OexrRounding' => 'OEXRROUNDING',
+        'Oexrshiptareqty' => 'OEXRSHIPTAREQTY',
+        'ItemXrefCustomer.Oexrshiptareqty' => 'OEXRSHIPTAREQTY',
+        'oexrshiptareqty' => 'OEXRSHIPTAREQTY',
+        'itemXrefCustomer.oexrshiptareqty' => 'OEXRSHIPTAREQTY',
+        'ItemXrefCustomerTableMap::COL_OEXRSHIPTAREQTY' => 'OEXRSHIPTAREQTY',
+        'COL_OEXRSHIPTAREQTY' => 'OEXRSHIPTAREQTY',
+        'OexrShipTareQty' => 'OEXRSHIPTAREQTY',
+        'cust_item_xref.OexrShipTareQty' => 'OEXRSHIPTAREQTY',
+        'Oexrcustitemdesc' => 'OEXRCUSTITEMDESC',
+        'ItemXrefCustomer.Oexrcustitemdesc' => 'OEXRCUSTITEMDESC',
+        'oexrcustitemdesc' => 'OEXRCUSTITEMDESC',
+        'itemXrefCustomer.oexrcustitemdesc' => 'OEXRCUSTITEMDESC',
+        'ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC' => 'OEXRCUSTITEMDESC',
+        'COL_OEXRCUSTITEMDESC' => 'OEXRCUSTITEMDESC',
+        'OexrCustItemDesc' => 'OEXRCUSTITEMDESC',
+        'cust_item_xref.OexrCustItemDesc' => 'OEXRCUSTITEMDESC',
+        'Oexrconvert' => 'OEXRCONVERT',
+        'ItemXrefCustomer.Oexrconvert' => 'OEXRCONVERT',
+        'oexrconvert' => 'OEXRCONVERT',
+        'itemXrefCustomer.oexrconvert' => 'OEXRCONVERT',
+        'ItemXrefCustomerTableMap::COL_OEXRCONVERT' => 'OEXRCONVERT',
+        'COL_OEXRCONVERT' => 'OEXRCONVERT',
+        'OexrConvert' => 'OEXRCONVERT',
+        'cust_item_xref.OexrConvert' => 'OEXRCONVERT',
+        'Oexrcustitemdesc2' => 'OEXRCUSTITEMDESC2',
+        'ItemXrefCustomer.Oexrcustitemdesc2' => 'OEXRCUSTITEMDESC2',
+        'oexrcustitemdesc2' => 'OEXRCUSTITEMDESC2',
+        'itemXrefCustomer.oexrcustitemdesc2' => 'OEXRCUSTITEMDESC2',
+        'ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC2' => 'OEXRCUSTITEMDESC2',
+        'COL_OEXRCUSTITEMDESC2' => 'OEXRCUSTITEMDESC2',
+        'OexrCustItemDesc2' => 'OEXRCUSTITEMDESC2',
+        'cust_item_xref.OexrCustItemDesc2' => 'OEXRCUSTITEMDESC2',
+        'Oexrrevision' => 'OEXRREVISION',
+        'ItemXrefCustomer.Oexrrevision' => 'OEXRREVISION',
+        'oexrrevision' => 'OEXRREVISION',
+        'itemXrefCustomer.oexrrevision' => 'OEXRREVISION',
+        'ItemXrefCustomerTableMap::COL_OEXRREVISION' => 'OEXRREVISION',
+        'COL_OEXRREVISION' => 'OEXRREVISION',
+        'OexrRevision' => 'OEXRREVISION',
+        'cust_item_xref.OexrRevision' => 'OEXRREVISION',
+        'Oexrpurchqty' => 'OEXRPURCHQTY',
+        'ItemXrefCustomer.Oexrpurchqty' => 'OEXRPURCHQTY',
+        'oexrpurchqty' => 'OEXRPURCHQTY',
+        'itemXrefCustomer.oexrpurchqty' => 'OEXRPURCHQTY',
+        'ItemXrefCustomerTableMap::COL_OEXRPURCHQTY' => 'OEXRPURCHQTY',
+        'COL_OEXRPURCHQTY' => 'OEXRPURCHQTY',
+        'OexrPurchQty' => 'OEXRPURCHQTY',
+        'cust_item_xref.OexrPurchQty' => 'OEXRPURCHQTY',
+        'Oexrcustpricuom' => 'OEXRCUSTPRICUOM',
+        'ItemXrefCustomer.Oexrcustpricuom' => 'OEXRCUSTPRICUOM',
+        'oexrcustpricuom' => 'OEXRCUSTPRICUOM',
+        'itemXrefCustomer.oexrcustpricuom' => 'OEXRCUSTPRICUOM',
+        'ItemXrefCustomerTableMap::COL_OEXRCUSTPRICUOM' => 'OEXRCUSTPRICUOM',
+        'COL_OEXRCUSTPRICUOM' => 'OEXRCUSTPRICUOM',
+        'OexrCustPricUom' => 'OEXRCUSTPRICUOM',
+        'cust_item_xref.OexrCustPricUom' => 'OEXRCUSTPRICUOM',
+        'Oexrlabel1prtfmt' => 'OEXRLABEL1PRTFMT',
+        'ItemXrefCustomer.Oexrlabel1prtfmt' => 'OEXRLABEL1PRTFMT',
+        'oexrlabel1prtfmt' => 'OEXRLABEL1PRTFMT',
+        'itemXrefCustomer.oexrlabel1prtfmt' => 'OEXRLABEL1PRTFMT',
+        'ItemXrefCustomerTableMap::COL_OEXRLABEL1PRTFMT' => 'OEXRLABEL1PRTFMT',
+        'COL_OEXRLABEL1PRTFMT' => 'OEXRLABEL1PRTFMT',
+        'OexrLabel1PrtFmt' => 'OEXRLABEL1PRTFMT',
+        'cust_item_xref.OexrLabel1PrtFmt' => 'OEXRLABEL1PRTFMT',
+        'Oexrlabel2prtfmt' => 'OEXRLABEL2PRTFMT',
+        'ItemXrefCustomer.Oexrlabel2prtfmt' => 'OEXRLABEL2PRTFMT',
+        'oexrlabel2prtfmt' => 'OEXRLABEL2PRTFMT',
+        'itemXrefCustomer.oexrlabel2prtfmt' => 'OEXRLABEL2PRTFMT',
+        'ItemXrefCustomerTableMap::COL_OEXRLABEL2PRTFMT' => 'OEXRLABEL2PRTFMT',
+        'COL_OEXRLABEL2PRTFMT' => 'OEXRLABEL2PRTFMT',
+        'OexrLabel2PrtFmt' => 'OEXRLABEL2PRTFMT',
+        'cust_item_xref.OexrLabel2PrtFmt' => 'OEXRLABEL2PRTFMT',
+        'Oexrwght' => 'OEXRWGHT',
+        'ItemXrefCustomer.Oexrwght' => 'OEXRWGHT',
+        'oexrwght' => 'OEXRWGHT',
+        'itemXrefCustomer.oexrwght' => 'OEXRWGHT',
+        'ItemXrefCustomerTableMap::COL_OEXRWGHT' => 'OEXRWGHT',
+        'COL_OEXRWGHT' => 'OEXRWGHT',
+        'OexrWght' => 'OEXRWGHT',
+        'cust_item_xref.OexrWght' => 'OEXRWGHT',
+        'Oexrcustuom' => 'OEXRCUSTUOM',
+        'ItemXrefCustomer.Oexrcustuom' => 'OEXRCUSTUOM',
+        'oexrcustuom' => 'OEXRCUSTUOM',
+        'itemXrefCustomer.oexrcustuom' => 'OEXRCUSTUOM',
+        'ItemXrefCustomerTableMap::COL_OEXRCUSTUOM' => 'OEXRCUSTUOM',
+        'COL_OEXRCUSTUOM' => 'OEXRCUSTUOM',
+        'OexrCustUom' => 'OEXRCUSTUOM',
+        'cust_item_xref.OexrCustUom' => 'OEXRCUSTUOM',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ItemXrefCustomer.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'itemXrefCustomer.dateupdtd' => 'DATEUPDTD',
+        'ItemXrefCustomerTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'cust_item_xref.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ItemXrefCustomer.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'itemXrefCustomer.timeupdtd' => 'TIMEUPDTD',
+        'ItemXrefCustomerTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'cust_item_xref.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ItemXrefCustomer.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'itemXrefCustomer.dummy' => 'DUMMY',
+        'ItemXrefCustomerTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'cust_item_xref.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('cust_item_xref');
@@ -259,12 +458,14 @@ class ItemXrefCustomerTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -273,7 +474,7 @@ class ItemXrefCustomerTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -284,9 +485,11 @@ class ItemXrefCustomerTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \ItemXrefCustomer $obj A \ItemXrefCustomer object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(ItemXrefCustomer $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -305,8 +508,10 @@ class ItemXrefCustomerTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \ItemXrefCustomer object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \ItemXrefCustomer) {
@@ -334,14 +539,14 @@ class ItemXrefCustomerTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Oexrcustitemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -356,14 +561,14 @@ class ItemXrefCustomerTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -389,10 +594,10 @@ class ItemXrefCustomerTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ItemXrefCustomerTableMap::CLASS_DEFAULT : ItemXrefCustomerTableMap::OM_CLASS;
     }
@@ -400,17 +605,17 @@ class ItemXrefCustomerTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ItemXrefCustomer object, last column rank)
+     * @return array (ItemXrefCustomer object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ItemXrefCustomerTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ItemXrefCustomerTableMap::getInstanceFromPool($key))) {
@@ -426,7 +631,7 @@ class ItemXrefCustomerTableMap extends TableMap
             ItemXrefCustomerTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -434,13 +639,13 @@ class ItemXrefCustomerTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -470,12 +675,13 @@ class ItemXrefCustomerTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ItemXrefCustomerTableMap::COL_ARCUCUSTID);
@@ -529,40 +735,94 @@ class ItemXrefCustomerTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_ARCUCUSTID);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRCUSTITEMNBR);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRRETPRICE);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRCUSTPRICE);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRQTYPERCASE);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRINNERPACKQTY);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXROUTERPACKQTY);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRROUNDING);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRSHIPTAREQTY);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRCONVERT);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC2);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRREVISION);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRPURCHQTY);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRCUSTPRICUOM);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRLABEL1PRTFMT);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRLABEL2PRTFMT);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRWGHT);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_OEXRCUSTUOM);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ItemXrefCustomerTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.ArcuCustId');
+            $criteria->removeSelectColumn($alias . '.OexrCustItemNbr');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.OexrRetPrice');
+            $criteria->removeSelectColumn($alias . '.OexrCustPrice');
+            $criteria->removeSelectColumn($alias . '.OexrQtyPerCase');
+            $criteria->removeSelectColumn($alias . '.OexrInnerPackQty');
+            $criteria->removeSelectColumn($alias . '.OexrOuterPackQty');
+            $criteria->removeSelectColumn($alias . '.OexrRounding');
+            $criteria->removeSelectColumn($alias . '.OexrShipTareQty');
+            $criteria->removeSelectColumn($alias . '.OexrCustItemDesc');
+            $criteria->removeSelectColumn($alias . '.OexrConvert');
+            $criteria->removeSelectColumn($alias . '.OexrCustItemDesc2');
+            $criteria->removeSelectColumn($alias . '.OexrRevision');
+            $criteria->removeSelectColumn($alias . '.OexrPurchQty');
+            $criteria->removeSelectColumn($alias . '.OexrCustPricUom');
+            $criteria->removeSelectColumn($alias . '.OexrLabel1PrtFmt');
+            $criteria->removeSelectColumn($alias . '.OexrLabel2PrtFmt');
+            $criteria->removeSelectColumn($alias . '.OexrWght');
+            $criteria->removeSelectColumn($alias . '.OexrCustUom');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ItemXrefCustomerTableMap::DATABASE_NAME)->getTable(ItemXrefCustomerTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ItemXrefCustomerTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ItemXrefCustomerTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ItemXrefCustomerTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ItemXrefCustomer or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ItemXrefCustomer object or primary key or array of primary keys
+     * @param mixed $values Criteria or ItemXrefCustomer object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefCustomerTableMap::DATABASE_NAME);
@@ -580,7 +840,7 @@ class ItemXrefCustomerTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(ItemXrefCustomerTableMap::COL_ARCUCUSTID, $value[0]);
@@ -608,7 +868,7 @@ class ItemXrefCustomerTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ItemXrefCustomerQuery::create()->doDeleteAll($con);
     }
@@ -616,13 +876,13 @@ class ItemXrefCustomerTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ItemXrefCustomer or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ItemXrefCustomer object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ItemXrefCustomer object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefCustomerTableMap::DATABASE_NAME);
@@ -645,7 +905,4 @@ class ItemXrefCustomerTableMap extends TableMap
         });
     }
 
-} // ItemXrefCustomerTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ItemXrefCustomerTableMap::buildTableMap();
+}

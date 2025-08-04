@@ -10,14 +10,12 @@ use Map\OptionsIiTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\Collection\ObjectCollection;
+use Propel\Runtime\Collection\Collection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'ii_options' table.
- *
- *
+ * Base class that represents a query for the `ii_options` table.
  *
  * @method     ChildOptionsIiQuery orderByIitboptncode($order = Criteria::ASC) Order by the IitbOptnCode column
  * @method     ChildOptionsIiQuery orderByIitboptnactavail($order = Criteria::ASC) Order by the IitbOptnActAvail column
@@ -113,54 +111,54 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOptionsIiQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildOptionsIiQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildOptionsIi findOne(ConnectionInterface $con = null) Return the first ChildOptionsIi matching the query
- * @method     ChildOptionsIi findOneOrCreate(ConnectionInterface $con = null) Return the first ChildOptionsIi matching the query, or a new ChildOptionsIi object populated from the query conditions when no match is found
+ * @method     ChildOptionsIi|null findOne(?ConnectionInterface $con = null) Return the first ChildOptionsIi matching the query
+ * @method     ChildOptionsIi findOneOrCreate(?ConnectionInterface $con = null) Return the first ChildOptionsIi matching the query, or a new ChildOptionsIi object populated from the query conditions when no match is found
  *
- * @method     ChildOptionsIi findOneByIitboptncode(string $IitbOptnCode) Return the first ChildOptionsIi filtered by the IitbOptnCode column
- * @method     ChildOptionsIi findOneByIitboptnactavail(string $IitbOptnActAvail) Return the first ChildOptionsIi filtered by the IitbOptnActAvail column
- * @method     ChildOptionsIi findOneByIitboptnactwhse(string $IitbOptnActWhse) Return the first ChildOptionsIi filtered by the IitbOptnActWhse column
- * @method     ChildOptionsIi findOneByIitboptnactdet(string $IitbOptnActDet) Return the first ChildOptionsIi filtered by the IitbOptnActDet column
- * @method     ChildOptionsIi findOneByIitboptnactdaysback(int $IitbOptnActDaysBack) Return the first ChildOptionsIi filtered by the IitbOptnActDaysBack column
- * @method     ChildOptionsIi findOneByIitboptnactstrtdate(string $IitbOptnActStrtDate) Return the first ChildOptionsIi filtered by the IitbOptnActStrtDate column
- * @method     ChildOptionsIi findOneByIitboptncostavail(string $IitbOptnCostAvail) Return the first ChildOptionsIi filtered by the IitbOptnCostAvail column
- * @method     ChildOptionsIi findOneByIitboptncostwhse(string $IitbOptnCostWhse) Return the first ChildOptionsIi filtered by the IitbOptnCostWhse column
- * @method     ChildOptionsIi findOneByIitboptncostdet(string $IitbOptnCostDet) Return the first ChildOptionsIi filtered by the IitbOptnCostDet column
- * @method     ChildOptionsIi findOneByIitboptngenavail(string $IitbOptnGenAvail) Return the first ChildOptionsIi filtered by the IitbOptnGenAvail column
- * @method     ChildOptionsIi findOneByIitboptnktavail(string $IitbOptnKtAvail) Return the first ChildOptionsIi filtered by the IitbOptnKtAvail column
- * @method     ChildOptionsIi findOneByIitboptnpricavail(string $IitbOptnPricAvail) Return the first ChildOptionsIi filtered by the IitbOptnPricAvail column
- * @method     ChildOptionsIi findOneByIitboptnphavail(string $IitbOptnPhAvail) Return the first ChildOptionsIi filtered by the IitbOptnPhAvail column
- * @method     ChildOptionsIi findOneByIitboptnphwhse(string $IitbOptnPhWhse) Return the first ChildOptionsIi filtered by the IitbOptnPhWhse column
- * @method     ChildOptionsIi findOneByIitboptnphdet(string $IitbOptnPhDet) Return the first ChildOptionsIi filtered by the IitbOptnPhDet column
- * @method     ChildOptionsIi findOneByIitboptnphdaysback(int $IitbOptnPhDaysBack) Return the first ChildOptionsIi filtered by the IitbOptnPhDaysBack column
- * @method     ChildOptionsIi findOneByIitboptnphstrtdate(string $IitbOptnPhStrtDate) Return the first ChildOptionsIi filtered by the IitbOptnPhStrtDate column
- * @method     ChildOptionsIi findOneByIitboptnpoavail(string $IitbOptnPoAvail) Return the first ChildOptionsIi filtered by the IitbOptnPoAvail column
- * @method     ChildOptionsIi findOneByIitboptnpowhse(string $IitbOptnPoWhse) Return the first ChildOptionsIi filtered by the IitbOptnPoWhse column
- * @method     ChildOptionsIi findOneByIitboptnreqravail(string $IitbOptnReqrAvail) Return the first ChildOptionsIi filtered by the IitbOptnReqrAvail column
- * @method     ChildOptionsIi findOneByIitboptnreqrwhse(string $IitbOptnReqrWhse) Return the first ChildOptionsIi filtered by the IitbOptnReqrWhse column
- * @method     ChildOptionsIi findOneByIitboptnreqrview(string $IitbOptnReqrView) Return the first ChildOptionsIi filtered by the IitbOptnReqrView column
- * @method     ChildOptionsIi findOneByIitboptnshavail(string $IitbOptnShAvail) Return the first ChildOptionsIi filtered by the IitbOptnShAvail column
- * @method     ChildOptionsIi findOneByIitboptnshwhse(string $IitbOptnShWhse) Return the first ChildOptionsIi filtered by the IitbOptnShWhse column
- * @method     ChildOptionsIi findOneByIitboptnshdet(string $IitbOptnShDet) Return the first ChildOptionsIi filtered by the IitbOptnShDet column
- * @method     ChildOptionsIi findOneByIitboptnshdaysback(int $IitbOptnShDaysBack) Return the first ChildOptionsIi filtered by the IitbOptnShDaysBack column
- * @method     ChildOptionsIi findOneByIitboptnshstrtdate(string $IitbOptnShStrtDate) Return the first ChildOptionsIi filtered by the IitbOptnShStrtDate column
- * @method     ChildOptionsIi findOneByIitboptnsoavail(string $IitbOptnSoAvail) Return the first ChildOptionsIi filtered by the IitbOptnSoAvail column
- * @method     ChildOptionsIi findOneByIitboptnsowhse(string $IitbOptnSoWhse) Return the first ChildOptionsIi filtered by the IitbOptnSoWhse column
- * @method     ChildOptionsIi findOneByIitboptnserlotavail(string $IitbOptnSerlotAvail) Return the first ChildOptionsIi filtered by the IitbOptnSerlotAvail column
- * @method     ChildOptionsIi findOneByIitboptnstckavail(string $IitbOptnStckAvail) Return the first ChildOptionsIi filtered by the IitbOptnStckAvail column
- * @method     ChildOptionsIi findOneByIitboptnstckwhse(string $IitbOptnStckWhse) Return the first ChildOptionsIi filtered by the IitbOptnStckWhse column
- * @method     ChildOptionsIi findOneByIitboptnstckdet(string $IitbOptnStckDet) Return the first ChildOptionsIi filtered by the IitbOptnStckDet column
- * @method     ChildOptionsIi findOneByIitboptnsubsupavail(string $IitbOptnSubsupAvail) Return the first ChildOptionsIi filtered by the IitbOptnSubsupAvail column
- * @method     ChildOptionsIi findOneByIitboptnsubsupwhse(string $IitbOptnSubsupWhse) Return the first ChildOptionsIi filtered by the IitbOptnSubsupWhse column
- * @method     ChildOptionsIi findOneByIitboptnlsavail(string $IitbOptnLsAvail) Return the first ChildOptionsIi filtered by the IitbOptnLsAvail column
- * @method     ChildOptionsIi findOneByIitboptnlswhse(string $IitbOptnLsWhse) Return the first ChildOptionsIi filtered by the IitbOptnLsWhse column
- * @method     ChildOptionsIi findOneByIitboptndesc1or2(string $IitbOptnDesc1Or2) Return the first ChildOptionsIi filtered by the IitbOptnDesc1Or2 column
- * @method     ChildOptionsIi findOneByIitboptndelcerts(string $IitbOptnDelCerts) Return the first ChildOptionsIi filtered by the IitbOptnDelCerts column
- * @method     ChildOptionsIi findOneByDateupdtd(string $DateUpdtd) Return the first ChildOptionsIi filtered by the DateUpdtd column
- * @method     ChildOptionsIi findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildOptionsIi filtered by the TimeUpdtd column
- * @method     ChildOptionsIi findOneByDummy(string $dummy) Return the first ChildOptionsIi filtered by the dummy column *
-
- * @method     ChildOptionsIi requirePk($key, ConnectionInterface $con = null) Return the ChildOptionsIi by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildOptionsIi requireOne(ConnectionInterface $con = null) Return the first ChildOptionsIi matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildOptionsIi|null findOneByIitboptncode(string $IitbOptnCode) Return the first ChildOptionsIi filtered by the IitbOptnCode column
+ * @method     ChildOptionsIi|null findOneByIitboptnactavail(string $IitbOptnActAvail) Return the first ChildOptionsIi filtered by the IitbOptnActAvail column
+ * @method     ChildOptionsIi|null findOneByIitboptnactwhse(string $IitbOptnActWhse) Return the first ChildOptionsIi filtered by the IitbOptnActWhse column
+ * @method     ChildOptionsIi|null findOneByIitboptnactdet(string $IitbOptnActDet) Return the first ChildOptionsIi filtered by the IitbOptnActDet column
+ * @method     ChildOptionsIi|null findOneByIitboptnactdaysback(int $IitbOptnActDaysBack) Return the first ChildOptionsIi filtered by the IitbOptnActDaysBack column
+ * @method     ChildOptionsIi|null findOneByIitboptnactstrtdate(string $IitbOptnActStrtDate) Return the first ChildOptionsIi filtered by the IitbOptnActStrtDate column
+ * @method     ChildOptionsIi|null findOneByIitboptncostavail(string $IitbOptnCostAvail) Return the first ChildOptionsIi filtered by the IitbOptnCostAvail column
+ * @method     ChildOptionsIi|null findOneByIitboptncostwhse(string $IitbOptnCostWhse) Return the first ChildOptionsIi filtered by the IitbOptnCostWhse column
+ * @method     ChildOptionsIi|null findOneByIitboptncostdet(string $IitbOptnCostDet) Return the first ChildOptionsIi filtered by the IitbOptnCostDet column
+ * @method     ChildOptionsIi|null findOneByIitboptngenavail(string $IitbOptnGenAvail) Return the first ChildOptionsIi filtered by the IitbOptnGenAvail column
+ * @method     ChildOptionsIi|null findOneByIitboptnktavail(string $IitbOptnKtAvail) Return the first ChildOptionsIi filtered by the IitbOptnKtAvail column
+ * @method     ChildOptionsIi|null findOneByIitboptnpricavail(string $IitbOptnPricAvail) Return the first ChildOptionsIi filtered by the IitbOptnPricAvail column
+ * @method     ChildOptionsIi|null findOneByIitboptnphavail(string $IitbOptnPhAvail) Return the first ChildOptionsIi filtered by the IitbOptnPhAvail column
+ * @method     ChildOptionsIi|null findOneByIitboptnphwhse(string $IitbOptnPhWhse) Return the first ChildOptionsIi filtered by the IitbOptnPhWhse column
+ * @method     ChildOptionsIi|null findOneByIitboptnphdet(string $IitbOptnPhDet) Return the first ChildOptionsIi filtered by the IitbOptnPhDet column
+ * @method     ChildOptionsIi|null findOneByIitboptnphdaysback(int $IitbOptnPhDaysBack) Return the first ChildOptionsIi filtered by the IitbOptnPhDaysBack column
+ * @method     ChildOptionsIi|null findOneByIitboptnphstrtdate(string $IitbOptnPhStrtDate) Return the first ChildOptionsIi filtered by the IitbOptnPhStrtDate column
+ * @method     ChildOptionsIi|null findOneByIitboptnpoavail(string $IitbOptnPoAvail) Return the first ChildOptionsIi filtered by the IitbOptnPoAvail column
+ * @method     ChildOptionsIi|null findOneByIitboptnpowhse(string $IitbOptnPoWhse) Return the first ChildOptionsIi filtered by the IitbOptnPoWhse column
+ * @method     ChildOptionsIi|null findOneByIitboptnreqravail(string $IitbOptnReqrAvail) Return the first ChildOptionsIi filtered by the IitbOptnReqrAvail column
+ * @method     ChildOptionsIi|null findOneByIitboptnreqrwhse(string $IitbOptnReqrWhse) Return the first ChildOptionsIi filtered by the IitbOptnReqrWhse column
+ * @method     ChildOptionsIi|null findOneByIitboptnreqrview(string $IitbOptnReqrView) Return the first ChildOptionsIi filtered by the IitbOptnReqrView column
+ * @method     ChildOptionsIi|null findOneByIitboptnshavail(string $IitbOptnShAvail) Return the first ChildOptionsIi filtered by the IitbOptnShAvail column
+ * @method     ChildOptionsIi|null findOneByIitboptnshwhse(string $IitbOptnShWhse) Return the first ChildOptionsIi filtered by the IitbOptnShWhse column
+ * @method     ChildOptionsIi|null findOneByIitboptnshdet(string $IitbOptnShDet) Return the first ChildOptionsIi filtered by the IitbOptnShDet column
+ * @method     ChildOptionsIi|null findOneByIitboptnshdaysback(int $IitbOptnShDaysBack) Return the first ChildOptionsIi filtered by the IitbOptnShDaysBack column
+ * @method     ChildOptionsIi|null findOneByIitboptnshstrtdate(string $IitbOptnShStrtDate) Return the first ChildOptionsIi filtered by the IitbOptnShStrtDate column
+ * @method     ChildOptionsIi|null findOneByIitboptnsoavail(string $IitbOptnSoAvail) Return the first ChildOptionsIi filtered by the IitbOptnSoAvail column
+ * @method     ChildOptionsIi|null findOneByIitboptnsowhse(string $IitbOptnSoWhse) Return the first ChildOptionsIi filtered by the IitbOptnSoWhse column
+ * @method     ChildOptionsIi|null findOneByIitboptnserlotavail(string $IitbOptnSerlotAvail) Return the first ChildOptionsIi filtered by the IitbOptnSerlotAvail column
+ * @method     ChildOptionsIi|null findOneByIitboptnstckavail(string $IitbOptnStckAvail) Return the first ChildOptionsIi filtered by the IitbOptnStckAvail column
+ * @method     ChildOptionsIi|null findOneByIitboptnstckwhse(string $IitbOptnStckWhse) Return the first ChildOptionsIi filtered by the IitbOptnStckWhse column
+ * @method     ChildOptionsIi|null findOneByIitboptnstckdet(string $IitbOptnStckDet) Return the first ChildOptionsIi filtered by the IitbOptnStckDet column
+ * @method     ChildOptionsIi|null findOneByIitboptnsubsupavail(string $IitbOptnSubsupAvail) Return the first ChildOptionsIi filtered by the IitbOptnSubsupAvail column
+ * @method     ChildOptionsIi|null findOneByIitboptnsubsupwhse(string $IitbOptnSubsupWhse) Return the first ChildOptionsIi filtered by the IitbOptnSubsupWhse column
+ * @method     ChildOptionsIi|null findOneByIitboptnlsavail(string $IitbOptnLsAvail) Return the first ChildOptionsIi filtered by the IitbOptnLsAvail column
+ * @method     ChildOptionsIi|null findOneByIitboptnlswhse(string $IitbOptnLsWhse) Return the first ChildOptionsIi filtered by the IitbOptnLsWhse column
+ * @method     ChildOptionsIi|null findOneByIitboptndesc1or2(string $IitbOptnDesc1Or2) Return the first ChildOptionsIi filtered by the IitbOptnDesc1Or2 column
+ * @method     ChildOptionsIi|null findOneByIitboptndelcerts(string $IitbOptnDelCerts) Return the first ChildOptionsIi filtered by the IitbOptnDelCerts column
+ * @method     ChildOptionsIi|null findOneByDateupdtd(string $DateUpdtd) Return the first ChildOptionsIi filtered by the DateUpdtd column
+ * @method     ChildOptionsIi|null findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildOptionsIi filtered by the TimeUpdtd column
+ * @method     ChildOptionsIi|null findOneByDummy(string $dummy) Return the first ChildOptionsIi filtered by the dummy column
+ *
+ * @method     ChildOptionsIi requirePk($key, ?ConnectionInterface $con = null) Return the ChildOptionsIi by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildOptionsIi requireOne(?ConnectionInterface $con = null) Return the first ChildOptionsIi matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildOptionsIi requireOneByIitboptncode(string $IitbOptnCode) Return the first ChildOptionsIi filtered by the IitbOptnCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOptionsIi requireOneByIitboptnactavail(string $IitbOptnActAvail) Return the first ChildOptionsIi filtered by the IitbOptnActAvail column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -205,51 +203,96 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildOptionsIi requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildOptionsIi filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildOptionsIi requireOneByDummy(string $dummy) Return the first ChildOptionsIi filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildOptionsIi[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildOptionsIi objects based on current ModelCriteria
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptncode(string $IitbOptnCode) Return ChildOptionsIi objects filtered by the IitbOptnCode column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnactavail(string $IitbOptnActAvail) Return ChildOptionsIi objects filtered by the IitbOptnActAvail column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnactwhse(string $IitbOptnActWhse) Return ChildOptionsIi objects filtered by the IitbOptnActWhse column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnactdet(string $IitbOptnActDet) Return ChildOptionsIi objects filtered by the IitbOptnActDet column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnactdaysback(int $IitbOptnActDaysBack) Return ChildOptionsIi objects filtered by the IitbOptnActDaysBack column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnactstrtdate(string $IitbOptnActStrtDate) Return ChildOptionsIi objects filtered by the IitbOptnActStrtDate column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptncostavail(string $IitbOptnCostAvail) Return ChildOptionsIi objects filtered by the IitbOptnCostAvail column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptncostwhse(string $IitbOptnCostWhse) Return ChildOptionsIi objects filtered by the IitbOptnCostWhse column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptncostdet(string $IitbOptnCostDet) Return ChildOptionsIi objects filtered by the IitbOptnCostDet column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptngenavail(string $IitbOptnGenAvail) Return ChildOptionsIi objects filtered by the IitbOptnGenAvail column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnktavail(string $IitbOptnKtAvail) Return ChildOptionsIi objects filtered by the IitbOptnKtAvail column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnpricavail(string $IitbOptnPricAvail) Return ChildOptionsIi objects filtered by the IitbOptnPricAvail column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnphavail(string $IitbOptnPhAvail) Return ChildOptionsIi objects filtered by the IitbOptnPhAvail column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnphwhse(string $IitbOptnPhWhse) Return ChildOptionsIi objects filtered by the IitbOptnPhWhse column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnphdet(string $IitbOptnPhDet) Return ChildOptionsIi objects filtered by the IitbOptnPhDet column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnphdaysback(int $IitbOptnPhDaysBack) Return ChildOptionsIi objects filtered by the IitbOptnPhDaysBack column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnphstrtdate(string $IitbOptnPhStrtDate) Return ChildOptionsIi objects filtered by the IitbOptnPhStrtDate column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnpoavail(string $IitbOptnPoAvail) Return ChildOptionsIi objects filtered by the IitbOptnPoAvail column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnpowhse(string $IitbOptnPoWhse) Return ChildOptionsIi objects filtered by the IitbOptnPoWhse column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnreqravail(string $IitbOptnReqrAvail) Return ChildOptionsIi objects filtered by the IitbOptnReqrAvail column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnreqrwhse(string $IitbOptnReqrWhse) Return ChildOptionsIi objects filtered by the IitbOptnReqrWhse column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnreqrview(string $IitbOptnReqrView) Return ChildOptionsIi objects filtered by the IitbOptnReqrView column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnshavail(string $IitbOptnShAvail) Return ChildOptionsIi objects filtered by the IitbOptnShAvail column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnshwhse(string $IitbOptnShWhse) Return ChildOptionsIi objects filtered by the IitbOptnShWhse column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnshdet(string $IitbOptnShDet) Return ChildOptionsIi objects filtered by the IitbOptnShDet column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnshdaysback(int $IitbOptnShDaysBack) Return ChildOptionsIi objects filtered by the IitbOptnShDaysBack column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnshstrtdate(string $IitbOptnShStrtDate) Return ChildOptionsIi objects filtered by the IitbOptnShStrtDate column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnsoavail(string $IitbOptnSoAvail) Return ChildOptionsIi objects filtered by the IitbOptnSoAvail column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnsowhse(string $IitbOptnSoWhse) Return ChildOptionsIi objects filtered by the IitbOptnSoWhse column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnserlotavail(string $IitbOptnSerlotAvail) Return ChildOptionsIi objects filtered by the IitbOptnSerlotAvail column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnstckavail(string $IitbOptnStckAvail) Return ChildOptionsIi objects filtered by the IitbOptnStckAvail column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnstckwhse(string $IitbOptnStckWhse) Return ChildOptionsIi objects filtered by the IitbOptnStckWhse column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnstckdet(string $IitbOptnStckDet) Return ChildOptionsIi objects filtered by the IitbOptnStckDet column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnsubsupavail(string $IitbOptnSubsupAvail) Return ChildOptionsIi objects filtered by the IitbOptnSubsupAvail column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnsubsupwhse(string $IitbOptnSubsupWhse) Return ChildOptionsIi objects filtered by the IitbOptnSubsupWhse column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnlsavail(string $IitbOptnLsAvail) Return ChildOptionsIi objects filtered by the IitbOptnLsAvail column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptnlswhse(string $IitbOptnLsWhse) Return ChildOptionsIi objects filtered by the IitbOptnLsWhse column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptndesc1or2(string $IitbOptnDesc1Or2) Return ChildOptionsIi objects filtered by the IitbOptnDesc1Or2 column
- * @method     ChildOptionsIi[]|ObjectCollection findByIitboptndelcerts(string $IitbOptnDelCerts) Return ChildOptionsIi objects filtered by the IitbOptnDelCerts column
- * @method     ChildOptionsIi[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildOptionsIi objects filtered by the DateUpdtd column
- * @method     ChildOptionsIi[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildOptionsIi objects filtered by the TimeUpdtd column
- * @method     ChildOptionsIi[]|ObjectCollection findByDummy(string $dummy) Return ChildOptionsIi objects filtered by the dummy column
- * @method     ChildOptionsIi[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildOptionsIi[]|Collection find(?ConnectionInterface $con = null) Return ChildOptionsIi objects based on current ModelCriteria
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> find(?ConnectionInterface $con = null) Return ChildOptionsIi objects based on current ModelCriteria
  *
+ * @method     ChildOptionsIi[]|Collection findByIitboptncode(string|array<string> $IitbOptnCode) Return ChildOptionsIi objects filtered by the IitbOptnCode column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptncode(string|array<string> $IitbOptnCode) Return ChildOptionsIi objects filtered by the IitbOptnCode column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnactavail(string|array<string> $IitbOptnActAvail) Return ChildOptionsIi objects filtered by the IitbOptnActAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnactavail(string|array<string> $IitbOptnActAvail) Return ChildOptionsIi objects filtered by the IitbOptnActAvail column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnactwhse(string|array<string> $IitbOptnActWhse) Return ChildOptionsIi objects filtered by the IitbOptnActWhse column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnactwhse(string|array<string> $IitbOptnActWhse) Return ChildOptionsIi objects filtered by the IitbOptnActWhse column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnactdet(string|array<string> $IitbOptnActDet) Return ChildOptionsIi objects filtered by the IitbOptnActDet column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnactdet(string|array<string> $IitbOptnActDet) Return ChildOptionsIi objects filtered by the IitbOptnActDet column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnactdaysback(int|array<int> $IitbOptnActDaysBack) Return ChildOptionsIi objects filtered by the IitbOptnActDaysBack column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnactdaysback(int|array<int> $IitbOptnActDaysBack) Return ChildOptionsIi objects filtered by the IitbOptnActDaysBack column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnactstrtdate(string|array<string> $IitbOptnActStrtDate) Return ChildOptionsIi objects filtered by the IitbOptnActStrtDate column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnactstrtdate(string|array<string> $IitbOptnActStrtDate) Return ChildOptionsIi objects filtered by the IitbOptnActStrtDate column
+ * @method     ChildOptionsIi[]|Collection findByIitboptncostavail(string|array<string> $IitbOptnCostAvail) Return ChildOptionsIi objects filtered by the IitbOptnCostAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptncostavail(string|array<string> $IitbOptnCostAvail) Return ChildOptionsIi objects filtered by the IitbOptnCostAvail column
+ * @method     ChildOptionsIi[]|Collection findByIitboptncostwhse(string|array<string> $IitbOptnCostWhse) Return ChildOptionsIi objects filtered by the IitbOptnCostWhse column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptncostwhse(string|array<string> $IitbOptnCostWhse) Return ChildOptionsIi objects filtered by the IitbOptnCostWhse column
+ * @method     ChildOptionsIi[]|Collection findByIitboptncostdet(string|array<string> $IitbOptnCostDet) Return ChildOptionsIi objects filtered by the IitbOptnCostDet column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptncostdet(string|array<string> $IitbOptnCostDet) Return ChildOptionsIi objects filtered by the IitbOptnCostDet column
+ * @method     ChildOptionsIi[]|Collection findByIitboptngenavail(string|array<string> $IitbOptnGenAvail) Return ChildOptionsIi objects filtered by the IitbOptnGenAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptngenavail(string|array<string> $IitbOptnGenAvail) Return ChildOptionsIi objects filtered by the IitbOptnGenAvail column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnktavail(string|array<string> $IitbOptnKtAvail) Return ChildOptionsIi objects filtered by the IitbOptnKtAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnktavail(string|array<string> $IitbOptnKtAvail) Return ChildOptionsIi objects filtered by the IitbOptnKtAvail column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnpricavail(string|array<string> $IitbOptnPricAvail) Return ChildOptionsIi objects filtered by the IitbOptnPricAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnpricavail(string|array<string> $IitbOptnPricAvail) Return ChildOptionsIi objects filtered by the IitbOptnPricAvail column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnphavail(string|array<string> $IitbOptnPhAvail) Return ChildOptionsIi objects filtered by the IitbOptnPhAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnphavail(string|array<string> $IitbOptnPhAvail) Return ChildOptionsIi objects filtered by the IitbOptnPhAvail column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnphwhse(string|array<string> $IitbOptnPhWhse) Return ChildOptionsIi objects filtered by the IitbOptnPhWhse column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnphwhse(string|array<string> $IitbOptnPhWhse) Return ChildOptionsIi objects filtered by the IitbOptnPhWhse column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnphdet(string|array<string> $IitbOptnPhDet) Return ChildOptionsIi objects filtered by the IitbOptnPhDet column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnphdet(string|array<string> $IitbOptnPhDet) Return ChildOptionsIi objects filtered by the IitbOptnPhDet column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnphdaysback(int|array<int> $IitbOptnPhDaysBack) Return ChildOptionsIi objects filtered by the IitbOptnPhDaysBack column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnphdaysback(int|array<int> $IitbOptnPhDaysBack) Return ChildOptionsIi objects filtered by the IitbOptnPhDaysBack column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnphstrtdate(string|array<string> $IitbOptnPhStrtDate) Return ChildOptionsIi objects filtered by the IitbOptnPhStrtDate column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnphstrtdate(string|array<string> $IitbOptnPhStrtDate) Return ChildOptionsIi objects filtered by the IitbOptnPhStrtDate column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnpoavail(string|array<string> $IitbOptnPoAvail) Return ChildOptionsIi objects filtered by the IitbOptnPoAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnpoavail(string|array<string> $IitbOptnPoAvail) Return ChildOptionsIi objects filtered by the IitbOptnPoAvail column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnpowhse(string|array<string> $IitbOptnPoWhse) Return ChildOptionsIi objects filtered by the IitbOptnPoWhse column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnpowhse(string|array<string> $IitbOptnPoWhse) Return ChildOptionsIi objects filtered by the IitbOptnPoWhse column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnreqravail(string|array<string> $IitbOptnReqrAvail) Return ChildOptionsIi objects filtered by the IitbOptnReqrAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnreqravail(string|array<string> $IitbOptnReqrAvail) Return ChildOptionsIi objects filtered by the IitbOptnReqrAvail column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnreqrwhse(string|array<string> $IitbOptnReqrWhse) Return ChildOptionsIi objects filtered by the IitbOptnReqrWhse column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnreqrwhse(string|array<string> $IitbOptnReqrWhse) Return ChildOptionsIi objects filtered by the IitbOptnReqrWhse column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnreqrview(string|array<string> $IitbOptnReqrView) Return ChildOptionsIi objects filtered by the IitbOptnReqrView column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnreqrview(string|array<string> $IitbOptnReqrView) Return ChildOptionsIi objects filtered by the IitbOptnReqrView column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnshavail(string|array<string> $IitbOptnShAvail) Return ChildOptionsIi objects filtered by the IitbOptnShAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnshavail(string|array<string> $IitbOptnShAvail) Return ChildOptionsIi objects filtered by the IitbOptnShAvail column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnshwhse(string|array<string> $IitbOptnShWhse) Return ChildOptionsIi objects filtered by the IitbOptnShWhse column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnshwhse(string|array<string> $IitbOptnShWhse) Return ChildOptionsIi objects filtered by the IitbOptnShWhse column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnshdet(string|array<string> $IitbOptnShDet) Return ChildOptionsIi objects filtered by the IitbOptnShDet column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnshdet(string|array<string> $IitbOptnShDet) Return ChildOptionsIi objects filtered by the IitbOptnShDet column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnshdaysback(int|array<int> $IitbOptnShDaysBack) Return ChildOptionsIi objects filtered by the IitbOptnShDaysBack column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnshdaysback(int|array<int> $IitbOptnShDaysBack) Return ChildOptionsIi objects filtered by the IitbOptnShDaysBack column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnshstrtdate(string|array<string> $IitbOptnShStrtDate) Return ChildOptionsIi objects filtered by the IitbOptnShStrtDate column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnshstrtdate(string|array<string> $IitbOptnShStrtDate) Return ChildOptionsIi objects filtered by the IitbOptnShStrtDate column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnsoavail(string|array<string> $IitbOptnSoAvail) Return ChildOptionsIi objects filtered by the IitbOptnSoAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnsoavail(string|array<string> $IitbOptnSoAvail) Return ChildOptionsIi objects filtered by the IitbOptnSoAvail column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnsowhse(string|array<string> $IitbOptnSoWhse) Return ChildOptionsIi objects filtered by the IitbOptnSoWhse column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnsowhse(string|array<string> $IitbOptnSoWhse) Return ChildOptionsIi objects filtered by the IitbOptnSoWhse column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnserlotavail(string|array<string> $IitbOptnSerlotAvail) Return ChildOptionsIi objects filtered by the IitbOptnSerlotAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnserlotavail(string|array<string> $IitbOptnSerlotAvail) Return ChildOptionsIi objects filtered by the IitbOptnSerlotAvail column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnstckavail(string|array<string> $IitbOptnStckAvail) Return ChildOptionsIi objects filtered by the IitbOptnStckAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnstckavail(string|array<string> $IitbOptnStckAvail) Return ChildOptionsIi objects filtered by the IitbOptnStckAvail column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnstckwhse(string|array<string> $IitbOptnStckWhse) Return ChildOptionsIi objects filtered by the IitbOptnStckWhse column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnstckwhse(string|array<string> $IitbOptnStckWhse) Return ChildOptionsIi objects filtered by the IitbOptnStckWhse column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnstckdet(string|array<string> $IitbOptnStckDet) Return ChildOptionsIi objects filtered by the IitbOptnStckDet column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnstckdet(string|array<string> $IitbOptnStckDet) Return ChildOptionsIi objects filtered by the IitbOptnStckDet column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnsubsupavail(string|array<string> $IitbOptnSubsupAvail) Return ChildOptionsIi objects filtered by the IitbOptnSubsupAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnsubsupavail(string|array<string> $IitbOptnSubsupAvail) Return ChildOptionsIi objects filtered by the IitbOptnSubsupAvail column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnsubsupwhse(string|array<string> $IitbOptnSubsupWhse) Return ChildOptionsIi objects filtered by the IitbOptnSubsupWhse column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnsubsupwhse(string|array<string> $IitbOptnSubsupWhse) Return ChildOptionsIi objects filtered by the IitbOptnSubsupWhse column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnlsavail(string|array<string> $IitbOptnLsAvail) Return ChildOptionsIi objects filtered by the IitbOptnLsAvail column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnlsavail(string|array<string> $IitbOptnLsAvail) Return ChildOptionsIi objects filtered by the IitbOptnLsAvail column
+ * @method     ChildOptionsIi[]|Collection findByIitboptnlswhse(string|array<string> $IitbOptnLsWhse) Return ChildOptionsIi objects filtered by the IitbOptnLsWhse column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptnlswhse(string|array<string> $IitbOptnLsWhse) Return ChildOptionsIi objects filtered by the IitbOptnLsWhse column
+ * @method     ChildOptionsIi[]|Collection findByIitboptndesc1or2(string|array<string> $IitbOptnDesc1Or2) Return ChildOptionsIi objects filtered by the IitbOptnDesc1Or2 column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptndesc1or2(string|array<string> $IitbOptnDesc1Or2) Return ChildOptionsIi objects filtered by the IitbOptnDesc1Or2 column
+ * @method     ChildOptionsIi[]|Collection findByIitboptndelcerts(string|array<string> $IitbOptnDelCerts) Return ChildOptionsIi objects filtered by the IitbOptnDelCerts column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByIitboptndelcerts(string|array<string> $IitbOptnDelCerts) Return ChildOptionsIi objects filtered by the IitbOptnDelCerts column
+ * @method     ChildOptionsIi[]|Collection findByDateupdtd(string|array<string> $DateUpdtd) Return ChildOptionsIi objects filtered by the DateUpdtd column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByDateupdtd(string|array<string> $DateUpdtd) Return ChildOptionsIi objects filtered by the DateUpdtd column
+ * @method     ChildOptionsIi[]|Collection findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildOptionsIi objects filtered by the TimeUpdtd column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByTimeupdtd(string|array<string> $TimeUpdtd) Return ChildOptionsIi objects filtered by the TimeUpdtd column
+ * @method     ChildOptionsIi[]|Collection findByDummy(string|array<string> $dummy) Return ChildOptionsIi objects filtered by the dummy column
+ * @psalm-method Collection&\Traversable<ChildOptionsIi> findByDummy(string|array<string> $dummy) Return ChildOptionsIi objects filtered by the dummy column
+ *
+ * @method     ChildOptionsIi[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildOptionsIi> paginate($page = 1, $maxPerPage = 10, ?ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  */
 abstract class OptionsIiQuery extends ModelCriteria
 {
@@ -258,9 +301,9 @@ abstract class OptionsIiQuery extends ModelCriteria
     /**
      * Initializes internal state of \Base\OptionsIiQuery object.
      *
-     * @param     string $dbName The database name
-     * @param     string $modelName The phpName of a model, e.g. 'Book'
-     * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
+     * @param string $dbName The database name
+     * @param string $modelName The phpName of a model, e.g. 'Book'
+     * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
     public function __construct($dbName = 'default', $modelName = '\\OptionsIi', $modelAlias = null)
     {
@@ -270,12 +313,12 @@ abstract class OptionsIiQuery extends ModelCriteria
     /**
      * Returns a new ChildOptionsIiQuery object.
      *
-     * @param     string $modelAlias The alias of a model in the query
-     * @param     Criteria $criteria Optional Criteria to build the query from
+     * @param string $modelAlias The alias of a model in the query
+     * @param Criteria $criteria Optional Criteria to build the query from
      *
      * @return ChildOptionsIiQuery
      */
-    public static function create($modelAlias = null, Criteria $criteria = null)
+    public static function create(?string $modelAlias = null, ?Criteria $criteria = null): Criteria
     {
         if ($criteria instanceof ChildOptionsIiQuery) {
             return $criteria;
@@ -305,7 +348,7 @@ abstract class OptionsIiQuery extends ModelCriteria
      *
      * @return ChildOptionsIi|array|mixed the result, formatted by the current formatter
      */
-    public function findPk($key, ConnectionInterface $con = null)
+    public function findPk($key, ?ConnectionInterface $con = null)
     {
         if ($key === null) {
             return null;
@@ -337,8 +380,8 @@ abstract class OptionsIiQuery extends ModelCriteria
      * Find object by primary key using raw SQL to go fast.
      * Bypass doSelect() and the object formatter by using generated code.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
@@ -370,8 +413,8 @@ abstract class OptionsIiQuery extends ModelCriteria
     /**
      * Find object by primary key.
      *
-     * @param     mixed $key Primary key to use for the query
-     * @param     ConnectionInterface $con A connection object
+     * @param mixed $key Primary key to use for the query
+     * @param ConnectionInterface $con A connection object
      *
      * @return ChildOptionsIi|array|mixed the result, formatted by the current formatter
      */
@@ -391,12 +434,12 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $objs = $c->findPks(array(12, 56, 832), $con);
      * </code>
-     * @param     array $keys Primary keys to use for the query
-     * @param     ConnectionInterface $con an optional connection object
+     * @param array $keys Primary keys to use for the query
+     * @param ConnectionInterface $con an optional connection object
      *
-     * @return ObjectCollection|array|mixed the list of results, formatted by the current formatter
+     * @return Collection|array|mixed the list of results, formatted by the current formatter
      */
-    public function findPks($keys, ConnectionInterface $con = null)
+    public function findPks($keys, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getReadConnection($this->getDbName());
@@ -413,27 +456,31 @@ abstract class OptionsIiQuery extends ModelCriteria
     /**
      * Filter the query by primary key
      *
-     * @param     mixed $key Primary key to use for the query
+     * @param mixed $key Primary key to use for the query
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNCODE, $key, Criteria::EQUAL);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNCODE, $key, Criteria::EQUAL);
+
+        return $this;
     }
 
     /**
      * Filter the query by a list of primary keys
      *
-     * @param     array $keys The list of primary key to use for the query
+     * @param array|int $keys The list of primary key to use for the query
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNCODE, $keys, Criteria::IN);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNCODE, $keys, Criteria::IN);
+
+        return $this;
     }
 
     /**
@@ -443,14 +490,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptncode('fooValue');   // WHERE IitbOptnCode = 'fooValue'
      * $query->filterByIitboptncode('%fooValue%', Criteria::LIKE); // WHERE IitbOptnCode LIKE '%fooValue%'
+     * $query->filterByIitboptncode(['foo', 'bar']); // WHERE IitbOptnCode IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptncode The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptncode The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptncode($iitboptncode = null, $comparison = null)
+    public function filterByIitboptncode($iitboptncode = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptncode)) {
@@ -458,7 +506,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNCODE, $iitboptncode, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNCODE, $iitboptncode, $comparison);
+
+        return $this;
     }
 
     /**
@@ -468,14 +518,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnactavail('fooValue');   // WHERE IitbOptnActAvail = 'fooValue'
      * $query->filterByIitboptnactavail('%fooValue%', Criteria::LIKE); // WHERE IitbOptnActAvail LIKE '%fooValue%'
+     * $query->filterByIitboptnactavail(['foo', 'bar']); // WHERE IitbOptnActAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnactavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnactavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnactavail($iitboptnactavail = null, $comparison = null)
+    public function filterByIitboptnactavail($iitboptnactavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnactavail)) {
@@ -483,7 +534,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNACTAVAIL, $iitboptnactavail, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNACTAVAIL, $iitboptnactavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -493,14 +546,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnactwhse('fooValue');   // WHERE IitbOptnActWhse = 'fooValue'
      * $query->filterByIitboptnactwhse('%fooValue%', Criteria::LIKE); // WHERE IitbOptnActWhse LIKE '%fooValue%'
+     * $query->filterByIitboptnactwhse(['foo', 'bar']); // WHERE IitbOptnActWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnactwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnactwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnactwhse($iitboptnactwhse = null, $comparison = null)
+    public function filterByIitboptnactwhse($iitboptnactwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnactwhse)) {
@@ -508,7 +562,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNACTWHSE, $iitboptnactwhse, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNACTWHSE, $iitboptnactwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -518,14 +574,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnactdet('fooValue');   // WHERE IitbOptnActDet = 'fooValue'
      * $query->filterByIitboptnactdet('%fooValue%', Criteria::LIKE); // WHERE IitbOptnActDet LIKE '%fooValue%'
+     * $query->filterByIitboptnactdet(['foo', 'bar']); // WHERE IitbOptnActDet IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnactdet The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnactdet The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnactdet($iitboptnactdet = null, $comparison = null)
+    public function filterByIitboptnactdet($iitboptnactdet = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnactdet)) {
@@ -533,7 +590,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNACTDET, $iitboptnactdet, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNACTDET, $iitboptnactdet, $comparison);
+
+        return $this;
     }
 
     /**
@@ -546,15 +605,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * $query->filterByIitboptnactdaysback(array('min' => 12)); // WHERE IitbOptnActDaysBack > 12
      * </code>
      *
-     * @param     mixed $iitboptnactdaysback The value to use as filter.
+     * @param mixed $iitboptnactdaysback The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnactdaysback($iitboptnactdaysback = null, $comparison = null)
+    public function filterByIitboptnactdaysback($iitboptnactdaysback = null, ?string $comparison = null)
     {
         if (is_array($iitboptnactdaysback)) {
             $useMinMax = false;
@@ -574,7 +633,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNACTDAYSBACK, $iitboptnactdaysback, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNACTDAYSBACK, $iitboptnactdaysback, $comparison);
+
+        return $this;
     }
 
     /**
@@ -584,14 +645,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnactstrtdate('fooValue');   // WHERE IitbOptnActStrtDate = 'fooValue'
      * $query->filterByIitboptnactstrtdate('%fooValue%', Criteria::LIKE); // WHERE IitbOptnActStrtDate LIKE '%fooValue%'
+     * $query->filterByIitboptnactstrtdate(['foo', 'bar']); // WHERE IitbOptnActStrtDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnactstrtdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnactstrtdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnactstrtdate($iitboptnactstrtdate = null, $comparison = null)
+    public function filterByIitboptnactstrtdate($iitboptnactstrtdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnactstrtdate)) {
@@ -599,7 +661,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNACTSTRTDATE, $iitboptnactstrtdate, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNACTSTRTDATE, $iitboptnactstrtdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -609,14 +673,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptncostavail('fooValue');   // WHERE IitbOptnCostAvail = 'fooValue'
      * $query->filterByIitboptncostavail('%fooValue%', Criteria::LIKE); // WHERE IitbOptnCostAvail LIKE '%fooValue%'
+     * $query->filterByIitboptncostavail(['foo', 'bar']); // WHERE IitbOptnCostAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptncostavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptncostavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptncostavail($iitboptncostavail = null, $comparison = null)
+    public function filterByIitboptncostavail($iitboptncostavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptncostavail)) {
@@ -624,7 +689,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNCOSTAVAIL, $iitboptncostavail, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNCOSTAVAIL, $iitboptncostavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -634,14 +701,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptncostwhse('fooValue');   // WHERE IitbOptnCostWhse = 'fooValue'
      * $query->filterByIitboptncostwhse('%fooValue%', Criteria::LIKE); // WHERE IitbOptnCostWhse LIKE '%fooValue%'
+     * $query->filterByIitboptncostwhse(['foo', 'bar']); // WHERE IitbOptnCostWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptncostwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptncostwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptncostwhse($iitboptncostwhse = null, $comparison = null)
+    public function filterByIitboptncostwhse($iitboptncostwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptncostwhse)) {
@@ -649,7 +717,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNCOSTWHSE, $iitboptncostwhse, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNCOSTWHSE, $iitboptncostwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -659,14 +729,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptncostdet('fooValue');   // WHERE IitbOptnCostDet = 'fooValue'
      * $query->filterByIitboptncostdet('%fooValue%', Criteria::LIKE); // WHERE IitbOptnCostDet LIKE '%fooValue%'
+     * $query->filterByIitboptncostdet(['foo', 'bar']); // WHERE IitbOptnCostDet IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptncostdet The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptncostdet The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptncostdet($iitboptncostdet = null, $comparison = null)
+    public function filterByIitboptncostdet($iitboptncostdet = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptncostdet)) {
@@ -674,7 +745,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNCOSTDET, $iitboptncostdet, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNCOSTDET, $iitboptncostdet, $comparison);
+
+        return $this;
     }
 
     /**
@@ -684,14 +757,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptngenavail('fooValue');   // WHERE IitbOptnGenAvail = 'fooValue'
      * $query->filterByIitboptngenavail('%fooValue%', Criteria::LIKE); // WHERE IitbOptnGenAvail LIKE '%fooValue%'
+     * $query->filterByIitboptngenavail(['foo', 'bar']); // WHERE IitbOptnGenAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptngenavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptngenavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptngenavail($iitboptngenavail = null, $comparison = null)
+    public function filterByIitboptngenavail($iitboptngenavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptngenavail)) {
@@ -699,7 +773,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNGENAVAIL, $iitboptngenavail, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNGENAVAIL, $iitboptngenavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -709,14 +785,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnktavail('fooValue');   // WHERE IitbOptnKtAvail = 'fooValue'
      * $query->filterByIitboptnktavail('%fooValue%', Criteria::LIKE); // WHERE IitbOptnKtAvail LIKE '%fooValue%'
+     * $query->filterByIitboptnktavail(['foo', 'bar']); // WHERE IitbOptnKtAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnktavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnktavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnktavail($iitboptnktavail = null, $comparison = null)
+    public function filterByIitboptnktavail($iitboptnktavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnktavail)) {
@@ -724,7 +801,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNKTAVAIL, $iitboptnktavail, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNKTAVAIL, $iitboptnktavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -734,14 +813,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnpricavail('fooValue');   // WHERE IitbOptnPricAvail = 'fooValue'
      * $query->filterByIitboptnpricavail('%fooValue%', Criteria::LIKE); // WHERE IitbOptnPricAvail LIKE '%fooValue%'
+     * $query->filterByIitboptnpricavail(['foo', 'bar']); // WHERE IitbOptnPricAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnpricavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnpricavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnpricavail($iitboptnpricavail = null, $comparison = null)
+    public function filterByIitboptnpricavail($iitboptnpricavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnpricavail)) {
@@ -749,7 +829,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPRICAVAIL, $iitboptnpricavail, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPRICAVAIL, $iitboptnpricavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -759,14 +841,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnphavail('fooValue');   // WHERE IitbOptnPhAvail = 'fooValue'
      * $query->filterByIitboptnphavail('%fooValue%', Criteria::LIKE); // WHERE IitbOptnPhAvail LIKE '%fooValue%'
+     * $query->filterByIitboptnphavail(['foo', 'bar']); // WHERE IitbOptnPhAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnphavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnphavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnphavail($iitboptnphavail = null, $comparison = null)
+    public function filterByIitboptnphavail($iitboptnphavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnphavail)) {
@@ -774,7 +857,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPHAVAIL, $iitboptnphavail, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPHAVAIL, $iitboptnphavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -784,14 +869,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnphwhse('fooValue');   // WHERE IitbOptnPhWhse = 'fooValue'
      * $query->filterByIitboptnphwhse('%fooValue%', Criteria::LIKE); // WHERE IitbOptnPhWhse LIKE '%fooValue%'
+     * $query->filterByIitboptnphwhse(['foo', 'bar']); // WHERE IitbOptnPhWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnphwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnphwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnphwhse($iitboptnphwhse = null, $comparison = null)
+    public function filterByIitboptnphwhse($iitboptnphwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnphwhse)) {
@@ -799,7 +885,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPHWHSE, $iitboptnphwhse, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPHWHSE, $iitboptnphwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -809,14 +897,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnphdet('fooValue');   // WHERE IitbOptnPhDet = 'fooValue'
      * $query->filterByIitboptnphdet('%fooValue%', Criteria::LIKE); // WHERE IitbOptnPhDet LIKE '%fooValue%'
+     * $query->filterByIitboptnphdet(['foo', 'bar']); // WHERE IitbOptnPhDet IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnphdet The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnphdet The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnphdet($iitboptnphdet = null, $comparison = null)
+    public function filterByIitboptnphdet($iitboptnphdet = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnphdet)) {
@@ -824,7 +913,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPHDET, $iitboptnphdet, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPHDET, $iitboptnphdet, $comparison);
+
+        return $this;
     }
 
     /**
@@ -837,15 +928,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * $query->filterByIitboptnphdaysback(array('min' => 12)); // WHERE IitbOptnPhDaysBack > 12
      * </code>
      *
-     * @param     mixed $iitboptnphdaysback The value to use as filter.
+     * @param mixed $iitboptnphdaysback The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnphdaysback($iitboptnphdaysback = null, $comparison = null)
+    public function filterByIitboptnphdaysback($iitboptnphdaysback = null, ?string $comparison = null)
     {
         if (is_array($iitboptnphdaysback)) {
             $useMinMax = false;
@@ -865,7 +956,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPHDAYSBACK, $iitboptnphdaysback, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPHDAYSBACK, $iitboptnphdaysback, $comparison);
+
+        return $this;
     }
 
     /**
@@ -875,14 +968,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnphstrtdate('fooValue');   // WHERE IitbOptnPhStrtDate = 'fooValue'
      * $query->filterByIitboptnphstrtdate('%fooValue%', Criteria::LIKE); // WHERE IitbOptnPhStrtDate LIKE '%fooValue%'
+     * $query->filterByIitboptnphstrtdate(['foo', 'bar']); // WHERE IitbOptnPhStrtDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnphstrtdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnphstrtdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnphstrtdate($iitboptnphstrtdate = null, $comparison = null)
+    public function filterByIitboptnphstrtdate($iitboptnphstrtdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnphstrtdate)) {
@@ -890,7 +984,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPHSTRTDATE, $iitboptnphstrtdate, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPHSTRTDATE, $iitboptnphstrtdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -900,14 +996,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnpoavail('fooValue');   // WHERE IitbOptnPoAvail = 'fooValue'
      * $query->filterByIitboptnpoavail('%fooValue%', Criteria::LIKE); // WHERE IitbOptnPoAvail LIKE '%fooValue%'
+     * $query->filterByIitboptnpoavail(['foo', 'bar']); // WHERE IitbOptnPoAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnpoavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnpoavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnpoavail($iitboptnpoavail = null, $comparison = null)
+    public function filterByIitboptnpoavail($iitboptnpoavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnpoavail)) {
@@ -915,7 +1012,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPOAVAIL, $iitboptnpoavail, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPOAVAIL, $iitboptnpoavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -925,14 +1024,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnpowhse('fooValue');   // WHERE IitbOptnPoWhse = 'fooValue'
      * $query->filterByIitboptnpowhse('%fooValue%', Criteria::LIKE); // WHERE IitbOptnPoWhse LIKE '%fooValue%'
+     * $query->filterByIitboptnpowhse(['foo', 'bar']); // WHERE IitbOptnPoWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnpowhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnpowhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnpowhse($iitboptnpowhse = null, $comparison = null)
+    public function filterByIitboptnpowhse($iitboptnpowhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnpowhse)) {
@@ -940,7 +1040,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPOWHSE, $iitboptnpowhse, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNPOWHSE, $iitboptnpowhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -950,14 +1052,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnreqravail('fooValue');   // WHERE IitbOptnReqrAvail = 'fooValue'
      * $query->filterByIitboptnreqravail('%fooValue%', Criteria::LIKE); // WHERE IitbOptnReqrAvail LIKE '%fooValue%'
+     * $query->filterByIitboptnreqravail(['foo', 'bar']); // WHERE IitbOptnReqrAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnreqravail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnreqravail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnreqravail($iitboptnreqravail = null, $comparison = null)
+    public function filterByIitboptnreqravail($iitboptnreqravail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnreqravail)) {
@@ -965,7 +1068,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNREQRAVAIL, $iitboptnreqravail, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNREQRAVAIL, $iitboptnreqravail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -975,14 +1080,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnreqrwhse('fooValue');   // WHERE IitbOptnReqrWhse = 'fooValue'
      * $query->filterByIitboptnreqrwhse('%fooValue%', Criteria::LIKE); // WHERE IitbOptnReqrWhse LIKE '%fooValue%'
+     * $query->filterByIitboptnreqrwhse(['foo', 'bar']); // WHERE IitbOptnReqrWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnreqrwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnreqrwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnreqrwhse($iitboptnreqrwhse = null, $comparison = null)
+    public function filterByIitboptnreqrwhse($iitboptnreqrwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnreqrwhse)) {
@@ -990,7 +1096,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNREQRWHSE, $iitboptnreqrwhse, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNREQRWHSE, $iitboptnreqrwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1000,14 +1108,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnreqrview('fooValue');   // WHERE IitbOptnReqrView = 'fooValue'
      * $query->filterByIitboptnreqrview('%fooValue%', Criteria::LIKE); // WHERE IitbOptnReqrView LIKE '%fooValue%'
+     * $query->filterByIitboptnreqrview(['foo', 'bar']); // WHERE IitbOptnReqrView IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnreqrview The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnreqrview The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnreqrview($iitboptnreqrview = null, $comparison = null)
+    public function filterByIitboptnreqrview($iitboptnreqrview = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnreqrview)) {
@@ -1015,7 +1124,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNREQRVIEW, $iitboptnreqrview, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNREQRVIEW, $iitboptnreqrview, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1025,14 +1136,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnshavail('fooValue');   // WHERE IitbOptnShAvail = 'fooValue'
      * $query->filterByIitboptnshavail('%fooValue%', Criteria::LIKE); // WHERE IitbOptnShAvail LIKE '%fooValue%'
+     * $query->filterByIitboptnshavail(['foo', 'bar']); // WHERE IitbOptnShAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnshavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnshavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnshavail($iitboptnshavail = null, $comparison = null)
+    public function filterByIitboptnshavail($iitboptnshavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnshavail)) {
@@ -1040,7 +1152,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSHAVAIL, $iitboptnshavail, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSHAVAIL, $iitboptnshavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1050,14 +1164,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnshwhse('fooValue');   // WHERE IitbOptnShWhse = 'fooValue'
      * $query->filterByIitboptnshwhse('%fooValue%', Criteria::LIKE); // WHERE IitbOptnShWhse LIKE '%fooValue%'
+     * $query->filterByIitboptnshwhse(['foo', 'bar']); // WHERE IitbOptnShWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnshwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnshwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnshwhse($iitboptnshwhse = null, $comparison = null)
+    public function filterByIitboptnshwhse($iitboptnshwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnshwhse)) {
@@ -1065,7 +1180,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSHWHSE, $iitboptnshwhse, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSHWHSE, $iitboptnshwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1075,14 +1192,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnshdet('fooValue');   // WHERE IitbOptnShDet = 'fooValue'
      * $query->filterByIitboptnshdet('%fooValue%', Criteria::LIKE); // WHERE IitbOptnShDet LIKE '%fooValue%'
+     * $query->filterByIitboptnshdet(['foo', 'bar']); // WHERE IitbOptnShDet IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnshdet The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnshdet The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnshdet($iitboptnshdet = null, $comparison = null)
+    public function filterByIitboptnshdet($iitboptnshdet = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnshdet)) {
@@ -1090,7 +1208,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSHDET, $iitboptnshdet, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSHDET, $iitboptnshdet, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1103,15 +1223,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * $query->filterByIitboptnshdaysback(array('min' => 12)); // WHERE IitbOptnShDaysBack > 12
      * </code>
      *
-     * @param     mixed $iitboptnshdaysback The value to use as filter.
+     * @param mixed $iitboptnshdaysback The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnshdaysback($iitboptnshdaysback = null, $comparison = null)
+    public function filterByIitboptnshdaysback($iitboptnshdaysback = null, ?string $comparison = null)
     {
         if (is_array($iitboptnshdaysback)) {
             $useMinMax = false;
@@ -1131,7 +1251,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSHDAYSBACK, $iitboptnshdaysback, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSHDAYSBACK, $iitboptnshdaysback, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1141,14 +1263,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnshstrtdate('fooValue');   // WHERE IitbOptnShStrtDate = 'fooValue'
      * $query->filterByIitboptnshstrtdate('%fooValue%', Criteria::LIKE); // WHERE IitbOptnShStrtDate LIKE '%fooValue%'
+     * $query->filterByIitboptnshstrtdate(['foo', 'bar']); // WHERE IitbOptnShStrtDate IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnshstrtdate The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnshstrtdate The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnshstrtdate($iitboptnshstrtdate = null, $comparison = null)
+    public function filterByIitboptnshstrtdate($iitboptnshstrtdate = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnshstrtdate)) {
@@ -1156,7 +1279,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSHSTRTDATE, $iitboptnshstrtdate, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSHSTRTDATE, $iitboptnshstrtdate, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1166,14 +1291,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnsoavail('fooValue');   // WHERE IitbOptnSoAvail = 'fooValue'
      * $query->filterByIitboptnsoavail('%fooValue%', Criteria::LIKE); // WHERE IitbOptnSoAvail LIKE '%fooValue%'
+     * $query->filterByIitboptnsoavail(['foo', 'bar']); // WHERE IitbOptnSoAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnsoavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnsoavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnsoavail($iitboptnsoavail = null, $comparison = null)
+    public function filterByIitboptnsoavail($iitboptnsoavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnsoavail)) {
@@ -1181,7 +1307,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSOAVAIL, $iitboptnsoavail, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSOAVAIL, $iitboptnsoavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1191,14 +1319,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnsowhse('fooValue');   // WHERE IitbOptnSoWhse = 'fooValue'
      * $query->filterByIitboptnsowhse('%fooValue%', Criteria::LIKE); // WHERE IitbOptnSoWhse LIKE '%fooValue%'
+     * $query->filterByIitboptnsowhse(['foo', 'bar']); // WHERE IitbOptnSoWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnsowhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnsowhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnsowhse($iitboptnsowhse = null, $comparison = null)
+    public function filterByIitboptnsowhse($iitboptnsowhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnsowhse)) {
@@ -1206,7 +1335,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSOWHSE, $iitboptnsowhse, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSOWHSE, $iitboptnsowhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1216,14 +1347,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnserlotavail('fooValue');   // WHERE IitbOptnSerlotAvail = 'fooValue'
      * $query->filterByIitboptnserlotavail('%fooValue%', Criteria::LIKE); // WHERE IitbOptnSerlotAvail LIKE '%fooValue%'
+     * $query->filterByIitboptnserlotavail(['foo', 'bar']); // WHERE IitbOptnSerlotAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnserlotavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnserlotavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnserlotavail($iitboptnserlotavail = null, $comparison = null)
+    public function filterByIitboptnserlotavail($iitboptnserlotavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnserlotavail)) {
@@ -1231,7 +1363,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSERLOTAVAIL, $iitboptnserlotavail, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSERLOTAVAIL, $iitboptnserlotavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1241,14 +1375,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnstckavail('fooValue');   // WHERE IitbOptnStckAvail = 'fooValue'
      * $query->filterByIitboptnstckavail('%fooValue%', Criteria::LIKE); // WHERE IitbOptnStckAvail LIKE '%fooValue%'
+     * $query->filterByIitboptnstckavail(['foo', 'bar']); // WHERE IitbOptnStckAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnstckavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnstckavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnstckavail($iitboptnstckavail = null, $comparison = null)
+    public function filterByIitboptnstckavail($iitboptnstckavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnstckavail)) {
@@ -1256,7 +1391,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSTCKAVAIL, $iitboptnstckavail, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSTCKAVAIL, $iitboptnstckavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1266,14 +1403,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnstckwhse('fooValue');   // WHERE IitbOptnStckWhse = 'fooValue'
      * $query->filterByIitboptnstckwhse('%fooValue%', Criteria::LIKE); // WHERE IitbOptnStckWhse LIKE '%fooValue%'
+     * $query->filterByIitboptnstckwhse(['foo', 'bar']); // WHERE IitbOptnStckWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnstckwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnstckwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnstckwhse($iitboptnstckwhse = null, $comparison = null)
+    public function filterByIitboptnstckwhse($iitboptnstckwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnstckwhse)) {
@@ -1281,7 +1419,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSTCKWHSE, $iitboptnstckwhse, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSTCKWHSE, $iitboptnstckwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1291,14 +1431,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnstckdet('fooValue');   // WHERE IitbOptnStckDet = 'fooValue'
      * $query->filterByIitboptnstckdet('%fooValue%', Criteria::LIKE); // WHERE IitbOptnStckDet LIKE '%fooValue%'
+     * $query->filterByIitboptnstckdet(['foo', 'bar']); // WHERE IitbOptnStckDet IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnstckdet The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnstckdet The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnstckdet($iitboptnstckdet = null, $comparison = null)
+    public function filterByIitboptnstckdet($iitboptnstckdet = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnstckdet)) {
@@ -1306,7 +1447,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSTCKDET, $iitboptnstckdet, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSTCKDET, $iitboptnstckdet, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1316,14 +1459,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnsubsupavail('fooValue');   // WHERE IitbOptnSubsupAvail = 'fooValue'
      * $query->filterByIitboptnsubsupavail('%fooValue%', Criteria::LIKE); // WHERE IitbOptnSubsupAvail LIKE '%fooValue%'
+     * $query->filterByIitboptnsubsupavail(['foo', 'bar']); // WHERE IitbOptnSubsupAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnsubsupavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnsubsupavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnsubsupavail($iitboptnsubsupavail = null, $comparison = null)
+    public function filterByIitboptnsubsupavail($iitboptnsubsupavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnsubsupavail)) {
@@ -1331,7 +1475,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSUBSUPAVAIL, $iitboptnsubsupavail, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSUBSUPAVAIL, $iitboptnsubsupavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1341,14 +1487,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnsubsupwhse('fooValue');   // WHERE IitbOptnSubsupWhse = 'fooValue'
      * $query->filterByIitboptnsubsupwhse('%fooValue%', Criteria::LIKE); // WHERE IitbOptnSubsupWhse LIKE '%fooValue%'
+     * $query->filterByIitboptnsubsupwhse(['foo', 'bar']); // WHERE IitbOptnSubsupWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnsubsupwhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnsubsupwhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnsubsupwhse($iitboptnsubsupwhse = null, $comparison = null)
+    public function filterByIitboptnsubsupwhse($iitboptnsubsupwhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnsubsupwhse)) {
@@ -1356,7 +1503,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSUBSUPWHSE, $iitboptnsubsupwhse, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNSUBSUPWHSE, $iitboptnsubsupwhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1366,14 +1515,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnlsavail('fooValue');   // WHERE IitbOptnLsAvail = 'fooValue'
      * $query->filterByIitboptnlsavail('%fooValue%', Criteria::LIKE); // WHERE IitbOptnLsAvail LIKE '%fooValue%'
+     * $query->filterByIitboptnlsavail(['foo', 'bar']); // WHERE IitbOptnLsAvail IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnlsavail The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnlsavail The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnlsavail($iitboptnlsavail = null, $comparison = null)
+    public function filterByIitboptnlsavail($iitboptnlsavail = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnlsavail)) {
@@ -1381,7 +1531,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNLSAVAIL, $iitboptnlsavail, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNLSAVAIL, $iitboptnlsavail, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1391,14 +1543,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptnlswhse('fooValue');   // WHERE IitbOptnLsWhse = 'fooValue'
      * $query->filterByIitboptnlswhse('%fooValue%', Criteria::LIKE); // WHERE IitbOptnLsWhse LIKE '%fooValue%'
+     * $query->filterByIitboptnlswhse(['foo', 'bar']); // WHERE IitbOptnLsWhse IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptnlswhse The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptnlswhse The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptnlswhse($iitboptnlswhse = null, $comparison = null)
+    public function filterByIitboptnlswhse($iitboptnlswhse = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptnlswhse)) {
@@ -1406,7 +1559,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNLSWHSE, $iitboptnlswhse, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNLSWHSE, $iitboptnlswhse, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1416,14 +1571,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptndesc1or2('fooValue');   // WHERE IitbOptnDesc1Or2 = 'fooValue'
      * $query->filterByIitboptndesc1or2('%fooValue%', Criteria::LIKE); // WHERE IitbOptnDesc1Or2 LIKE '%fooValue%'
+     * $query->filterByIitboptndesc1or2(['foo', 'bar']); // WHERE IitbOptnDesc1Or2 IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptndesc1or2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptndesc1or2 The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptndesc1or2($iitboptndesc1or2 = null, $comparison = null)
+    public function filterByIitboptndesc1or2($iitboptndesc1or2 = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptndesc1or2)) {
@@ -1431,7 +1587,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNDESC1OR2, $iitboptndesc1or2, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNDESC1OR2, $iitboptndesc1or2, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1441,14 +1599,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByIitboptndelcerts('fooValue');   // WHERE IitbOptnDelCerts = 'fooValue'
      * $query->filterByIitboptndelcerts('%fooValue%', Criteria::LIKE); // WHERE IitbOptnDelCerts LIKE '%fooValue%'
+     * $query->filterByIitboptndelcerts(['foo', 'bar']); // WHERE IitbOptnDelCerts IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $iitboptndelcerts The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $iitboptndelcerts The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByIitboptndelcerts($iitboptndelcerts = null, $comparison = null)
+    public function filterByIitboptndelcerts($iitboptndelcerts = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($iitboptndelcerts)) {
@@ -1456,7 +1615,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNDELCERTS, $iitboptndelcerts, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_IITBOPTNDELCERTS, $iitboptndelcerts, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1466,14 +1627,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
      * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * $query->filterByDateupdtd(['foo', 'bar']); // WHERE DateUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dateupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dateupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByDateupdtd($dateupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dateupdtd)) {
@@ -1481,7 +1643,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1491,14 +1655,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
      * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
+     * $query->filterByTimeupdtd(['foo', 'bar']); // WHERE TimeUpdtd IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $timeupdtd The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $timeupdtd The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
+    public function filterByTimeupdtd($timeupdtd = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($timeupdtd)) {
@@ -1506,7 +1671,9 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+
+        return $this;
     }
 
     /**
@@ -1516,14 +1683,15 @@ abstract class OptionsIiQuery extends ModelCriteria
      * <code>
      * $query->filterByDummy('fooValue');   // WHERE dummy = 'fooValue'
      * $query->filterByDummy('%fooValue%', Criteria::LIKE); // WHERE dummy LIKE '%fooValue%'
+     * $query->filterByDummy(['foo', 'bar']); // WHERE dummy IN ('foo', 'bar')
      * </code>
      *
-     * @param     string $dummy The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @param string|string[] $dummy The value to use as filter.
+     * @param string|null $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
-    public function filterByDummy($dummy = null, $comparison = null)
+    public function filterByDummy($dummy = null, ?string $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($dummy)) {
@@ -1531,15 +1699,17 @@ abstract class OptionsIiQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(OptionsIiTableMap::COL_DUMMY, $dummy, $comparison);
+        $this->addUsingAlias(OptionsIiTableMap::COL_DUMMY, $dummy, $comparison);
+
+        return $this;
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildOptionsIi $optionsIi Object to remove from the list of results
+     * @param ChildOptionsIi $optionsIi Object to remove from the list of results
      *
-     * @return $this|ChildOptionsIiQuery The current query, for fluid interface
+     * @return $this The current query, for fluid interface
      */
     public function prune($optionsIi = null)
     {
@@ -1556,7 +1726,7 @@ abstract class OptionsIiQuery extends ModelCriteria
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public function doDeleteAll(ConnectionInterface $con = null)
+    public function doDeleteAll(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(OptionsIiTableMap::DATABASE_NAME);
@@ -1581,12 +1751,12 @@ abstract class OptionsIiQuery extends ModelCriteria
      * Performs a DELETE on the database based on the current ModelCriteria
      *
      * @param ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): int
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(OptionsIiTableMap::DATABASE_NAME);
@@ -1611,4 +1781,4 @@ abstract class OptionsIiQuery extends ModelCriteria
         });
     }
 
-} // OptionsIiQuery
+}

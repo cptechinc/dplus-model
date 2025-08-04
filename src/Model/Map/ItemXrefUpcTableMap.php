@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class ItemXrefUpcTableMap extends TableMap
 {
@@ -34,134 +33,230 @@ class ItemXrefUpcTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ItemXrefUpcTableMap';
+    public const CLASS_NAME = '.Map.ItemXrefUpcTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'upc_item_xref';
+    public const TABLE_NAME = 'upc_item_xref';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'ItemXrefUpc';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ItemXrefUpc';
+    public const OM_CLASS = '\\ItemXrefUpc';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ItemXrefUpc';
+    public const CLASS_DEFAULT = 'ItemXrefUpc';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 10;
+    public const NUM_COLUMNS = 10;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 10;
+    public const NUM_HYDRATE_COLUMNS = 10;
 
     /**
      * the column name for the UpcxCode field
      */
-    const COL_UPCXCODE = 'upc_item_xref.UpcxCode';
+    public const COL_UPCXCODE = 'upc_item_xref.UpcxCode';
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'upc_item_xref.InitItemNbr';
+    public const COL_INITITEMNBR = 'upc_item_xref.InitItemNbr';
 
     /**
      * the column name for the UpcxPrim field
      */
-    const COL_UPCXPRIM = 'upc_item_xref.UpcxPrim';
+    public const COL_UPCXPRIM = 'upc_item_xref.UpcxPrim';
 
     /**
      * the column name for the UpcxQtyEachesPerUpc field
      */
-    const COL_UPCXQTYEACHESPERUPC = 'upc_item_xref.UpcxQtyEachesPerUpc';
+    public const COL_UPCXQTYEACHESPERUPC = 'upc_item_xref.UpcxQtyEachesPerUpc';
 
     /**
      * the column name for the UpcxUom field
      */
-    const COL_UPCXUOM = 'upc_item_xref.UpcxUom';
+    public const COL_UPCXUOM = 'upc_item_xref.UpcxUom';
 
     /**
      * the column name for the UpcxMstrCase field
      */
-    const COL_UPCXMSTRCASE = 'upc_item_xref.UpcxMstrCase';
+    public const COL_UPCXMSTRCASE = 'upc_item_xref.UpcxMstrCase';
 
     /**
      * the column name for the UpcxLabel field
      */
-    const COL_UPCXLABEL = 'upc_item_xref.UpcxLabel';
+    public const COL_UPCXLABEL = 'upc_item_xref.UpcxLabel';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'upc_item_xref.DateUpdtd';
+    public const COL_DATEUPDTD = 'upc_item_xref.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'upc_item_xref.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'upc_item_xref.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'upc_item_xref.dummy';
+    public const COL_DUMMY = 'upc_item_xref.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Upcxcode', 'Inititemnbr', 'Upcxprim', 'Upcxqtyeachesperupc', 'Upcxuom', 'Upcxmstrcase', 'Upcxlabel', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('upcxcode', 'inititemnbr', 'upcxprim', 'upcxqtyeachesperupc', 'upcxuom', 'upcxmstrcase', 'upcxlabel', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemXrefUpcTableMap::COL_UPCXCODE, ItemXrefUpcTableMap::COL_INITITEMNBR, ItemXrefUpcTableMap::COL_UPCXPRIM, ItemXrefUpcTableMap::COL_UPCXQTYEACHESPERUPC, ItemXrefUpcTableMap::COL_UPCXUOM, ItemXrefUpcTableMap::COL_UPCXMSTRCASE, ItemXrefUpcTableMap::COL_UPCXLABEL, ItemXrefUpcTableMap::COL_DATEUPDTD, ItemXrefUpcTableMap::COL_TIMEUPDTD, ItemXrefUpcTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('UpcxCode', 'InitItemNbr', 'UpcxPrim', 'UpcxQtyEachesPerUpc', 'UpcxUom', 'UpcxMstrCase', 'UpcxLabel', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Upcxcode', 'Inititemnbr', 'Upcxprim', 'Upcxqtyeachesperupc', 'Upcxuom', 'Upcxmstrcase', 'Upcxlabel', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['upcxcode', 'inititemnbr', 'upcxprim', 'upcxqtyeachesperupc', 'upcxuom', 'upcxmstrcase', 'upcxlabel', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [ItemXrefUpcTableMap::COL_UPCXCODE, ItemXrefUpcTableMap::COL_INITITEMNBR, ItemXrefUpcTableMap::COL_UPCXPRIM, ItemXrefUpcTableMap::COL_UPCXQTYEACHESPERUPC, ItemXrefUpcTableMap::COL_UPCXUOM, ItemXrefUpcTableMap::COL_UPCXMSTRCASE, ItemXrefUpcTableMap::COL_UPCXLABEL, ItemXrefUpcTableMap::COL_DATEUPDTD, ItemXrefUpcTableMap::COL_TIMEUPDTD, ItemXrefUpcTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['UpcxCode', 'InitItemNbr', 'UpcxPrim', 'UpcxQtyEachesPerUpc', 'UpcxUom', 'UpcxMstrCase', 'UpcxLabel', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Upcxcode' => 0, 'Inititemnbr' => 1, 'Upcxprim' => 2, 'Upcxqtyeachesperupc' => 3, 'Upcxuom' => 4, 'Upcxmstrcase' => 5, 'Upcxlabel' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ),
-        self::TYPE_CAMELNAME     => array('upcxcode' => 0, 'inititemnbr' => 1, 'upcxprim' => 2, 'upcxqtyeachesperupc' => 3, 'upcxuom' => 4, 'upcxmstrcase' => 5, 'upcxlabel' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ),
-        self::TYPE_COLNAME       => array(ItemXrefUpcTableMap::COL_UPCXCODE => 0, ItemXrefUpcTableMap::COL_INITITEMNBR => 1, ItemXrefUpcTableMap::COL_UPCXPRIM => 2, ItemXrefUpcTableMap::COL_UPCXQTYEACHESPERUPC => 3, ItemXrefUpcTableMap::COL_UPCXUOM => 4, ItemXrefUpcTableMap::COL_UPCXMSTRCASE => 5, ItemXrefUpcTableMap::COL_UPCXLABEL => 6, ItemXrefUpcTableMap::COL_DATEUPDTD => 7, ItemXrefUpcTableMap::COL_TIMEUPDTD => 8, ItemXrefUpcTableMap::COL_DUMMY => 9, ),
-        self::TYPE_FIELDNAME     => array('UpcxCode' => 0, 'InitItemNbr' => 1, 'UpcxPrim' => 2, 'UpcxQtyEachesPerUpc' => 3, 'UpcxUom' => 4, 'UpcxMstrCase' => 5, 'UpcxLabel' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Upcxcode' => 0, 'Inititemnbr' => 1, 'Upcxprim' => 2, 'Upcxqtyeachesperupc' => 3, 'Upcxuom' => 4, 'Upcxmstrcase' => 5, 'Upcxlabel' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ],
+        self::TYPE_CAMELNAME     => ['upcxcode' => 0, 'inititemnbr' => 1, 'upcxprim' => 2, 'upcxqtyeachesperupc' => 3, 'upcxuom' => 4, 'upcxmstrcase' => 5, 'upcxlabel' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ],
+        self::TYPE_COLNAME       => [ItemXrefUpcTableMap::COL_UPCXCODE => 0, ItemXrefUpcTableMap::COL_INITITEMNBR => 1, ItemXrefUpcTableMap::COL_UPCXPRIM => 2, ItemXrefUpcTableMap::COL_UPCXQTYEACHESPERUPC => 3, ItemXrefUpcTableMap::COL_UPCXUOM => 4, ItemXrefUpcTableMap::COL_UPCXMSTRCASE => 5, ItemXrefUpcTableMap::COL_UPCXLABEL => 6, ItemXrefUpcTableMap::COL_DATEUPDTD => 7, ItemXrefUpcTableMap::COL_TIMEUPDTD => 8, ItemXrefUpcTableMap::COL_DUMMY => 9, ],
+        self::TYPE_FIELDNAME     => ['UpcxCode' => 0, 'InitItemNbr' => 1, 'UpcxPrim' => 2, 'UpcxQtyEachesPerUpc' => 3, 'UpcxUom' => 4, 'UpcxMstrCase' => 5, 'UpcxLabel' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Upcxcode' => 'UPCXCODE',
+        'ItemXrefUpc.Upcxcode' => 'UPCXCODE',
+        'upcxcode' => 'UPCXCODE',
+        'itemXrefUpc.upcxcode' => 'UPCXCODE',
+        'ItemXrefUpcTableMap::COL_UPCXCODE' => 'UPCXCODE',
+        'COL_UPCXCODE' => 'UPCXCODE',
+        'UpcxCode' => 'UPCXCODE',
+        'upc_item_xref.UpcxCode' => 'UPCXCODE',
+        'Inititemnbr' => 'INITITEMNBR',
+        'ItemXrefUpc.Inititemnbr' => 'INITITEMNBR',
+        'inititemnbr' => 'INITITEMNBR',
+        'itemXrefUpc.inititemnbr' => 'INITITEMNBR',
+        'ItemXrefUpcTableMap::COL_INITITEMNBR' => 'INITITEMNBR',
+        'COL_INITITEMNBR' => 'INITITEMNBR',
+        'InitItemNbr' => 'INITITEMNBR',
+        'upc_item_xref.InitItemNbr' => 'INITITEMNBR',
+        'Upcxprim' => 'UPCXPRIM',
+        'ItemXrefUpc.Upcxprim' => 'UPCXPRIM',
+        'upcxprim' => 'UPCXPRIM',
+        'itemXrefUpc.upcxprim' => 'UPCXPRIM',
+        'ItemXrefUpcTableMap::COL_UPCXPRIM' => 'UPCXPRIM',
+        'COL_UPCXPRIM' => 'UPCXPRIM',
+        'UpcxPrim' => 'UPCXPRIM',
+        'upc_item_xref.UpcxPrim' => 'UPCXPRIM',
+        'Upcxqtyeachesperupc' => 'UPCXQTYEACHESPERUPC',
+        'ItemXrefUpc.Upcxqtyeachesperupc' => 'UPCXQTYEACHESPERUPC',
+        'upcxqtyeachesperupc' => 'UPCXQTYEACHESPERUPC',
+        'itemXrefUpc.upcxqtyeachesperupc' => 'UPCXQTYEACHESPERUPC',
+        'ItemXrefUpcTableMap::COL_UPCXQTYEACHESPERUPC' => 'UPCXQTYEACHESPERUPC',
+        'COL_UPCXQTYEACHESPERUPC' => 'UPCXQTYEACHESPERUPC',
+        'UpcxQtyEachesPerUpc' => 'UPCXQTYEACHESPERUPC',
+        'upc_item_xref.UpcxQtyEachesPerUpc' => 'UPCXQTYEACHESPERUPC',
+        'Upcxuom' => 'UPCXUOM',
+        'ItemXrefUpc.Upcxuom' => 'UPCXUOM',
+        'upcxuom' => 'UPCXUOM',
+        'itemXrefUpc.upcxuom' => 'UPCXUOM',
+        'ItemXrefUpcTableMap::COL_UPCXUOM' => 'UPCXUOM',
+        'COL_UPCXUOM' => 'UPCXUOM',
+        'UpcxUom' => 'UPCXUOM',
+        'upc_item_xref.UpcxUom' => 'UPCXUOM',
+        'Upcxmstrcase' => 'UPCXMSTRCASE',
+        'ItemXrefUpc.Upcxmstrcase' => 'UPCXMSTRCASE',
+        'upcxmstrcase' => 'UPCXMSTRCASE',
+        'itemXrefUpc.upcxmstrcase' => 'UPCXMSTRCASE',
+        'ItemXrefUpcTableMap::COL_UPCXMSTRCASE' => 'UPCXMSTRCASE',
+        'COL_UPCXMSTRCASE' => 'UPCXMSTRCASE',
+        'UpcxMstrCase' => 'UPCXMSTRCASE',
+        'upc_item_xref.UpcxMstrCase' => 'UPCXMSTRCASE',
+        'Upcxlabel' => 'UPCXLABEL',
+        'ItemXrefUpc.Upcxlabel' => 'UPCXLABEL',
+        'upcxlabel' => 'UPCXLABEL',
+        'itemXrefUpc.upcxlabel' => 'UPCXLABEL',
+        'ItemXrefUpcTableMap::COL_UPCXLABEL' => 'UPCXLABEL',
+        'COL_UPCXLABEL' => 'UPCXLABEL',
+        'UpcxLabel' => 'UPCXLABEL',
+        'upc_item_xref.UpcxLabel' => 'UPCXLABEL',
+        'Dateupdtd' => 'DATEUPDTD',
+        'ItemXrefUpc.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'itemXrefUpc.dateupdtd' => 'DATEUPDTD',
+        'ItemXrefUpcTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'upc_item_xref.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'ItemXrefUpc.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'itemXrefUpc.timeupdtd' => 'TIMEUPDTD',
+        'ItemXrefUpcTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'upc_item_xref.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'ItemXrefUpc.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'itemXrefUpc.dummy' => 'DUMMY',
+        'ItemXrefUpcTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'upc_item_xref.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('upc_item_xref');
@@ -181,12 +276,14 @@ class ItemXrefUpcTableMap extends TableMap
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -195,7 +292,7 @@ class ItemXrefUpcTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -206,9 +303,11 @@ class ItemXrefUpcTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \ItemXrefUpc $obj A \ItemXrefUpc object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(ItemXrefUpc $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -227,8 +326,10 @@ class ItemXrefUpcTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \ItemXrefUpc object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \ItemXrefUpc) {
@@ -256,14 +357,14 @@ class ItemXrefUpcTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Upcxcode', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -278,14 +379,14 @@ class ItemXrefUpcTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -311,10 +412,10 @@ class ItemXrefUpcTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? ItemXrefUpcTableMap::CLASS_DEFAULT : ItemXrefUpcTableMap::OM_CLASS;
     }
@@ -322,17 +423,17 @@ class ItemXrefUpcTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ItemXrefUpc object, last column rank)
+     * @return array (ItemXrefUpc object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = ItemXrefUpcTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = ItemXrefUpcTableMap::getInstanceFromPool($key))) {
@@ -348,7 +449,7 @@ class ItemXrefUpcTableMap extends TableMap
             ItemXrefUpcTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -356,13 +457,13 @@ class ItemXrefUpcTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -392,12 +493,13 @@ class ItemXrefUpcTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(ItemXrefUpcTableMap::COL_UPCXCODE);
@@ -425,40 +527,68 @@ class ItemXrefUpcTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(ItemXrefUpcTableMap::COL_UPCXCODE);
+            $criteria->removeSelectColumn(ItemXrefUpcTableMap::COL_INITITEMNBR);
+            $criteria->removeSelectColumn(ItemXrefUpcTableMap::COL_UPCXPRIM);
+            $criteria->removeSelectColumn(ItemXrefUpcTableMap::COL_UPCXQTYEACHESPERUPC);
+            $criteria->removeSelectColumn(ItemXrefUpcTableMap::COL_UPCXUOM);
+            $criteria->removeSelectColumn(ItemXrefUpcTableMap::COL_UPCXMSTRCASE);
+            $criteria->removeSelectColumn(ItemXrefUpcTableMap::COL_UPCXLABEL);
+            $criteria->removeSelectColumn(ItemXrefUpcTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(ItemXrefUpcTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(ItemXrefUpcTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.UpcxCode');
+            $criteria->removeSelectColumn($alias . '.InitItemNbr');
+            $criteria->removeSelectColumn($alias . '.UpcxPrim');
+            $criteria->removeSelectColumn($alias . '.UpcxQtyEachesPerUpc');
+            $criteria->removeSelectColumn($alias . '.UpcxUom');
+            $criteria->removeSelectColumn($alias . '.UpcxMstrCase');
+            $criteria->removeSelectColumn($alias . '.UpcxLabel');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(ItemXrefUpcTableMap::DATABASE_NAME)->getTable(ItemXrefUpcTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ItemXrefUpcTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ItemXrefUpcTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ItemXrefUpcTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a ItemXrefUpc or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ItemXrefUpc object or primary key or array of primary keys
+     * @param mixed $values Criteria or ItemXrefUpc object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefUpcTableMap::DATABASE_NAME);
@@ -476,7 +606,7 @@ class ItemXrefUpcTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(ItemXrefUpcTableMap::COL_UPCXCODE, $value[0]);
@@ -504,7 +634,7 @@ class ItemXrefUpcTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return ItemXrefUpcQuery::create()->doDeleteAll($con);
     }
@@ -512,13 +642,13 @@ class ItemXrefUpcTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a ItemXrefUpc or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ItemXrefUpc object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or ItemXrefUpc object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(ItemXrefUpcTableMap::DATABASE_NAME);
@@ -541,7 +671,4 @@ class ItemXrefUpcTableMap extends TableMap
         });
     }
 
-} // ItemXrefUpcTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-ItemXrefUpcTableMap::buildTableMap();
+}

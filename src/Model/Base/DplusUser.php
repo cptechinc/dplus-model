@@ -43,19 +43,21 @@ abstract class DplusUser implements ActiveRecordInterface
 {
     /**
      * TableMap class name
+     *
+     * @var string
      */
-    const TABLE_MAP = '\\Map\\DplusUserTableMap';
+    public const TABLE_MAP = '\\Map\\DplusUserTableMap';
 
 
     /**
      * attribute to determine if this object has previously been saved.
-     * @var boolean
+     * @var bool
      */
     protected $new = true;
 
     /**
      * attribute to determine whether this object has been deleted.
-     * @var boolean
+     * @var bool
      */
     protected $deleted = false;
 
@@ -64,14 +66,14 @@ abstract class DplusUser implements ActiveRecordInterface
      * Tracking modified columns allows us to only update modified columns.
      * @var array
      */
-    protected $modifiedColumns = array();
+    protected $modifiedColumns = [];
 
     /**
      * The (virtual) columns that are added at runtime
      * The formatters can add supplementary columns based on a resultset
      * @var array
      */
-    protected $virtualColumns = array();
+    protected $virtualColumns = [];
 
     /**
      * The value for the usrcid field.
@@ -83,294 +85,294 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * The value for the usrcloginname field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcloginname;
 
     /**
      * The value for the intbwhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $intbwhse;
 
     /**
      * The value for the usrcdefcmpy field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcdefcmpy;
 
     /**
      * The value for the usrcadmin field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcadmin;
 
     /**
      * The value for the usrcfront field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcfront;
 
     /**
      * The value for the usrccitydesk field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrccitydesk;
 
     /**
      * The value for the usrcreptadmin field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcreptadmin;
 
     /**
      * The value for the usrcprinter field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcprinter;
 
     /**
      * The value for the usrcpitch field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcpitch;
 
     /**
      * The value for the usrcbrowseprinter field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcbrowseprinter;
 
     /**
      * The value for the usrcwhsedisplayseq field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcwhsedisplayseq;
 
     /**
      * The value for the usrcactiveitemsonly field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcactiveitemsonly;
 
     /**
      * The value for the usrcrestrictaccess field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcrestrictaccess;
 
     /**
      * The value for the usrclogingroup field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrclogingroup;
 
     /**
      * The value for the usrcloginrole field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcloginrole;
 
     /**
      * The value for the usrcallowprocremoval field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcallowprocremoval;
 
     /**
      * The value for the usrcacallowwarredit field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcacallowwarredit;
 
     /**
      * The value for the usrcisprodmgr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcisprodmgr;
 
     /**
      * The value for the usrclmallowcrosswhse field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrclmallowcrosswhse;
 
     /**
      * The value for the usrcpswd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcpswd;
 
     /**
      * The value for the usrcfaxname field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcfaxname;
 
     /**
      * The value for the usrcfaxcompany field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcfaxcompany;
 
     /**
      * The value for the usrcfaxarea field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcfaxarea;
 
     /**
      * The value for the usrcfaxfrst3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcfaxfrst3;
 
     /**
      * The value for the usrcfaxlast4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcfaxlast4;
 
     /**
      * The value for the usrcphonearea field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcphonearea;
 
     /**
      * The value for the usrcphonefrst3 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcphonefrst3;
 
     /**
      * The value for the usrcphonelast4 field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcphonelast4;
 
     /**
      * The value for the usrcphoneext field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcphoneext;
 
     /**
      * The value for the usrcsendtime field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcsendtime;
 
     /**
      * The value for the usrccoversheet field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrccoversheet;
 
     /**
      * The value for the usrcsubject field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcsubject;
 
     /**
      * The value for the usrcnotifys field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcnotifys;
 
     /**
      * The value for the usrcnotifyf field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcnotifyf;
 
     /**
      * The value for the usrcemailaddr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcemailaddr;
 
     /**
      * The value for the usrcscalewhseid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcscalewhseid;
 
     /**
      * The value for the usrcscaledevnbr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcscaledevnbr;
 
     /**
      * The value for the usrcccscanwhseid field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcccscanwhseid;
 
     /**
      * The value for the usrcccscandevnbr field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $usrcccscandevnbr;
 
     /**
      * The value for the dateupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dateupdtd;
 
     /**
      * The value for the timeupdtd field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $timeupdtd;
 
     /**
      * The value for the dummy field.
      *
-     * @var        string
+     * @var        string|null
      */
     protected $dummy;
 
@@ -386,6 +388,7 @@ abstract class DplusUser implements ActiveRecordInterface
 
     /**
      * @var        ObjectCollection|ChildInvLotTag[] Collection to store aggregation of ChildInvLotTag objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvLotTag> Collection to store aggregation of ChildInvLotTag objects.
      */
     protected $collInvLotTags;
     protected $collInvLotTagsPartial;
@@ -397,6 +400,7 @@ abstract class DplusUser implements ActiveRecordInterface
 
     /**
      * @var        ObjectCollection|ChildUserLastPrintJob[] Collection to store aggregation of ChildUserLastPrintJob objects.
+     * @phpstan-var ObjectCollection&\Traversable<ChildUserLastPrintJob> Collection to store aggregation of ChildUserLastPrintJob objects.
      */
     protected $collUserLastPrintJobs;
     protected $collUserLastPrintJobsPartial;
@@ -405,19 +409,21 @@ abstract class DplusUser implements ActiveRecordInterface
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
-     * @var boolean
+     * @var bool
      */
     protected $alreadyInSave = false;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvLotTag[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildInvLotTag>
      */
     protected $invLotTagsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildUserLastPrintJob[]
+     * @phpstan-var ObjectCollection&\Traversable<ChildUserLastPrintJob>
      */
     protected $userLastPrintJobsScheduledForDeletion = null;
 
@@ -431,9 +437,9 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Returns whether the object has been modified.
      *
-     * @return boolean True if the object has been modified.
+     * @return bool True if the object has been modified.
      */
-    public function isModified()
+    public function isModified(): bool
     {
         return !!$this->modifiedColumns;
     }
@@ -441,10 +447,10 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Has specified column been modified?
      *
-     * @param  string  $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
-     * @return boolean True if $col has been modified.
+     * @param string $col column fully qualified name (TableMap::TYPE_COLNAME), e.g. Book::AUTHOR_ID
+     * @return bool True if $col has been modified.
      */
-    public function isColumnModified($col)
+    public function isColumnModified(string $col): bool
     {
         return $this->modifiedColumns && isset($this->modifiedColumns[$col]);
     }
@@ -453,7 +459,7 @@ abstract class DplusUser implements ActiveRecordInterface
      * Get the columns that have been modified in this object.
      * @return array A unique list of the modified column names for this object.
      */
-    public function getModifiedColumns()
+    public function getModifiedColumns(): array
     {
         return $this->modifiedColumns ? array_keys($this->modifiedColumns) : [];
     }
@@ -463,9 +469,9 @@ abstract class DplusUser implements ActiveRecordInterface
      * be false, if the object was retrieved from storage or was created
      * and then saved.
      *
-     * @return boolean true, if the object has never been persisted.
+     * @return bool True, if the object has never been persisted.
      */
-    public function isNew()
+    public function isNew(): bool
     {
         return $this->new;
     }
@@ -474,45 +480,43 @@ abstract class DplusUser implements ActiveRecordInterface
      * Setter for the isNew attribute.  This method will be called
      * by Propel-generated children and objects.
      *
-     * @param boolean $b the state of the object.
+     * @param bool $b the state of the object.
      */
-    public function setNew($b)
+    public function setNew(bool $b): void
     {
-        $this->new = (boolean) $b;
+        $this->new = $b;
     }
 
     /**
      * Whether this object has been deleted.
-     * @return boolean The deleted state of this object.
+     * @return bool The deleted state of this object.
      */
-    public function isDeleted()
+    public function isDeleted(): bool
     {
         return $this->deleted;
     }
 
     /**
      * Specify whether this object has been deleted.
-     * @param  boolean $b The deleted state of this object.
+     * @param bool $b The deleted state of this object.
      * @return void
      */
-    public function setDeleted($b)
+    public function setDeleted(bool $b): void
     {
-        $this->deleted = (boolean) $b;
+        $this->deleted = $b;
     }
 
     /**
      * Sets the modified state for the object to be false.
-     * @param  string $col If supplied, only the specified column is reset.
+     * @param string $col If supplied, only the specified column is reset.
      * @return void
      */
-    public function resetModified($col = null)
+    public function resetModified(?string $col = null): void
     {
         if (null !== $col) {
-            if (isset($this->modifiedColumns[$col])) {
-                unset($this->modifiedColumns[$col]);
-            }
+            unset($this->modifiedColumns[$col]);
         } else {
-            $this->modifiedColumns = array();
+            $this->modifiedColumns = [];
         }
     }
 
@@ -521,10 +525,10 @@ abstract class DplusUser implements ActiveRecordInterface
      * <code>obj</code> is an instance of <code>DplusUser</code>, delegates to
      * <code>equals(DplusUser)</code>.  Otherwise, returns <code>false</code>.
      *
-     * @param  mixed   $obj The object to compare to.
-     * @return boolean Whether equal to the object specified.
+     * @param mixed $obj The object to compare to.
+     * @return bool Whether equal to the object specified.
      */
-    public function equals($obj)
+    public function equals($obj): bool
     {
         if (!$obj instanceof static) {
             return false;
@@ -546,7 +550,7 @@ abstract class DplusUser implements ActiveRecordInterface
      *
      * @return array
      */
-    public function getVirtualColumns()
+    public function getVirtualColumns(): array
     {
         return $this->virtualColumns;
     }
@@ -554,10 +558,10 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Checks the existence of a virtual column in this object
      *
-     * @param  string  $name The virtual column name
-     * @return boolean
+     * @param string $name The virtual column name
+     * @return bool
      */
-    public function hasVirtualColumn($name)
+    public function hasVirtualColumn(string $name): bool
     {
         return array_key_exists($name, $this->virtualColumns);
     }
@@ -565,15 +569,15 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the value of a virtual column in this object
      *
-     * @param  string $name The virtual column name
+     * @param string $name The virtual column name
      * @return mixed
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getVirtualColumn($name)
+    public function getVirtualColumn(string $name)
     {
         if (!$this->hasVirtualColumn($name)) {
-            throw new PropelException(sprintf('Cannot get value of inexistent virtual column %s.', $name));
+            throw new PropelException(sprintf('Cannot get value of nonexistent virtual column `%s`.', $name));
         }
 
         return $this->virtualColumns[$name];
@@ -582,12 +586,12 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Set the value of a virtual column in this object
      *
-     * @param string $name  The virtual column name
-     * @param mixed  $value The value to give to the virtual column
+     * @param string $name The virtual column name
+     * @param mixed $value The value to give to the virtual column
      *
-     * @return $this|DplusUser The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function setVirtualColumn($name, $value)
+    public function setVirtualColumn(string $name, $value)
     {
         $this->virtualColumns[$name] = $value;
 
@@ -597,13 +601,13 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Logs a message using Propel::log().
      *
-     * @param  string  $msg
-     * @param  int     $priority One of the Propel::LOG_* logging levels
-     * @return boolean
+     * @param string $msg
+     * @param int $priority One of the Propel::LOG_* logging levels
+     * @return void
      */
-    protected function log($msg, $priority = Propel::LOG_INFO)
+    protected function log(string $msg, int $priority = Propel::LOG_INFO): void
     {
-        return Propel::log(get_class($this) . ': ' . $msg, $priority);
+        Propel::log(get_class($this) . ': ' . $msg, $priority);
     }
 
     /**
@@ -614,24 +618,27 @@ abstract class DplusUser implements ActiveRecordInterface
      *  => {"Id":9012,"Title":"Don Juan","ISBN":"0140422161","Price":12.99,"PublisherId":1234,"AuthorId":5678}');
      * </code>
      *
-     * @param  mixed   $parser                 A AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
-     * @param  boolean $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
-     * @return string  The exported data
+     * @param \Propel\Runtime\Parser\AbstractParser|string $parser An AbstractParser instance, or a format name ('XML', 'YAML', 'JSON', 'CSV')
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy load(ed) columns. Defaults to TRUE.
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME, TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM. Defaults to TableMap::TYPE_PHPNAME.
+     * @return string The exported data
      */
-    public function exportTo($parser, $includeLazyLoadColumns = true)
+    public function exportTo($parser, bool $includeLazyLoadColumns = true, string $keyType = TableMap::TYPE_PHPNAME): string
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
         }
 
-        return $parser->fromArray($this->toArray(TableMap::TYPE_PHPNAME, $includeLazyLoadColumns, array(), true));
+        return $parser->fromArray($this->toArray($keyType, $includeLazyLoadColumns, array(), true));
     }
 
     /**
      * Clean up internal collections prior to serializing
      * Avoids recursive loops that turn into segmentation faults when serializing
+     *
+     * @return array<string>
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->clearAllReferences();
 
@@ -659,7 +666,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcloginname] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcloginname()
     {
@@ -669,7 +676,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [intbwhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getIntbwhse()
     {
@@ -679,7 +686,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcdefcmpy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcdefcmpy()
     {
@@ -689,7 +696,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcadmin] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcadmin()
     {
@@ -699,7 +706,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcfront] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcfront()
     {
@@ -709,7 +716,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrccitydesk] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrccitydesk()
     {
@@ -719,7 +726,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcreptadmin] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcreptadmin()
     {
@@ -729,7 +736,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcprinter] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcprinter()
     {
@@ -739,7 +746,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcpitch] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcpitch()
     {
@@ -749,7 +756,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcbrowseprinter] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcbrowseprinter()
     {
@@ -759,7 +766,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcwhsedisplayseq] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcwhsedisplayseq()
     {
@@ -769,7 +776,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcactiveitemsonly] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcactiveitemsonly()
     {
@@ -779,7 +786,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcrestrictaccess] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcrestrictaccess()
     {
@@ -789,7 +796,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrclogingroup] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrclogingroup()
     {
@@ -799,7 +806,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcloginrole] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcloginrole()
     {
@@ -809,7 +816,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcallowprocremoval] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcallowprocremoval()
     {
@@ -819,7 +826,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcacallowwarredit] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcacallowwarredit()
     {
@@ -829,7 +836,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcisprodmgr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcisprodmgr()
     {
@@ -839,7 +846,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrclmallowcrosswhse] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrclmallowcrosswhse()
     {
@@ -849,7 +856,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcpswd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcpswd()
     {
@@ -859,7 +866,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcfaxname] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcfaxname()
     {
@@ -869,7 +876,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcfaxcompany] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcfaxcompany()
     {
@@ -879,7 +886,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcfaxarea] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcfaxarea()
     {
@@ -889,7 +896,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcfaxfrst3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcfaxfrst3()
     {
@@ -899,7 +906,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcfaxlast4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcfaxlast4()
     {
@@ -909,7 +916,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcphonearea] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcphonearea()
     {
@@ -919,7 +926,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcphonefrst3] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcphonefrst3()
     {
@@ -929,7 +936,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcphonelast4] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcphonelast4()
     {
@@ -939,7 +946,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcphoneext] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcphoneext()
     {
@@ -949,7 +956,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcsendtime] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcsendtime()
     {
@@ -959,7 +966,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrccoversheet] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrccoversheet()
     {
@@ -969,7 +976,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcsubject] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcsubject()
     {
@@ -979,7 +986,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcnotifys] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcnotifys()
     {
@@ -989,7 +996,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcnotifyf] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcnotifyf()
     {
@@ -999,7 +1006,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcemailaddr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcemailaddr()
     {
@@ -1009,7 +1016,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcscalewhseid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcscalewhseid()
     {
@@ -1019,7 +1026,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcscaledevnbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcscaledevnbr()
     {
@@ -1029,7 +1036,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcccscanwhseid] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcccscanwhseid()
     {
@@ -1039,7 +1046,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [usrcccscandevnbr] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getUsrcccscandevnbr()
     {
@@ -1049,7 +1056,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [dateupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDateupdtd()
     {
@@ -1059,7 +1066,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [timeupdtd] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getTimeupdtd()
     {
@@ -1069,7 +1076,7 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the [dummy] column value.
      *
-     * @return string
+     * @return string|null
      */
     public function getDummy()
     {
@@ -1079,8 +1086,8 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Set the value of [usrcid] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcid($v)
     {
@@ -1094,13 +1101,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcid()
+    }
 
     /**
      * Set the value of [usrcloginname] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcloginname($v)
     {
@@ -1114,13 +1121,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcloginname()
+    }
 
     /**
      * Set the value of [intbwhse] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setIntbwhse($v)
     {
@@ -1134,13 +1141,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setIntbwhse()
+    }
 
     /**
      * Set the value of [usrcdefcmpy] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcdefcmpy($v)
     {
@@ -1154,13 +1161,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcdefcmpy()
+    }
 
     /**
      * Set the value of [usrcadmin] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcadmin($v)
     {
@@ -1174,13 +1181,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcadmin()
+    }
 
     /**
      * Set the value of [usrcfront] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcfront($v)
     {
@@ -1194,13 +1201,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcfront()
+    }
 
     /**
      * Set the value of [usrccitydesk] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrccitydesk($v)
     {
@@ -1214,13 +1221,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrccitydesk()
+    }
 
     /**
      * Set the value of [usrcreptadmin] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcreptadmin($v)
     {
@@ -1234,13 +1241,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcreptadmin()
+    }
 
     /**
      * Set the value of [usrcprinter] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcprinter($v)
     {
@@ -1254,13 +1261,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcprinter()
+    }
 
     /**
      * Set the value of [usrcpitch] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcpitch($v)
     {
@@ -1274,13 +1281,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcpitch()
+    }
 
     /**
      * Set the value of [usrcbrowseprinter] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcbrowseprinter($v)
     {
@@ -1294,13 +1301,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcbrowseprinter()
+    }
 
     /**
      * Set the value of [usrcwhsedisplayseq] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcwhsedisplayseq($v)
     {
@@ -1314,13 +1321,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcwhsedisplayseq()
+    }
 
     /**
      * Set the value of [usrcactiveitemsonly] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcactiveitemsonly($v)
     {
@@ -1334,13 +1341,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcactiveitemsonly()
+    }
 
     /**
      * Set the value of [usrcrestrictaccess] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcrestrictaccess($v)
     {
@@ -1354,13 +1361,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcrestrictaccess()
+    }
 
     /**
      * Set the value of [usrclogingroup] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrclogingroup($v)
     {
@@ -1378,13 +1385,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrclogingroup()
+    }
 
     /**
      * Set the value of [usrcloginrole] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcloginrole($v)
     {
@@ -1402,13 +1409,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcloginrole()
+    }
 
     /**
      * Set the value of [usrcallowprocremoval] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcallowprocremoval($v)
     {
@@ -1422,13 +1429,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcallowprocremoval()
+    }
 
     /**
      * Set the value of [usrcacallowwarredit] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcacallowwarredit($v)
     {
@@ -1442,13 +1449,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcacallowwarredit()
+    }
 
     /**
      * Set the value of [usrcisprodmgr] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcisprodmgr($v)
     {
@@ -1462,13 +1469,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcisprodmgr()
+    }
 
     /**
      * Set the value of [usrclmallowcrosswhse] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrclmallowcrosswhse($v)
     {
@@ -1482,13 +1489,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrclmallowcrosswhse()
+    }
 
     /**
      * Set the value of [usrcpswd] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcpswd($v)
     {
@@ -1502,13 +1509,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcpswd()
+    }
 
     /**
      * Set the value of [usrcfaxname] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcfaxname($v)
     {
@@ -1522,13 +1529,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcfaxname()
+    }
 
     /**
      * Set the value of [usrcfaxcompany] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcfaxcompany($v)
     {
@@ -1542,13 +1549,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcfaxcompany()
+    }
 
     /**
      * Set the value of [usrcfaxarea] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcfaxarea($v)
     {
@@ -1562,13 +1569,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcfaxarea()
+    }
 
     /**
      * Set the value of [usrcfaxfrst3] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcfaxfrst3($v)
     {
@@ -1582,13 +1589,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcfaxfrst3()
+    }
 
     /**
      * Set the value of [usrcfaxlast4] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcfaxlast4($v)
     {
@@ -1602,13 +1609,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcfaxlast4()
+    }
 
     /**
      * Set the value of [usrcphonearea] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcphonearea($v)
     {
@@ -1622,13 +1629,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcphonearea()
+    }
 
     /**
      * Set the value of [usrcphonefrst3] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcphonefrst3($v)
     {
@@ -1642,13 +1649,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcphonefrst3()
+    }
 
     /**
      * Set the value of [usrcphonelast4] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcphonelast4($v)
     {
@@ -1662,13 +1669,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcphonelast4()
+    }
 
     /**
      * Set the value of [usrcphoneext] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcphoneext($v)
     {
@@ -1682,13 +1689,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcphoneext()
+    }
 
     /**
      * Set the value of [usrcsendtime] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcsendtime($v)
     {
@@ -1702,13 +1709,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcsendtime()
+    }
 
     /**
      * Set the value of [usrccoversheet] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrccoversheet($v)
     {
@@ -1722,13 +1729,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrccoversheet()
+    }
 
     /**
      * Set the value of [usrcsubject] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcsubject($v)
     {
@@ -1742,13 +1749,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcsubject()
+    }
 
     /**
      * Set the value of [usrcnotifys] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcnotifys($v)
     {
@@ -1762,13 +1769,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcnotifys()
+    }
 
     /**
      * Set the value of [usrcnotifyf] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcnotifyf($v)
     {
@@ -1782,13 +1789,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcnotifyf()
+    }
 
     /**
      * Set the value of [usrcemailaddr] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcemailaddr($v)
     {
@@ -1802,13 +1809,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcemailaddr()
+    }
 
     /**
      * Set the value of [usrcscalewhseid] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcscalewhseid($v)
     {
@@ -1822,13 +1829,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcscalewhseid()
+    }
 
     /**
      * Set the value of [usrcscaledevnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcscaledevnbr($v)
     {
@@ -1842,13 +1849,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcscaledevnbr()
+    }
 
     /**
      * Set the value of [usrcccscanwhseid] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcccscanwhseid($v)
     {
@@ -1862,13 +1869,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcccscanwhseid()
+    }
 
     /**
      * Set the value of [usrcccscandevnbr] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setUsrcccscandevnbr($v)
     {
@@ -1882,13 +1889,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setUsrcccscandevnbr()
+    }
 
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -1902,13 +1909,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDateupdtd()
+    }
 
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -1922,13 +1929,13 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setTimeupdtd()
+    }
 
     /**
      * Set the value of [dummy] column.
      *
-     * @param string $v new value
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param string|null $v New value
+     * @return $this The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -1942,7 +1949,7 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $this;
-    } // setDummy()
+    }
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -1950,13 +1957,13 @@ abstract class DplusUser implements ActiveRecordInterface
      * This method can be used in conjunction with isModified() to indicate whether an object is both
      * modified _and_ has some values set which are non-default.
      *
-     * @return boolean Whether the columns in this object are only been set with default values.
+     * @return bool Whether the columns in this object are only been set with default values.
      */
-    public function hasOnlyDefaultValues()
+    public function hasOnlyDefaultValues(): bool
     {
         // otherwise, everything was equal, so return TRUE
         return true;
-    } // hasOnlyDefaultValues()
+    }
 
     /**
      * Hydrates (populates) the object variables with values from the database resultset.
@@ -1966,17 +1973,17 @@ abstract class DplusUser implements ActiveRecordInterface
      * for results of JOIN queries where the resultset row includes columns from two or
      * more tables.
      *
-     * @param array   $row       The row returned by DataFetcher->fetch().
-     * @param int     $startcol  0-based offset column which indicates which restultset column to start with.
-     * @param boolean $rehydrate Whether this object is being re-hydrated from the database.
-     * @param string  $indexType The index type of $row. Mostly DataFetcher->getIndexType().
+     * @param array $row The row returned by DataFetcher->fetch().
+     * @param int $startcol 0-based offset column which indicates which resultset column to start with.
+     * @param bool $rehydrate Whether this object is being re-hydrated from the database.
+     * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                   One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                            TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @return int             next starting column
-     * @throws PropelException - Any caught Exception will be rewrapped as a PropelException.
+     * @return int next starting column
+     * @throws \Propel\Runtime\Exception\PropelException - Any caught Exception will be rewrapped as a PropelException.
      */
-    public function hydrate($row, $startcol = 0, $rehydrate = false, $indexType = TableMap::TYPE_NUM)
+    public function hydrate(array $row, int $startcol = 0, bool $rehydrate = false, string $indexType = TableMap::TYPE_NUM): int
     {
         try {
 
@@ -2108,8 +2115,8 @@ abstract class DplusUser implements ActiveRecordInterface
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : DplusUserTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
-            $this->resetModified();
 
+            $this->resetModified();
             $this->setNew(false);
 
             if ($rehydrate) {
@@ -2134,9 +2141,10 @@ abstract class DplusUser implements ActiveRecordInterface
      * the base method from the overridden method (i.e. parent::ensureConsistency()),
      * in case your model changes.
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function ensureConsistency()
+    public function ensureConsistency(): void
     {
         if ($this->aSysLoginGroup !== null && $this->usrclogingroup !== $this->aSysLoginGroup->getQtbllgrpcode()) {
             $this->aSysLoginGroup = null;
@@ -2144,19 +2152,19 @@ abstract class DplusUser implements ActiveRecordInterface
         if ($this->aSysLoginRole !== null && $this->usrcloginrole !== $this->aSysLoginRole->getQtblrolecode()) {
             $this->aSysLoginRole = null;
         }
-    } // ensureConsistency
+    }
 
     /**
      * Reloads this object from datastore based on primary key and (optionally) resets all associated objects.
      *
      * This will only work if the object has been saved and has a valid primary key set.
      *
-     * @param      boolean $deep (optional) Whether to also de-associated any related objects.
-     * @param      ConnectionInterface $con (optional) The ConnectionInterface connection to use.
+     * @param bool $deep (optional) Whether to also de-associated any related objects.
+     * @param ConnectionInterface $con (optional) The ConnectionInterface connection to use.
      * @return void
-     * @throws PropelException - if this object is deleted, unsaved or doesn't have pk match in db
+     * @throws \Propel\Runtime\Exception\PropelException - if this object is deleted, unsaved or doesn't have pk match in db
      */
-    public function reload($deep = false, ConnectionInterface $con = null)
+    public function reload(bool $deep = false, ?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("Cannot reload a deleted object.");
@@ -2197,13 +2205,13 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Removes this object from datastore and sets delete attribute.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see DplusUser::setDeleted()
      * @see DplusUser::isDeleted()
      */
-    public function delete(ConnectionInterface $con = null)
+    public function delete(?ConnectionInterface $con = null): void
     {
         if ($this->isDeleted()) {
             throw new PropelException("This object has already been deleted.");
@@ -2233,12 +2241,12 @@ abstract class DplusUser implements ActiveRecordInterface
      * method.  This method wraps all precipitate database operations in a
      * single transaction.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    public function save(ConnectionInterface $con = null)
+    public function save(?ConnectionInterface $con = null): int
     {
         if ($this->isDeleted()) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -2283,12 +2291,12 @@ abstract class DplusUser implements ActiveRecordInterface
      * If the object is new, it inserts it; otherwise an update is performed.
      * All related objects are also updated in this method.
      *
-     * @param      ConnectionInterface $con
-     * @return int             The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @param ConnectionInterface $con
+     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see save()
      */
-    protected function doSave(ConnectionInterface $con)
+    protected function doSave(ConnectionInterface $con): int
     {
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
@@ -2369,19 +2377,19 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         return $affectedRows;
-    } // doSave()
+    }
 
     /**
      * Insert the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      * @see doSave()
      */
-    protected function doInsert(ConnectionInterface $con)
+    protected function doInsert(ConnectionInterface $con): void
     {
-        $modifiedColumns = array();
+        $modifiedColumns = [];
         $index = 0;
 
 
@@ -2528,132 +2536,175 @@ abstract class DplusUser implements ActiveRecordInterface
                 switch ($columnName) {
                     case 'UsrcId':
                         $stmt->bindValue($identifier, $this->usrcid, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcLoginName':
                         $stmt->bindValue($identifier, $this->usrcloginname, PDO::PARAM_STR);
+
                         break;
                     case 'IntbWhse':
                         $stmt->bindValue($identifier, $this->intbwhse, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcDefCmpy':
                         $stmt->bindValue($identifier, $this->usrcdefcmpy, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcAdmin':
                         $stmt->bindValue($identifier, $this->usrcadmin, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcFront':
                         $stmt->bindValue($identifier, $this->usrcfront, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcCityDesk':
                         $stmt->bindValue($identifier, $this->usrccitydesk, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcReptAdmin':
                         $stmt->bindValue($identifier, $this->usrcreptadmin, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcPrinter':
                         $stmt->bindValue($identifier, $this->usrcprinter, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcPitch':
                         $stmt->bindValue($identifier, $this->usrcpitch, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcBrowsePrinter':
                         $stmt->bindValue($identifier, $this->usrcbrowseprinter, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcWhseDisplaySeq':
                         $stmt->bindValue($identifier, $this->usrcwhsedisplayseq, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcActiveItemsOnly':
                         $stmt->bindValue($identifier, $this->usrcactiveitemsonly, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcRestrictAccess':
                         $stmt->bindValue($identifier, $this->usrcrestrictaccess, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcLoginGroup':
                         $stmt->bindValue($identifier, $this->usrclogingroup, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcLoginRole':
                         $stmt->bindValue($identifier, $this->usrcloginrole, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcAllowProcRemoval':
                         $stmt->bindValue($identifier, $this->usrcallowprocremoval, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcAcAllowWarrEdit':
                         $stmt->bindValue($identifier, $this->usrcacallowwarredit, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcIsProdMgr':
                         $stmt->bindValue($identifier, $this->usrcisprodmgr, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcLmAllowCrossWhse':
                         $stmt->bindValue($identifier, $this->usrclmallowcrosswhse, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcPswd':
                         $stmt->bindValue($identifier, $this->usrcpswd, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcFaxName':
                         $stmt->bindValue($identifier, $this->usrcfaxname, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcFaxCompany':
                         $stmt->bindValue($identifier, $this->usrcfaxcompany, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcFaxArea':
                         $stmt->bindValue($identifier, $this->usrcfaxarea, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcFaxFrst3':
                         $stmt->bindValue($identifier, $this->usrcfaxfrst3, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcFaxLast4':
                         $stmt->bindValue($identifier, $this->usrcfaxlast4, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcPhoneArea':
                         $stmt->bindValue($identifier, $this->usrcphonearea, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcPhoneFrst3':
                         $stmt->bindValue($identifier, $this->usrcphonefrst3, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcPhoneLast4':
                         $stmt->bindValue($identifier, $this->usrcphonelast4, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcPhoneExt':
                         $stmt->bindValue($identifier, $this->usrcphoneext, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcSendTime':
                         $stmt->bindValue($identifier, $this->usrcsendtime, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcCoverSheet':
                         $stmt->bindValue($identifier, $this->usrccoversheet, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcSubject':
                         $stmt->bindValue($identifier, $this->usrcsubject, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcNotifyS':
                         $stmt->bindValue($identifier, $this->usrcnotifys, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcNotifyF':
                         $stmt->bindValue($identifier, $this->usrcnotifyf, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcEmailAddr':
                         $stmt->bindValue($identifier, $this->usrcemailaddr, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcScaleWhseId':
                         $stmt->bindValue($identifier, $this->usrcscalewhseid, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcScaleDevNbr':
                         $stmt->bindValue($identifier, $this->usrcscaledevnbr, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcCcscanWhseId':
                         $stmt->bindValue($identifier, $this->usrcccscanwhseid, PDO::PARAM_STR);
+
                         break;
                     case 'UsrcCcscanDevNbr':
                         $stmt->bindValue($identifier, $this->usrcccscandevnbr, PDO::PARAM_STR);
+
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
+
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
+
                         break;
                 }
             }
@@ -2669,12 +2720,12 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Update the row in the database.
      *
-     * @param      ConnectionInterface $con
+     * @param ConnectionInterface $con
      *
-     * @return Integer Number of updated rows
+     * @return int Number of updated rows
      * @see doSave()
      */
-    protected function doUpdate(ConnectionInterface $con)
+    protected function doUpdate(ConnectionInterface $con): int
     {
         $selectCriteria = $this->buildPkeyCriteria();
         $valuesCriteria = $this->buildCriteria();
@@ -2685,14 +2736,14 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Retrieves a field from the object by name passed in as a string.
      *
-     * @param      string $name name
-     * @param      string $type The type of fieldname the $name is of:
+     * @param string $name name
+     * @param string $type The type of fieldname the $name is of:
      *                     one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                     TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                     Defaults to TableMap::TYPE_PHPNAME.
      * @return mixed Value of field.
      */
-    public function getByName($name, $type = TableMap::TYPE_PHPNAME)
+    public function getByName(string $name, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = DplusUserTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
@@ -2704,144 +2755,143 @@ abstract class DplusUser implements ActiveRecordInterface
      * Retrieves a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param      int $pos position in xml schema
+     * @param int $pos Position in XML schema
      * @return mixed Value of field at $pos
      */
-    public function getByPosition($pos)
+    public function getByPosition(int $pos)
     {
         switch ($pos) {
             case 0:
                 return $this->getUsrcid();
-                break;
+
             case 1:
                 return $this->getUsrcloginname();
-                break;
+
             case 2:
                 return $this->getIntbwhse();
-                break;
+
             case 3:
                 return $this->getUsrcdefcmpy();
-                break;
+
             case 4:
                 return $this->getUsrcadmin();
-                break;
+
             case 5:
                 return $this->getUsrcfront();
-                break;
+
             case 6:
                 return $this->getUsrccitydesk();
-                break;
+
             case 7:
                 return $this->getUsrcreptadmin();
-                break;
+
             case 8:
                 return $this->getUsrcprinter();
-                break;
+
             case 9:
                 return $this->getUsrcpitch();
-                break;
+
             case 10:
                 return $this->getUsrcbrowseprinter();
-                break;
+
             case 11:
                 return $this->getUsrcwhsedisplayseq();
-                break;
+
             case 12:
                 return $this->getUsrcactiveitemsonly();
-                break;
+
             case 13:
                 return $this->getUsrcrestrictaccess();
-                break;
+
             case 14:
                 return $this->getUsrclogingroup();
-                break;
+
             case 15:
                 return $this->getUsrcloginrole();
-                break;
+
             case 16:
                 return $this->getUsrcallowprocremoval();
-                break;
+
             case 17:
                 return $this->getUsrcacallowwarredit();
-                break;
+
             case 18:
                 return $this->getUsrcisprodmgr();
-                break;
+
             case 19:
                 return $this->getUsrclmallowcrosswhse();
-                break;
+
             case 20:
                 return $this->getUsrcpswd();
-                break;
+
             case 21:
                 return $this->getUsrcfaxname();
-                break;
+
             case 22:
                 return $this->getUsrcfaxcompany();
-                break;
+
             case 23:
                 return $this->getUsrcfaxarea();
-                break;
+
             case 24:
                 return $this->getUsrcfaxfrst3();
-                break;
+
             case 25:
                 return $this->getUsrcfaxlast4();
-                break;
+
             case 26:
                 return $this->getUsrcphonearea();
-                break;
+
             case 27:
                 return $this->getUsrcphonefrst3();
-                break;
+
             case 28:
                 return $this->getUsrcphonelast4();
-                break;
+
             case 29:
                 return $this->getUsrcphoneext();
-                break;
+
             case 30:
                 return $this->getUsrcsendtime();
-                break;
+
             case 31:
                 return $this->getUsrccoversheet();
-                break;
+
             case 32:
                 return $this->getUsrcsubject();
-                break;
+
             case 33:
                 return $this->getUsrcnotifys();
-                break;
+
             case 34:
                 return $this->getUsrcnotifyf();
-                break;
+
             case 35:
                 return $this->getUsrcemailaddr();
-                break;
+
             case 36:
                 return $this->getUsrcscalewhseid();
-                break;
+
             case 37:
                 return $this->getUsrcscaledevnbr();
-                break;
+
             case 38:
                 return $this->getUsrcccscanwhseid();
-                break;
+
             case 39:
                 return $this->getUsrcccscandevnbr();
-                break;
+
             case 40:
                 return $this->getDateupdtd();
-                break;
+
             case 41:
                 return $this->getTimeupdtd();
-                break;
+
             case 42:
                 return $this->getDummy();
-                break;
+
             default:
                 return null;
-                break;
         } // switch()
     }
 
@@ -2851,24 +2901,23 @@ abstract class DplusUser implements ActiveRecordInterface
      * You can specify the key type of the array by passing one of the class
      * type constants.
      *
-     * @param     string  $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
+     * @param string $keyType (optional) One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME,
      *                    TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                    Defaults to TableMap::TYPE_PHPNAME.
-     * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
-     * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
-     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
+     * @param bool $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
+     * @param array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param bool $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
-     * @return array an associative array containing the field names (as keys) and field values
+     * @return array An associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray(string $keyType = TableMap::TYPE_PHPNAME, bool $includeLazyLoadColumns = true, array $alreadyDumpedObjects = [], bool $includeForeignObjects = false): array
     {
-
         if (isset($alreadyDumpedObjects['DplusUser'][$this->hashCode()])) {
-            return '*RECURSION*';
+            return ['*RECURSION*'];
         }
         $alreadyDumpedObjects['DplusUser'][$this->hashCode()] = true;
         $keys = DplusUserTableMap::getFieldNames($keyType);
-        $result = array(
+        $result = [
             $keys[0] => $this->getUsrcid(),
             $keys[1] => $this->getUsrcloginname(),
             $keys[2] => $this->getIntbwhse(),
@@ -2912,7 +2961,7 @@ abstract class DplusUser implements ActiveRecordInterface
             $keys[40] => $this->getDateupdtd(),
             $keys[41] => $this->getTimeupdtd(),
             $keys[42] => $this->getDummy(),
-        );
+        ];
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
@@ -3002,30 +3051,32 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Sets a field from the object by name passed in as a string.
      *
-     * @param  string $name
-     * @param  mixed  $value field value
-     * @param  string $type The type of fieldname the $name is of:
+     * @param string $name
+     * @param mixed $value field value
+     * @param string $type The type of fieldname the $name is of:
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\DplusUser
+     * @return $this
      */
-    public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
+    public function setByName(string $name, $value, string $type = TableMap::TYPE_PHPNAME)
     {
         $pos = DplusUserTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
-        return $this->setByPosition($pos, $value);
+        $this->setByPosition($pos, $value);
+
+        return $this;
     }
 
     /**
      * Sets a field from the object by Position as specified in the xml schema.
      * Zero-based.
      *
-     * @param  int $pos position in xml schema
-     * @param  mixed $value field value
-     * @return $this|\DplusUser
+     * @param int $pos position in xml schema
+     * @param mixed $value field value
+     * @return $this
      */
-    public function setByPosition($pos, $value)
+    public function setByPosition(int $pos, $value)
     {
         switch ($pos) {
             case 0:
@@ -3175,11 +3226,11 @@ abstract class DplusUser implements ActiveRecordInterface
      * TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      * The default key type is the column's TableMap::TYPE_PHPNAME.
      *
-     * @param      array  $arr     An array to populate the object from.
-     * @param      string $keyType The type of keys the array uses.
-     * @return void
+     * @param array $arr An array to populate the object from.
+     * @param string $keyType The type of keys the array uses.
+     * @return $this
      */
-    public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
+    public function fromArray(array $arr, string $keyType = TableMap::TYPE_PHPNAME)
     {
         $keys = DplusUserTableMap::getFieldNames($keyType);
 
@@ -3312,6 +3363,8 @@ abstract class DplusUser implements ActiveRecordInterface
         if (array_key_exists($keys[42], $arr)) {
             $this->setDummy($arr[$keys[42]]);
         }
+
+        return $this;
     }
 
      /**
@@ -3331,9 +3384,9 @@ abstract class DplusUser implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\DplusUser The current object, for fluid interface
+     * @return $this The current object, for fluid interface
      */
-    public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
+    public function importFrom($parser, string $data, string $keyType = TableMap::TYPE_PHPNAME)
     {
         if (!$parser instanceof AbstractParser) {
             $parser = AbstractParser::getParser($parser);
@@ -3347,9 +3400,9 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Build a Criteria object containing the values of all modified columns in this object.
      *
-     * @return Criteria The Criteria object containing all modified values.
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing all modified values.
      */
-    public function buildCriteria()
+    public function buildCriteria(): Criteria
     {
         $criteria = new Criteria(DplusUserTableMap::DATABASE_NAME);
 
@@ -3490,13 +3543,13 @@ abstract class DplusUser implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether or not they have been modified.
+     * of whether they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
-     * @return Criteria The Criteria object containing value(s) for primary key(s).
+     * @return \Propel\Runtime\ActiveQuery\Criteria The Criteria object containing value(s) for primary key(s).
      */
-    public function buildPkeyCriteria()
+    public function buildPkeyCriteria(): Criteria
     {
         $criteria = ChildDplusUserQuery::create();
         $criteria->add(DplusUserTableMap::COL_USRCID, $this->usrcid);
@@ -3508,7 +3561,7 @@ abstract class DplusUser implements ActiveRecordInterface
      * If the primary key is not null, return the hashcode of the
      * primary key. Otherwise, return the hash code of the object.
      *
-     * @return int Hashcode
+     * @return int|string Hashcode
      */
     public function hashCode()
     {
@@ -3538,19 +3591,20 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (usrcid column).
      *
-     * @param       string $key Primary key.
+     * @param string|null $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey(?string $key = null): void
     {
         $this->setUsrcid($key);
     }
 
     /**
      * Returns true if the primary key for this object is null.
-     * @return boolean
+     *
+     * @return bool
      */
-    public function isPrimaryKeyNull()
+    public function isPrimaryKeyNull(): bool
     {
         return null === $this->getUsrcid();
     }
@@ -3561,12 +3615,13 @@ abstract class DplusUser implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \DplusUser (or compatible) type.
-     * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
-     * @throws PropelException
+     * @param object $copyObj An object of \DplusUser (or compatible) type.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $makeNew Whether to reset autoincrement PKs and make the object new.
+     * @throws \Propel\Runtime\Exception\PropelException
+     * @return void
      */
-    public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
+    public function copyInto(object $copyObj, bool $deepCopy = false, bool $makeNew = true): void
     {
         $copyObj->setUsrcid($this->getUsrcid());
         $copyObj->setUsrcloginname($this->getUsrcloginname());
@@ -3649,11 +3704,11 @@ abstract class DplusUser implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
+     * @param bool $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @return \DplusUser Clone of current object.
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function copy($deepCopy = false)
+    public function copy(bool $deepCopy = false)
     {
         // we use get_class(), because this might be a subclass
         $clazz = get_class($this);
@@ -3666,9 +3721,9 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildSysLoginGroup object.
      *
-     * @param  ChildSysLoginGroup $v
-     * @return $this|\DplusUser The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildSysLoginGroup|null $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setSysLoginGroup(ChildSysLoginGroup $v = null)
     {
@@ -3694,11 +3749,11 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the associated ChildSysLoginGroup object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildSysLoginGroup The associated ChildSysLoginGroup object.
-     * @throws PropelException
+     * @param ConnectionInterface $con Optional Connection object.
+     * @return ChildSysLoginGroup|null The associated ChildSysLoginGroup object.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSysLoginGroup(ConnectionInterface $con = null)
+    public function getSysLoginGroup(?ConnectionInterface $con = null)
     {
         if ($this->aSysLoginGroup === null && (($this->usrclogingroup !== "" && $this->usrclogingroup !== null))) {
             $this->aSysLoginGroup = ChildSysLoginGroupQuery::create()->findPk($this->usrclogingroup, $con);
@@ -3717,9 +3772,9 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Declares an association between this object and a ChildSysLoginRole object.
      *
-     * @param  ChildSysLoginRole $v
-     * @return $this|\DplusUser The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildSysLoginRole|null $v
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setSysLoginRole(ChildSysLoginRole $v = null)
     {
@@ -3745,11 +3800,11 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Get the associated ChildSysLoginRole object
      *
-     * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildSysLoginRole The associated ChildSysLoginRole object.
-     * @throws PropelException
+     * @param ConnectionInterface $con Optional Connection object.
+     * @return ChildSysLoginRole|null The associated ChildSysLoginRole object.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getSysLoginRole(ConnectionInterface $con = null)
+    public function getSysLoginRole(?ConnectionInterface $con = null)
     {
         if ($this->aSysLoginRole === null && (($this->usrcloginrole !== "" && $this->usrcloginrole !== null))) {
             $this->aSysLoginRole = ChildSysLoginRoleQuery::create()->findPk($this->usrcloginrole, $con);
@@ -3771,16 +3826,16 @@ abstract class DplusUser implements ActiveRecordInterface
      * Avoids crafting an 'init[$relationName]s' method name
      * that wouldn't work when StandardEnglishPluralizer is used.
      *
-     * @param      string $relationName The name of the relation to initialize
+     * @param string $relationName The name of the relation to initialize
      * @return void
      */
-    public function initRelation($relationName)
+    public function initRelation($relationName): void
     {
-        if ('InvLotTag' == $relationName) {
+        if ('InvLotTag' === $relationName) {
             $this->initInvLotTags();
             return;
         }
-        if ('UserLastPrintJob' == $relationName) {
+        if ('UserLastPrintJob' === $relationName) {
             $this->initUserLastPrintJobs();
             return;
         }
@@ -3792,18 +3847,22 @@ abstract class DplusUser implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addInvLotTags()
+     * @return $this
+     * @see addInvLotTags()
      */
     public function clearInvLotTags()
     {
         $this->collInvLotTags = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collInvLotTags collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialInvLotTags($v = true)
+    public function resetPartialInvLotTags($v = true): void
     {
         $this->collInvLotTagsPartial = $v;
     }
@@ -3815,12 +3874,12 @@ abstract class DplusUser implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initInvLotTags($overrideExisting = true)
+    public function initInvLotTags(bool $overrideExisting = true): void
     {
         if (null !== $this->collInvLotTags && !$overrideExisting) {
             return;
@@ -3841,18 +3900,28 @@ abstract class DplusUser implements ActiveRecordInterface
      * If this ChildDplusUser is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvLotTag> List of ChildInvLotTag objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getInvLotTags(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvLotTags(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collInvLotTagsPartial && !$this->isNew();
-        if (null === $this->collInvLotTags || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvLotTags) {
+        if (null === $this->collInvLotTags || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initInvLotTags();
+                if (null === $this->collInvLotTags) {
+                    $this->initInvLotTags();
+                } else {
+                    $collectionClassName = InvLotTagTableMap::getTableMap()->getCollectionClassName();
+
+                    $collInvLotTags = new $collectionClassName;
+                    $collInvLotTags->setModel('\InvLotTag');
+
+                    return $collInvLotTags;
+                }
             } else {
                 $collInvLotTags = ChildInvLotTagQuery::create(null, $criteria)
                     ->filterByDplusUser($this)
@@ -3896,11 +3965,11 @@ abstract class DplusUser implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invLotTags A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildDplusUser The current object (for fluent API support)
+     * @param Collection $invLotTags A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setInvLotTags(Collection $invLotTags, ConnectionInterface $con = null)
+    public function setInvLotTags(Collection $invLotTags, ?ConnectionInterface $con = null)
     {
         /** @var ChildInvLotTag[] $invLotTagsToDelete */
         $invLotTagsToDelete = $this->getInvLotTags(new Criteria(), $con)->diff($invLotTags);
@@ -3926,13 +3995,13 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Returns the number of related InvLotTag objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvLotTag objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related InvLotTag objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countInvLotTags(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvLotTags(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collInvLotTagsPartial && !$this->isNew();
         if (null === $this->collInvLotTags || null !== $criteria || $partial) {
@@ -3961,8 +4030,8 @@ abstract class DplusUser implements ActiveRecordInterface
      * Method called to associate a ChildInvLotTag object to this object
      * through the ChildInvLotTag foreign key attribute.
      *
-     * @param  ChildInvLotTag $l ChildInvLotTag
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param ChildInvLotTag $l ChildInvLotTag
+     * @return $this The current object (for fluent API support)
      */
     public function addInvLotTag(ChildInvLotTag $l)
     {
@@ -3985,15 +4054,15 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * @param ChildInvLotTag $invLotTag The ChildInvLotTag object to add.
      */
-    protected function doAddInvLotTag(ChildInvLotTag $invLotTag)
+    protected function doAddInvLotTag(ChildInvLotTag $invLotTag): void
     {
         $this->collInvLotTags[]= $invLotTag;
         $invLotTag->setDplusUser($this);
     }
 
     /**
-     * @param  ChildInvLotTag $invLotTag The ChildInvLotTag object to remove.
-     * @return $this|ChildDplusUser The current object (for fluent API support)
+     * @param ChildInvLotTag $invLotTag The ChildInvLotTag object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeInvLotTag(ChildInvLotTag $invLotTag)
     {
@@ -4023,12 +4092,13 @@ abstract class DplusUser implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in DplusUser.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvLotTag}> List of ChildInvLotTag objects
      */
-    public function getInvLotTagsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvLotTagsJoinItemMasterItem(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvLotTagQuery::create(null, $criteria);
         $query->joinWith('ItemMasterItem', $joinBehavior);
@@ -4048,12 +4118,13 @@ abstract class DplusUser implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in DplusUser.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvLotTag}> List of ChildInvLotTag objects
      */
-    public function getInvLotTagsJoinWarehouse(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvLotTagsJoinWarehouse(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvLotTagQuery::create(null, $criteria);
         $query->joinWith('Warehouse', $joinBehavior);
@@ -4073,12 +4144,13 @@ abstract class DplusUser implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in DplusUser.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvLotTag}> List of ChildInvLotTag objects
      */
-    public function getInvLotTagsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvLotTagsJoinInvLotMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvLotTagQuery::create(null, $criteria);
         $query->joinWith('InvLotMaster', $joinBehavior);
@@ -4098,12 +4170,13 @@ abstract class DplusUser implements ActiveRecordInterface
      * api reasonable.  You can provide public methods for those you
      * actually need in DplusUser.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
+     * @param string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     * @phpstan-return ObjectCollection&\Traversable<ChildInvLotTag}> List of ChildInvLotTag objects
      */
-    public function getInvLotTagsJoinInvSerialMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getInvLotTagsJoinInvSerialMaster(?Criteria $criteria = null, ?ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildInvLotTagQuery::create(null, $criteria);
         $query->joinWith('InvSerialMaster', $joinBehavior);
@@ -4114,11 +4187,11 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Gets a single ChildUserPermissionsItm object, which is related to this object by a one-to-one relationship.
      *
-     * @param  ConnectionInterface $con optional connection object
-     * @return ChildUserPermissionsItm
-     * @throws PropelException
+     * @param ConnectionInterface $con optional connection object
+     * @return ChildUserPermissionsItm|null
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getUserPermissionsItm(ConnectionInterface $con = null)
+    public function getUserPermissionsItm(?ConnectionInterface $con = null)
     {
 
         if ($this->singleUserPermissionsItm === null && !$this->isNew()) {
@@ -4131,9 +4204,9 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Sets a single ChildUserPermissionsItm object as related to this object by a one-to-one relationship.
      *
-     * @param  ChildUserPermissionsItm $v ChildUserPermissionsItm
-     * @return $this|\DplusUser The current object (for fluent API support)
-     * @throws PropelException
+     * @param ChildUserPermissionsItm $v ChildUserPermissionsItm
+     * @return $this The current object (for fluent API support)
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function setUserPermissionsItm(ChildUserPermissionsItm $v = null)
     {
@@ -4153,18 +4226,22 @@ abstract class DplusUser implements ActiveRecordInterface
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
-     * @return void
-     * @see        addUserLastPrintJobs()
+     * @return $this
+     * @see addUserLastPrintJobs()
      */
     public function clearUserLastPrintJobs()
     {
         $this->collUserLastPrintJobs = null; // important to set this to NULL since that means it is uninitialized
+
+        return $this;
     }
 
     /**
      * Reset is the collUserLastPrintJobs collection loaded partially.
+     *
+     * @return void
      */
-    public function resetPartialUserLastPrintJobs($v = true)
+    public function resetPartialUserLastPrintJobs($v = true): void
     {
         $this->collUserLastPrintJobsPartial = $v;
     }
@@ -4176,12 +4253,12 @@ abstract class DplusUser implements ActiveRecordInterface
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
+     * @param bool $overrideExisting If set to true, the method call initializes
      *                                        the collection even if it is not empty
      *
      * @return void
      */
-    public function initUserLastPrintJobs($overrideExisting = true)
+    public function initUserLastPrintJobs(bool $overrideExisting = true): void
     {
         if (null !== $this->collUserLastPrintJobs && !$overrideExisting) {
             return;
@@ -4202,18 +4279,28 @@ abstract class DplusUser implements ActiveRecordInterface
      * If this ChildDplusUser is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
+     * @param Criteria $criteria optional Criteria object to narrow the query
+     * @param ConnectionInterface $con optional connection object
      * @return ObjectCollection|ChildUserLastPrintJob[] List of ChildUserLastPrintJob objects
-     * @throws PropelException
+     * @phpstan-return ObjectCollection&\Traversable<ChildUserLastPrintJob> List of ChildUserLastPrintJob objects
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function getUserLastPrintJobs(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getUserLastPrintJobs(?Criteria $criteria = null, ?ConnectionInterface $con = null)
     {
         $partial = $this->collUserLastPrintJobsPartial && !$this->isNew();
-        if (null === $this->collUserLastPrintJobs || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collUserLastPrintJobs) {
+        if (null === $this->collUserLastPrintJobs || null !== $criteria || $partial) {
+            if ($this->isNew()) {
                 // return empty collection
-                $this->initUserLastPrintJobs();
+                if (null === $this->collUserLastPrintJobs) {
+                    $this->initUserLastPrintJobs();
+                } else {
+                    $collectionClassName = UserLastPrintJobTableMap::getTableMap()->getCollectionClassName();
+
+                    $collUserLastPrintJobs = new $collectionClassName;
+                    $collUserLastPrintJobs->setModel('\UserLastPrintJob');
+
+                    return $collUserLastPrintJobs;
+                }
             } else {
                 $collUserLastPrintJobs = ChildUserLastPrintJobQuery::create(null, $criteria)
                     ->filterByDplusUser($this)
@@ -4257,11 +4344,11 @@ abstract class DplusUser implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $userLastPrintJobs A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildDplusUser The current object (for fluent API support)
+     * @param Collection $userLastPrintJobs A Propel collection.
+     * @param ConnectionInterface $con Optional connection object
+     * @return $this The current object (for fluent API support)
      */
-    public function setUserLastPrintJobs(Collection $userLastPrintJobs, ConnectionInterface $con = null)
+    public function setUserLastPrintJobs(Collection $userLastPrintJobs, ?ConnectionInterface $con = null)
     {
         /** @var ChildUserLastPrintJob[] $userLastPrintJobsToDelete */
         $userLastPrintJobsToDelete = $this->getUserLastPrintJobs(new Criteria(), $con)->diff($userLastPrintJobs);
@@ -4290,13 +4377,13 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * Returns the number of related UserLastPrintJob objects.
      *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related UserLastPrintJob objects.
-     * @throws PropelException
+     * @param Criteria $criteria
+     * @param bool $distinct
+     * @param ConnectionInterface $con
+     * @return int Count of related UserLastPrintJob objects.
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function countUserLastPrintJobs(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countUserLastPrintJobs(?Criteria $criteria = null, bool $distinct = false, ?ConnectionInterface $con = null): int
     {
         $partial = $this->collUserLastPrintJobsPartial && !$this->isNew();
         if (null === $this->collUserLastPrintJobs || null !== $criteria || $partial) {
@@ -4325,8 +4412,8 @@ abstract class DplusUser implements ActiveRecordInterface
      * Method called to associate a ChildUserLastPrintJob object to this object
      * through the ChildUserLastPrintJob foreign key attribute.
      *
-     * @param  ChildUserLastPrintJob $l ChildUserLastPrintJob
-     * @return $this|\DplusUser The current object (for fluent API support)
+     * @param ChildUserLastPrintJob $l ChildUserLastPrintJob
+     * @return $this The current object (for fluent API support)
      */
     public function addUserLastPrintJob(ChildUserLastPrintJob $l)
     {
@@ -4349,15 +4436,15 @@ abstract class DplusUser implements ActiveRecordInterface
     /**
      * @param ChildUserLastPrintJob $userLastPrintJob The ChildUserLastPrintJob object to add.
      */
-    protected function doAddUserLastPrintJob(ChildUserLastPrintJob $userLastPrintJob)
+    protected function doAddUserLastPrintJob(ChildUserLastPrintJob $userLastPrintJob): void
     {
         $this->collUserLastPrintJobs[]= $userLastPrintJob;
         $userLastPrintJob->setDplusUser($this);
     }
 
     /**
-     * @param  ChildUserLastPrintJob $userLastPrintJob The ChildUserLastPrintJob object to remove.
-     * @return $this|ChildDplusUser The current object (for fluent API support)
+     * @param ChildUserLastPrintJob $userLastPrintJob The ChildUserLastPrintJob object to remove.
+     * @return $this The current object (for fluent API support)
      */
     public function removeUserLastPrintJob(ChildUserLastPrintJob $userLastPrintJob)
     {
@@ -4379,6 +4466,8 @@ abstract class DplusUser implements ActiveRecordInterface
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
+     *
+     * @return $this
      */
     public function clear()
     {
@@ -4436,6 +4525,8 @@ abstract class DplusUser implements ActiveRecordInterface
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
+
+        return $this;
     }
 
     /**
@@ -4444,9 +4535,10 @@ abstract class DplusUser implements ActiveRecordInterface
      * This method is used to reset all php object references (not the actual reference in the database).
      * Necessary for object serialisation.
      *
-     * @param      boolean $deep Whether to also clear the references on all referrer objects.
+     * @param bool $deep Whether to also clear the references on all referrer objects.
+     * @return $this
      */
-    public function clearAllReferences($deep = false)
+    public function clearAllReferences(bool $deep = false)
     {
         if ($deep) {
             if ($this->collInvLotTags) {
@@ -4469,6 +4561,7 @@ abstract class DplusUser implements ActiveRecordInterface
         $this->collUserLastPrintJobs = null;
         $this->aSysLoginGroup = null;
         $this->aSysLoginRole = null;
+        return $this;
     }
 
     /**
@@ -4483,99 +4576,79 @@ abstract class DplusUser implements ActiveRecordInterface
 
     /**
      * Code to be run before persisting the object
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preSave(ConnectionInterface $con = null)
+    public function preSave(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preSave')) {
-            // return parent::preSave($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after persisting the object
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postSave(ConnectionInterface $con = null)
+    public function postSave(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before inserting to database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preInsert(ConnectionInterface $con = null)
+    public function preInsert(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preInsert')) {
-            // return parent::preInsert($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after inserting to database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postInsert(ConnectionInterface $con = null)
+    public function postInsert(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before updating the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preUpdate(ConnectionInterface $con = null)
+    public function preUpdate(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preUpdate')) {
-            // return parent::preUpdate($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after updating the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postUpdate(ConnectionInterface $con = null)
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
-    }
+            }
 
     /**
      * Code to be run before deleting the object in database
-     * @param  ConnectionInterface $con
-     * @return boolean
+     * @param ConnectionInterface|null $con
+     * @return bool
      */
-    public function preDelete(ConnectionInterface $con = null)
+    public function preDelete(?ConnectionInterface $con = null): bool
     {
-        if (is_callable('parent::preDelete')) {
-            // return parent::preDelete($con);
-        }
-        return true;
+                return true;
     }
 
     /**
      * Code to be run after deleting the object in database
-     * @param ConnectionInterface $con
+     * @param ConnectionInterface|null $con
+     * @return void
      */
-    public function postDelete(ConnectionInterface $con = null)
+    public function postDelete(?ConnectionInterface $con = null): void
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
-    }
+            }
 
 
     /**
@@ -4585,7 +4658,7 @@ abstract class DplusUser implements ActiveRecordInterface
      * Allows to define default __call() behavior if you overwrite __call()
      *
      * @param string $name
-     * @param mixed  $params
+     * @param mixed $params
      *
      * @return array|string
      */
@@ -4605,15 +4678,18 @@ abstract class DplusUser implements ActiveRecordInterface
 
         if (0 === strpos($name, 'from')) {
             $format = substr($name, 4);
+            $inputData = $params[0];
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->importFrom($format, reset($params));
+            return $this->importFrom($format, $inputData, $keyType);
         }
 
         if (0 === strpos($name, 'to')) {
             $format = substr($name, 2);
-            $includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+            $includeLazyLoadColumns = $params[0] ?? true;
+            $keyType = $params[1] ?? TableMap::TYPE_PHPNAME;
 
-            return $this->exportTo($format, $includeLazyLoadColumns);
+            return $this->exportTo($format, $includeLazyLoadColumns, $keyType);
         }
 
         throw new BadMethodCallException(sprintf('Call to undefined method: %s.', $name));

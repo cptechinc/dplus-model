@@ -24,7 +24,6 @@ use Propel\Runtime\Map\TableMapTrait;
  * For example, the createSelectSql() method checks the type of a given column used in an
  * ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
  * (i.e. if it's a text column type).
- *
  */
 class InvNonstockItemTableMap extends TableMap
 {
@@ -34,144 +33,256 @@ class InvNonstockItemTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.InvNonstockItemTableMap';
+    public const CLASS_NAME = '.Map.InvNonstockItemTableMap';
 
     /**
      * The default database name for this class
      */
-    const DATABASE_NAME = 'default';
+    public const DATABASE_NAME = 'default';
 
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'inv_nonstock_item';
+    public const TABLE_NAME = 'inv_nonstock_item';
+
+    /**
+     * The PHP name of this class (PascalCase)
+     */
+    public const TABLE_PHP_NAME = 'InvNonstockItem';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\InvNonstockItem';
+    public const OM_CLASS = '\\InvNonstockItem';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'InvNonstockItem';
+    public const CLASS_DEFAULT = 'InvNonstockItem';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 12;
+    public const NUM_COLUMNS = 12;
 
     /**
      * The number of lazy-loaded columns
      */
-    const NUM_LAZY_LOAD_COLUMNS = 0;
+    public const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 12;
+    public const NUM_HYDRATE_COLUMNS = 12;
 
     /**
      * the column name for the NsitItemNbr field
      */
-    const COL_NSITITEMNBR = 'inv_nonstock_item.NsitItemNbr';
+    public const COL_NSITITEMNBR = 'inv_nonstock_item.NsitItemNbr';
 
     /**
      * the column name for the NsitMnfrId field
      */
-    const COL_NSITMNFRID = 'inv_nonstock_item.NsitMnfrId';
+    public const COL_NSITMNFRID = 'inv_nonstock_item.NsitMnfrId';
 
     /**
      * the column name for the NsitDesc1 field
      */
-    const COL_NSITDESC1 = 'inv_nonstock_item.NsitDesc1';
+    public const COL_NSITDESC1 = 'inv_nonstock_item.NsitDesc1';
 
     /**
      * the column name for the NsitDesc2 field
      */
-    const COL_NSITDESC2 = 'inv_nonstock_item.NsitDesc2';
+    public const COL_NSITDESC2 = 'inv_nonstock_item.NsitDesc2';
 
     /**
      * the column name for the NsitCost field
      */
-    const COL_NSITCOST = 'inv_nonstock_item.NsitCost';
+    public const COL_NSITCOST = 'inv_nonstock_item.NsitCost';
 
     /**
      * the column name for the NsitAvail field
      */
-    const COL_NSITAVAIL = 'inv_nonstock_item.NsitAvail';
+    public const COL_NSITAVAIL = 'inv_nonstock_item.NsitAvail';
 
     /**
      * the column name for the NsitUom field
      */
-    const COL_NSITUOM = 'inv_nonstock_item.NsitUom';
+    public const COL_NSITUOM = 'inv_nonstock_item.NsitUom';
 
     /**
      * the column name for the NsitPrice field
      */
-    const COL_NSITPRICE = 'inv_nonstock_item.NsitPrice';
+    public const COL_NSITPRICE = 'inv_nonstock_item.NsitPrice';
 
     /**
      * the column name for the NsitChgDate field
      */
-    const COL_NSITCHGDATE = 'inv_nonstock_item.NsitChgDate';
+    public const COL_NSITCHGDATE = 'inv_nonstock_item.NsitChgDate';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'inv_nonstock_item.DateUpdtd';
+    public const COL_DATEUPDTD = 'inv_nonstock_item.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'inv_nonstock_item.TimeUpdtd';
+    public const COL_TIMEUPDTD = 'inv_nonstock_item.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'inv_nonstock_item.dummy';
+    public const COL_DUMMY = 'inv_nonstock_item.dummy';
 
     /**
      * The default string format for model objects of the related table
      */
-    const DEFAULT_STRING_FORMAT = 'YAML';
+    public const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Nsititemnbr', 'Nsitmnfrid', 'Nsitdesc1', 'Nsitdesc2', 'Nsitcost', 'Nsitavail', 'Nsituom', 'Nsitprice', 'Nsitchgdate', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('nsititemnbr', 'nsitmnfrid', 'nsitdesc1', 'nsitdesc2', 'nsitcost', 'nsitavail', 'nsituom', 'nsitprice', 'nsitchgdate', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvNonstockItemTableMap::COL_NSITITEMNBR, InvNonstockItemTableMap::COL_NSITMNFRID, InvNonstockItemTableMap::COL_NSITDESC1, InvNonstockItemTableMap::COL_NSITDESC2, InvNonstockItemTableMap::COL_NSITCOST, InvNonstockItemTableMap::COL_NSITAVAIL, InvNonstockItemTableMap::COL_NSITUOM, InvNonstockItemTableMap::COL_NSITPRICE, InvNonstockItemTableMap::COL_NSITCHGDATE, InvNonstockItemTableMap::COL_DATEUPDTD, InvNonstockItemTableMap::COL_TIMEUPDTD, InvNonstockItemTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('NsitItemNbr', 'NsitMnfrId', 'NsitDesc1', 'NsitDesc2', 'NsitCost', 'NsitAvail', 'NsitUom', 'NsitPrice', 'NsitChgDate', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
-    );
+    protected static $fieldNames = [
+        self::TYPE_PHPNAME       => ['Nsititemnbr', 'Nsitmnfrid', 'Nsitdesc1', 'Nsitdesc2', 'Nsitcost', 'Nsitavail', 'Nsituom', 'Nsitprice', 'Nsitchgdate', 'Dateupdtd', 'Timeupdtd', 'Dummy', ],
+        self::TYPE_CAMELNAME     => ['nsititemnbr', 'nsitmnfrid', 'nsitdesc1', 'nsitdesc2', 'nsitcost', 'nsitavail', 'nsituom', 'nsitprice', 'nsitchgdate', 'dateupdtd', 'timeupdtd', 'dummy', ],
+        self::TYPE_COLNAME       => [InvNonstockItemTableMap::COL_NSITITEMNBR, InvNonstockItemTableMap::COL_NSITMNFRID, InvNonstockItemTableMap::COL_NSITDESC1, InvNonstockItemTableMap::COL_NSITDESC2, InvNonstockItemTableMap::COL_NSITCOST, InvNonstockItemTableMap::COL_NSITAVAIL, InvNonstockItemTableMap::COL_NSITUOM, InvNonstockItemTableMap::COL_NSITPRICE, InvNonstockItemTableMap::COL_NSITCHGDATE, InvNonstockItemTableMap::COL_DATEUPDTD, InvNonstockItemTableMap::COL_TIMEUPDTD, InvNonstockItemTableMap::COL_DUMMY, ],
+        self::TYPE_FIELDNAME     => ['NsitItemNbr', 'NsitMnfrId', 'NsitDesc1', 'NsitDesc2', 'NsitCost', 'NsitAvail', 'NsitUom', 'NsitPrice', 'NsitChgDate', 'DateUpdtd', 'TimeUpdtd', 'dummy', ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
+     *
+     * @var array<string, mixed>
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Nsititemnbr' => 0, 'Nsitmnfrid' => 1, 'Nsitdesc1' => 2, 'Nsitdesc2' => 3, 'Nsitcost' => 4, 'Nsitavail' => 5, 'Nsituom' => 6, 'Nsitprice' => 7, 'Nsitchgdate' => 8, 'Dateupdtd' => 9, 'Timeupdtd' => 10, 'Dummy' => 11, ),
-        self::TYPE_CAMELNAME     => array('nsititemnbr' => 0, 'nsitmnfrid' => 1, 'nsitdesc1' => 2, 'nsitdesc2' => 3, 'nsitcost' => 4, 'nsitavail' => 5, 'nsituom' => 6, 'nsitprice' => 7, 'nsitchgdate' => 8, 'dateupdtd' => 9, 'timeupdtd' => 10, 'dummy' => 11, ),
-        self::TYPE_COLNAME       => array(InvNonstockItemTableMap::COL_NSITITEMNBR => 0, InvNonstockItemTableMap::COL_NSITMNFRID => 1, InvNonstockItemTableMap::COL_NSITDESC1 => 2, InvNonstockItemTableMap::COL_NSITDESC2 => 3, InvNonstockItemTableMap::COL_NSITCOST => 4, InvNonstockItemTableMap::COL_NSITAVAIL => 5, InvNonstockItemTableMap::COL_NSITUOM => 6, InvNonstockItemTableMap::COL_NSITPRICE => 7, InvNonstockItemTableMap::COL_NSITCHGDATE => 8, InvNonstockItemTableMap::COL_DATEUPDTD => 9, InvNonstockItemTableMap::COL_TIMEUPDTD => 10, InvNonstockItemTableMap::COL_DUMMY => 11, ),
-        self::TYPE_FIELDNAME     => array('NsitItemNbr' => 0, 'NsitMnfrId' => 1, 'NsitDesc1' => 2, 'NsitDesc2' => 3, 'NsitCost' => 4, 'NsitAvail' => 5, 'NsitUom' => 6, 'NsitPrice' => 7, 'NsitChgDate' => 8, 'DateUpdtd' => 9, 'TimeUpdtd' => 10, 'dummy' => 11, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
-    );
+    protected static $fieldKeys = [
+        self::TYPE_PHPNAME       => ['Nsititemnbr' => 0, 'Nsitmnfrid' => 1, 'Nsitdesc1' => 2, 'Nsitdesc2' => 3, 'Nsitcost' => 4, 'Nsitavail' => 5, 'Nsituom' => 6, 'Nsitprice' => 7, 'Nsitchgdate' => 8, 'Dateupdtd' => 9, 'Timeupdtd' => 10, 'Dummy' => 11, ],
+        self::TYPE_CAMELNAME     => ['nsititemnbr' => 0, 'nsitmnfrid' => 1, 'nsitdesc1' => 2, 'nsitdesc2' => 3, 'nsitcost' => 4, 'nsitavail' => 5, 'nsituom' => 6, 'nsitprice' => 7, 'nsitchgdate' => 8, 'dateupdtd' => 9, 'timeupdtd' => 10, 'dummy' => 11, ],
+        self::TYPE_COLNAME       => [InvNonstockItemTableMap::COL_NSITITEMNBR => 0, InvNonstockItemTableMap::COL_NSITMNFRID => 1, InvNonstockItemTableMap::COL_NSITDESC1 => 2, InvNonstockItemTableMap::COL_NSITDESC2 => 3, InvNonstockItemTableMap::COL_NSITCOST => 4, InvNonstockItemTableMap::COL_NSITAVAIL => 5, InvNonstockItemTableMap::COL_NSITUOM => 6, InvNonstockItemTableMap::COL_NSITPRICE => 7, InvNonstockItemTableMap::COL_NSITCHGDATE => 8, InvNonstockItemTableMap::COL_DATEUPDTD => 9, InvNonstockItemTableMap::COL_TIMEUPDTD => 10, InvNonstockItemTableMap::COL_DUMMY => 11, ],
+        self::TYPE_FIELDNAME     => ['NsitItemNbr' => 0, 'NsitMnfrId' => 1, 'NsitDesc1' => 2, 'NsitDesc2' => 3, 'NsitCost' => 4, 'NsitAvail' => 5, 'NsitUom' => 6, 'NsitPrice' => 7, 'NsitChgDate' => 8, 'DateUpdtd' => 9, 'TimeUpdtd' => 10, 'dummy' => 11, ],
+        self::TYPE_NUM           => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ]
+    ];
+
+    /**
+     * Holds a list of column names and their normalized version.
+     *
+     * @var array<string>
+     */
+    protected $normalizedColumnNameMap = [
+        'Nsititemnbr' => 'NSITITEMNBR',
+        'InvNonstockItem.Nsititemnbr' => 'NSITITEMNBR',
+        'nsititemnbr' => 'NSITITEMNBR',
+        'invNonstockItem.nsititemnbr' => 'NSITITEMNBR',
+        'InvNonstockItemTableMap::COL_NSITITEMNBR' => 'NSITITEMNBR',
+        'COL_NSITITEMNBR' => 'NSITITEMNBR',
+        'NsitItemNbr' => 'NSITITEMNBR',
+        'inv_nonstock_item.NsitItemNbr' => 'NSITITEMNBR',
+        'Nsitmnfrid' => 'NSITMNFRID',
+        'InvNonstockItem.Nsitmnfrid' => 'NSITMNFRID',
+        'nsitmnfrid' => 'NSITMNFRID',
+        'invNonstockItem.nsitmnfrid' => 'NSITMNFRID',
+        'InvNonstockItemTableMap::COL_NSITMNFRID' => 'NSITMNFRID',
+        'COL_NSITMNFRID' => 'NSITMNFRID',
+        'NsitMnfrId' => 'NSITMNFRID',
+        'inv_nonstock_item.NsitMnfrId' => 'NSITMNFRID',
+        'Nsitdesc1' => 'NSITDESC1',
+        'InvNonstockItem.Nsitdesc1' => 'NSITDESC1',
+        'nsitdesc1' => 'NSITDESC1',
+        'invNonstockItem.nsitdesc1' => 'NSITDESC1',
+        'InvNonstockItemTableMap::COL_NSITDESC1' => 'NSITDESC1',
+        'COL_NSITDESC1' => 'NSITDESC1',
+        'NsitDesc1' => 'NSITDESC1',
+        'inv_nonstock_item.NsitDesc1' => 'NSITDESC1',
+        'Nsitdesc2' => 'NSITDESC2',
+        'InvNonstockItem.Nsitdesc2' => 'NSITDESC2',
+        'nsitdesc2' => 'NSITDESC2',
+        'invNonstockItem.nsitdesc2' => 'NSITDESC2',
+        'InvNonstockItemTableMap::COL_NSITDESC2' => 'NSITDESC2',
+        'COL_NSITDESC2' => 'NSITDESC2',
+        'NsitDesc2' => 'NSITDESC2',
+        'inv_nonstock_item.NsitDesc2' => 'NSITDESC2',
+        'Nsitcost' => 'NSITCOST',
+        'InvNonstockItem.Nsitcost' => 'NSITCOST',
+        'nsitcost' => 'NSITCOST',
+        'invNonstockItem.nsitcost' => 'NSITCOST',
+        'InvNonstockItemTableMap::COL_NSITCOST' => 'NSITCOST',
+        'COL_NSITCOST' => 'NSITCOST',
+        'NsitCost' => 'NSITCOST',
+        'inv_nonstock_item.NsitCost' => 'NSITCOST',
+        'Nsitavail' => 'NSITAVAIL',
+        'InvNonstockItem.Nsitavail' => 'NSITAVAIL',
+        'nsitavail' => 'NSITAVAIL',
+        'invNonstockItem.nsitavail' => 'NSITAVAIL',
+        'InvNonstockItemTableMap::COL_NSITAVAIL' => 'NSITAVAIL',
+        'COL_NSITAVAIL' => 'NSITAVAIL',
+        'NsitAvail' => 'NSITAVAIL',
+        'inv_nonstock_item.NsitAvail' => 'NSITAVAIL',
+        'Nsituom' => 'NSITUOM',
+        'InvNonstockItem.Nsituom' => 'NSITUOM',
+        'nsituom' => 'NSITUOM',
+        'invNonstockItem.nsituom' => 'NSITUOM',
+        'InvNonstockItemTableMap::COL_NSITUOM' => 'NSITUOM',
+        'COL_NSITUOM' => 'NSITUOM',
+        'NsitUom' => 'NSITUOM',
+        'inv_nonstock_item.NsitUom' => 'NSITUOM',
+        'Nsitprice' => 'NSITPRICE',
+        'InvNonstockItem.Nsitprice' => 'NSITPRICE',
+        'nsitprice' => 'NSITPRICE',
+        'invNonstockItem.nsitprice' => 'NSITPRICE',
+        'InvNonstockItemTableMap::COL_NSITPRICE' => 'NSITPRICE',
+        'COL_NSITPRICE' => 'NSITPRICE',
+        'NsitPrice' => 'NSITPRICE',
+        'inv_nonstock_item.NsitPrice' => 'NSITPRICE',
+        'Nsitchgdate' => 'NSITCHGDATE',
+        'InvNonstockItem.Nsitchgdate' => 'NSITCHGDATE',
+        'nsitchgdate' => 'NSITCHGDATE',
+        'invNonstockItem.nsitchgdate' => 'NSITCHGDATE',
+        'InvNonstockItemTableMap::COL_NSITCHGDATE' => 'NSITCHGDATE',
+        'COL_NSITCHGDATE' => 'NSITCHGDATE',
+        'NsitChgDate' => 'NSITCHGDATE',
+        'inv_nonstock_item.NsitChgDate' => 'NSITCHGDATE',
+        'Dateupdtd' => 'DATEUPDTD',
+        'InvNonstockItem.Dateupdtd' => 'DATEUPDTD',
+        'dateupdtd' => 'DATEUPDTD',
+        'invNonstockItem.dateupdtd' => 'DATEUPDTD',
+        'InvNonstockItemTableMap::COL_DATEUPDTD' => 'DATEUPDTD',
+        'COL_DATEUPDTD' => 'DATEUPDTD',
+        'DateUpdtd' => 'DATEUPDTD',
+        'inv_nonstock_item.DateUpdtd' => 'DATEUPDTD',
+        'Timeupdtd' => 'TIMEUPDTD',
+        'InvNonstockItem.Timeupdtd' => 'TIMEUPDTD',
+        'timeupdtd' => 'TIMEUPDTD',
+        'invNonstockItem.timeupdtd' => 'TIMEUPDTD',
+        'InvNonstockItemTableMap::COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'COL_TIMEUPDTD' => 'TIMEUPDTD',
+        'TimeUpdtd' => 'TIMEUPDTD',
+        'inv_nonstock_item.TimeUpdtd' => 'TIMEUPDTD',
+        'Dummy' => 'DUMMY',
+        'InvNonstockItem.Dummy' => 'DUMMY',
+        'dummy' => 'DUMMY',
+        'invNonstockItem.dummy' => 'DUMMY',
+        'InvNonstockItemTableMap::COL_DUMMY' => 'DUMMY',
+        'COL_DUMMY' => 'DUMMY',
+        'inv_nonstock_item.dummy' => 'DUMMY',
+    ];
 
     /**
      * Initialize the table attributes and columns
      * Relations are not initialized by this method since they are lazy loaded
      *
      * @return void
-     * @throws PropelException
+     * @throws \Propel\Runtime\Exception\PropelException
      */
-    public function initialize()
+    public function initialize(): void
     {
         // attributes
         $this->setName('inv_nonstock_item');
@@ -185,20 +296,22 @@ class InvNonstockItemTableMap extends TableMap
         $this->addForeignPrimaryKey('NsitMnfrId', 'Nsitmnfrid', 'VARCHAR' , 'ap_vend_mast', 'ApveVendId', true, 6, '');
         $this->addColumn('NsitDesc1', 'Nsitdesc1', 'VARCHAR', true, 35, '');
         $this->addColumn('NsitDesc2', 'Nsitdesc2', 'VARCHAR', true, 35, '');
-        $this->addColumn('NsitCost', 'Nsitcost', 'DECIMAL', true, 20, 0);
-        $this->addColumn('NsitAvail', 'Nsitavail', 'DECIMAL', true, 20, 0);
+        $this->addColumn('NsitCost', 'Nsitcost', 'DECIMAL', true, 20, 0.00000);
+        $this->addColumn('NsitAvail', 'Nsitavail', 'DECIMAL', true, 20, 0.00000);
         $this->addColumn('NsitUom', 'Nsituom', 'VARCHAR', true, 4, '');
-        $this->addColumn('NsitPrice', 'Nsitprice', 'DECIMAL', true, 20, 0);
+        $this->addColumn('NsitPrice', 'Nsitprice', 'DECIMAL', true, 20, 0.00000);
         $this->addColumn('NsitChgDate', 'Nsitchgdate', 'CHAR', true, 8, '');
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
-    } // initialize()
+    }
 
     /**
      * Build the RelationMap objects for this table relationships
+     *
+     * @return void
      */
-    public function buildRelations()
+    public function buildRelations(): void
     {
         $this->addRelation('Vendor', '\\Vendor', RelationMap::MANY_TO_ONE, array (
   0 =>
@@ -207,7 +320,7 @@ class InvNonstockItemTableMap extends TableMap
     1 => ':ApveVendId',
   ),
 ), null, null, null, false);
-    } // buildRelations()
+    }
 
     /**
      * Adds an object to the instance pool.
@@ -218,9 +331,11 @@ class InvNonstockItemTableMap extends TableMap
      * and findPk*() calls.
      *
      * @param \InvNonstockItem $obj A \InvNonstockItem object.
-     * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
+     * @param string|null $key Key (optional) to use for instance map (for performance boost if key was already calculated externally).
+     *
+     * @return void
      */
-    public static function addInstanceToPool($obj, $key = null)
+    public static function addInstanceToPool(InvNonstockItem $obj, ?string $key = null): void
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
@@ -239,8 +354,10 @@ class InvNonstockItemTableMap extends TableMap
      * from the cache in order to prevent returning objects that no longer exist.
      *
      * @param mixed $value A \InvNonstockItem object or a primary key value.
+     *
+     * @return void
      */
-    public static function removeInstanceFromPool($value)
+    public static function removeInstanceFromPool($value): void
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \InvNonstockItem) {
@@ -268,14 +385,14 @@ class InvNonstockItemTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
-     * @return string The primary key hash of the row
+     * @return string|null The primary key hash of the row
      */
-    public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyHashFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): ?string
     {
         // If the PK cannot be derived from the row, return NULL.
         if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Nsititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Nsitmnfrid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
@@ -290,14 +407,14 @@ class InvNonstockItemTableMap extends TableMap
      * For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
      * a multi-column primary key, an array of the primary key columns will be returned.
      *
-     * @param array  $row       resultset row.
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Resultset row.
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM
      *
      * @return mixed The primary key of the row
      */
-    public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function getPrimaryKeyFromRow(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM)
     {
             $pks = [];
 
@@ -323,10 +440,10 @@ class InvNonstockItemTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether or not to return the path with the class name
+     * @param bool $withPrefix Whether to return the path with the class name
      * @return string path.to.ClassName
      */
-    public static function getOMClass($withPrefix = true)
+    public static function getOMClass(bool $withPrefix = true): string
     {
         return $withPrefix ? InvNonstockItemTableMap::CLASS_DEFAULT : InvNonstockItemTableMap::OM_CLASS;
     }
@@ -334,17 +451,17 @@ class InvNonstockItemTableMap extends TableMap
     /**
      * Populates an object of the default type or an object that inherit from the default.
      *
-     * @param array  $row       row returned by DataFetcher->fetch().
-     * @param int    $offset    The 0-based offset for reading from the resultset row.
+     * @param array $row Row returned by DataFetcher->fetch().
+     * @param int $offset The 0-based offset for reading from the resultset row.
      * @param string $indexType The index type of $row. Mostly DataFetcher->getIndexType().
                                  One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                           TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (InvNonstockItem object, last column rank)
+     * @return array (InvNonstockItem object, last column rank)
      */
-    public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
+    public static function populateObject(array $row, int $offset = 0, string $indexType = TableMap::TYPE_NUM): array
     {
         $key = InvNonstockItemTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
         if (null !== ($obj = InvNonstockItemTableMap::getInstanceFromPool($key))) {
@@ -360,7 +477,7 @@ class InvNonstockItemTableMap extends TableMap
             InvNonstockItemTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -368,13 +485,13 @@ class InvNonstockItemTableMap extends TableMap
      * objects that inherit from the default.
      *
      * @param DataFetcherInterface $dataFetcher
-     * @return array
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return array<object>
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function populateObjects(DataFetcherInterface $dataFetcher)
+    public static function populateObjects(DataFetcherInterface $dataFetcher): array
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);
@@ -404,12 +521,13 @@ class InvNonstockItemTableMap extends TableMap
      * XML schema will not be added to the select list and only loaded
      * on demand.
      *
-     * @param Criteria $criteria object containing the columns to add.
-     * @param string   $alias    optional table alias
-     * @throws PropelException Any exceptions caught during processing will be
+     * @param Criteria $criteria Object containing the columns to add.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
+     * @return void
      */
-    public static function addSelectColumns(Criteria $criteria, $alias = null)
+    public static function addSelectColumns(Criteria $criteria, ?string $alias = null): void
     {
         if (null === $alias) {
             $criteria->addSelectColumn(InvNonstockItemTableMap::COL_NSITITEMNBR);
@@ -441,40 +559,72 @@ class InvNonstockItemTableMap extends TableMap
     }
 
     /**
+     * Remove all the columns needed to create a new object.
+     *
+     * Note: any columns that were marked with lazyLoad="true" in the
+     * XML schema will not be removed as they are only loaded on demand.
+     *
+     * @param Criteria $criteria Object containing the columns to remove.
+     * @param string|null $alias Optional table alias
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
+     *                         rethrown wrapped into a PropelException.
+     * @return void
+     */
+    public static function removeSelectColumns(Criteria $criteria, ?string $alias = null): void
+    {
+        if (null === $alias) {
+            $criteria->removeSelectColumn(InvNonstockItemTableMap::COL_NSITITEMNBR);
+            $criteria->removeSelectColumn(InvNonstockItemTableMap::COL_NSITMNFRID);
+            $criteria->removeSelectColumn(InvNonstockItemTableMap::COL_NSITDESC1);
+            $criteria->removeSelectColumn(InvNonstockItemTableMap::COL_NSITDESC2);
+            $criteria->removeSelectColumn(InvNonstockItemTableMap::COL_NSITCOST);
+            $criteria->removeSelectColumn(InvNonstockItemTableMap::COL_NSITAVAIL);
+            $criteria->removeSelectColumn(InvNonstockItemTableMap::COL_NSITUOM);
+            $criteria->removeSelectColumn(InvNonstockItemTableMap::COL_NSITPRICE);
+            $criteria->removeSelectColumn(InvNonstockItemTableMap::COL_NSITCHGDATE);
+            $criteria->removeSelectColumn(InvNonstockItemTableMap::COL_DATEUPDTD);
+            $criteria->removeSelectColumn(InvNonstockItemTableMap::COL_TIMEUPDTD);
+            $criteria->removeSelectColumn(InvNonstockItemTableMap::COL_DUMMY);
+        } else {
+            $criteria->removeSelectColumn($alias . '.NsitItemNbr');
+            $criteria->removeSelectColumn($alias . '.NsitMnfrId');
+            $criteria->removeSelectColumn($alias . '.NsitDesc1');
+            $criteria->removeSelectColumn($alias . '.NsitDesc2');
+            $criteria->removeSelectColumn($alias . '.NsitCost');
+            $criteria->removeSelectColumn($alias . '.NsitAvail');
+            $criteria->removeSelectColumn($alias . '.NsitUom');
+            $criteria->removeSelectColumn($alias . '.NsitPrice');
+            $criteria->removeSelectColumn($alias . '.NsitChgDate');
+            $criteria->removeSelectColumn($alias . '.DateUpdtd');
+            $criteria->removeSelectColumn($alias . '.TimeUpdtd');
+            $criteria->removeSelectColumn($alias . '.dummy');
+        }
+    }
+
+    /**
      * Returns the TableMap related to this object.
      * This method is not needed for general use but a specific application could have a need.
      * @return TableMap
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function getTableMap()
+    public static function getTableMap(): TableMap
     {
         return Propel::getServiceContainer()->getDatabaseMap(InvNonstockItemTableMap::DATABASE_NAME)->getTable(InvNonstockItemTableMap::TABLE_NAME);
     }
 
     /**
-     * Add a TableMap instance to the database for this tableMap class.
-     */
-    public static function buildTableMap()
-    {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvNonstockItemTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(InvNonstockItemTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new InvNonstockItemTableMap());
-        }
-    }
-
-    /**
      * Performs a DELETE on the database, given a InvNonstockItem or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or InvNonstockItem object or primary key or array of primary keys
+     * @param mixed $values Criteria or InvNonstockItem object or primary key or array of primary keys
      *              which is used to create the DELETE statement
-     * @param  ConnectionInterface $con the connection to use
-     * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+     * @param ConnectionInterface $con the connection to use
+     * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
      *                         if supported by native driver or if emulated using Propel.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-     public static function doDelete($values, ConnectionInterface $con = null)
+     public static function doDelete($values, ?ConnectionInterface $con = null): int
      {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvNonstockItemTableMap::DATABASE_NAME);
@@ -492,7 +642,7 @@ class InvNonstockItemTableMap extends TableMap
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
                 // array is not multi-dimensional
-                $values = array($values);
+                $values = [$values];
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(InvNonstockItemTableMap::COL_NSITITEMNBR, $value[0]);
@@ -520,7 +670,7 @@ class InvNonstockItemTableMap extends TableMap
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
-    public static function doDeleteAll(ConnectionInterface $con = null)
+    public static function doDeleteAll(?ConnectionInterface $con = null): int
     {
         return InvNonstockItemQuery::create()->doDeleteAll($con);
     }
@@ -528,13 +678,13 @@ class InvNonstockItemTableMap extends TableMap
     /**
      * Performs an INSERT on the database, given a InvNonstockItem or Criteria object.
      *
-     * @param mixed               $criteria Criteria or InvNonstockItem object containing data that is used to create the INSERT statement.
+     * @param mixed $criteria Criteria or InvNonstockItem object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
-     * @return mixed           The new primary key.
-     * @throws PropelException Any exceptions caught during processing will be
+     * @return mixed The new primary key.
+     * @throws \Propel\Runtime\Exception\PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
      */
-    public static function doInsert($criteria, ConnectionInterface $con = null)
+    public static function doInsert($criteria, ?ConnectionInterface $con = null)
     {
         if (null === $con) {
             $con = Propel::getServiceContainer()->getWriteConnection(InvNonstockItemTableMap::DATABASE_NAME);
@@ -557,7 +707,4 @@ class InvNonstockItemTableMap extends TableMap
         });
     }
 
-} // InvNonstockItemTableMap
-// This is the static code needed to register the TableMap for this table with the main Propel class.
-//
-InvNonstockItemTableMap::buildTableMap();
+}
