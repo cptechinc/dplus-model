@@ -17,6 +17,9 @@ class CustomerShipto extends BaseCustomerShipto {
 	const YN_TRUE  = 'Y';
 	const YN_FALSE = 'N';
 
+	const COLUMN_BASE_24MO_SALECNT = 'ArstInv24mo';
+	const COLUMN_BASE_24MO_SALEAMT = 'ArstSale24mo';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -41,6 +44,7 @@ class CustomerShipto extends BaseCustomerShipto {
 		'salesperson2' => 'arspsaleper2',
 		'salesperson3' => 'arspsaleper3',
 		'shipvia'      => 'artbshipvia',
+		'shipviacode'  => 'artbshipvia',
 		'termscode'    => 'artmtermcd',
 		'lastsaledate' => 'arstlastsaledate',
 		'mtd_sales'    => 'arstsalemtd',

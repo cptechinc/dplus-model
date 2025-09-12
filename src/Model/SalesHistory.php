@@ -21,6 +21,7 @@ class SalesHistory extends BaseSalesHistory {
 		'custpo'          => 'oehhcustpo',
 		'total_total'     => 'oehhordrtot',
 		'date_ordered'    => 'oehhordrdate',
+		'orderdate'       => 'oehhordrdate',
 		'status'          => 'oehhstat',
 		'orderstatus'     => 'oehhstat',
 		'subtotal_nontax' => 'OehhNonTaxSub',

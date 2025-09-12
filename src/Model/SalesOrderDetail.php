@@ -69,6 +69,9 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 	/** @var ItemmasterItem */
 	protected $aItem;
 
+	/** @var UnitofMeasureSale */
+	protected $aUom;
+
 	/**
 	 * Return Special Order Description
 	 * @return string
@@ -125,5 +128,17 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 		}
 		$this->aPurchaseOrder = PurchaseOrderQuery::create()->findOneByPonbr($this->ponbr);
 		return $this->aPurchaseOrder;
+	}
+
+	public function getUom() {
+		if ($this->aUom instanceof UnitofMeasureSale) {
+			return $this->aUom;
+		}
+		if ($this->oedtuom == '') {
+			$this->aUom = new UnitofMeasureSale();
+			return $this->aUom;
+		}
+		$this->aUom = UnitofMeasureSaleQuery::create()->findOneByCode($this->oedtuom);
+		return $this->aUom;
 	}
 }

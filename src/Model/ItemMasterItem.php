@@ -53,9 +53,11 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
+		'id'          => 'inititemnbr',
 		'itemid'      => 'inititemnbr',
 		'desc'        => 'initdesc1',
 		'description' => 'initdesc1',
+		'description1' => 'initdesc1',
 		'desc2'       => 'initdesc2',
 		'description2' => 'initdesc2',
 		'itemgroup'   => 'intbgrup',

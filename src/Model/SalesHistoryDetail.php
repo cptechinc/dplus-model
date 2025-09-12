@@ -32,6 +32,7 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 		'price'         => 'oedhpric',
 		'total_price'   => 'oedhprictot',
 		'itemid'        => 'inititemnbr',
+		'description'   => 'oedhdesc',
 		'desc1'         => 'oedhdesc',
 		'desc2'         => 'oedhdesc2',
 		'line'          => 'oedhline',
@@ -54,6 +55,9 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 
 	/** @var ItemmasterItem */
 	protected $aItem;
+
+	/** @var UnitofMeasureSale */
+	protected $aUom;
 
 	public function specialorder() {
 		return self::OPTIONS_SPECIALORDER[$this->specialorder];
@@ -81,5 +85,17 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 		}
 		$this->aItem = ItemMasterItemQuery::create()->findOneByitemid($this->itemid);
 		return $this->aItem;
+	}
+
+	public function getUom() {
+		if ($this->aUom instanceof UnitofMeasureSale) {
+			return $this->aUom;
+		}
+		if ($this->oedhuom == '') {
+			$this->aUom = new UnitofMeasureSale();
+			return $this->aUom;
+		}
+		$this->aUom = UnitofMeasureSaleQuery::create()->findOneByCode($this->oedhuom);
+		return $this->aUom;
 	}
 }

@@ -35,6 +35,7 @@ class ArInvoice extends BaseArInvoice {
 		'custpo'         => 'arincustpo',
 		'checknbr'       => 'arinchknbr',
 		'total'          => 'arintotamt',
+		'ordn'           => 'arinordrnbr',
 		'date'           => 'dateupdtd',
 		'time'           => 'timeupdtd',
 	);
