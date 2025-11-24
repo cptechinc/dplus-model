@@ -81,6 +81,11 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'eso_showquotelink'       => 'oetbcon3esoshowquotlink',
 		'eso_showwiplink'         => 'oetbcon3esoshowwiplink',
 		'useqtytoship'            => 'oetbconfqtytoship',
+		'useReleasenbr'           => 'oetbconfreleasenbr',
+		'useDepartment'           => 'oetbcon2usedept',
+		'useDivision'             => 'oetbcon2usedivision',
+		'useArrivedate'           => 'oetbcon3usearrvdate',
+		'useCanceldateHeadDetail' => 'oetbconfcancheaddtl',
 	);
 
 	/**
