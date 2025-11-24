@@ -30,7 +30,7 @@ class PurchaseOrderDetailReceiving extends BasePurchaseOrderDetailReceiving {
 		'uom'             => 'intbuompur',
 		'qty_ordered'     => 'potdqtyord',
 		'qtyOrdered'      => 'potdqtyord',
-		'casesordered'    => 'podtcasesord',
+		'casesordered'    => 'potdcasesord',
 		'qty_received'    => 'potdqtyrec',
 		'qtyReceived'     => 'potdqtyrec',
 		'date_transfered' => 'potdtrandate',
