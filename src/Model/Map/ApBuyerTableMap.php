@@ -59,7 +59,7 @@ class ApBuyerTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 6;
+    const NUM_COLUMNS = 7;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class ApBuyerTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 6;
+    const NUM_HYDRATE_COLUMNS = 7;
 
     /**
      * the column name for the AptbBuyrCode field
@@ -85,6 +85,11 @@ class ApBuyerTableMap extends TableMap
      * the column name for the AptbBuyrEmail field
      */
     const COL_APTBBUYREMAIL = 'ap_buyr_code.AptbBuyrEmail';
+
+    /**
+     * the column name for the AptbBuyrLginId field
+     */
+    const COL_APTBBUYRLGINID = 'ap_buyr_code.AptbBuyrLginId';
 
     /**
      * the column name for the DateUpdtd field
@@ -113,11 +118,11 @@ class ApBuyerTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Aptbbuyrcode', 'Aptbbuyrdesc', 'Aptbbuyremail', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('aptbbuyrcode', 'aptbbuyrdesc', 'aptbbuyremail', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ApBuyerTableMap::COL_APTBBUYRCODE, ApBuyerTableMap::COL_APTBBUYRDESC, ApBuyerTableMap::COL_APTBBUYREMAIL, ApBuyerTableMap::COL_DATEUPDTD, ApBuyerTableMap::COL_TIMEUPDTD, ApBuyerTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('AptbBuyrCode', 'AptbBuyrDesc', 'AptbBuyrEmail', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
+        self::TYPE_PHPNAME       => array('Aptbbuyrcode', 'Aptbbuyrdesc', 'Aptbbuyremail', 'Aptbbuyrlginid', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('aptbbuyrcode', 'aptbbuyrdesc', 'aptbbuyremail', 'aptbbuyrlginid', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(ApBuyerTableMap::COL_APTBBUYRCODE, ApBuyerTableMap::COL_APTBBUYRDESC, ApBuyerTableMap::COL_APTBBUYREMAIL, ApBuyerTableMap::COL_APTBBUYRLGINID, ApBuyerTableMap::COL_DATEUPDTD, ApBuyerTableMap::COL_TIMEUPDTD, ApBuyerTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('AptbBuyrCode', 'AptbBuyrDesc', 'AptbBuyrEmail', 'AptbBuyrLginId', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
     );
 
     /**
@@ -127,11 +132,11 @@ class ApBuyerTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Aptbbuyrcode' => 0, 'Aptbbuyrdesc' => 1, 'Aptbbuyremail' => 2, 'Dateupdtd' => 3, 'Timeupdtd' => 4, 'Dummy' => 5, ),
-        self::TYPE_CAMELNAME     => array('aptbbuyrcode' => 0, 'aptbbuyrdesc' => 1, 'aptbbuyremail' => 2, 'dateupdtd' => 3, 'timeupdtd' => 4, 'dummy' => 5, ),
-        self::TYPE_COLNAME       => array(ApBuyerTableMap::COL_APTBBUYRCODE => 0, ApBuyerTableMap::COL_APTBBUYRDESC => 1, ApBuyerTableMap::COL_APTBBUYREMAIL => 2, ApBuyerTableMap::COL_DATEUPDTD => 3, ApBuyerTableMap::COL_TIMEUPDTD => 4, ApBuyerTableMap::COL_DUMMY => 5, ),
-        self::TYPE_FIELDNAME     => array('AptbBuyrCode' => 0, 'AptbBuyrDesc' => 1, 'AptbBuyrEmail' => 2, 'DateUpdtd' => 3, 'TimeUpdtd' => 4, 'dummy' => 5, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
+        self::TYPE_PHPNAME       => array('Aptbbuyrcode' => 0, 'Aptbbuyrdesc' => 1, 'Aptbbuyremail' => 2, 'Aptbbuyrlginid' => 3, 'Dateupdtd' => 4, 'Timeupdtd' => 5, 'Dummy' => 6, ),
+        self::TYPE_CAMELNAME     => array('aptbbuyrcode' => 0, 'aptbbuyrdesc' => 1, 'aptbbuyremail' => 2, 'aptbbuyrlginid' => 3, 'dateupdtd' => 4, 'timeupdtd' => 5, 'dummy' => 6, ),
+        self::TYPE_COLNAME       => array(ApBuyerTableMap::COL_APTBBUYRCODE => 0, ApBuyerTableMap::COL_APTBBUYRDESC => 1, ApBuyerTableMap::COL_APTBBUYREMAIL => 2, ApBuyerTableMap::COL_APTBBUYRLGINID => 3, ApBuyerTableMap::COL_DATEUPDTD => 4, ApBuyerTableMap::COL_TIMEUPDTD => 5, ApBuyerTableMap::COL_DUMMY => 6, ),
+        self::TYPE_FIELDNAME     => array('AptbBuyrCode' => 0, 'AptbBuyrDesc' => 1, 'AptbBuyrEmail' => 2, 'AptbBuyrLginId' => 3, 'DateUpdtd' => 4, 'TimeUpdtd' => 5, 'dummy' => 6, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
     );
 
     /**
@@ -152,11 +157,12 @@ class ApBuyerTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addPrimaryKey('AptbBuyrCode', 'Aptbbuyrcode', 'VARCHAR', true, 8, '');
-        $this->addColumn('AptbBuyrDesc', 'Aptbbuyrdesc', 'VARCHAR', false, 20, null);
-        $this->addColumn('AptbBuyrEmail', 'Aptbbuyremail', 'VARCHAR', false, 50, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('AptbBuyrDesc', 'Aptbbuyrdesc', 'VARCHAR', true, 20, '');
+        $this->addColumn('AptbBuyrEmail', 'Aptbbuyremail', 'VARCHAR', true, 50, '');
+        $this->addColumn('AptbBuyrLginId', 'Aptbbuyrlginid', 'VARCHAR', true, 8, '');
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
     } // initialize()
 
     /**
@@ -317,6 +323,7 @@ class ApBuyerTableMap extends TableMap
             $criteria->addSelectColumn(ApBuyerTableMap::COL_APTBBUYRCODE);
             $criteria->addSelectColumn(ApBuyerTableMap::COL_APTBBUYRDESC);
             $criteria->addSelectColumn(ApBuyerTableMap::COL_APTBBUYREMAIL);
+            $criteria->addSelectColumn(ApBuyerTableMap::COL_APTBBUYRLGINID);
             $criteria->addSelectColumn(ApBuyerTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(ApBuyerTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(ApBuyerTableMap::COL_DUMMY);
@@ -324,6 +331,7 @@ class ApBuyerTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.AptbBuyrCode');
             $criteria->addSelectColumn($alias . '.AptbBuyrDesc');
             $criteria->addSelectColumn($alias . '.AptbBuyrEmail');
+            $criteria->addSelectColumn($alias . '.AptbBuyrLginId');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');

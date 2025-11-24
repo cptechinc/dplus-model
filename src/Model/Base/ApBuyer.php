@@ -75,6 +75,7 @@ abstract class ApBuyer implements ActiveRecordInterface
     /**
      * The value for the aptbbuyrdesc field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $aptbbuyrdesc;
@@ -82,13 +83,23 @@ abstract class ApBuyer implements ActiveRecordInterface
     /**
      * The value for the aptbbuyremail field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $aptbbuyremail;
 
     /**
+     * The value for the aptbbuyrlginid field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $aptbbuyrlginid;
+
+    /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -96,6 +107,7 @@ abstract class ApBuyer implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -103,6 +115,7 @@ abstract class ApBuyer implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -136,6 +149,12 @@ abstract class ApBuyer implements ActiveRecordInterface
     public function applyDefaultValues()
     {
         $this->aptbbuyrcode = '';
+        $this->aptbbuyrdesc = '';
+        $this->aptbbuyremail = '';
+        $this->aptbbuyrlginid = '';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
@@ -396,6 +415,16 @@ abstract class ApBuyer implements ActiveRecordInterface
     }
 
     /**
+     * Get the [aptbbuyrlginid] column value.
+     *
+     * @return string
+     */
+    public function getAptbbuyrlginid()
+    {
+        return $this->aptbbuyrlginid;
+    }
+
+    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -486,6 +515,26 @@ abstract class ApBuyer implements ActiveRecordInterface
     } // setAptbbuyremail()
 
     /**
+     * Set the value of [aptbbuyrlginid] column.
+     *
+     * @param string $v new value
+     * @return $this|\ApBuyer The current object (for fluent API support)
+     */
+    public function setAptbbuyrlginid($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->aptbbuyrlginid !== $v) {
+            $this->aptbbuyrlginid = $v;
+            $this->modifiedColumns[ApBuyerTableMap::COL_APTBBUYRLGINID] = true;
+        }
+
+        return $this;
+    } // setAptbbuyrlginid()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -559,6 +608,30 @@ abstract class ApBuyer implements ActiveRecordInterface
                 return false;
             }
 
+            if ($this->aptbbuyrdesc !== '') {
+                return false;
+            }
+
+            if ($this->aptbbuyremail !== '') {
+                return false;
+            }
+
+            if ($this->aptbbuyrlginid !== '') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
+                return false;
+            }
+
         // otherwise, everything was equal, so return TRUE
         return true;
     } // hasOnlyDefaultValues()
@@ -594,13 +667,16 @@ abstract class ApBuyer implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ApBuyerTableMap::translateFieldName('Aptbbuyremail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbbuyremail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ApBuyerTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ApBuyerTableMap::translateFieldName('Aptbbuyrlginid', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->aptbbuyrlginid = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ApBuyerTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ApBuyerTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ApBuyerTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ApBuyerTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ApBuyerTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -610,7 +686,7 @@ abstract class ApBuyer implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 6; // 6 = ApBuyerTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 7; // 7 = ApBuyerTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\ApBuyer'), 0, $e);
@@ -836,6 +912,9 @@ abstract class ApBuyer implements ActiveRecordInterface
         if ($this->isColumnModified(ApBuyerTableMap::COL_APTBBUYREMAIL)) {
             $modifiedColumns[':p' . $index++]  = 'AptbBuyrEmail';
         }
+        if ($this->isColumnModified(ApBuyerTableMap::COL_APTBBUYRLGINID)) {
+            $modifiedColumns[':p' . $index++]  = 'AptbBuyrLginId';
+        }
         if ($this->isColumnModified(ApBuyerTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -864,6 +943,9 @@ abstract class ApBuyer implements ActiveRecordInterface
                         break;
                     case 'AptbBuyrEmail':
                         $stmt->bindValue($identifier, $this->aptbbuyremail, PDO::PARAM_STR);
+                        break;
+                    case 'AptbBuyrLginId':
+                        $stmt->bindValue($identifier, $this->aptbbuyrlginid, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -939,12 +1021,15 @@ abstract class ApBuyer implements ActiveRecordInterface
                 return $this->getAptbbuyremail();
                 break;
             case 3:
-                return $this->getDateupdtd();
+                return $this->getAptbbuyrlginid();
                 break;
             case 4:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 5:
+                return $this->getTimeupdtd();
+                break;
+            case 6:
                 return $this->getDummy();
                 break;
             default:
@@ -980,9 +1065,10 @@ abstract class ApBuyer implements ActiveRecordInterface
             $keys[0] => $this->getAptbbuyrcode(),
             $keys[1] => $this->getAptbbuyrdesc(),
             $keys[2] => $this->getAptbbuyremail(),
-            $keys[3] => $this->getDateupdtd(),
-            $keys[4] => $this->getTimeupdtd(),
-            $keys[5] => $this->getDummy(),
+            $keys[3] => $this->getAptbbuyrlginid(),
+            $keys[4] => $this->getDateupdtd(),
+            $keys[5] => $this->getTimeupdtd(),
+            $keys[6] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1049,12 +1135,15 @@ abstract class ApBuyer implements ActiveRecordInterface
                 $this->setAptbbuyremail($value);
                 break;
             case 3:
-                $this->setDateupdtd($value);
+                $this->setAptbbuyrlginid($value);
                 break;
             case 4:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 5:
+                $this->setTimeupdtd($value);
+                break;
+            case 6:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1093,13 +1182,16 @@ abstract class ApBuyer implements ActiveRecordInterface
             $this->setAptbbuyremail($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setDateupdtd($arr[$keys[3]]);
+            $this->setAptbbuyrlginid($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setTimeupdtd($arr[$keys[4]]);
+            $this->setDateupdtd($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setDummy($arr[$keys[5]]);
+            $this->setTimeupdtd($arr[$keys[5]]);
+        }
+        if (array_key_exists($keys[6], $arr)) {
+            $this->setDummy($arr[$keys[6]]);
         }
     }
 
@@ -1150,6 +1242,9 @@ abstract class ApBuyer implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ApBuyerTableMap::COL_APTBBUYREMAIL)) {
             $criteria->add(ApBuyerTableMap::COL_APTBBUYREMAIL, $this->aptbbuyremail);
+        }
+        if ($this->isColumnModified(ApBuyerTableMap::COL_APTBBUYRLGINID)) {
+            $criteria->add(ApBuyerTableMap::COL_APTBBUYRLGINID, $this->aptbbuyrlginid);
         }
         if ($this->isColumnModified(ApBuyerTableMap::COL_DATEUPDTD)) {
             $criteria->add(ApBuyerTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -1249,6 +1344,7 @@ abstract class ApBuyer implements ActiveRecordInterface
         $copyObj->setAptbbuyrcode($this->getAptbbuyrcode());
         $copyObj->setAptbbuyrdesc($this->getAptbbuyrdesc());
         $copyObj->setAptbbuyremail($this->getAptbbuyremail());
+        $copyObj->setAptbbuyrlginid($this->getAptbbuyrlginid());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -1620,6 +1716,7 @@ abstract class ApBuyer implements ActiveRecordInterface
         $this->aptbbuyrcode = null;
         $this->aptbbuyrdesc = null;
         $this->aptbbuyremail = null;
+        $this->aptbbuyrlginid = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
@@ -1670,7 +1767,7 @@ abstract class ApBuyer implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // // parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }
@@ -1682,7 +1779,7 @@ abstract class ApBuyer implements ActiveRecordInterface
     public function postSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postSave')) {
-            // // parent::postSave($con);
+            // parent::postSave($con);
         }
     }
 
@@ -1694,7 +1791,7 @@ abstract class ApBuyer implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // // parent::preInsert($con);
+            // return parent::preInsert($con);
         }
         return true;
     }
@@ -1706,7 +1803,7 @@ abstract class ApBuyer implements ActiveRecordInterface
     public function postInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postInsert')) {
-            // // parent::postInsert($con);
+            // parent::postInsert($con);
         }
     }
 
@@ -1718,7 +1815,7 @@ abstract class ApBuyer implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // // parent::preUpdate($con);
+            // return parent::preUpdate($con);
         }
         return true;
     }
@@ -1730,7 +1827,7 @@ abstract class ApBuyer implements ActiveRecordInterface
     public function postUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postUpdate')) {
-            // // parent::postUpdate($con);
+            // parent::postUpdate($con);
         }
     }
 
@@ -1742,7 +1839,7 @@ abstract class ApBuyer implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // // parent::preDelete($con);
+            // return parent::preDelete($con);
         }
         return true;
     }
@@ -1754,7 +1851,7 @@ abstract class ApBuyer implements ActiveRecordInterface
     public function postDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postDelete')) {
-            // // parent::postDelete($con);
+            // parent::postDelete($con);
         }
     }
 

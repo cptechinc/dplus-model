@@ -23,6 +23,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildApBuyerQuery orderByAptbbuyrcode($order = Criteria::ASC) Order by the AptbBuyrCode column
  * @method     ChildApBuyerQuery orderByAptbbuyrdesc($order = Criteria::ASC) Order by the AptbBuyrDesc column
  * @method     ChildApBuyerQuery orderByAptbbuyremail($order = Criteria::ASC) Order by the AptbBuyrEmail column
+ * @method     ChildApBuyerQuery orderByAptbbuyrlginid($order = Criteria::ASC) Order by the AptbBuyrLginId column
  * @method     ChildApBuyerQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildApBuyerQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildApBuyerQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -30,6 +31,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildApBuyerQuery groupByAptbbuyrcode() Group by the AptbBuyrCode column
  * @method     ChildApBuyerQuery groupByAptbbuyrdesc() Group by the AptbBuyrDesc column
  * @method     ChildApBuyerQuery groupByAptbbuyremail() Group by the AptbBuyrEmail column
+ * @method     ChildApBuyerQuery groupByAptbbuyrlginid() Group by the AptbBuyrLginId column
  * @method     ChildApBuyerQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildApBuyerQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildApBuyerQuery groupByDummy() Group by the dummy column
@@ -60,6 +62,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildApBuyer findOneByAptbbuyrcode(string $AptbBuyrCode) Return the first ChildApBuyer filtered by the AptbBuyrCode column
  * @method     ChildApBuyer findOneByAptbbuyrdesc(string $AptbBuyrDesc) Return the first ChildApBuyer filtered by the AptbBuyrDesc column
  * @method     ChildApBuyer findOneByAptbbuyremail(string $AptbBuyrEmail) Return the first ChildApBuyer filtered by the AptbBuyrEmail column
+ * @method     ChildApBuyer findOneByAptbbuyrlginid(string $AptbBuyrLginId) Return the first ChildApBuyer filtered by the AptbBuyrLginId column
  * @method     ChildApBuyer findOneByDateupdtd(string $DateUpdtd) Return the first ChildApBuyer filtered by the DateUpdtd column
  * @method     ChildApBuyer findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildApBuyer filtered by the TimeUpdtd column
  * @method     ChildApBuyer findOneByDummy(string $dummy) Return the first ChildApBuyer filtered by the dummy column *
@@ -70,6 +73,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildApBuyer requireOneByAptbbuyrcode(string $AptbBuyrCode) Return the first ChildApBuyer filtered by the AptbBuyrCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildApBuyer requireOneByAptbbuyrdesc(string $AptbBuyrDesc) Return the first ChildApBuyer filtered by the AptbBuyrDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildApBuyer requireOneByAptbbuyremail(string $AptbBuyrEmail) Return the first ChildApBuyer filtered by the AptbBuyrEmail column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildApBuyer requireOneByAptbbuyrlginid(string $AptbBuyrLginId) Return the first ChildApBuyer filtered by the AptbBuyrLginId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildApBuyer requireOneByDateupdtd(string $DateUpdtd) Return the first ChildApBuyer filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildApBuyer requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildApBuyer filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildApBuyer requireOneByDummy(string $dummy) Return the first ChildApBuyer filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -78,6 +82,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildApBuyer[]|ObjectCollection findByAptbbuyrcode(string $AptbBuyrCode) Return ChildApBuyer objects filtered by the AptbBuyrCode column
  * @method     ChildApBuyer[]|ObjectCollection findByAptbbuyrdesc(string $AptbBuyrDesc) Return ChildApBuyer objects filtered by the AptbBuyrDesc column
  * @method     ChildApBuyer[]|ObjectCollection findByAptbbuyremail(string $AptbBuyrEmail) Return ChildApBuyer objects filtered by the AptbBuyrEmail column
+ * @method     ChildApBuyer[]|ObjectCollection findByAptbbuyrlginid(string $AptbBuyrLginId) Return ChildApBuyer objects filtered by the AptbBuyrLginId column
  * @method     ChildApBuyer[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildApBuyer objects filtered by the DateUpdtd column
  * @method     ChildApBuyer[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildApBuyer objects filtered by the TimeUpdtd column
  * @method     ChildApBuyer[]|ObjectCollection findByDummy(string $dummy) Return ChildApBuyer objects filtered by the dummy column
@@ -179,7 +184,7 @@ abstract class ApBuyerQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT AptbBuyrCode, AptbBuyrDesc, AptbBuyrEmail, DateUpdtd, TimeUpdtd, dummy FROM ap_buyr_code WHERE AptbBuyrCode = :p0';
+        $sql = 'SELECT AptbBuyrCode, AptbBuyrDesc, AptbBuyrEmail, AptbBuyrLginId, DateUpdtd, TimeUpdtd, dummy FROM ap_buyr_code WHERE AptbBuyrCode = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
@@ -342,6 +347,31 @@ abstract class ApBuyerQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ApBuyerTableMap::COL_APTBBUYREMAIL, $aptbbuyremail, $comparison);
+    }
+
+    /**
+     * Filter the query on the AptbBuyrLginId column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByAptbbuyrlginid('fooValue');   // WHERE AptbBuyrLginId = 'fooValue'
+     * $query->filterByAptbbuyrlginid('%fooValue%', Criteria::LIKE); // WHERE AptbBuyrLginId LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $aptbbuyrlginid The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildApBuyerQuery The current query, for fluid interface
+     */
+    public function filterByAptbbuyrlginid($aptbbuyrlginid = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($aptbbuyrlginid)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ApBuyerTableMap::COL_APTBBUYRLGINID, $aptbbuyrlginid, $comparison);
     }
 
     /**
