@@ -52,11 +52,13 @@ class ConfigAr extends BaseConfigAr {
 		'defaultGlCodeDiscounts'  => 'artbconfdiscacct',
 		'custlabel'               => 'artbconfcustlabl',
 		'usercodelabel'           => 'artbconfcustlabl',
-		'reportGlByInvOrCust'     => 'artbConfInvCustGl ',
+		'reportGlByInvOrCust'     => 'artbConfInvCustGl',
 		'usercodelabelshipto'     => 'artbconfshiplabl',
 		'overduestmtdays1'        => 'artbconfover1',
 		'overduestmtdays2'        => 'artbconfover2',
 		'nbrofsalespersons'       => 'artbconfnbrsp',
+		'provideDiscountSoHeader' => 'artbconfapdonoehd',
+		'reportGlByWhse'          => 'artbconfrptbywhse',
 	);
 
 	/**
