@@ -212,6 +212,14 @@ abstract class ConfigPo implements ActiveRecordInterface
     protected $potbconfepoupdlastcost;
 
     /**
+     * The value for the potbconfrevisionentry field.
+     *
+     * Note: this column has a database default value of: 'Y'
+     * @var        string
+     */
+    protected $potbconfrevisionentry;
+
+    /**
      * The value for the potbconfrecall field.
      *
      * Note: this column has a database default value of: 'Y'
@@ -838,6 +846,7 @@ abstract class ConfigPo implements ActiveRecordInterface
         $this->potbconfeditpoitemnotes = 'N';
         $this->potbconfloadpovxmnotes = 'N';
         $this->potbconfepoupdlastcost = 'Y';
+        $this->potbconfrevisionentry = 'Y';
         $this->potbconfrecall = 'Y';
         $this->potbconfrecallask = 'N';
         $this->potbconfreceivecost = 'N';
@@ -1329,6 +1338,16 @@ abstract class ConfigPo implements ActiveRecordInterface
     public function getPotbconfepoupdlastcost()
     {
         return $this->potbconfepoupdlastcost;
+    }
+
+    /**
+     * Get the [potbconfrevisionentry] column value.
+     *
+     * @return string
+     */
+    public function getPotbconfrevisionentry()
+    {
+        return $this->potbconfrevisionentry;
     }
 
     /**
@@ -2450,6 +2469,26 @@ abstract class ConfigPo implements ActiveRecordInterface
 
         return $this;
     } // setPotbconfepoupdlastcost()
+
+    /**
+     * Set the value of [potbconfrevisionentry] column.
+     *
+     * @param string $v new value
+     * @return $this|\ConfigPo The current object (for fluent API support)
+     */
+    public function setPotbconfrevisionentry($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->potbconfrevisionentry !== $v) {
+            $this->potbconfrevisionentry = $v;
+            $this->modifiedColumns[ConfigPoTableMap::COL_POTBCONFREVISIONENTRY] = true;
+        }
+
+        return $this;
+    } // setPotbconfrevisionentry()
 
     /**
      * Set the value of [potbconfrecall] column.
@@ -4017,6 +4056,10 @@ abstract class ConfigPo implements ActiveRecordInterface
                 return false;
             }
 
+            if ($this->potbconfrevisionentry !== 'Y') {
+                return false;
+            }
+
             if ($this->potbconfrecall !== 'Y') {
                 return false;
             }
@@ -4396,226 +4439,229 @@ abstract class ConfigPo implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfepoupdlastcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfepoupdlastcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfrecall', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfrevisionentry', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->potbconfrevisionentry = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfrecall', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfrecall = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfrecallask', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfrecallask', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfrecallask = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfreceivecost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfreceivecost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfreceivecost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfprocvari', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfprocvari', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfprocvari = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfcostrcvryacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfcostrcvryacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfcostrcvryacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfinvtyvariacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfinvtyvariacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfinvtyvariacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfallowchgcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfallowchgcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfallowchgcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfwarnrcptqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfwarnrcptqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfwarnrcptqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ConfigPoTableMap::translateFieldName('Potbconferdispdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ConfigPoTableMap::translateFieldName('Potbconferdispdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconferdispdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfprovidelpo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfprovidelpo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfprovidelpo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfwarndiffwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfwarndiffwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfwarndiffwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfallocrcvd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfallocrcvd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfallocrcvd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfaskclose', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfaskclose', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfaskclose = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ConfigPoTableMap::translateFieldName('Potbconferadd2po', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ConfigPoTableMap::translateFieldName('Potbconferadd2po', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconferadd2po = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ConfigPoTableMap::translateFieldName('Potbconftariffglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ConfigPoTableMap::translateFieldName('Potbconftariffglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconftariffglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfshopglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfshopglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfshopglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfshoprate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfshoprate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfshoprate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuseprime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuseprime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfuseprime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfusewatch', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfusewatch', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfusewatch = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfprtpowsugg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfprtpowsugg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfprtpowsugg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowslctyes', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowslctyes', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfpowslctyes = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowgvendrpt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowgvendrpt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfpowgvendrpt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowgwipstatus', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowgwipstatus', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfpowgwipstatus = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowgwipautogen', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowgwipautogen', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfpowgwipautogen = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfbuyercontrol', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfbuyercontrol', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfbuyercontrol = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowgoqmethod', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpowgoqmethod', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfpowgoqmethod = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : ConfigPoTableMap::translateFieldName('Potbconffxpo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : ConfigPoTableMap::translateFieldName('Potbconffxpo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconffxpo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : ConfigPoTableMap::translateFieldName('Potbconffxinv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : ConfigPoTableMap::translateFieldName('Potbconffxinv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconffxinv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfupdatevendcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfupdatevendcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfupdatevendcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfaskupdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfaskupdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfaskupdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfvxmroundpos', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfvxmroundpos', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfvxmroundpos = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfxrefmaint', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfxrefmaint', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfxrefmaint = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuseidopts', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuseidopts', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfuseidopts = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfsrchvxmfirst', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfsrchvxmfirst', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfsrchvxmfirst = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfopenlineonly', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfopenlineonly', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfopenlineonly = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfitemdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfitemdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfitemdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfopenbalonly', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfopenbalonly', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfopenbalonly = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfprtwhsedtl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfprtwhsedtl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfprtwhsedtl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfautorcpt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfautorcpt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfautorcpt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfdispitemcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfdispitemcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfdispitemcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfdispcaseqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfdispcaseqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfdispcaseqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfonetwoline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfonetwoline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfonetwoline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuseordras', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuseordras', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfuseordras = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfaprvvendonly', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfaprvvendonly', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfaprvvendonly = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfusefab', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfusefab', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfusefab = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfshowitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfshowitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfshowitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfscrapacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfscrapacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfscrapacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfscrapvaripct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfscrapvaripct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfscrapvaripct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : ConfigPoTableMap::translateFieldName('Potbconflifofifo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : ConfigPoTableMap::translateFieldName('Potbconflifofifo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconflifofifo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : ConfigPoTableMap::translateFieldName('Potbconffabbomorkit', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : ConfigPoTableMap::translateFieldName('Potbconffabbomorkit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconffabbomorkit = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfallocepoer', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfallocepoer', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfallocepoer = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : ConfigPoTableMap::translateFieldName('Potbconffabprealloc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : ConfigPoTableMap::translateFieldName('Potbconffabprealloc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconffabprealloc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfforcefabepo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfforcefabepo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfforcefabepo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpreviewcomplist', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpreviewcomplist', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfpreviewcomplist = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfnegcompusage', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfnegcompusage', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfnegcompusage = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfautoselectcomp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfautoselectcomp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfautoselectcomp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfbinfromvendor', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfbinfromvendor', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfbinfromvendor = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfdfltstckcd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfdfltstckcd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfdfltstckcd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuseremain', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuseremain', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfuseremain = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfsamecompcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfsamecompcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfsamecompcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpasscode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfpasscode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfpasscode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuselandcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfuselandcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfuselandcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfbaselandamtqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfbaselandamtqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfbaselandamtqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfwarnlandiner', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfwarnlandiner', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfwarnlandiner = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : ConfigPoTableMap::translateFieldName('Potbconflandamtmultwght', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : ConfigPoTableMap::translateFieldName('Potbconflandamtmultwght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconflandamtmultwght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : ConfigPoTableMap::translateFieldName('Potbconflanderedit', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : ConfigPoTableMap::translateFieldName('Potbconflanderedit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconflanderedit = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfhistcmplfab', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : ConfigPoTableMap::translateFieldName('Potbconfhistcmplfab', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconfhistcmplfab = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : ConfigPoTableMap::translateFieldName('Potbconflandglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : ConfigPoTableMap::translateFieldName('Potbconflandglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potbconflandglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : ConfigPoTableMap::translateFieldName('Potblandmpfglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : ConfigPoTableMap::translateFieldName('Potblandmpfglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potblandmpfglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : ConfigPoTableMap::translateFieldName('Potblandhmfglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : ConfigPoTableMap::translateFieldName('Potblandhmfglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potblandhmfglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : ConfigPoTableMap::translateFieldName('Potblanddsetglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : ConfigPoTableMap::translateFieldName('Potblanddsetglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->potblanddsetglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : ConfigPoTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : ConfigPoTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : ConfigPoTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : ConfigPoTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : ConfigPoTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : ConfigPoTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -4625,7 +4671,7 @@ abstract class ConfigPo implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 93; // 93 = ConfigPoTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 94; // 94 = ConfigPoTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\ConfigPo'), 0, $e);
@@ -4878,6 +4924,9 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ConfigPoTableMap::COL_POTBCONFEPOUPDLASTCOST)) {
             $modifiedColumns[':p' . $index++]  = 'PotbConfEpoUpdLastCost';
+        }
+        if ($this->isColumnModified(ConfigPoTableMap::COL_POTBCONFREVISIONENTRY)) {
+            $modifiedColumns[':p' . $index++]  = 'PotbConfRevisionEntry';
         }
         if ($this->isColumnModified(ConfigPoTableMap::COL_POTBCONFRECALL)) {
             $modifiedColumns[':p' . $index++]  = 'PotbConfRecAll';
@@ -5168,6 +5217,9 @@ abstract class ConfigPo implements ActiveRecordInterface
                         break;
                     case 'PotbConfEpoUpdLastCost':
                         $stmt->bindValue($identifier, $this->potbconfepoupdlastcost, PDO::PARAM_STR);
+                        break;
+                    case 'PotbConfRevisionEntry':
+                        $stmt->bindValue($identifier, $this->potbconfrevisionentry, PDO::PARAM_STR);
                         break;
                     case 'PotbConfRecAll':
                         $stmt->bindValue($identifier, $this->potbconfrecall, PDO::PARAM_STR);
@@ -5504,225 +5556,228 @@ abstract class ConfigPo implements ActiveRecordInterface
                 return $this->getPotbconfepoupdlastcost();
                 break;
             case 19:
-                return $this->getPotbconfrecall();
+                return $this->getPotbconfrevisionentry();
                 break;
             case 20:
-                return $this->getPotbconfrecallask();
+                return $this->getPotbconfrecall();
                 break;
             case 21:
-                return $this->getPotbconfreceivecost();
+                return $this->getPotbconfrecallask();
                 break;
             case 22:
-                return $this->getPotbconfprocvari();
+                return $this->getPotbconfreceivecost();
                 break;
             case 23:
-                return $this->getPotbconfcostrcvryacct();
+                return $this->getPotbconfprocvari();
                 break;
             case 24:
-                return $this->getPotbconfinvtyvariacct();
+                return $this->getPotbconfcostrcvryacct();
                 break;
             case 25:
-                return $this->getPotbconfallowchgcost();
+                return $this->getPotbconfinvtyvariacct();
                 break;
             case 26:
-                return $this->getPotbconfwarnrcptqty();
+                return $this->getPotbconfallowchgcost();
                 break;
             case 27:
-                return $this->getPotbconferdispdate();
+                return $this->getPotbconfwarnrcptqty();
                 break;
             case 28:
-                return $this->getPotbconfprovidelpo();
+                return $this->getPotbconferdispdate();
                 break;
             case 29:
-                return $this->getPotbconfwarndiffwhse();
+                return $this->getPotbconfprovidelpo();
                 break;
             case 30:
-                return $this->getPotbconfallocrcvd();
+                return $this->getPotbconfwarndiffwhse();
                 break;
             case 31:
-                return $this->getPotbconfaskclose();
+                return $this->getPotbconfallocrcvd();
                 break;
             case 32:
-                return $this->getPotbconferadd2po();
+                return $this->getPotbconfaskclose();
                 break;
             case 33:
-                return $this->getPotbconftariffglacct();
+                return $this->getPotbconferadd2po();
                 break;
             case 34:
-                return $this->getPotbconfshopglacct();
+                return $this->getPotbconftariffglacct();
                 break;
             case 35:
-                return $this->getPotbconfshoprate();
+                return $this->getPotbconfshopglacct();
                 break;
             case 36:
-                return $this->getPotbconfuseprime();
+                return $this->getPotbconfshoprate();
                 break;
             case 37:
-                return $this->getPotbconfusewatch();
+                return $this->getPotbconfuseprime();
                 break;
             case 38:
-                return $this->getPotbconfprtpowsugg();
+                return $this->getPotbconfusewatch();
                 break;
             case 39:
-                return $this->getPotbconfpowslctyes();
+                return $this->getPotbconfprtpowsugg();
                 break;
             case 40:
-                return $this->getPotbconfpowgvendrpt();
+                return $this->getPotbconfpowslctyes();
                 break;
             case 41:
-                return $this->getPotbconfpowgwipstatus();
+                return $this->getPotbconfpowgvendrpt();
                 break;
             case 42:
-                return $this->getPotbconfpowgwipautogen();
+                return $this->getPotbconfpowgwipstatus();
                 break;
             case 43:
-                return $this->getPotbconfbuyercontrol();
+                return $this->getPotbconfpowgwipautogen();
                 break;
             case 44:
-                return $this->getPotbconfpowgoqmethod();
+                return $this->getPotbconfbuyercontrol();
                 break;
             case 45:
-                return $this->getPotbconffxpo();
+                return $this->getPotbconfpowgoqmethod();
                 break;
             case 46:
-                return $this->getPotbconffxinv();
+                return $this->getPotbconffxpo();
                 break;
             case 47:
-                return $this->getPotbconfupdatevendcost();
+                return $this->getPotbconffxinv();
                 break;
             case 48:
-                return $this->getPotbconfaskupdate();
+                return $this->getPotbconfupdatevendcost();
                 break;
             case 49:
-                return $this->getPotbconfvxmroundpos();
+                return $this->getPotbconfaskupdate();
                 break;
             case 50:
-                return $this->getPotbconfxrefmaint();
+                return $this->getPotbconfvxmroundpos();
                 break;
             case 51:
-                return $this->getPotbconfuseidopts();
+                return $this->getPotbconfxrefmaint();
                 break;
             case 52:
-                return $this->getPotbconfsrchvxmfirst();
+                return $this->getPotbconfuseidopts();
                 break;
             case 53:
-                return $this->getPotbconfopenlineonly();
+                return $this->getPotbconfsrchvxmfirst();
                 break;
             case 54:
-                return $this->getPotbconfitemdesc();
+                return $this->getPotbconfopenlineonly();
                 break;
             case 55:
-                return $this->getPotbconfopenbalonly();
+                return $this->getPotbconfitemdesc();
                 break;
             case 56:
-                return $this->getPotbconfprtwhsedtl();
+                return $this->getPotbconfopenbalonly();
                 break;
             case 57:
-                return $this->getPotbconfautorcpt();
+                return $this->getPotbconfprtwhsedtl();
                 break;
             case 58:
-                return $this->getPotbconfdispitemcost();
+                return $this->getPotbconfautorcpt();
                 break;
             case 59:
-                return $this->getPotbconfdispcaseqty();
+                return $this->getPotbconfdispitemcost();
                 break;
             case 60:
-                return $this->getPotbconfonetwoline();
+                return $this->getPotbconfdispcaseqty();
                 break;
             case 61:
-                return $this->getPotbconfuseordras();
+                return $this->getPotbconfonetwoline();
                 break;
             case 62:
-                return $this->getPotbconfaprvvendonly();
+                return $this->getPotbconfuseordras();
                 break;
             case 63:
-                return $this->getPotbconfusefab();
+                return $this->getPotbconfaprvvendonly();
                 break;
             case 64:
-                return $this->getPotbconfshowitem();
+                return $this->getPotbconfusefab();
                 break;
             case 65:
-                return $this->getPotbconfscrapacct();
+                return $this->getPotbconfshowitem();
                 break;
             case 66:
-                return $this->getPotbconfscrapvaripct();
+                return $this->getPotbconfscrapacct();
                 break;
             case 67:
-                return $this->getPotbconflifofifo();
+                return $this->getPotbconfscrapvaripct();
                 break;
             case 68:
-                return $this->getPotbconffabbomorkit();
+                return $this->getPotbconflifofifo();
                 break;
             case 69:
-                return $this->getPotbconfallocepoer();
+                return $this->getPotbconffabbomorkit();
                 break;
             case 70:
-                return $this->getPotbconffabprealloc();
+                return $this->getPotbconfallocepoer();
                 break;
             case 71:
-                return $this->getPotbconfforcefabepo();
+                return $this->getPotbconffabprealloc();
                 break;
             case 72:
-                return $this->getPotbconfpreviewcomplist();
+                return $this->getPotbconfforcefabepo();
                 break;
             case 73:
-                return $this->getPotbconfnegcompusage();
+                return $this->getPotbconfpreviewcomplist();
                 break;
             case 74:
-                return $this->getPotbconfautoselectcomp();
+                return $this->getPotbconfnegcompusage();
                 break;
             case 75:
-                return $this->getPotbconfbinfromvendor();
+                return $this->getPotbconfautoselectcomp();
                 break;
             case 76:
-                return $this->getPotbconfdfltstckcd();
+                return $this->getPotbconfbinfromvendor();
                 break;
             case 77:
-                return $this->getPotbconfuseremain();
+                return $this->getPotbconfdfltstckcd();
                 break;
             case 78:
-                return $this->getPotbconfsamecompcost();
+                return $this->getPotbconfuseremain();
                 break;
             case 79:
-                return $this->getPotbconfpasscode();
+                return $this->getPotbconfsamecompcost();
                 break;
             case 80:
-                return $this->getPotbconfuselandcost();
+                return $this->getPotbconfpasscode();
                 break;
             case 81:
-                return $this->getPotbconfbaselandamtqty();
+                return $this->getPotbconfuselandcost();
                 break;
             case 82:
-                return $this->getPotbconfwarnlandiner();
+                return $this->getPotbconfbaselandamtqty();
                 break;
             case 83:
-                return $this->getPotbconflandamtmultwght();
+                return $this->getPotbconfwarnlandiner();
                 break;
             case 84:
-                return $this->getPotbconflanderedit();
+                return $this->getPotbconflandamtmultwght();
                 break;
             case 85:
-                return $this->getPotbconfhistcmplfab();
+                return $this->getPotbconflanderedit();
                 break;
             case 86:
-                return $this->getPotbconflandglacct();
+                return $this->getPotbconfhistcmplfab();
                 break;
             case 87:
-                return $this->getPotblandmpfglacct();
+                return $this->getPotbconflandglacct();
                 break;
             case 88:
-                return $this->getPotblandhmfglacct();
+                return $this->getPotblandmpfglacct();
                 break;
             case 89:
-                return $this->getPotblanddsetglacct();
+                return $this->getPotblandhmfglacct();
                 break;
             case 90:
-                return $this->getDateupdtd();
+                return $this->getPotblanddsetglacct();
                 break;
             case 91:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 92:
+                return $this->getTimeupdtd();
+                break;
+            case 93:
                 return $this->getDummy();
                 break;
             default:
@@ -5773,80 +5828,81 @@ abstract class ConfigPo implements ActiveRecordInterface
             $keys[16] => $this->getPotbconfeditpoitemnotes(),
             $keys[17] => $this->getPotbconfloadpovxmnotes(),
             $keys[18] => $this->getPotbconfepoupdlastcost(),
-            $keys[19] => $this->getPotbconfrecall(),
-            $keys[20] => $this->getPotbconfrecallask(),
-            $keys[21] => $this->getPotbconfreceivecost(),
-            $keys[22] => $this->getPotbconfprocvari(),
-            $keys[23] => $this->getPotbconfcostrcvryacct(),
-            $keys[24] => $this->getPotbconfinvtyvariacct(),
-            $keys[25] => $this->getPotbconfallowchgcost(),
-            $keys[26] => $this->getPotbconfwarnrcptqty(),
-            $keys[27] => $this->getPotbconferdispdate(),
-            $keys[28] => $this->getPotbconfprovidelpo(),
-            $keys[29] => $this->getPotbconfwarndiffwhse(),
-            $keys[30] => $this->getPotbconfallocrcvd(),
-            $keys[31] => $this->getPotbconfaskclose(),
-            $keys[32] => $this->getPotbconferadd2po(),
-            $keys[33] => $this->getPotbconftariffglacct(),
-            $keys[34] => $this->getPotbconfshopglacct(),
-            $keys[35] => $this->getPotbconfshoprate(),
-            $keys[36] => $this->getPotbconfuseprime(),
-            $keys[37] => $this->getPotbconfusewatch(),
-            $keys[38] => $this->getPotbconfprtpowsugg(),
-            $keys[39] => $this->getPotbconfpowslctyes(),
-            $keys[40] => $this->getPotbconfpowgvendrpt(),
-            $keys[41] => $this->getPotbconfpowgwipstatus(),
-            $keys[42] => $this->getPotbconfpowgwipautogen(),
-            $keys[43] => $this->getPotbconfbuyercontrol(),
-            $keys[44] => $this->getPotbconfpowgoqmethod(),
-            $keys[45] => $this->getPotbconffxpo(),
-            $keys[46] => $this->getPotbconffxinv(),
-            $keys[47] => $this->getPotbconfupdatevendcost(),
-            $keys[48] => $this->getPotbconfaskupdate(),
-            $keys[49] => $this->getPotbconfvxmroundpos(),
-            $keys[50] => $this->getPotbconfxrefmaint(),
-            $keys[51] => $this->getPotbconfuseidopts(),
-            $keys[52] => $this->getPotbconfsrchvxmfirst(),
-            $keys[53] => $this->getPotbconfopenlineonly(),
-            $keys[54] => $this->getPotbconfitemdesc(),
-            $keys[55] => $this->getPotbconfopenbalonly(),
-            $keys[56] => $this->getPotbconfprtwhsedtl(),
-            $keys[57] => $this->getPotbconfautorcpt(),
-            $keys[58] => $this->getPotbconfdispitemcost(),
-            $keys[59] => $this->getPotbconfdispcaseqty(),
-            $keys[60] => $this->getPotbconfonetwoline(),
-            $keys[61] => $this->getPotbconfuseordras(),
-            $keys[62] => $this->getPotbconfaprvvendonly(),
-            $keys[63] => $this->getPotbconfusefab(),
-            $keys[64] => $this->getPotbconfshowitem(),
-            $keys[65] => $this->getPotbconfscrapacct(),
-            $keys[66] => $this->getPotbconfscrapvaripct(),
-            $keys[67] => $this->getPotbconflifofifo(),
-            $keys[68] => $this->getPotbconffabbomorkit(),
-            $keys[69] => $this->getPotbconfallocepoer(),
-            $keys[70] => $this->getPotbconffabprealloc(),
-            $keys[71] => $this->getPotbconfforcefabepo(),
-            $keys[72] => $this->getPotbconfpreviewcomplist(),
-            $keys[73] => $this->getPotbconfnegcompusage(),
-            $keys[74] => $this->getPotbconfautoselectcomp(),
-            $keys[75] => $this->getPotbconfbinfromvendor(),
-            $keys[76] => $this->getPotbconfdfltstckcd(),
-            $keys[77] => $this->getPotbconfuseremain(),
-            $keys[78] => $this->getPotbconfsamecompcost(),
-            $keys[79] => $this->getPotbconfpasscode(),
-            $keys[80] => $this->getPotbconfuselandcost(),
-            $keys[81] => $this->getPotbconfbaselandamtqty(),
-            $keys[82] => $this->getPotbconfwarnlandiner(),
-            $keys[83] => $this->getPotbconflandamtmultwght(),
-            $keys[84] => $this->getPotbconflanderedit(),
-            $keys[85] => $this->getPotbconfhistcmplfab(),
-            $keys[86] => $this->getPotbconflandglacct(),
-            $keys[87] => $this->getPotblandmpfglacct(),
-            $keys[88] => $this->getPotblandhmfglacct(),
-            $keys[89] => $this->getPotblanddsetglacct(),
-            $keys[90] => $this->getDateupdtd(),
-            $keys[91] => $this->getTimeupdtd(),
-            $keys[92] => $this->getDummy(),
+            $keys[19] => $this->getPotbconfrevisionentry(),
+            $keys[20] => $this->getPotbconfrecall(),
+            $keys[21] => $this->getPotbconfrecallask(),
+            $keys[22] => $this->getPotbconfreceivecost(),
+            $keys[23] => $this->getPotbconfprocvari(),
+            $keys[24] => $this->getPotbconfcostrcvryacct(),
+            $keys[25] => $this->getPotbconfinvtyvariacct(),
+            $keys[26] => $this->getPotbconfallowchgcost(),
+            $keys[27] => $this->getPotbconfwarnrcptqty(),
+            $keys[28] => $this->getPotbconferdispdate(),
+            $keys[29] => $this->getPotbconfprovidelpo(),
+            $keys[30] => $this->getPotbconfwarndiffwhse(),
+            $keys[31] => $this->getPotbconfallocrcvd(),
+            $keys[32] => $this->getPotbconfaskclose(),
+            $keys[33] => $this->getPotbconferadd2po(),
+            $keys[34] => $this->getPotbconftariffglacct(),
+            $keys[35] => $this->getPotbconfshopglacct(),
+            $keys[36] => $this->getPotbconfshoprate(),
+            $keys[37] => $this->getPotbconfuseprime(),
+            $keys[38] => $this->getPotbconfusewatch(),
+            $keys[39] => $this->getPotbconfprtpowsugg(),
+            $keys[40] => $this->getPotbconfpowslctyes(),
+            $keys[41] => $this->getPotbconfpowgvendrpt(),
+            $keys[42] => $this->getPotbconfpowgwipstatus(),
+            $keys[43] => $this->getPotbconfpowgwipautogen(),
+            $keys[44] => $this->getPotbconfbuyercontrol(),
+            $keys[45] => $this->getPotbconfpowgoqmethod(),
+            $keys[46] => $this->getPotbconffxpo(),
+            $keys[47] => $this->getPotbconffxinv(),
+            $keys[48] => $this->getPotbconfupdatevendcost(),
+            $keys[49] => $this->getPotbconfaskupdate(),
+            $keys[50] => $this->getPotbconfvxmroundpos(),
+            $keys[51] => $this->getPotbconfxrefmaint(),
+            $keys[52] => $this->getPotbconfuseidopts(),
+            $keys[53] => $this->getPotbconfsrchvxmfirst(),
+            $keys[54] => $this->getPotbconfopenlineonly(),
+            $keys[55] => $this->getPotbconfitemdesc(),
+            $keys[56] => $this->getPotbconfopenbalonly(),
+            $keys[57] => $this->getPotbconfprtwhsedtl(),
+            $keys[58] => $this->getPotbconfautorcpt(),
+            $keys[59] => $this->getPotbconfdispitemcost(),
+            $keys[60] => $this->getPotbconfdispcaseqty(),
+            $keys[61] => $this->getPotbconfonetwoline(),
+            $keys[62] => $this->getPotbconfuseordras(),
+            $keys[63] => $this->getPotbconfaprvvendonly(),
+            $keys[64] => $this->getPotbconfusefab(),
+            $keys[65] => $this->getPotbconfshowitem(),
+            $keys[66] => $this->getPotbconfscrapacct(),
+            $keys[67] => $this->getPotbconfscrapvaripct(),
+            $keys[68] => $this->getPotbconflifofifo(),
+            $keys[69] => $this->getPotbconffabbomorkit(),
+            $keys[70] => $this->getPotbconfallocepoer(),
+            $keys[71] => $this->getPotbconffabprealloc(),
+            $keys[72] => $this->getPotbconfforcefabepo(),
+            $keys[73] => $this->getPotbconfpreviewcomplist(),
+            $keys[74] => $this->getPotbconfnegcompusage(),
+            $keys[75] => $this->getPotbconfautoselectcomp(),
+            $keys[76] => $this->getPotbconfbinfromvendor(),
+            $keys[77] => $this->getPotbconfdfltstckcd(),
+            $keys[78] => $this->getPotbconfuseremain(),
+            $keys[79] => $this->getPotbconfsamecompcost(),
+            $keys[80] => $this->getPotbconfpasscode(),
+            $keys[81] => $this->getPotbconfuselandcost(),
+            $keys[82] => $this->getPotbconfbaselandamtqty(),
+            $keys[83] => $this->getPotbconfwarnlandiner(),
+            $keys[84] => $this->getPotbconflandamtmultwght(),
+            $keys[85] => $this->getPotbconflanderedit(),
+            $keys[86] => $this->getPotbconfhistcmplfab(),
+            $keys[87] => $this->getPotbconflandglacct(),
+            $keys[88] => $this->getPotblandmpfglacct(),
+            $keys[89] => $this->getPotblandhmfglacct(),
+            $keys[90] => $this->getPotblanddsetglacct(),
+            $keys[91] => $this->getDateupdtd(),
+            $keys[92] => $this->getTimeupdtd(),
+            $keys[93] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -5944,225 +6000,228 @@ abstract class ConfigPo implements ActiveRecordInterface
                 $this->setPotbconfepoupdlastcost($value);
                 break;
             case 19:
-                $this->setPotbconfrecall($value);
+                $this->setPotbconfrevisionentry($value);
                 break;
             case 20:
-                $this->setPotbconfrecallask($value);
+                $this->setPotbconfrecall($value);
                 break;
             case 21:
-                $this->setPotbconfreceivecost($value);
+                $this->setPotbconfrecallask($value);
                 break;
             case 22:
-                $this->setPotbconfprocvari($value);
+                $this->setPotbconfreceivecost($value);
                 break;
             case 23:
-                $this->setPotbconfcostrcvryacct($value);
+                $this->setPotbconfprocvari($value);
                 break;
             case 24:
-                $this->setPotbconfinvtyvariacct($value);
+                $this->setPotbconfcostrcvryacct($value);
                 break;
             case 25:
-                $this->setPotbconfallowchgcost($value);
+                $this->setPotbconfinvtyvariacct($value);
                 break;
             case 26:
-                $this->setPotbconfwarnrcptqty($value);
+                $this->setPotbconfallowchgcost($value);
                 break;
             case 27:
-                $this->setPotbconferdispdate($value);
+                $this->setPotbconfwarnrcptqty($value);
                 break;
             case 28:
-                $this->setPotbconfprovidelpo($value);
+                $this->setPotbconferdispdate($value);
                 break;
             case 29:
-                $this->setPotbconfwarndiffwhse($value);
+                $this->setPotbconfprovidelpo($value);
                 break;
             case 30:
-                $this->setPotbconfallocrcvd($value);
+                $this->setPotbconfwarndiffwhse($value);
                 break;
             case 31:
-                $this->setPotbconfaskclose($value);
+                $this->setPotbconfallocrcvd($value);
                 break;
             case 32:
-                $this->setPotbconferadd2po($value);
+                $this->setPotbconfaskclose($value);
                 break;
             case 33:
-                $this->setPotbconftariffglacct($value);
+                $this->setPotbconferadd2po($value);
                 break;
             case 34:
-                $this->setPotbconfshopglacct($value);
+                $this->setPotbconftariffglacct($value);
                 break;
             case 35:
-                $this->setPotbconfshoprate($value);
+                $this->setPotbconfshopglacct($value);
                 break;
             case 36:
-                $this->setPotbconfuseprime($value);
+                $this->setPotbconfshoprate($value);
                 break;
             case 37:
-                $this->setPotbconfusewatch($value);
+                $this->setPotbconfuseprime($value);
                 break;
             case 38:
-                $this->setPotbconfprtpowsugg($value);
+                $this->setPotbconfusewatch($value);
                 break;
             case 39:
-                $this->setPotbconfpowslctyes($value);
+                $this->setPotbconfprtpowsugg($value);
                 break;
             case 40:
-                $this->setPotbconfpowgvendrpt($value);
+                $this->setPotbconfpowslctyes($value);
                 break;
             case 41:
-                $this->setPotbconfpowgwipstatus($value);
+                $this->setPotbconfpowgvendrpt($value);
                 break;
             case 42:
-                $this->setPotbconfpowgwipautogen($value);
+                $this->setPotbconfpowgwipstatus($value);
                 break;
             case 43:
-                $this->setPotbconfbuyercontrol($value);
+                $this->setPotbconfpowgwipautogen($value);
                 break;
             case 44:
-                $this->setPotbconfpowgoqmethod($value);
+                $this->setPotbconfbuyercontrol($value);
                 break;
             case 45:
-                $this->setPotbconffxpo($value);
+                $this->setPotbconfpowgoqmethod($value);
                 break;
             case 46:
-                $this->setPotbconffxinv($value);
+                $this->setPotbconffxpo($value);
                 break;
             case 47:
-                $this->setPotbconfupdatevendcost($value);
+                $this->setPotbconffxinv($value);
                 break;
             case 48:
-                $this->setPotbconfaskupdate($value);
+                $this->setPotbconfupdatevendcost($value);
                 break;
             case 49:
-                $this->setPotbconfvxmroundpos($value);
+                $this->setPotbconfaskupdate($value);
                 break;
             case 50:
-                $this->setPotbconfxrefmaint($value);
+                $this->setPotbconfvxmroundpos($value);
                 break;
             case 51:
-                $this->setPotbconfuseidopts($value);
+                $this->setPotbconfxrefmaint($value);
                 break;
             case 52:
-                $this->setPotbconfsrchvxmfirst($value);
+                $this->setPotbconfuseidopts($value);
                 break;
             case 53:
-                $this->setPotbconfopenlineonly($value);
+                $this->setPotbconfsrchvxmfirst($value);
                 break;
             case 54:
-                $this->setPotbconfitemdesc($value);
+                $this->setPotbconfopenlineonly($value);
                 break;
             case 55:
-                $this->setPotbconfopenbalonly($value);
+                $this->setPotbconfitemdesc($value);
                 break;
             case 56:
-                $this->setPotbconfprtwhsedtl($value);
+                $this->setPotbconfopenbalonly($value);
                 break;
             case 57:
-                $this->setPotbconfautorcpt($value);
+                $this->setPotbconfprtwhsedtl($value);
                 break;
             case 58:
-                $this->setPotbconfdispitemcost($value);
+                $this->setPotbconfautorcpt($value);
                 break;
             case 59:
-                $this->setPotbconfdispcaseqty($value);
+                $this->setPotbconfdispitemcost($value);
                 break;
             case 60:
-                $this->setPotbconfonetwoline($value);
+                $this->setPotbconfdispcaseqty($value);
                 break;
             case 61:
-                $this->setPotbconfuseordras($value);
+                $this->setPotbconfonetwoline($value);
                 break;
             case 62:
-                $this->setPotbconfaprvvendonly($value);
+                $this->setPotbconfuseordras($value);
                 break;
             case 63:
-                $this->setPotbconfusefab($value);
+                $this->setPotbconfaprvvendonly($value);
                 break;
             case 64:
-                $this->setPotbconfshowitem($value);
+                $this->setPotbconfusefab($value);
                 break;
             case 65:
-                $this->setPotbconfscrapacct($value);
+                $this->setPotbconfshowitem($value);
                 break;
             case 66:
-                $this->setPotbconfscrapvaripct($value);
+                $this->setPotbconfscrapacct($value);
                 break;
             case 67:
-                $this->setPotbconflifofifo($value);
+                $this->setPotbconfscrapvaripct($value);
                 break;
             case 68:
-                $this->setPotbconffabbomorkit($value);
+                $this->setPotbconflifofifo($value);
                 break;
             case 69:
-                $this->setPotbconfallocepoer($value);
+                $this->setPotbconffabbomorkit($value);
                 break;
             case 70:
-                $this->setPotbconffabprealloc($value);
+                $this->setPotbconfallocepoer($value);
                 break;
             case 71:
-                $this->setPotbconfforcefabepo($value);
+                $this->setPotbconffabprealloc($value);
                 break;
             case 72:
-                $this->setPotbconfpreviewcomplist($value);
+                $this->setPotbconfforcefabepo($value);
                 break;
             case 73:
-                $this->setPotbconfnegcompusage($value);
+                $this->setPotbconfpreviewcomplist($value);
                 break;
             case 74:
-                $this->setPotbconfautoselectcomp($value);
+                $this->setPotbconfnegcompusage($value);
                 break;
             case 75:
-                $this->setPotbconfbinfromvendor($value);
+                $this->setPotbconfautoselectcomp($value);
                 break;
             case 76:
-                $this->setPotbconfdfltstckcd($value);
+                $this->setPotbconfbinfromvendor($value);
                 break;
             case 77:
-                $this->setPotbconfuseremain($value);
+                $this->setPotbconfdfltstckcd($value);
                 break;
             case 78:
-                $this->setPotbconfsamecompcost($value);
+                $this->setPotbconfuseremain($value);
                 break;
             case 79:
-                $this->setPotbconfpasscode($value);
+                $this->setPotbconfsamecompcost($value);
                 break;
             case 80:
-                $this->setPotbconfuselandcost($value);
+                $this->setPotbconfpasscode($value);
                 break;
             case 81:
-                $this->setPotbconfbaselandamtqty($value);
+                $this->setPotbconfuselandcost($value);
                 break;
             case 82:
-                $this->setPotbconfwarnlandiner($value);
+                $this->setPotbconfbaselandamtqty($value);
                 break;
             case 83:
-                $this->setPotbconflandamtmultwght($value);
+                $this->setPotbconfwarnlandiner($value);
                 break;
             case 84:
-                $this->setPotbconflanderedit($value);
+                $this->setPotbconflandamtmultwght($value);
                 break;
             case 85:
-                $this->setPotbconfhistcmplfab($value);
+                $this->setPotbconflanderedit($value);
                 break;
             case 86:
-                $this->setPotbconflandglacct($value);
+                $this->setPotbconfhistcmplfab($value);
                 break;
             case 87:
-                $this->setPotblandmpfglacct($value);
+                $this->setPotbconflandglacct($value);
                 break;
             case 88:
-                $this->setPotblandhmfglacct($value);
+                $this->setPotblandmpfglacct($value);
                 break;
             case 89:
-                $this->setPotblanddsetglacct($value);
+                $this->setPotblandhmfglacct($value);
                 break;
             case 90:
-                $this->setDateupdtd($value);
+                $this->setPotblanddsetglacct($value);
                 break;
             case 91:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 92:
+                $this->setTimeupdtd($value);
+                break;
+            case 93:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -6249,226 +6308,229 @@ abstract class ConfigPo implements ActiveRecordInterface
             $this->setPotbconfepoupdlastcost($arr[$keys[18]]);
         }
         if (array_key_exists($keys[19], $arr)) {
-            $this->setPotbconfrecall($arr[$keys[19]]);
+            $this->setPotbconfrevisionentry($arr[$keys[19]]);
         }
         if (array_key_exists($keys[20], $arr)) {
-            $this->setPotbconfrecallask($arr[$keys[20]]);
+            $this->setPotbconfrecall($arr[$keys[20]]);
         }
         if (array_key_exists($keys[21], $arr)) {
-            $this->setPotbconfreceivecost($arr[$keys[21]]);
+            $this->setPotbconfrecallask($arr[$keys[21]]);
         }
         if (array_key_exists($keys[22], $arr)) {
-            $this->setPotbconfprocvari($arr[$keys[22]]);
+            $this->setPotbconfreceivecost($arr[$keys[22]]);
         }
         if (array_key_exists($keys[23], $arr)) {
-            $this->setPotbconfcostrcvryacct($arr[$keys[23]]);
+            $this->setPotbconfprocvari($arr[$keys[23]]);
         }
         if (array_key_exists($keys[24], $arr)) {
-            $this->setPotbconfinvtyvariacct($arr[$keys[24]]);
+            $this->setPotbconfcostrcvryacct($arr[$keys[24]]);
         }
         if (array_key_exists($keys[25], $arr)) {
-            $this->setPotbconfallowchgcost($arr[$keys[25]]);
+            $this->setPotbconfinvtyvariacct($arr[$keys[25]]);
         }
         if (array_key_exists($keys[26], $arr)) {
-            $this->setPotbconfwarnrcptqty($arr[$keys[26]]);
+            $this->setPotbconfallowchgcost($arr[$keys[26]]);
         }
         if (array_key_exists($keys[27], $arr)) {
-            $this->setPotbconferdispdate($arr[$keys[27]]);
+            $this->setPotbconfwarnrcptqty($arr[$keys[27]]);
         }
         if (array_key_exists($keys[28], $arr)) {
-            $this->setPotbconfprovidelpo($arr[$keys[28]]);
+            $this->setPotbconferdispdate($arr[$keys[28]]);
         }
         if (array_key_exists($keys[29], $arr)) {
-            $this->setPotbconfwarndiffwhse($arr[$keys[29]]);
+            $this->setPotbconfprovidelpo($arr[$keys[29]]);
         }
         if (array_key_exists($keys[30], $arr)) {
-            $this->setPotbconfallocrcvd($arr[$keys[30]]);
+            $this->setPotbconfwarndiffwhse($arr[$keys[30]]);
         }
         if (array_key_exists($keys[31], $arr)) {
-            $this->setPotbconfaskclose($arr[$keys[31]]);
+            $this->setPotbconfallocrcvd($arr[$keys[31]]);
         }
         if (array_key_exists($keys[32], $arr)) {
-            $this->setPotbconferadd2po($arr[$keys[32]]);
+            $this->setPotbconfaskclose($arr[$keys[32]]);
         }
         if (array_key_exists($keys[33], $arr)) {
-            $this->setPotbconftariffglacct($arr[$keys[33]]);
+            $this->setPotbconferadd2po($arr[$keys[33]]);
         }
         if (array_key_exists($keys[34], $arr)) {
-            $this->setPotbconfshopglacct($arr[$keys[34]]);
+            $this->setPotbconftariffglacct($arr[$keys[34]]);
         }
         if (array_key_exists($keys[35], $arr)) {
-            $this->setPotbconfshoprate($arr[$keys[35]]);
+            $this->setPotbconfshopglacct($arr[$keys[35]]);
         }
         if (array_key_exists($keys[36], $arr)) {
-            $this->setPotbconfuseprime($arr[$keys[36]]);
+            $this->setPotbconfshoprate($arr[$keys[36]]);
         }
         if (array_key_exists($keys[37], $arr)) {
-            $this->setPotbconfusewatch($arr[$keys[37]]);
+            $this->setPotbconfuseprime($arr[$keys[37]]);
         }
         if (array_key_exists($keys[38], $arr)) {
-            $this->setPotbconfprtpowsugg($arr[$keys[38]]);
+            $this->setPotbconfusewatch($arr[$keys[38]]);
         }
         if (array_key_exists($keys[39], $arr)) {
-            $this->setPotbconfpowslctyes($arr[$keys[39]]);
+            $this->setPotbconfprtpowsugg($arr[$keys[39]]);
         }
         if (array_key_exists($keys[40], $arr)) {
-            $this->setPotbconfpowgvendrpt($arr[$keys[40]]);
+            $this->setPotbconfpowslctyes($arr[$keys[40]]);
         }
         if (array_key_exists($keys[41], $arr)) {
-            $this->setPotbconfpowgwipstatus($arr[$keys[41]]);
+            $this->setPotbconfpowgvendrpt($arr[$keys[41]]);
         }
         if (array_key_exists($keys[42], $arr)) {
-            $this->setPotbconfpowgwipautogen($arr[$keys[42]]);
+            $this->setPotbconfpowgwipstatus($arr[$keys[42]]);
         }
         if (array_key_exists($keys[43], $arr)) {
-            $this->setPotbconfbuyercontrol($arr[$keys[43]]);
+            $this->setPotbconfpowgwipautogen($arr[$keys[43]]);
         }
         if (array_key_exists($keys[44], $arr)) {
-            $this->setPotbconfpowgoqmethod($arr[$keys[44]]);
+            $this->setPotbconfbuyercontrol($arr[$keys[44]]);
         }
         if (array_key_exists($keys[45], $arr)) {
-            $this->setPotbconffxpo($arr[$keys[45]]);
+            $this->setPotbconfpowgoqmethod($arr[$keys[45]]);
         }
         if (array_key_exists($keys[46], $arr)) {
-            $this->setPotbconffxinv($arr[$keys[46]]);
+            $this->setPotbconffxpo($arr[$keys[46]]);
         }
         if (array_key_exists($keys[47], $arr)) {
-            $this->setPotbconfupdatevendcost($arr[$keys[47]]);
+            $this->setPotbconffxinv($arr[$keys[47]]);
         }
         if (array_key_exists($keys[48], $arr)) {
-            $this->setPotbconfaskupdate($arr[$keys[48]]);
+            $this->setPotbconfupdatevendcost($arr[$keys[48]]);
         }
         if (array_key_exists($keys[49], $arr)) {
-            $this->setPotbconfvxmroundpos($arr[$keys[49]]);
+            $this->setPotbconfaskupdate($arr[$keys[49]]);
         }
         if (array_key_exists($keys[50], $arr)) {
-            $this->setPotbconfxrefmaint($arr[$keys[50]]);
+            $this->setPotbconfvxmroundpos($arr[$keys[50]]);
         }
         if (array_key_exists($keys[51], $arr)) {
-            $this->setPotbconfuseidopts($arr[$keys[51]]);
+            $this->setPotbconfxrefmaint($arr[$keys[51]]);
         }
         if (array_key_exists($keys[52], $arr)) {
-            $this->setPotbconfsrchvxmfirst($arr[$keys[52]]);
+            $this->setPotbconfuseidopts($arr[$keys[52]]);
         }
         if (array_key_exists($keys[53], $arr)) {
-            $this->setPotbconfopenlineonly($arr[$keys[53]]);
+            $this->setPotbconfsrchvxmfirst($arr[$keys[53]]);
         }
         if (array_key_exists($keys[54], $arr)) {
-            $this->setPotbconfitemdesc($arr[$keys[54]]);
+            $this->setPotbconfopenlineonly($arr[$keys[54]]);
         }
         if (array_key_exists($keys[55], $arr)) {
-            $this->setPotbconfopenbalonly($arr[$keys[55]]);
+            $this->setPotbconfitemdesc($arr[$keys[55]]);
         }
         if (array_key_exists($keys[56], $arr)) {
-            $this->setPotbconfprtwhsedtl($arr[$keys[56]]);
+            $this->setPotbconfopenbalonly($arr[$keys[56]]);
         }
         if (array_key_exists($keys[57], $arr)) {
-            $this->setPotbconfautorcpt($arr[$keys[57]]);
+            $this->setPotbconfprtwhsedtl($arr[$keys[57]]);
         }
         if (array_key_exists($keys[58], $arr)) {
-            $this->setPotbconfdispitemcost($arr[$keys[58]]);
+            $this->setPotbconfautorcpt($arr[$keys[58]]);
         }
         if (array_key_exists($keys[59], $arr)) {
-            $this->setPotbconfdispcaseqty($arr[$keys[59]]);
+            $this->setPotbconfdispitemcost($arr[$keys[59]]);
         }
         if (array_key_exists($keys[60], $arr)) {
-            $this->setPotbconfonetwoline($arr[$keys[60]]);
+            $this->setPotbconfdispcaseqty($arr[$keys[60]]);
         }
         if (array_key_exists($keys[61], $arr)) {
-            $this->setPotbconfuseordras($arr[$keys[61]]);
+            $this->setPotbconfonetwoline($arr[$keys[61]]);
         }
         if (array_key_exists($keys[62], $arr)) {
-            $this->setPotbconfaprvvendonly($arr[$keys[62]]);
+            $this->setPotbconfuseordras($arr[$keys[62]]);
         }
         if (array_key_exists($keys[63], $arr)) {
-            $this->setPotbconfusefab($arr[$keys[63]]);
+            $this->setPotbconfaprvvendonly($arr[$keys[63]]);
         }
         if (array_key_exists($keys[64], $arr)) {
-            $this->setPotbconfshowitem($arr[$keys[64]]);
+            $this->setPotbconfusefab($arr[$keys[64]]);
         }
         if (array_key_exists($keys[65], $arr)) {
-            $this->setPotbconfscrapacct($arr[$keys[65]]);
+            $this->setPotbconfshowitem($arr[$keys[65]]);
         }
         if (array_key_exists($keys[66], $arr)) {
-            $this->setPotbconfscrapvaripct($arr[$keys[66]]);
+            $this->setPotbconfscrapacct($arr[$keys[66]]);
         }
         if (array_key_exists($keys[67], $arr)) {
-            $this->setPotbconflifofifo($arr[$keys[67]]);
+            $this->setPotbconfscrapvaripct($arr[$keys[67]]);
         }
         if (array_key_exists($keys[68], $arr)) {
-            $this->setPotbconffabbomorkit($arr[$keys[68]]);
+            $this->setPotbconflifofifo($arr[$keys[68]]);
         }
         if (array_key_exists($keys[69], $arr)) {
-            $this->setPotbconfallocepoer($arr[$keys[69]]);
+            $this->setPotbconffabbomorkit($arr[$keys[69]]);
         }
         if (array_key_exists($keys[70], $arr)) {
-            $this->setPotbconffabprealloc($arr[$keys[70]]);
+            $this->setPotbconfallocepoer($arr[$keys[70]]);
         }
         if (array_key_exists($keys[71], $arr)) {
-            $this->setPotbconfforcefabepo($arr[$keys[71]]);
+            $this->setPotbconffabprealloc($arr[$keys[71]]);
         }
         if (array_key_exists($keys[72], $arr)) {
-            $this->setPotbconfpreviewcomplist($arr[$keys[72]]);
+            $this->setPotbconfforcefabepo($arr[$keys[72]]);
         }
         if (array_key_exists($keys[73], $arr)) {
-            $this->setPotbconfnegcompusage($arr[$keys[73]]);
+            $this->setPotbconfpreviewcomplist($arr[$keys[73]]);
         }
         if (array_key_exists($keys[74], $arr)) {
-            $this->setPotbconfautoselectcomp($arr[$keys[74]]);
+            $this->setPotbconfnegcompusage($arr[$keys[74]]);
         }
         if (array_key_exists($keys[75], $arr)) {
-            $this->setPotbconfbinfromvendor($arr[$keys[75]]);
+            $this->setPotbconfautoselectcomp($arr[$keys[75]]);
         }
         if (array_key_exists($keys[76], $arr)) {
-            $this->setPotbconfdfltstckcd($arr[$keys[76]]);
+            $this->setPotbconfbinfromvendor($arr[$keys[76]]);
         }
         if (array_key_exists($keys[77], $arr)) {
-            $this->setPotbconfuseremain($arr[$keys[77]]);
+            $this->setPotbconfdfltstckcd($arr[$keys[77]]);
         }
         if (array_key_exists($keys[78], $arr)) {
-            $this->setPotbconfsamecompcost($arr[$keys[78]]);
+            $this->setPotbconfuseremain($arr[$keys[78]]);
         }
         if (array_key_exists($keys[79], $arr)) {
-            $this->setPotbconfpasscode($arr[$keys[79]]);
+            $this->setPotbconfsamecompcost($arr[$keys[79]]);
         }
         if (array_key_exists($keys[80], $arr)) {
-            $this->setPotbconfuselandcost($arr[$keys[80]]);
+            $this->setPotbconfpasscode($arr[$keys[80]]);
         }
         if (array_key_exists($keys[81], $arr)) {
-            $this->setPotbconfbaselandamtqty($arr[$keys[81]]);
+            $this->setPotbconfuselandcost($arr[$keys[81]]);
         }
         if (array_key_exists($keys[82], $arr)) {
-            $this->setPotbconfwarnlandiner($arr[$keys[82]]);
+            $this->setPotbconfbaselandamtqty($arr[$keys[82]]);
         }
         if (array_key_exists($keys[83], $arr)) {
-            $this->setPotbconflandamtmultwght($arr[$keys[83]]);
+            $this->setPotbconfwarnlandiner($arr[$keys[83]]);
         }
         if (array_key_exists($keys[84], $arr)) {
-            $this->setPotbconflanderedit($arr[$keys[84]]);
+            $this->setPotbconflandamtmultwght($arr[$keys[84]]);
         }
         if (array_key_exists($keys[85], $arr)) {
-            $this->setPotbconfhistcmplfab($arr[$keys[85]]);
+            $this->setPotbconflanderedit($arr[$keys[85]]);
         }
         if (array_key_exists($keys[86], $arr)) {
-            $this->setPotbconflandglacct($arr[$keys[86]]);
+            $this->setPotbconfhistcmplfab($arr[$keys[86]]);
         }
         if (array_key_exists($keys[87], $arr)) {
-            $this->setPotblandmpfglacct($arr[$keys[87]]);
+            $this->setPotbconflandglacct($arr[$keys[87]]);
         }
         if (array_key_exists($keys[88], $arr)) {
-            $this->setPotblandhmfglacct($arr[$keys[88]]);
+            $this->setPotblandmpfglacct($arr[$keys[88]]);
         }
         if (array_key_exists($keys[89], $arr)) {
-            $this->setPotblanddsetglacct($arr[$keys[89]]);
+            $this->setPotblandhmfglacct($arr[$keys[89]]);
         }
         if (array_key_exists($keys[90], $arr)) {
-            $this->setDateupdtd($arr[$keys[90]]);
+            $this->setPotblanddsetglacct($arr[$keys[90]]);
         }
         if (array_key_exists($keys[91], $arr)) {
-            $this->setTimeupdtd($arr[$keys[91]]);
+            $this->setDateupdtd($arr[$keys[91]]);
         }
         if (array_key_exists($keys[92], $arr)) {
-            $this->setDummy($arr[$keys[92]]);
+            $this->setTimeupdtd($arr[$keys[92]]);
+        }
+        if (array_key_exists($keys[93], $arr)) {
+            $this->setDummy($arr[$keys[93]]);
         }
     }
 
@@ -6567,6 +6629,9 @@ abstract class ConfigPo implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ConfigPoTableMap::COL_POTBCONFEPOUPDLASTCOST)) {
             $criteria->add(ConfigPoTableMap::COL_POTBCONFEPOUPDLASTCOST, $this->potbconfepoupdlastcost);
+        }
+        if ($this->isColumnModified(ConfigPoTableMap::COL_POTBCONFREVISIONENTRY)) {
+            $criteria->add(ConfigPoTableMap::COL_POTBCONFREVISIONENTRY, $this->potbconfrevisionentry);
         }
         if ($this->isColumnModified(ConfigPoTableMap::COL_POTBCONFRECALL)) {
             $criteria->add(ConfigPoTableMap::COL_POTBCONFRECALL, $this->potbconfrecall);
@@ -6895,6 +6960,7 @@ abstract class ConfigPo implements ActiveRecordInterface
         $copyObj->setPotbconfeditpoitemnotes($this->getPotbconfeditpoitemnotes());
         $copyObj->setPotbconfloadpovxmnotes($this->getPotbconfloadpovxmnotes());
         $copyObj->setPotbconfepoupdlastcost($this->getPotbconfepoupdlastcost());
+        $copyObj->setPotbconfrevisionentry($this->getPotbconfrevisionentry());
         $copyObj->setPotbconfrecall($this->getPotbconfrecall());
         $copyObj->setPotbconfrecallask($this->getPotbconfrecallask());
         $copyObj->setPotbconfreceivecost($this->getPotbconfreceivecost());
@@ -7022,6 +7088,7 @@ abstract class ConfigPo implements ActiveRecordInterface
         $this->potbconfeditpoitemnotes = null;
         $this->potbconfloadpovxmnotes = null;
         $this->potbconfepoupdlastcost = null;
+        $this->potbconfrevisionentry = null;
         $this->potbconfrecall = null;
         $this->potbconfrecallask = null;
         $this->potbconfreceivecost = null;

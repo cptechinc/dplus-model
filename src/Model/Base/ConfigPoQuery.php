@@ -38,6 +38,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPoQuery orderByPotbconfeditpoitemnotes($order = Criteria::ASC) Order by the PotbConfEditPoItemNotes column
  * @method     ChildConfigPoQuery orderByPotbconfloadpovxmnotes($order = Criteria::ASC) Order by the PotbConfLoadPoVxmNotes column
  * @method     ChildConfigPoQuery orderByPotbconfepoupdlastcost($order = Criteria::ASC) Order by the PotbConfEpoUpdLastCost column
+ * @method     ChildConfigPoQuery orderByPotbconfrevisionentry($order = Criteria::ASC) Order by the PotbConfRevisionEntry column
  * @method     ChildConfigPoQuery orderByPotbconfrecall($order = Criteria::ASC) Order by the PotbConfRecAll column
  * @method     ChildConfigPoQuery orderByPotbconfrecallask($order = Criteria::ASC) Order by the PotbConfRecAllAsk column
  * @method     ChildConfigPoQuery orderByPotbconfreceivecost($order = Criteria::ASC) Order by the PotbConfReceiveCost column
@@ -132,6 +133,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPoQuery groupByPotbconfeditpoitemnotes() Group by the PotbConfEditPoItemNotes column
  * @method     ChildConfigPoQuery groupByPotbconfloadpovxmnotes() Group by the PotbConfLoadPoVxmNotes column
  * @method     ChildConfigPoQuery groupByPotbconfepoupdlastcost() Group by the PotbConfEpoUpdLastCost column
+ * @method     ChildConfigPoQuery groupByPotbconfrevisionentry() Group by the PotbConfRevisionEntry column
  * @method     ChildConfigPoQuery groupByPotbconfrecall() Group by the PotbConfRecAll column
  * @method     ChildConfigPoQuery groupByPotbconfrecallask() Group by the PotbConfRecAllAsk column
  * @method     ChildConfigPoQuery groupByPotbconfreceivecost() Group by the PotbConfReceiveCost column
@@ -237,6 +239,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPo findOneByPotbconfeditpoitemnotes(string $PotbConfEditPoItemNotes) Return the first ChildConfigPo filtered by the PotbConfEditPoItemNotes column
  * @method     ChildConfigPo findOneByPotbconfloadpovxmnotes(string $PotbConfLoadPoVxmNotes) Return the first ChildConfigPo filtered by the PotbConfLoadPoVxmNotes column
  * @method     ChildConfigPo findOneByPotbconfepoupdlastcost(string $PotbConfEpoUpdLastCost) Return the first ChildConfigPo filtered by the PotbConfEpoUpdLastCost column
+ * @method     ChildConfigPo findOneByPotbconfrevisionentry(string $PotbConfRevisionEntry) Return the first ChildConfigPo filtered by the PotbConfRevisionEntry column
  * @method     ChildConfigPo findOneByPotbconfrecall(string $PotbConfRecAll) Return the first ChildConfigPo filtered by the PotbConfRecAll column
  * @method     ChildConfigPo findOneByPotbconfrecallask(string $PotbConfRecAllAsk) Return the first ChildConfigPo filtered by the PotbConfRecAllAsk column
  * @method     ChildConfigPo findOneByPotbconfreceivecost(string $PotbConfReceiveCost) Return the first ChildConfigPo filtered by the PotbConfReceiveCost column
@@ -334,6 +337,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPo requireOneByPotbconfeditpoitemnotes(string $PotbConfEditPoItemNotes) Return the first ChildConfigPo filtered by the PotbConfEditPoItemNotes column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByPotbconfloadpovxmnotes(string $PotbConfLoadPoVxmNotes) Return the first ChildConfigPo filtered by the PotbConfLoadPoVxmNotes column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByPotbconfepoupdlastcost(string $PotbConfEpoUpdLastCost) Return the first ChildConfigPo filtered by the PotbConfEpoUpdLastCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigPo requireOneByPotbconfrevisionentry(string $PotbConfRevisionEntry) Return the first ChildConfigPo filtered by the PotbConfRevisionEntry column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByPotbconfrecall(string $PotbConfRecAll) Return the first ChildConfigPo filtered by the PotbConfRecAll column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByPotbconfrecallask(string $PotbConfRecAllAsk) Return the first ChildConfigPo filtered by the PotbConfRecAllAsk column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigPo requireOneByPotbconfreceivecost(string $PotbConfReceiveCost) Return the first ChildConfigPo filtered by the PotbConfReceiveCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -429,6 +433,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigPo[]|ObjectCollection findByPotbconfeditpoitemnotes(string $PotbConfEditPoItemNotes) Return ChildConfigPo objects filtered by the PotbConfEditPoItemNotes column
  * @method     ChildConfigPo[]|ObjectCollection findByPotbconfloadpovxmnotes(string $PotbConfLoadPoVxmNotes) Return ChildConfigPo objects filtered by the PotbConfLoadPoVxmNotes column
  * @method     ChildConfigPo[]|ObjectCollection findByPotbconfepoupdlastcost(string $PotbConfEpoUpdLastCost) Return ChildConfigPo objects filtered by the PotbConfEpoUpdLastCost column
+ * @method     ChildConfigPo[]|ObjectCollection findByPotbconfrevisionentry(string $PotbConfRevisionEntry) Return ChildConfigPo objects filtered by the PotbConfRevisionEntry column
  * @method     ChildConfigPo[]|ObjectCollection findByPotbconfrecall(string $PotbConfRecAll) Return ChildConfigPo objects filtered by the PotbConfRecAll column
  * @method     ChildConfigPo[]|ObjectCollection findByPotbconfrecallask(string $PotbConfRecAllAsk) Return ChildConfigPo objects filtered by the PotbConfRecAllAsk column
  * @method     ChildConfigPo[]|ObjectCollection findByPotbconfreceivecost(string $PotbConfReceiveCost) Return ChildConfigPo objects filtered by the PotbConfReceiveCost column
@@ -601,7 +606,7 @@ abstract class ConfigPoQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT PotbConfKey, PotbConfSortPo, PotbConfCancOrRshpDate, PotbConfAckOrEtaDate, PotbConfEditShipDate, PotbConfEditExptDate, PotbConfEditCancDate, PotbConfEditAckDate, PotbConfExptDateDef, PotbConfHeadGetDef, PotbConfReseq, PotbConfForceVxref, PotbConfQtyDue, PotbConfWarnDup, PotbConfForcePoRef, PotbConfDestWhse, PotbConfEditPoItemNotes, PotbConfLoadPoVxmNotes, PotbConfEpoUpdLastCost, PotbConfRecAll, PotbConfRecAllAsk, PotbConfReceiveCost, PotbConfProcVari, PotbConfCostRcvryAcct, PotbConfInvtyVariAcct, PotbConfAllowChgCost, PotbConfWarnRcptQty, PotbConfErDispDate, PotbConfProvideLpo, PotbConfWarnDiffWhse, PotbConfAllocRcvd, PotbConfAskClose, PotbConfErAdd2Po, PotbConfTariffGlAcct, PotbConfShopGlAcct, PotbConfShopRate, PotbConfUsePrime, PotbConfUseWatch, PotbConfPrtPowSugg, PotbConfPowSlctYes, PotbConfPowgVendRpt, PotbConfPowgWipStatus, PotbConfPowgWipAutoGen, PotbConfBuyerControl, PotbConfPowgOqMethod, PotbConfFxPo, PotbConfFxInv, PotbConfUpDateVendCost, PotbConfAskUpDate, PotbConfVxmRoundPos, PotbConfXrefMaint, PotbConfUseIdOpts, PotbConfSrchVxmFirst, PotbConfOpenLineOnly, PotbConfItemDesc, PotbConfOpenBalOnly, PotbConfPrtWhseDtl, PotbConfAutoRcpt, PotbConfDispItemCost, PotbConfDispCaseQty, PotbConfOneTwoLine, PotbConfUseOrdrAs, PotbConfAprvVendOnly, PotbConfUseFab, PotbConfShowItem, PotbConfScrapAcct, PotbConfScrapVariPct, PotbConfLifoFifo, PotbConfFabBomOrKit, PotbConfAllocEpoEr, PotbConfFabPrealloc, PotbConfForceFabEpo, PotbConfPreviewCompList, PotbConfNegCompUsage, PotbConfAutoSelectComp, PotbConfBinFromVendor, PotbConfDfltStckCd, PotbConfUseRemain, PotbConfSameCompCost, PotbConfPassCode, PotbConfUseLandCost, PotbConfBaseLandAmtQty, PotbConfWarnLandInEr, PotbConfLandAmtMultWght, PotbConfLandErEdit, PotbConfHistCmplFab, PotbConfLandGlAcct, PotbLandMpfGlAcct, PotbLandHmfGlAcct, PotbLandDsetGlAcct, DateUpdtd, TimeUpdtd, dummy FROM po_config WHERE PotbConfKey = :p0';
+        $sql = 'SELECT PotbConfKey, PotbConfSortPo, PotbConfCancOrRshpDate, PotbConfAckOrEtaDate, PotbConfEditShipDate, PotbConfEditExptDate, PotbConfEditCancDate, PotbConfEditAckDate, PotbConfExptDateDef, PotbConfHeadGetDef, PotbConfReseq, PotbConfForceVxref, PotbConfQtyDue, PotbConfWarnDup, PotbConfForcePoRef, PotbConfDestWhse, PotbConfEditPoItemNotes, PotbConfLoadPoVxmNotes, PotbConfEpoUpdLastCost, PotbConfRevisionEntry, PotbConfRecAll, PotbConfRecAllAsk, PotbConfReceiveCost, PotbConfProcVari, PotbConfCostRcvryAcct, PotbConfInvtyVariAcct, PotbConfAllowChgCost, PotbConfWarnRcptQty, PotbConfErDispDate, PotbConfProvideLpo, PotbConfWarnDiffWhse, PotbConfAllocRcvd, PotbConfAskClose, PotbConfErAdd2Po, PotbConfTariffGlAcct, PotbConfShopGlAcct, PotbConfShopRate, PotbConfUsePrime, PotbConfUseWatch, PotbConfPrtPowSugg, PotbConfPowSlctYes, PotbConfPowgVendRpt, PotbConfPowgWipStatus, PotbConfPowgWipAutoGen, PotbConfBuyerControl, PotbConfPowgOqMethod, PotbConfFxPo, PotbConfFxInv, PotbConfUpDateVendCost, PotbConfAskUpDate, PotbConfVxmRoundPos, PotbConfXrefMaint, PotbConfUseIdOpts, PotbConfSrchVxmFirst, PotbConfOpenLineOnly, PotbConfItemDesc, PotbConfOpenBalOnly, PotbConfPrtWhseDtl, PotbConfAutoRcpt, PotbConfDispItemCost, PotbConfDispCaseQty, PotbConfOneTwoLine, PotbConfUseOrdrAs, PotbConfAprvVendOnly, PotbConfUseFab, PotbConfShowItem, PotbConfScrapAcct, PotbConfScrapVariPct, PotbConfLifoFifo, PotbConfFabBomOrKit, PotbConfAllocEpoEr, PotbConfFabPrealloc, PotbConfForceFabEpo, PotbConfPreviewCompList, PotbConfNegCompUsage, PotbConfAutoSelectComp, PotbConfBinFromVendor, PotbConfDfltStckCd, PotbConfUseRemain, PotbConfSameCompCost, PotbConfPassCode, PotbConfUseLandCost, PotbConfBaseLandAmtQty, PotbConfWarnLandInEr, PotbConfLandAmtMultWght, PotbConfLandErEdit, PotbConfHistCmplFab, PotbConfLandGlAcct, PotbLandMpfGlAcct, PotbLandHmfGlAcct, PotbLandDsetGlAcct, DateUpdtd, TimeUpdtd, dummy FROM po_config WHERE PotbConfKey = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -1196,6 +1201,31 @@ abstract class ConfigPoQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFEPOUPDLASTCOST, $potbconfepoupdlastcost, $comparison);
+    }
+
+    /**
+     * Filter the query on the PotbConfRevisionEntry column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByPotbconfrevisionentry('fooValue');   // WHERE PotbConfRevisionEntry = 'fooValue'
+     * $query->filterByPotbconfrevisionentry('%fooValue%', Criteria::LIKE); // WHERE PotbConfRevisionEntry LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $potbconfrevisionentry The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigPoQuery The current query, for fluid interface
+     */
+    public function filterByPotbconfrevisionentry($potbconfrevisionentry = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($potbconfrevisionentry)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigPoTableMap::COL_POTBCONFREVISIONENTRY, $potbconfrevisionentry, $comparison);
     }
 
     /**

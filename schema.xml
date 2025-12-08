@@ -3868,7 +3868,7 @@
     </vendor>
   </table>
   <table name="po_config" idMethod="native" phpName="ConfigPo">
-    <column name="PotbConfKey" phpName="Potbconfkey" type="INTEGER" size="1" sqlType="int(1) unsigned" primaryKey="true" required="true" defaultValue="1"/>
+    <column name="PotbConfKey" phpName="Potbconfkey" type="INTEGER" sqlType="int unsigned" primaryKey="true" required="true" defaultValue="1"/>
     <column name="PotbConfSortPo" phpName="Potbconfsortpo" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfCancOrRshpDate" phpName="Potbconfcancorrshpdate" type="CHAR" required="true" defaultValue="C"/>
     <column name="PotbConfAckOrEtaDate" phpName="Potbconfackoretadate" type="CHAR" required="true" defaultValue="A"/>
@@ -3877,7 +3877,7 @@
     <column name="PotbConfEditCancDate" phpName="Potbconfeditcancdate" type="CHAR" required="true" defaultValue="H"/>
     <column name="PotbConfEditAckDate" phpName="Potbconfeditackdate" type="CHAR" required="true" defaultValue="D"/>
     <column name="PotbConfExptDateDef" phpName="Potbconfexptdatedef" type="CHAR" required="true" defaultValue="P"/>
-    <column name="PotbConfHeadGetDef" phpName="Potbconfheadgetdef" type="INTEGER" size="1" sqlType="int(1) unsigned" required="true" defaultValue="1"/>
+    <column name="PotbConfHeadGetDef" phpName="Potbconfheadgetdef" type="INTEGER" sqlType="int unsigned" required="true" defaultValue="1"/>
     <column name="PotbConfReseq" phpName="Potbconfreseq" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfForceVxref" phpName="Potbconfforcevxref" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfQtyDue" phpName="Potbconfqtydue" type="CHAR" required="true" defaultValue="N"/>
@@ -3887,6 +3887,7 @@
     <column name="PotbConfEditPoItemNotes" phpName="Potbconfeditpoitemnotes" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfLoadPoVxmNotes" phpName="Potbconfloadpovxmnotes" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfEpoUpdLastCost" phpName="Potbconfepoupdlastcost" type="CHAR" required="true" defaultValue="Y"/>
+    <column name="PotbConfRevisionEntry" phpName="Potbconfrevisionentry" type="CHAR" required="true" defaultValue="Y"/>
     <column name="PotbConfRecAll" phpName="Potbconfrecall" type="CHAR" required="true" defaultValue="Y"/>
     <column name="PotbConfRecAllAsk" phpName="Potbconfrecallask" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfReceiveCost" phpName="Potbconfreceivecost" type="CHAR" required="true" defaultValue="N"/>
@@ -3912,12 +3913,12 @@
     <column name="PotbConfPowgWipStatus" phpName="Potbconfpowgwipstatus" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfPowgWipAutoGen" phpName="Potbconfpowgwipautogen" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfBuyerControl" phpName="Potbconfbuyercontrol" type="CHAR" required="true" defaultValue="V"/>
-    <column name="PotbConfPowgOqMethod" phpName="Potbconfpowgoqmethod" type="INTEGER" size="1" sqlType="int(1) unsigned" required="true" defaultValue="1"/>
+    <column name="PotbConfPowgOqMethod" phpName="Potbconfpowgoqmethod" type="INTEGER" sqlType="int unsigned" required="true" defaultValue="1"/>
     <column name="PotbConfFxPo" phpName="Potbconffxpo" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfFxInv" phpName="Potbconffxinv" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfUpDateVendCost" phpName="Potbconfupdatevendcost" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfAskUpDate" phpName="Potbconfaskupdate" type="CHAR" required="true" defaultValue="N"/>
-    <column name="PotbConfVxmRoundPos" phpName="Potbconfvxmroundpos" type="INTEGER" size="1" sqlType="int(1) unsigned" required="true" defaultValue="3"/>
+    <column name="PotbConfVxmRoundPos" phpName="Potbconfvxmroundpos" type="INTEGER" sqlType="int unsigned" required="true" defaultValue="3"/>
     <column name="PotbConfXrefMaint" phpName="Potbconfxrefmaint" type="CHAR" required="true" defaultValue="O"/>
     <column name="PotbConfUseIdOpts" phpName="Potbconfuseidopts" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfSrchVxmFirst" phpName="Potbconfsrchvxmfirst" type="CHAR" required="true" defaultValue="N"/>
@@ -3928,7 +3929,7 @@
     <column name="PotbConfAutoRcpt" phpName="Potbconfautorcpt" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfDispItemCost" phpName="Potbconfdispitemcost" type="CHAR" required="true" defaultValue="Y"/>
     <column name="PotbConfDispCaseQty" phpName="Potbconfdispcaseqty" type="CHAR" required="true" defaultValue="N"/>
-    <column name="PotbConfOneTwoLine" phpName="Potbconfonetwoline" type="INTEGER" size="1" sqlType="int(1) unsigned" required="true" defaultValue="1"/>
+    <column name="PotbConfOneTwoLine" phpName="Potbconfonetwoline" type="INTEGER" sqlType="int unsigned" required="true" defaultValue="1"/>
     <column name="PotbConfUseOrdrAs" phpName="Potbconfuseordras" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfAprvVendOnly" phpName="Potbconfaprvvendonly" type="CHAR" required="true" defaultValue="N"/>
     <column name="PotbConfUseFab" phpName="Potbconfusefab" type="CHAR" required="true" defaultValue="N"/>
