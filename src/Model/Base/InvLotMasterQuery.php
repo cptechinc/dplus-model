@@ -36,6 +36,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvLotMasterQuery orderByLotmunitcost($order = Criteria::ASC) Order by the LotmUnitCost column
  * @method     ChildInvLotMasterQuery orderByLotmcntrqty($order = Criteria::ASC) Order by the LotmCntrQty column
  * @method     ChildInvLotMasterQuery orderByLotmsrccd($order = Criteria::ASC) Order by the LotmSrcCd column
+ * @method     ChildInvLotMasterQuery orderByLotmlmqccode($order = Criteria::ASC) Order by the LotmLmQcCode column
+ * @method     ChildInvLotMasterQuery orderByLotmcat3($order = Criteria::ASC) Order by the LotmCat3 column
  * @method     ChildInvLotMasterQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildInvLotMasterQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildInvLotMasterQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -56,6 +58,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvLotMasterQuery groupByLotmunitcost() Group by the LotmUnitCost column
  * @method     ChildInvLotMasterQuery groupByLotmcntrqty() Group by the LotmCntrQty column
  * @method     ChildInvLotMasterQuery groupByLotmsrccd() Group by the LotmSrcCd column
+ * @method     ChildInvLotMasterQuery groupByLotmlmqccode() Group by the LotmLmQcCode column
+ * @method     ChildInvLotMasterQuery groupByLotmcat3() Group by the LotmCat3 column
  * @method     ChildInvLotMasterQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildInvLotMasterQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildInvLotMasterQuery groupByDummy() Group by the dummy column
@@ -169,6 +173,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvLotMaster findOneByLotmunitcost(string $LotmUnitCost) Return the first ChildInvLotMaster filtered by the LotmUnitCost column
  * @method     ChildInvLotMaster findOneByLotmcntrqty(string $LotmCntrQty) Return the first ChildInvLotMaster filtered by the LotmCntrQty column
  * @method     ChildInvLotMaster findOneByLotmsrccd(string $LotmSrcCd) Return the first ChildInvLotMaster filtered by the LotmSrcCd column
+ * @method     ChildInvLotMaster findOneByLotmlmqccode(string $LotmLmQcCode) Return the first ChildInvLotMaster filtered by the LotmLmQcCode column
+ * @method     ChildInvLotMaster findOneByLotmcat3(string $LotmCat3) Return the first ChildInvLotMaster filtered by the LotmCat3 column
  * @method     ChildInvLotMaster findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvLotMaster filtered by the DateUpdtd column
  * @method     ChildInvLotMaster findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvLotMaster filtered by the TimeUpdtd column
  * @method     ChildInvLotMaster findOneByDummy(string $dummy) Return the first ChildInvLotMaster filtered by the dummy column *
@@ -192,6 +198,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvLotMaster requireOneByLotmunitcost(string $LotmUnitCost) Return the first ChildInvLotMaster filtered by the LotmUnitCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvLotMaster requireOneByLotmcntrqty(string $LotmCntrQty) Return the first ChildInvLotMaster filtered by the LotmCntrQty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvLotMaster requireOneByLotmsrccd(string $LotmSrcCd) Return the first ChildInvLotMaster filtered by the LotmSrcCd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmlmqccode(string $LotmLmQcCode) Return the first ChildInvLotMaster filtered by the LotmLmQcCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmcat3(string $LotmCat3) Return the first ChildInvLotMaster filtered by the LotmCat3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvLotMaster requireOneByDateupdtd(string $DateUpdtd) Return the first ChildInvLotMaster filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvLotMaster requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvLotMaster filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvLotMaster requireOneByDummy(string $dummy) Return the first ChildInvLotMaster filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -213,6 +221,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvLotMaster[]|ObjectCollection findByLotmunitcost(string $LotmUnitCost) Return ChildInvLotMaster objects filtered by the LotmUnitCost column
  * @method     ChildInvLotMaster[]|ObjectCollection findByLotmcntrqty(string $LotmCntrQty) Return ChildInvLotMaster objects filtered by the LotmCntrQty column
  * @method     ChildInvLotMaster[]|ObjectCollection findByLotmsrccd(string $LotmSrcCd) Return ChildInvLotMaster objects filtered by the LotmSrcCd column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmlmqccode(string $LotmLmQcCode) Return ChildInvLotMaster objects filtered by the LotmLmQcCode column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmcat3(string $LotmCat3) Return ChildInvLotMaster objects filtered by the LotmCat3 column
  * @method     ChildInvLotMaster[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvLotMaster objects filtered by the DateUpdtd column
  * @method     ChildInvLotMaster[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvLotMaster objects filtered by the TimeUpdtd column
  * @method     ChildInvLotMaster[]|ObjectCollection findByDummy(string $dummy) Return ChildInvLotMaster objects filtered by the dummy column
@@ -314,7 +324,7 @@ abstract class InvLotMasterQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT InitItemNbr, LotmLotNbr, LotmLotRef, LotmFrstActDate, LotmImagYn, LotmUnitWght, LotmRevision, LotmCtry, LotmCOfC, LotmCreateDate, LotmCreateTime, LotmVendId, LotmExpireDate, LotmUnitCost, LotmCntrQty, LotmSrcCd, DateUpdtd, TimeUpdtd, dummy FROM inv_lot_mast WHERE InitItemNbr = :p0 AND LotmLotNbr = :p1';
+        $sql = 'SELECT InitItemNbr, LotmLotNbr, LotmLotRef, LotmFrstActDate, LotmImagYn, LotmUnitWght, LotmRevision, LotmCtry, LotmCOfC, LotmCreateDate, LotmCreateTime, LotmVendId, LotmExpireDate, LotmUnitCost, LotmCntrQty, LotmSrcCd, LotmLmQcCode, LotmCat3, DateUpdtd, TimeUpdtd, dummy FROM inv_lot_mast WHERE InitItemNbr = :p0 AND LotmLotNbr = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -862,6 +872,56 @@ abstract class InvLotMasterQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMSRCCD, $lotmsrccd, $comparison);
+    }
+
+    /**
+     * Filter the query on the LotmLmQcCode column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByLotmlmqccode('fooValue');   // WHERE LotmLmQcCode = 'fooValue'
+     * $query->filterByLotmlmqccode('%fooValue%', Criteria::LIKE); // WHERE LotmLmQcCode LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $lotmlmqccode The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     */
+    public function filterByLotmlmqccode($lotmlmqccode = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($lotmlmqccode)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMLMQCCODE, $lotmlmqccode, $comparison);
+    }
+
+    /**
+     * Filter the query on the LotmCat3 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByLotmcat3('fooValue');   // WHERE LotmCat3 = 'fooValue'
+     * $query->filterByLotmcat3('%fooValue%', Criteria::LIKE); // WHERE LotmCat3 LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $lotmcat3 The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     */
+    public function filterByLotmcat3($lotmcat3 = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($lotmcat3)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCAT3, $lotmcat3, $comparison);
     }
 
     /**

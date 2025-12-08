@@ -59,7 +59,7 @@ class InvLotMasterTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 19;
+    const NUM_COLUMNS = 21;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class InvLotMasterTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 19;
+    const NUM_HYDRATE_COLUMNS = 21;
 
     /**
      * the column name for the InitItemNbr field
@@ -152,6 +152,16 @@ class InvLotMasterTableMap extends TableMap
     const COL_LOTMSRCCD = 'inv_lot_mast.LotmSrcCd';
 
     /**
+     * the column name for the LotmLmQcCode field
+     */
+    const COL_LOTMLMQCCODE = 'inv_lot_mast.LotmLmQcCode';
+
+    /**
+     * the column name for the LotmCat3 field
+     */
+    const COL_LOTMCAT3 = 'inv_lot_mast.LotmCat3';
+
+    /**
      * the column name for the DateUpdtd field
      */
     const COL_DATEUPDTD = 'inv_lot_mast.DateUpdtd';
@@ -178,11 +188,11 @@ class InvLotMasterTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr', 'Lotmlotnbr', 'Lotmlotref', 'Lotmfrstactdate', 'Lotmimagyn', 'Lotmunitwght', 'Lotmrevision', 'Lotmctry', 'Lotmcofc', 'Lotmcreatedate', 'Lotmcreatetime', 'Lotmvendid', 'Lotmexpiredate', 'Lotmunitcost', 'Lotmcntrqty', 'Lotmsrccd', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('inititemnbr', 'lotmlotnbr', 'lotmlotref', 'lotmfrstactdate', 'lotmimagyn', 'lotmunitwght', 'lotmrevision', 'lotmctry', 'lotmcofc', 'lotmcreatedate', 'lotmcreatetime', 'lotmvendid', 'lotmexpiredate', 'lotmunitcost', 'lotmcntrqty', 'lotmsrccd', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvLotMasterTableMap::COL_INITITEMNBR, InvLotMasterTableMap::COL_LOTMLOTNBR, InvLotMasterTableMap::COL_LOTMLOTREF, InvLotMasterTableMap::COL_LOTMFRSTACTDATE, InvLotMasterTableMap::COL_LOTMIMAGYN, InvLotMasterTableMap::COL_LOTMUNITWGHT, InvLotMasterTableMap::COL_LOTMREVISION, InvLotMasterTableMap::COL_LOTMCTRY, InvLotMasterTableMap::COL_LOTMCOFC, InvLotMasterTableMap::COL_LOTMCREATEDATE, InvLotMasterTableMap::COL_LOTMCREATETIME, InvLotMasterTableMap::COL_LOTMVENDID, InvLotMasterTableMap::COL_LOTMEXPIREDATE, InvLotMasterTableMap::COL_LOTMUNITCOST, InvLotMasterTableMap::COL_LOTMCNTRQTY, InvLotMasterTableMap::COL_LOTMSRCCD, InvLotMasterTableMap::COL_DATEUPDTD, InvLotMasterTableMap::COL_TIMEUPDTD, InvLotMasterTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr', 'LotmLotNbr', 'LotmLotRef', 'LotmFrstActDate', 'LotmImagYn', 'LotmUnitWght', 'LotmRevision', 'LotmCtry', 'LotmCOfC', 'LotmCreateDate', 'LotmCreateTime', 'LotmVendId', 'LotmExpireDate', 'LotmUnitCost', 'LotmCntrQty', 'LotmSrcCd', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
+        self::TYPE_PHPNAME       => array('Inititemnbr', 'Lotmlotnbr', 'Lotmlotref', 'Lotmfrstactdate', 'Lotmimagyn', 'Lotmunitwght', 'Lotmrevision', 'Lotmctry', 'Lotmcofc', 'Lotmcreatedate', 'Lotmcreatetime', 'Lotmvendid', 'Lotmexpiredate', 'Lotmunitcost', 'Lotmcntrqty', 'Lotmsrccd', 'Lotmlmqccode', 'Lotmcat3', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('inititemnbr', 'lotmlotnbr', 'lotmlotref', 'lotmfrstactdate', 'lotmimagyn', 'lotmunitwght', 'lotmrevision', 'lotmctry', 'lotmcofc', 'lotmcreatedate', 'lotmcreatetime', 'lotmvendid', 'lotmexpiredate', 'lotmunitcost', 'lotmcntrqty', 'lotmsrccd', 'lotmlmqccode', 'lotmcat3', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(InvLotMasterTableMap::COL_INITITEMNBR, InvLotMasterTableMap::COL_LOTMLOTNBR, InvLotMasterTableMap::COL_LOTMLOTREF, InvLotMasterTableMap::COL_LOTMFRSTACTDATE, InvLotMasterTableMap::COL_LOTMIMAGYN, InvLotMasterTableMap::COL_LOTMUNITWGHT, InvLotMasterTableMap::COL_LOTMREVISION, InvLotMasterTableMap::COL_LOTMCTRY, InvLotMasterTableMap::COL_LOTMCOFC, InvLotMasterTableMap::COL_LOTMCREATEDATE, InvLotMasterTableMap::COL_LOTMCREATETIME, InvLotMasterTableMap::COL_LOTMVENDID, InvLotMasterTableMap::COL_LOTMEXPIREDATE, InvLotMasterTableMap::COL_LOTMUNITCOST, InvLotMasterTableMap::COL_LOTMCNTRQTY, InvLotMasterTableMap::COL_LOTMSRCCD, InvLotMasterTableMap::COL_LOTMLMQCCODE, InvLotMasterTableMap::COL_LOTMCAT3, InvLotMasterTableMap::COL_DATEUPDTD, InvLotMasterTableMap::COL_TIMEUPDTD, InvLotMasterTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('InitItemNbr', 'LotmLotNbr', 'LotmLotRef', 'LotmFrstActDate', 'LotmImagYn', 'LotmUnitWght', 'LotmRevision', 'LotmCtry', 'LotmCOfC', 'LotmCreateDate', 'LotmCreateTime', 'LotmVendId', 'LotmExpireDate', 'LotmUnitCost', 'LotmCntrQty', 'LotmSrcCd', 'LotmLmQcCode', 'LotmCat3', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, )
     );
 
     /**
@@ -192,11 +202,11 @@ class InvLotMasterTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Lotmlotnbr' => 1, 'Lotmlotref' => 2, 'Lotmfrstactdate' => 3, 'Lotmimagyn' => 4, 'Lotmunitwght' => 5, 'Lotmrevision' => 6, 'Lotmctry' => 7, 'Lotmcofc' => 8, 'Lotmcreatedate' => 9, 'Lotmcreatetime' => 10, 'Lotmvendid' => 11, 'Lotmexpiredate' => 12, 'Lotmunitcost' => 13, 'Lotmcntrqty' => 14, 'Lotmsrccd' => 15, 'Dateupdtd' => 16, 'Timeupdtd' => 17, 'Dummy' => 18, ),
-        self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'lotmlotnbr' => 1, 'lotmlotref' => 2, 'lotmfrstactdate' => 3, 'lotmimagyn' => 4, 'lotmunitwght' => 5, 'lotmrevision' => 6, 'lotmctry' => 7, 'lotmcofc' => 8, 'lotmcreatedate' => 9, 'lotmcreatetime' => 10, 'lotmvendid' => 11, 'lotmexpiredate' => 12, 'lotmunitcost' => 13, 'lotmcntrqty' => 14, 'lotmsrccd' => 15, 'dateupdtd' => 16, 'timeupdtd' => 17, 'dummy' => 18, ),
-        self::TYPE_COLNAME       => array(InvLotMasterTableMap::COL_INITITEMNBR => 0, InvLotMasterTableMap::COL_LOTMLOTNBR => 1, InvLotMasterTableMap::COL_LOTMLOTREF => 2, InvLotMasterTableMap::COL_LOTMFRSTACTDATE => 3, InvLotMasterTableMap::COL_LOTMIMAGYN => 4, InvLotMasterTableMap::COL_LOTMUNITWGHT => 5, InvLotMasterTableMap::COL_LOTMREVISION => 6, InvLotMasterTableMap::COL_LOTMCTRY => 7, InvLotMasterTableMap::COL_LOTMCOFC => 8, InvLotMasterTableMap::COL_LOTMCREATEDATE => 9, InvLotMasterTableMap::COL_LOTMCREATETIME => 10, InvLotMasterTableMap::COL_LOTMVENDID => 11, InvLotMasterTableMap::COL_LOTMEXPIREDATE => 12, InvLotMasterTableMap::COL_LOTMUNITCOST => 13, InvLotMasterTableMap::COL_LOTMCNTRQTY => 14, InvLotMasterTableMap::COL_LOTMSRCCD => 15, InvLotMasterTableMap::COL_DATEUPDTD => 16, InvLotMasterTableMap::COL_TIMEUPDTD => 17, InvLotMasterTableMap::COL_DUMMY => 18, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'LotmLotNbr' => 1, 'LotmLotRef' => 2, 'LotmFrstActDate' => 3, 'LotmImagYn' => 4, 'LotmUnitWght' => 5, 'LotmRevision' => 6, 'LotmCtry' => 7, 'LotmCOfC' => 8, 'LotmCreateDate' => 9, 'LotmCreateTime' => 10, 'LotmVendId' => 11, 'LotmExpireDate' => 12, 'LotmUnitCost' => 13, 'LotmCntrQty' => 14, 'LotmSrcCd' => 15, 'DateUpdtd' => 16, 'TimeUpdtd' => 17, 'dummy' => 18, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
+        self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Lotmlotnbr' => 1, 'Lotmlotref' => 2, 'Lotmfrstactdate' => 3, 'Lotmimagyn' => 4, 'Lotmunitwght' => 5, 'Lotmrevision' => 6, 'Lotmctry' => 7, 'Lotmcofc' => 8, 'Lotmcreatedate' => 9, 'Lotmcreatetime' => 10, 'Lotmvendid' => 11, 'Lotmexpiredate' => 12, 'Lotmunitcost' => 13, 'Lotmcntrqty' => 14, 'Lotmsrccd' => 15, 'Lotmlmqccode' => 16, 'Lotmcat3' => 17, 'Dateupdtd' => 18, 'Timeupdtd' => 19, 'Dummy' => 20, ),
+        self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'lotmlotnbr' => 1, 'lotmlotref' => 2, 'lotmfrstactdate' => 3, 'lotmimagyn' => 4, 'lotmunitwght' => 5, 'lotmrevision' => 6, 'lotmctry' => 7, 'lotmcofc' => 8, 'lotmcreatedate' => 9, 'lotmcreatetime' => 10, 'lotmvendid' => 11, 'lotmexpiredate' => 12, 'lotmunitcost' => 13, 'lotmcntrqty' => 14, 'lotmsrccd' => 15, 'lotmlmqccode' => 16, 'lotmcat3' => 17, 'dateupdtd' => 18, 'timeupdtd' => 19, 'dummy' => 20, ),
+        self::TYPE_COLNAME       => array(InvLotMasterTableMap::COL_INITITEMNBR => 0, InvLotMasterTableMap::COL_LOTMLOTNBR => 1, InvLotMasterTableMap::COL_LOTMLOTREF => 2, InvLotMasterTableMap::COL_LOTMFRSTACTDATE => 3, InvLotMasterTableMap::COL_LOTMIMAGYN => 4, InvLotMasterTableMap::COL_LOTMUNITWGHT => 5, InvLotMasterTableMap::COL_LOTMREVISION => 6, InvLotMasterTableMap::COL_LOTMCTRY => 7, InvLotMasterTableMap::COL_LOTMCOFC => 8, InvLotMasterTableMap::COL_LOTMCREATEDATE => 9, InvLotMasterTableMap::COL_LOTMCREATETIME => 10, InvLotMasterTableMap::COL_LOTMVENDID => 11, InvLotMasterTableMap::COL_LOTMEXPIREDATE => 12, InvLotMasterTableMap::COL_LOTMUNITCOST => 13, InvLotMasterTableMap::COL_LOTMCNTRQTY => 14, InvLotMasterTableMap::COL_LOTMSRCCD => 15, InvLotMasterTableMap::COL_LOTMLMQCCODE => 16, InvLotMasterTableMap::COL_LOTMCAT3 => 17, InvLotMasterTableMap::COL_DATEUPDTD => 18, InvLotMasterTableMap::COL_TIMEUPDTD => 19, InvLotMasterTableMap::COL_DUMMY => 20, ),
+        self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'LotmLotNbr' => 1, 'LotmLotRef' => 2, 'LotmFrstActDate' => 3, 'LotmImagYn' => 4, 'LotmUnitWght' => 5, 'LotmRevision' => 6, 'LotmCtry' => 7, 'LotmCOfC' => 8, 'LotmCreateDate' => 9, 'LotmCreateTime' => 10, 'LotmVendId' => 11, 'LotmExpireDate' => 12, 'LotmUnitCost' => 13, 'LotmCntrQty' => 14, 'LotmSrcCd' => 15, 'LotmLmQcCode' => 16, 'LotmCat3' => 17, 'DateUpdtd' => 18, 'TimeUpdtd' => 19, 'dummy' => 20, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, )
     );
 
     /**
@@ -218,23 +228,25 @@ class InvLotMasterTableMap extends TableMap
         // columns
         $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
         $this->addPrimaryKey('LotmLotNbr', 'Lotmlotnbr', 'VARCHAR', true, 20, '');
-        $this->addColumn('LotmLotRef', 'Lotmlotref', 'VARCHAR', false, 20, null);
-        $this->addColumn('LotmFrstActDate', 'Lotmfrstactdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('LotmImagYn', 'Lotmimagyn', 'VARCHAR', false, 1, null);
-        $this->addColumn('LotmUnitWght', 'Lotmunitwght', 'DECIMAL', false, 20, null);
-        $this->addColumn('LotmRevision', 'Lotmrevision', 'VARCHAR', false, 10, null);
-        $this->addColumn('LotmCtry', 'Lotmctry', 'VARCHAR', false, 4, null);
-        $this->addColumn('LotmCOfC', 'Lotmcofc', 'VARCHAR', false, 1, null);
-        $this->addColumn('LotmCreateDate', 'Lotmcreatedate', 'VARCHAR', false, 8, null);
-        $this->addColumn('LotmCreateTime', 'Lotmcreatetime', 'VARCHAR', false, 8, null);
-        $this->addColumn('LotmVendId', 'Lotmvendid', 'VARCHAR', false, 6, null);
-        $this->addColumn('LotmExpireDate', 'Lotmexpiredate', 'VARCHAR', false, 8, null);
-        $this->addColumn('LotmUnitCost', 'Lotmunitcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('LotmCntrQty', 'Lotmcntrqty', 'DECIMAL', false, 20, null);
-        $this->addColumn('LotmSrcCd', 'Lotmsrccd', 'VARCHAR', false, 2, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('LotmLotRef', 'Lotmlotref', 'VARCHAR', true, 20, '');
+        $this->addColumn('LotmFrstActDate', 'Lotmfrstactdate', 'CHAR', true, 8, '');
+        $this->addColumn('LotmImagYn', 'Lotmimagyn', 'CHAR', true, null, 'N');
+        $this->addColumn('LotmUnitWght', 'Lotmunitwght', 'DECIMAL', true, 20, 0);
+        $this->addColumn('LotmRevision', 'Lotmrevision', 'VARCHAR', true, 10, '');
+        $this->addColumn('LotmCtry', 'Lotmctry', 'VARCHAR', true, 4, '');
+        $this->addColumn('LotmCOfC', 'Lotmcofc', 'CHAR', true, null, 'N');
+        $this->addColumn('LotmCreateDate', 'Lotmcreatedate', 'CHAR', true, 8, '');
+        $this->addColumn('LotmCreateTime', 'Lotmcreatetime', 'VARCHAR', true, 8, '');
+        $this->addColumn('LotmVendId', 'Lotmvendid', 'VARCHAR', true, 6, '');
+        $this->addColumn('LotmExpireDate', 'Lotmexpiredate', 'CHAR', true, 8, '');
+        $this->addColumn('LotmUnitCost', 'Lotmunitcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('LotmCntrQty', 'Lotmcntrqty', 'DECIMAL', true, 20, 0);
+        $this->addColumn('LotmSrcCd', 'Lotmsrccd', 'VARCHAR', true, 2, '');
+        $this->addColumn('LotmLmQcCode', 'Lotmlmqccode', 'VARCHAR', true, 3, '');
+        $this->addColumn('LotmCat3', 'Lotmcat3', 'CHAR', true, null, 'N');
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
     } // initialize()
 
     /**
@@ -554,6 +566,8 @@ class InvLotMasterTableMap extends TableMap
             $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMUNITCOST);
             $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMCNTRQTY);
             $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMSRCCD);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMLMQCCODE);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMCAT3);
             $criteria->addSelectColumn(InvLotMasterTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(InvLotMasterTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(InvLotMasterTableMap::COL_DUMMY);
@@ -574,6 +588,8 @@ class InvLotMasterTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.LotmUnitCost');
             $criteria->addSelectColumn($alias . '.LotmCntrQty');
             $criteria->addSelectColumn($alias . '.LotmSrcCd');
+            $criteria->addSelectColumn($alias . '.LotmLmQcCode');
+            $criteria->addSelectColumn($alias . '.LotmCat3');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');

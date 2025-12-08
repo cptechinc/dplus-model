@@ -103,6 +103,7 @@ abstract class InvLotMaster implements ActiveRecordInterface
     /**
      * The value for the lotmlotref field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $lotmlotref;
@@ -110,6 +111,7 @@ abstract class InvLotMaster implements ActiveRecordInterface
     /**
      * The value for the lotmfrstactdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $lotmfrstactdate;
@@ -117,6 +119,7 @@ abstract class InvLotMaster implements ActiveRecordInterface
     /**
      * The value for the lotmimagyn field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $lotmimagyn;
@@ -124,6 +127,7 @@ abstract class InvLotMaster implements ActiveRecordInterface
     /**
      * The value for the lotmunitwght field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $lotmunitwght;
@@ -131,6 +135,7 @@ abstract class InvLotMaster implements ActiveRecordInterface
     /**
      * The value for the lotmrevision field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $lotmrevision;
@@ -138,6 +143,7 @@ abstract class InvLotMaster implements ActiveRecordInterface
     /**
      * The value for the lotmctry field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $lotmctry;
@@ -145,6 +151,7 @@ abstract class InvLotMaster implements ActiveRecordInterface
     /**
      * The value for the lotmcofc field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $lotmcofc;
@@ -152,6 +159,7 @@ abstract class InvLotMaster implements ActiveRecordInterface
     /**
      * The value for the lotmcreatedate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $lotmcreatedate;
@@ -159,6 +167,7 @@ abstract class InvLotMaster implements ActiveRecordInterface
     /**
      * The value for the lotmcreatetime field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $lotmcreatetime;
@@ -166,6 +175,7 @@ abstract class InvLotMaster implements ActiveRecordInterface
     /**
      * The value for the lotmvendid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $lotmvendid;
@@ -173,6 +183,7 @@ abstract class InvLotMaster implements ActiveRecordInterface
     /**
      * The value for the lotmexpiredate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $lotmexpiredate;
@@ -180,6 +191,7 @@ abstract class InvLotMaster implements ActiveRecordInterface
     /**
      * The value for the lotmunitcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $lotmunitcost;
@@ -187,6 +199,7 @@ abstract class InvLotMaster implements ActiveRecordInterface
     /**
      * The value for the lotmcntrqty field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $lotmcntrqty;
@@ -194,13 +207,31 @@ abstract class InvLotMaster implements ActiveRecordInterface
     /**
      * The value for the lotmsrccd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $lotmsrccd;
 
     /**
+     * The value for the lotmlmqccode field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $lotmlmqccode;
+
+    /**
+     * The value for the lotmcat3 field.
+     *
+     * Note: this column has a database default value of: 'N'
+     * @var        string
+     */
+    protected $lotmcat3;
+
+    /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -208,6 +239,7 @@ abstract class InvLotMaster implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -215,6 +247,7 @@ abstract class InvLotMaster implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -326,6 +359,25 @@ abstract class InvLotMaster implements ActiveRecordInterface
     {
         $this->inititemnbr = '';
         $this->lotmlotnbr = '';
+        $this->lotmlotref = '';
+        $this->lotmfrstactdate = '';
+        $this->lotmimagyn = 'N';
+        $this->lotmunitwght = '0.0000000';
+        $this->lotmrevision = '';
+        $this->lotmctry = '';
+        $this->lotmcofc = 'N';
+        $this->lotmcreatedate = '';
+        $this->lotmcreatetime = '';
+        $this->lotmvendid = '';
+        $this->lotmexpiredate = '';
+        $this->lotmunitcost = '0.0000000';
+        $this->lotmcntrqty = '0.00000';
+        $this->lotmsrccd = '';
+        $this->lotmlmqccode = '';
+        $this->lotmcat3 = 'N';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
@@ -716,6 +768,26 @@ abstract class InvLotMaster implements ActiveRecordInterface
     }
 
     /**
+     * Get the [lotmlmqccode] column value.
+     *
+     * @return string
+     */
+    public function getLotmlmqccode()
+    {
+        return $this->lotmlmqccode;
+    }
+
+    /**
+     * Get the [lotmcat3] column value.
+     *
+     * @return string
+     */
+    public function getLotmcat3()
+    {
+        return $this->lotmcat3;
+    }
+
+    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -1070,6 +1142,46 @@ abstract class InvLotMaster implements ActiveRecordInterface
     } // setLotmsrccd()
 
     /**
+     * Set the value of [lotmlmqccode] column.
+     *
+     * @param string $v new value
+     * @return $this|\InvLotMaster The current object (for fluent API support)
+     */
+    public function setLotmlmqccode($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->lotmlmqccode !== $v) {
+            $this->lotmlmqccode = $v;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMLMQCCODE] = true;
+        }
+
+        return $this;
+    } // setLotmlmqccode()
+
+    /**
+     * Set the value of [lotmcat3] column.
+     *
+     * @param string $v new value
+     * @return $this|\InvLotMaster The current object (for fluent API support)
+     */
+    public function setLotmcat3($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->lotmcat3 !== $v) {
+            $this->lotmcat3 = $v;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMCAT3] = true;
+        }
+
+        return $this;
+    } // setLotmcat3()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -1147,6 +1259,82 @@ abstract class InvLotMaster implements ActiveRecordInterface
                 return false;
             }
 
+            if ($this->lotmlotref !== '') {
+                return false;
+            }
+
+            if ($this->lotmfrstactdate !== '') {
+                return false;
+            }
+
+            if ($this->lotmimagyn !== 'N') {
+                return false;
+            }
+
+            if ($this->lotmunitwght !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->lotmrevision !== '') {
+                return false;
+            }
+
+            if ($this->lotmctry !== '') {
+                return false;
+            }
+
+            if ($this->lotmcofc !== 'N') {
+                return false;
+            }
+
+            if ($this->lotmcreatedate !== '') {
+                return false;
+            }
+
+            if ($this->lotmcreatetime !== '') {
+                return false;
+            }
+
+            if ($this->lotmvendid !== '') {
+                return false;
+            }
+
+            if ($this->lotmexpiredate !== '') {
+                return false;
+            }
+
+            if ($this->lotmunitcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->lotmcntrqty !== '0.00000') {
+                return false;
+            }
+
+            if ($this->lotmsrccd !== '') {
+                return false;
+            }
+
+            if ($this->lotmlmqccode !== '') {
+                return false;
+            }
+
+            if ($this->lotmcat3 !== 'N') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
+                return false;
+            }
+
         // otherwise, everything was equal, so return TRUE
         return true;
     } // hasOnlyDefaultValues()
@@ -1221,13 +1409,19 @@ abstract class InvLotMaster implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmsrccd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotmsrccd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : InvLotMasterTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmlmqccode', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmlmqccode = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmcat3', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmcat3 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : InvLotMasterTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : InvLotMasterTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : InvLotMasterTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : InvLotMasterTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : InvLotMasterTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1237,7 +1431,7 @@ abstract class InvLotMaster implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 19; // 19 = InvLotMasterTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 21; // 21 = InvLotMasterTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\InvLotMaster'), 0, $e);
@@ -1631,6 +1825,12 @@ abstract class InvLotMaster implements ActiveRecordInterface
         if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMSRCCD)) {
             $modifiedColumns[':p' . $index++]  = 'LotmSrcCd';
         }
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMLMQCCODE)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmLmQcCode';
+        }
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMCAT3)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmCat3';
+        }
         if ($this->isColumnModified(InvLotMasterTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -1698,6 +1898,12 @@ abstract class InvLotMaster implements ActiveRecordInterface
                         break;
                     case 'LotmSrcCd':
                         $stmt->bindValue($identifier, $this->lotmsrccd, PDO::PARAM_STR);
+                        break;
+                    case 'LotmLmQcCode':
+                        $stmt->bindValue($identifier, $this->lotmlmqccode, PDO::PARAM_STR);
+                        break;
+                    case 'LotmCat3':
+                        $stmt->bindValue($identifier, $this->lotmcat3, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1812,12 +2018,18 @@ abstract class InvLotMaster implements ActiveRecordInterface
                 return $this->getLotmsrccd();
                 break;
             case 16:
-                return $this->getDateupdtd();
+                return $this->getLotmlmqccode();
                 break;
             case 17:
-                return $this->getTimeupdtd();
+                return $this->getLotmcat3();
                 break;
             case 18:
+                return $this->getDateupdtd();
+                break;
+            case 19:
+                return $this->getTimeupdtd();
+                break;
+            case 20:
                 return $this->getDummy();
                 break;
             default:
@@ -1866,9 +2078,11 @@ abstract class InvLotMaster implements ActiveRecordInterface
             $keys[13] => $this->getLotmunitcost(),
             $keys[14] => $this->getLotmcntrqty(),
             $keys[15] => $this->getLotmsrccd(),
-            $keys[16] => $this->getDateupdtd(),
-            $keys[17] => $this->getTimeupdtd(),
-            $keys[18] => $this->getDummy(),
+            $keys[16] => $this->getLotmlmqccode(),
+            $keys[17] => $this->getLotmcat3(),
+            $keys[18] => $this->getDateupdtd(),
+            $keys[19] => $this->getTimeupdtd(),
+            $keys[20] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -2079,12 +2293,18 @@ abstract class InvLotMaster implements ActiveRecordInterface
                 $this->setLotmsrccd($value);
                 break;
             case 16:
-                $this->setDateupdtd($value);
+                $this->setLotmlmqccode($value);
                 break;
             case 17:
-                $this->setTimeupdtd($value);
+                $this->setLotmcat3($value);
                 break;
             case 18:
+                $this->setDateupdtd($value);
+                break;
+            case 19:
+                $this->setTimeupdtd($value);
+                break;
+            case 20:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -2162,13 +2382,19 @@ abstract class InvLotMaster implements ActiveRecordInterface
             $this->setLotmsrccd($arr[$keys[15]]);
         }
         if (array_key_exists($keys[16], $arr)) {
-            $this->setDateupdtd($arr[$keys[16]]);
+            $this->setLotmlmqccode($arr[$keys[16]]);
         }
         if (array_key_exists($keys[17], $arr)) {
-            $this->setTimeupdtd($arr[$keys[17]]);
+            $this->setLotmcat3($arr[$keys[17]]);
         }
         if (array_key_exists($keys[18], $arr)) {
-            $this->setDummy($arr[$keys[18]]);
+            $this->setDateupdtd($arr[$keys[18]]);
+        }
+        if (array_key_exists($keys[19], $arr)) {
+            $this->setTimeupdtd($arr[$keys[19]]);
+        }
+        if (array_key_exists($keys[20], $arr)) {
+            $this->setDummy($arr[$keys[20]]);
         }
     }
 
@@ -2258,6 +2484,12 @@ abstract class InvLotMaster implements ActiveRecordInterface
         }
         if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMSRCCD)) {
             $criteria->add(InvLotMasterTableMap::COL_LOTMSRCCD, $this->lotmsrccd);
+        }
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMLMQCCODE)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMLMQCCODE, $this->lotmlmqccode);
+        }
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMCAT3)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMCAT3, $this->lotmcat3);
         }
         if ($this->isColumnModified(InvLotMasterTableMap::COL_DATEUPDTD)) {
             $criteria->add(InvLotMasterTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -2385,6 +2617,8 @@ abstract class InvLotMaster implements ActiveRecordInterface
         $copyObj->setLotmunitcost($this->getLotmunitcost());
         $copyObj->setLotmcntrqty($this->getLotmcntrqty());
         $copyObj->setLotmsrccd($this->getLotmsrccd());
+        $copyObj->setLotmlmqccode($this->getLotmlmqccode());
+        $copyObj->setLotmcat3($this->getLotmcat3());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -4776,6 +5010,8 @@ abstract class InvLotMaster implements ActiveRecordInterface
         $this->lotmunitcost = null;
         $this->lotmcntrqty = null;
         $this->lotmsrccd = null;
+        $this->lotmlmqccode = null;
+        $this->lotmcat3 = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
@@ -4862,9 +5098,9 @@ abstract class InvLotMaster implements ActiveRecordInterface
      */
     public function preSave(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preSave')) {
-            return parent::preSave($con);
-        }
+        // if (is_callable('parent::preSave')) {
+        //     return parent::preSave($con);
+        // }
         return true;
     }
 
@@ -4874,9 +5110,9 @@ abstract class InvLotMaster implements ActiveRecordInterface
      */
     public function postSave(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postSave')) {
-            parent::postSave($con);
-        }
+        // if (is_callable('parent::postSave')) {
+        //     parent::postSave($con);
+        // }
     }
 
     /**
@@ -4886,9 +5122,9 @@ abstract class InvLotMaster implements ActiveRecordInterface
      */
     public function preInsert(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preInsert')) {
-            return parent::preInsert($con);
-        }
+        // if (is_callable('parent::preInsert')) {
+        //     return parent::preInsert($con);
+        // }
         return true;
     }
 
@@ -4898,9 +5134,9 @@ abstract class InvLotMaster implements ActiveRecordInterface
      */
     public function postInsert(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postInsert')) {
-            parent::postInsert($con);
-        }
+        // if (is_callable('parent::postInsert')) {
+        //     parent::postInsert($con);
+        // }
     }
 
     /**
@@ -4910,9 +5146,9 @@ abstract class InvLotMaster implements ActiveRecordInterface
      */
     public function preUpdate(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preUpdate')) {
-            return parent::preUpdate($con);
-        }
+        // if (is_callable('parent::preUpdate')) {
+        //     return parent::preUpdate($con);
+        // }
         return true;
     }
 
@@ -4922,9 +5158,9 @@ abstract class InvLotMaster implements ActiveRecordInterface
      */
     public function postUpdate(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postUpdate')) {
-            parent::postUpdate($con);
-        }
+        // if (is_callable('parent::postUpdate')) {
+        //     parent::postUpdate($con);
+        // }
     }
 
     /**
@@ -4934,9 +5170,9 @@ abstract class InvLotMaster implements ActiveRecordInterface
      */
     public function preDelete(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preDelete')) {
-            return parent::preDelete($con);
-        }
+        // if (is_callable('parent::preDelete')) {
+        //     return parent::preDelete($con);
+        // }
         return true;
     }
 
@@ -4946,9 +5182,9 @@ abstract class InvLotMaster implements ActiveRecordInterface
      */
     public function postDelete(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postDelete')) {
-            parent::postDelete($con);
-        }
+        // if (is_callable('parent::postDelete')) {
+        //     parent::postDelete($con);
+        // }
     }
 
 

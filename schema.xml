@@ -2614,23 +2614,25 @@
   <table name="inv_lot_mast" idMethod="native" phpName="InvLotMaster">
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="LotmLotNbr" phpName="Lotmlotnbr" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
-    <column name="LotmLotRef" phpName="Lotmlotref" type="VARCHAR" size="20"/>
-    <column name="LotmFrstActDate" phpName="Lotmfrstactdate" type="VARCHAR" size="8"/>
-    <column name="LotmImagYn" phpName="Lotmimagyn" type="VARCHAR" size="1"/>
-    <column name="LotmUnitWght" phpName="Lotmunitwght" type="DECIMAL" size="20" scale="7"/>
-    <column name="LotmRevision" phpName="Lotmrevision" type="VARCHAR" size="10"/>
-    <column name="LotmCtry" phpName="Lotmctry" type="VARCHAR" size="4"/>
-    <column name="LotmCOfC" phpName="Lotmcofc" type="VARCHAR" size="1"/>
-    <column name="LotmCreateDate" phpName="Lotmcreatedate" type="VARCHAR" size="8"/>
-    <column name="LotmCreateTime" phpName="Lotmcreatetime" type="VARCHAR" size="8"/>
-    <column name="LotmVendId" phpName="Lotmvendid" type="VARCHAR" size="6"/>
-    <column name="LotmExpireDate" phpName="Lotmexpiredate" type="VARCHAR" size="8"/>
-    <column name="LotmUnitCost" phpName="Lotmunitcost" type="DECIMAL" size="20" scale="7"/>
-    <column name="LotmCntrQty" phpName="Lotmcntrqty" type="DECIMAL" size="20" scale="5"/>
-    <column name="LotmSrcCd" phpName="Lotmsrccd" type="VARCHAR" size="2"/>
-    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
-    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
-    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <column name="LotmLotRef" phpName="Lotmlotref" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="LotmFrstActDate" phpName="Lotmfrstactdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="LotmImagYn" phpName="Lotmimagyn" type="CHAR" required="true" defaultValue="N"/>
+    <column name="LotmUnitWght" phpName="Lotmunitwght" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="LotmRevision" phpName="Lotmrevision" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="LotmCtry" phpName="Lotmctry" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="LotmCOfC" phpName="Lotmcofc" type="CHAR" required="true" defaultValue="N"/>
+    <column name="LotmCreateDate" phpName="Lotmcreatedate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="LotmCreateTime" phpName="Lotmcreatetime" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="LotmVendId" phpName="Lotmvendid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="LotmExpireDate" phpName="Lotmexpiredate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="LotmUnitCost" phpName="Lotmunitcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="LotmCntrQty" phpName="Lotmcntrqty" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="LotmSrcCd" phpName="Lotmsrccd" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="LotmLmQcCode" phpName="Lotmlmqccode" type="VARCHAR" size="3" required="true" defaultValue=""/>
+    <column name="LotmCat3" phpName="Lotmcat3" type="CHAR" required="true" defaultValue="N"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
     <foreign-key foreignTable="inv_item_mast" name="item">
       <reference local="InitItemNbr" foreign="InitItemNbr"/>
     </foreign-key>
