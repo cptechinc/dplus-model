@@ -3984,8 +3984,8 @@
     </vendor>
   </table>
   <table name="po_detail" idMethod="native" phpName="PurchaseOrderDetail">
-    <column name="PohdNbr" phpName="Pohdnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" primaryKey="true" required="true" defaultValue="0"/>
-    <column name="PodtLine" phpName="Podtline" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="PohdNbr" phpName="Pohdnbr" type="INTEGER" sqlType="int unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="PodtLine" phpName="Podtline" type="INTEGER" sqlType="int unsigned" primaryKey="true" required="true" defaultValue="0"/>
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" required="true" defaultValue=""/>
     <column name="PodtDesc1" phpName="Podtdesc1" type="VARCHAR" size="35" required="true" defaultValue=""/>
     <column name="PodtDesc2" phpName="Podtdesc2" type="VARCHAR" size="35" required="true" defaultValue=""/>
@@ -4001,9 +4001,9 @@
     <column name="PodtRel" phpName="Podtrel" type="CHAR" required="true" defaultValue="Y"/>
     <column name="PodtSpecOrdr" phpName="Podtspecordr" type="CHAR" required="true" defaultValue="N"/>
     <column name="PodtGlAcct" phpName="Podtglacct" type="VARCHAR" size="9" required="true" defaultValue=""/>
-    <column name="PodtSoNbr" phpName="Podtsonbr" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="PodtSoNbr" phpName="Podtsonbr" type="INTEGER" sqlType="int unsigned" required="true" defaultValue="0"/>
     <column name="PodtStat" phpName="Podtstat" type="CHAR" required="true" defaultValue="O"/>
-    <column name="PodtOrigSoLine" phpName="Podtorigsoline" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
+    <column name="PodtOrigSoLine" phpName="Podtorigsoline" type="INTEGER" sqlType="int unsigned" required="true" defaultValue="0"/>
     <column name="PodtQtyDueIn" phpName="Podtqtyduein" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="PodtType" phpName="Podttype" type="CHAR" required="true" defaultValue="S"/>
     <column name="PodtWghtTot" phpName="Podtwghttot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
@@ -4017,14 +4017,15 @@
     <column name="PodtRevision" phpName="Podtrevision" type="VARCHAR" size="10" required="true" defaultValue=""/>
     <column name="PodtPrtPoEOrU" phpName="Podtprtpoeoru" type="CHAR" required="true" defaultValue="E"/>
     <column name="PotbCnfmCode" phpName="Potbcnfmcode" type="VARCHAR" size="4" required="true" defaultValue=""/>
-    <column name="PodtRcptNbr" phpName="Podtrcptnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
-    <column name="PodtWipNbr" phpName="Podtwipnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="PodtRcptNbr" phpName="Podtrcptnbr" type="INTEGER" sqlType="int unsigned" required="true" defaultValue="0"/>
+    <column name="PodtWipNbr" phpName="Podtwipnbr" type="INTEGER" sqlType="int unsigned" required="true" defaultValue="0"/>
     <column name="PodtOrdrAs" phpName="Podtordras" type="CHAR" required="true" defaultValue="C"/>
     <column name="PodtBolDate" phpName="Podtboldate" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="PodtListPric" phpName="Podtlistpric" type="DECIMAL" size="20" scale="4" required="true" defaultValue="0.0000"/>
     <column name="PodtDeliveredDate" phpName="Podtdelivereddate" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="PodtLandCost" phpName="Podtlandcost" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="PodtCasesOrd" phpName="Podtcasesord" type="INTEGER" size="6" sqlType="int(6) unsigned" required="true" defaultValue="0"/>
+    <column name="PodtCasesOrd" phpName="Podtcasesord" type="INTEGER" sqlType="int unsigned" required="true" defaultValue="0"/>
+    <column name="PodtCat3" phpName="Podtcat3" type="CHAR" required="true" defaultValue="N"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>

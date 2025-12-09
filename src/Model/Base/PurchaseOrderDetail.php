@@ -403,6 +403,14 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     protected $podtcasesord;
 
     /**
+     * The value for the podtcat3 field.
+     *
+     * Note: this column has a database default value of: 'N'
+     * @var        string
+     */
+    protected $podtcat3;
+
+    /**
      * The value for the dateupdtd field.
      *
      * Note: this column has a database default value of: ''
@@ -529,6 +537,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         $this->podtdelivereddate = '';
         $this->podtlandcost = '0.00000';
         $this->podtcasesord = 0;
+        $this->podtcat3 = 'N';
         $this->dateupdtd = '';
         $this->timeupdtd = '';
         $this->dummy = 'P';
@@ -1169,6 +1178,16 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function getPodtcasesord()
     {
         return $this->podtcasesord;
+    }
+
+    /**
+     * Get the [podtcat3] column value.
+     *
+     * @return string
+     */
+    public function getPodtcat3()
+    {
+        return $this->podtcat3;
     }
 
     /**
@@ -2030,6 +2049,26 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     } // setPodtcasesord()
 
     /**
+     * Set the value of [podtcat3] column.
+     *
+     * @param string $v new value
+     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     */
+    public function setPodtcat3($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->podtcat3 !== $v) {
+            $this->podtcat3 = $v;
+            $this->modifiedColumns[PurchaseOrderDetailTableMap::COL_PODTCAT3] = true;
+        }
+
+        return $this;
+    } // setPodtcat3()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -2263,6 +2302,10 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 return false;
             }
 
+            if ($this->podtcat3 !== 'N') {
+                return false;
+            }
+
             if ($this->dateupdtd !== '') {
                 return false;
             }
@@ -2424,13 +2467,16 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtcasesord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtcasesord = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtcat3', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->podtcat3 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -2440,7 +2486,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 44; // 44 = PurchaseOrderDetailTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 45; // 45 = PurchaseOrderDetailTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\PurchaseOrderDetail'), 0, $e);
@@ -2844,6 +2890,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_PODTCASESORD)) {
             $modifiedColumns[':p' . $index++]  = 'PodtCasesOrd';
         }
+        if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_PODTCAT3)) {
+            $modifiedColumns[':p' . $index++]  = 'PodtCat3';
+        }
         if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -2986,6 +3035,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                         break;
                     case 'PodtCasesOrd':
                         $stmt->bindValue($identifier, $this->podtcasesord, PDO::PARAM_INT);
+                        break;
+                    case 'PodtCat3':
+                        $stmt->bindValue($identifier, $this->podtcat3, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -3175,12 +3227,15 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 return $this->getPodtcasesord();
                 break;
             case 41:
-                return $this->getDateupdtd();
+                return $this->getPodtcat3();
                 break;
             case 42:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 43:
+                return $this->getTimeupdtd();
+                break;
+            case 44:
                 return $this->getDummy();
                 break;
             default:
@@ -3254,9 +3309,10 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             $keys[38] => $this->getPodtdelivereddate(),
             $keys[39] => $this->getPodtlandcost(),
             $keys[40] => $this->getPodtcasesord(),
-            $keys[41] => $this->getDateupdtd(),
-            $keys[42] => $this->getTimeupdtd(),
-            $keys[43] => $this->getDummy(),
+            $keys[41] => $this->getPodtcat3(),
+            $keys[42] => $this->getDateupdtd(),
+            $keys[43] => $this->getTimeupdtd(),
+            $keys[44] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -3497,12 +3553,15 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 $this->setPodtcasesord($value);
                 break;
             case 41:
-                $this->setDateupdtd($value);
+                $this->setPodtcat3($value);
                 break;
             case 42:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 43:
+                $this->setTimeupdtd($value);
+                break;
+            case 44:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -3655,13 +3714,16 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             $this->setPodtcasesord($arr[$keys[40]]);
         }
         if (array_key_exists($keys[41], $arr)) {
-            $this->setDateupdtd($arr[$keys[41]]);
+            $this->setPodtcat3($arr[$keys[41]]);
         }
         if (array_key_exists($keys[42], $arr)) {
-            $this->setTimeupdtd($arr[$keys[42]]);
+            $this->setDateupdtd($arr[$keys[42]]);
         }
         if (array_key_exists($keys[43], $arr)) {
-            $this->setDummy($arr[$keys[43]]);
+            $this->setTimeupdtd($arr[$keys[43]]);
+        }
+        if (array_key_exists($keys[44], $arr)) {
+            $this->setDummy($arr[$keys[44]]);
         }
     }
 
@@ -3827,6 +3889,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_PODTCASESORD)) {
             $criteria->add(PurchaseOrderDetailTableMap::COL_PODTCASESORD, $this->podtcasesord);
         }
+        if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_PODTCAT3)) {
+            $criteria->add(PurchaseOrderDetailTableMap::COL_PODTCAT3, $this->podtcat3);
+        }
         if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_DATEUPDTD)) {
             $criteria->add(PurchaseOrderDetailTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -3978,6 +4043,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         $copyObj->setPodtdelivereddate($this->getPodtdelivereddate());
         $copyObj->setPodtlandcost($this->getPodtlandcost());
         $copyObj->setPodtcasesord($this->getPodtcasesord());
+        $copyObj->setPodtcat3($this->getPodtcat3());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -5124,6 +5190,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         $this->podtdelivereddate = null;
         $this->podtlandcost = null;
         $this->podtcasesord = null;
+        $this->podtcat3 = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
@@ -5188,7 +5255,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // return parent::preSave($con);
+            return parent::preSave($con);
         }
         return true;
     }
@@ -5200,7 +5267,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function postSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
+            parent::postSave($con);
         }
     }
 
@@ -5212,7 +5279,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // return parent::preInsert($con);
+            return parent::preInsert($con);
         }
         return true;
     }
@@ -5224,7 +5291,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function postInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
+            parent::postInsert($con);
         }
     }
 
@@ -5236,7 +5303,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // return parent::preUpdate($con);
+            return parent::preUpdate($con);
         }
         return true;
     }
@@ -5248,7 +5315,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function postUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
+            parent::postUpdate($con);
         }
     }
 
@@ -5260,7 +5327,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // return parent::preDelete($con);
+            return parent::preDelete($con);
         }
         return true;
     }
@@ -5272,7 +5339,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function postDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
+            parent::postDelete($con);
         }
     }
 
