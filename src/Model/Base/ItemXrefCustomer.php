@@ -2,8 +2,6 @@
 
 namespace Base;
 
-use \Customer as ChildCustomer;
-use \CustomerQuery as ChildCustomerQuery;
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \ItemXrefCustomerQuery as ChildItemXrefCustomerQuery;
@@ -82,6 +80,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the inititemnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inititemnbr;
@@ -89,6 +88,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrretprice field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oexrretprice;
@@ -96,6 +96,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrcustprice field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oexrcustprice;
@@ -103,6 +104,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrqtypercase field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oexrqtypercase;
@@ -110,6 +112,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrinnerpackqty field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oexrinnerpackqty;
@@ -117,6 +120,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrouterpackqty field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oexrouterpackqty;
@@ -124,6 +128,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrrounding field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oexrrounding;
@@ -131,6 +136,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrshiptareqty field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oexrshiptareqty;
@@ -138,6 +144,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrcustitemdesc field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oexrcustitemdesc;
@@ -145,6 +152,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrconvert field.
      *
+     * Note: this column has a database default value of: '1.00000'
      * @var        string
      */
     protected $oexrconvert;
@@ -152,6 +160,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrcustitemdesc2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oexrcustitemdesc2;
@@ -159,6 +168,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrrevision field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oexrrevision;
@@ -166,6 +176,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrpurchqty field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oexrpurchqty;
@@ -173,6 +184,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrcustpricuom field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oexrcustpricuom;
@@ -180,6 +192,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrlabel1prtfmt field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oexrlabel1prtfmt;
@@ -187,6 +200,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrlabel2prtfmt field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oexrlabel2prtfmt;
@@ -194,6 +208,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrwght field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $oexrwght;
@@ -201,13 +216,31 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the oexrcustuom field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oexrcustuom;
 
     /**
+     * The value for the oexredi846 field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oexredi846;
+
+    /**
+     * The value for the oexrcat3reqd field.
+     *
+     * Note: this column has a database default value of: 'N'
+     * @var        string
+     */
+    protected $oexrcat3reqd;
+
+    /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -215,6 +248,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -222,6 +256,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -230,11 +265,6 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
      * @var        ChildItemMasterItem
      */
     protected $aItemMasterItem;
-
-    /**
-     * @var        ChildCustomer
-     */
-    protected $aCustomer;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -254,6 +284,29 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     {
         $this->arcucustid = '';
         $this->oexrcustitemnbr = '';
+        $this->inititemnbr = '';
+        $this->oexrretprice = '0.00';
+        $this->oexrcustprice = '0.00';
+        $this->oexrqtypercase = 0;
+        $this->oexrinnerpackqty = 0;
+        $this->oexrouterpackqty = 0;
+        $this->oexrrounding = 'N';
+        $this->oexrshiptareqty = 0;
+        $this->oexrcustitemdesc = '';
+        $this->oexrconvert = '1.00000';
+        $this->oexrcustitemdesc2 = '';
+        $this->oexrrevision = '';
+        $this->oexrpurchqty = 0;
+        $this->oexrcustpricuom = '';
+        $this->oexrlabel1prtfmt = '';
+        $this->oexrlabel2prtfmt = '';
+        $this->oexrwght = '0.00000';
+        $this->oexrcustuom = '';
+        $this->oexredi846 = '';
+        $this->oexrcat3reqd = 'N';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
@@ -684,6 +737,26 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     }
 
     /**
+     * Get the [oexredi846] column value.
+     *
+     * @return string
+     */
+    public function getOexredi846()
+    {
+        return $this->oexredi846;
+    }
+
+    /**
+     * Get the [oexrcat3reqd] column value.
+     *
+     * @return string
+     */
+    public function getOexrcat3reqd()
+    {
+        return $this->oexrcat3reqd;
+    }
+
+    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -728,10 +801,6 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
         if ($this->arcucustid !== $v) {
             $this->arcucustid = $v;
             $this->modifiedColumns[ItemXrefCustomerTableMap::COL_ARCUCUSTID] = true;
-        }
-
-        if ($this->aCustomer !== null && $this->aCustomer->getArcucustid() !== $v) {
-            $this->aCustomer = null;
         }
 
         return $this;
@@ -1122,6 +1191,46 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     } // setOexrcustuom()
 
     /**
+     * Set the value of [oexredi846] column.
+     *
+     * @param string $v new value
+     * @return $this|\ItemXrefCustomer The current object (for fluent API support)
+     */
+    public function setOexredi846($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oexredi846 !== $v) {
+            $this->oexredi846 = $v;
+            $this->modifiedColumns[ItemXrefCustomerTableMap::COL_OEXREDI846] = true;
+        }
+
+        return $this;
+    } // setOexredi846()
+
+    /**
+     * Set the value of [oexrcat3reqd] column.
+     *
+     * @param string $v new value
+     * @return $this|\ItemXrefCustomer The current object (for fluent API support)
+     */
+    public function setOexrcat3reqd($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oexrcat3reqd !== $v) {
+            $this->oexrcat3reqd = $v;
+            $this->modifiedColumns[ItemXrefCustomerTableMap::COL_OEXRCAT3REQD] = true;
+        }
+
+        return $this;
+    } // setOexrcat3reqd()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -1196,6 +1305,98 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
             }
 
             if ($this->oexrcustitemnbr !== '') {
+                return false;
+            }
+
+            if ($this->inititemnbr !== '') {
+                return false;
+            }
+
+            if ($this->oexrretprice !== '0.00') {
+                return false;
+            }
+
+            if ($this->oexrcustprice !== '0.00') {
+                return false;
+            }
+
+            if ($this->oexrqtypercase !== 0) {
+                return false;
+            }
+
+            if ($this->oexrinnerpackqty !== 0) {
+                return false;
+            }
+
+            if ($this->oexrouterpackqty !== 0) {
+                return false;
+            }
+
+            if ($this->oexrrounding !== 'N') {
+                return false;
+            }
+
+            if ($this->oexrshiptareqty !== 0) {
+                return false;
+            }
+
+            if ($this->oexrcustitemdesc !== '') {
+                return false;
+            }
+
+            if ($this->oexrconvert !== '1.00000') {
+                return false;
+            }
+
+            if ($this->oexrcustitemdesc2 !== '') {
+                return false;
+            }
+
+            if ($this->oexrrevision !== '') {
+                return false;
+            }
+
+            if ($this->oexrpurchqty !== 0) {
+                return false;
+            }
+
+            if ($this->oexrcustpricuom !== '') {
+                return false;
+            }
+
+            if ($this->oexrlabel1prtfmt !== '') {
+                return false;
+            }
+
+            if ($this->oexrlabel2prtfmt !== '') {
+                return false;
+            }
+
+            if ($this->oexrwght !== '0.00000') {
+                return false;
+            }
+
+            if ($this->oexrcustuom !== '') {
+                return false;
+            }
+
+            if ($this->oexredi846 !== '') {
+                return false;
+            }
+
+            if ($this->oexrcat3reqd !== 'N') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
                 return false;
             }
 
@@ -1285,13 +1486,19 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ItemXrefCustomerTableMap::translateFieldName('Oexrcustuom', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oexrcustuom = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ItemXrefCustomerTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ItemXrefCustomerTableMap::translateFieldName('Oexredi846', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oexredi846 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ItemXrefCustomerTableMap::translateFieldName('Oexrcat3reqd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oexrcat3reqd = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ItemXrefCustomerTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ItemXrefCustomerTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ItemXrefCustomerTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ItemXrefCustomerTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ItemXrefCustomerTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1301,7 +1508,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 23; // 23 = ItemXrefCustomerTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 25; // 25 = ItemXrefCustomerTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\ItemXrefCustomer'), 0, $e);
@@ -1323,9 +1530,6 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
-        if ($this->aCustomer !== null && $this->arcucustid !== $this->aCustomer->getArcucustid()) {
-            $this->aCustomer = null;
-        }
         if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
             $this->aItemMasterItem = null;
         }
@@ -1369,7 +1573,6 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
         if ($deep) {  // also de-associate any related objects?
 
             $this->aItemMasterItem = null;
-            $this->aCustomer = null;
         } // if (deep)
     }
 
@@ -1485,13 +1688,6 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
                 $this->setItemMasterItem($this->aItemMasterItem);
             }
 
-            if ($this->aCustomer !== null) {
-                if ($this->aCustomer->isModified() || $this->aCustomer->isNew()) {
-                    $affectedRows += $this->aCustomer->save($con);
-                }
-                $this->setCustomer($this->aCustomer);
-            }
-
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
                 if ($this->isNew()) {
@@ -1585,6 +1781,12 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
         if ($this->isColumnModified(ItemXrefCustomerTableMap::COL_OEXRCUSTUOM)) {
             $modifiedColumns[':p' . $index++]  = 'OexrCustUom';
         }
+        if ($this->isColumnModified(ItemXrefCustomerTableMap::COL_OEXREDI846)) {
+            $modifiedColumns[':p' . $index++]  = 'OexrEdi846';
+        }
+        if ($this->isColumnModified(ItemXrefCustomerTableMap::COL_OEXRCAT3REQD)) {
+            $modifiedColumns[':p' . $index++]  = 'OexrCat3Reqd';
+        }
         if ($this->isColumnModified(ItemXrefCustomerTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -1664,6 +1866,12 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
                         break;
                     case 'OexrCustUom':
                         $stmt->bindValue($identifier, $this->oexrcustuom, PDO::PARAM_STR);
+                        break;
+                    case 'OexrEdi846':
+                        $stmt->bindValue($identifier, $this->oexredi846, PDO::PARAM_STR);
+                        break;
+                    case 'OexrCat3Reqd':
+                        $stmt->bindValue($identifier, $this->oexrcat3reqd, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1790,12 +1998,18 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
                 return $this->getOexrcustuom();
                 break;
             case 20:
-                return $this->getDateupdtd();
+                return $this->getOexredi846();
                 break;
             case 21:
-                return $this->getTimeupdtd();
+                return $this->getOexrcat3reqd();
                 break;
             case 22:
+                return $this->getDateupdtd();
+                break;
+            case 23:
+                return $this->getTimeupdtd();
+                break;
+            case 24:
                 return $this->getDummy();
                 break;
             default:
@@ -1848,9 +2062,11 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
             $keys[17] => $this->getOexrlabel2prtfmt(),
             $keys[18] => $this->getOexrwght(),
             $keys[19] => $this->getOexrcustuom(),
-            $keys[20] => $this->getDateupdtd(),
-            $keys[21] => $this->getTimeupdtd(),
-            $keys[22] => $this->getDummy(),
+            $keys[20] => $this->getOexredi846(),
+            $keys[21] => $this->getOexrcat3reqd(),
+            $keys[22] => $this->getDateupdtd(),
+            $keys[23] => $this->getTimeupdtd(),
+            $keys[24] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1872,21 +2088,6 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
-            }
-            if (null !== $this->aCustomer) {
-
-                switch ($keyType) {
-                    case TableMap::TYPE_CAMELNAME:
-                        $key = 'customer';
-                        break;
-                    case TableMap::TYPE_FIELDNAME:
-                        $key = 'ar_cust_mast';
-                        break;
-                    default:
-                        $key = 'Customer';
-                }
-
-                $result[$key] = $this->aCustomer->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
         }
 
@@ -1983,12 +2184,18 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
                 $this->setOexrcustuom($value);
                 break;
             case 20:
-                $this->setDateupdtd($value);
+                $this->setOexredi846($value);
                 break;
             case 21:
-                $this->setTimeupdtd($value);
+                $this->setOexrcat3reqd($value);
                 break;
             case 22:
+                $this->setDateupdtd($value);
+                break;
+            case 23:
+                $this->setTimeupdtd($value);
+                break;
+            case 24:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -2078,13 +2285,19 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
             $this->setOexrcustuom($arr[$keys[19]]);
         }
         if (array_key_exists($keys[20], $arr)) {
-            $this->setDateupdtd($arr[$keys[20]]);
+            $this->setOexredi846($arr[$keys[20]]);
         }
         if (array_key_exists($keys[21], $arr)) {
-            $this->setTimeupdtd($arr[$keys[21]]);
+            $this->setOexrcat3reqd($arr[$keys[21]]);
         }
         if (array_key_exists($keys[22], $arr)) {
-            $this->setDummy($arr[$keys[22]]);
+            $this->setDateupdtd($arr[$keys[22]]);
+        }
+        if (array_key_exists($keys[23], $arr)) {
+            $this->setTimeupdtd($arr[$keys[23]]);
+        }
+        if (array_key_exists($keys[24], $arr)) {
+            $this->setDummy($arr[$keys[24]]);
         }
     }
 
@@ -2187,6 +2400,12 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
         if ($this->isColumnModified(ItemXrefCustomerTableMap::COL_OEXRCUSTUOM)) {
             $criteria->add(ItemXrefCustomerTableMap::COL_OEXRCUSTUOM, $this->oexrcustuom);
         }
+        if ($this->isColumnModified(ItemXrefCustomerTableMap::COL_OEXREDI846)) {
+            $criteria->add(ItemXrefCustomerTableMap::COL_OEXREDI846, $this->oexredi846);
+        }
+        if ($this->isColumnModified(ItemXrefCustomerTableMap::COL_OEXRCAT3REQD)) {
+            $criteria->add(ItemXrefCustomerTableMap::COL_OEXRCAT3REQD, $this->oexrcat3reqd);
+        }
         if ($this->isColumnModified(ItemXrefCustomerTableMap::COL_DATEUPDTD)) {
             $criteria->add(ItemXrefCustomerTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -2230,15 +2449,8 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
         $validPk = null !== $this->getArcucustid() &&
             null !== $this->getOexrcustitemnbr();
 
-        $validPrimaryKeyFKs = 1;
+        $validPrimaryKeyFKs = 0;
         $primaryKeyFKs = [];
-
-        //relation customer to table ar_cust_mast
-        if ($this->aCustomer && $hash = spl_object_hash($this->aCustomer)) {
-            $primaryKeyFKs[] = $hash;
-        } else {
-            $validPrimaryKeyFKs = false;
-        }
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
@@ -2317,6 +2529,8 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
         $copyObj->setOexrlabel2prtfmt($this->getOexrlabel2prtfmt());
         $copyObj->setOexrwght($this->getOexrwght());
         $copyObj->setOexrcustuom($this->getOexrcustuom());
+        $copyObj->setOexredi846($this->getOexredi846());
+        $copyObj->setOexrcat3reqd($this->getOexrcat3reqd());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -2357,7 +2571,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     public function setItemMasterItem(ChildItemMasterItem $v = null)
     {
         if ($v === null) {
-            $this->setInititemnbr(NULL);
+            $this->setInititemnbr('');
         } else {
             $this->setInititemnbr($v->getInititemnbr());
         }
@@ -2399,57 +2613,6 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     }
 
     /**
-     * Declares an association between this object and a ChildCustomer object.
-     *
-     * @param  ChildCustomer $v
-     * @return $this|\ItemXrefCustomer The current object (for fluent API support)
-     * @throws PropelException
-     */
-    public function setCustomer(ChildCustomer $v = null)
-    {
-        if ($v === null) {
-            $this->setArcucustid('');
-        } else {
-            $this->setArcucustid($v->getArcucustid());
-        }
-
-        $this->aCustomer = $v;
-
-        // Add binding for other direction of this n:n relationship.
-        // If this object has already been added to the ChildCustomer object, it will not be re-added.
-        if ($v !== null) {
-            $v->addItemXrefCustomer($this);
-        }
-
-
-        return $this;
-    }
-
-
-    /**
-     * Get the associated ChildCustomer object
-     *
-     * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildCustomer The associated ChildCustomer object.
-     * @throws PropelException
-     */
-    public function getCustomer(ConnectionInterface $con = null)
-    {
-        if ($this->aCustomer === null && (($this->arcucustid !== "" && $this->arcucustid !== null))) {
-            $this->aCustomer = ChildCustomerQuery::create()->findPk($this->arcucustid, $con);
-            /* The following can be used additionally to
-                guarantee the related object contains a reference
-                to this object.  This level of coupling may, however, be
-                undesirable since it could result in an only partially populated collection
-                in the referenced object.
-                $this->aCustomer->addItemXrefCustomers($this);
-             */
-        }
-
-        return $this->aCustomer;
-    }
-
-    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -2458,9 +2621,6 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     {
         if (null !== $this->aItemMasterItem) {
             $this->aItemMasterItem->removeItemXrefCustomer($this);
-        }
-        if (null !== $this->aCustomer) {
-            $this->aCustomer->removeItemXrefCustomer($this);
         }
         $this->arcucustid = null;
         $this->oexrcustitemnbr = null;
@@ -2482,6 +2642,8 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
         $this->oexrlabel2prtfmt = null;
         $this->oexrwght = null;
         $this->oexrcustuom = null;
+        $this->oexredi846 = null;
+        $this->oexrcat3reqd = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
@@ -2507,7 +2669,6 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
         } // if ($deep)
 
         $this->aItemMasterItem = null;
-        $this->aCustomer = null;
     }
 
     /**
@@ -2528,7 +2689,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }
@@ -2552,7 +2713,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
+            // return parent::preInsert($con);
         }
         return true;
     }
@@ -2576,7 +2737,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
+            // return parent::preUpdate($con);
         }
         return true;
     }
@@ -2600,7 +2761,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
+            // return parent::preDelete($con);
         }
         return true;
     }

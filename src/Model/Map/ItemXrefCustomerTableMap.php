@@ -59,7 +59,7 @@ class ItemXrefCustomerTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 23;
+    const NUM_COLUMNS = 25;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class ItemXrefCustomerTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 23;
+    const NUM_HYDRATE_COLUMNS = 25;
 
     /**
      * the column name for the ArcuCustId field
@@ -172,6 +172,16 @@ class ItemXrefCustomerTableMap extends TableMap
     const COL_OEXRCUSTUOM = 'cust_item_xref.OexrCustUom';
 
     /**
+     * the column name for the OexrEdi846 field
+     */
+    const COL_OEXREDI846 = 'cust_item_xref.OexrEdi846';
+
+    /**
+     * the column name for the OexrCat3Reqd field
+     */
+    const COL_OEXRCAT3REQD = 'cust_item_xref.OexrCat3Reqd';
+
+    /**
      * the column name for the DateUpdtd field
      */
     const COL_DATEUPDTD = 'cust_item_xref.DateUpdtd';
@@ -198,11 +208,11 @@ class ItemXrefCustomerTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Arcucustid', 'Oexrcustitemnbr', 'Inititemnbr', 'Oexrretprice', 'Oexrcustprice', 'Oexrqtypercase', 'Oexrinnerpackqty', 'Oexrouterpackqty', 'Oexrrounding', 'Oexrshiptareqty', 'Oexrcustitemdesc', 'Oexrconvert', 'Oexrcustitemdesc2', 'Oexrrevision', 'Oexrpurchqty', 'Oexrcustpricuom', 'Oexrlabel1prtfmt', 'Oexrlabel2prtfmt', 'Oexrwght', 'Oexrcustuom', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('arcucustid', 'oexrcustitemnbr', 'inititemnbr', 'oexrretprice', 'oexrcustprice', 'oexrqtypercase', 'oexrinnerpackqty', 'oexrouterpackqty', 'oexrrounding', 'oexrshiptareqty', 'oexrcustitemdesc', 'oexrconvert', 'oexrcustitemdesc2', 'oexrrevision', 'oexrpurchqty', 'oexrcustpricuom', 'oexrlabel1prtfmt', 'oexrlabel2prtfmt', 'oexrwght', 'oexrcustuom', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemXrefCustomerTableMap::COL_ARCUCUSTID, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMNBR, ItemXrefCustomerTableMap::COL_INITITEMNBR, ItemXrefCustomerTableMap::COL_OEXRRETPRICE, ItemXrefCustomerTableMap::COL_OEXRCUSTPRICE, ItemXrefCustomerTableMap::COL_OEXRQTYPERCASE, ItemXrefCustomerTableMap::COL_OEXRINNERPACKQTY, ItemXrefCustomerTableMap::COL_OEXROUTERPACKQTY, ItemXrefCustomerTableMap::COL_OEXRROUNDING, ItemXrefCustomerTableMap::COL_OEXRSHIPTAREQTY, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC, ItemXrefCustomerTableMap::COL_OEXRCONVERT, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC2, ItemXrefCustomerTableMap::COL_OEXRREVISION, ItemXrefCustomerTableMap::COL_OEXRPURCHQTY, ItemXrefCustomerTableMap::COL_OEXRCUSTPRICUOM, ItemXrefCustomerTableMap::COL_OEXRLABEL1PRTFMT, ItemXrefCustomerTableMap::COL_OEXRLABEL2PRTFMT, ItemXrefCustomerTableMap::COL_OEXRWGHT, ItemXrefCustomerTableMap::COL_OEXRCUSTUOM, ItemXrefCustomerTableMap::COL_DATEUPDTD, ItemXrefCustomerTableMap::COL_TIMEUPDTD, ItemXrefCustomerTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ArcuCustId', 'OexrCustItemNbr', 'InitItemNbr', 'OexrRetPrice', 'OexrCustPrice', 'OexrQtyPerCase', 'OexrInnerPackQty', 'OexrOuterPackQty', 'OexrRounding', 'OexrShipTareQty', 'OexrCustItemDesc', 'OexrConvert', 'OexrCustItemDesc2', 'OexrRevision', 'OexrPurchQty', 'OexrCustPricUom', 'OexrLabel1PrtFmt', 'OexrLabel2PrtFmt', 'OexrWght', 'OexrCustUom', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, )
+        self::TYPE_PHPNAME       => array('Arcucustid', 'Oexrcustitemnbr', 'Inititemnbr', 'Oexrretprice', 'Oexrcustprice', 'Oexrqtypercase', 'Oexrinnerpackqty', 'Oexrouterpackqty', 'Oexrrounding', 'Oexrshiptareqty', 'Oexrcustitemdesc', 'Oexrconvert', 'Oexrcustitemdesc2', 'Oexrrevision', 'Oexrpurchqty', 'Oexrcustpricuom', 'Oexrlabel1prtfmt', 'Oexrlabel2prtfmt', 'Oexrwght', 'Oexrcustuom', 'Oexredi846', 'Oexrcat3reqd', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('arcucustid', 'oexrcustitemnbr', 'inititemnbr', 'oexrretprice', 'oexrcustprice', 'oexrqtypercase', 'oexrinnerpackqty', 'oexrouterpackqty', 'oexrrounding', 'oexrshiptareqty', 'oexrcustitemdesc', 'oexrconvert', 'oexrcustitemdesc2', 'oexrrevision', 'oexrpurchqty', 'oexrcustpricuom', 'oexrlabel1prtfmt', 'oexrlabel2prtfmt', 'oexrwght', 'oexrcustuom', 'oexredi846', 'oexrcat3reqd', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(ItemXrefCustomerTableMap::COL_ARCUCUSTID, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMNBR, ItemXrefCustomerTableMap::COL_INITITEMNBR, ItemXrefCustomerTableMap::COL_OEXRRETPRICE, ItemXrefCustomerTableMap::COL_OEXRCUSTPRICE, ItemXrefCustomerTableMap::COL_OEXRQTYPERCASE, ItemXrefCustomerTableMap::COL_OEXRINNERPACKQTY, ItemXrefCustomerTableMap::COL_OEXROUTERPACKQTY, ItemXrefCustomerTableMap::COL_OEXRROUNDING, ItemXrefCustomerTableMap::COL_OEXRSHIPTAREQTY, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC, ItemXrefCustomerTableMap::COL_OEXRCONVERT, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC2, ItemXrefCustomerTableMap::COL_OEXRREVISION, ItemXrefCustomerTableMap::COL_OEXRPURCHQTY, ItemXrefCustomerTableMap::COL_OEXRCUSTPRICUOM, ItemXrefCustomerTableMap::COL_OEXRLABEL1PRTFMT, ItemXrefCustomerTableMap::COL_OEXRLABEL2PRTFMT, ItemXrefCustomerTableMap::COL_OEXRWGHT, ItemXrefCustomerTableMap::COL_OEXRCUSTUOM, ItemXrefCustomerTableMap::COL_OEXREDI846, ItemXrefCustomerTableMap::COL_OEXRCAT3REQD, ItemXrefCustomerTableMap::COL_DATEUPDTD, ItemXrefCustomerTableMap::COL_TIMEUPDTD, ItemXrefCustomerTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('ArcuCustId', 'OexrCustItemNbr', 'InitItemNbr', 'OexrRetPrice', 'OexrCustPrice', 'OexrQtyPerCase', 'OexrInnerPackQty', 'OexrOuterPackQty', 'OexrRounding', 'OexrShipTareQty', 'OexrCustItemDesc', 'OexrConvert', 'OexrCustItemDesc2', 'OexrRevision', 'OexrPurchQty', 'OexrCustPricUom', 'OexrLabel1PrtFmt', 'OexrLabel2PrtFmt', 'OexrWght', 'OexrCustUom', 'OexrEdi846', 'OexrCat3Reqd', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, )
     );
 
     /**
@@ -212,11 +222,11 @@ class ItemXrefCustomerTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Arcucustid' => 0, 'Oexrcustitemnbr' => 1, 'Inititemnbr' => 2, 'Oexrretprice' => 3, 'Oexrcustprice' => 4, 'Oexrqtypercase' => 5, 'Oexrinnerpackqty' => 6, 'Oexrouterpackqty' => 7, 'Oexrrounding' => 8, 'Oexrshiptareqty' => 9, 'Oexrcustitemdesc' => 10, 'Oexrconvert' => 11, 'Oexrcustitemdesc2' => 12, 'Oexrrevision' => 13, 'Oexrpurchqty' => 14, 'Oexrcustpricuom' => 15, 'Oexrlabel1prtfmt' => 16, 'Oexrlabel2prtfmt' => 17, 'Oexrwght' => 18, 'Oexrcustuom' => 19, 'Dateupdtd' => 20, 'Timeupdtd' => 21, 'Dummy' => 22, ),
-        self::TYPE_CAMELNAME     => array('arcucustid' => 0, 'oexrcustitemnbr' => 1, 'inititemnbr' => 2, 'oexrretprice' => 3, 'oexrcustprice' => 4, 'oexrqtypercase' => 5, 'oexrinnerpackqty' => 6, 'oexrouterpackqty' => 7, 'oexrrounding' => 8, 'oexrshiptareqty' => 9, 'oexrcustitemdesc' => 10, 'oexrconvert' => 11, 'oexrcustitemdesc2' => 12, 'oexrrevision' => 13, 'oexrpurchqty' => 14, 'oexrcustpricuom' => 15, 'oexrlabel1prtfmt' => 16, 'oexrlabel2prtfmt' => 17, 'oexrwght' => 18, 'oexrcustuom' => 19, 'dateupdtd' => 20, 'timeupdtd' => 21, 'dummy' => 22, ),
-        self::TYPE_COLNAME       => array(ItemXrefCustomerTableMap::COL_ARCUCUSTID => 0, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMNBR => 1, ItemXrefCustomerTableMap::COL_INITITEMNBR => 2, ItemXrefCustomerTableMap::COL_OEXRRETPRICE => 3, ItemXrefCustomerTableMap::COL_OEXRCUSTPRICE => 4, ItemXrefCustomerTableMap::COL_OEXRQTYPERCASE => 5, ItemXrefCustomerTableMap::COL_OEXRINNERPACKQTY => 6, ItemXrefCustomerTableMap::COL_OEXROUTERPACKQTY => 7, ItemXrefCustomerTableMap::COL_OEXRROUNDING => 8, ItemXrefCustomerTableMap::COL_OEXRSHIPTAREQTY => 9, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC => 10, ItemXrefCustomerTableMap::COL_OEXRCONVERT => 11, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC2 => 12, ItemXrefCustomerTableMap::COL_OEXRREVISION => 13, ItemXrefCustomerTableMap::COL_OEXRPURCHQTY => 14, ItemXrefCustomerTableMap::COL_OEXRCUSTPRICUOM => 15, ItemXrefCustomerTableMap::COL_OEXRLABEL1PRTFMT => 16, ItemXrefCustomerTableMap::COL_OEXRLABEL2PRTFMT => 17, ItemXrefCustomerTableMap::COL_OEXRWGHT => 18, ItemXrefCustomerTableMap::COL_OEXRCUSTUOM => 19, ItemXrefCustomerTableMap::COL_DATEUPDTD => 20, ItemXrefCustomerTableMap::COL_TIMEUPDTD => 21, ItemXrefCustomerTableMap::COL_DUMMY => 22, ),
-        self::TYPE_FIELDNAME     => array('ArcuCustId' => 0, 'OexrCustItemNbr' => 1, 'InitItemNbr' => 2, 'OexrRetPrice' => 3, 'OexrCustPrice' => 4, 'OexrQtyPerCase' => 5, 'OexrInnerPackQty' => 6, 'OexrOuterPackQty' => 7, 'OexrRounding' => 8, 'OexrShipTareQty' => 9, 'OexrCustItemDesc' => 10, 'OexrConvert' => 11, 'OexrCustItemDesc2' => 12, 'OexrRevision' => 13, 'OexrPurchQty' => 14, 'OexrCustPricUom' => 15, 'OexrLabel1PrtFmt' => 16, 'OexrLabel2PrtFmt' => 17, 'OexrWght' => 18, 'OexrCustUom' => 19, 'DateUpdtd' => 20, 'TimeUpdtd' => 21, 'dummy' => 22, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, )
+        self::TYPE_PHPNAME       => array('Arcucustid' => 0, 'Oexrcustitemnbr' => 1, 'Inititemnbr' => 2, 'Oexrretprice' => 3, 'Oexrcustprice' => 4, 'Oexrqtypercase' => 5, 'Oexrinnerpackqty' => 6, 'Oexrouterpackqty' => 7, 'Oexrrounding' => 8, 'Oexrshiptareqty' => 9, 'Oexrcustitemdesc' => 10, 'Oexrconvert' => 11, 'Oexrcustitemdesc2' => 12, 'Oexrrevision' => 13, 'Oexrpurchqty' => 14, 'Oexrcustpricuom' => 15, 'Oexrlabel1prtfmt' => 16, 'Oexrlabel2prtfmt' => 17, 'Oexrwght' => 18, 'Oexrcustuom' => 19, 'Oexredi846' => 20, 'Oexrcat3reqd' => 21, 'Dateupdtd' => 22, 'Timeupdtd' => 23, 'Dummy' => 24, ),
+        self::TYPE_CAMELNAME     => array('arcucustid' => 0, 'oexrcustitemnbr' => 1, 'inititemnbr' => 2, 'oexrretprice' => 3, 'oexrcustprice' => 4, 'oexrqtypercase' => 5, 'oexrinnerpackqty' => 6, 'oexrouterpackqty' => 7, 'oexrrounding' => 8, 'oexrshiptareqty' => 9, 'oexrcustitemdesc' => 10, 'oexrconvert' => 11, 'oexrcustitemdesc2' => 12, 'oexrrevision' => 13, 'oexrpurchqty' => 14, 'oexrcustpricuom' => 15, 'oexrlabel1prtfmt' => 16, 'oexrlabel2prtfmt' => 17, 'oexrwght' => 18, 'oexrcustuom' => 19, 'oexredi846' => 20, 'oexrcat3reqd' => 21, 'dateupdtd' => 22, 'timeupdtd' => 23, 'dummy' => 24, ),
+        self::TYPE_COLNAME       => array(ItemXrefCustomerTableMap::COL_ARCUCUSTID => 0, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMNBR => 1, ItemXrefCustomerTableMap::COL_INITITEMNBR => 2, ItemXrefCustomerTableMap::COL_OEXRRETPRICE => 3, ItemXrefCustomerTableMap::COL_OEXRCUSTPRICE => 4, ItemXrefCustomerTableMap::COL_OEXRQTYPERCASE => 5, ItemXrefCustomerTableMap::COL_OEXRINNERPACKQTY => 6, ItemXrefCustomerTableMap::COL_OEXROUTERPACKQTY => 7, ItemXrefCustomerTableMap::COL_OEXRROUNDING => 8, ItemXrefCustomerTableMap::COL_OEXRSHIPTAREQTY => 9, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC => 10, ItemXrefCustomerTableMap::COL_OEXRCONVERT => 11, ItemXrefCustomerTableMap::COL_OEXRCUSTITEMDESC2 => 12, ItemXrefCustomerTableMap::COL_OEXRREVISION => 13, ItemXrefCustomerTableMap::COL_OEXRPURCHQTY => 14, ItemXrefCustomerTableMap::COL_OEXRCUSTPRICUOM => 15, ItemXrefCustomerTableMap::COL_OEXRLABEL1PRTFMT => 16, ItemXrefCustomerTableMap::COL_OEXRLABEL2PRTFMT => 17, ItemXrefCustomerTableMap::COL_OEXRWGHT => 18, ItemXrefCustomerTableMap::COL_OEXRCUSTUOM => 19, ItemXrefCustomerTableMap::COL_OEXREDI846 => 20, ItemXrefCustomerTableMap::COL_OEXRCAT3REQD => 21, ItemXrefCustomerTableMap::COL_DATEUPDTD => 22, ItemXrefCustomerTableMap::COL_TIMEUPDTD => 23, ItemXrefCustomerTableMap::COL_DUMMY => 24, ),
+        self::TYPE_FIELDNAME     => array('ArcuCustId' => 0, 'OexrCustItemNbr' => 1, 'InitItemNbr' => 2, 'OexrRetPrice' => 3, 'OexrCustPrice' => 4, 'OexrQtyPerCase' => 5, 'OexrInnerPackQty' => 6, 'OexrOuterPackQty' => 7, 'OexrRounding' => 8, 'OexrShipTareQty' => 9, 'OexrCustItemDesc' => 10, 'OexrConvert' => 11, 'OexrCustItemDesc2' => 12, 'OexrRevision' => 13, 'OexrPurchQty' => 14, 'OexrCustPricUom' => 15, 'OexrLabel1PrtFmt' => 16, 'OexrLabel2PrtFmt' => 17, 'OexrWght' => 18, 'OexrCustUom' => 19, 'OexrEdi846' => 20, 'OexrCat3Reqd' => 21, 'DateUpdtd' => 22, 'TimeUpdtd' => 23, 'dummy' => 24, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, )
     );
 
     /**
@@ -238,27 +248,29 @@ class ItemXrefCustomerTableMap extends TableMap
         // columns
         $this->addPrimaryKey('ArcuCustId', 'Arcucustid', 'VARCHAR', true, 6, '');
         $this->addPrimaryKey('OexrCustItemNbr', 'Oexrcustitemnbr', 'VARCHAR', true, 30, '');
-        $this->addForeignKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', false, 30, null);
-        $this->addColumn('OexrRetPrice', 'Oexrretprice', 'DECIMAL', false, 20, null);
-        $this->addColumn('OexrCustPrice', 'Oexrcustprice', 'DECIMAL', false, 20, null);
-        $this->addColumn('OexrQtyPerCase', 'Oexrqtypercase', 'INTEGER', false, 4, null);
-        $this->addColumn('OexrInnerPackQty', 'Oexrinnerpackqty', 'INTEGER', false, 4, null);
-        $this->addColumn('OexrOuterPackQty', 'Oexrouterpackqty', 'INTEGER', false, 4, null);
-        $this->addColumn('OexrRounding', 'Oexrrounding', 'VARCHAR', false, 1, null);
-        $this->addColumn('OexrShipTareQty', 'Oexrshiptareqty', 'INTEGER', false, 4, null);
-        $this->addColumn('OexrCustItemDesc', 'Oexrcustitemdesc', 'VARCHAR', false, 35, null);
-        $this->addColumn('OexrConvert', 'Oexrconvert', 'DECIMAL', false, 20, null);
-        $this->addColumn('OexrCustItemDesc2', 'Oexrcustitemdesc2', 'VARCHAR', false, 30, null);
-        $this->addColumn('OexrRevision', 'Oexrrevision', 'VARCHAR', false, 10, null);
-        $this->addColumn('OexrPurchQty', 'Oexrpurchqty', 'INTEGER', false, 6, null);
-        $this->addColumn('OexrCustPricUom', 'Oexrcustpricuom', 'VARCHAR', false, 4, null);
-        $this->addColumn('OexrLabel1PrtFmt', 'Oexrlabel1prtfmt', 'VARCHAR', false, 8, null);
-        $this->addColumn('OexrLabel2PrtFmt', 'Oexrlabel2prtfmt', 'VARCHAR', false, 8, null);
-        $this->addColumn('OexrWght', 'Oexrwght', 'DECIMAL', false, 20, null);
-        $this->addColumn('OexrCustUom', 'Oexrcustuom', 'VARCHAR', false, 4, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addForeignKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', true, 30, '');
+        $this->addColumn('OexrRetPrice', 'Oexrretprice', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OexrCustPrice', 'Oexrcustprice', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OexrQtyPerCase', 'Oexrqtypercase', 'INTEGER', true, null, 0);
+        $this->addColumn('OexrInnerPackQty', 'Oexrinnerpackqty', 'INTEGER', true, null, 0);
+        $this->addColumn('OexrOuterPackQty', 'Oexrouterpackqty', 'INTEGER', true, null, 0);
+        $this->addColumn('OexrRounding', 'Oexrrounding', 'CHAR', true, null, 'N');
+        $this->addColumn('OexrShipTareQty', 'Oexrshiptareqty', 'INTEGER', true, null, 0);
+        $this->addColumn('OexrCustItemDesc', 'Oexrcustitemdesc', 'VARCHAR', true, 35, '');
+        $this->addColumn('OexrConvert', 'Oexrconvert', 'DECIMAL', true, 20, 1);
+        $this->addColumn('OexrCustItemDesc2', 'Oexrcustitemdesc2', 'VARCHAR', true, 30, '');
+        $this->addColumn('OexrRevision', 'Oexrrevision', 'VARCHAR', true, 10, '');
+        $this->addColumn('OexrPurchQty', 'Oexrpurchqty', 'INTEGER', true, null, 0);
+        $this->addColumn('OexrCustPricUom', 'Oexrcustpricuom', 'VARCHAR', true, 4, '');
+        $this->addColumn('OexrLabel1PrtFmt', 'Oexrlabel1prtfmt', 'VARCHAR', true, 8, '');
+        $this->addColumn('OexrLabel2PrtFmt', 'Oexrlabel2prtfmt', 'VARCHAR', true, 8, '');
+        $this->addColumn('OexrWght', 'Oexrwght', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OexrCustUom', 'Oexrcustuom', 'VARCHAR', true, 4, '');
+        $this->addColumn('OexrEdi846', 'Oexredi846', 'CHAR', true, null, '');
+        $this->addColumn('OexrCat3Reqd', 'Oexrcat3reqd', 'CHAR', true, null, 'N');
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
     } // initialize()
 
     /**
@@ -498,6 +510,8 @@ class ItemXrefCustomerTableMap extends TableMap
             $criteria->addSelectColumn(ItemXrefCustomerTableMap::COL_OEXRLABEL2PRTFMT);
             $criteria->addSelectColumn(ItemXrefCustomerTableMap::COL_OEXRWGHT);
             $criteria->addSelectColumn(ItemXrefCustomerTableMap::COL_OEXRCUSTUOM);
+            $criteria->addSelectColumn(ItemXrefCustomerTableMap::COL_OEXREDI846);
+            $criteria->addSelectColumn(ItemXrefCustomerTableMap::COL_OEXRCAT3REQD);
             $criteria->addSelectColumn(ItemXrefCustomerTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(ItemXrefCustomerTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(ItemXrefCustomerTableMap::COL_DUMMY);
@@ -522,6 +536,8 @@ class ItemXrefCustomerTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.OexrLabel2PrtFmt');
             $criteria->addSelectColumn($alias . '.OexrWght');
             $criteria->addSelectColumn($alias . '.OexrCustUom');
+            $criteria->addSelectColumn($alias . '.OexrEdi846');
+            $criteria->addSelectColumn($alias . '.OexrCat3Reqd');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');

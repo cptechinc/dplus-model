@@ -40,6 +40,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefCustomerQuery orderByOexrlabel2prtfmt($order = Criteria::ASC) Order by the OexrLabel2PrtFmt column
  * @method     ChildItemXrefCustomerQuery orderByOexrwght($order = Criteria::ASC) Order by the OexrWght column
  * @method     ChildItemXrefCustomerQuery orderByOexrcustuom($order = Criteria::ASC) Order by the OexrCustUom column
+ * @method     ChildItemXrefCustomerQuery orderByOexredi846($order = Criteria::ASC) Order by the OexrEdi846 column
+ * @method     ChildItemXrefCustomerQuery orderByOexrcat3reqd($order = Criteria::ASC) Order by the OexrCat3Reqd column
  * @method     ChildItemXrefCustomerQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildItemXrefCustomerQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildItemXrefCustomerQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -64,6 +66,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefCustomerQuery groupByOexrlabel2prtfmt() Group by the OexrLabel2PrtFmt column
  * @method     ChildItemXrefCustomerQuery groupByOexrwght() Group by the OexrWght column
  * @method     ChildItemXrefCustomerQuery groupByOexrcustuom() Group by the OexrCustUom column
+ * @method     ChildItemXrefCustomerQuery groupByOexredi846() Group by the OexrEdi846 column
+ * @method     ChildItemXrefCustomerQuery groupByOexrcat3reqd() Group by the OexrCat3Reqd column
  * @method     ChildItemXrefCustomerQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildItemXrefCustomerQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildItemXrefCustomerQuery groupByDummy() Group by the dummy column
@@ -86,17 +90,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefCustomerQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
  * @method     ChildItemXrefCustomerQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
  *
- * @method     ChildItemXrefCustomerQuery leftJoinCustomer($relationAlias = null) Adds a LEFT JOIN clause to the query using the Customer relation
- * @method     ChildItemXrefCustomerQuery rightJoinCustomer($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Customer relation
- * @method     ChildItemXrefCustomerQuery innerJoinCustomer($relationAlias = null) Adds a INNER JOIN clause to the query using the Customer relation
- *
- * @method     ChildItemXrefCustomerQuery joinWithCustomer($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the Customer relation
- *
- * @method     ChildItemXrefCustomerQuery leftJoinWithCustomer() Adds a LEFT JOIN clause and with to the query using the Customer relation
- * @method     ChildItemXrefCustomerQuery rightJoinWithCustomer() Adds a RIGHT JOIN clause and with to the query using the Customer relation
- * @method     ChildItemXrefCustomerQuery innerJoinWithCustomer() Adds a INNER JOIN clause and with to the query using the Customer relation
- *
- * @method     \ItemMasterItemQuery|\CustomerQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemXrefCustomer findOne(ConnectionInterface $con = null) Return the first ChildItemXrefCustomer matching the query
  * @method     ChildItemXrefCustomer findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemXrefCustomer matching the query, or a new ChildItemXrefCustomer object populated from the query conditions when no match is found
@@ -121,6 +115,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefCustomer findOneByOexrlabel2prtfmt(string $OexrLabel2PrtFmt) Return the first ChildItemXrefCustomer filtered by the OexrLabel2PrtFmt column
  * @method     ChildItemXrefCustomer findOneByOexrwght(string $OexrWght) Return the first ChildItemXrefCustomer filtered by the OexrWght column
  * @method     ChildItemXrefCustomer findOneByOexrcustuom(string $OexrCustUom) Return the first ChildItemXrefCustomer filtered by the OexrCustUom column
+ * @method     ChildItemXrefCustomer findOneByOexredi846(string $OexrEdi846) Return the first ChildItemXrefCustomer filtered by the OexrEdi846 column
+ * @method     ChildItemXrefCustomer findOneByOexrcat3reqd(string $OexrCat3Reqd) Return the first ChildItemXrefCustomer filtered by the OexrCat3Reqd column
  * @method     ChildItemXrefCustomer findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemXrefCustomer filtered by the DateUpdtd column
  * @method     ChildItemXrefCustomer findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemXrefCustomer filtered by the TimeUpdtd column
  * @method     ChildItemXrefCustomer findOneByDummy(string $dummy) Return the first ChildItemXrefCustomer filtered by the dummy column *
@@ -148,6 +144,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefCustomer requireOneByOexrlabel2prtfmt(string $OexrLabel2PrtFmt) Return the first ChildItemXrefCustomer filtered by the OexrLabel2PrtFmt column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefCustomer requireOneByOexrwght(string $OexrWght) Return the first ChildItemXrefCustomer filtered by the OexrWght column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefCustomer requireOneByOexrcustuom(string $OexrCustUom) Return the first ChildItemXrefCustomer filtered by the OexrCustUom column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemXrefCustomer requireOneByOexredi846(string $OexrEdi846) Return the first ChildItemXrefCustomer filtered by the OexrEdi846 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemXrefCustomer requireOneByOexrcat3reqd(string $OexrCat3Reqd) Return the first ChildItemXrefCustomer filtered by the OexrCat3Reqd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefCustomer requireOneByDateupdtd(string $DateUpdtd) Return the first ChildItemXrefCustomer filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefCustomer requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemXrefCustomer filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefCustomer requireOneByDummy(string $dummy) Return the first ChildItemXrefCustomer filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -173,6 +171,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefCustomer[]|ObjectCollection findByOexrlabel2prtfmt(string $OexrLabel2PrtFmt) Return ChildItemXrefCustomer objects filtered by the OexrLabel2PrtFmt column
  * @method     ChildItemXrefCustomer[]|ObjectCollection findByOexrwght(string $OexrWght) Return ChildItemXrefCustomer objects filtered by the OexrWght column
  * @method     ChildItemXrefCustomer[]|ObjectCollection findByOexrcustuom(string $OexrCustUom) Return ChildItemXrefCustomer objects filtered by the OexrCustUom column
+ * @method     ChildItemXrefCustomer[]|ObjectCollection findByOexredi846(string $OexrEdi846) Return ChildItemXrefCustomer objects filtered by the OexrEdi846 column
+ * @method     ChildItemXrefCustomer[]|ObjectCollection findByOexrcat3reqd(string $OexrCat3Reqd) Return ChildItemXrefCustomer objects filtered by the OexrCat3Reqd column
  * @method     ChildItemXrefCustomer[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildItemXrefCustomer objects filtered by the DateUpdtd column
  * @method     ChildItemXrefCustomer[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildItemXrefCustomer objects filtered by the TimeUpdtd column
  * @method     ChildItemXrefCustomer[]|ObjectCollection findByDummy(string $dummy) Return ChildItemXrefCustomer objects filtered by the dummy column
@@ -274,7 +274,7 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT ArcuCustId, OexrCustItemNbr, InitItemNbr, OexrRetPrice, OexrCustPrice, OexrQtyPerCase, OexrInnerPackQty, OexrOuterPackQty, OexrRounding, OexrShipTareQty, OexrCustItemDesc, OexrConvert, OexrCustItemDesc2, OexrRevision, OexrPurchQty, OexrCustPricUom, OexrLabel1PrtFmt, OexrLabel2PrtFmt, OexrWght, OexrCustUom, DateUpdtd, TimeUpdtd, dummy FROM cust_item_xref WHERE ArcuCustId = :p0 AND OexrCustItemNbr = :p1';
+        $sql = 'SELECT ArcuCustId, OexrCustItemNbr, InitItemNbr, OexrRetPrice, OexrCustPrice, OexrQtyPerCase, OexrInnerPackQty, OexrOuterPackQty, OexrRounding, OexrShipTareQty, OexrCustItemDesc, OexrConvert, OexrCustItemDesc2, OexrRevision, OexrPurchQty, OexrCustPricUom, OexrLabel1PrtFmt, OexrLabel2PrtFmt, OexrWght, OexrCustUom, OexrEdi846, OexrCat3Reqd, DateUpdtd, TimeUpdtd, dummy FROM cust_item_xref WHERE ArcuCustId = :p0 AND OexrCustItemNbr = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -1021,6 +1021,56 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
     }
 
     /**
+     * Filter the query on the OexrEdi846 column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOexredi846('fooValue');   // WHERE OexrEdi846 = 'fooValue'
+     * $query->filterByOexredi846('%fooValue%', Criteria::LIKE); // WHERE OexrEdi846 LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oexredi846 The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildItemXrefCustomerQuery The current query, for fluid interface
+     */
+    public function filterByOexredi846($oexredi846 = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oexredi846)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ItemXrefCustomerTableMap::COL_OEXREDI846, $oexredi846, $comparison);
+    }
+
+    /**
+     * Filter the query on the OexrCat3Reqd column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOexrcat3reqd('fooValue');   // WHERE OexrCat3Reqd = 'fooValue'
+     * $query->filterByOexrcat3reqd('%fooValue%', Criteria::LIKE); // WHERE OexrCat3Reqd LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oexrcat3reqd The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildItemXrefCustomerQuery The current query, for fluid interface
+     */
+    public function filterByOexrcat3reqd($oexrcat3reqd = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oexrcat3reqd)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ItemXrefCustomerTableMap::COL_OEXRCAT3REQD, $oexrcat3reqd, $comparison);
+    }
+
+    /**
      * Filter the query on the DateUpdtd column
      *
      * Example usage:
@@ -1130,7 +1180,7 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      *
      * @return $this|ChildItemXrefCustomerQuery The current query, for fluid interface
      */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemMasterItem');
@@ -1165,88 +1215,11 @@ abstract class ItemXrefCustomerQuery extends ModelCriteria
      *
      * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
      */
-    public function useItemMasterItemQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useItemMasterItemQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
-    }
-
-    /**
-     * Filter the query by a related \Customer object
-     *
-     * @param \Customer|ObjectCollection $customer The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @throws \Propel\Runtime\Exception\PropelException
-     *
-     * @return ChildItemXrefCustomerQuery The current query, for fluid interface
-     */
-    public function filterByCustomer($customer, $comparison = null)
-    {
-        if ($customer instanceof \Customer) {
-            return $this
-                ->addUsingAlias(ItemXrefCustomerTableMap::COL_ARCUCUSTID, $customer->getArcucustid(), $comparison);
-        } elseif ($customer instanceof ObjectCollection) {
-            if (null === $comparison) {
-                $comparison = Criteria::IN;
-            }
-
-            return $this
-                ->addUsingAlias(ItemXrefCustomerTableMap::COL_ARCUCUSTID, $customer->toKeyValue('PrimaryKey', 'Arcucustid'), $comparison);
-        } else {
-            throw new PropelException('filterByCustomer() only accepts arguments of type \Customer or Collection');
-        }
-    }
-
-    /**
-     * Adds a JOIN clause to the query using the Customer relation
-     *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
-     *
-     * @return $this|ChildItemXrefCustomerQuery The current query, for fluid interface
-     */
-    public function joinCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
-    {
-        $tableMap = $this->getTableMap();
-        $relationMap = $tableMap->getRelation('Customer');
-
-        // create a ModelJoin object for this join
-        $join = new ModelJoin();
-        $join->setJoinType($joinType);
-        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
-            $join->setPreviousJoin($previousJoin);
-        }
-
-        // add the ModelJoin to the current object
-        if ($relationAlias) {
-            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
-            $this->addJoinObject($join, $relationAlias);
-        } else {
-            $this->addJoinObject($join, 'Customer');
-        }
-
-        return $this;
-    }
-
-    /**
-     * Use the Customer relation Customer object
-     *
-     * @see useQuery()
-     *
-     * @param     string $relationAlias optional alias for the relation,
-     *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
-     *
-     * @return \CustomerQuery A secondary query class using the current class as primary query
-     */
-    public function useCustomerQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
-    {
-        return $this
-            ->joinCustomer($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
     }
 
     /**
