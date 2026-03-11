@@ -4570,6 +4570,93 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="rcycl_det" idMethod="native" phpName="RcyclReceiptDetail">
+    <column name="RcyhdRcptNbr" phpName="Rcyhdrcptnbr" type="INTEGER" sqlType="int unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="RcydtRcptLine" phpName="Rcydtrcptline" type="INTEGER" sqlType="int unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="IntbUomSale" phpName="Intbuomsale" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="RcydtRcptQty" phpName="Rcydtrcptqty" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="RcydtStatus" phpName="Rcydtstatus" type="CHAR" required="true" defaultValue="O"/>
+    <column name="RcydtClosedBy" phpName="Rcydtclosedby" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="RcydtClosedDate" phpName="Rcydtcloseddate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="RcydtClosedTime" phpName="Rcydtclosedtime" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="rcycl_head" name="receipt" skipSql="true">
+      <reference local="RcyhdRcptNbr" foreign="RcyhdRcptNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_uom_sale" name="uomsale">
+      <reference local="IntbUomSale" foreign="IntbUomSale"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="rcycl_generator" idMethod="native" phpName="RcyclGenerator">
+    <column name="ArtbGenrId" phpName="Artbgenrid" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArtbGenrName" phpName="Artbgenrname" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="rcycl_head" idMethod="native" phpName="RcyclReceipt">
+    <column name="RcyhdRcptNbr" phpName="Rcyhdrcptnbr" type="INTEGER" sqlType="int unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="ArtbGenrId" phpName="Artbgenrid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="RcyhdBolNbr" phpName="Rcyhdbolnbr" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="RcyhdRcptDate" phpName="Rcyhdrcptdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="RcyhdStatus" phpName="Rcyhdstatus" type="CHAR" required="true" defaultValue="O"/>
+    <column name="RcyhdEnteredBy" phpName="Rcyhdenteredby" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="RcyhdEnteredDate" phpName="Rcyhdentereddate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="RcyhdEnteredTime" phpName="Rcyhdenteredtime" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="RcyhdClosedBy" phpName="Rcyhdclosedby" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="RcyhdClosedDate" phpName="Rcyhdcloseddate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="RcyhdClosedTime" phpName="Rcyhdclosedtime" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <foreign-key foreignTable="rcycl_generator" name="generator" skipSql="true">
+      <reference local="ArtbGenrId" foreign="ArtbGenrId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+   <table name="rcycl_lot_det" idMethod="native" phpName="RcyclReceiptLot">
+    <column name="RcyhdRcptNbr" phpName="Rcyhdrcptnbr" type="INTEGER" sqlType="int unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="RcydtRcptLine" phpName="Rcydtrcptline" type="INTEGER" sqlType="int unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="RcysdLotNbr" phpName="Rcysdlotnbr" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="RcysdLotQty" phpName="Rcysdlotqty" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="RcysdLotDate" phpName="Rcysdlotdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="RcysdStatus" phpName="Rcysdstatus" type="CHAR" required="true" defaultValue="O"/>
+    <column name="RcysdClosedBy" phpName="Rcysdclosedby" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="RcysdClosedDate" phpName="Rcysdcloseddate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="RcysdClosedTime" phpName="Rcysdclosedtime" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="rcycl_det" name="rcycledet" skipSql="true">
+      <reference local="RcyhdRcptNbr" foreign="RcyhdRcptNbr"/>
+      <reference local="RcydtRcptLine" foreign="RcydtRcptLine"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="so_book_by_day_cust" idMethod="native" phpName="BookingDayCustomer">
     <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
