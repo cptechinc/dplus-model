@@ -17,7 +17,7 @@ class RcyclReceipt extends BaseRcyclReceipt {
 	const COLUMN_ALIASES = [
         'rnbr'         => 'rcyhdrcptnbr',
         'generatorid'  => 'artbgenrid',
-		'custid'       => 'artcucustid',
+		'custid'       => 'arcucustid',
         'bolnbr'       => 'rcyhdbolnbr',
         'status'       => 'rcyhdstatus',
         'rcptdate'     => 'rcyhdrcptdate',
