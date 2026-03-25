@@ -34,7 +34,7 @@ class RcyclReceiptQuery extends BaseRcyclReceiptQuery {
         return $this->filterByRcyhdcntrlnbr($rnbr, $comparison);
     }
 
-    public function filterByRcptOrBulk($value = null, $comparison = null) : RcyclReceiptQuery
+    public function filterByRtype($value = null, $comparison = null) : RcyclReceiptQuery
     {
         return $this->filterByRcyhdrcptbulk($value, $comparison);
     }
