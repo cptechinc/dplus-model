@@ -15,7 +15,8 @@ class RcyclReceiptDetail extends BaseRcyclReceiptDetail {
 	use MagicMethodTraits;
 
     const COLUMN_ALIASES = [
-        'rnbr'         => 'rcyhdrcptnbr',
+        'rcptorbulk'   => 'rcyhdrcptbulk',
+        'rnbr'         => 'rcyhdcntrlnbr',
         'linenbr'      => 'rcydtrcptline',
         'itemid'       => 'inititemnbr',
         'uomcode'      => 'intbuomsale',

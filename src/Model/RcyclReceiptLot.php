@@ -15,7 +15,8 @@ class RcyclReceiptLot extends BaseRcyclReceiptLot {
 	use MagicMethodTraits;
 
     const COLUMN_ALIASES = [
-        'rnbr'         => 'rcyhdrcptnbr',
+        'rcptorbulk'   => 'rcyhdrcptbulk',
+        'rnbr'         => 'rcyhdcntrlnbr',
         'linenbr'      => 'rcydtrcptline',
         'lotserial'    => 'rcsdlotnbr',
         'itemid'       => 'inititemnbr',

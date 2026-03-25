@@ -59,7 +59,7 @@ class RcyclReceiptLotTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 13;
+    const NUM_COLUMNS = 15;
 
     /**
      * The number of lazy-loaded columns
@@ -69,12 +69,17 @@ class RcyclReceiptLotTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 13;
+    const NUM_HYDRATE_COLUMNS = 15;
 
     /**
-     * the column name for the RcyhdRcptNbr field
+     * the column name for the RcyhdRcptBulk field
      */
-    const COL_RCYHDRCPTNBR = 'rcycl_lot_det.RcyhdRcptNbr';
+    const COL_RCYHDRCPTBULK = 'rcycl_lot_det.RcyhdRcptBulk';
+
+    /**
+     * the column name for the RcyhdCntrlNbr field
+     */
+    const COL_RCYHDCNTRLNBR = 'rcycl_lot_det.RcyhdCntrlNbr';
 
     /**
      * the column name for the RcydtRcptLine field
@@ -82,14 +87,14 @@ class RcyclReceiptLotTableMap extends TableMap
     const COL_RCYDTRCPTLINE = 'rcycl_lot_det.RcydtRcptLine';
 
     /**
-     * the column name for the RcysdLotNbr field
-     */
-    const COL_RCYSDLOTNBR = 'rcycl_lot_det.RcysdLotNbr';
-
-    /**
      * the column name for the InitItemNbr field
      */
     const COL_INITITEMNBR = 'rcycl_lot_det.InitItemNbr';
+
+    /**
+     * the column name for the RcysdLotNbr field
+     */
+    const COL_RCYSDLOTNBR = 'rcycl_lot_det.RcysdLotNbr';
 
     /**
      * the column name for the RcysdLotQty field
@@ -100,6 +105,11 @@ class RcyclReceiptLotTableMap extends TableMap
      * the column name for the RcysdLotDate field
      */
     const COL_RCYSDLOTDATE = 'rcycl_lot_det.RcysdLotDate';
+
+    /**
+     * the column name for the RcysdLotRef field
+     */
+    const COL_RCYSDLOTREF = 'rcycl_lot_det.RcysdLotRef';
 
     /**
      * the column name for the RcysdStatus field
@@ -148,11 +158,11 @@ class RcyclReceiptLotTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Rcyhdrcptnbr', 'Rcydtrcptline', 'Rcysdlotnbr', 'Inititemnbr', 'Rcysdlotqty', 'Rcysdlotdate', 'Rcysdstatus', 'Rcysdclosedby', 'Rcysdcloseddate', 'Rcysdclosedtime', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('rcyhdrcptnbr', 'rcydtrcptline', 'rcysdlotnbr', 'inititemnbr', 'rcysdlotqty', 'rcysdlotdate', 'rcysdstatus', 'rcysdclosedby', 'rcysdcloseddate', 'rcysdclosedtime', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(RcyclReceiptLotTableMap::COL_RCYHDRCPTNBR, RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE, RcyclReceiptLotTableMap::COL_RCYSDLOTNBR, RcyclReceiptLotTableMap::COL_INITITEMNBR, RcyclReceiptLotTableMap::COL_RCYSDLOTQTY, RcyclReceiptLotTableMap::COL_RCYSDLOTDATE, RcyclReceiptLotTableMap::COL_RCYSDSTATUS, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDBY, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDDATE, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDTIME, RcyclReceiptLotTableMap::COL_DATEUPDTD, RcyclReceiptLotTableMap::COL_TIMEUPDTD, RcyclReceiptLotTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('RcyhdRcptNbr', 'RcydtRcptLine', 'RcysdLotNbr', 'InitItemNbr', 'RcysdLotQty', 'RcysdLotDate', 'RcysdStatus', 'RcysdClosedBy', 'RcysdClosedDate', 'RcysdClosedTime', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, )
+        self::TYPE_PHPNAME       => array('Rcyhdrcptbulk', 'Rcyhdcntrlnbr', 'Rcydtrcptline', 'Inititemnbr', 'Rcysdlotnbr', 'Rcysdlotqty', 'Rcysdlotdate', 'Rcysdlotref', 'Rcysdstatus', 'Rcysdclosedby', 'Rcysdcloseddate', 'Rcysdclosedtime', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('rcyhdrcptbulk', 'rcyhdcntrlnbr', 'rcydtrcptline', 'inititemnbr', 'rcysdlotnbr', 'rcysdlotqty', 'rcysdlotdate', 'rcysdlotref', 'rcysdstatus', 'rcysdclosedby', 'rcysdcloseddate', 'rcysdclosedtime', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK, RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR, RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE, RcyclReceiptLotTableMap::COL_INITITEMNBR, RcyclReceiptLotTableMap::COL_RCYSDLOTNBR, RcyclReceiptLotTableMap::COL_RCYSDLOTQTY, RcyclReceiptLotTableMap::COL_RCYSDLOTDATE, RcyclReceiptLotTableMap::COL_RCYSDLOTREF, RcyclReceiptLotTableMap::COL_RCYSDSTATUS, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDBY, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDDATE, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDTIME, RcyclReceiptLotTableMap::COL_DATEUPDTD, RcyclReceiptLotTableMap::COL_TIMEUPDTD, RcyclReceiptLotTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('RcyhdRcptBulk', 'RcyhdCntrlNbr', 'RcydtRcptLine', 'InitItemNbr', 'RcysdLotNbr', 'RcysdLotQty', 'RcysdLotDate', 'RcysdLotRef', 'RcysdStatus', 'RcysdClosedBy', 'RcysdClosedDate', 'RcysdClosedTime', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
     );
 
     /**
@@ -162,11 +172,11 @@ class RcyclReceiptLotTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Rcyhdrcptnbr' => 0, 'Rcydtrcptline' => 1, 'Rcysdlotnbr' => 2, 'Inititemnbr' => 3, 'Rcysdlotqty' => 4, 'Rcysdlotdate' => 5, 'Rcysdstatus' => 6, 'Rcysdclosedby' => 7, 'Rcysdcloseddate' => 8, 'Rcysdclosedtime' => 9, 'Dateupdtd' => 10, 'Timeupdtd' => 11, 'Dummy' => 12, ),
-        self::TYPE_CAMELNAME     => array('rcyhdrcptnbr' => 0, 'rcydtrcptline' => 1, 'rcysdlotnbr' => 2, 'inititemnbr' => 3, 'rcysdlotqty' => 4, 'rcysdlotdate' => 5, 'rcysdstatus' => 6, 'rcysdclosedby' => 7, 'rcysdcloseddate' => 8, 'rcysdclosedtime' => 9, 'dateupdtd' => 10, 'timeupdtd' => 11, 'dummy' => 12, ),
-        self::TYPE_COLNAME       => array(RcyclReceiptLotTableMap::COL_RCYHDRCPTNBR => 0, RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE => 1, RcyclReceiptLotTableMap::COL_RCYSDLOTNBR => 2, RcyclReceiptLotTableMap::COL_INITITEMNBR => 3, RcyclReceiptLotTableMap::COL_RCYSDLOTQTY => 4, RcyclReceiptLotTableMap::COL_RCYSDLOTDATE => 5, RcyclReceiptLotTableMap::COL_RCYSDSTATUS => 6, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDBY => 7, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDDATE => 8, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDTIME => 9, RcyclReceiptLotTableMap::COL_DATEUPDTD => 10, RcyclReceiptLotTableMap::COL_TIMEUPDTD => 11, RcyclReceiptLotTableMap::COL_DUMMY => 12, ),
-        self::TYPE_FIELDNAME     => array('RcyhdRcptNbr' => 0, 'RcydtRcptLine' => 1, 'RcysdLotNbr' => 2, 'InitItemNbr' => 3, 'RcysdLotQty' => 4, 'RcysdLotDate' => 5, 'RcysdStatus' => 6, 'RcysdClosedBy' => 7, 'RcysdClosedDate' => 8, 'RcysdClosedTime' => 9, 'DateUpdtd' => 10, 'TimeUpdtd' => 11, 'dummy' => 12, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, )
+        self::TYPE_PHPNAME       => array('Rcyhdrcptbulk' => 0, 'Rcyhdcntrlnbr' => 1, 'Rcydtrcptline' => 2, 'Inititemnbr' => 3, 'Rcysdlotnbr' => 4, 'Rcysdlotqty' => 5, 'Rcysdlotdate' => 6, 'Rcysdlotref' => 7, 'Rcysdstatus' => 8, 'Rcysdclosedby' => 9, 'Rcysdcloseddate' => 10, 'Rcysdclosedtime' => 11, 'Dateupdtd' => 12, 'Timeupdtd' => 13, 'Dummy' => 14, ),
+        self::TYPE_CAMELNAME     => array('rcyhdrcptbulk' => 0, 'rcyhdcntrlnbr' => 1, 'rcydtrcptline' => 2, 'inititemnbr' => 3, 'rcysdlotnbr' => 4, 'rcysdlotqty' => 5, 'rcysdlotdate' => 6, 'rcysdlotref' => 7, 'rcysdstatus' => 8, 'rcysdclosedby' => 9, 'rcysdcloseddate' => 10, 'rcysdclosedtime' => 11, 'dateupdtd' => 12, 'timeupdtd' => 13, 'dummy' => 14, ),
+        self::TYPE_COLNAME       => array(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK => 0, RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR => 1, RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE => 2, RcyclReceiptLotTableMap::COL_INITITEMNBR => 3, RcyclReceiptLotTableMap::COL_RCYSDLOTNBR => 4, RcyclReceiptLotTableMap::COL_RCYSDLOTQTY => 5, RcyclReceiptLotTableMap::COL_RCYSDLOTDATE => 6, RcyclReceiptLotTableMap::COL_RCYSDLOTREF => 7, RcyclReceiptLotTableMap::COL_RCYSDSTATUS => 8, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDBY => 9, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDDATE => 10, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDTIME => 11, RcyclReceiptLotTableMap::COL_DATEUPDTD => 12, RcyclReceiptLotTableMap::COL_TIMEUPDTD => 13, RcyclReceiptLotTableMap::COL_DUMMY => 14, ),
+        self::TYPE_FIELDNAME     => array('RcyhdRcptBulk' => 0, 'RcyhdCntrlNbr' => 1, 'RcydtRcptLine' => 2, 'InitItemNbr' => 3, 'RcysdLotNbr' => 4, 'RcysdLotQty' => 5, 'RcysdLotDate' => 6, 'RcysdLotRef' => 7, 'RcysdStatus' => 8, 'RcysdClosedBy' => 9, 'RcysdClosedDate' => 10, 'RcysdClosedTime' => 11, 'DateUpdtd' => 12, 'TimeUpdtd' => 13, 'dummy' => 14, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
     );
 
     /**
@@ -186,12 +196,15 @@ class RcyclReceiptLotTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addForeignPrimaryKey('RcyhdRcptNbr', 'Rcyhdrcptnbr', 'INTEGER' , 'rcycl_det', 'RcyhdRcptNbr', true, null, 0);
+        $this->addForeignPrimaryKey('RcyhdRcptBulk', 'Rcyhdrcptbulk', 'CHAR' , 'rcycl_det', 'RcyhdRcptBulk', true, null, '');
+        $this->addForeignPrimaryKey('RcyhdCntrlNbr', 'Rcyhdcntrlnbr', 'INTEGER' , 'rcycl_det', 'RcyhdCntrlNbr', true, null, 0);
         $this->addForeignPrimaryKey('RcydtRcptLine', 'Rcydtrcptline', 'INTEGER' , 'rcycl_det', 'RcydtRcptLine', true, null, 0);
+        $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'rcycl_det', 'InitItemNbr', true, 30, '');
+        $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
         $this->addPrimaryKey('RcysdLotNbr', 'Rcysdlotnbr', 'VARCHAR', true, 20, '');
-        $this->addForeignKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', true, 30, '');
         $this->addColumn('RcysdLotQty', 'Rcysdlotqty', 'DECIMAL', true, 20, 0);
         $this->addColumn('RcysdLotDate', 'Rcysdlotdate', 'VARCHAR', true, 8, '');
+        $this->addColumn('RcysdLotRef', 'Rcysdlotref', 'VARCHAR', true, 20, '');
         $this->addColumn('RcysdStatus', 'Rcysdstatus', 'CHAR', true, null, 'O');
         $this->addColumn('RcysdClosedBy', 'Rcysdclosedby', 'VARCHAR', true, 8, '');
         $this->addColumn('RcysdClosedDate', 'Rcysdcloseddate', 'VARCHAR', true, 8, '');
@@ -209,13 +222,23 @@ class RcyclReceiptLotTableMap extends TableMap
         $this->addRelation('RcyclReceiptDetail', '\\RcyclReceiptDetail', RelationMap::MANY_TO_ONE, array (
   0 =>
   array (
-    0 => ':RcyhdRcptNbr',
-    1 => ':RcyhdRcptNbr',
+    0 => ':RcyhdCntrlNbr',
+    1 => ':RcyhdCntrlNbr',
   ),
   1 =>
   array (
+    0 => ':RcyhdRcptBulk',
+    1 => ':RcyhdRcptBulk',
+  ),
+  2 =>
+  array (
     0 => ':RcydtRcptLine',
     1 => ':RcydtRcptLine',
+  ),
+  3 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
@@ -242,7 +265,7 @@ class RcyclReceiptLotTableMap extends TableMap
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
-                $key = serialize([(null === $obj->getRcyhdrcptnbr() || is_scalar($obj->getRcyhdrcptnbr()) || is_callable([$obj->getRcyhdrcptnbr(), '__toString']) ? (string) $obj->getRcyhdrcptnbr() : $obj->getRcyhdrcptnbr()), (null === $obj->getRcydtrcptline() || is_scalar($obj->getRcydtrcptline()) || is_callable([$obj->getRcydtrcptline(), '__toString']) ? (string) $obj->getRcydtrcptline() : $obj->getRcydtrcptline()), (null === $obj->getRcysdlotnbr() || is_scalar($obj->getRcysdlotnbr()) || is_callable([$obj->getRcysdlotnbr(), '__toString']) ? (string) $obj->getRcysdlotnbr() : $obj->getRcysdlotnbr())]);
+                $key = serialize([(null === $obj->getRcyhdrcptbulk() || is_scalar($obj->getRcyhdrcptbulk()) || is_callable([$obj->getRcyhdrcptbulk(), '__toString']) ? (string) $obj->getRcyhdrcptbulk() : $obj->getRcyhdrcptbulk()), (null === $obj->getRcyhdcntrlnbr() || is_scalar($obj->getRcyhdcntrlnbr()) || is_callable([$obj->getRcyhdcntrlnbr(), '__toString']) ? (string) $obj->getRcyhdcntrlnbr() : $obj->getRcyhdcntrlnbr()), (null === $obj->getRcydtrcptline() || is_scalar($obj->getRcydtrcptline()) || is_callable([$obj->getRcydtrcptline(), '__toString']) ? (string) $obj->getRcydtrcptline() : $obj->getRcydtrcptline()), (null === $obj->getInititemnbr() || is_scalar($obj->getInititemnbr()) || is_callable([$obj->getInititemnbr(), '__toString']) ? (string) $obj->getInititemnbr() : $obj->getInititemnbr()), (null === $obj->getRcysdlotnbr() || is_scalar($obj->getRcysdlotnbr()) || is_callable([$obj->getRcysdlotnbr(), '__toString']) ? (string) $obj->getRcysdlotnbr() : $obj->getRcysdlotnbr())]);
             } // if key === null
             self::$instances[$key] = $obj;
         }
@@ -262,11 +285,11 @@ class RcyclReceiptLotTableMap extends TableMap
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \RcyclReceiptLot) {
-                $key = serialize([(null === $value->getRcyhdrcptnbr() || is_scalar($value->getRcyhdrcptnbr()) || is_callable([$value->getRcyhdrcptnbr(), '__toString']) ? (string) $value->getRcyhdrcptnbr() : $value->getRcyhdrcptnbr()), (null === $value->getRcydtrcptline() || is_scalar($value->getRcydtrcptline()) || is_callable([$value->getRcydtrcptline(), '__toString']) ? (string) $value->getRcydtrcptline() : $value->getRcydtrcptline()), (null === $value->getRcysdlotnbr() || is_scalar($value->getRcysdlotnbr()) || is_callable([$value->getRcysdlotnbr(), '__toString']) ? (string) $value->getRcysdlotnbr() : $value->getRcysdlotnbr())]);
+                $key = serialize([(null === $value->getRcyhdrcptbulk() || is_scalar($value->getRcyhdrcptbulk()) || is_callable([$value->getRcyhdrcptbulk(), '__toString']) ? (string) $value->getRcyhdrcptbulk() : $value->getRcyhdrcptbulk()), (null === $value->getRcyhdcntrlnbr() || is_scalar($value->getRcyhdcntrlnbr()) || is_callable([$value->getRcyhdcntrlnbr(), '__toString']) ? (string) $value->getRcyhdcntrlnbr() : $value->getRcyhdcntrlnbr()), (null === $value->getRcydtrcptline() || is_scalar($value->getRcydtrcptline()) || is_callable([$value->getRcydtrcptline(), '__toString']) ? (string) $value->getRcydtrcptline() : $value->getRcydtrcptline()), (null === $value->getInititemnbr() || is_scalar($value->getInititemnbr()) || is_callable([$value->getInititemnbr(), '__toString']) ? (string) $value->getInititemnbr() : $value->getInititemnbr()), (null === $value->getRcysdlotnbr() || is_scalar($value->getRcysdlotnbr()) || is_callable([$value->getRcysdlotnbr(), '__toString']) ? (string) $value->getRcysdlotnbr() : $value->getRcysdlotnbr())]);
 
-            } elseif (is_array($value) && count($value) === 3) {
+            } elseif (is_array($value) && count($value) === 5) {
                 // assume we've been passed a primary key";
-                $key = serialize([(null === $value[0] || is_scalar($value[0]) || is_callable([$value[0], '__toString']) ? (string) $value[0] : $value[0]), (null === $value[1] || is_scalar($value[1]) || is_callable([$value[1], '__toString']) ? (string) $value[1] : $value[1]), (null === $value[2] || is_scalar($value[2]) || is_callable([$value[2], '__toString']) ? (string) $value[2] : $value[2])]);
+                $key = serialize([(null === $value[0] || is_scalar($value[0]) || is_callable([$value[0], '__toString']) ? (string) $value[0] : $value[0]), (null === $value[1] || is_scalar($value[1]) || is_callable([$value[1], '__toString']) ? (string) $value[1] : $value[1]), (null === $value[2] || is_scalar($value[2]) || is_callable([$value[2], '__toString']) ? (string) $value[2] : $value[2]), (null === $value[3] || is_scalar($value[3]) || is_callable([$value[3], '__toString']) ? (string) $value[3] : $value[3]), (null === $value[4] || is_scalar($value[4]) || is_callable([$value[4], '__toString']) ? (string) $value[4] : $value[4])]);
             } elseif ($value instanceof Criteria) {
                 self::$instances = [];
 
@@ -296,11 +319,11 @@ class RcyclReceiptLotTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Rcyhdrcptnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Rcydtrcptline', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Rcysdlotnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Rcyhdrcptbulk', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Rcyhdcntrlnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Rcydtrcptline', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Rcysdlotnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Rcyhdrcptnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Rcyhdrcptnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Rcyhdrcptnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Rcyhdrcptnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Rcyhdrcptnbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Rcydtrcptline', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Rcydtrcptline', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Rcydtrcptline', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Rcydtrcptline', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Rcydtrcptline', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Rcysdlotnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Rcysdlotnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Rcysdlotnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Rcysdlotnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Rcysdlotnbr', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Rcyhdrcptbulk', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Rcyhdrcptbulk', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Rcyhdrcptbulk', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Rcyhdrcptbulk', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Rcyhdrcptbulk', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Rcyhdcntrlnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Rcyhdcntrlnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Rcyhdcntrlnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Rcyhdcntrlnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Rcyhdcntrlnbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Rcydtrcptline', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Rcydtrcptline', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Rcydtrcptline', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Rcydtrcptline', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Rcydtrcptline', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Rcysdlotnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Rcysdlotnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Rcysdlotnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Rcysdlotnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Rcysdlotnbr', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -319,19 +342,29 @@ class RcyclReceiptLotTableMap extends TableMap
     {
             $pks = [];
 
-        $pks[] = (int) $row[
+        $pks[] = (string) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 0 + $offset
-                : self::translateFieldName('Rcyhdrcptnbr', TableMap::TYPE_PHPNAME, $indexType)
+                : self::translateFieldName('Rcyhdrcptbulk', TableMap::TYPE_PHPNAME, $indexType)
         ];
         $pks[] = (int) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 1 + $offset
+                : self::translateFieldName('Rcyhdcntrlnbr', TableMap::TYPE_PHPNAME, $indexType)
+        ];
+        $pks[] = (int) $row[
+            $indexType == TableMap::TYPE_NUM
+                ? 2 + $offset
                 : self::translateFieldName('Rcydtrcptline', TableMap::TYPE_PHPNAME, $indexType)
         ];
         $pks[] = (string) $row[
             $indexType == TableMap::TYPE_NUM
-                ? 2 + $offset
+                ? 3 + $offset
+                : self::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)
+        ];
+        $pks[] = (string) $row[
+            $indexType == TableMap::TYPE_NUM
+                ? 4 + $offset
                 : self::translateFieldName('Rcysdlotnbr', TableMap::TYPE_PHPNAME, $indexType)
         ];
 
@@ -435,12 +468,14 @@ class RcyclReceiptLotTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYHDRCPTNBR);
+            $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK);
+            $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR);
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE);
-            $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDLOTNBR);
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_INITITEMNBR);
+            $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDLOTNBR);
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDLOTQTY);
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDLOTDATE);
+            $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDLOTREF);
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDSTATUS);
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDCLOSEDBY);
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDCLOSEDDATE);
@@ -449,12 +484,14 @@ class RcyclReceiptLotTableMap extends TableMap
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_DUMMY);
         } else {
-            $criteria->addSelectColumn($alias . '.RcyhdRcptNbr');
+            $criteria->addSelectColumn($alias . '.RcyhdRcptBulk');
+            $criteria->addSelectColumn($alias . '.RcyhdCntrlNbr');
             $criteria->addSelectColumn($alias . '.RcydtRcptLine');
-            $criteria->addSelectColumn($alias . '.RcysdLotNbr');
             $criteria->addSelectColumn($alias . '.InitItemNbr');
+            $criteria->addSelectColumn($alias . '.RcysdLotNbr');
             $criteria->addSelectColumn($alias . '.RcysdLotQty');
             $criteria->addSelectColumn($alias . '.RcysdLotDate');
+            $criteria->addSelectColumn($alias . '.RcysdLotRef');
             $criteria->addSelectColumn($alias . '.RcysdStatus');
             $criteria->addSelectColumn($alias . '.RcysdClosedBy');
             $criteria->addSelectColumn($alias . '.RcysdClosedDate');
@@ -520,9 +557,11 @@ class RcyclReceiptLotTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(RcyclReceiptLotTableMap::COL_RCYHDRCPTNBR, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE, $value[1]));
-                $criterion->addAnd($criteria->getNewCriterion(RcyclReceiptLotTableMap::COL_RCYSDLOTNBR, $value[2]));
+                $criterion = $criteria->getNewCriterion(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR, $value[1]));
+                $criterion->addAnd($criteria->getNewCriterion(RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE, $value[2]));
+                $criterion->addAnd($criteria->getNewCriterion(RcyclReceiptLotTableMap::COL_INITITEMNBR, $value[3]));
+                $criterion->addAnd($criteria->getNewCriterion(RcyclReceiptLotTableMap::COL_RCYSDLOTNBR, $value[4]));
                 $criteria->addOr($criterion);
             }
         }

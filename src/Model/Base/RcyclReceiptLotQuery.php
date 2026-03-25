@@ -20,12 +20,14 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildRcyclReceiptLotQuery orderByRcyhdrcptnbr($order = Criteria::ASC) Order by the RcyhdRcptNbr column
+ * @method     ChildRcyclReceiptLotQuery orderByRcyhdrcptbulk($order = Criteria::ASC) Order by the RcyhdRcptBulk column
+ * @method     ChildRcyclReceiptLotQuery orderByRcyhdcntrlnbr($order = Criteria::ASC) Order by the RcyhdCntrlNbr column
  * @method     ChildRcyclReceiptLotQuery orderByRcydtrcptline($order = Criteria::ASC) Order by the RcydtRcptLine column
- * @method     ChildRcyclReceiptLotQuery orderByRcysdlotnbr($order = Criteria::ASC) Order by the RcysdLotNbr column
  * @method     ChildRcyclReceiptLotQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
+ * @method     ChildRcyclReceiptLotQuery orderByRcysdlotnbr($order = Criteria::ASC) Order by the RcysdLotNbr column
  * @method     ChildRcyclReceiptLotQuery orderByRcysdlotqty($order = Criteria::ASC) Order by the RcysdLotQty column
  * @method     ChildRcyclReceiptLotQuery orderByRcysdlotdate($order = Criteria::ASC) Order by the RcysdLotDate column
+ * @method     ChildRcyclReceiptLotQuery orderByRcysdlotref($order = Criteria::ASC) Order by the RcysdLotRef column
  * @method     ChildRcyclReceiptLotQuery orderByRcysdstatus($order = Criteria::ASC) Order by the RcysdStatus column
  * @method     ChildRcyclReceiptLotQuery orderByRcysdclosedby($order = Criteria::ASC) Order by the RcysdClosedBy column
  * @method     ChildRcyclReceiptLotQuery orderByRcysdcloseddate($order = Criteria::ASC) Order by the RcysdClosedDate column
@@ -34,12 +36,14 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildRcyclReceiptLotQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildRcyclReceiptLotQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildRcyclReceiptLotQuery groupByRcyhdrcptnbr() Group by the RcyhdRcptNbr column
+ * @method     ChildRcyclReceiptLotQuery groupByRcyhdrcptbulk() Group by the RcyhdRcptBulk column
+ * @method     ChildRcyclReceiptLotQuery groupByRcyhdcntrlnbr() Group by the RcyhdCntrlNbr column
  * @method     ChildRcyclReceiptLotQuery groupByRcydtrcptline() Group by the RcydtRcptLine column
- * @method     ChildRcyclReceiptLotQuery groupByRcysdlotnbr() Group by the RcysdLotNbr column
  * @method     ChildRcyclReceiptLotQuery groupByInititemnbr() Group by the InitItemNbr column
+ * @method     ChildRcyclReceiptLotQuery groupByRcysdlotnbr() Group by the RcysdLotNbr column
  * @method     ChildRcyclReceiptLotQuery groupByRcysdlotqty() Group by the RcysdLotQty column
  * @method     ChildRcyclReceiptLotQuery groupByRcysdlotdate() Group by the RcysdLotDate column
+ * @method     ChildRcyclReceiptLotQuery groupByRcysdlotref() Group by the RcysdLotRef column
  * @method     ChildRcyclReceiptLotQuery groupByRcysdstatus() Group by the RcysdStatus column
  * @method     ChildRcyclReceiptLotQuery groupByRcysdclosedby() Group by the RcysdClosedBy column
  * @method     ChildRcyclReceiptLotQuery groupByRcysdcloseddate() Group by the RcysdClosedDate column
@@ -81,12 +85,14 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildRcyclReceiptLot findOne(ConnectionInterface $con = null) Return the first ChildRcyclReceiptLot matching the query
  * @method     ChildRcyclReceiptLot findOneOrCreate(ConnectionInterface $con = null) Return the first ChildRcyclReceiptLot matching the query, or a new ChildRcyclReceiptLot object populated from the query conditions when no match is found
  *
- * @method     ChildRcyclReceiptLot findOneByRcyhdrcptnbr(int $RcyhdRcptNbr) Return the first ChildRcyclReceiptLot filtered by the RcyhdRcptNbr column
+ * @method     ChildRcyclReceiptLot findOneByRcyhdrcptbulk(string $RcyhdRcptBulk) Return the first ChildRcyclReceiptLot filtered by the RcyhdRcptBulk column
+ * @method     ChildRcyclReceiptLot findOneByRcyhdcntrlnbr(int $RcyhdCntrlNbr) Return the first ChildRcyclReceiptLot filtered by the RcyhdCntrlNbr column
  * @method     ChildRcyclReceiptLot findOneByRcydtrcptline(int $RcydtRcptLine) Return the first ChildRcyclReceiptLot filtered by the RcydtRcptLine column
- * @method     ChildRcyclReceiptLot findOneByRcysdlotnbr(string $RcysdLotNbr) Return the first ChildRcyclReceiptLot filtered by the RcysdLotNbr column
  * @method     ChildRcyclReceiptLot findOneByInititemnbr(string $InitItemNbr) Return the first ChildRcyclReceiptLot filtered by the InitItemNbr column
+ * @method     ChildRcyclReceiptLot findOneByRcysdlotnbr(string $RcysdLotNbr) Return the first ChildRcyclReceiptLot filtered by the RcysdLotNbr column
  * @method     ChildRcyclReceiptLot findOneByRcysdlotqty(string $RcysdLotQty) Return the first ChildRcyclReceiptLot filtered by the RcysdLotQty column
  * @method     ChildRcyclReceiptLot findOneByRcysdlotdate(string $RcysdLotDate) Return the first ChildRcyclReceiptLot filtered by the RcysdLotDate column
+ * @method     ChildRcyclReceiptLot findOneByRcysdlotref(string $RcysdLotRef) Return the first ChildRcyclReceiptLot filtered by the RcysdLotRef column
  * @method     ChildRcyclReceiptLot findOneByRcysdstatus(string $RcysdStatus) Return the first ChildRcyclReceiptLot filtered by the RcysdStatus column
  * @method     ChildRcyclReceiptLot findOneByRcysdclosedby(string $RcysdClosedBy) Return the first ChildRcyclReceiptLot filtered by the RcysdClosedBy column
  * @method     ChildRcyclReceiptLot findOneByRcysdcloseddate(string $RcysdClosedDate) Return the first ChildRcyclReceiptLot filtered by the RcysdClosedDate column
@@ -98,12 +104,14 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildRcyclReceiptLot requirePk($key, ConnectionInterface $con = null) Return the ChildRcyclReceiptLot by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceiptLot requireOne(ConnectionInterface $con = null) Return the first ChildRcyclReceiptLot matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildRcyclReceiptLot requireOneByRcyhdrcptnbr(int $RcyhdRcptNbr) Return the first ChildRcyclReceiptLot filtered by the RcyhdRcptNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildRcyclReceiptLot requireOneByRcyhdrcptbulk(string $RcyhdRcptBulk) Return the first ChildRcyclReceiptLot filtered by the RcyhdRcptBulk column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildRcyclReceiptLot requireOneByRcyhdcntrlnbr(int $RcyhdCntrlNbr) Return the first ChildRcyclReceiptLot filtered by the RcyhdCntrlNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceiptLot requireOneByRcydtrcptline(int $RcydtRcptLine) Return the first ChildRcyclReceiptLot filtered by the RcydtRcptLine column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildRcyclReceiptLot requireOneByRcysdlotnbr(string $RcysdLotNbr) Return the first ChildRcyclReceiptLot filtered by the RcysdLotNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceiptLot requireOneByInititemnbr(string $InitItemNbr) Return the first ChildRcyclReceiptLot filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildRcyclReceiptLot requireOneByRcysdlotnbr(string $RcysdLotNbr) Return the first ChildRcyclReceiptLot filtered by the RcysdLotNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceiptLot requireOneByRcysdlotqty(string $RcysdLotQty) Return the first ChildRcyclReceiptLot filtered by the RcysdLotQty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceiptLot requireOneByRcysdlotdate(string $RcysdLotDate) Return the first ChildRcyclReceiptLot filtered by the RcysdLotDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildRcyclReceiptLot requireOneByRcysdlotref(string $RcysdLotRef) Return the first ChildRcyclReceiptLot filtered by the RcysdLotRef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceiptLot requireOneByRcysdstatus(string $RcysdStatus) Return the first ChildRcyclReceiptLot filtered by the RcysdStatus column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceiptLot requireOneByRcysdclosedby(string $RcysdClosedBy) Return the first ChildRcyclReceiptLot filtered by the RcysdClosedBy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceiptLot requireOneByRcysdcloseddate(string $RcysdClosedDate) Return the first ChildRcyclReceiptLot filtered by the RcysdClosedDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -113,12 +121,14 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildRcyclReceiptLot requireOneByDummy(string $dummy) Return the first ChildRcyclReceiptLot filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildRcyclReceiptLot[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildRcyclReceiptLot objects based on current ModelCriteria
- * @method     ChildRcyclReceiptLot[]|ObjectCollection findByRcyhdrcptnbr(int $RcyhdRcptNbr) Return ChildRcyclReceiptLot objects filtered by the RcyhdRcptNbr column
+ * @method     ChildRcyclReceiptLot[]|ObjectCollection findByRcyhdrcptbulk(string $RcyhdRcptBulk) Return ChildRcyclReceiptLot objects filtered by the RcyhdRcptBulk column
+ * @method     ChildRcyclReceiptLot[]|ObjectCollection findByRcyhdcntrlnbr(int $RcyhdCntrlNbr) Return ChildRcyclReceiptLot objects filtered by the RcyhdCntrlNbr column
  * @method     ChildRcyclReceiptLot[]|ObjectCollection findByRcydtrcptline(int $RcydtRcptLine) Return ChildRcyclReceiptLot objects filtered by the RcydtRcptLine column
- * @method     ChildRcyclReceiptLot[]|ObjectCollection findByRcysdlotnbr(string $RcysdLotNbr) Return ChildRcyclReceiptLot objects filtered by the RcysdLotNbr column
  * @method     ChildRcyclReceiptLot[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildRcyclReceiptLot objects filtered by the InitItemNbr column
+ * @method     ChildRcyclReceiptLot[]|ObjectCollection findByRcysdlotnbr(string $RcysdLotNbr) Return ChildRcyclReceiptLot objects filtered by the RcysdLotNbr column
  * @method     ChildRcyclReceiptLot[]|ObjectCollection findByRcysdlotqty(string $RcysdLotQty) Return ChildRcyclReceiptLot objects filtered by the RcysdLotQty column
  * @method     ChildRcyclReceiptLot[]|ObjectCollection findByRcysdlotdate(string $RcysdLotDate) Return ChildRcyclReceiptLot objects filtered by the RcysdLotDate column
+ * @method     ChildRcyclReceiptLot[]|ObjectCollection findByRcysdlotref(string $RcysdLotRef) Return ChildRcyclReceiptLot objects filtered by the RcysdLotRef column
  * @method     ChildRcyclReceiptLot[]|ObjectCollection findByRcysdstatus(string $RcysdStatus) Return ChildRcyclReceiptLot objects filtered by the RcysdStatus column
  * @method     ChildRcyclReceiptLot[]|ObjectCollection findByRcysdclosedby(string $RcysdClosedBy) Return ChildRcyclReceiptLot objects filtered by the RcysdClosedBy column
  * @method     ChildRcyclReceiptLot[]|ObjectCollection findByRcysdcloseddate(string $RcysdClosedDate) Return ChildRcyclReceiptLot objects filtered by the RcysdClosedDate column
@@ -175,10 +185,10 @@ abstract class RcyclReceiptLotQuery extends ModelCriteria
      * Go fast if the query is untouched.
      *
      * <code>
-     * $obj = $c->findPk(array(12, 34, 56), $con);
+     * $obj = $c->findPk(array(12, 34, 56, 78, 91), $con);
      * </code>
      *
-     * @param array[$RcyhdRcptNbr, $RcydtRcptLine, $RcysdLotNbr] $key Primary key to use for the query
+     * @param array[$RcyhdRcptBulk, $RcyhdCntrlNbr, $RcydtRcptLine, $InitItemNbr, $RcysdLotNbr] $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
      * @return ChildRcyclReceiptLot|array|mixed the result, formatted by the current formatter
@@ -203,7 +213,7 @@ abstract class RcyclReceiptLotQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = RcyclReceiptLotTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2])]))))) {
+        if ((null !== ($obj = RcyclReceiptLotTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3]), (null === $key[4] || is_scalar($key[4]) || is_callable([$key[4], '__toString']) ? (string) $key[4] : $key[4])]))))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -224,12 +234,14 @@ abstract class RcyclReceiptLotQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT RcyhdRcptNbr, RcydtRcptLine, RcysdLotNbr, InitItemNbr, RcysdLotQty, RcysdLotDate, RcysdStatus, RcysdClosedBy, RcysdClosedDate, RcysdClosedTime, DateUpdtd, TimeUpdtd, dummy FROM rcycl_lot_det WHERE RcyhdRcptNbr = :p0 AND RcydtRcptLine = :p1 AND RcysdLotNbr = :p2';
+        $sql = 'SELECT RcyhdRcptBulk, RcyhdCntrlNbr, RcydtRcptLine, InitItemNbr, RcysdLotNbr, RcysdLotQty, RcysdLotDate, RcysdLotRef, RcysdStatus, RcysdClosedBy, RcysdClosedDate, RcysdClosedTime, DateUpdtd, TimeUpdtd, dummy FROM rcycl_lot_det WHERE RcyhdRcptBulk = :p0 AND RcyhdCntrlNbr = :p1 AND RcydtRcptLine = :p2 AND InitItemNbr = :p3 AND RcysdLotNbr = :p4';
         try {
             $stmt = $con->prepare($sql);
-            $stmt->bindValue(':p0', $key[0], PDO::PARAM_INT);
+            $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
             $stmt->bindValue(':p1', $key[1], PDO::PARAM_INT);
-            $stmt->bindValue(':p2', $key[2], PDO::PARAM_STR);
+            $stmt->bindValue(':p2', $key[2], PDO::PARAM_INT);
+            $stmt->bindValue(':p3', $key[3], PDO::PARAM_STR);
+            $stmt->bindValue(':p4', $key[4], PDO::PARAM_STR);
             $stmt->execute();
         } catch (Exception $e) {
             Propel::log($e->getMessage(), Propel::LOG_ERR);
@@ -240,7 +252,7 @@ abstract class RcyclReceiptLotQuery extends ModelCriteria
             /** @var ChildRcyclReceiptLot $obj */
             $obj = new ChildRcyclReceiptLot();
             $obj->hydrate($row);
-            RcyclReceiptLotTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2])]));
+            RcyclReceiptLotTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3]), (null === $key[4] || is_scalar($key[4]) || is_callable([$key[4], '__toString']) ? (string) $key[4] : $key[4])]));
         }
         $stmt->closeCursor();
 
@@ -299,9 +311,11 @@ abstract class RcyclReceiptLotQuery extends ModelCriteria
      */
     public function filterByPrimaryKey($key)
     {
-        $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYHDRCPTNBR, $key[0], Criteria::EQUAL);
-        $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE, $key[1], Criteria::EQUAL);
-        $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYSDLOTNBR, $key[2], Criteria::EQUAL);
+        $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK, $key[0], Criteria::EQUAL);
+        $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR, $key[1], Criteria::EQUAL);
+        $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE, $key[2], Criteria::EQUAL);
+        $this->addUsingAlias(RcyclReceiptLotTableMap::COL_INITITEMNBR, $key[3], Criteria::EQUAL);
+        $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYSDLOTNBR, $key[4], Criteria::EQUAL);
 
         return $this;
     }
@@ -319,11 +333,15 @@ abstract class RcyclReceiptLotQuery extends ModelCriteria
             return $this->add(null, '1<>1', Criteria::CUSTOM);
         }
         foreach ($keys as $key) {
-            $cton0 = $this->getNewCriterion(RcyclReceiptLotTableMap::COL_RCYHDRCPTNBR, $key[0], Criteria::EQUAL);
-            $cton1 = $this->getNewCriterion(RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE, $key[1], Criteria::EQUAL);
+            $cton0 = $this->getNewCriterion(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK, $key[0], Criteria::EQUAL);
+            $cton1 = $this->getNewCriterion(RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR, $key[1], Criteria::EQUAL);
             $cton0->addAnd($cton1);
-            $cton2 = $this->getNewCriterion(RcyclReceiptLotTableMap::COL_RCYSDLOTNBR, $key[2], Criteria::EQUAL);
+            $cton2 = $this->getNewCriterion(RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE, $key[2], Criteria::EQUAL);
             $cton0->addAnd($cton2);
+            $cton3 = $this->getNewCriterion(RcyclReceiptLotTableMap::COL_INITITEMNBR, $key[3], Criteria::EQUAL);
+            $cton0->addAnd($cton3);
+            $cton4 = $this->getNewCriterion(RcyclReceiptLotTableMap::COL_RCYSDLOTNBR, $key[4], Criteria::EQUAL);
+            $cton0->addAnd($cton4);
             $this->addOr($cton0);
         }
 
@@ -331,18 +349,43 @@ abstract class RcyclReceiptLotQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the RcyhdRcptNbr column
+     * Filter the query on the RcyhdRcptBulk column
      *
      * Example usage:
      * <code>
-     * $query->filterByRcyhdrcptnbr(1234); // WHERE RcyhdRcptNbr = 1234
-     * $query->filterByRcyhdrcptnbr(array(12, 34)); // WHERE RcyhdRcptNbr IN (12, 34)
-     * $query->filterByRcyhdrcptnbr(array('min' => 12)); // WHERE RcyhdRcptNbr > 12
+     * $query->filterByRcyhdrcptbulk('fooValue');   // WHERE RcyhdRcptBulk = 'fooValue'
+     * $query->filterByRcyhdrcptbulk('%fooValue%', Criteria::LIKE); // WHERE RcyhdRcptBulk LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $rcyhdrcptbulk The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildRcyclReceiptLotQuery The current query, for fluid interface
+     */
+    public function filterByRcyhdrcptbulk($rcyhdrcptbulk = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($rcyhdrcptbulk)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK, $rcyhdrcptbulk, $comparison);
+    }
+
+    /**
+     * Filter the query on the RcyhdCntrlNbr column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByRcyhdcntrlnbr(1234); // WHERE RcyhdCntrlNbr = 1234
+     * $query->filterByRcyhdcntrlnbr(array(12, 34)); // WHERE RcyhdCntrlNbr IN (12, 34)
+     * $query->filterByRcyhdcntrlnbr(array('min' => 12)); // WHERE RcyhdCntrlNbr > 12
      * </code>
      *
      * @see       filterByRcyclReceiptDetail()
      *
-     * @param     mixed $rcyhdrcptnbr The value to use as filter.
+     * @param     mixed $rcyhdcntrlnbr The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
@@ -350,16 +393,16 @@ abstract class RcyclReceiptLotQuery extends ModelCriteria
      *
      * @return $this|ChildRcyclReceiptLotQuery The current query, for fluid interface
      */
-    public function filterByRcyhdrcptnbr($rcyhdrcptnbr = null, $comparison = null)
+    public function filterByRcyhdcntrlnbr($rcyhdcntrlnbr = null, $comparison = null)
     {
-        if (is_array($rcyhdrcptnbr)) {
+        if (is_array($rcyhdcntrlnbr)) {
             $useMinMax = false;
-            if (isset($rcyhdrcptnbr['min'])) {
-                $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYHDRCPTNBR, $rcyhdrcptnbr['min'], Criteria::GREATER_EQUAL);
+            if (isset($rcyhdcntrlnbr['min'])) {
+                $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR, $rcyhdcntrlnbr['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
-            if (isset($rcyhdrcptnbr['max'])) {
-                $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYHDRCPTNBR, $rcyhdrcptnbr['max'], Criteria::LESS_EQUAL);
+            if (isset($rcyhdcntrlnbr['max'])) {
+                $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR, $rcyhdcntrlnbr['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -370,7 +413,7 @@ abstract class RcyclReceiptLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYHDRCPTNBR, $rcyhdrcptnbr, $comparison);
+        return $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR, $rcyhdcntrlnbr, $comparison);
     }
 
     /**
@@ -417,31 +460,6 @@ abstract class RcyclReceiptLotQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the RcysdLotNbr column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByRcysdlotnbr('fooValue');   // WHERE RcysdLotNbr = 'fooValue'
-     * $query->filterByRcysdlotnbr('%fooValue%', Criteria::LIKE); // WHERE RcysdLotNbr LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $rcysdlotnbr The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildRcyclReceiptLotQuery The current query, for fluid interface
-     */
-    public function filterByRcysdlotnbr($rcysdlotnbr = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($rcysdlotnbr)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYSDLOTNBR, $rcysdlotnbr, $comparison);
-    }
-
-    /**
      * Filter the query on the InitItemNbr column
      *
      * Example usage:
@@ -464,6 +482,31 @@ abstract class RcyclReceiptLotQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(RcyclReceiptLotTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+    }
+
+    /**
+     * Filter the query on the RcysdLotNbr column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByRcysdlotnbr('fooValue');   // WHERE RcysdLotNbr = 'fooValue'
+     * $query->filterByRcysdlotnbr('%fooValue%', Criteria::LIKE); // WHERE RcysdLotNbr LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $rcysdlotnbr The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildRcyclReceiptLotQuery The current query, for fluid interface
+     */
+    public function filterByRcysdlotnbr($rcysdlotnbr = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($rcysdlotnbr)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYSDLOTNBR, $rcysdlotnbr, $comparison);
     }
 
     /**
@@ -530,6 +573,31 @@ abstract class RcyclReceiptLotQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYSDLOTDATE, $rcysdlotdate, $comparison);
+    }
+
+    /**
+     * Filter the query on the RcysdLotRef column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByRcysdlotref('fooValue');   // WHERE RcysdLotRef = 'fooValue'
+     * $query->filterByRcysdlotref('%fooValue%', Criteria::LIKE); // WHERE RcysdLotRef LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $rcysdlotref The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildRcyclReceiptLotQuery The current query, for fluid interface
+     */
+    public function filterByRcysdlotref($rcysdlotref = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($rcysdlotref)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYSDLOTREF, $rcysdlotref, $comparison);
     }
 
     /**
@@ -721,8 +789,10 @@ abstract class RcyclReceiptLotQuery extends ModelCriteria
     {
         if ($rcyclReceiptDetail instanceof \RcyclReceiptDetail) {
             return $this
-                ->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYHDRCPTNBR, $rcyclReceiptDetail->getRcyhdrcptnbr(), $comparison)
-                ->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE, $rcyclReceiptDetail->getRcydtrcptline(), $comparison);
+                ->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR, $rcyclReceiptDetail->getRcyhdcntrlnbr(), $comparison)
+                ->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK, $rcyclReceiptDetail->getRcyhdrcptbulk(), $comparison)
+                ->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE, $rcyclReceiptDetail->getRcydtrcptline(), $comparison)
+                ->addUsingAlias(RcyclReceiptLotTableMap::COL_INITITEMNBR, $rcyclReceiptDetail->getInititemnbr(), $comparison);
         } else {
             throw new PropelException('filterByRcyclReceiptDetail() only accepts arguments of type \RcyclReceiptDetail');
         }
@@ -865,10 +935,12 @@ abstract class RcyclReceiptLotQuery extends ModelCriteria
     public function prune($rcyclReceiptLot = null)
     {
         if ($rcyclReceiptLot) {
-            $this->addCond('pruneCond0', $this->getAliasedColName(RcyclReceiptLotTableMap::COL_RCYHDRCPTNBR), $rcyclReceiptLot->getRcyhdrcptnbr(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond1', $this->getAliasedColName(RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE), $rcyclReceiptLot->getRcydtrcptline(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond2', $this->getAliasedColName(RcyclReceiptLotTableMap::COL_RCYSDLOTNBR), $rcyclReceiptLot->getRcysdlotnbr(), Criteria::NOT_EQUAL);
-            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2'), Criteria::LOGICAL_OR);
+            $this->addCond('pruneCond0', $this->getAliasedColName(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK), $rcyclReceiptLot->getRcyhdrcptbulk(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond1', $this->getAliasedColName(RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR), $rcyclReceiptLot->getRcyhdcntrlnbr(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond2', $this->getAliasedColName(RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE), $rcyclReceiptLot->getRcydtrcptline(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond3', $this->getAliasedColName(RcyclReceiptLotTableMap::COL_INITITEMNBR), $rcyclReceiptLot->getInititemnbr(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond4', $this->getAliasedColName(RcyclReceiptLotTableMap::COL_RCYSDLOTNBR), $rcyclReceiptLot->getRcysdlotnbr(), Criteria::NOT_EQUAL);
+            $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4'), Criteria::LOGICAL_OR);
         }
 
         return $this;

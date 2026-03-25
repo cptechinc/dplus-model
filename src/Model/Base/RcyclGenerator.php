@@ -1590,7 +1590,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      */
     public function postSave(ConnectionInterface $con = null)
     {
-
+        
     }
 
     /**
@@ -1609,6 +1609,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      */
     public function postInsert(ConnectionInterface $con = null)
     {
+        
     }
 
     /**
@@ -1627,7 +1628,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      */
     public function postUpdate(ConnectionInterface $con = null)
     {
-
+        
     }
 
     /**
@@ -1646,7 +1647,7 @@ abstract class RcyclGenerator implements ActiveRecordInterface
      */
     public function postDelete(ConnectionInterface $con = null)
     {
-        
+
     }
 
 

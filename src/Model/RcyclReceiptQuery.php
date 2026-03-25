@@ -24,14 +24,19 @@ class RcyclReceiptQuery extends BaseRcyclReceiptQuery {
     use QueryTraits;
 
     /**
-     * Filter the query on the RcyhdRcptNbr column
+     * Filter the query on the Rcyhdcntrlnbr column
      * @param  mixed   $rnbr        The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
     public function filterByRnbr($rnbr = null, $comparison = null) : RcyclReceiptQuery
     {
-        return $this->filterByRcyhdrcptnbr($rnbr, $comparison);
+        return $this->filterByRcyhdcntrlnbr($rnbr, $comparison);
+    }
+
+    public function filterByRcptOrBulk($value = null, $comparison = null) : RcyclReceiptQuery
+    {
+        return $this->filterByRcyhdrcptbulk($value, $comparison);
     }
 
     /**

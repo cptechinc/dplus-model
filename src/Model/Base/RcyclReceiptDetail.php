@@ -71,12 +71,20 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
     protected $virtualColumns = array();
 
     /**
-     * The value for the rcyhdrcptnbr field.
+     * The value for the rcyhdrcptbulk field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $rcyhdrcptbulk;
+
+    /**
+     * The value for the rcyhdcntrlnbr field.
      *
      * Note: this column has a database default value of: 0
      * @var        int
      */
-    protected $rcyhdrcptnbr;
+    protected $rcyhdcntrlnbr;
 
     /**
      * The value for the rcydtrcptline field.
@@ -209,7 +217,8 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
      */
     public function applyDefaultValues()
     {
-        $this->rcyhdrcptnbr = 0;
+        $this->rcyhdrcptbulk = '';
+        $this->rcyhdcntrlnbr = 0;
         $this->rcydtrcptline = 0;
         $this->inititemnbr = '';
         $this->intbuomsale = '';
@@ -451,13 +460,23 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
     }
 
     /**
-     * Get the [rcyhdrcptnbr] column value.
+     * Get the [rcyhdrcptbulk] column value.
+     *
+     * @return string
+     */
+    public function getRcyhdrcptbulk()
+    {
+        return $this->rcyhdrcptbulk;
+    }
+
+    /**
+     * Get the [rcyhdcntrlnbr] column value.
      *
      * @return int
      */
-    public function getRcyhdrcptnbr()
+    public function getRcyhdcntrlnbr()
     {
-        return $this->rcyhdrcptnbr;
+        return $this->rcyhdcntrlnbr;
     }
 
     /**
@@ -571,28 +590,52 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
     }
 
     /**
-     * Set the value of [rcyhdrcptnbr] column.
+     * Set the value of [rcyhdrcptbulk] column.
+     *
+     * @param string $v new value
+     * @return $this|\RcyclReceiptDetail The current object (for fluent API support)
+     */
+    public function setRcyhdrcptbulk($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->rcyhdrcptbulk !== $v) {
+            $this->rcyhdrcptbulk = $v;
+            $this->modifiedColumns[RcyclReceiptDetailTableMap::COL_RCYHDRCPTBULK] = true;
+        }
+
+        if ($this->aRcyclReceipt !== null && $this->aRcyclReceipt->getRcyhdrcptbulk() !== $v) {
+            $this->aRcyclReceipt = null;
+        }
+
+        return $this;
+    } // setRcyhdrcptbulk()
+
+    /**
+     * Set the value of [rcyhdcntrlnbr] column.
      *
      * @param int $v new value
      * @return $this|\RcyclReceiptDetail The current object (for fluent API support)
      */
-    public function setRcyhdrcptnbr($v)
+    public function setRcyhdcntrlnbr($v)
     {
         if ($v !== null) {
             $v = (int) $v;
         }
 
-        if ($this->rcyhdrcptnbr !== $v) {
-            $this->rcyhdrcptnbr = $v;
-            $this->modifiedColumns[RcyclReceiptDetailTableMap::COL_RCYHDRCPTNBR] = true;
+        if ($this->rcyhdcntrlnbr !== $v) {
+            $this->rcyhdcntrlnbr = $v;
+            $this->modifiedColumns[RcyclReceiptDetailTableMap::COL_RCYHDCNTRLNBR] = true;
         }
 
-        if ($this->aRcyclReceipt !== null && $this->aRcyclReceipt->getRcyhdrcptnbr() !== $v) {
+        if ($this->aRcyclReceipt !== null && $this->aRcyclReceipt->getRcyhdcntrlnbr() !== $v) {
             $this->aRcyclReceipt = null;
         }
 
         return $this;
-    } // setRcyhdrcptnbr()
+    } // setRcyhdcntrlnbr()
 
     /**
      * Set the value of [rcydtrcptline] column.
@@ -832,7 +875,11 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
-            if ($this->rcyhdrcptnbr !== 0) {
+            if ($this->rcyhdrcptbulk !== '') {
+                return false;
+            }
+
+            if ($this->rcyhdcntrlnbr !== 0) {
                 return false;
             }
 
@@ -906,40 +953,43 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Rcyhdrcptnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->rcyhdrcptnbr = (null !== $col) ? (int) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Rcyhdrcptbulk', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->rcyhdrcptbulk = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Rcydtrcptline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Rcyhdcntrlnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->rcyhdcntrlnbr = (null !== $col) ? (int) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Rcydtrcptline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcydtrcptline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Intbuomsale', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Intbuomsale', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbuomsale = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Rcydtrcptqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Rcydtrcptqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcydtrcptqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Rcydtstatus', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Rcydtstatus', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcydtstatus = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Rcydtclosedby', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Rcydtclosedby', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcydtclosedby = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Rcydtcloseddate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Rcydtcloseddate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcydtcloseddate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Rcydtclosedtime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Rcydtclosedtime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcydtclosedtime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : RcyclReceiptDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -949,7 +999,7 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 12; // 12 = RcyclReceiptDetailTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 13; // 13 = RcyclReceiptDetailTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\RcyclReceiptDetail'), 0, $e);
@@ -971,7 +1021,10 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
-        if ($this->aRcyclReceipt !== null && $this->rcyhdrcptnbr !== $this->aRcyclReceipt->getRcyhdrcptnbr()) {
+        if ($this->aRcyclReceipt !== null && $this->rcyhdrcptbulk !== $this->aRcyclReceipt->getRcyhdrcptbulk()) {
+            $this->aRcyclReceipt = null;
+        }
+        if ($this->aRcyclReceipt !== null && $this->rcyhdcntrlnbr !== $this->aRcyclReceipt->getRcyhdcntrlnbr()) {
             $this->aRcyclReceipt = null;
         }
         if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
@@ -1203,8 +1256,11 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(RcyclReceiptDetailTableMap::COL_RCYHDRCPTNBR)) {
-            $modifiedColumns[':p' . $index++]  = 'RcyhdRcptNbr';
+        if ($this->isColumnModified(RcyclReceiptDetailTableMap::COL_RCYHDRCPTBULK)) {
+            $modifiedColumns[':p' . $index++]  = 'RcyhdRcptBulk';
+        }
+        if ($this->isColumnModified(RcyclReceiptDetailTableMap::COL_RCYHDCNTRLNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'RcyhdCntrlNbr';
         }
         if ($this->isColumnModified(RcyclReceiptDetailTableMap::COL_RCYDTRCPTLINE)) {
             $modifiedColumns[':p' . $index++]  = 'RcydtRcptLine';
@@ -1250,8 +1306,11 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
             $stmt = $con->prepare($sql);
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
-                    case 'RcyhdRcptNbr':
-                        $stmt->bindValue($identifier, $this->rcyhdrcptnbr, PDO::PARAM_INT);
+                    case 'RcyhdRcptBulk':
+                        $stmt->bindValue($identifier, $this->rcyhdrcptbulk, PDO::PARAM_STR);
+                        break;
+                    case 'RcyhdCntrlNbr':
+                        $stmt->bindValue($identifier, $this->rcyhdcntrlnbr, PDO::PARAM_INT);
                         break;
                     case 'RcydtRcptLine':
                         $stmt->bindValue($identifier, $this->rcydtrcptline, PDO::PARAM_INT);
@@ -1342,39 +1401,42 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                return $this->getRcyhdrcptnbr();
+                return $this->getRcyhdrcptbulk();
                 break;
             case 1:
-                return $this->getRcydtrcptline();
+                return $this->getRcyhdcntrlnbr();
                 break;
             case 2:
-                return $this->getInititemnbr();
+                return $this->getRcydtrcptline();
                 break;
             case 3:
-                return $this->getIntbuomsale();
+                return $this->getInititemnbr();
                 break;
             case 4:
-                return $this->getRcydtrcptqty();
+                return $this->getIntbuomsale();
                 break;
             case 5:
-                return $this->getRcydtstatus();
+                return $this->getRcydtrcptqty();
                 break;
             case 6:
-                return $this->getRcydtclosedby();
+                return $this->getRcydtstatus();
                 break;
             case 7:
-                return $this->getRcydtcloseddate();
+                return $this->getRcydtclosedby();
                 break;
             case 8:
-                return $this->getRcydtclosedtime();
+                return $this->getRcydtcloseddate();
                 break;
             case 9:
-                return $this->getDateupdtd();
+                return $this->getRcydtclosedtime();
                 break;
             case 10:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 11:
+                return $this->getTimeupdtd();
+                break;
+            case 12:
                 return $this->getDummy();
                 break;
             default:
@@ -1407,18 +1469,19 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
         $alreadyDumpedObjects['RcyclReceiptDetail'][$this->hashCode()] = true;
         $keys = RcyclReceiptDetailTableMap::getFieldNames($keyType);
         $result = array(
-            $keys[0] => $this->getRcyhdrcptnbr(),
-            $keys[1] => $this->getRcydtrcptline(),
-            $keys[2] => $this->getInititemnbr(),
-            $keys[3] => $this->getIntbuomsale(),
-            $keys[4] => $this->getRcydtrcptqty(),
-            $keys[5] => $this->getRcydtstatus(),
-            $keys[6] => $this->getRcydtclosedby(),
-            $keys[7] => $this->getRcydtcloseddate(),
-            $keys[8] => $this->getRcydtclosedtime(),
-            $keys[9] => $this->getDateupdtd(),
-            $keys[10] => $this->getTimeupdtd(),
-            $keys[11] => $this->getDummy(),
+            $keys[0] => $this->getRcyhdrcptbulk(),
+            $keys[1] => $this->getRcyhdcntrlnbr(),
+            $keys[2] => $this->getRcydtrcptline(),
+            $keys[3] => $this->getInititemnbr(),
+            $keys[4] => $this->getIntbuomsale(),
+            $keys[5] => $this->getRcydtrcptqty(),
+            $keys[6] => $this->getRcydtstatus(),
+            $keys[7] => $this->getRcydtclosedby(),
+            $keys[8] => $this->getRcydtcloseddate(),
+            $keys[9] => $this->getRcydtclosedtime(),
+            $keys[10] => $this->getDateupdtd(),
+            $keys[11] => $this->getTimeupdtd(),
+            $keys[12] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1521,39 +1584,42 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                $this->setRcyhdrcptnbr($value);
+                $this->setRcyhdrcptbulk($value);
                 break;
             case 1:
-                $this->setRcydtrcptline($value);
+                $this->setRcyhdcntrlnbr($value);
                 break;
             case 2:
-                $this->setInititemnbr($value);
+                $this->setRcydtrcptline($value);
                 break;
             case 3:
-                $this->setIntbuomsale($value);
+                $this->setInititemnbr($value);
                 break;
             case 4:
-                $this->setRcydtrcptqty($value);
+                $this->setIntbuomsale($value);
                 break;
             case 5:
-                $this->setRcydtstatus($value);
+                $this->setRcydtrcptqty($value);
                 break;
             case 6:
-                $this->setRcydtclosedby($value);
+                $this->setRcydtstatus($value);
                 break;
             case 7:
-                $this->setRcydtcloseddate($value);
+                $this->setRcydtclosedby($value);
                 break;
             case 8:
-                $this->setRcydtclosedtime($value);
+                $this->setRcydtcloseddate($value);
                 break;
             case 9:
-                $this->setDateupdtd($value);
+                $this->setRcydtclosedtime($value);
                 break;
             case 10:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 11:
+                $this->setTimeupdtd($value);
+                break;
+            case 12:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1583,40 +1649,43 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
         $keys = RcyclReceiptDetailTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
-            $this->setRcyhdrcptnbr($arr[$keys[0]]);
+            $this->setRcyhdrcptbulk($arr[$keys[0]]);
         }
         if (array_key_exists($keys[1], $arr)) {
-            $this->setRcydtrcptline($arr[$keys[1]]);
+            $this->setRcyhdcntrlnbr($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setInititemnbr($arr[$keys[2]]);
+            $this->setRcydtrcptline($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setIntbuomsale($arr[$keys[3]]);
+            $this->setInititemnbr($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setRcydtrcptqty($arr[$keys[4]]);
+            $this->setIntbuomsale($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setRcydtstatus($arr[$keys[5]]);
+            $this->setRcydtrcptqty($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setRcydtclosedby($arr[$keys[6]]);
+            $this->setRcydtstatus($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setRcydtcloseddate($arr[$keys[7]]);
+            $this->setRcydtclosedby($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setRcydtclosedtime($arr[$keys[8]]);
+            $this->setRcydtcloseddate($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setDateupdtd($arr[$keys[9]]);
+            $this->setRcydtclosedtime($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setTimeupdtd($arr[$keys[10]]);
+            $this->setDateupdtd($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setDummy($arr[$keys[11]]);
+            $this->setTimeupdtd($arr[$keys[11]]);
+        }
+        if (array_key_exists($keys[12], $arr)) {
+            $this->setDummy($arr[$keys[12]]);
         }
     }
 
@@ -1659,8 +1728,11 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
     {
         $criteria = new Criteria(RcyclReceiptDetailTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(RcyclReceiptDetailTableMap::COL_RCYHDRCPTNBR)) {
-            $criteria->add(RcyclReceiptDetailTableMap::COL_RCYHDRCPTNBR, $this->rcyhdrcptnbr);
+        if ($this->isColumnModified(RcyclReceiptDetailTableMap::COL_RCYHDRCPTBULK)) {
+            $criteria->add(RcyclReceiptDetailTableMap::COL_RCYHDRCPTBULK, $this->rcyhdrcptbulk);
+        }
+        if ($this->isColumnModified(RcyclReceiptDetailTableMap::COL_RCYHDCNTRLNBR)) {
+            $criteria->add(RcyclReceiptDetailTableMap::COL_RCYHDCNTRLNBR, $this->rcyhdcntrlnbr);
         }
         if ($this->isColumnModified(RcyclReceiptDetailTableMap::COL_RCYDTRCPTLINE)) {
             $criteria->add(RcyclReceiptDetailTableMap::COL_RCYDTRCPTLINE, $this->rcydtrcptline);
@@ -1712,8 +1784,10 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
     public function buildPkeyCriteria()
     {
         $criteria = ChildRcyclReceiptDetailQuery::create();
-        $criteria->add(RcyclReceiptDetailTableMap::COL_RCYHDRCPTNBR, $this->rcyhdrcptnbr);
+        $criteria->add(RcyclReceiptDetailTableMap::COL_RCYHDRCPTBULK, $this->rcyhdrcptbulk);
+        $criteria->add(RcyclReceiptDetailTableMap::COL_RCYHDCNTRLNBR, $this->rcyhdcntrlnbr);
         $criteria->add(RcyclReceiptDetailTableMap::COL_RCYDTRCPTLINE, $this->rcydtrcptline);
+        $criteria->add(RcyclReceiptDetailTableMap::COL_INITITEMNBR, $this->inititemnbr);
 
         return $criteria;
     }
@@ -1726,14 +1800,23 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getRcyhdrcptnbr() &&
-            null !== $this->getRcydtrcptline();
+        $validPk = null !== $this->getRcyhdrcptbulk() &&
+            null !== $this->getRcyhdcntrlnbr() &&
+            null !== $this->getRcydtrcptline() &&
+            null !== $this->getInititemnbr();
 
-        $validPrimaryKeyFKs = 1;
+        $validPrimaryKeyFKs = 3;
         $primaryKeyFKs = [];
 
         //relation receipt to table rcycl_head
         if ($this->aRcyclReceipt && $hash = spl_object_hash($this->aRcyclReceipt)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
+
+        //relation item to table inv_item_mast
+        if ($this->aItemMasterItem && $hash = spl_object_hash($this->aItemMasterItem)) {
             $primaryKeyFKs[] = $hash;
         } else {
             $validPrimaryKeyFKs = false;
@@ -1756,8 +1839,10 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
     public function getPrimaryKey()
     {
         $pks = array();
-        $pks[0] = $this->getRcyhdrcptnbr();
-        $pks[1] = $this->getRcydtrcptline();
+        $pks[0] = $this->getRcyhdrcptbulk();
+        $pks[1] = $this->getRcyhdcntrlnbr();
+        $pks[2] = $this->getRcydtrcptline();
+        $pks[3] = $this->getInititemnbr();
 
         return $pks;
     }
@@ -1770,8 +1855,10 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
      */
     public function setPrimaryKey($keys)
     {
-        $this->setRcyhdrcptnbr($keys[0]);
-        $this->setRcydtrcptline($keys[1]);
+        $this->setRcyhdrcptbulk($keys[0]);
+        $this->setRcyhdcntrlnbr($keys[1]);
+        $this->setRcydtrcptline($keys[2]);
+        $this->setInititemnbr($keys[3]);
     }
 
     /**
@@ -1780,7 +1867,7 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
      */
     public function isPrimaryKeyNull()
     {
-        return (null === $this->getRcyhdrcptnbr()) && (null === $this->getRcydtrcptline());
+        return (null === $this->getRcyhdrcptbulk()) && (null === $this->getRcyhdcntrlnbr()) && (null === $this->getRcydtrcptline()) && (null === $this->getInititemnbr());
     }
 
     /**
@@ -1796,7 +1883,8 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
      */
     public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
     {
-        $copyObj->setRcyhdrcptnbr($this->getRcyhdrcptnbr());
+        $copyObj->setRcyhdrcptbulk($this->getRcyhdrcptbulk());
+        $copyObj->setRcyhdcntrlnbr($this->getRcyhdcntrlnbr());
         $copyObj->setRcydtrcptline($this->getRcydtrcptline());
         $copyObj->setInititemnbr($this->getInititemnbr());
         $copyObj->setIntbuomsale($this->getIntbuomsale());
@@ -1859,9 +1947,15 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
     public function setRcyclReceipt(ChildRcyclReceipt $v = null)
     {
         if ($v === null) {
-            $this->setRcyhdrcptnbr(0);
+            $this->setRcyhdcntrlnbr(0);
         } else {
-            $this->setRcyhdrcptnbr($v->getRcyhdrcptnbr());
+            $this->setRcyhdcntrlnbr($v->getRcyhdcntrlnbr());
+        }
+
+        if ($v === null) {
+            $this->setRcyhdrcptbulk('');
+        } else {
+            $this->setRcyhdrcptbulk($v->getRcyhdrcptbulk());
         }
 
         $this->aRcyclReceipt = $v;
@@ -1886,8 +1980,8 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
      */
     public function getRcyclReceipt(ConnectionInterface $con = null)
     {
-        if ($this->aRcyclReceipt === null && ($this->rcyhdrcptnbr != 0)) {
-            $this->aRcyclReceipt = ChildRcyclReceiptQuery::create()->findPk($this->rcyhdrcptnbr, $con);
+        if ($this->aRcyclReceipt === null && ($this->rcyhdcntrlnbr != 0 && ($this->rcyhdrcptbulk !== "" && $this->rcyhdrcptbulk !== null))) {
+            $this->aRcyclReceipt = ChildRcyclReceiptQuery::create()->findPk(array($this->rcyhdrcptbulk, $this->rcyhdcntrlnbr), $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
@@ -2288,7 +2382,8 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
         if (null !== $this->aUnitofMeasureSale) {
             $this->aUnitofMeasureSale->removeRcyclReceiptDetail($this);
         }
-        $this->rcyhdrcptnbr = null;
+        $this->rcyhdrcptbulk = null;
+        $this->rcyhdcntrlnbr = null;
         $this->rcydtrcptline = null;
         $this->inititemnbr = null;
         $this->intbuomsale = null;
@@ -2358,7 +2453,7 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
      */
     public function postSave(ConnectionInterface $con = null)
     {
-
+        
     }
 
     /**
@@ -2377,6 +2472,7 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
      */
     public function postInsert(ConnectionInterface $con = null)
     {
+        
     }
 
     /**
@@ -2395,7 +2491,7 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
      */
     public function postUpdate(ConnectionInterface $con = null)
     {
-
+        
     }
 
     /**
@@ -2414,9 +2510,7 @@ abstract class RcyclReceiptDetail implements ActiveRecordInterface
      */
     public function postDelete(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postDelete')) {
-            parent::postDelete($con);
-        }
+        
     }
 
 

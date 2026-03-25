@@ -4571,9 +4571,10 @@
     </vendor>
   </table>
   <table name="rcycl_det" idMethod="native" phpName="RcyclReceiptDetail">
-    <column name="RcyhdRcptNbr" phpName="Rcyhdrcptnbr" type="INTEGER" sqlType="int unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="RcyhdRcptBulk" phpName="Rcyhdrcptbulk" type="CHAR" primaryKey="true" required="true" defaultValue=""/>
+    <column name="RcyhdCntrlNbr" phpName="Rcyhdcntrlnbr" type="INTEGER" sqlType="int unsigned" primaryKey="true" required="true" defaultValue="0"/>
     <column name="RcydtRcptLine" phpName="Rcydtrcptline" type="INTEGER" sqlType="int unsigned" primaryKey="true" required="true" defaultValue="0"/>
-    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="IntbUomSale" phpName="Intbuomsale" type="VARCHAR" size="4" required="true" defaultValue=""/>
     <column name="RcydtRcptQty" phpName="Rcydtrcptqty" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="RcydtStatus" phpName="Rcydtstatus" type="CHAR" required="true" defaultValue="O"/>
@@ -4584,7 +4585,8 @@
     <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
     <foreign-key foreignTable="rcycl_head" name="receipt" skipSql="true">
-      <reference local="RcyhdRcptNbr" foreign="RcyhdRcptNbr"/>
+      <reference local="RcyhdCntrlNbr" foreign="RcyhdCntrlNbr"/>
+      <reference local="RcyhdRcptBulk" foreign="RcyhdRcptBulk"/>
     </foreign-key>
     <foreign-key foreignTable="inv_item_mast" name="item">
       <reference local="InitItemNbr" foreign="InitItemNbr"/>
@@ -4607,7 +4609,8 @@
     </vendor>
   </table>
   <table name="rcycl_head" idMethod="native" phpName="RcyclReceipt">
-    <column name="RcyhdRcptNbr" phpName="Rcyhdrcptnbr" type="INTEGER" sqlType="int unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="RcyhdRcptBulk" phpName="Rcyhdrcptbulk" type="CHAR" primaryKey="true" required="true" defaultValue=""/>
+    <column name="RcyhdCntrlNbr" phpName="Rcyhdcntrlnbr" type="INTEGER" sqlType="int unsigned" primaryKey="true" required="true" defaultValue="0"/>
     <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" required="true" defaultValue=""/>
     <column name="ArtbGenrId" phpName="Artbgenrid" type="VARCHAR" size="6" required="true" defaultValue=""/>
     <column name="RcyhdBolNbr" phpName="Rcyhdbolnbr" type="VARCHAR" size="20" required="true" defaultValue=""/>
@@ -4619,6 +4622,7 @@
     <column name="RcyhdClosedBy" phpName="Rcyhdclosedby" type="VARCHAR" size="8" required="true" defaultValue=""/>
     <column name="RcyhdClosedDate" phpName="Rcyhdcloseddate" type="VARCHAR" size="8" required="true" defaultValue=""/>
     <column name="RcyhdClosedTime" phpName="Rcyhdclosedtime" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="RcyhdWhse" phpName="Rcyhdwhse" type="VARCHAR" size="2" required="true" defaultValue=""/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
@@ -4633,12 +4637,14 @@
     </vendor>
   </table>
    <table name="rcycl_lot_det" idMethod="native" phpName="RcyclReceiptLot">
-    <column name="RcyhdRcptNbr" phpName="Rcyhdrcptnbr" type="INTEGER" sqlType="int unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="RcyhdRcptBulk" phpName="Rcyhdrcptbulk" type="CHAR" primaryKey="true" required="true" defaultValue=""/>
+    <column name="RcyhdCntrlNbr" phpName="Rcyhdcntrlnbr" type="INTEGER" sqlType="int unsigned" primaryKey="true" required="true" defaultValue="0"/>
     <column name="RcydtRcptLine" phpName="Rcydtrcptline" type="INTEGER" sqlType="int unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="RcysdLotNbr" phpName="Rcysdlotnbr" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
-    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" required="true" defaultValue=""/>
     <column name="RcysdLotQty" phpName="Rcysdlotqty" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="RcysdLotDate" phpName="Rcysdlotdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="RcysdLotRef" phpName="Rcysdlotref" type="VARCHAR" size="20" required="true" defaultValue=""/>
     <column name="RcysdStatus" phpName="Rcysdstatus" type="CHAR" required="true" defaultValue="O"/>
     <column name="RcysdClosedBy" phpName="Rcysdclosedby" type="VARCHAR" size="8" required="true" defaultValue=""/>
     <column name="RcysdClosedDate" phpName="Rcysdcloseddate" type="VARCHAR" size="8" required="true" defaultValue=""/>
@@ -4647,8 +4653,10 @@
     <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
     <foreign-key foreignTable="rcycl_det" name="rcycledet" skipSql="true">
-      <reference local="RcyhdRcptNbr" foreign="RcyhdRcptNbr"/>
+      <reference local="RcyhdCntrlNbr" foreign="RcyhdCntrlNbr"/>
+      <reference local="RcyhdRcptBulk" foreign="RcyhdRcptBulk"/>
       <reference local="RcydtRcptLine" foreign="RcydtRcptLine"/>
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
     </foreign-key>
     <foreign-key foreignTable="inv_item_mast" name="item">
       <reference local="InitItemNbr" foreign="InitItemNbr"/>
