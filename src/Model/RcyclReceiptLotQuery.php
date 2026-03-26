@@ -33,85 +33,85 @@ class RcyclReceiptLotQuery extends BaseRcyclReceiptLotQuery {
         return $this->filterByRcyhdcntrlnbr($rnbr, $comparison);
     }
 
-    public function filterByRtype($value = null, $comparison = null) : RcyclReceiptLotQuery
+    public function filterByRtype($rtype = null, $comparison = null) : RcyclReceiptLotQuery
     {
-        return $this->filterByRcyhdrcptbulk($value, $comparison);
+        return $this->filterByRcyhdrcptbulk($rtype, $comparison);
     }
 
     /**
      * Filter the query on the Rcydtrcptline column
-     * @param  mixed   $rnbr        The value to use as filter.
+     * @param  mixed   $linenbr     The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByLinenbr($rnbr = null, $comparison = null) : RcyclReceiptLotQuery
+    public function filterByLinenbr($linenbr = null, $comparison = null) : RcyclReceiptLotQuery
     {
-        return $this->filterByRcydtrcptline($rnbr, $comparison);
+        return $this->filterByRcydtrcptline($linenbr, $comparison);
     }
 
     /**
      * Filter the query on the Rcysdlotnbr column
-     * @param  mixed   $rnbr        The value to use as filter.
+     * @param  mixed   $lotserial   The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByLotserial($rnbr = null, $comparison = null) : RcyclReceiptLotQuery
+    public function filterByLotserial($lotserial = null, $comparison = null) : RcyclReceiptLotQuery
     {
-        return $this->filterByRcysdlotnbr($rnbr, $comparison);
+        return $this->filterByRcysdlotnbr($lotserial, $comparison);
     }
 
     /**
      * Filter the query on the Rcysdlotdate column
-     * @param  mixed   $rnbr        The value to use as filter.
+     * @param  mixed   $date        The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByLotdate($rnbr = null, $comparison = null) : RcyclReceiptLotQuery
+    public function filterByLotdate($date = null, $comparison = null) : RcyclReceiptLotQuery
     {
-        return $this->filterByRcysdlotdate($rnbr, $comparison);
+        return $this->filterByRcysdlotdate($date, $comparison);
     }
 
     /**
      * Filter the query on the Rcysdlotqty column
-     * @param  mixed   $rnbr        The value to use as filter.
+     * @param  mixed   $qty        The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByQty($value = null, $comparison = null) : RcyclReceiptLotQuery
+    public function filterByQty($qty = null, $comparison = null) : RcyclReceiptLotQuery
     {
-        return $this->filterByRcysdlotqty($value, $comparison);
+        return $this->filterByRcysdlotqty($qty, $comparison);
     }
 
     /**
      * Filter the query on the Inititemnbr column
-     * @param  mixed   $rnbr        The value to use as filter.
+     * @param  mixed   $itemid      The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByItemid($value = null, $comparison = null) : RcyclReceiptLotQuery
+    public function filterByItemid($itemid = null, $comparison = null) : RcyclReceiptLotQuery
     {
-        return $this->filterByInititemnbr($value, $comparison);
+        return $this->filterByInititemnbr($itemid, $comparison);
     }
 
     /**
      * Filter the query on the Rcysdstatus column
-     * @param  mixed   $rnbr        The value to use as filter.
+     * @param  mixed   $status      The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByStatus($value = null, $comparison = null) : RcyclReceiptLotQuery
+    public function filterByStatus($status = null, $comparison = null) : RcyclReceiptLotQuery
     {
-        return $this->filterByRcysdstatus($value, $comparison);
+        return $this->filterByRcysdstatus($status, $comparison);
     }
 
     /**
      * Filter the query on the Rcysdclosedby column
-     * @param  mixed   $rnbr        The value to use as filter.
+     * @param  mixed   $closedby    The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByClosedBy($value = null, $comparison = null) : RcyclReceiptLotQuery
+    public function filterByClosedBy($closedby = null, $comparison = null) : RcyclReceiptLotQuery
     {
-        return $this->filterByRcysdclosedby($value, $comparison);
+        return $this->filterByRcysdclosedby($closedby, $comparison);
     }
 }

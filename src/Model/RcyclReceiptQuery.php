@@ -34,31 +34,31 @@ class RcyclReceiptQuery extends BaseRcyclReceiptQuery {
         return $this->filterByRcyhdcntrlnbr($rnbr, $comparison);
     }
 
-    public function filterByRtype($value = null, $comparison = null) : RcyclReceiptQuery
+    public function filterByRtype($rtype = null, $comparison = null) : RcyclReceiptQuery
     {
-        return $this->filterByRcyhdrcptbulk($value, $comparison);
+        return $this->filterByRcyhdrcptbulk($rtype, $comparison);
     }
 
     /**
      * Filter the query on the artbgenrid column
-     * @param  mixed   $id          The value to use as filter.
+     * @param  mixed   $generatorid The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByGeneratorid($id = null, $comparison = null) : RcyclReceiptQuery
+    public function filterByGeneratorid($generatorid = null, $comparison = null) : RcyclReceiptQuery
     {
-        return $this->filterByArtbgenrid($id, $comparison);
+        return $this->filterByArtbgenrid($generatorid, $comparison);
     }
 
     /**
      * Filter the query on the arcucustid column
-     * @param  mixed   $value       The value to use as filter.
+     * @param  mixed   $custid      The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByCustid($value = null, $comparison = null) : RcyclReceiptQuery
+    public function filterByCustid($custid = null, $comparison = null) : RcyclReceiptQuery
     {
-        return $this->filterByArcucustid($value, $comparison);
+        return $this->filterByArcucustid($custid, $comparison);
     }
 
     /**
@@ -74,23 +74,23 @@ class RcyclReceiptQuery extends BaseRcyclReceiptQuery {
 
     /**
      * Filter the query on the rcyhdenteredby column
-     * @param  mixed   $value       The value to use as filter.
+     * @param  mixed   $enteredby   The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByEnteredBy($value = null, $comparison = null) : RcyclReceiptQuery
+    public function filterByEnteredBy($enteredby = null, $comparison = null) : RcyclReceiptQuery
     {
-        return $this->filterByRcyhdenteredby($value, $comparison);
+        return $this->filterByRcyhdenteredby($enteredby, $comparison);
     }
 
     /**
      * Filter the query on the rcyhdclosedby column
-     * @param  mixed   $value       The value to use as filter.
+     * @param  mixed   $closedby    The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByClosedBy($value = null, $comparison = null) : RcyclReceiptQuery
+    public function filterByClosedBy($closedby = null, $comparison = null) : RcyclReceiptQuery
     {
-        return $this->filterByRcyhdclosedby($value, $comparison);
+        return $this->filterByRcyhdclosedby($closedby, $comparison);
     }
 }

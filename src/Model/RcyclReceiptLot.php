@@ -4,11 +4,30 @@ use Base\RcyclReceiptLot as BaseRcyclReceiptLot;
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
+use ItemMasterItem as ItmItem;
+use RcyclReceiptDetail as RcptItem;
+
 /**
  * class for representing a row from the 'rcycl_lot_det' table.
  * 
  * KEYS: rnbr, linenbr, lotserial
  * FKRELATIONSHIPS: RcyclReceiptDetail, ItemMasterItem
+ * 
+ * @property string   $rtype
+ * @property int      $rnbr
+ * @property int      $linenbr
+ * @property string   $itemid
+ * @property string   $lotserial
+ * @property string   $status
+ * @property float    $qty
+ * @property int      $lotdate
+ * @property string   $closedby
+ * @property int      $closeddate
+ * @property int      $closedtime
+ * @property int      $date
+ * @property int      $time
+ * @property ItmItem  $itmitem
+ * @property RcptItem $rcptitem
  */
 class RcyclReceiptLot extends BaseRcyclReceiptLot {
     use ThrowErrorTrait;
@@ -18,11 +37,11 @@ class RcyclReceiptLot extends BaseRcyclReceiptLot {
         'rtype'        => 'rcyhdrcptbulk',
         'rnbr'         => 'rcyhdcntrlnbr',
         'linenbr'      => 'rcydtrcptline',
-        'lotserial'    => 'rcsdlotnbr',
+        'lotserial'    => 'rcysdlotnbr',
         'itemid'       => 'inititemnbr',
-        'qty'          => 'rcsdlotqty',
-        'lotdate'      => 'rcsdlotdate',
-        'status'       => 'rcsdstatus',
+        'qty'          => 'rcysdlotqty',
+        'lotdate'      => 'rcysdlotdate',
+        'status'       => 'rcysdstatus',
         'closedby'     => 'rcysdclosedby',
         'closeddate'   => 'rcysdcloseddate',
         'closedtime'   => 'rcysdclosedtime',

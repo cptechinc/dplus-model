@@ -34,74 +34,74 @@ class RcyclReceiptDetailQuery extends BaseRcyclReceiptDetailQuery {
         return $this->filterByRcyhdcntrlnbr($rnbr, $comparison);
     }
     
-    public function filterByRtype($value = null, $comparison = null) : RcyclReceiptDetailQuery
+    public function filterByRtype($rtype = null, $comparison = null) : RcyclReceiptDetailQuery
     {
-        return $this->filterByRcyhdrcptbulk($value, $comparison);
+        return $this->filterByRcyhdrcptbulk($rtype, $comparison);
     }
 
     /**
      * Filter the query on the Rcydtrcptline column
-     * @param  mixed   $rnbr        The value to use as filter.
+     * @param  mixed   $linenbr     The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByLinenbr($rnbr = null, $comparison = null) : RcyclReceiptDetailQuery
+    public function filterByLinenbr($linenbr = null, $comparison = null) : RcyclReceiptDetailQuery
     {
-        return $this->filterByRcydtrcptline($rnbr, $comparison);
+        return $this->filterByRcydtrcptline($linenbr, $comparison);
     }
 
     /**
      * Filter the query on the Rcydtrcptqty column
-     * @param  mixed   $rnbr        The value to use as filter.
+     * @param  mixed   $qty         The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByQtyRcvd($value = null, $comparison = null) : RcyclReceiptDetailQuery
+    public function filterByQtyRcvd($qty = null, $comparison = null) : RcyclReceiptDetailQuery
     {
-        return $this->filterByRcydtrcptqty($value, $comparison);
+        return $this->filterByRcydtrcptqty($qty, $comparison);
     }
 
     /**
      * Filter the query on the Rcydtrcptqty column
-     * @param  mixed   $rnbr        The value to use as filter.
+     * @param  mixed   $qty         The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByQty($value = null, $comparison = null) : RcyclReceiptDetailQuery
+    public function filterByQty($qty = null, $comparison = null) : RcyclReceiptDetailQuery
     {
-        return $this->filterByRcydtrcptqty($value, $comparison);
+        return $this->filterByRcydtrcptqty($qty, $comparison);
     }
 
     /**
      * Filter the query on the Inititemnbr column
-     * @param  mixed   $rnbr        The value to use as filter.
+     * @param  mixed   $itemid      The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByItemid($value = null, $comparison = null) : RcyclReceiptDetailQuery
+    public function filterByItemid($itemid = null, $comparison = null) : RcyclReceiptDetailQuery
     {
-        return $this->filterByInititemnbr($value, $comparison);
+        return $this->filterByInititemnbr($itemid, $comparison);
     }
 
     /**
      * Filter the query on the Rcydtstatus column
-     * @param  mixed   $rnbr        The value to use as filter.
+     * @param  mixed   $status      The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByStatus($value = null, $comparison = null) : RcyclReceiptDetailQuery
+    public function filterByStatus($status = null, $comparison = null) : RcyclReceiptDetailQuery
     {
-        return $this->filterByRcydtstatus($value, $comparison);
+        return $this->filterByRcydtstatus($status, $comparison);
     }
 
     /**
      * Filter the query on the Rcydtclosedby column
-     * @param  mixed   $rnbr        The value to use as filter.
+     * @param  mixed   $closedby    The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
      * @return self                 The current query, for fluid interface
      */
-    public function filterByClosedBy($value = null, $comparison = null) : RcyclReceiptDetailQuery
+    public function filterByClosedBy($closedby = null, $comparison = null) : RcyclReceiptDetailQuery
     {
-        return $this->filterByRcydtclosedby($value, $comparison);
+        return $this->filterByRcydtclosedby($closedby, $comparison);
     }
 }
