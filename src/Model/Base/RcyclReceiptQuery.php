@@ -34,6 +34,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildRcyclReceiptQuery orderByRcyhdcloseddate($order = Criteria::ASC) Order by the RcyhdClosedDate column
  * @method     ChildRcyclReceiptQuery orderByRcyhdclosedtime($order = Criteria::ASC) Order by the RcyhdClosedTime column
  * @method     ChildRcyclReceiptQuery orderByRcyhdwhse($order = Criteria::ASC) Order by the RcyhdWhse column
+ * @method     ChildRcyclReceiptQuery orderByRcyhdpcid($order = Criteria::ASC) Order by the RcyhdPcId column
  * @method     ChildRcyclReceiptQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildRcyclReceiptQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildRcyclReceiptQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -52,6 +53,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildRcyclReceiptQuery groupByRcyhdcloseddate() Group by the RcyhdClosedDate column
  * @method     ChildRcyclReceiptQuery groupByRcyhdclosedtime() Group by the RcyhdClosedTime column
  * @method     ChildRcyclReceiptQuery groupByRcyhdwhse() Group by the RcyhdWhse column
+ * @method     ChildRcyclReceiptQuery groupByRcyhdpcid() Group by the RcyhdPcId column
  * @method     ChildRcyclReceiptQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildRcyclReceiptQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildRcyclReceiptQuery groupByDummy() Group by the dummy column
@@ -113,6 +115,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildRcyclReceipt findOneByRcyhdcloseddate(string $RcyhdClosedDate) Return the first ChildRcyclReceipt filtered by the RcyhdClosedDate column
  * @method     ChildRcyclReceipt findOneByRcyhdclosedtime(string $RcyhdClosedTime) Return the first ChildRcyclReceipt filtered by the RcyhdClosedTime column
  * @method     ChildRcyclReceipt findOneByRcyhdwhse(string $RcyhdWhse) Return the first ChildRcyclReceipt filtered by the RcyhdWhse column
+ * @method     ChildRcyclReceipt findOneByRcyhdpcid(string $RcyhdPcId) Return the first ChildRcyclReceipt filtered by the RcyhdPcId column
  * @method     ChildRcyclReceipt findOneByDateupdtd(string $DateUpdtd) Return the first ChildRcyclReceipt filtered by the DateUpdtd column
  * @method     ChildRcyclReceipt findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildRcyclReceipt filtered by the TimeUpdtd column
  * @method     ChildRcyclReceipt findOneByDummy(string $dummy) Return the first ChildRcyclReceipt filtered by the dummy column *
@@ -134,6 +137,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildRcyclReceipt requireOneByRcyhdcloseddate(string $RcyhdClosedDate) Return the first ChildRcyclReceipt filtered by the RcyhdClosedDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceipt requireOneByRcyhdclosedtime(string $RcyhdClosedTime) Return the first ChildRcyclReceipt filtered by the RcyhdClosedTime column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceipt requireOneByRcyhdwhse(string $RcyhdWhse) Return the first ChildRcyclReceipt filtered by the RcyhdWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildRcyclReceipt requireOneByRcyhdpcid(string $RcyhdPcId) Return the first ChildRcyclReceipt filtered by the RcyhdPcId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceipt requireOneByDateupdtd(string $DateUpdtd) Return the first ChildRcyclReceipt filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceipt requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildRcyclReceipt filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceipt requireOneByDummy(string $dummy) Return the first ChildRcyclReceipt filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -153,6 +157,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildRcyclReceipt[]|ObjectCollection findByRcyhdcloseddate(string $RcyhdClosedDate) Return ChildRcyclReceipt objects filtered by the RcyhdClosedDate column
  * @method     ChildRcyclReceipt[]|ObjectCollection findByRcyhdclosedtime(string $RcyhdClosedTime) Return ChildRcyclReceipt objects filtered by the RcyhdClosedTime column
  * @method     ChildRcyclReceipt[]|ObjectCollection findByRcyhdwhse(string $RcyhdWhse) Return ChildRcyclReceipt objects filtered by the RcyhdWhse column
+ * @method     ChildRcyclReceipt[]|ObjectCollection findByRcyhdpcid(string $RcyhdPcId) Return ChildRcyclReceipt objects filtered by the RcyhdPcId column
  * @method     ChildRcyclReceipt[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildRcyclReceipt objects filtered by the DateUpdtd column
  * @method     ChildRcyclReceipt[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildRcyclReceipt objects filtered by the TimeUpdtd column
  * @method     ChildRcyclReceipt[]|ObjectCollection findByDummy(string $dummy) Return ChildRcyclReceipt objects filtered by the dummy column
@@ -254,7 +259,7 @@ abstract class RcyclReceiptQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT RcyhdRcptBulk, RcyhdCntrlNbr, ArcuCustId, ArtbGenrId, RcyhdBolNbr, RcyhdRcptDate, RcyhdStatus, RcyhdEnteredBy, RcyhdEnteredDate, RcyhdEnteredTime, RcyhdClosedBy, RcyhdClosedDate, RcyhdClosedTime, RcyhdWhse, DateUpdtd, TimeUpdtd, dummy FROM rcycl_head WHERE RcyhdRcptBulk = :p0 AND RcyhdCntrlNbr = :p1';
+        $sql = 'SELECT RcyhdRcptBulk, RcyhdCntrlNbr, ArcuCustId, ArtbGenrId, RcyhdBolNbr, RcyhdRcptDate, RcyhdStatus, RcyhdEnteredBy, RcyhdEnteredDate, RcyhdEnteredTime, RcyhdClosedBy, RcyhdClosedDate, RcyhdClosedTime, RcyhdWhse, RcyhdPcId, DateUpdtd, TimeUpdtd, dummy FROM rcycl_head WHERE RcyhdRcptBulk = :p0 AND RcyhdCntrlNbr = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -720,6 +725,31 @@ abstract class RcyclReceiptQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDWHSE, $rcyhdwhse, $comparison);
+    }
+
+    /**
+     * Filter the query on the RcyhdPcId column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByRcyhdpcid('fooValue');   // WHERE RcyhdPcId = 'fooValue'
+     * $query->filterByRcyhdpcid('%fooValue%', Criteria::LIKE); // WHERE RcyhdPcId LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $rcyhdpcid The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildRcyclReceiptQuery The current query, for fluid interface
+     */
+    public function filterByRcyhdpcid($rcyhdpcid = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($rcyhdpcid)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDPCID, $rcyhdpcid, $comparison);
     }
 
     /**

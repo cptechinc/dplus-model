@@ -4623,6 +4623,7 @@
     <column name="RcyhdClosedDate" phpName="Rcyhdcloseddate" type="VARCHAR" size="8" required="true" defaultValue=""/>
     <column name="RcyhdClosedTime" phpName="Rcyhdclosedtime" type="VARCHAR" size="8" required="true" defaultValue=""/>
     <column name="RcyhdWhse" phpName="Rcyhdwhse" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="RcyhdPcId" phpName="Rcyhdpcid" type="VARCHAR" size="10" required="true" defaultValue=""/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>

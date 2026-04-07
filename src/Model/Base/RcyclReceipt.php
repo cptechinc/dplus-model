@@ -181,6 +181,14 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     protected $rcyhdwhse;
 
     /**
+     * The value for the rcyhdpcid field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $rcyhdpcid;
+
+    /**
      * The value for the dateupdtd field.
      *
      * Note: this column has a database default value of: ''
@@ -256,6 +264,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
         $this->rcyhdcloseddate = '';
         $this->rcyhdclosedtime = '';
         $this->rcyhdwhse = '';
+        $this->rcyhdpcid = '';
         $this->dateupdtd = '';
         $this->timeupdtd = '';
         $this->dummy = 'P';
@@ -629,6 +638,16 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     }
 
     /**
+     * Get the [rcyhdpcid] column value.
+     *
+     * @return string
+     */
+    public function getRcyhdpcid()
+    {
+        return $this->rcyhdpcid;
+    }
+
+    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -947,6 +966,26 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     } // setRcyhdwhse()
 
     /**
+     * Set the value of [rcyhdpcid] column.
+     *
+     * @param string $v new value
+     * @return $this|\RcyclReceipt The current object (for fluent API support)
+     */
+    public function setRcyhdpcid($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->rcyhdpcid !== $v) {
+            $this->rcyhdpcid = $v;
+            $this->modifiedColumns[RcyclReceiptTableMap::COL_RCYHDPCID] = true;
+        }
+
+        return $this;
+    } // setRcyhdpcid()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -1072,6 +1111,10 @@ abstract class RcyclReceipt implements ActiveRecordInterface
                 return false;
             }
 
+            if ($this->rcyhdpcid !== '') {
+                return false;
+            }
+
             if ($this->dateupdtd !== '') {
                 return false;
             }
@@ -1152,13 +1195,16 @@ abstract class RcyclReceipt implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rcyhdwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : RcyclReceiptTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : RcyclReceiptTableMap::translateFieldName('Rcyhdpcid', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->rcyhdpcid = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : RcyclReceiptTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : RcyclReceiptTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : RcyclReceiptTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : RcyclReceiptTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : RcyclReceiptTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1168,7 +1214,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 17; // 17 = RcyclReceiptTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 18; // 18 = RcyclReceiptTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\RcyclReceipt'), 0, $e);
@@ -1453,6 +1499,9 @@ abstract class RcyclReceipt implements ActiveRecordInterface
         if ($this->isColumnModified(RcyclReceiptTableMap::COL_RCYHDWHSE)) {
             $modifiedColumns[':p' . $index++]  = 'RcyhdWhse';
         }
+        if ($this->isColumnModified(RcyclReceiptTableMap::COL_RCYHDPCID)) {
+            $modifiedColumns[':p' . $index++]  = 'RcyhdPcId';
+        }
         if ($this->isColumnModified(RcyclReceiptTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -1514,6 +1563,9 @@ abstract class RcyclReceipt implements ActiveRecordInterface
                         break;
                     case 'RcyhdWhse':
                         $stmt->bindValue($identifier, $this->rcyhdwhse, PDO::PARAM_STR);
+                        break;
+                    case 'RcyhdPcId':
+                        $stmt->bindValue($identifier, $this->rcyhdpcid, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1622,12 +1674,15 @@ abstract class RcyclReceipt implements ActiveRecordInterface
                 return $this->getRcyhdwhse();
                 break;
             case 14:
-                return $this->getDateupdtd();
+                return $this->getRcyhdpcid();
                 break;
             case 15:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 16:
+                return $this->getTimeupdtd();
+                break;
+            case 17:
                 return $this->getDummy();
                 break;
             default:
@@ -1674,9 +1729,10 @@ abstract class RcyclReceipt implements ActiveRecordInterface
             $keys[11] => $this->getRcyhdcloseddate(),
             $keys[12] => $this->getRcyhdclosedtime(),
             $keys[13] => $this->getRcyhdwhse(),
-            $keys[14] => $this->getDateupdtd(),
-            $keys[15] => $this->getTimeupdtd(),
-            $keys[16] => $this->getDummy(),
+            $keys[14] => $this->getRcyhdpcid(),
+            $keys[15] => $this->getDateupdtd(),
+            $keys[16] => $this->getTimeupdtd(),
+            $keys[17] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1806,12 +1862,15 @@ abstract class RcyclReceipt implements ActiveRecordInterface
                 $this->setRcyhdwhse($value);
                 break;
             case 14:
-                $this->setDateupdtd($value);
+                $this->setRcyhdpcid($value);
                 break;
             case 15:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 16:
+                $this->setTimeupdtd($value);
+                break;
+            case 17:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1883,13 +1942,16 @@ abstract class RcyclReceipt implements ActiveRecordInterface
             $this->setRcyhdwhse($arr[$keys[13]]);
         }
         if (array_key_exists($keys[14], $arr)) {
-            $this->setDateupdtd($arr[$keys[14]]);
+            $this->setRcyhdpcid($arr[$keys[14]]);
         }
         if (array_key_exists($keys[15], $arr)) {
-            $this->setTimeupdtd($arr[$keys[15]]);
+            $this->setDateupdtd($arr[$keys[15]]);
         }
         if (array_key_exists($keys[16], $arr)) {
-            $this->setDummy($arr[$keys[16]]);
+            $this->setTimeupdtd($arr[$keys[16]]);
+        }
+        if (array_key_exists($keys[17], $arr)) {
+            $this->setDummy($arr[$keys[17]]);
         }
     }
 
@@ -1973,6 +2035,9 @@ abstract class RcyclReceipt implements ActiveRecordInterface
         }
         if ($this->isColumnModified(RcyclReceiptTableMap::COL_RCYHDWHSE)) {
             $criteria->add(RcyclReceiptTableMap::COL_RCYHDWHSE, $this->rcyhdwhse);
+        }
+        if ($this->isColumnModified(RcyclReceiptTableMap::COL_RCYHDPCID)) {
+            $criteria->add(RcyclReceiptTableMap::COL_RCYHDPCID, $this->rcyhdpcid);
         }
         if ($this->isColumnModified(RcyclReceiptTableMap::COL_DATEUPDTD)) {
             $criteria->add(RcyclReceiptTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -2091,6 +2156,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
         $copyObj->setRcyhdcloseddate($this->getRcyhdcloseddate());
         $copyObj->setRcyhdclosedtime($this->getRcyhdclosedtime());
         $copyObj->setRcyhdwhse($this->getRcyhdwhse());
+        $copyObj->setRcyhdpcid($this->getRcyhdpcid());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -2559,6 +2625,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
         $this->rcyhdcloseddate = null;
         $this->rcyhdclosedtime = null;
         $this->rcyhdwhse = null;
+        $this->rcyhdpcid = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
@@ -2619,7 +2686,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      */
     public function postSave(ConnectionInterface $con = null)
     {
-        
+
     }
 
     /**
@@ -2638,7 +2705,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      */
     public function postInsert(ConnectionInterface $con = null)
     {
-        
+
     }
 
     /**
@@ -2676,7 +2743,7 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      */
     public function postDelete(ConnectionInterface $con = null)
     {
-        
+
     }
 
 

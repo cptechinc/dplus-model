@@ -93,4 +93,15 @@ class RcyclReceiptQuery extends BaseRcyclReceiptQuery {
     {
         return $this->filterByRcyhdclosedby($closedby, $comparison);
     }
+
+    /**
+     * Filter the query on the rcyhdpcid column
+     * @param  mixed   $pcid    The value to use as filter.
+     * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @return self                 The current query, for fluid interface
+     */
+    public function filterByPcid($pcid = null, $comparison = null) : RcyclReceiptQuery
+    {
+        return $this->filterByRcyhdpcid($pcid, $comparison);
+    }
 }

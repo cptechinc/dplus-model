@@ -14,7 +14,8 @@ use RcyclGenerator as Generator;
  * 
  * @property string    $rtype
  * @property int       $rnbr
- * @property int       $generatorid
+ * @property string    $generatorid
+ * @property string    $pcid
  * @property string    $custid
  * @property string    $bolnbr
  * @property string    $status
@@ -39,6 +40,7 @@ class RcyclReceipt extends BaseRcyclReceipt {
         'rtype'        => 'rcyhdrcptbulk',
         'rnbr'         => 'rcyhdcntrlnbr',
         'generatorid'  => 'artbgenrid',
+        'pcid'         => 'rcyhdpcid',
 		'custid'       => 'arcucustid',
         'bolnbr'       => 'rcyhdbolnbr',
         'status'       => 'rcyhdstatus',
