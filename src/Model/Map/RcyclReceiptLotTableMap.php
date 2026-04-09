@@ -59,7 +59,7 @@ class RcyclReceiptLotTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 15;
+    const NUM_COLUMNS = 16;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class RcyclReceiptLotTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 15;
+    const NUM_HYDRATE_COLUMNS = 16;
 
     /**
      * the column name for the RcyhdRcptBulk field
@@ -132,6 +132,11 @@ class RcyclReceiptLotTableMap extends TableMap
     const COL_RCYSDCLOSEDTIME = 'rcycl_lot_det.RcysdClosedTime';
 
     /**
+     * the column name for the RcysdTareWght field
+     */
+    const COL_RCYSDTAREWGHT = 'rcycl_lot_det.RcysdTareWght';
+
+    /**
      * the column name for the DateUpdtd field
      */
     const COL_DATEUPDTD = 'rcycl_lot_det.DateUpdtd';
@@ -158,11 +163,11 @@ class RcyclReceiptLotTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Rcyhdrcptbulk', 'Rcyhdcntrlnbr', 'Rcydtrcptline', 'Inititemnbr', 'Rcysdlotnbr', 'Rcysdlotqty', 'Rcysdlotdate', 'Rcysdlotref', 'Rcysdstatus', 'Rcysdclosedby', 'Rcysdcloseddate', 'Rcysdclosedtime', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('rcyhdrcptbulk', 'rcyhdcntrlnbr', 'rcydtrcptline', 'inititemnbr', 'rcysdlotnbr', 'rcysdlotqty', 'rcysdlotdate', 'rcysdlotref', 'rcysdstatus', 'rcysdclosedby', 'rcysdcloseddate', 'rcysdclosedtime', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK, RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR, RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE, RcyclReceiptLotTableMap::COL_INITITEMNBR, RcyclReceiptLotTableMap::COL_RCYSDLOTNBR, RcyclReceiptLotTableMap::COL_RCYSDLOTQTY, RcyclReceiptLotTableMap::COL_RCYSDLOTDATE, RcyclReceiptLotTableMap::COL_RCYSDLOTREF, RcyclReceiptLotTableMap::COL_RCYSDSTATUS, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDBY, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDDATE, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDTIME, RcyclReceiptLotTableMap::COL_DATEUPDTD, RcyclReceiptLotTableMap::COL_TIMEUPDTD, RcyclReceiptLotTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('RcyhdRcptBulk', 'RcyhdCntrlNbr', 'RcydtRcptLine', 'InitItemNbr', 'RcysdLotNbr', 'RcysdLotQty', 'RcysdLotDate', 'RcysdLotRef', 'RcysdStatus', 'RcysdClosedBy', 'RcysdClosedDate', 'RcysdClosedTime', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
+        self::TYPE_PHPNAME       => array('Rcyhdrcptbulk', 'Rcyhdcntrlnbr', 'Rcydtrcptline', 'Inititemnbr', 'Rcysdlotnbr', 'Rcysdlotqty', 'Rcysdlotdate', 'Rcysdlotref', 'Rcysdstatus', 'Rcysdclosedby', 'Rcysdcloseddate', 'Rcysdclosedtime', 'Rcysdtarewght', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('rcyhdrcptbulk', 'rcyhdcntrlnbr', 'rcydtrcptline', 'inititemnbr', 'rcysdlotnbr', 'rcysdlotqty', 'rcysdlotdate', 'rcysdlotref', 'rcysdstatus', 'rcysdclosedby', 'rcysdcloseddate', 'rcysdclosedtime', 'rcysdtarewght', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK, RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR, RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE, RcyclReceiptLotTableMap::COL_INITITEMNBR, RcyclReceiptLotTableMap::COL_RCYSDLOTNBR, RcyclReceiptLotTableMap::COL_RCYSDLOTQTY, RcyclReceiptLotTableMap::COL_RCYSDLOTDATE, RcyclReceiptLotTableMap::COL_RCYSDLOTREF, RcyclReceiptLotTableMap::COL_RCYSDSTATUS, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDBY, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDDATE, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDTIME, RcyclReceiptLotTableMap::COL_RCYSDTAREWGHT, RcyclReceiptLotTableMap::COL_DATEUPDTD, RcyclReceiptLotTableMap::COL_TIMEUPDTD, RcyclReceiptLotTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('RcyhdRcptBulk', 'RcyhdCntrlNbr', 'RcydtRcptLine', 'InitItemNbr', 'RcysdLotNbr', 'RcysdLotQty', 'RcysdLotDate', 'RcysdLotRef', 'RcysdStatus', 'RcysdClosedBy', 'RcysdClosedDate', 'RcysdClosedTime', 'RcysdTareWght', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, )
     );
 
     /**
@@ -172,11 +177,11 @@ class RcyclReceiptLotTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Rcyhdrcptbulk' => 0, 'Rcyhdcntrlnbr' => 1, 'Rcydtrcptline' => 2, 'Inititemnbr' => 3, 'Rcysdlotnbr' => 4, 'Rcysdlotqty' => 5, 'Rcysdlotdate' => 6, 'Rcysdlotref' => 7, 'Rcysdstatus' => 8, 'Rcysdclosedby' => 9, 'Rcysdcloseddate' => 10, 'Rcysdclosedtime' => 11, 'Dateupdtd' => 12, 'Timeupdtd' => 13, 'Dummy' => 14, ),
-        self::TYPE_CAMELNAME     => array('rcyhdrcptbulk' => 0, 'rcyhdcntrlnbr' => 1, 'rcydtrcptline' => 2, 'inititemnbr' => 3, 'rcysdlotnbr' => 4, 'rcysdlotqty' => 5, 'rcysdlotdate' => 6, 'rcysdlotref' => 7, 'rcysdstatus' => 8, 'rcysdclosedby' => 9, 'rcysdcloseddate' => 10, 'rcysdclosedtime' => 11, 'dateupdtd' => 12, 'timeupdtd' => 13, 'dummy' => 14, ),
-        self::TYPE_COLNAME       => array(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK => 0, RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR => 1, RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE => 2, RcyclReceiptLotTableMap::COL_INITITEMNBR => 3, RcyclReceiptLotTableMap::COL_RCYSDLOTNBR => 4, RcyclReceiptLotTableMap::COL_RCYSDLOTQTY => 5, RcyclReceiptLotTableMap::COL_RCYSDLOTDATE => 6, RcyclReceiptLotTableMap::COL_RCYSDLOTREF => 7, RcyclReceiptLotTableMap::COL_RCYSDSTATUS => 8, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDBY => 9, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDDATE => 10, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDTIME => 11, RcyclReceiptLotTableMap::COL_DATEUPDTD => 12, RcyclReceiptLotTableMap::COL_TIMEUPDTD => 13, RcyclReceiptLotTableMap::COL_DUMMY => 14, ),
-        self::TYPE_FIELDNAME     => array('RcyhdRcptBulk' => 0, 'RcyhdCntrlNbr' => 1, 'RcydtRcptLine' => 2, 'InitItemNbr' => 3, 'RcysdLotNbr' => 4, 'RcysdLotQty' => 5, 'RcysdLotDate' => 6, 'RcysdLotRef' => 7, 'RcysdStatus' => 8, 'RcysdClosedBy' => 9, 'RcysdClosedDate' => 10, 'RcysdClosedTime' => 11, 'DateUpdtd' => 12, 'TimeUpdtd' => 13, 'dummy' => 14, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
+        self::TYPE_PHPNAME       => array('Rcyhdrcptbulk' => 0, 'Rcyhdcntrlnbr' => 1, 'Rcydtrcptline' => 2, 'Inititemnbr' => 3, 'Rcysdlotnbr' => 4, 'Rcysdlotqty' => 5, 'Rcysdlotdate' => 6, 'Rcysdlotref' => 7, 'Rcysdstatus' => 8, 'Rcysdclosedby' => 9, 'Rcysdcloseddate' => 10, 'Rcysdclosedtime' => 11, 'Rcysdtarewght' => 12, 'Dateupdtd' => 13, 'Timeupdtd' => 14, 'Dummy' => 15, ),
+        self::TYPE_CAMELNAME     => array('rcyhdrcptbulk' => 0, 'rcyhdcntrlnbr' => 1, 'rcydtrcptline' => 2, 'inititemnbr' => 3, 'rcysdlotnbr' => 4, 'rcysdlotqty' => 5, 'rcysdlotdate' => 6, 'rcysdlotref' => 7, 'rcysdstatus' => 8, 'rcysdclosedby' => 9, 'rcysdcloseddate' => 10, 'rcysdclosedtime' => 11, 'rcysdtarewght' => 12, 'dateupdtd' => 13, 'timeupdtd' => 14, 'dummy' => 15, ),
+        self::TYPE_COLNAME       => array(RcyclReceiptLotTableMap::COL_RCYHDRCPTBULK => 0, RcyclReceiptLotTableMap::COL_RCYHDCNTRLNBR => 1, RcyclReceiptLotTableMap::COL_RCYDTRCPTLINE => 2, RcyclReceiptLotTableMap::COL_INITITEMNBR => 3, RcyclReceiptLotTableMap::COL_RCYSDLOTNBR => 4, RcyclReceiptLotTableMap::COL_RCYSDLOTQTY => 5, RcyclReceiptLotTableMap::COL_RCYSDLOTDATE => 6, RcyclReceiptLotTableMap::COL_RCYSDLOTREF => 7, RcyclReceiptLotTableMap::COL_RCYSDSTATUS => 8, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDBY => 9, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDDATE => 10, RcyclReceiptLotTableMap::COL_RCYSDCLOSEDTIME => 11, RcyclReceiptLotTableMap::COL_RCYSDTAREWGHT => 12, RcyclReceiptLotTableMap::COL_DATEUPDTD => 13, RcyclReceiptLotTableMap::COL_TIMEUPDTD => 14, RcyclReceiptLotTableMap::COL_DUMMY => 15, ),
+        self::TYPE_FIELDNAME     => array('RcyhdRcptBulk' => 0, 'RcyhdCntrlNbr' => 1, 'RcydtRcptLine' => 2, 'InitItemNbr' => 3, 'RcysdLotNbr' => 4, 'RcysdLotQty' => 5, 'RcysdLotDate' => 6, 'RcysdLotRef' => 7, 'RcysdStatus' => 8, 'RcysdClosedBy' => 9, 'RcysdClosedDate' => 10, 'RcysdClosedTime' => 11, 'RcysdTareWght' => 12, 'DateUpdtd' => 13, 'TimeUpdtd' => 14, 'dummy' => 15, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, )
     );
 
     /**
@@ -209,6 +214,7 @@ class RcyclReceiptLotTableMap extends TableMap
         $this->addColumn('RcysdClosedBy', 'Rcysdclosedby', 'VARCHAR', true, 8, '');
         $this->addColumn('RcysdClosedDate', 'Rcysdcloseddate', 'VARCHAR', true, 8, '');
         $this->addColumn('RcysdClosedTime', 'Rcysdclosedtime', 'VARCHAR', true, 8, '');
+        $this->addColumn('RcysdTareWght', 'Rcysdtarewght', 'DECIMAL', true, 20, 0);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
@@ -480,6 +486,7 @@ class RcyclReceiptLotTableMap extends TableMap
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDCLOSEDBY);
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDCLOSEDDATE);
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDCLOSEDTIME);
+            $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_RCYSDTAREWGHT);
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(RcyclReceiptLotTableMap::COL_DUMMY);
@@ -496,6 +503,7 @@ class RcyclReceiptLotTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.RcysdClosedBy');
             $criteria->addSelectColumn($alias . '.RcysdClosedDate');
             $criteria->addSelectColumn($alias . '.RcysdClosedTime');
+            $criteria->addSelectColumn($alias . '.RcysdTareWght');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');

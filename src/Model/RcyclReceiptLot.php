@@ -1,5 +1,6 @@
 <?php
-
+use Propel\Runtime\Connection\ConnectionInterface;
+use Propel\Runtime\Exception\PropelException;
 use Base\RcyclReceiptLot as BaseRcyclReceiptLot;
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -20,6 +21,7 @@ use RcyclReceiptDetail as RcptItem;
  * @property string   $lotserial
  * @property string   $status
  * @property float    $qty
+ * @property float    $tareweight
  * @property int      $lotdate
  * @property string   $closedby
  * @property int      $closeddate
@@ -40,6 +42,7 @@ class RcyclReceiptLot extends BaseRcyclReceiptLot {
         'lotserial'    => 'rcysdlotnbr',
         'itemid'       => 'inititemnbr',
         'qty'          => 'rcysdlotqty',
+        'tareweight'   => 'rcysdtarewght',
         'lotdate'      => 'rcysdlotdate',
         'status'       => 'rcysdstatus',
         'closedby'     => 'rcysdclosedby',

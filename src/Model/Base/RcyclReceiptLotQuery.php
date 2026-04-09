@@ -32,6 +32,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildRcyclReceiptLotQuery orderByRcysdclosedby($order = Criteria::ASC) Order by the RcysdClosedBy column
  * @method     ChildRcyclReceiptLotQuery orderByRcysdcloseddate($order = Criteria::ASC) Order by the RcysdClosedDate column
  * @method     ChildRcyclReceiptLotQuery orderByRcysdclosedtime($order = Criteria::ASC) Order by the RcysdClosedTime column
+ * @method     ChildRcyclReceiptLotQuery orderByRcysdtarewght($order = Criteria::ASC) Order by the RcysdTareWght column
  * @method     ChildRcyclReceiptLotQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildRcyclReceiptLotQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildRcyclReceiptLotQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -48,6 +49,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildRcyclReceiptLotQuery groupByRcysdclosedby() Group by the RcysdClosedBy column
  * @method     ChildRcyclReceiptLotQuery groupByRcysdcloseddate() Group by the RcysdClosedDate column
  * @method     ChildRcyclReceiptLotQuery groupByRcysdclosedtime() Group by the RcysdClosedTime column
+ * @method     ChildRcyclReceiptLotQuery groupByRcysdtarewght() Group by the RcysdTareWght column
  * @method     ChildRcyclReceiptLotQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildRcyclReceiptLotQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildRcyclReceiptLotQuery groupByDummy() Group by the dummy column
@@ -97,6 +99,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildRcyclReceiptLot findOneByRcysdclosedby(string $RcysdClosedBy) Return the first ChildRcyclReceiptLot filtered by the RcysdClosedBy column
  * @method     ChildRcyclReceiptLot findOneByRcysdcloseddate(string $RcysdClosedDate) Return the first ChildRcyclReceiptLot filtered by the RcysdClosedDate column
  * @method     ChildRcyclReceiptLot findOneByRcysdclosedtime(string $RcysdClosedTime) Return the first ChildRcyclReceiptLot filtered by the RcysdClosedTime column
+ * @method     ChildRcyclReceiptLot findOneByRcysdtarewght(string $RcysdTareWght) Return the first ChildRcyclReceiptLot filtered by the RcysdTareWght column
  * @method     ChildRcyclReceiptLot findOneByDateupdtd(string $DateUpdtd) Return the first ChildRcyclReceiptLot filtered by the DateUpdtd column
  * @method     ChildRcyclReceiptLot findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildRcyclReceiptLot filtered by the TimeUpdtd column
  * @method     ChildRcyclReceiptLot findOneByDummy(string $dummy) Return the first ChildRcyclReceiptLot filtered by the dummy column *
@@ -116,6 +119,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildRcyclReceiptLot requireOneByRcysdclosedby(string $RcysdClosedBy) Return the first ChildRcyclReceiptLot filtered by the RcysdClosedBy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceiptLot requireOneByRcysdcloseddate(string $RcysdClosedDate) Return the first ChildRcyclReceiptLot filtered by the RcysdClosedDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceiptLot requireOneByRcysdclosedtime(string $RcysdClosedTime) Return the first ChildRcyclReceiptLot filtered by the RcysdClosedTime column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildRcyclReceiptLot requireOneByRcysdtarewght(string $RcysdTareWght) Return the first ChildRcyclReceiptLot filtered by the RcysdTareWght column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceiptLot requireOneByDateupdtd(string $DateUpdtd) Return the first ChildRcyclReceiptLot filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceiptLot requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildRcyclReceiptLot filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildRcyclReceiptLot requireOneByDummy(string $dummy) Return the first ChildRcyclReceiptLot filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -133,6 +137,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildRcyclReceiptLot[]|ObjectCollection findByRcysdclosedby(string $RcysdClosedBy) Return ChildRcyclReceiptLot objects filtered by the RcysdClosedBy column
  * @method     ChildRcyclReceiptLot[]|ObjectCollection findByRcysdcloseddate(string $RcysdClosedDate) Return ChildRcyclReceiptLot objects filtered by the RcysdClosedDate column
  * @method     ChildRcyclReceiptLot[]|ObjectCollection findByRcysdclosedtime(string $RcysdClosedTime) Return ChildRcyclReceiptLot objects filtered by the RcysdClosedTime column
+ * @method     ChildRcyclReceiptLot[]|ObjectCollection findByRcysdtarewght(string $RcysdTareWght) Return ChildRcyclReceiptLot objects filtered by the RcysdTareWght column
  * @method     ChildRcyclReceiptLot[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildRcyclReceiptLot objects filtered by the DateUpdtd column
  * @method     ChildRcyclReceiptLot[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildRcyclReceiptLot objects filtered by the TimeUpdtd column
  * @method     ChildRcyclReceiptLot[]|ObjectCollection findByDummy(string $dummy) Return ChildRcyclReceiptLot objects filtered by the dummy column
@@ -234,7 +239,7 @@ abstract class RcyclReceiptLotQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT RcyhdRcptBulk, RcyhdCntrlNbr, RcydtRcptLine, InitItemNbr, RcysdLotNbr, RcysdLotQty, RcysdLotDate, RcysdLotRef, RcysdStatus, RcysdClosedBy, RcysdClosedDate, RcysdClosedTime, DateUpdtd, TimeUpdtd, dummy FROM rcycl_lot_det WHERE RcyhdRcptBulk = :p0 AND RcyhdCntrlNbr = :p1 AND RcydtRcptLine = :p2 AND InitItemNbr = :p3 AND RcysdLotNbr = :p4';
+        $sql = 'SELECT RcyhdRcptBulk, RcyhdCntrlNbr, RcydtRcptLine, InitItemNbr, RcysdLotNbr, RcysdLotQty, RcysdLotDate, RcysdLotRef, RcysdStatus, RcysdClosedBy, RcysdClosedDate, RcysdClosedTime, RcysdTareWght, DateUpdtd, TimeUpdtd, dummy FROM rcycl_lot_det WHERE RcyhdRcptBulk = :p0 AND RcyhdCntrlNbr = :p1 AND RcydtRcptLine = :p2 AND InitItemNbr = :p3 AND RcysdLotNbr = :p4';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -698,6 +703,47 @@ abstract class RcyclReceiptLotQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYSDCLOSEDTIME, $rcysdclosedtime, $comparison);
+    }
+
+    /**
+     * Filter the query on the RcysdTareWght column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByRcysdtarewght(1234); // WHERE RcysdTareWght = 1234
+     * $query->filterByRcysdtarewght(array(12, 34)); // WHERE RcysdTareWght IN (12, 34)
+     * $query->filterByRcysdtarewght(array('min' => 12)); // WHERE RcysdTareWght > 12
+     * </code>
+     *
+     * @param     mixed $rcysdtarewght The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildRcyclReceiptLotQuery The current query, for fluid interface
+     */
+    public function filterByRcysdtarewght($rcysdtarewght = null, $comparison = null)
+    {
+        if (is_array($rcysdtarewght)) {
+            $useMinMax = false;
+            if (isset($rcysdtarewght['min'])) {
+                $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYSDTAREWGHT, $rcysdtarewght['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($rcysdtarewght['max'])) {
+                $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYSDTAREWGHT, $rcysdtarewght['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(RcyclReceiptLotTableMap::COL_RCYSDTAREWGHT, $rcysdtarewght, $comparison);
     }
 
     /**

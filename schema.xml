@@ -4650,6 +4650,7 @@
     <column name="RcysdClosedBy" phpName="Rcysdclosedby" type="VARCHAR" size="8" required="true" defaultValue=""/>
     <column name="RcysdClosedDate" phpName="Rcysdcloseddate" type="VARCHAR" size="8" required="true" defaultValue=""/>
     <column name="RcysdClosedTime" phpName="Rcysdclosedtime" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="RcysdTareWght" phpName="Rcysdtarewght" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
