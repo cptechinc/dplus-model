@@ -7,12 +7,13 @@ use Dplus\Model\MagicMethodTraits;
 
 use ItemMasterItem as ItmItem;
 use RcyclReceiptDetail as RcptItem;
+use RcyclReceipt as Receipt;
 
 /**
  * class for representing a row from the 'rcycl_lot_det' table.
  * 
  * KEYS: rnbr, linenbr, lotserial
- * FKRELATIONSHIPS: RcyclReceiptDetail, ItemMasterItem
+ * FKRELATIONSHIPS: RcyclReceiptDetail, ItemMasterItem, RcyclReceipt
  * 
  * @property string   $rtype
  * @property int      $rnbr
@@ -30,6 +31,7 @@ use RcyclReceiptDetail as RcptItem;
  * @property int      $time
  * @property ItmItem  $itmitem
  * @property RcptItem $rcptitem
+ * @property Receipt  $receipt
  */
 class RcyclReceiptLot extends BaseRcyclReceiptLot {
     use ThrowErrorTrait;
@@ -51,9 +53,10 @@ class RcyclReceiptLot extends BaseRcyclReceiptLot {
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd',
 
-        // Releated object aliases
+        // Related object aliases
         'itmitem'   => 'ItemMasterItem',
         'rcptitem'  => 'RcyclReceiptDetail',
+        'receipt'   => 'RcyclReceipt'
     ];
 
     /**

@@ -4663,6 +4663,10 @@
     <foreign-key foreignTable="inv_item_mast" name="item">
       <reference local="InitItemNbr" foreign="InitItemNbr"/>
     </foreign-key>
+    <foreign-key foreignTable="rcycl_head" name="receipt" skipSql="true">
+      <reference local="RcyhdCntrlNbr" foreign="RcyhdCntrlNbr"/>
+      <reference local="RcyhdRcptBulk" foreign="RcyhdRcptBulk"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>

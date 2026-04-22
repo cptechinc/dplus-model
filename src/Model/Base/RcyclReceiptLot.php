@@ -4,9 +4,11 @@ namespace Base;
 
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
+use \RcyclReceipt as ChildRcyclReceipt;
 use \RcyclReceiptDetail as ChildRcyclReceiptDetail;
 use \RcyclReceiptDetailQuery as ChildRcyclReceiptDetailQuery;
 use \RcyclReceiptLotQuery as ChildRcyclReceiptLotQuery;
+use \RcyclReceiptQuery as ChildRcyclReceiptQuery;
 use \Exception;
 use \PDO;
 use Map\RcyclReceiptLotTableMap;
@@ -200,6 +202,11 @@ abstract class RcyclReceiptLot implements ActiveRecordInterface
      * @var        ChildItemMasterItem
      */
     protected $aItemMasterItem;
+
+    /**
+     * @var        ChildRcyclReceipt
+     */
+    protected $aRcyclReceipt;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -643,6 +650,10 @@ abstract class RcyclReceiptLot implements ActiveRecordInterface
             $this->aRcyclReceiptDetail = null;
         }
 
+        if ($this->aRcyclReceipt !== null && $this->aRcyclReceipt->getRcyhdrcptbulk() !== $v) {
+            $this->aRcyclReceipt = null;
+        }
+
         return $this;
     } // setRcyhdrcptbulk()
 
@@ -665,6 +676,10 @@ abstract class RcyclReceiptLot implements ActiveRecordInterface
 
         if ($this->aRcyclReceiptDetail !== null && $this->aRcyclReceiptDetail->getRcyhdcntrlnbr() !== $v) {
             $this->aRcyclReceiptDetail = null;
+        }
+
+        if ($this->aRcyclReceipt !== null && $this->aRcyclReceipt->getRcyhdcntrlnbr() !== $v) {
+            $this->aRcyclReceipt = null;
         }
 
         return $this;
@@ -1142,8 +1157,14 @@ abstract class RcyclReceiptLot implements ActiveRecordInterface
         if ($this->aRcyclReceiptDetail !== null && $this->rcyhdrcptbulk !== $this->aRcyclReceiptDetail->getRcyhdrcptbulk()) {
             $this->aRcyclReceiptDetail = null;
         }
+        if ($this->aRcyclReceipt !== null && $this->rcyhdrcptbulk !== $this->aRcyclReceipt->getRcyhdrcptbulk()) {
+            $this->aRcyclReceipt = null;
+        }
         if ($this->aRcyclReceiptDetail !== null && $this->rcyhdcntrlnbr !== $this->aRcyclReceiptDetail->getRcyhdcntrlnbr()) {
             $this->aRcyclReceiptDetail = null;
+        }
+        if ($this->aRcyclReceipt !== null && $this->rcyhdcntrlnbr !== $this->aRcyclReceipt->getRcyhdcntrlnbr()) {
+            $this->aRcyclReceipt = null;
         }
         if ($this->aRcyclReceiptDetail !== null && $this->rcydtrcptline !== $this->aRcyclReceiptDetail->getRcydtrcptline()) {
             $this->aRcyclReceiptDetail = null;
@@ -1195,6 +1216,7 @@ abstract class RcyclReceiptLot implements ActiveRecordInterface
 
             $this->aRcyclReceiptDetail = null;
             $this->aItemMasterItem = null;
+            $this->aRcyclReceipt = null;
         } // if (deep)
     }
 
@@ -1315,6 +1337,13 @@ abstract class RcyclReceiptLot implements ActiveRecordInterface
                     $affectedRows += $this->aItemMasterItem->save($con);
                 }
                 $this->setItemMasterItem($this->aItemMasterItem);
+            }
+
+            if ($this->aRcyclReceipt !== null) {
+                if ($this->aRcyclReceipt->isModified() || $this->aRcyclReceipt->isNew()) {
+                    $affectedRows += $this->aRcyclReceipt->save($con);
+                }
+                $this->setRcyclReceipt($this->aRcyclReceipt);
             }
 
             if ($this->isNew() || $this->isModified()) {
@@ -1643,6 +1672,21 @@ abstract class RcyclReceiptLot implements ActiveRecordInterface
 
                 $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
+            if (null !== $this->aRcyclReceipt) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'rcyclReceipt';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'rcycl_head';
+                        break;
+                    default:
+                        $key = 'RcyclReceipt';
+                }
+
+                $result[$key] = $this->aRcyclReceipt->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
         }
 
         return $result;
@@ -1928,7 +1972,7 @@ abstract class RcyclReceiptLot implements ActiveRecordInterface
             null !== $this->getInititemnbr() &&
             null !== $this->getRcysdlotnbr();
 
-        $validPrimaryKeyFKs = 5;
+        $validPrimaryKeyFKs = 7;
         $primaryKeyFKs = [];
 
         //relation rcycledet to table rcycl_det
@@ -1940,6 +1984,13 @@ abstract class RcyclReceiptLot implements ActiveRecordInterface
 
         //relation item to table inv_item_mast
         if ($this->aItemMasterItem && $hash = spl_object_hash($this->aItemMasterItem)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
+
+        //relation receipt to table rcycl_head
+        if ($this->aRcyclReceipt && $hash = spl_object_hash($this->aRcyclReceipt)) {
             $primaryKeyFKs[] = $hash;
         } else {
             $validPrimaryKeyFKs = false;
@@ -2172,6 +2223,63 @@ abstract class RcyclReceiptLot implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildRcyclReceipt object.
+     *
+     * @param  ChildRcyclReceipt $v
+     * @return $this|\RcyclReceiptLot The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setRcyclReceipt(ChildRcyclReceipt $v = null)
+    {
+        if ($v === null) {
+            $this->setRcyhdcntrlnbr(0);
+        } else {
+            $this->setRcyhdcntrlnbr($v->getRcyhdcntrlnbr());
+        }
+
+        if ($v === null) {
+            $this->setRcyhdrcptbulk('');
+        } else {
+            $this->setRcyhdrcptbulk($v->getRcyhdrcptbulk());
+        }
+
+        $this->aRcyclReceipt = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildRcyclReceipt object, it will not be re-added.
+        if ($v !== null) {
+            $v->addRcyclReceiptLot($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildRcyclReceipt object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildRcyclReceipt The associated ChildRcyclReceipt object.
+     * @throws PropelException
+     */
+    public function getRcyclReceipt(ConnectionInterface $con = null)
+    {
+        if ($this->aRcyclReceipt === null && ($this->rcyhdcntrlnbr != 0 && ($this->rcyhdrcptbulk !== "" && $this->rcyhdrcptbulk !== null))) {
+            $this->aRcyclReceipt = ChildRcyclReceiptQuery::create()->findPk(array($this->rcyhdrcptbulk, $this->rcyhdcntrlnbr), $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aRcyclReceipt->addRcyclReceiptLots($this);
+             */
+        }
+
+        return $this->aRcyclReceipt;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -2183,6 +2291,9 @@ abstract class RcyclReceiptLot implements ActiveRecordInterface
         }
         if (null !== $this->aItemMasterItem) {
             $this->aItemMasterItem->removeRcyclReceiptLot($this);
+        }
+        if (null !== $this->aRcyclReceipt) {
+            $this->aRcyclReceipt->removeRcyclReceiptLot($this);
         }
         $this->rcyhdrcptbulk = null;
         $this->rcyhdcntrlnbr = null;
@@ -2223,6 +2334,7 @@ abstract class RcyclReceiptLot implements ActiveRecordInterface
 
         $this->aRcyclReceiptDetail = null;
         $this->aItemMasterItem = null;
+        $this->aRcyclReceipt = null;
     }
 
     /**

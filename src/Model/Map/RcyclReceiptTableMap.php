@@ -262,6 +262,18 @@ class RcyclReceiptTableMap extends TableMap
     1 => ':RcyhdRcptBulk',
   ),
 ), null, null, 'RcyclReceiptDetails', false);
+        $this->addRelation('RcyclReceiptLot', '\\RcyclReceiptLot', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':RcyhdCntrlNbr',
+    1 => ':RcyhdCntrlNbr',
+  ),
+  1 =>
+  array (
+    0 => ':RcyhdRcptBulk',
+    1 => ':RcyhdRcptBulk',
+  ),
+), null, null, 'RcyclReceiptLots', false);
     } // buildRelations()
 
     /**

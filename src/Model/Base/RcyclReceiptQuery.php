@@ -96,7 +96,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildRcyclReceiptQuery rightJoinWithRcyclReceiptDetail() Adds a RIGHT JOIN clause and with to the query using the RcyclReceiptDetail relation
  * @method     ChildRcyclReceiptQuery innerJoinWithRcyclReceiptDetail() Adds a INNER JOIN clause and with to the query using the RcyclReceiptDetail relation
  *
- * @method     \CustomerQuery|\RcyclGeneratorQuery|\RcyclReceiptDetailQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildRcyclReceiptQuery leftJoinRcyclReceiptLot($relationAlias = null) Adds a LEFT JOIN clause to the query using the RcyclReceiptLot relation
+ * @method     ChildRcyclReceiptQuery rightJoinRcyclReceiptLot($relationAlias = null) Adds a RIGHT JOIN clause to the query using the RcyclReceiptLot relation
+ * @method     ChildRcyclReceiptQuery innerJoinRcyclReceiptLot($relationAlias = null) Adds a INNER JOIN clause to the query using the RcyclReceiptLot relation
+ *
+ * @method     ChildRcyclReceiptQuery joinWithRcyclReceiptLot($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the RcyclReceiptLot relation
+ *
+ * @method     ChildRcyclReceiptQuery leftJoinWithRcyclReceiptLot() Adds a LEFT JOIN clause and with to the query using the RcyclReceiptLot relation
+ * @method     ChildRcyclReceiptQuery rightJoinWithRcyclReceiptLot() Adds a RIGHT JOIN clause and with to the query using the RcyclReceiptLot relation
+ * @method     ChildRcyclReceiptQuery innerJoinWithRcyclReceiptLot() Adds a INNER JOIN clause and with to the query using the RcyclReceiptLot relation
+ *
+ * @method     \CustomerQuery|\RcyclGeneratorQuery|\RcyclReceiptDetailQuery|\RcyclReceiptLotQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildRcyclReceipt findOne(ConnectionInterface $con = null) Return the first ChildRcyclReceipt matching the query
  * @method     ChildRcyclReceipt findOneOrCreate(ConnectionInterface $con = null) Return the first ChildRcyclReceipt matching the query, or a new ChildRcyclReceipt object populated from the query conditions when no match is found
@@ -1048,6 +1058,75 @@ abstract class RcyclReceiptQuery extends ModelCriteria
         return $this
             ->joinRcyclReceiptDetail($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'RcyclReceiptDetail', '\RcyclReceiptDetailQuery');
+    }
+
+    /**
+     * Filter the query by a related \RcyclReceiptLot object
+     *
+     * @param \RcyclReceiptLot|ObjectCollection $rcyclReceiptLot the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildRcyclReceiptQuery The current query, for fluid interface
+     */
+    public function filterByRcyclReceiptLot($rcyclReceiptLot, $comparison = null)
+    {
+        if ($rcyclReceiptLot instanceof \RcyclReceiptLot) {
+            return $this
+                ->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDCNTRLNBR, $rcyclReceiptLot->getRcyhdcntrlnbr(), $comparison)
+                ->addUsingAlias(RcyclReceiptTableMap::COL_RCYHDRCPTBULK, $rcyclReceiptLot->getRcyhdrcptbulk(), $comparison);
+        } else {
+            throw new PropelException('filterByRcyclReceiptLot() only accepts arguments of type \RcyclReceiptLot');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the RcyclReceiptLot relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildRcyclReceiptQuery The current query, for fluid interface
+     */
+    public function joinRcyclReceiptLot($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('RcyclReceiptLot');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'RcyclReceiptLot');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the RcyclReceiptLot relation RcyclReceiptLot object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \RcyclReceiptLotQuery A secondary query class using the current class as primary query
+     */
+    public function useRcyclReceiptLotQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinRcyclReceiptLot($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'RcyclReceiptLot', '\RcyclReceiptLotQuery');
     }
 
     /**

@@ -10,7 +10,7 @@ use RcyclGenerator as Generator;
  * class for representing a row from the 'rcycl_head' table.
  * 
  * KEYS: rnbr
- * FKRELATIONSHIPS: Customer, RcyclGenerator, RcyclReceiptDetails
+ * FKRELATIONSHIPS: Customer, RcyclGenerator, RcyclReceiptDetails, RcyclReceiptLots
  * 
  * @property string    $rtype
  * @property int       $rnbr
@@ -29,6 +29,7 @@ use RcyclGenerator as Generator;
  * @property int       $date
  * @property int       $time
  * @property ObjList   $items
+ * @property ObjList   $lots
  * @property Generator $generator
  * @property Customer  $customer
  */
@@ -57,5 +58,6 @@ class RcyclReceipt extends BaseRcyclReceipt {
         // Releated object aliases
         'generator'   => 'RcyclGenerator',
         'items'       => 'RcyclReceiptDetails',
+        'lots'        => 'RcyclReceiptLots'
     ];
 }

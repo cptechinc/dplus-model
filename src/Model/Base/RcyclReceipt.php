@@ -9,10 +9,13 @@ use \RcyclGeneratorQuery as ChildRcyclGeneratorQuery;
 use \RcyclReceipt as ChildRcyclReceipt;
 use \RcyclReceiptDetail as ChildRcyclReceiptDetail;
 use \RcyclReceiptDetailQuery as ChildRcyclReceiptDetailQuery;
+use \RcyclReceiptLot as ChildRcyclReceiptLot;
+use \RcyclReceiptLotQuery as ChildRcyclReceiptLotQuery;
 use \RcyclReceiptQuery as ChildRcyclReceiptQuery;
 use \Exception;
 use \PDO;
 use Map\RcyclReceiptDetailTableMap;
+use Map\RcyclReceiptLotTableMap;
 use Map\RcyclReceiptTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -229,6 +232,12 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     protected $collRcyclReceiptDetailsPartial;
 
     /**
+     * @var        ObjectCollection|ChildRcyclReceiptLot[] Collection to store aggregation of ChildRcyclReceiptLot objects.
+     */
+    protected $collRcyclReceiptLots;
+    protected $collRcyclReceiptLotsPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
@@ -241,6 +250,12 @@ abstract class RcyclReceipt implements ActiveRecordInterface
      * @var ObjectCollection|ChildRcyclReceiptDetail[]
      */
     protected $rcyclReceiptDetailsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildRcyclReceiptLot[]
+     */
+    protected $rcyclReceiptLotsScheduledForDeletion = null;
 
     /**
      * Applies default values to this object.
@@ -1285,6 +1300,8 @@ abstract class RcyclReceipt implements ActiveRecordInterface
             $this->aRcyclGenerator = null;
             $this->collRcyclReceiptDetails = null;
 
+            $this->collRcyclReceiptLots = null;
+
         } // if (deep)
     }
 
@@ -1429,6 +1446,23 @@ abstract class RcyclReceipt implements ActiveRecordInterface
 
             if ($this->collRcyclReceiptDetails !== null) {
                 foreach ($this->collRcyclReceiptDetails as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->rcyclReceiptLotsScheduledForDeletion !== null) {
+                if (!$this->rcyclReceiptLotsScheduledForDeletion->isEmpty()) {
+                    \RcyclReceiptLotQuery::create()
+                        ->filterByPrimaryKeys($this->rcyclReceiptLotsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->rcyclReceiptLotsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collRcyclReceiptLots !== null) {
+                foreach ($this->collRcyclReceiptLots as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -1784,6 +1818,21 @@ abstract class RcyclReceipt implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->collRcyclReceiptDetails->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collRcyclReceiptLots) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'rcyclReceiptLots';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'rcycl_lot_dets';
+                        break;
+                    default:
+                        $key = 'RcyclReceiptLots';
+                }
+
+                $result[$key] = $this->collRcyclReceiptLots->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
         }
 
@@ -2172,6 +2221,12 @@ abstract class RcyclReceipt implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getRcyclReceiptLots() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addRcyclReceiptLot($relObj->copy($deepCopy));
+                }
+            }
+
         } // if ($deepCopy)
 
         if ($makeNew) {
@@ -2316,6 +2371,10 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     {
         if ('RcyclReceiptDetail' == $relationName) {
             $this->initRcyclReceiptDetails();
+            return;
+        }
+        if ('RcyclReceiptLot' == $relationName) {
+            $this->initRcyclReceiptLots();
             return;
         }
     }
@@ -2599,6 +2658,284 @@ abstract class RcyclReceipt implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collRcyclReceiptLots collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addRcyclReceiptLots()
+     */
+    public function clearRcyclReceiptLots()
+    {
+        $this->collRcyclReceiptLots = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collRcyclReceiptLots collection loaded partially.
+     */
+    public function resetPartialRcyclReceiptLots($v = true)
+    {
+        $this->collRcyclReceiptLotsPartial = $v;
+    }
+
+    /**
+     * Initializes the collRcyclReceiptLots collection.
+     *
+     * By default this just sets the collRcyclReceiptLots collection to an empty array (like clearcollRcyclReceiptLots());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initRcyclReceiptLots($overrideExisting = true)
+    {
+        if (null !== $this->collRcyclReceiptLots && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = RcyclReceiptLotTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collRcyclReceiptLots = new $collectionClassName;
+        $this->collRcyclReceiptLots->setModel('\RcyclReceiptLot');
+    }
+
+    /**
+     * Gets an array of ChildRcyclReceiptLot objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildRcyclReceipt is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildRcyclReceiptLot[] List of ChildRcyclReceiptLot objects
+     * @throws PropelException
+     */
+    public function getRcyclReceiptLots(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collRcyclReceiptLotsPartial && !$this->isNew();
+        if (null === $this->collRcyclReceiptLots || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collRcyclReceiptLots) {
+                // return empty collection
+                $this->initRcyclReceiptLots();
+            } else {
+                $collRcyclReceiptLots = ChildRcyclReceiptLotQuery::create(null, $criteria)
+                    ->filterByRcyclReceipt($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collRcyclReceiptLotsPartial && count($collRcyclReceiptLots)) {
+                        $this->initRcyclReceiptLots(false);
+
+                        foreach ($collRcyclReceiptLots as $obj) {
+                            if (false == $this->collRcyclReceiptLots->contains($obj)) {
+                                $this->collRcyclReceiptLots->append($obj);
+                            }
+                        }
+
+                        $this->collRcyclReceiptLotsPartial = true;
+                    }
+
+                    return $collRcyclReceiptLots;
+                }
+
+                if ($partial && $this->collRcyclReceiptLots) {
+                    foreach ($this->collRcyclReceiptLots as $obj) {
+                        if ($obj->isNew()) {
+                            $collRcyclReceiptLots[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collRcyclReceiptLots = $collRcyclReceiptLots;
+                $this->collRcyclReceiptLotsPartial = false;
+            }
+        }
+
+        return $this->collRcyclReceiptLots;
+    }
+
+    /**
+     * Sets a collection of ChildRcyclReceiptLot objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $rcyclReceiptLots A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildRcyclReceipt The current object (for fluent API support)
+     */
+    public function setRcyclReceiptLots(Collection $rcyclReceiptLots, ConnectionInterface $con = null)
+    {
+        /** @var ChildRcyclReceiptLot[] $rcyclReceiptLotsToDelete */
+        $rcyclReceiptLotsToDelete = $this->getRcyclReceiptLots(new Criteria(), $con)->diff($rcyclReceiptLots);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->rcyclReceiptLotsScheduledForDeletion = clone $rcyclReceiptLotsToDelete;
+
+        foreach ($rcyclReceiptLotsToDelete as $rcyclReceiptLotRemoved) {
+            $rcyclReceiptLotRemoved->setRcyclReceipt(null);
+        }
+
+        $this->collRcyclReceiptLots = null;
+        foreach ($rcyclReceiptLots as $rcyclReceiptLot) {
+            $this->addRcyclReceiptLot($rcyclReceiptLot);
+        }
+
+        $this->collRcyclReceiptLots = $rcyclReceiptLots;
+        $this->collRcyclReceiptLotsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related RcyclReceiptLot objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related RcyclReceiptLot objects.
+     * @throws PropelException
+     */
+    public function countRcyclReceiptLots(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collRcyclReceiptLotsPartial && !$this->isNew();
+        if (null === $this->collRcyclReceiptLots || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collRcyclReceiptLots) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getRcyclReceiptLots());
+            }
+
+            $query = ChildRcyclReceiptLotQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByRcyclReceipt($this)
+                ->count($con);
+        }
+
+        return count($this->collRcyclReceiptLots);
+    }
+
+    /**
+     * Method called to associate a ChildRcyclReceiptLot object to this object
+     * through the ChildRcyclReceiptLot foreign key attribute.
+     *
+     * @param  ChildRcyclReceiptLot $l ChildRcyclReceiptLot
+     * @return $this|\RcyclReceipt The current object (for fluent API support)
+     */
+    public function addRcyclReceiptLot(ChildRcyclReceiptLot $l)
+    {
+        if ($this->collRcyclReceiptLots === null) {
+            $this->initRcyclReceiptLots();
+            $this->collRcyclReceiptLotsPartial = true;
+        }
+
+        if (!$this->collRcyclReceiptLots->contains($l)) {
+            $this->doAddRcyclReceiptLot($l);
+
+            if ($this->rcyclReceiptLotsScheduledForDeletion and $this->rcyclReceiptLotsScheduledForDeletion->contains($l)) {
+                $this->rcyclReceiptLotsScheduledForDeletion->remove($this->rcyclReceiptLotsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildRcyclReceiptLot $rcyclReceiptLot The ChildRcyclReceiptLot object to add.
+     */
+    protected function doAddRcyclReceiptLot(ChildRcyclReceiptLot $rcyclReceiptLot)
+    {
+        $this->collRcyclReceiptLots[]= $rcyclReceiptLot;
+        $rcyclReceiptLot->setRcyclReceipt($this);
+    }
+
+    /**
+     * @param  ChildRcyclReceiptLot $rcyclReceiptLot The ChildRcyclReceiptLot object to remove.
+     * @return $this|ChildRcyclReceipt The current object (for fluent API support)
+     */
+    public function removeRcyclReceiptLot(ChildRcyclReceiptLot $rcyclReceiptLot)
+    {
+        if ($this->getRcyclReceiptLots()->contains($rcyclReceiptLot)) {
+            $pos = $this->collRcyclReceiptLots->search($rcyclReceiptLot);
+            $this->collRcyclReceiptLots->remove($pos);
+            if (null === $this->rcyclReceiptLotsScheduledForDeletion) {
+                $this->rcyclReceiptLotsScheduledForDeletion = clone $this->collRcyclReceiptLots;
+                $this->rcyclReceiptLotsScheduledForDeletion->clear();
+            }
+            $this->rcyclReceiptLotsScheduledForDeletion[]= clone $rcyclReceiptLot;
+            $rcyclReceiptLot->setRcyclReceipt(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this RcyclReceipt is new, it will return
+     * an empty collection; or if this RcyclReceipt has previously
+     * been saved, it will retrieve related RcyclReceiptLots from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in RcyclReceipt.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildRcyclReceiptLot[] List of ChildRcyclReceiptLot objects
+     */
+    public function getRcyclReceiptLotsJoinRcyclReceiptDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildRcyclReceiptLotQuery::create(null, $criteria);
+        $query->joinWith('RcyclReceiptDetail', $joinBehavior);
+
+        return $this->getRcyclReceiptLots($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this RcyclReceipt is new, it will return
+     * an empty collection; or if this RcyclReceipt has previously
+     * been saved, it will retrieve related RcyclReceiptLots from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in RcyclReceipt.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildRcyclReceiptLot[] List of ChildRcyclReceiptLot objects
+     */
+    public function getRcyclReceiptLotsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildRcyclReceiptLotQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getRcyclReceiptLots($query, $con);
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -2653,9 +2990,15 @@ abstract class RcyclReceipt implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collRcyclReceiptLots) {
+                foreach ($this->collRcyclReceiptLots as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
         $this->collRcyclReceiptDetails = null;
+        $this->collRcyclReceiptLots = null;
         $this->aCustomer = null;
         $this->aRcyclGenerator = null;
     }

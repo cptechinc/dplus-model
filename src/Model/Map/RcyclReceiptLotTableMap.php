@@ -202,7 +202,9 @@ class RcyclReceiptLotTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addForeignPrimaryKey('RcyhdRcptBulk', 'Rcyhdrcptbulk', 'CHAR' , 'rcycl_det', 'RcyhdRcptBulk', true, null, '');
+        $this->addForeignPrimaryKey('RcyhdRcptBulk', 'Rcyhdrcptbulk', 'CHAR' , 'rcycl_head', 'RcyhdRcptBulk', true, null, '');
         $this->addForeignPrimaryKey('RcyhdCntrlNbr', 'Rcyhdcntrlnbr', 'INTEGER' , 'rcycl_det', 'RcyhdCntrlNbr', true, null, 0);
+        $this->addForeignPrimaryKey('RcyhdCntrlNbr', 'Rcyhdcntrlnbr', 'INTEGER' , 'rcycl_head', 'RcyhdCntrlNbr', true, null, 0);
         $this->addForeignPrimaryKey('RcydtRcptLine', 'Rcydtrcptline', 'INTEGER' , 'rcycl_det', 'RcydtRcptLine', true, null, 0);
         $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'rcycl_det', 'InitItemNbr', true, 30, '');
         $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
@@ -252,6 +254,18 @@ class RcyclReceiptLotTableMap extends TableMap
   array (
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('RcyclReceipt', '\\RcyclReceipt', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':RcyhdCntrlNbr',
+    1 => ':RcyhdCntrlNbr',
+  ),
+  1 =>
+  array (
+    0 => ':RcyhdRcptBulk',
+    1 => ':RcyhdRcptBulk',
   ),
 ), null, null, null, false);
     } // buildRelations()
