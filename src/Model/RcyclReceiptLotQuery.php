@@ -114,4 +114,26 @@ class RcyclReceiptLotQuery extends BaseRcyclReceiptLotQuery {
     {
         return $this->filterByRcysdclosedby($closedby, $comparison);
     }
+
+    /**
+     * Filter the query on the Rcysdwhseid column
+     * @param  mixed   $whseid      The value to use as filter.
+     * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @return self                 The current query, for fluid interface
+     */
+    public function filterByWhseid($whseid = null, $comparison = null) : RcyclReceiptLotQuery
+    {
+        return $this->filterByRcysdwhse($whseid, $comparison);
+    }
+
+    /**
+     * Filter the query on the Rcysdbin column
+     * @param  mixed   $binid       The value to use as filter.
+     * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @return self                 The current query, for fluid interface
+     */
+    public function filterByBinid($binid = null, $comparison = null) : RcyclReceiptLotQuery
+    {
+        return $this->filterByRcysdbin($binid, $comparison);
+    }
 }

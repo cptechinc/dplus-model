@@ -40,6 +40,8 @@ class RcyclReceiptLot extends BaseRcyclReceiptLot {
     const COLUMN_ALIASES = [
         'rtype'        => 'rcyhdrcptbulk',
         'rnbr'         => 'rcyhdcntrlnbr',
+        'whseid'       => 'rcysdwhse',
+        'binid'        => 'rcysdbin',
         'linenbr'      => 'rcydtrcptline',
         'lotserial'    => 'rcysdlotnbr',
         'itemid'       => 'inititemnbr',
