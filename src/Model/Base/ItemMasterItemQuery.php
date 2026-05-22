@@ -190,6 +190,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithInvGroupCode() Adds a RIGHT JOIN clause and with to the query using the InvGroupCode relation
  * @method     ChildItemMasterItemQuery innerJoinWithInvGroupCode() Adds a INNER JOIN clause and with to the query using the InvGroupCode relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinInvStockCode($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvStockCode relation
+ * @method     ChildItemMasterItemQuery rightJoinInvStockCode($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvStockCode relation
+ * @method     ChildItemMasterItemQuery innerJoinInvStockCode($relationAlias = null) Adds a INNER JOIN clause to the query using the InvStockCode relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithInvStockCode($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvStockCode relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithInvStockCode() Adds a LEFT JOIN clause and with to the query using the InvStockCode relation
+ * @method     ChildItemMasterItemQuery rightJoinWithInvStockCode() Adds a RIGHT JOIN clause and with to the query using the InvStockCode relation
+ * @method     ChildItemMasterItemQuery innerJoinWithInvStockCode() Adds a INNER JOIN clause and with to the query using the InvStockCode relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinInvPriceCode($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvPriceCode relation
  * @method     ChildItemMasterItemQuery rightJoinInvPriceCode($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvPriceCode relation
  * @method     ChildItemMasterItemQuery innerJoinInvPriceCode($relationAlias = null) Adds a INNER JOIN clause to the query using the InvPriceCode relation
@@ -229,6 +239,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery leftJoinWithItemXrefCustomer() Adds a LEFT JOIN clause and with to the query using the ItemXrefCustomer relation
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefCustomer() Adds a RIGHT JOIN clause and with to the query using the ItemXrefCustomer relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefCustomer() Adds a INNER JOIN clause and with to the query using the ItemXrefCustomer relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinCstkItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the CstkItem relation
+ * @method     ChildItemMasterItemQuery rightJoinCstkItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the CstkItem relation
+ * @method     ChildItemMasterItemQuery innerJoinCstkItem($relationAlias = null) Adds a INNER JOIN clause to the query using the CstkItem relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithCstkItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the CstkItem relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithCstkItem() Adds a LEFT JOIN clause and with to the query using the CstkItem relation
+ * @method     ChildItemMasterItemQuery rightJoinWithCstkItem() Adds a RIGHT JOIN clause and with to the query using the CstkItem relation
+ * @method     ChildItemMasterItemQuery innerJoinWithCstkItem() Adds a INNER JOIN clause and with to the query using the CstkItem relation
  *
  * @method     ChildItemMasterItemQuery leftJoinInvWhseItemBin($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvWhseItemBin relation
  * @method     ChildItemMasterItemQuery rightJoinInvWhseItemBin($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvWhseItemBin relation
@@ -570,6 +590,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithBomItem() Adds a RIGHT JOIN clause and with to the query using the BomItem relation
  * @method     ChildItemMasterItemQuery innerJoinWithBomItem() Adds a INNER JOIN clause and with to the query using the BomItem relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinRcyclReceiptDetail($relationAlias = null) Adds a LEFT JOIN clause to the query using the RcyclReceiptDetail relation
+ * @method     ChildItemMasterItemQuery rightJoinRcyclReceiptDetail($relationAlias = null) Adds a RIGHT JOIN clause to the query using the RcyclReceiptDetail relation
+ * @method     ChildItemMasterItemQuery innerJoinRcyclReceiptDetail($relationAlias = null) Adds a INNER JOIN clause to the query using the RcyclReceiptDetail relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithRcyclReceiptDetail($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the RcyclReceiptDetail relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithRcyclReceiptDetail() Adds a LEFT JOIN clause and with to the query using the RcyclReceiptDetail relation
+ * @method     ChildItemMasterItemQuery rightJoinWithRcyclReceiptDetail() Adds a RIGHT JOIN clause and with to the query using the RcyclReceiptDetail relation
+ * @method     ChildItemMasterItemQuery innerJoinWithRcyclReceiptDetail() Adds a INNER JOIN clause and with to the query using the RcyclReceiptDetail relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinRcyclReceiptLot($relationAlias = null) Adds a LEFT JOIN clause to the query using the RcyclReceiptLot relation
+ * @method     ChildItemMasterItemQuery rightJoinRcyclReceiptLot($relationAlias = null) Adds a RIGHT JOIN clause to the query using the RcyclReceiptLot relation
+ * @method     ChildItemMasterItemQuery innerJoinRcyclReceiptLot($relationAlias = null) Adds a INNER JOIN clause to the query using the RcyclReceiptLot relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithRcyclReceiptLot($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the RcyclReceiptLot relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithRcyclReceiptLot() Adds a LEFT JOIN clause and with to the query using the RcyclReceiptLot relation
+ * @method     ChildItemMasterItemQuery rightJoinWithRcyclReceiptLot() Adds a RIGHT JOIN clause and with to the query using the RcyclReceiptLot relation
+ * @method     ChildItemMasterItemQuery innerJoinWithRcyclReceiptLot() Adds a INNER JOIN clause and with to the query using the RcyclReceiptLot relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinBookingDetail($relationAlias = null) Adds a LEFT JOIN clause to the query using the BookingDetail relation
  * @method     ChildItemMasterItemQuery rightJoinBookingDetail($relationAlias = null) Adds a RIGHT JOIN clause to the query using the BookingDetail relation
  * @method     ChildItemMasterItemQuery innerJoinBookingDetail($relationAlias = null) Adds a INNER JOIN clause to the query using the BookingDetail relation
@@ -680,7 +720,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\InvWhseItemBinQuery|\ItemAddonItemQuery|\ItmDimensionQuery|\InvHazmatItemQuery|\InvWhseLotQuery|\ItemSubstituteQuery|\InvLotTagQuery|\InvItem2ItemQuery|\InvKitComponentQuery|\InvKitQuery|\InvLotMasterQuery|\InvSerialMasterQuery|\InvTransferDetailQuery|\InvTransferLotserialQuery|\InvTransferPreAllocatedLotserialQuery|\InvTransferPickedLotserialQuery|\InvSerialWarrantyQuery|\WarehouseInventoryQuery|\ItemXrefKeyQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\InvOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\InvPalletQuery|\PurchaseOrderDetailQuery|\PurchaseOrderDetailReceiptQuery|\PurchaseOrderDetailReceivingQuery|\PurchaseOrderDetailLotReceivingQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryDetailQuery|\SalesOrderDetailQuery|\SalesOrderLotserialQuery|\SalesHistoryLotserialQuery|\SoAllocatedLotserialQuery|\ItemPricingDiscountQuery|\SoPickedLotserialQuery|\SoStandingOrderDetailQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvStockCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\CstkItemQuery|\InvWhseItemBinQuery|\ItemAddonItemQuery|\ItmDimensionQuery|\InvHazmatItemQuery|\InvWhseLotQuery|\ItemSubstituteQuery|\InvLotTagQuery|\InvItem2ItemQuery|\InvKitComponentQuery|\InvKitQuery|\InvLotMasterQuery|\InvSerialMasterQuery|\InvTransferDetailQuery|\InvTransferLotserialQuery|\InvTransferPreAllocatedLotserialQuery|\InvTransferPickedLotserialQuery|\InvSerialWarrantyQuery|\WarehouseInventoryQuery|\ItemXrefKeyQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\InvOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\InvPalletQuery|\PurchaseOrderDetailQuery|\PurchaseOrderDetailReceiptQuery|\PurchaseOrderDetailReceivingQuery|\PurchaseOrderDetailLotReceivingQuery|\BomComponentQuery|\BomItemQuery|\RcyclReceiptDetailQuery|\RcyclReceiptLotQuery|\BookingDetailQuery|\SalesHistoryDetailQuery|\SalesOrderDetailQuery|\SalesOrderLotserialQuery|\SalesHistoryLotserialQuery|\SoAllocatedLotserialQuery|\ItemPricingDiscountQuery|\SoPickedLotserialQuery|\SoStandingOrderDetailQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -3219,6 +3259,83 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
+     * Filter the query by a related \InvStockCode object
+     *
+     * @param \InvStockCode|ObjectCollection $invStockCode The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInvStockCode($invStockCode, $comparison = null)
+    {
+        if ($invStockCode instanceof \InvStockCode) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITSTOCKCODE, $invStockCode->getIntbstckcode(), $comparison);
+        } elseif ($invStockCode instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITSTOCKCODE, $invStockCode->toKeyValue('PrimaryKey', 'Intbstckcode'), $comparison);
+        } else {
+            throw new PropelException('filterByInvStockCode() only accepts arguments of type \InvStockCode or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvStockCode relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinInvStockCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvStockCode');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvStockCode');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvStockCode relation InvStockCode object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvStockCodeQuery A secondary query class using the current class as primary query
+     */
+    public function useInvStockCodeQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinInvStockCode($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvStockCode', '\InvStockCodeQuery');
+    }
+
+    /**
      * Filter the query by a related \InvPriceCode object
      *
      * @param \InvPriceCode|ObjectCollection $invPriceCode The related object(s) to use as filter
@@ -3480,7 +3597,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
      */
-    public function joinItemXrefCustomer($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinItemXrefCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ItemXrefCustomer');
@@ -3515,11 +3632,84 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @return \ItemXrefCustomerQuery A secondary query class using the current class as primary query
      */
-    public function useItemXrefCustomerQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useItemXrefCustomerQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinItemXrefCustomer($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ItemXrefCustomer', '\ItemXrefCustomerQuery');
+    }
+
+    /**
+     * Filter the query by a related \CstkItem object
+     *
+     * @param \CstkItem|ObjectCollection $cstkItem the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByCstkItem($cstkItem, $comparison = null)
+    {
+        if ($cstkItem instanceof \CstkItem) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $cstkItem->getInititemnbr(), $comparison);
+        } elseif ($cstkItem instanceof ObjectCollection) {
+            return $this
+                ->useCstkItemQuery()
+                ->filterByPrimaryKeys($cstkItem->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByCstkItem() only accepts arguments of type \CstkItem or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the CstkItem relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinCstkItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('CstkItem');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'CstkItem');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the CstkItem relation CstkItem object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \CstkItemQuery A secondary query class using the current class as primary query
+     */
+    public function useCstkItemQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinCstkItem($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'CstkItem', '\CstkItemQuery');
     }
 
     /**
@@ -6002,6 +6192,152 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinBomItem($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'BomItem', '\BomItemQuery');
+    }
+
+    /**
+     * Filter the query by a related \RcyclReceiptDetail object
+     *
+     * @param \RcyclReceiptDetail|ObjectCollection $rcyclReceiptDetail the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByRcyclReceiptDetail($rcyclReceiptDetail, $comparison = null)
+    {
+        if ($rcyclReceiptDetail instanceof \RcyclReceiptDetail) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $rcyclReceiptDetail->getInititemnbr(), $comparison);
+        } elseif ($rcyclReceiptDetail instanceof ObjectCollection) {
+            return $this
+                ->useRcyclReceiptDetailQuery()
+                ->filterByPrimaryKeys($rcyclReceiptDetail->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByRcyclReceiptDetail() only accepts arguments of type \RcyclReceiptDetail or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the RcyclReceiptDetail relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinRcyclReceiptDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('RcyclReceiptDetail');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'RcyclReceiptDetail');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the RcyclReceiptDetail relation RcyclReceiptDetail object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \RcyclReceiptDetailQuery A secondary query class using the current class as primary query
+     */
+    public function useRcyclReceiptDetailQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinRcyclReceiptDetail($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'RcyclReceiptDetail', '\RcyclReceiptDetailQuery');
+    }
+
+    /**
+     * Filter the query by a related \RcyclReceiptLot object
+     *
+     * @param \RcyclReceiptLot|ObjectCollection $rcyclReceiptLot the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByRcyclReceiptLot($rcyclReceiptLot, $comparison = null)
+    {
+        if ($rcyclReceiptLot instanceof \RcyclReceiptLot) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $rcyclReceiptLot->getInititemnbr(), $comparison);
+        } elseif ($rcyclReceiptLot instanceof ObjectCollection) {
+            return $this
+                ->useRcyclReceiptLotQuery()
+                ->filterByPrimaryKeys($rcyclReceiptLot->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByRcyclReceiptLot() only accepts arguments of type \RcyclReceiptLot or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the RcyclReceiptLot relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinRcyclReceiptLot($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('RcyclReceiptLot');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'RcyclReceiptLot');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the RcyclReceiptLot relation RcyclReceiptLot object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \RcyclReceiptLotQuery A secondary query class using the current class as primary query
+     */
+    public function useRcyclReceiptLotQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinRcyclReceiptLot($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'RcyclReceiptLot', '\RcyclReceiptLotQuery');
     }
 
     /**

@@ -2517,6 +2517,9 @@
     <foreign-key foreignTable="inv_grup_code" name="itemgroup">
       <reference local="IntbGrup" foreign="IntbGrup"/>
     </foreign-key>
+    <foreign-key foreignTable="inv_stck_code" name="invstockcode">
+      <reference local="InitStockCode" foreign="IntbStckCode"/>
+    </foreign-key>
     <foreign-key foreignTable="inv_pric_code" name="pricecode">
       <reference local="IntbPricGrup" foreign="IntbPricGrup"/>
     </foreign-key>

@@ -9,7 +9,7 @@ use Dplus\Model\MagicMethodTraits;
  * Class for representing a row from the 'inv_item_mast' table.
  *
  * RELATIONSHIPS: UnitofMeasurePurchase, UnitofMeasureSale
- * InvGroupCode, InvCommissionCode, ItemPricing
+ * InvGroupCode, InvCommissionCode, ItemPricing, InvStockCode
  * RELATIONSHIP: WarehouseInventory [inititemnbr]
  */
 class ItemMasterItem extends BaseItemMasterItem {

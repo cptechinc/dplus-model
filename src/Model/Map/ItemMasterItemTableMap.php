@@ -477,7 +477,7 @@ class ItemMasterItemTableMap extends TableMap
         $this->addColumn('InitMinMarg', 'Initminmarg', 'DECIMAL', false, 20, null);
         $this->addColumn('InitVendId', 'Initvendid', 'VARCHAR', false, 6, null);
         $this->addColumn('InitInspect', 'Initinspect', 'VARCHAR', false, 1, null);
-        $this->addColumn('InitStockCode', 'Initstockcode', 'VARCHAR', false, 4, null);
+        $this->addForeignKey('InitStockCode', 'Initstockcode', 'VARCHAR', 'inv_stck_code', 'IntbStckCode', false, 4, null);
         $this->addColumn('InitSuprItemNbr', 'Initsupritemnbr', 'VARCHAR', false, 30, null);
         $this->addColumn('InitVendShipFrom', 'Initvendshipfrom', 'VARCHAR', false, 6, null);
         $this->addColumn('InitCntryOfOrigin', 'Initcntryoforigin', 'VARCHAR', false, 4, null);
@@ -539,6 +539,13 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':IntbGrup',
   ),
 ), null, null, null, false);
+        $this->addRelation('InvStockCode', '\\InvStockCode', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitStockCode',
+    1 => ':IntbStckCode',
+  ),
+), null, null, null, false);
         $this->addRelation('InvPriceCode', '\\InvPriceCode', RelationMap::MANY_TO_ONE, array (
   0 =>
   array (
@@ -567,6 +574,13 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, 'ItemXrefCustomers', false);
+        $this->addRelation('CstkItem', '\\CstkItem', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'CstkItems', false);
         $this->addRelation('InvWhseItemBin', '\\InvWhseItemBin', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
@@ -805,6 +819,20 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
+        $this->addRelation('RcyclReceiptDetail', '\\RcyclReceiptDetail', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'RcyclReceiptDetails', false);
+        $this->addRelation('RcyclReceiptLot', '\\RcyclReceiptLot', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'RcyclReceiptLots', false);
         $this->addRelation('BookingDetail', '\\BookingDetail', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

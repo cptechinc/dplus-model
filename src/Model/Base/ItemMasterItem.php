@@ -8,6 +8,8 @@ use \BomItem as ChildBomItem;
 use \BomItemQuery as ChildBomItemQuery;
 use \BookingDetail as ChildBookingDetail;
 use \BookingDetailQuery as ChildBookingDetailQuery;
+use \CstkItem as ChildCstkItem;
+use \CstkItemQuery as ChildCstkItemQuery;
 use \InvCommissionCode as ChildInvCommissionCode;
 use \InvCommissionCodeQuery as ChildInvCommissionCodeQuery;
 use \InvGroupCode as ChildInvGroupCode;
@@ -34,6 +36,8 @@ use \InvSerialMaster as ChildInvSerialMaster;
 use \InvSerialMasterQuery as ChildInvSerialMasterQuery;
 use \InvSerialWarranty as ChildInvSerialWarranty;
 use \InvSerialWarrantyQuery as ChildInvSerialWarrantyQuery;
+use \InvStockCode as ChildInvStockCode;
+use \InvStockCodeQuery as ChildInvStockCodeQuery;
 use \InvTransferDetail as ChildInvTransferDetail;
 use \InvTransferDetailQuery as ChildInvTransferDetailQuery;
 use \InvTransferLotserial as ChildInvTransferLotserial;
@@ -82,6 +86,10 @@ use \PurchaseOrderDetailReceipt as ChildPurchaseOrderDetailReceipt;
 use \PurchaseOrderDetailReceiptQuery as ChildPurchaseOrderDetailReceiptQuery;
 use \PurchaseOrderDetailReceiving as ChildPurchaseOrderDetailReceiving;
 use \PurchaseOrderDetailReceivingQuery as ChildPurchaseOrderDetailReceivingQuery;
+use \RcyclReceiptDetail as ChildRcyclReceiptDetail;
+use \RcyclReceiptDetailQuery as ChildRcyclReceiptDetailQuery;
+use \RcyclReceiptLot as ChildRcyclReceiptLot;
+use \RcyclReceiptLotQuery as ChildRcyclReceiptLotQuery;
 use \SalesHistoryDetail as ChildSalesHistoryDetail;
 use \SalesHistoryDetailQuery as ChildSalesHistoryDetailQuery;
 use \SalesHistoryLotserial as ChildSalesHistoryLotserial;
@@ -106,6 +114,7 @@ use \Exception;
 use \PDO;
 use Map\BomComponentTableMap;
 use Map\BookingDetailTableMap;
+use Map\CstkItemTableMap;
 use Map\InvItem2ItemTableMap;
 use Map\InvKitComponentTableMap;
 use Map\InvLotMasterTableMap;
@@ -136,6 +145,8 @@ use Map\PurchaseOrderDetailLotReceivingTableMap;
 use Map\PurchaseOrderDetailReceiptTableMap;
 use Map\PurchaseOrderDetailReceivingTableMap;
 use Map\PurchaseOrderDetailTableMap;
+use Map\RcyclReceiptDetailTableMap;
+use Map\RcyclReceiptLotTableMap;
 use Map\SalesHistoryDetailTableMap;
 use Map\SalesHistoryLotserialTableMap;
 use Map\SalesOrderDetailTableMap;
@@ -670,6 +681,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $aInvGroupCode;
 
     /**
+     * @var        ChildInvStockCode
+     */
+    protected $aInvStockCode;
+
+    /**
      * @var        ChildInvPriceCode
      */
     protected $aInvPriceCode;
@@ -689,6 +705,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     protected $collItemXrefCustomers;
     protected $collItemXrefCustomersPartial;
+
+    /**
+     * @var        ObjectCollection|ChildCstkItem[] Collection to store aggregation of ChildCstkItem objects.
+     */
+    protected $collCstkItems;
+    protected $collCstkItemsPartial;
 
     /**
      * @var        ObjectCollection|ChildInvWhseItemBin[] Collection to store aggregation of ChildInvWhseItemBin objects.
@@ -891,6 +913,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $singleBomItem;
 
     /**
+     * @var        ObjectCollection|ChildRcyclReceiptDetail[] Collection to store aggregation of ChildRcyclReceiptDetail objects.
+     */
+    protected $collRcyclReceiptDetails;
+    protected $collRcyclReceiptDetailsPartial;
+
+    /**
+     * @var        ObjectCollection|ChildRcyclReceiptLot[] Collection to store aggregation of ChildRcyclReceiptLot objects.
+     */
+    protected $collRcyclReceiptLots;
+    protected $collRcyclReceiptLotsPartial;
+
+    /**
      * @var        ObjectCollection|ChildBookingDetail[] Collection to store aggregation of ChildBookingDetail objects.
      */
     protected $collBookingDetails;
@@ -969,6 +1003,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildItemXrefCustomer[]
      */
     protected $itemXrefCustomersScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildCstkItem[]
+     */
+    protected $cstkItemsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -1149,6 +1189,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildBomComponent[]
      */
     protected $bomComponentsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildRcyclReceiptDetail[]
+     */
+    protected $rcyclReceiptDetailsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildRcyclReceiptLot[]
+     */
+    protected $rcyclReceiptLotsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -2757,6 +2809,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->modifiedColumns[ItemMasterItemTableMap::COL_INITSTOCKCODE] = true;
         }
 
+        if ($this->aInvStockCode !== null && $this->aInvStockCode->getIntbstckcode() !== $v) {
+            $this->aInvStockCode = null;
+        }
+
         return $this;
     } // setInitstockcode()
 
@@ -3704,6 +3760,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if ($this->aUnitofMeasurePurchase !== null && $this->intbuompur !== $this->aUnitofMeasurePurchase->getIntbuompur()) {
             $this->aUnitofMeasurePurchase = null;
         }
+        if ($this->aInvStockCode !== null && $this->initstockcode !== $this->aInvStockCode->getIntbstckcode()) {
+            $this->aInvStockCode = null;
+        }
         if ($this->aInvPriceCode !== null && $this->intbpricgrup !== $this->aInvPriceCode->getIntbpricgrup()) {
             $this->aInvPriceCode = null;
         }
@@ -3752,10 +3811,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->aUnitofMeasureSale = null;
             $this->aUnitofMeasurePurchase = null;
             $this->aInvGroupCode = null;
+            $this->aInvStockCode = null;
             $this->aInvPriceCode = null;
             $this->aInvCommissionCode = null;
             $this->aItemPricing = null;
             $this->collItemXrefCustomers = null;
+
+            $this->collCstkItems = null;
 
             $this->collInvWhseItemBins = null;
 
@@ -3824,6 +3886,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->collBomComponents = null;
 
             $this->singleBomItem = null;
+
+            $this->collRcyclReceiptDetails = null;
+
+            $this->collRcyclReceiptLots = null;
 
             $this->collBookingDetails = null;
 
@@ -3976,6 +4042,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->setInvGroupCode($this->aInvGroupCode);
             }
 
+            if ($this->aInvStockCode !== null) {
+                if ($this->aInvStockCode->isModified() || $this->aInvStockCode->isNew()) {
+                    $affectedRows += $this->aInvStockCode->save($con);
+                }
+                $this->setInvStockCode($this->aInvStockCode);
+            }
+
             if ($this->aInvPriceCode !== null) {
                 if ($this->aInvPriceCode->isModified() || $this->aInvPriceCode->isNew()) {
                     $affectedRows += $this->aInvPriceCode->save($con);
@@ -4010,16 +4083,32 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             if ($this->itemXrefCustomersScheduledForDeletion !== null) {
                 if (!$this->itemXrefCustomersScheduledForDeletion->isEmpty()) {
-                    foreach ($this->itemXrefCustomersScheduledForDeletion as $itemXrefCustomer) {
-                        // need to save related object because we set the relation to null
-                        $itemXrefCustomer->save($con);
-                    }
+                    \ItemXrefCustomerQuery::create()
+                        ->filterByPrimaryKeys($this->itemXrefCustomersScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
                     $this->itemXrefCustomersScheduledForDeletion = null;
                 }
             }
 
             if ($this->collItemXrefCustomers !== null) {
                 foreach ($this->collItemXrefCustomers as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->cstkItemsScheduledForDeletion !== null) {
+                if (!$this->cstkItemsScheduledForDeletion->isEmpty()) {
+                    \CstkItemQuery::create()
+                        ->filterByPrimaryKeys($this->cstkItemsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->cstkItemsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collCstkItems !== null) {
+                foreach ($this->collCstkItems as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -4561,6 +4650,40 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             if ($this->singleBomItem !== null) {
                 if (!$this->singleBomItem->isDeleted() && ($this->singleBomItem->isNew() || $this->singleBomItem->isModified())) {
                     $affectedRows += $this->singleBomItem->save($con);
+                }
+            }
+
+            if ($this->rcyclReceiptDetailsScheduledForDeletion !== null) {
+                if (!$this->rcyclReceiptDetailsScheduledForDeletion->isEmpty()) {
+                    \RcyclReceiptDetailQuery::create()
+                        ->filterByPrimaryKeys($this->rcyclReceiptDetailsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->rcyclReceiptDetailsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collRcyclReceiptDetails !== null) {
+                foreach ($this->collRcyclReceiptDetails as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->rcyclReceiptLotsScheduledForDeletion !== null) {
+                if (!$this->rcyclReceiptLotsScheduledForDeletion->isEmpty()) {
+                    \RcyclReceiptLotQuery::create()
+                        ->filterByPrimaryKeys($this->rcyclReceiptLotsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->rcyclReceiptLotsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collRcyclReceiptLots !== null) {
+                foreach ($this->collRcyclReceiptLots as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
                 }
             }
 
@@ -5572,6 +5695,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->aInvGroupCode->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
+            if (null !== $this->aInvStockCode) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invStockCode';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_stck_code';
+                        break;
+                    default:
+                        $key = 'InvStockCode';
+                }
+
+                $result[$key] = $this->aInvStockCode->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
             if (null !== $this->aInvPriceCode) {
 
                 switch ($keyType) {
@@ -5631,6 +5769,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->collItemXrefCustomers->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collCstkItems) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'cstkItems';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'cust_stock_dets';
+                        break;
+                    default:
+                        $key = 'CstkItems';
+                }
+
+                $result[$key] = $this->collCstkItems->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collInvWhseItemBins) {
 
@@ -6141,6 +6294,36 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->singleBomItem->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->collRcyclReceiptDetails) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'rcyclReceiptDetails';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'rcycl_dets';
+                        break;
+                    default:
+                        $key = 'RcyclReceiptDetails';
+                }
+
+                $result[$key] = $this->collRcyclReceiptDetails->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collRcyclReceiptLots) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'rcyclReceiptLots';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'rcycl_lot_dets';
+                        break;
+                    default:
+                        $key = 'RcyclReceiptLots';
+                }
+
+                $result[$key] = $this->collRcyclReceiptLots->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collBookingDetails) {
 
@@ -7163,6 +7346,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getCstkItems() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addCstkItem($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getInvWhseItemBins() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addInvWhseItemBin($relObj->copy($deepCopy));
@@ -7361,6 +7550,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $relObj = $this->getBomItem();
             if ($relObj) {
                 $copyObj->setBomItem($relObj->copy($deepCopy));
+            }
+
+            foreach ($this->getRcyclReceiptDetails() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addRcyclReceiptDetail($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getRcyclReceiptLots() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addRcyclReceiptLot($relObj->copy($deepCopy));
+                }
             }
 
             foreach ($this->getBookingDetails() as $relObj) {
@@ -7612,6 +7813,57 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildInvStockCode object.
+     *
+     * @param  ChildInvStockCode $v
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setInvStockCode(ChildInvStockCode $v = null)
+    {
+        if ($v === null) {
+            $this->setInitstockcode(NULL);
+        } else {
+            $this->setInitstockcode($v->getIntbstckcode());
+        }
+
+        $this->aInvStockCode = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildInvStockCode object, it will not be re-added.
+        if ($v !== null) {
+            $v->addItemMasterItem($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildInvStockCode object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildInvStockCode The associated ChildInvStockCode object.
+     * @throws PropelException
+     */
+    public function getInvStockCode(ConnectionInterface $con = null)
+    {
+        if ($this->aInvStockCode === null && (($this->initstockcode !== "" && $this->initstockcode !== null))) {
+            $this->aInvStockCode = ChildInvStockCodeQuery::create()->findPk($this->initstockcode, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aInvStockCode->addItemMasterItems($this);
+             */
+        }
+
+        return $this->aInvStockCode;
+    }
+
+    /**
      * Declares an association between this object and a ChildInvPriceCode object.
      *
      * @param  ChildInvPriceCode $v
@@ -7773,6 +8025,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->initItemXrefCustomers();
             return;
         }
+        if ('CstkItem' == $relationName) {
+            $this->initCstkItems();
+            return;
+        }
         if ('InvWhseItemBin' == $relationName) {
             $this->initInvWhseItemBins();
             return;
@@ -7891,6 +8147,14 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
         if ('BomComponent' == $relationName) {
             $this->initBomComponents();
+            return;
+        }
+        if ('RcyclReceiptDetail' == $relationName) {
+            $this->initRcyclReceiptDetails();
+            return;
+        }
+        if ('RcyclReceiptLot' == $relationName) {
+            $this->initRcyclReceiptLots();
             return;
         }
         if ('BookingDetail' == $relationName) {
@@ -8157,11 +8421,286 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->itemXrefCustomersScheduledForDeletion = clone $this->collItemXrefCustomers;
                 $this->itemXrefCustomersScheduledForDeletion->clear();
             }
-            $this->itemXrefCustomersScheduledForDeletion[]= $itemXrefCustomer;
+            $this->itemXrefCustomersScheduledForDeletion[]= clone $itemXrefCustomer;
             $itemXrefCustomer->setItemMasterItem(null);
         }
 
         return $this;
+    }
+
+    /**
+     * Clears out the collCstkItems collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addCstkItems()
+     */
+    public function clearCstkItems()
+    {
+        $this->collCstkItems = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collCstkItems collection loaded partially.
+     */
+    public function resetPartialCstkItems($v = true)
+    {
+        $this->collCstkItemsPartial = $v;
+    }
+
+    /**
+     * Initializes the collCstkItems collection.
+     *
+     * By default this just sets the collCstkItems collection to an empty array (like clearcollCstkItems());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initCstkItems($overrideExisting = true)
+    {
+        if (null !== $this->collCstkItems && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = CstkItemTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collCstkItems = new $collectionClassName;
+        $this->collCstkItems->setModel('\CstkItem');
+    }
+
+    /**
+     * Gets an array of ChildCstkItem objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildCstkItem[] List of ChildCstkItem objects
+     * @throws PropelException
+     */
+    public function getCstkItems(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collCstkItemsPartial && !$this->isNew();
+        if (null === $this->collCstkItems || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collCstkItems) {
+                // return empty collection
+                $this->initCstkItems();
+            } else {
+                $collCstkItems = ChildCstkItemQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collCstkItemsPartial && count($collCstkItems)) {
+                        $this->initCstkItems(false);
+
+                        foreach ($collCstkItems as $obj) {
+                            if (false == $this->collCstkItems->contains($obj)) {
+                                $this->collCstkItems->append($obj);
+                            }
+                        }
+
+                        $this->collCstkItemsPartial = true;
+                    }
+
+                    return $collCstkItems;
+                }
+
+                if ($partial && $this->collCstkItems) {
+                    foreach ($this->collCstkItems as $obj) {
+                        if ($obj->isNew()) {
+                            $collCstkItems[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collCstkItems = $collCstkItems;
+                $this->collCstkItemsPartial = false;
+            }
+        }
+
+        return $this->collCstkItems;
+    }
+
+    /**
+     * Sets a collection of ChildCstkItem objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $cstkItems A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setCstkItems(Collection $cstkItems, ConnectionInterface $con = null)
+    {
+        /** @var ChildCstkItem[] $cstkItemsToDelete */
+        $cstkItemsToDelete = $this->getCstkItems(new Criteria(), $con)->diff($cstkItems);
+
+
+        $this->cstkItemsScheduledForDeletion = $cstkItemsToDelete;
+
+        foreach ($cstkItemsToDelete as $cstkItemRemoved) {
+            $cstkItemRemoved->setItemMasterItem(null);
+        }
+
+        $this->collCstkItems = null;
+        foreach ($cstkItems as $cstkItem) {
+            $this->addCstkItem($cstkItem);
+        }
+
+        $this->collCstkItems = $cstkItems;
+        $this->collCstkItemsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related CstkItem objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related CstkItem objects.
+     * @throws PropelException
+     */
+    public function countCstkItems(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collCstkItemsPartial && !$this->isNew();
+        if (null === $this->collCstkItems || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collCstkItems) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getCstkItems());
+            }
+
+            $query = ChildCstkItemQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collCstkItems);
+    }
+
+    /**
+     * Method called to associate a ChildCstkItem object to this object
+     * through the ChildCstkItem foreign key attribute.
+     *
+     * @param  ChildCstkItem $l ChildCstkItem
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addCstkItem(ChildCstkItem $l)
+    {
+        if ($this->collCstkItems === null) {
+            $this->initCstkItems();
+            $this->collCstkItemsPartial = true;
+        }
+
+        if (!$this->collCstkItems->contains($l)) {
+            $this->doAddCstkItem($l);
+
+            if ($this->cstkItemsScheduledForDeletion and $this->cstkItemsScheduledForDeletion->contains($l)) {
+                $this->cstkItemsScheduledForDeletion->remove($this->cstkItemsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildCstkItem $cstkItem The ChildCstkItem object to add.
+     */
+    protected function doAddCstkItem(ChildCstkItem $cstkItem)
+    {
+        $this->collCstkItems[]= $cstkItem;
+        $cstkItem->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildCstkItem $cstkItem The ChildCstkItem object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeCstkItem(ChildCstkItem $cstkItem)
+    {
+        if ($this->getCstkItems()->contains($cstkItem)) {
+            $pos = $this->collCstkItems->search($cstkItem);
+            $this->collCstkItems->remove($pos);
+            if (null === $this->cstkItemsScheduledForDeletion) {
+                $this->cstkItemsScheduledForDeletion = clone $this->collCstkItems;
+                $this->cstkItemsScheduledForDeletion->clear();
+            }
+            $this->cstkItemsScheduledForDeletion[]= clone $cstkItem;
+            $cstkItem->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related CstkItems from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildCstkItem[] List of ChildCstkItem objects
+     */
+    public function getCstkItemsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildCstkItemQuery::create(null, $criteria);
+        $query->joinWith('Customer', $joinBehavior);
+
+        return $this->getCstkItems($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related CstkItems from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildCstkItem[] List of ChildCstkItem objects
+     */
+    public function getCstkItemsJoinCustomerShipto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildCstkItemQuery::create(null, $criteria);
+        $query->joinWith('CustomerShipto', $joinBehavior);
+
+        return $this->getCstkItems($query, $con);
     }
 
     /**
@@ -16172,6 +16711,562 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collRcyclReceiptDetails collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addRcyclReceiptDetails()
+     */
+    public function clearRcyclReceiptDetails()
+    {
+        $this->collRcyclReceiptDetails = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collRcyclReceiptDetails collection loaded partially.
+     */
+    public function resetPartialRcyclReceiptDetails($v = true)
+    {
+        $this->collRcyclReceiptDetailsPartial = $v;
+    }
+
+    /**
+     * Initializes the collRcyclReceiptDetails collection.
+     *
+     * By default this just sets the collRcyclReceiptDetails collection to an empty array (like clearcollRcyclReceiptDetails());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initRcyclReceiptDetails($overrideExisting = true)
+    {
+        if (null !== $this->collRcyclReceiptDetails && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = RcyclReceiptDetailTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collRcyclReceiptDetails = new $collectionClassName;
+        $this->collRcyclReceiptDetails->setModel('\RcyclReceiptDetail');
+    }
+
+    /**
+     * Gets an array of ChildRcyclReceiptDetail objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildRcyclReceiptDetail[] List of ChildRcyclReceiptDetail objects
+     * @throws PropelException
+     */
+    public function getRcyclReceiptDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collRcyclReceiptDetailsPartial && !$this->isNew();
+        if (null === $this->collRcyclReceiptDetails || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collRcyclReceiptDetails) {
+                // return empty collection
+                $this->initRcyclReceiptDetails();
+            } else {
+                $collRcyclReceiptDetails = ChildRcyclReceiptDetailQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collRcyclReceiptDetailsPartial && count($collRcyclReceiptDetails)) {
+                        $this->initRcyclReceiptDetails(false);
+
+                        foreach ($collRcyclReceiptDetails as $obj) {
+                            if (false == $this->collRcyclReceiptDetails->contains($obj)) {
+                                $this->collRcyclReceiptDetails->append($obj);
+                            }
+                        }
+
+                        $this->collRcyclReceiptDetailsPartial = true;
+                    }
+
+                    return $collRcyclReceiptDetails;
+                }
+
+                if ($partial && $this->collRcyclReceiptDetails) {
+                    foreach ($this->collRcyclReceiptDetails as $obj) {
+                        if ($obj->isNew()) {
+                            $collRcyclReceiptDetails[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collRcyclReceiptDetails = $collRcyclReceiptDetails;
+                $this->collRcyclReceiptDetailsPartial = false;
+            }
+        }
+
+        return $this->collRcyclReceiptDetails;
+    }
+
+    /**
+     * Sets a collection of ChildRcyclReceiptDetail objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $rcyclReceiptDetails A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setRcyclReceiptDetails(Collection $rcyclReceiptDetails, ConnectionInterface $con = null)
+    {
+        /** @var ChildRcyclReceiptDetail[] $rcyclReceiptDetailsToDelete */
+        $rcyclReceiptDetailsToDelete = $this->getRcyclReceiptDetails(new Criteria(), $con)->diff($rcyclReceiptDetails);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->rcyclReceiptDetailsScheduledForDeletion = clone $rcyclReceiptDetailsToDelete;
+
+        foreach ($rcyclReceiptDetailsToDelete as $rcyclReceiptDetailRemoved) {
+            $rcyclReceiptDetailRemoved->setItemMasterItem(null);
+        }
+
+        $this->collRcyclReceiptDetails = null;
+        foreach ($rcyclReceiptDetails as $rcyclReceiptDetail) {
+            $this->addRcyclReceiptDetail($rcyclReceiptDetail);
+        }
+
+        $this->collRcyclReceiptDetails = $rcyclReceiptDetails;
+        $this->collRcyclReceiptDetailsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related RcyclReceiptDetail objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related RcyclReceiptDetail objects.
+     * @throws PropelException
+     */
+    public function countRcyclReceiptDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collRcyclReceiptDetailsPartial && !$this->isNew();
+        if (null === $this->collRcyclReceiptDetails || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collRcyclReceiptDetails) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getRcyclReceiptDetails());
+            }
+
+            $query = ChildRcyclReceiptDetailQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collRcyclReceiptDetails);
+    }
+
+    /**
+     * Method called to associate a ChildRcyclReceiptDetail object to this object
+     * through the ChildRcyclReceiptDetail foreign key attribute.
+     *
+     * @param  ChildRcyclReceiptDetail $l ChildRcyclReceiptDetail
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addRcyclReceiptDetail(ChildRcyclReceiptDetail $l)
+    {
+        if ($this->collRcyclReceiptDetails === null) {
+            $this->initRcyclReceiptDetails();
+            $this->collRcyclReceiptDetailsPartial = true;
+        }
+
+        if (!$this->collRcyclReceiptDetails->contains($l)) {
+            $this->doAddRcyclReceiptDetail($l);
+
+            if ($this->rcyclReceiptDetailsScheduledForDeletion and $this->rcyclReceiptDetailsScheduledForDeletion->contains($l)) {
+                $this->rcyclReceiptDetailsScheduledForDeletion->remove($this->rcyclReceiptDetailsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildRcyclReceiptDetail $rcyclReceiptDetail The ChildRcyclReceiptDetail object to add.
+     */
+    protected function doAddRcyclReceiptDetail(ChildRcyclReceiptDetail $rcyclReceiptDetail)
+    {
+        $this->collRcyclReceiptDetails[]= $rcyclReceiptDetail;
+        $rcyclReceiptDetail->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildRcyclReceiptDetail $rcyclReceiptDetail The ChildRcyclReceiptDetail object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeRcyclReceiptDetail(ChildRcyclReceiptDetail $rcyclReceiptDetail)
+    {
+        if ($this->getRcyclReceiptDetails()->contains($rcyclReceiptDetail)) {
+            $pos = $this->collRcyclReceiptDetails->search($rcyclReceiptDetail);
+            $this->collRcyclReceiptDetails->remove($pos);
+            if (null === $this->rcyclReceiptDetailsScheduledForDeletion) {
+                $this->rcyclReceiptDetailsScheduledForDeletion = clone $this->collRcyclReceiptDetails;
+                $this->rcyclReceiptDetailsScheduledForDeletion->clear();
+            }
+            $this->rcyclReceiptDetailsScheduledForDeletion[]= clone $rcyclReceiptDetail;
+            $rcyclReceiptDetail->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related RcyclReceiptDetails from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildRcyclReceiptDetail[] List of ChildRcyclReceiptDetail objects
+     */
+    public function getRcyclReceiptDetailsJoinRcyclReceipt(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildRcyclReceiptDetailQuery::create(null, $criteria);
+        $query->joinWith('RcyclReceipt', $joinBehavior);
+
+        return $this->getRcyclReceiptDetails($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related RcyclReceiptDetails from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildRcyclReceiptDetail[] List of ChildRcyclReceiptDetail objects
+     */
+    public function getRcyclReceiptDetailsJoinUnitofMeasureSale(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildRcyclReceiptDetailQuery::create(null, $criteria);
+        $query->joinWith('UnitofMeasureSale', $joinBehavior);
+
+        return $this->getRcyclReceiptDetails($query, $con);
+    }
+
+    /**
+     * Clears out the collRcyclReceiptLots collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addRcyclReceiptLots()
+     */
+    public function clearRcyclReceiptLots()
+    {
+        $this->collRcyclReceiptLots = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collRcyclReceiptLots collection loaded partially.
+     */
+    public function resetPartialRcyclReceiptLots($v = true)
+    {
+        $this->collRcyclReceiptLotsPartial = $v;
+    }
+
+    /**
+     * Initializes the collRcyclReceiptLots collection.
+     *
+     * By default this just sets the collRcyclReceiptLots collection to an empty array (like clearcollRcyclReceiptLots());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initRcyclReceiptLots($overrideExisting = true)
+    {
+        if (null !== $this->collRcyclReceiptLots && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = RcyclReceiptLotTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collRcyclReceiptLots = new $collectionClassName;
+        $this->collRcyclReceiptLots->setModel('\RcyclReceiptLot');
+    }
+
+    /**
+     * Gets an array of ChildRcyclReceiptLot objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildRcyclReceiptLot[] List of ChildRcyclReceiptLot objects
+     * @throws PropelException
+     */
+    public function getRcyclReceiptLots(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collRcyclReceiptLotsPartial && !$this->isNew();
+        if (null === $this->collRcyclReceiptLots || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collRcyclReceiptLots) {
+                // return empty collection
+                $this->initRcyclReceiptLots();
+            } else {
+                $collRcyclReceiptLots = ChildRcyclReceiptLotQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collRcyclReceiptLotsPartial && count($collRcyclReceiptLots)) {
+                        $this->initRcyclReceiptLots(false);
+
+                        foreach ($collRcyclReceiptLots as $obj) {
+                            if (false == $this->collRcyclReceiptLots->contains($obj)) {
+                                $this->collRcyclReceiptLots->append($obj);
+                            }
+                        }
+
+                        $this->collRcyclReceiptLotsPartial = true;
+                    }
+
+                    return $collRcyclReceiptLots;
+                }
+
+                if ($partial && $this->collRcyclReceiptLots) {
+                    foreach ($this->collRcyclReceiptLots as $obj) {
+                        if ($obj->isNew()) {
+                            $collRcyclReceiptLots[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collRcyclReceiptLots = $collRcyclReceiptLots;
+                $this->collRcyclReceiptLotsPartial = false;
+            }
+        }
+
+        return $this->collRcyclReceiptLots;
+    }
+
+    /**
+     * Sets a collection of ChildRcyclReceiptLot objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $rcyclReceiptLots A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setRcyclReceiptLots(Collection $rcyclReceiptLots, ConnectionInterface $con = null)
+    {
+        /** @var ChildRcyclReceiptLot[] $rcyclReceiptLotsToDelete */
+        $rcyclReceiptLotsToDelete = $this->getRcyclReceiptLots(new Criteria(), $con)->diff($rcyclReceiptLots);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->rcyclReceiptLotsScheduledForDeletion = clone $rcyclReceiptLotsToDelete;
+
+        foreach ($rcyclReceiptLotsToDelete as $rcyclReceiptLotRemoved) {
+            $rcyclReceiptLotRemoved->setItemMasterItem(null);
+        }
+
+        $this->collRcyclReceiptLots = null;
+        foreach ($rcyclReceiptLots as $rcyclReceiptLot) {
+            $this->addRcyclReceiptLot($rcyclReceiptLot);
+        }
+
+        $this->collRcyclReceiptLots = $rcyclReceiptLots;
+        $this->collRcyclReceiptLotsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related RcyclReceiptLot objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related RcyclReceiptLot objects.
+     * @throws PropelException
+     */
+    public function countRcyclReceiptLots(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collRcyclReceiptLotsPartial && !$this->isNew();
+        if (null === $this->collRcyclReceiptLots || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collRcyclReceiptLots) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getRcyclReceiptLots());
+            }
+
+            $query = ChildRcyclReceiptLotQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collRcyclReceiptLots);
+    }
+
+    /**
+     * Method called to associate a ChildRcyclReceiptLot object to this object
+     * through the ChildRcyclReceiptLot foreign key attribute.
+     *
+     * @param  ChildRcyclReceiptLot $l ChildRcyclReceiptLot
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addRcyclReceiptLot(ChildRcyclReceiptLot $l)
+    {
+        if ($this->collRcyclReceiptLots === null) {
+            $this->initRcyclReceiptLots();
+            $this->collRcyclReceiptLotsPartial = true;
+        }
+
+        if (!$this->collRcyclReceiptLots->contains($l)) {
+            $this->doAddRcyclReceiptLot($l);
+
+            if ($this->rcyclReceiptLotsScheduledForDeletion and $this->rcyclReceiptLotsScheduledForDeletion->contains($l)) {
+                $this->rcyclReceiptLotsScheduledForDeletion->remove($this->rcyclReceiptLotsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildRcyclReceiptLot $rcyclReceiptLot The ChildRcyclReceiptLot object to add.
+     */
+    protected function doAddRcyclReceiptLot(ChildRcyclReceiptLot $rcyclReceiptLot)
+    {
+        $this->collRcyclReceiptLots[]= $rcyclReceiptLot;
+        $rcyclReceiptLot->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildRcyclReceiptLot $rcyclReceiptLot The ChildRcyclReceiptLot object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeRcyclReceiptLot(ChildRcyclReceiptLot $rcyclReceiptLot)
+    {
+        if ($this->getRcyclReceiptLots()->contains($rcyclReceiptLot)) {
+            $pos = $this->collRcyclReceiptLots->search($rcyclReceiptLot);
+            $this->collRcyclReceiptLots->remove($pos);
+            if (null === $this->rcyclReceiptLotsScheduledForDeletion) {
+                $this->rcyclReceiptLotsScheduledForDeletion = clone $this->collRcyclReceiptLots;
+                $this->rcyclReceiptLotsScheduledForDeletion->clear();
+            }
+            $this->rcyclReceiptLotsScheduledForDeletion[]= clone $rcyclReceiptLot;
+            $rcyclReceiptLot->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related RcyclReceiptLots from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildRcyclReceiptLot[] List of ChildRcyclReceiptLot objects
+     */
+    public function getRcyclReceiptLotsJoinRcyclReceiptDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildRcyclReceiptLotQuery::create(null, $criteria);
+        $query->joinWith('RcyclReceiptDetail', $joinBehavior);
+
+        return $this->getRcyclReceiptLots($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related RcyclReceiptLots from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildRcyclReceiptLot[] List of ChildRcyclReceiptLot objects
+     */
+    public function getRcyclReceiptLotsJoinRcyclReceipt(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildRcyclReceiptLotQuery::create(null, $criteria);
+        $query->joinWith('RcyclReceipt', $joinBehavior);
+
+        return $this->getRcyclReceiptLots($query, $con);
+    }
+
+    /**
      * Clears out the collBookingDetails collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
@@ -19111,6 +20206,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (null !== $this->aInvGroupCode) {
             $this->aInvGroupCode->removeItemMasterItem($this);
         }
+        if (null !== $this->aInvStockCode) {
+            $this->aInvStockCode->removeItemMasterItem($this);
+        }
         if (null !== $this->aInvPriceCode) {
             $this->aInvPriceCode->removeItemMasterItem($this);
         }
@@ -19206,6 +20304,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if ($deep) {
             if ($this->collItemXrefCustomers) {
                 foreach ($this->collItemXrefCustomers as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collCstkItems) {
+                foreach ($this->collCstkItems as $o) {
                     $o->clearAllReferences($deep);
                 }
             }
@@ -19371,6 +20474,16 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             if ($this->singleBomItem) {
                 $this->singleBomItem->clearAllReferences($deep);
             }
+            if ($this->collRcyclReceiptDetails) {
+                foreach ($this->collRcyclReceiptDetails as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collRcyclReceiptLots) {
+                foreach ($this->collRcyclReceiptLots as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collBookingDetails) {
                 foreach ($this->collBookingDetails as $o) {
                     $o->clearAllReferences($deep);
@@ -19429,6 +20542,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         } // if ($deep)
 
         $this->collItemXrefCustomers = null;
+        $this->collCstkItems = null;
         $this->collInvWhseItemBins = null;
         $this->collItemAddonItemsRelatedByInititemnbr = null;
         $this->collItemAddonItemsRelatedByAdonadditemnbr = null;
@@ -19463,6 +20577,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collPurchaseOrderDetailLotReceivings = null;
         $this->collBomComponents = null;
         $this->singleBomItem = null;
+        $this->collRcyclReceiptDetails = null;
+        $this->collRcyclReceiptLots = null;
         $this->collBookingDetails = null;
         $this->collSalesHistoryDetails = null;
         $this->collSalesOrderDetails = null;
@@ -19477,6 +20593,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->aUnitofMeasureSale = null;
         $this->aUnitofMeasurePurchase = null;
         $this->aInvGroupCode = null;
+        $this->aInvStockCode = null;
         $this->aInvPriceCode = null;
         $this->aInvCommissionCode = null;
         $this->aItemPricing = null;
@@ -19499,9 +20616,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function preSave(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preSave')) {
-            // return parent::preSave($con);
-        }
         return true;
     }
 
@@ -19511,9 +20625,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function postSave(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
+
     }
 
     /**
@@ -19523,9 +20635,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function preInsert(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preInsert')) {
-            // return parent::preInsert($con);
-        }
         return true;
     }
 
@@ -19535,9 +20644,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function postInsert(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
+
     }
 
     /**
@@ -19547,9 +20654,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function preUpdate(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preUpdate')) {
-            // return parent::preUpdate($con);
-        }
         return true;
     }
 
@@ -19559,9 +20663,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function postUpdate(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
+
     }
 
     /**
@@ -19571,9 +20673,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function preDelete(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preDelete')) {
-            // return parent::preDelete($con);
-        }
         return true;
     }
 
@@ -19583,9 +20682,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function postDelete(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
+
     }
 
 
