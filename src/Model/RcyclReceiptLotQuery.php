@@ -61,6 +61,17 @@ class RcyclReceiptLotQuery extends BaseRcyclReceiptLotQuery {
     }
 
     /**
+     * Filter the query on the Rcysdlotref column
+     * @param  mixed   $lotref   The value to use as filter.
+     * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
+     * @return self                 The current query, for fluid interface
+     */
+    public function filterByLotref($lotref = null, $comparison = null) : RcyclReceiptLotQuery
+    {
+        return $this->filterByRcysdlotref($lotref, $comparison);
+    }
+
+    /**
      * Filter the query on the Rcysdlotdate column
      * @param  mixed   $date        The value to use as filter.
      * @param  string  $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL

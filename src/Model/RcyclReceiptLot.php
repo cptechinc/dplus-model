@@ -20,6 +20,8 @@ use RcyclReceipt as Receipt;
  * @property int      $linenbr
  * @property string   $itemid
  * @property string   $lotserial
+ * @property string   $lotref
+ * @property string   $whseid
  * @property string   $status
  * @property float    $qty
  * @property float    $tareweight
@@ -44,6 +46,7 @@ class RcyclReceiptLot extends BaseRcyclReceiptLot {
         'binid'        => 'rcysdbin',
         'linenbr'      => 'rcydtrcptline',
         'lotserial'    => 'rcysdlotnbr',
+        'lotref'       => 'rcysdlotref',
         'itemid'       => 'inititemnbr',
         'qty'          => 'rcysdlotqty',
         'tareweight'   => 'rcysdtarewght',
