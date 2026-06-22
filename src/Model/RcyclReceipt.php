@@ -46,6 +46,7 @@ class RcyclReceipt extends BaseRcyclReceipt {
         'bolnbr'       => 'rcyhdbolnbr',
         'status'       => 'rcyhdstatus',
         'rcptdate'     => 'rcyhdrcptdate',
+        'receiptdate'  => 'rcyhdrcptdate',
         'enteredby'    => 'rcyhdenteredby',
         'entereddate'  => 'rcyhdentereddate',
         'enteredtime'  => 'rcyhdentereddtime',
