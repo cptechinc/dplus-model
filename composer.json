@@ -6,7 +6,7 @@
     "keywords": ["dplus-model", "data"],
 	"homepage": "http://github.com/cptechinc/dplus-model",
 	"require": {
-		"cptechinc/propel": "dev-default"
+		"propel/propel": "~2.0@beta"
 	},
 	"autoload": {
 		"classmap": ["src/", "src/Model/", "src/traits/"]
